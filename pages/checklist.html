@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APAC AIA | 網頁設計專案啟動清單</title>
+<style>
+  :root {
+    --primary: #1B3A5C;
+    --accent: #2E75B6;
+    --accent-light: #E8F0F8;
+    --green: #28a745;
+    --green-light: #d4edda;
+    --wcag-green: #38a169;
+    --wcag-green-light: #c6f6d5;
+    --yellow: #ffc107;
+    --yellow-light: #fff3cd;
+    --gray: #6c757d;
+    --gray-light: #f8f9fa;
+    --border: #dee2e6;
+    --text: #333;
+    --bg: #ffffff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
+    background: var(--gray-light);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 20px 60px;
+  }
+
+  /* Header */
+  header {
+    background: var(--primary);
+    color: white;
+    padding: 32px 0 24px;
+    margin-bottom: 24px;
+  }
+  header .container { padding-top: 0; padding-bottom: 0; }
+  header h1 { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
+  header p { opacity: 0.8; font-size: 14px; }
+
+  /* Overall progress */
+  .overall-progress {
+    background: white;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .overall-progress h2 { font-size: 16px; color: var(--primary); margin-bottom: 12px; }
+  .progress-bar-wrap {
+    background: #e9ecef;
+    border-radius: 8px;
+    height: 12px;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    border-radius: 8px;
+    background: linear-gradient(90deg, var(--accent), var(--green));
+    transition: width 0.4s ease;
+  }
+  .progress-text {
+    font-size: 13px;
+    color: var(--gray);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* Toolbar */
+  .toolbar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .toolbar button {
+    padding: 8px 16px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: white;
+    color: var(--text);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .toolbar button:hover { border-color: var(--accent); color: var(--accent); }
+  .toolbar button.danger { color: #dc3545; }
+  .toolbar button.danger:hover { border-color: #dc3545; background: #fff5f5; }
+
+  /* Section */
+  .section {
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    overflow: hidden;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    background: var(--primary);
+    color: white;
+    cursor: pointer;
+    user-select: none;
+  }
+  .section-header:hover { background: #244a6e; }
+  .section-header.wcag-header {
+    background: var(--wcag-green);
+  }
+  .section-header.wcag-header:hover {
+    background: #2d7d56;
+  }
+  .section-header h3 { font-size: 16px; font-weight: 600; }
+  .section-progress {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    opacity: 0.9;
+  }
+  .section-progress .mini-bar {
+    width: 60px; height: 6px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .section-progress .mini-fill {
+    height: 100%;
+    background: white;
+    border-radius: 3px;
+    transition: width 0.3s ease;
+  }
+  .section-desc {
+    padding: 12px 24px 0;
+    font-size: 13px;
+    color: var(--gray);
+    font-style: italic;
+  }
+  .section-body { padding: 8px 0; }
+
+  /* Checklist item */
+  .checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 24px;
+    border-bottom: 1px solid var(--gray-light);
+    transition: background 0.2s;
+  }
+  .checklist-item:last-child { border-bottom: none; }
+  .checklist-item:hover { background: var(--gray-light); }
+  .checklist-item.checked { background: var(--green-light); }
+  .checklist-item.checked .item-title { text-decoration: line-through; color: var(--gray); }
+
+  .item-checkbox {
+    width: 22px; height: 22px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+    transition: all 0.2s;
+    background: white;
+  }
+  .item-checkbox:hover { border-color: var(--accent); }
+  .checklist-item.checked .item-checkbox {
+    background: var(--green);
+    border-color: var(--green);
+  }
+  .item-checkbox svg { display: none; }
+  .checklist-item.checked .item-checkbox svg { display: block; }
+
+  .item-content { flex: 1; min-width: 0; }
+  .item-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+  .item-spec { font-size: 13px; color: var(--gray); margin-bottom: 6px; }
+
+  .item-note {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 12px;
+    font-family: inherit;
+    resize: vertical;
+    min-height: 28px;
+    max-height: 120px;
+    color: var(--text);
+    transition: border-color 0.2s;
+  }
+  .item-note:focus { outline: none; border-color: var(--accent); }
+  .item-note::placeholder { color: #adb5bd; }
+
+  /* WCAG items */
+  .wcag-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 24px;
+    border-bottom: 1px solid var(--gray-light);
+    transition: background 0.2s;
+  }
+  .wcag-item:last-child { border-bottom: none; }
+  .wcag-item:hover { background: var(--wcag-green-light); }
+  .wcag-item.checked { background: var(--wcag-green-light); }
+  .wcag-item.checked .wcag-title { text-decoration: line-through; color: var(--gray); }
+
+  .wcag-item .item-checkbox {
+    border-color: var(--wcag-green);
+  }
+  .wcag-item .item-checkbox:hover { border-color: var(--wcag-green); }
+  .wcag-item.checked .item-checkbox {
+    background: var(--wcag-green);
+    border-color: var(--wcag-green);
+  }
+
+  .wcag-content { flex: 1; min-width: 0; }
+  .wcag-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .wcag-meta {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+    font-size: 12px;
+  }
+  .wcag-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: 12px;
+    background: #edf2f7;
+    color: #2d3748;
+    font-weight: 500;
+  }
+  .wcag-badge.owner {
+    color: white;
+    font-weight: 600;
+    font-size: 11px;
+  }
+  .wcag-badge.owner.christina { background: #9f7aea; }
+  .wcag-badge.owner.schneider { background: #ed8936; }
+  .wcag-badge.owner.claire { background: #48bb78; }
+  .wcag-badge.owner.becky { background: #4299e1; }
+  .wcag-badge.owner.bertram { background: #e53e3e; }
+  .wcag-badge.week { background: #fef5e7; color: #7d6608; }
+  .wcag-badge.wcag-link {
+    background: #dbeafe;
+    color: #1e40af;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .wcag-badge.wcag-link:hover { background: #bfdbfe; }
+  .wcag-spec { font-size: 13px; color: var(--gray); margin-bottom: 6px; }
+
+  /* Table style items */
+  .table-section .section-body { padding: 0; }
+  .table-header {
+    display: grid;
+    grid-template-columns: 40px 1fr 1.2fr auto;
+    padding: 8px 24px;
+    background: var(--accent-light);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary);
+    border-bottom: 1px solid var(--border);
+  }
+  .table-item {
+    display: grid;
+    grid-template-columns: 40px 1fr 1.2fr auto;
+    padding: 10px 24px;
+    border-bottom: 1px solid var(--gray-light);
+    align-items: center;
+    transition: background 0.2s;
+    font-size: 13px;
+  }
+  .table-item:hover { background: var(--gray-light); }
+  .table-item.checked { background: var(--green-light); }
+  .table-item.checked .t-title { text-decoration: line-through; color: var(--gray); }
+  .t-title { font-weight: 600; }
+  .t-spec { color: var(--gray); }
+
+  /* Timeline section */
+  .timeline-section { background: white !important; }
+  .timeline-section .section-header { cursor: default; }
+  .timeline-section .section-header:hover { background: var(--primary); }
+  .timeline-phases {
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .timeline-phase {
+    border-left: 4px solid;
+    padding: 16px;
+    background: #f9fafb;
+    border-radius: 6px;
+  }
+  .phase-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .phase-name { font-size: 15px; font-weight: 700; color: var(--text); }
+  .phase-weeks { font-size: 12px; color: var(--gray); font-weight: 500; background: #e2e8f0; padding: 2px 8px; border-radius: 4px; }
+  .phase-tasks {
+    list-style: none;
+    font-size: 13px;
+    color: #555;
+  }
+  .phase-tasks li {
+    padding: 6px 0;
+    padding-left: 20px;
+    position: relative;
+  }
+  .phase-tasks li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #999;
+  }
+
+  /* Toggle arrow */
+  .toggle-arrow {
+    transition: transform 0.3s;
+    width: 20px; height: 20px;
+  }
+  .section.collapsed .toggle-arrow { transform: rotate(-90deg); }
+  .section.collapsed .section-body,
+  .section.collapsed .section-desc,
+  .section.collapsed .table-header,
+  .section.collapsed .timeline-phases { display: none; }
+  .timeline-section.collapsed .toggle-arrow { transform: rotate(-90deg); }
+
+  /* Note row */
+  .note-row {
+    padding: 0 24px 10px;
+    padding-left: 64px;
+  }
+  .note-row input {
+    width: 100%;
+    border: 1px dashed var(--border);
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 12px;
+    font-family: inherit;
+    color: var(--text);
+  }
+  .note-row input:focus { outline: none; border-color: var(--accent); border-style: solid; }
+  .note-row input::placeholder { color: #ccc; }
+
+  /* Last updated */
+  .last-updated {
+    text-align: center;
+    font-size: 12px;
+    color: #adb5bd;
+    margin-top: 24px;
+  }
+
+  /* Print styles */
+  @media print {
+    body { background: white; }
+    .toolbar { display: none; }
+    .section { break-inside: avoid; }
+  }
+
+  /* Mobile */
+  @media (max-width: 640px) {
+    .container { padding: 16px 12px 40px; }
+    header { padding: 24px 0 16px; }
+    header h1 { font-size: 20px; }
+    .table-header, .table-item {
+      grid-template-columns: 36px 1fr;
+      gap: 4px;
+    }
+    .table-header > :nth-child(3),
+    .table-header > :nth-child(4),
+    .table-item > :nth-child(3) { display: none; }
+    .t-spec-mobile { display: block; font-size: 12px; color: var(--gray); font-weight: 400; }
+    .wcag-meta { font-size: 11px; }
+    .timeline-phases { padding: 16px 12px; }
+    .timeline-phase { padding: 12px; }
+  }
+  @media (min-width: 641px) {
+    .t-spec-mobile { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>APAC AIA | 網頁設計專案啟動清單</h1>
+    <p>Project Kick-Off Checklist — 確保設計階段開始前，所有基礎資產與規範文件均已準備就緒。</p>
+  </div>
+</header>
+
+<div class="container">
+  <!-- Overall progress -->
+  <div class="overall-progress">
+    <h2>整體進度</h2>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="overallBar" style="width:0%"></div>
+    </div>
+    <div class="progress-text">
+      <span id="overallText">0 / 0 項完成</span>
+      <span id="overallPct">0%</span>
+    </div>
+  </div>
+
+  <!-- Toolbar -->
+  <div class="toolbar">
+    <button onclick="exportState()">匯出進度 (JSON)</button>
+    <button onclick="document.getElementById('importFile').click()">匯入進度</button>
+    <input type="file" id="importFile" accept=".json" style="display:none" onchange="importState(event)">
+    <button class="danger" onclick="resetAll()">重置全部</button>
+  </div>
+
+  <div id="app"></div>
+
+  <div class="last-updated" id="lastUpdated"></div>
+</div>
+
+<script>
+const DATA = [
+  {
+    id: "visual",
+    title: "1. 品牌視覺資產 (Visual Identity Assets)",
+    desc: null,
+    type: "table",
+    items: [
+      { id: "logo", title: "Logo 原始檔", spec: "SVG 向量格式；需包含淺底版與深底版兩套。" },
+      { id: "favicon", title: "Favicon", spec: "瀏覽器分頁小圖示（通常為 Logo 簡化版），提供 PNG 或 SVG。" },
+      { id: "colors", title: "品牌色彩規範", spec: "主色、輔色、背景色（HEX + RGB）。需符合 WCAG 2.2 對比度標準。" },
+      { id: "fonts", title: "標準字體", spec: "中文字體名稱 + 英文字體名稱，並指定粗細與字級規範。" },
+      { id: "styleguide", title: "品牌指南 (Style Guide)", spec: "包含攝影風格、視覺參考、品牌圖形元素及行銷素材。" },
+    ]
+  },
+  {
+    id: "marketing",
+    title: "2. 行銷與溝通策略 (Marketing & Communication)",
+    desc: "這些元素將決定網站的「調性」，並作為文案撰寫的指南。",
+    type: "list",
+    items: [
+      { id: "tone", title: "品牌語調 (Brand Tone)", spec: "品牌溝通的語氣與訊息風格。" },
+      { id: "mission", title: "使命與願景", spec: "品牌核心價值的正式陳述。" },
+    ]
+  },
+  {
+    id: "technical",
+    title: "3. 技術與法規文件 (Technical & Regulatory)",
+    desc: null,
+    type: "list",
+    items: [
+      { id: "wcag", title: "WCAG 2.2 AA 無障礙規範", spec: "見下方「♿ WCAG 2.2 測試清單」區塊，共 20 項檢查。" },
+      { id: "privacy", title: "Privacy Policy", spec: "" },
+      { id: "useragree", title: "User Agreement", spec: "" },
+      { id: "volunteer", title: "Volunteer Policy", spec: "" },
+      { id: "gdpr", title: "GDPR / Cookies", spec: "" },
+    ]
+  },
+  {
+    id: "content",
+    title: "4. 網頁內容文案 (Content Documents)",
+    desc: "目標：每頁約 600 字（中文內容）。頁面待確認。",
+    type: "list",
+    items: [
+      { id: "home", title: "首頁 (Home)", spec: "品牌核心概述與主要行動呼籲 (CTA)。" },
+      { id: "event", title: "活動頁 (Event)", spec: "針對近期或過往活動的佈局文案。含 Summit 專頁。" },
+      { id: "joinus", title: "加入我們 (Join Us)", spec: "徵才資訊、企業文化與福利。" },
+      { id: "about", title: "關於我們 (About)", spec: "品牌歷史、核心理念與團隊介紹。" },
+      { id: "blog", title: "Blog / Media page", spec: "Podcast 列表於此頁。" },
+    ]
+  },
+  {
+    id: "social",
+    title: "5. 社群媒體 (Social Media)",
+    desc: null,
+    type: "list",
+    items: [
+      { id: "youtube", title: "YouTube link / account", spec: "" },
+      { id: "facebook", title: "Facebook page link", spec: "" },
+      { id: "linkedin", title: "LinkedIn page link", spec: "" },
+      { id: "podcast", title: "Podcast hosting", spec: "" },
+    ]
+  },
+  {
+    id: "analytics",
+    title: "6. 數據 (Data & Analytics)",
+    desc: null,
+    type: "list",
+    items: [
+      { id: "ga4", title: "Google Analytics 4 integration", spec: "" },
+    ]
+  },
+  {
+    id: "related",
+    title: "7. 相關資料 (Related Docs)",
+    desc: null,
+    type: "list",
+    items: [
+      { id: "gdrive", title: "Organization's Google Drive", spec: "用於內容研究（如組織歷史）。" },
+    ]
+  },
+  {
+    id: "wcag",
+    title: "8. WCAG 2.2 測試清單 (♿ Accessibility Testing)",
+    desc: null,
+    type: "wcag",
+    items: [
+      { id: "w1", title: "圖片 Alt Text", spec: "每張圖有 alt，裝飾圖 alt=\"\"", owner: "Claire", week: "W1-W2", wcag: "1.1.1", wcagAnchor: "non-text-content" },
+      { id: "w2", title: "連結文字", spec: "不寫「點此」，寫連去哪裡", owner: "Claire", week: "W2", wcag: "2.4.4", wcagAnchor: "link-purpose-in-context" },
+      { id: "w3", title: "標題層級 H1-H6", spec: "每頁一個 H1，不跳級", owner: "Christina", week: "W1", wcag: "1.3.1", wcagAnchor: "info-and-relationships" },
+      { id: "w4", title: "文字對比度 ≥4.5:1", spec: "工具貼色碼看通過沒", owner: "Schneider", week: "W0", wcag: "1.4.3", wcagAnchor: "contrast-minimum" },
+      { id: "w5", title: "按鈕/圖示對比度 ≥3:1", spec: "按鈕/圖示跟背景的對比", owner: "Schneider", week: "W0", wcag: "1.4.11", wcagAnchor: "non-text-contrast" },
+      { id: "w6", title: "Focus 樣式", spec: "被選中元素有框線，對比≥3:1", owner: "Christina", week: "W1", wcag: "2.4.7", wcagAnchor: "focus-visible" },
+      { id: "w7", title: "語義 HTML", spec: "header / nav / main / footer", owner: "Christina", week: "W4", wcag: "1.3.1", wcagAnchor: "info-and-relationships" },
+      { id: "w8", title: "Skip Link", spec: "Tab 第一下出現「跳至主內容」", owner: "Christina", week: "W4", wcag: "2.4.1", wcagAnchor: "bypass-blocks" },
+      { id: "w9", title: "lang 屬性", spec: "中文 zh-Hant / 英文 en", owner: "Christina", week: "W4", wcag: "3.1.1", wcagAnchor: "language-of-page" },
+      { id: "w10", title: "表單 Label", spec: "每個欄位有標籤 + 必填標記", owner: "Christina", week: "W6", wcag: "1.3.1", wcagAnchor: "info-and-relationships" },
+      { id: "w11", title: "鍵盤 Tab 導航", spec: "Tab 走全站全程看得到 focus", owner: "Becky", week: "W7", wcag: "2.1.1", wcagAnchor: "keyboard" },
+      { id: "w12", title: "螢幕閱讀器", spec: "VoiceOver 聽一遍能理解", owner: "Becky", week: "W7", wcag: "", wcagAnchor: "" },
+      { id: "w13", title: "400% 縮放", spec: "放大不需水平捲動", owner: "Schneider", week: "W7", wcag: "1.4.10", wcagAnchor: "reflow" },
+      { id: "w14", title: "文字間距", spec: "調大不破版", owner: "Schneider", week: "W7", wcag: "1.4.12", wcagAnchor: "text-spacing" },
+      { id: "w15", title: "連結能點", spec: "全部連到正確地方", owner: "Claire", week: "W7", wcag: "4.1.2", wcagAnchor: "name-role-value" },
+      { id: "w16", title: "拼字", spec: "中英無錯字", owner: "Claire", week: "W7", wcag: "", wcagAnchor: "" },
+      { id: "w17", title: "Lighthouse ≥90", spec: "Chrome DevTools 自動掃描", owner: "Becky", week: "W7", wcag: "", wcagAnchor: "" },
+      { id: "w18", title: "axe 0 Critical", spec: "axe DevTools 掃描無 Critical 錯誤", owner: "Bertram", week: "W7", wcag: "", wcagAnchor: "" },
+      { id: "w19", title: "無閃爍動畫", spec: "可暫停，<3次/秒", owner: "Becky", week: "W7", wcag: "2.3.1", wcagAnchor: "three-flashes-or-below-threshold" },
+      { id: "w20", title: "橫直向正常", spec: "手機轉向不壞", owner: "Schneider", week: "W7", wcag: "1.3.4", wcagAnchor: "orientation" },
+    ]
+  },
+  {
+    id: "timeline",
+    title: "9. 時程總覽 (Schedule Timeline)",
+    desc: null,
+    type: "timeline",
+    isTimeline: true,
+    phases: [
+      { name: "素材準備", weeks: "W0-W1", color: "#805ad5", tasks: ["Logo SVG 導出", "品牌色碼 + 字體確認", "♿ 色彩對比度測試", "圖片素材整理", "♿ 團隊 A11y 工作坊"] },
+      { name: "內容 + 設計", weeks: "W1-W3", color: "#dd6b20", tasks: ["首頁 + 活動頁文案（中英）", "♿ 圖片 Alt Text 撰寫", "首頁 + 活動頁設計", "♿ 設計稿 A11y 自查", "團隊審閱設計稿"] },
+      { name: "開發", weeks: "W3-W6", color: "#2b6cb0", tasks: ["前端環境 + 語義 HTML", "♿ Skip Link + lang + 鍵盤導航", "首頁切版", "活動頁切版", "♿ 表單 label + 錯誤提示", "RWD + 多語系 + SEO"] },
+      { name: "測試 + 上線", weeks: "W6-W7", color: "#38a169", tasks: ["♿ Lighthouse + axe 掃描", "♿ 鍵盤 + 螢幕閱讀器測試", "♿ 內容驗收", "UAT + 修正", "正式上線"] },
+    ]
+  }
+];
+
+const STORAGE_KEY = "apac-aia-checklist";
+
+function loadState() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+  } catch { return {}; }
+}
+
+function saveState(state) {
+  state._lastUpdated = new Date().toISOString();
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  updateLastUpdated(state._lastUpdated);
+}
+
+let state = loadState();
+
+function getAllItemIds() {
+  const ids = [];
+  DATA.forEach(s => {
+    if (s.type === "timeline" || s.isTimeline) return; // Skip timeline section
+    s.items.forEach(i => ids.push(s.id + "." + i.id));
+  });
+  return ids;
+}
+
+function updateProgress() {
+  const allIds = getAllItemIds();
+  const total = allIds.length;
+  const done = allIds.filter(id => state[id]?.checked).length;
+  const pct = total ? Math.round(done / total * 100) : 0;
+
+  document.getElementById("overallBar").style.width = pct + "%";
+  document.getElementById("overallText").textContent = done + " / " + total + " 項完成";
+  document.getElementById("overallPct").textContent = pct + "%";
+
+  // Section progress
+  DATA.forEach(section => {
+    if (section.type === "timeline" || section.isTimeline) return;
+    const sTotal = section.items.length;
+    const sDone = section.items.filter(i => state[section.id + "." + i.id]?.checked).length;
+    const sPct = sTotal ? Math.round(sDone / sTotal * 100) : 0;
+    const el = document.getElementById("spct-" + section.id);
+    const bar = document.getElementById("sbar-" + section.id);
+    if (el) el.textContent = sDone + "/" + sTotal;
+    if (bar) bar.style.width = sPct + "%";
+  });
+}
+
+function toggleCheck(fullId) {
+  if (!state[fullId]) state[fullId] = {};
+  state[fullId].checked = !state[fullId].checked;
+  saveState(state);
+  render();
+}
+
+function updateNote(fullId, value) {
+  if (!state[fullId]) state[fullId] = {};
+  state[fullId].note = value;
+  saveState(state);
+}
+
+function toggleSection(sectionId) {
+  const el = document.getElementById("sec-" + sectionId);
+  el.classList.toggle("collapsed");
+}
+
+function checkSvg() {
+  return `<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+}
+
+function getOwnerClass(owner) {
+  const map = {
+    "Christina": "christina",
+    "Schneider": "schneider",
+    "Claire": "claire",
+    "Becky": "becky",
+    "Bertram": "bertram",
+  };
+  return map[owner] || "";
+}
+
+function render() {
+  const app = document.getElementById("app");
+  let html = "";
+
+  DATA.forEach(section => {
+    if (section.type === "timeline" || section.isTimeline) {
+      // Timeline section (non-interactive)
+      html += `<div class="section timeline-section" id="sec-${section.id}">`;
+      html += `<div class="section-header" onclick="toggleSection('${section.id}')">`;
+      html += `<h3>${section.title}</h3>`;
+      html += `<svg class="toggle-arrow" viewBox="0 0 20 20" fill="white"><path d="M6 4l8 6-8 6V4z"/></svg>`;
+      html += `</div>`;
+
+      html += `<div class="timeline-phases">`;
+      section.phases.forEach(phase => {
+        html += `<div class="timeline-phase" style="border-left-color: ${phase.color}">`;
+        html += `<div class="phase-header">`;
+        html += `<div class="phase-name">${phase.name}</div>`;
+        html += `<div class="phase-weeks">${phase.weeks}</div>`;
+        html += `</div>`;
+        html += `<ul class="phase-tasks">`;
+        phase.tasks.forEach(task => {
+          html += `<li>${escHtml(task)}</li>`;
+        });
+        html += `</ul></div>`;
+      });
+      html += `</div>`;
+      html += `</div>`;
+      return;
+    }
+
+    const isTable = section.type === "table";
+    const isWcag = section.type === "wcag";
+    html += `<div class="section ${isTable ? 'table-section' : ''}" id="sec-${section.id}">`;
+
+    const headerClass = isWcag ? "wcag-header" : "";
+    html += `<div class="section-header ${headerClass}" onclick="toggleSection('${section.id}')">`;
+    html += `<h3>${section.title}</h3>`;
+    html += `<div class="section-progress">`;
+    html += `<span id="spct-${section.id}">0/0</span>`;
+    html += `<div class="mini-bar"><div class="mini-fill" id="sbar-${section.id}" style="width:0%"></div></div>`;
+    html += `<svg class="toggle-arrow" viewBox="0 0 20 20" fill="white"><path d="M6 4l8 6-8 6V4z"/></svg>`;
+    html += `</div></div>`;
+
+    if (section.desc) {
+      html += `<div class="section-desc">${section.desc}</div>`;
+    }
+
+    if (isTable) {
+      html += `<div class="table-header"><span></span><span>項目</span><span>規格要求</span><span></span></div>`;
+      html += `<div class="section-body">`;
+      section.items.forEach(item => {
+        const fullId = section.id + "." + item.id;
+        const isChecked = state[fullId]?.checked;
+        const note = state[fullId]?.note || "";
+        html += `<div class="table-item ${isChecked ? 'checked' : ''}" >`;
+        html += `<div class="item-checkbox" onclick="toggleCheck('${fullId}')">${checkSvg()}</div>`;
+        html += `<div class="t-title">${item.title}<span class="t-spec-mobile">${item.spec}</span></div>`;
+        html += `<div class="t-spec">${item.spec}</div>`;
+        html += `<div></div>`;
+        html += `</div>`;
+        html += `<div class="note-row"><input type="text" placeholder="備註..." value="${escHtml(note)}" onchange="updateNote('${fullId}', this.value)"></div>`;
+      });
+      html += `</div>`;
+    } else if (isWcag) {
+      html += `<div class="section-body">`;
+      section.items.forEach(item => {
+        const fullId = section.id + "." + item.id;
+        const isChecked = state[fullId]?.checked;
+        const note = state[fullId]?.note || "";
+        const ownerClass = getOwnerClass(item.owner);
+        html += `<div class="wcag-item ${isChecked ? 'checked' : ''}">`;
+        html += `<div class="item-checkbox" onclick="toggleCheck('${fullId}')">${checkSvg()}</div>`;
+        html += `<div class="wcag-content">`;
+        html += `<div class="wcag-title">${escHtml(item.title)}</div>`;
+        html += `<div class="wcag-meta">`;
+        html += `<span class="wcag-badge owner ${ownerClass}">${escHtml(item.owner)}</span>`;
+        html += `<span class="wcag-badge week">${escHtml(item.week)}</span>`;
+        if (item.wcag && item.wcagAnchor) {
+          html += `<a class="wcag-badge wcag-link" href="https://www.w3.org/WAI/WCAG22/quickref/#${item.wcagAnchor}" target="_blank" rel="noopener noreferrer">WCAG ${escHtml(item.wcag)}</a>`;
+        }
+        html += `</div>`;
+        html += `<div class="wcag-spec">${escHtml(item.spec)}</div>`;
+        html += `<input class="item-note" type="text" placeholder="備註..." value="${escHtml(note)}" onchange="updateNote('${fullId}', this.value)">`;
+        html += `</div></div>`;
+      });
+      html += `</div>`;
+    } else {
+      html += `<div class="section-body">`;
+      section.items.forEach(item => {
+        const fullId = section.id + "." + item.id;
+        const isChecked = state[fullId]?.checked;
+        const note = state[fullId]?.note || "";
+        html += `<div class="checklist-item ${isChecked ? 'checked' : ''}">`;
+        html += `<div class="item-checkbox" onclick="toggleCheck('${fullId}')">${checkSvg()}</div>`;
+        html += `<div class="item-content">`;
+        html += `<div class="item-title">${item.title}</div>`;
+        if (item.spec) html += `<div class="item-spec">${item.spec}</div>`;
+        html += `<input class="item-note" type="text" placeholder="備註..." value="${escHtml(note)}" onchange="updateNote('${fullId}', this.value)">`;
+        html += `</div></div>`;
+      });
+      html += `</div>`;
+    }
+
+    html += `</div>`;
+  });
+
+  app.innerHTML = html;
+  updateProgress();
+}
+
+function escHtml(str) {
+  return str.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+
+function exportState() {
+  const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "apac-aia-checklist-" + new Date().toISOString().slice(0,10) + ".json";
+  a.click();
+}
+
+function importState(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(ev) {
+    try {
+      state = JSON.parse(ev.target.result);
+      saveState(state);
+      render();
+    } catch { alert("檔案格式錯誤"); }
+  };
+  reader.readAsText(file);
+  e.target.value = "";
+}
+
+function resetAll() {
+  if (!confirm("確定要重置所有勾選狀態和備註嗎？")) return;
+  state = {};
+  saveState(state);
+  render();
+}
+
+function updateLastUpdated(iso) {
+  const el = document.getElementById("lastUpdated");
+  if (!iso) { el.textContent = ""; return; }
+  const d = new Date(iso);
+  el.textContent = "上次更新：" + d.toLocaleString("zh-TW");
+}
+
+// Init
+render();
+if (state._lastUpdated) updateLastUpdated(state._lastUpdated);
+</script>
+</body>
+</html>

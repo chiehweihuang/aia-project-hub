@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIA 網站重新設計 — 專案總覽</title>
+<style>
+  :root {
+    --primary: #1a365d;
+    --secondary: #2b6cb0;
+    --accent: #ed8936;
+    --success: #38a169;
+    --warning: #d69e2e;
+    --danger: #e53e3e;
+    --bg: #f7fafc;
+    --card: #ffffff;
+    --text: #2d3748;
+    --muted: #718096;
+    --border: #e2e8f0;
+    --christina: #9f7aea;
+    --schneider: #ed8936;
+    --claire: #48bb78;
+    --becky: #4299e1;
+    --bertram: #e53e3e;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Segoe UI', 'Microsoft JhengHei', sans-serif; background: var(--bg); color: var(--text); line-height:1.6; }
+
+  /* PASSWORD GATE */
+  #gate { position:fixed; inset:0; z-index:9999; background: var(--primary); display:flex; align-items:center; justify-content:center; }
+  #gate.hidden { display:none; }
+  .gate-box { background: var(--card); border-radius:16px; padding:48px 40px; text-align:center; max-width:400px; width:90%; box-shadow: 0 20px 60px rgba(0,0,0,.3); }
+  .gate-box h1 { font-size:22px; color: var(--primary); margin-bottom:8px; }
+  .gate-box p { font-size:14px; color: var(--muted); margin-bottom:24px; }
+  .gate-box input { width:100%; padding:12px 16px; border:2px solid var(--border); border-radius:8px; font-size:16px; text-align:center; letter-spacing:2px; outline:none; transition:.2s; }
+  .gate-box input:focus { border-color: var(--secondary); }
+  .gate-box input.error { border-color: var(--danger); animation: shake .3s; }
+  .gate-box button { margin-top:16px; width:100%; padding:12px; background: var(--primary); color:#fff; border:none; border-radius:8px; font-size:16px; cursor:pointer; transition:.2s; }
+  .gate-box button:hover { background: var(--secondary); }
+  .gate-error { color: var(--danger); font-size:13px; margin-top:8px; min-height:20px; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-8px)} 75%{transform:translateX(8px)} }
+
+  /* MAIN CONTENT */
+  #app { display:none; }
+  #app.visible { display:block; }
+
+  /* NAV */
+  .topnav { position:sticky; top:0; z-index:100; background: var(--primary); padding:12px 24px; display:flex; gap:8px; flex-wrap:wrap; align-items:center; box-shadow: 0 2px 8px rgba(0,0,0,.15); }
+  .topnav h1 { color:#fff; font-size:16px; margin-right:auto; white-space:nowrap; }
+  .topnav button { background: rgba(255,255,255,.15); color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer; font-size:13px; transition:.2s; }
+  .topnav button:hover, .topnav button.active { background: var(--accent); }
+
+  /* SECTIONS */
+  .section { display:none; padding:24px; max-width:1400px; margin:0 auto; }
+  .section.visible { display:block; }
+
+  /* CARDS */
+  .card { background: var(--card); border-radius:12px; padding:20px; margin-bottom:20px; box-shadow:0 1px 4px rgba(0,0,0,.08); border-left:4px solid var(--secondary); }
+  .card h2 { font-size:20px; margin-bottom:12px; color: var(--primary); }
+  .card h3 { font-size:16px; margin: 12px 0 8px; color: var(--secondary); }
+  .card p { margin-bottom:8px; }
+  .card ul { padding-left:20px; margin-bottom:8px; }
+  .card li { margin-bottom:4px; font-size:14px; }
+
+  /* MOU ALERT */
+  .mou-alert { background:#fffff0; border:2px solid #ecc94b; border-radius:12px; padding:16px 20px; margin-bottom:20px; }
+  .mou-alert h3 { color:#975a16; margin-bottom:8px; }
+
+  /* CHECKLIST */
+  .checklist-section { background: var(--card); border-radius:12px; margin-bottom:20px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,.08); }
+  .checklist-header { padding:16px 20px; background: var(--primary); color:#fff; cursor:pointer; display:flex; justify-content:space-between; align-items:center; user-select:none; }
+  .checklist-header:hover { background:#244a6e; }
+  .checklist-header h3 { font-size:16px; font-weight:600; }
+  .checklist-header .progress-info { font-size:13px; opacity:.9; display:flex; align-items:center; gap:8px; }
+  .checklist-header .mini-bar { width:60px; height:6px; background:rgba(255,255,255,.3); border-radius:3px; overflow:hidden; }
+  .checklist-header .mini-fill { height:100%; background:#fff; border-radius:3px; transition:width .3s; }
+  .checklist-body { display:none; }
+  .checklist-body.open { display:block; }
+
+  .check-item { display:flex; gap:12px; padding:14px 20px; border-bottom:1px solid var(--border); align-items:flex-start; transition:.2s; }
+  .check-item:last-child { border-bottom:none; }
+  .check-item:hover { background:#f7fafc; }
+  .check-item.checked { background:#f0fff4; }
+  .check-item.checked .check-title { text-decoration:line-through; color:var(--muted); }
+  .check-box { width:22px; height:22px; border:2px solid var(--border); border-radius:6px; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px; transition:.2s; background:#fff; }
+  .check-box:hover { border-color: var(--secondary); }
+  .check-item.checked .check-box { background: var(--success); border-color: var(--success); }
+  .check-box svg { display:none; width:14px; height:14px; }
+  .check-item.checked .check-box svg { display:block; }
+  .check-content { flex:1; }
+  .check-title { font-size:14px; font-weight:600; margin-bottom:2px; }
+  .check-detail { font-size:13px; color: var(--muted); }
+  .check-owner { display:inline-block; padding:2px 8px; border-radius:4px; font-size:11px; font-weight:600; margin-top:4px; }
+  .owner-christina { background:#faf5ff; color:#6b46c1; }
+  .owner-schneider { background:#fffaf0; color:#c05621; }
+  .owner-bertram { background:#fff5f5; color:#c53030; }
+  .owner-team { background:#ebf8ff; color:#2b6cb0; }
+
+  /* ASSET TABLE */
+  .asset-table { width:100%; border-collapse:collapse; font-size:14px; }
+  .asset-table th { background: var(--primary); color:#fff; padding:10px 12px; text-align:left; }
+  .asset-table td { padding:10px 12px; border-bottom:1px solid var(--border); vertical-align:top; }
+  .asset-table tr:hover { background:#edf2f7; }
+  .status-tag { display:inline-block; padding:2px 8px; border-radius:4px; font-size:12px; font-weight:600; }
+  .status-need { background:#fed7d7; color:#c53030; }
+  .status-partial { background:#fefcbf; color:#975a16; }
+  .status-ready { background:#c6f6d5; color:#276749; }
+
+  /* IFRAME TAB */
+  .iframe-wrap { width:100%; height:calc(100vh - 80px); border:none; border-radius:8px; background:#fff; }
+
+  /* DOWNLOAD */
+  .download-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:16px; }
+  .download-card { background: var(--card); border-radius:12px; padding:20px; box-shadow:0 1px 4px rgba(0,0,0,.08); display:flex; align-items:center; gap:16px; text-decoration:none; color: var(--text); transition:.2s; border:2px solid transparent; }
+  .download-card:hover { border-color: var(--secondary); transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,.12); }
+  .download-icon { font-size:32px; flex-shrink:0; }
+  .download-info h4 { font-size:15px; margin-bottom:4px; }
+  .download-info p { font-size:12px; color: var(--muted); }
+
+  /* RESPONSIVE */
+  @media (max-width:768px) {
+    .topnav { padding:8px 12px; }
+    .topnav h1 { font-size:14px; width:100%; margin-bottom:4px; }
+    .topnav button { font-size:12px; padding:6px 10px; }
+    .section { padding:12px; }
+  }
+  @media print {
+    .topnav { position:static; }
+    .section { display:block !important; page-break-before:always; }
+    #gate { display:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PASSWORD GATE -->
+<div id="gate">
+  <div class="gate-box">
+    <h1>AIA 網站重新設計</h1>
+    <p>Phase 1 專案文件 &mdash; 僅限團隊成員檢視</p>
+    <input type="password" id="pw" placeholder="請輸入檢視密碼" autocomplete="off">
+    <button onclick="tryAuth()">進入</button>
+    <div class="gate-error" id="gate-err"></div>
+  </div>
+</div>
+
+<!-- MAIN APP -->
+<div id="app">
+
+<nav class="topnav">
+  <h1>AIA 網站重新設計 2026</h1>
+  <button class="active" onclick="showSection('overview',this)">專案總覽</button>
+  <button onclick="showSection('mou',this)">MOU 重點</button>
+  <button onclick="showSection('assets',this)">素材清單</button>
+  <button onclick="showSection('structure',this)">工作架構</button>
+  <button onclick="showSection('checklist',this)">啟動 Checklist</button>
+  <button onclick="showSection('downloads',this)">文件下載</button>
+</nav>
+
+<!-- ====== TAB 1: OVERVIEW ====== -->
+<div id="overview" class="section visible">
+  <div class="mou-alert">
+    <h3>Phase 1 範圍</h3>
+    <p><strong>頁面：</strong>首頁（Home）審閱與重新設計 + 活動頁（Events）全新頁面設計</p>
+    <p><strong>平台：</strong>Elementor / Divi / Oxygen（No-code，不含客製化程式開發）</p>
+    <p><strong>合規：</strong>WCAG 2.2 AA + RWD + 中文為主</p>
+    <p><strong>合作方：</strong>甲方 APAC AIA / 乙方 Tiny Oak Studio (Christina)</p>
+  </div>
+
+  <div class="card">
+    <h2>團隊成員</h2>
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:12px; margin-top:12px;">
+      <div style="padding:12px; border-radius:8px; border-top:3px solid var(--christina);">
+        <strong>Christina</strong><br><span style="font-size:13px; color:var(--muted);">網站設計師 + 頁面建置者（Critical Path）</span>
+      </div>
+      <div style="padding:12px; border-radius:8px; border-top:3px solid var(--schneider);">
+        <strong>Schneider</strong><br><span style="font-size:13px; color:var(--muted);">品牌 / 素材設計師</span>
+      </div>
+      <div style="padding:12px; border-radius:8px; border-top:3px solid var(--claire);">
+        <strong>Claire</strong><br><span style="font-size:13px; color:var(--muted);">內容創作者（W3C Invited Expert）</span>
+      </div>
+      <div style="padding:12px; border-radius:8px; border-top:3px solid var(--becky);">
+        <strong>Becky</strong><br><span style="font-size:13px; color:var(--muted);">頁面建置支援 + 無障礙測試</span>
+      </div>
+      <div style="padding:12px; border-radius:8px; border-top:3px solid var(--bertram);">
+        <strong>Bertram</strong><br><span style="font-size:13px; color:var(--muted);">專案經理 + 無障礙測試</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>建議的下一步行動</h2>
+    <table class="asset-table">
+      <thead><tr><th>#</th><th>行動</th><th>負責人</th><th>時間點</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>請 Schneider 導出 Logo SVG（中/英 x 淺/深底共 4 版）</td><td>Christina &rarr; Schneider</td><td>簽約前</td></tr>
+        <tr><td>2</td><td>請 Schneider 提供品牌色碼 HEX 值</td><td>Christina &rarr; Schneider</td><td>簽約前</td></tr>
+        <tr><td>3</td><td>測試色碼 WCAG 2.2 AA 對比度</td><td>Bertram</td><td>拿到色碼後</td></tr>
+        <tr><td>4</td><td>確認字體檔案位置與授權</td><td>Christina &rarr; Schneider</td><td>簽約前</td></tr>
+        <tr><td>5</td><td>從 Shared Drive 下載圖片到本地 Web_Assets</td><td>Bertram</td><td>本週</td></tr>
+        <tr><td>6</td><td>草擬首頁文案（中英）</td><td>Bertram</td><td>本週起</td></tr>
+        <tr><td>7</td><td>為團隊照片撰寫 Alt Text</td><td>Bertram</td><td>照片確認後</td></tr>
+        <tr><td>8</td><td>整理社群媒體帳號 URL 清單</td><td>Bertram</td><td>本週</td></tr>
+        <tr><td>9</td><td>確認是否放置影片</td><td>團隊討論</td><td>設計啟動前</td></tr>
+        <tr><td>10</td><td>確認技術與法規文件（Privacy Policy, GDPR 等）</td><td>團隊討論</td><td>Phase 1 期間</td></tr>
+        <tr><td>11</td><td>確認 GA4 整合需求</td><td>團隊討論</td><td>開發前</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ====== TAB 2: MOU CHECKLIST ====== -->
+<div id="mou" class="section">
+  <div class="card" style="border-left-color: var(--warning);">
+    <h2>MOU 合作備忘錄 &mdash; 重點確認清單</h2>
+    <p>以下從 MOU 提煉的關鍵條款，供團隊逐項確認。勾選狀態會儲存在瀏覽器中。</p>
+  </div>
+
+  <!-- 3.1-3.2 服務範圍 -->
+  <div class="checklist-section" data-group="mou-scope">
+    <div class="checklist-header" onclick="toggleGroup(this)">
+      <h3>第三條 服務範圍</h3>
+      <div class="progress-info"><span class="prog-text">0/7</span><div class="mini-bar"><div class="mini-fill" style="width:0%"></div></div></div>
+    </div>
+    <div class="checklist-body open">
+      <div class="check-item" data-key="mou-1"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">網站性質：Brochure Website（基礎形象型）</div><div class="check-detail">採 Page Builder（Elementor, Divi, 或 Oxygen）現成平台解決方案，不含客製化程式開發。</div></div></div>
+      <div class="check-item" data-key="mou-2"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">Phase 1 頁面範圍：首頁（Home）+ 活動頁（Events）</div><div class="check-detail">首頁：現有首頁審閱（Audit）與完整重新設計。活動頁：全新頁面設計。</div></div></div>
+      <div class="check-item" data-key="mou-3"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">無障礙設計：WCAG 2.2 AA 標準</div><div class="check-detail">確保頁面符合 WCAG 2.2 AA，並提供合規確認文件。</div></div></div>
+      <div class="check-item" data-key="mou-4"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">響應式設計：桌機、平板、手機</div><div class="check-detail">相容主流裝置。</div></div></div>
+      <div class="check-item" data-key="mou-5"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">語言：中文為主</div><div class="check-detail">英文次要（Phase 2）。</div></div></div>
+      <div class="check-item" data-key="mou-6"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">Phase 1 範疇外事項已確認</div><div class="check-detail">關於我們、聯絡頁、Blog、播客頁、電子報訂閱、客製化開發、持續性維護 &mdash; 均不在 Phase 1 範圍。</div></div></div>
+      <div class="check-item" data-key="mou-7"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">修改次數限制：每交付里程碑至多 2 次小幅修改</div><div class="check-detail">小幅修改指不更動頁面架構或已核定風格下之微調；逾越次數視為超額工作。</div></div></div>
+    </div>
+  </div>
+
+  <!-- 3.5-3.6 範疇 B -->
+  <div class="checklist-section" data-group="mou-content">
+    <div class="checklist-header" onclick="toggleGroup(this)">
+      <h3>範疇 B：播客/直播內容合作</h3>
+      <div class="progress-info"><span class="prog-text">0/4</span><div class="mini-bar"><div class="mini-fill" style="width:0%"></div></div></div>
+    </div>
+    <div class="checklist-body">
+      <div class="check-item" data-key="mou-b1"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">內容形式確認</div><div class="check-detail">直播（Livestream）、錄製影片、播客（Podcast）音頻、短影音（Short-form Content）</div></div></div>
+      <div class="check-item" data-key="mou-b2"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">發布平台確認</div><div class="check-detail">甲方官方 YouTube 頻道、甲方主導之官方平台、乙方自有平台（依第七條授權）</div></div></div>
+      <div class="check-item" data-key="mou-b3"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">甲方提供錄製環境、來賓邀請、原始影音檔案</div><div class="check-detail">乙方負責後製。</div></div></div>
+      <div class="check-item" data-key="mou-b4"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">首播節目錄製與發布已規劃</div><div class="check-detail">甲主導，乙協製。</div></div></div>
+    </div>
+  </div>
+
+  <!-- 第四條 費用 -->
+  <div class="checklist-section" data-group="mou-cost">
+    <div class="checklist-header" onclick="toggleGroup(this)">
+      <h3>第四條 合作性質、費用與互利回饋</h3>
+      <div class="progress-info"><span class="prog-text">0/6</span><div class="mini-bar"><div class="mini-fill" style="width:0%"></div></div></div>
+    </div>
+    <div class="checklist-body">
+      <div class="check-item" data-key="mou-c1"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">公益貢獻（Pro Bono）確認</div><div class="check-detail">乙方以公益形式提供範疇 A + B 所有服務，不收取金錢報酬。</div></div></div>
+      <div class="check-item" data-key="mou-c2"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">互利回饋 1：署名標示</div><div class="check-detail">網站頁尾顯著位置標示「Website by Tiny Oak Studio」並附超連結。</div></div></div>
+      <div class="check-item" data-key="mou-c3"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">互利回饋 2：活動曝光</div><div class="check-detail">2026 Q3 Summit 中將乙方列為技術合作夥伴或贊助商。</div></div></div>
+      <div class="check-item" data-key="mou-c4"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">互利回饋 3：轉介支持</div><div class="check-detail">善意推薦 Tiny Oak Studio（不保證數量，不構成義務）。</div></div></div>
+      <div class="check-item" data-key="mou-c5"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">互利回饋 4：作品集授權</div><div class="check-detail">乙方可將合作成果用於 Case Study、教學及公開行銷。</div></div></div>
+      <div class="check-item" data-key="mou-c6"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">第三方費用由甲方負擔</div><div class="check-detail">網域、主機、外掛授權、付費字體或圖庫等，均由甲方全額負擔。乙方優先採用免費資源。</div></div></div>
+    </div>
+  </div>
+
+  <!-- 第五條 職責分工 -->
+  <div class="checklist-section" data-group="mou-roles">
+    <div class="checklist-header" onclick="toggleGroup(this)">
+      <h3>第五條 雙方職責分工</h3>
+      <div class="progress-info"><span class="prog-text">0/6</span><div class="mini-bar"><div class="mini-fill" style="width:0%"></div></div></div>
+    </div>
+    <div class="checklist-body">
+      <div class="check-item" data-key="mou-r1"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">乙方職責：視覺設計、頁面建置、無障礙實作、內部 QA</div><div class="check-detail">頁面建置 = 使用網頁建置工具（Elementor/Divi/Oxygen），No custom coding。</div><span class="check-owner owner-christina">Christina</span></div></div>
+      <div class="check-item" data-key="mou-r2"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">乙方職責：專案管理、範疇控管、定期回報進度</div><div class="check-detail">每階段里程碑交付成果供甲方審閱，以書面記錄設計決策。</div><span class="check-owner owner-christina">Christina</span></div></div>
+      <div class="check-item" data-key="mou-r3"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">甲方職責：提供文案、翻譯、圖像素材、品牌資產</div><div class="check-detail">含 Logo 向量原始檔。</div><span class="check-owner owner-team">甲方團隊</span></div></div>
+      <div class="check-item" data-key="mou-r4"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">甲方職責：提供網域、DNS、主機存取憑證</div><div class="check-detail">乙方需要存取權限才能進行建置與部署。</div><span class="check-owner owner-team">甲方團隊</span></div></div>
+      <div class="check-item" data-key="mou-r5"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">甲方職責：10 個工作日內提供書面回饋</div><div class="check-detail">逾期未回饋視為同意。</div><span class="check-owner owner-team">甲方團隊</span></div></div>
+      <div class="check-item" data-key="mou-r6"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">甲方職責：外部使用者驗收測試（UAT）及上線確認</div><div class="check-detail">範疇 A。</div><span class="check-owner owner-bertram">Bertram</span></div></div>
+    </div>
+  </div>
+
+  <!-- 第五條 5.3 內容凍結 -->
+  <div class="checklist-section" data-group="mou-freeze">
+    <div class="checklist-header" onclick="toggleGroup(this)" style="background: var(--danger);">
+      <h3>5.3 內容凍結、溝通與資料限制</h3>
+      <div class="progress-info"><span class="prog-text">0/3</span><div class="mini-bar"><div class="mini-fill" style="width:0%"></div></div></div>
+    </div>
+    <div class="checklist-body">
+      <div class="check-item" data-key="mou-f1"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">建置階段後不得要求重大變更</div><div class="check-detail">甲方逾 14 個工作日未回應或未提供素材，乙方有權暫停專案。</div></div></div>
+      <div class="check-item" data-key="mou-f2"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">每頁文案：300-600 字（上限 800 字）</div><div class="check-detail">標準企業型形象網站基準（共 5 頁：首頁、關於、部落格列表、聯絡、服務/產品）。逾此上限視為超出執行範疇。</div></div></div>
+      <div class="check-item" data-key="mou-f3"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">甲方延遲導致時程順延，不構成乙方違約</div><div class="check-detail">乙方得書面通知甲方調整時程。</div></div></div>
+    </div>
+  </div>
+
+  <!-- 第六條 時程 -->
+  <div class="checklist-section" data-group="mou-timeline">
+    <div class="checklist-header" onclick="toggleGroup(this)">
+      <h3>第六條 專案時程與里程碑</h3>
+      <div class="progress-info"><span class="prog-text">0/6</span><div class="mini-bar"><div class="mini-fill" style="width:0%"></div></div></div>
+    </div>
+    <div class="checklist-body">
+      <div class="check-item" data-key="mou-t1"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">A-1：首頁（Home）審閱與重新設計</div><div class="check-detail">乙方執行，甲方審閱。</div></div></div>
+      <div class="check-item" data-key="mou-t2"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">A-2：活動頁（Events）頁面設計</div><div class="check-detail">乙方執行，甲方審閱。</div></div></div>
+      <div class="check-item" data-key="mou-t3"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">A-3：無障礙驗證 WCAG 2.2 AA</div><div class="check-detail">乙方 QA + 甲方 UAT。</div></div></div>
+      <div class="check-item" data-key="mou-t4"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">A-4：正式上線（Launch）</div><div class="check-detail">甲方授權，乙方部署。</div></div></div>
+      <div class="check-item" data-key="mou-t5"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">B-1：直播/影片內容製作框架確認</div><div class="check-detail">甲乙共同確認。</div></div></div>
+      <div class="check-item" data-key="mou-t6"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">B-2：首播節目錄製與發布</div><div class="check-detail">甲主導，乙協製。</div></div></div>
+    </div>
+  </div>
+
+  <!-- 第七條 智慧財產權 -->
+  <div class="checklist-section" data-group="mou-ip">
+    <div class="checklist-header" onclick="toggleGroup(this)">
+      <h3>第七條 智慧財產權</h3>
+      <div class="progress-info"><span class="prog-text">0/4</span><div class="mini-bar"><div class="mini-fill" style="width:0%"></div></div></div>
+    </div>
+    <div class="checklist-body">
+      <div class="check-item" data-key="mou-ip1"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">範疇 A 網站成品：著作財產權完整移轉予甲方</div><div class="check-detail">甲方完成全部配合義務後移轉，地域不限。</div></div></div>
+      <div class="check-item" data-key="mou-ip2"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">範疇 B 完整節目：著作財產權歸甲方所有</div><div class="check-detail">TOS 非獨家授權可製作短影音、Podcast、發布於乙方平台。</div></div></div>
+      <div class="check-item" data-key="mou-ip3"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">乙方保留既有工具、程式庫、框架、方法論之權利</div><div class="check-detail">不影響交付成果之完整移轉。</div></div></div>
+      <div class="check-item" data-key="mou-ip4"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">第三方素材使用需書面揭露授權條款</div><div class="check-detail">開源軟體、授權字體、免費圖庫等。</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== TAB 3: ASSETS ====== -->
+<div id="assets" class="section">
+  <div class="card">
+    <h2>素材盤點與行動清單</h2>
+    <p>來源：Bertram 整理版 + Christina 素材需求清單 + Kick-Off Checklist（融合版 2026-04-06）</p>
+  </div>
+
+  <div class="card" style="border-left-color: var(--danger);">
+    <h3>A. 設計啟動前必備</h3>
+    <table class="asset-table">
+      <thead><tr><th>素材</th><th>規格</th><th>Shared Drive 現況</th><th>狀態</th><th>行動</th></tr></thead>
+      <tbody>
+        <tr><td>Logo SVG</td><td>SVG 向量，中+英，淺底+深底</td><td>有 AI + 2 PNG（去背）</td><td><span class="status-tag status-need">需轉檔</span></td><td>Schneider 用 Illustrator 導出 SVG</td></tr>
+        <tr><td>品牌色彩規範</td><td>主色、輔色、背景色（HEX+RGB），需過 WCAG 2.2</td><td>無獨立文件</td><td><span class="status-tag status-need">缺失</span></td><td>從 AI 檔吸取 &rarr; 測 WCAG</td></tr>
+        <tr><td>字體</td><td>中文+英文字體名稱，粗細/層級</td><td>未找到</td><td><span class="status-tag status-need">缺失</span></td><td>確認 Schneider 手上字體包</td></tr>
+        <tr><td>品牌指南</td><td>攝影風格、視覺參考、品牌圖形元素</td><td>無</td><td><span class="status-tag status-need">缺失</span></td><td>可能從未建立完整版</td></tr>
+        <tr><td>Favicon</td><td>PNG 或 SVG 32x32</td><td>可從 logo PNG 裁切</td><td><span class="status-tag status-partial">需製作</span></td><td>可協助製作</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="border-left-color: var(--warning);">
+    <h3>B. 設計過程中分批交付</h3>
+    <table class="asset-table">
+      <thead><tr><th>素材</th><th>規格</th><th>現況</th><th>狀態</th></tr></thead>
+      <tbody>
+        <tr><td>首頁文案</td><td>中英雙語</td><td>無</td><td><span class="status-tag status-need">未開始</span></td></tr>
+        <tr><td>活動頁文案</td><td>中英雙語</td><td>有議程/講者可參考</td><td><span class="status-tag status-need">未開始</span></td></tr>
+        <tr><td>照片（活動/團隊）</td><td>網頁解析度 + alt text</td><td>5人 x 2版 PNG</td><td><span class="status-tag status-partial">照片有，Alt Text 無</span></td></tr>
+        <tr><td>社群媒體連結</td><td>各平台 URL</td><td>僅有 LINE 圖檔</td><td><span class="status-tag status-partial">不完整</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="border-left-color: var(--secondary);">
+    <h3>Shared Drive 已有素材</h3>
+    <table class="asset-table">
+      <thead><tr><th>資料夾</th><th>內容</th><th>網站用途</th><th>可用性</th></tr></thead>
+      <tbody>
+        <tr><td>logo</td><td>logo 去背 PNG x2, .ai, .pdf</td><td>Logo / Favicon</td><td><span class="status-tag status-partial">需轉檔</span></td></tr>
+        <tr><td>團隊介紹圖檔</td><td>5 位成員各 2 版 PNG</td><td>團隊介紹頁</td><td><span class="status-tag status-ready">可直接使用</span></td></tr>
+        <tr><td>合作夥伴Logos</td><td>French Tech + 2 張圖</td><td>合作夥伴區塊</td><td><span class="status-tag status-partial">不完整</span></td></tr>
+        <tr><td>講師介紹</td><td>4 位講者 AI+JPG</td><td>活動頁講者區</td><td><span class="status-tag status-ready">JPG 可直接用</span></td></tr>
+        <tr><td>社群媒體使用</td><td>LINE QR code + 背景圖 + Logo</td><td>社群連結區</td><td><span class="status-tag status-partial">有 LINE，缺 FB/IG</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ====== TAB 4: WORK STRUCTURE (iframe) ====== -->
+<div id="structure" class="section">
+  <iframe class="iframe-wrap" src="pages/work-structure.html"></iframe>
+</div>
+
+<!-- ====== TAB 5: CHECKLIST (iframe) ====== -->
+<div id="checklist" class="section">
+  <iframe class="iframe-wrap" src="pages/checklist.html"></iframe>
+</div>
+
+<!-- ====== TAB 6: DOWNLOADS ====== -->
+<div id="downloads" class="section">
+  <div class="card">
+    <h2>原始文件下載</h2>
+    <p>以下為專案相關的原始文件，可直接下載。</p>
+  </div>
+  <div class="download-grid">
+    <a class="download-card" href="docs/AIA_%E7%94%98%E7%89%B9%E5%9C%96_v6.xlsx" download>
+      <div class="download-icon">&#128202;</div>
+      <div class="download-info"><h4>AIA 甘特圖 v6</h4><p>.xlsx &mdash; 專案時程規劃</p></div>
+    </a>
+    <a class="download-card" href="docs/AIR%202024%20-%20Accessiflow%20-%20translated.xlsx" download>
+      <div class="download-icon">&#128203;</div>
+      <div class="download-info"><h4>AIR 2024 Accessiflow 翻譯版</h4><p>.xlsx &mdash; 無障礙報告</p></div>
+    </a>
+    <a class="download-card" href="docs/Christina-%E7%B4%A0%E6%9D%90%E9%9C%80%E6%B1%82%E6%B8%85%E5%96%AE.docx" download>
+      <div class="download-icon">&#128196;</div>
+      <div class="download-info"><h4>Christina 素材需求清單</h4><p>.docx &mdash; 設計師需求</p></div>
+    </a>
+    <a class="download-card" href="docs/%E7%B4%A0%E6%9D%90%E7%9B%A4%E9%BB%9E%E8%88%87%E8%A1%8C%E5%8B%95%E6%B8%85%E5%96%AE_2026-03-24.docx" download>
+      <div class="download-icon">&#128196;</div>
+      <div class="download-info"><h4>素材盤點與行動清單（2026-03-24）</h4><p>.docx &mdash; 初版盤點</p></div>
+    </a>
+    <a class="download-card" href="docs/%E7%B4%A0%E6%9D%90%E7%9B%A4%E9%BB%9E%E8%88%87%E8%A1%8C%E5%8B%95%E6%B8%85%E5%96%AE_merged_2026-04-06.md" download>
+      <div class="download-icon">&#128221;</div>
+      <div class="download-info"><h4>素材盤點融合版（2026-04-06）</h4><p>.md &mdash; 最新融合版</p></div>
+    </a>
+  </div>
+</div>
+
+</div><!-- /app -->
+
+<script>
+// Password: apacaia2024 (SHA-256 hash for basic obfuscation)
+const HASH = '0d0e4b2b2f321405de9ee6c96bd8990bfb4ec636b6a353de850f1d4eb45b6c56';
+
+async function sha256(str) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
+async function tryAuth() {
+  const pw = document.getElementById('pw').value;
+  const hash = await sha256(pw);
+  if (hash === HASH) {
+    sessionStorage.setItem('aia-auth', '1');
+    unlock();
+  } else {
+    document.getElementById('pw').classList.add('error');
+    document.getElementById('gate-err').textContent = '密碼錯誤，請重試';
+    setTimeout(() => document.getElementById('pw').classList.remove('error'), 300);
+  }
+}
+
+function unlock() {
+  document.getElementById('gate').classList.add('hidden');
+  document.getElementById('app').classList.add('visible');
+}
+
+// Auto-unlock if session exists
+if (sessionStorage.getItem('aia-auth')) unlock();
+
+// Enter key to submit
+document.getElementById('pw').addEventListener('keydown', e => { if (e.key === 'Enter') tryAuth(); });
+
+// Section navigation
+function showSection(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
+  document.getElementById(id).classList.add('visible');
+  document.querySelectorAll('.topnav button').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+}
+
+// Checklist toggle
+function toggleGroup(header) {
+  const body = header.nextElementSibling;
+  body.classList.toggle('open');
+}
+
+// Checkbox toggle with localStorage persistence
+function toggleCheck(box) {
+  const item = box.closest('.check-item');
+  item.classList.toggle('checked');
+  const key = item.dataset.key;
+  if (item.classList.contains('checked')) {
+    localStorage.setItem('aia-' + key, '1');
+  } else {
+    localStorage.removeItem('aia-' + key);
+  }
+  updateProgress(item.closest('.checklist-section'));
+}
+
+function updateProgress(section) {
+  const items = section.querySelectorAll('.check-item');
+  const checked = section.querySelectorAll('.check-item.checked').length;
+  const total = items.length;
+  const pct = total ? Math.round(checked / total * 100) : 0;
+  const info = section.querySelector('.progress-info');
+  info.querySelector('.prog-text').textContent = checked + '/' + total;
+  info.querySelector('.mini-fill').style.width = pct + '%';
+}
+
+// Restore saved state on load
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.check-item').forEach(item => {
+    const key = item.dataset.key;
+    if (key && localStorage.getItem('aia-' + key)) {
+      item.classList.add('checked');
+    }
+  });
+  document.querySelectorAll('.checklist-section').forEach(updateProgress);
+});
+</script>
+
+</body>
+</html>
