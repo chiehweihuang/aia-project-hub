@@ -373,6 +373,27 @@
     margin-top: 24px;
   }
 
+  /* DARK MODE */
+  [data-theme="dark"] { --primary:#0f2440; --accent:#63b3ed; --accent-light:#2d3748; --green:#48bb78; --green-light:#1a3a2a; --wcag-green:#48bb78; --wcag-green-light:#1a3a2a; --yellow:#ecc94b; --yellow-light:#3a3a1a; --gray:#a0aec0; --gray-light:#2d3748; --border:#4a5568; --text:#e2e8f0; --bg:#1a202c; }
+  [data-theme="dark"] body { background:#1a202c; color:#e2e8f0; }
+  [data-theme="dark"] header { background:#0f2440; }
+  [data-theme="dark"] .overall-progress { background:#2d3748; }
+  [data-theme="dark"] .section { background:#2d3748; }
+  [data-theme="dark"] .section-header { background:#1a365d; }
+  [data-theme="dark"] .section-header:hover { background:#2a4a6e; }
+  [data-theme="dark"] .section-header.wcag-header { background:#276749; }
+  [data-theme="dark"] .section-header.wcag-header:hover { background:#2d7d56; }
+  [data-theme="dark"] .checklist-item:hover, [data-theme="dark"] .wcag-item:hover { background:#4a5568; }
+  [data-theme="dark"] .checklist-item.checked { background:#1a3a2a; }
+  [data-theme="dark"] .wcag-item.checked { background:#1a3a2a; }
+  [data-theme="dark"] .item-checkbox { background:#2d3748; border-color:#4a5568; }
+  [data-theme="dark"] .item-note { background:#1a202c; color:#e2e8f0; border-color:#4a5568; }
+  [data-theme="dark"] .toolbar button { background:#2d3748; color:#e2e8f0; border-color:#4a5568; }
+  [data-theme="dark"] .table-header { background:#1a365d; color:#e2e8f0; }
+  [data-theme="dark"] .table-item:hover { background:#4a5568; }
+  [data-theme="dark"] .table-item.checked { background:#1a3a2a; }
+  [data-theme="dark"] .progress-bar-wrap { background:#4a5568; }
+
   /* Print styles */
   @media print {
     body { background: white; }
@@ -797,6 +818,13 @@ function updateLastUpdated(iso) {
 // Init
 render();
 if (state._lastUpdated) updateLastUpdated(state._lastUpdated);
+
+// Sync dark mode from localStorage
+(function() {
+  var theme = localStorage.getItem('aia-theme');
+  if (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches) theme = 'dark';
+  if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+})();
 </script>
 </body>
 </html>

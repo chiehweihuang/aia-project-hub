@@ -154,6 +154,29 @@
     .section { padding:12px; }
   }
 
+  /* DARK MODE */
+  [data-theme="dark"] { --primary:#0f2440; --secondary:#63b3ed; --accent:#ed8936; --success:#48bb78; --warning:#ecc94b; --danger:#fc8181; --bg:#1a202c; --card:#2d3748; --text:#e2e8f0; --muted:#a0aec0; --border:#4a5568; }
+  [data-theme="dark"] .topnav { background:#0f2440; }
+  [data-theme="dark"] .mou-alert { background:#2d3748; border-color:#b7791f; }
+  [data-theme="dark"] .mou-alert h2, [data-theme="dark"] .mou-alert h3 { color:#ecc94b; }
+  [data-theme="dark"] .card { background:#2d3748; }
+  [data-theme="dark"] .role-card { background:#2d3748; }
+  [data-theme="dark"] .wcag-table th { background:#2d3748; }
+  [data-theme="dark"] .wcag-table tr:hover { background:#4a5568; }
+  [data-theme="dark"] .wcag-table td { border-color:#4a5568; }
+  [data-theme="dark"] tr[style*="fff5f5"] { background:#3a2020 !important; }
+  [data-theme="dark"] tr[style*="f0fff4"] { background:#1a3a2a !important; }
+  [data-theme="dark"] tr[style*="fffff0"] { background:#3a3a1a !important; }
+  [data-theme="dark"] .test-item { background:#2d3748; }
+  [data-theme="dark"] .test-header:hover { background:#4a5568; }
+  [data-theme="dark"] .test-body { color:#e2e8f0; }
+  [data-theme="dark"] .elementor-note { background:#2a2040; border-color:#6b46c1; }
+  [data-theme="dark"] .ally-note { background:#1a3a2a; border-color:#48bb78; }
+  [data-theme="dark"] .limitation-note { background:#3a2020; border-color:#fc8181; }
+  [data-theme="dark"] .platform-card { background:#2d3748; }
+  [data-theme="dark"] .flow-phase .phase-body { background:#2d3748; border-color:#4a5568; }
+  [data-theme="dark"] .task { color:#e2e8f0; }
+
   /* PRINT */
   @media print {
     .topnav { position:static; }
@@ -1701,6 +1724,13 @@
       document.querySelectorAll('.chevron').forEach(c => c.classList.remove('open'));
     }
   });
+
+  // Sync dark mode from parent or localStorage
+  (function() {
+    var theme = localStorage.getItem('aia-theme');
+    if (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches) theme = 'dark';
+    if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+  })();
 </script>
 
 </body>
