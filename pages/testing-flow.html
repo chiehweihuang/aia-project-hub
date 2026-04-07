@@ -8,18 +8,19 @@
   :root {
     --primary: #1a365d;
     --secondary: #2b6cb0;
-    --accent: #ed8936;
-    --success: #38a169;
+    --accent: #b45309;
+    --success: #276749;
     --warning: #d69e2e;
     --danger: #e53e3e;
     --bg: #f7fafc;
     --card: #ffffff;
     --text: #2d3748;
-    --muted: #718096;
+    --muted: #596577;
     --border: #e2e8f0;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family: 'Segoe UI', 'Microsoft JhengHei', sans-serif; background: var(--bg); color: var(--text); line-height:1.7; }
+  :focus-visible { outline:3px solid var(--secondary); outline-offset:2px; }
 
   .topnav { position:sticky; top:0; z-index:100; background: var(--success); padding:12px 24px; display:flex; gap:12px; align-items:center; box-shadow: 0 2px 8px rgba(0,0,0,.15); }
   .topnav h1 { color:#fff; font-size:16px; margin-right:auto; }
@@ -37,12 +38,15 @@
   .step.active { border-left-color: var(--secondary); box-shadow:0 2px 12px rgba(0,0,0,.12); }
   .step.done { border-left-color: var(--success); opacity:.7; }
   .step.done .step-header { background:#f0fff4; }
+  .step.done-fail { border-left-color: var(--danger); opacity:.7; }
+  .step.done-fail .step-header { background:#fff5f5; }
 
   .step-header { padding:16px 20px; cursor:pointer; display:flex; align-items:center; gap:12px; }
   .step-header:hover { background:#f7fafc; }
   .step-num { width:32px; height:32px; border-radius:50%; background: var(--border); color: var(--muted); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px; flex-shrink:0; }
   .step.active .step-num { background: var(--secondary); color:#fff; }
   .step.done .step-num { background: var(--success); color:#fff; }
+  .step.done-fail .step-num { background: var(--danger); color:#fff; }
   .step-title { font-size:15px; font-weight:600; flex:1; }
   .step-time { font-size:12px; color: var(--muted); white-space:nowrap; }
   .step-type { display:inline-block; padding:2px 8px; border-radius:4px; font-size:11px; font-weight:600; }
@@ -61,17 +65,27 @@
   .tip-box { background:#fffff0; border:1px solid #ecc94b; border-radius:8px; padding:12px 16px; margin:8px 0; font-size:13px; }
   .warn-box { background:#fff5f5; border:1px solid #feb2b2; border-radius:8px; padding:12px 16px; margin:8px 0; font-size:13px; color:#c53030; }
 
-  .result-area { margin-top:12px; }
+  .result-area { margin-top:12px; border-top:1px solid var(--border); padding-top:12px; }
   .result-area label { font-size:13px; font-weight:600; display:block; margin-bottom:4px; }
-  .result-area textarea { width:100%; border:1px solid var(--border); border-radius:8px; padding:10px; font-family:inherit; font-size:13px; min-height:80px; resize:vertical; }
+  .result-area textarea { width:100%; border:1px solid var(--border); border-radius:8px; padding:10px; font-family:inherit; font-size:13px; min-height:60px; resize:vertical; }
   .result-area textarea:focus { outline:none; border-color: var(--secondary); }
 
-  .btn-row { display:flex; gap:8px; margin-top:12px; }
+  .btn-row { display:flex; gap:8px; margin-top:12px; flex-wrap:wrap; }
   .btn { padding:8px 20px; border:none; border-radius:6px; font-size:14px; cursor:pointer; font-weight:600; transition:.2s; }
   .btn-pass { background: var(--success); color:#fff; }
   .btn-fail { background: var(--danger); color:#fff; }
   .btn-na { background: var(--border); color: var(--muted); }
+  .btn-issue { background: var(--primary); color:#fff; font-size:12px; padding:6px 14px; }
   .btn:hover { opacity:.85; transform:translateY(-1px); }
+
+  /* Screenshot paste area */
+  .screenshot-zone { border:2px dashed var(--border); border-radius:8px; padding:12px; margin-top:8px; min-height:48px; cursor:pointer; font-size:12px; color:var(--muted); text-align:center; transition:.2s; }
+  .screenshot-zone:hover, .screenshot-zone.drag-over { border-color:var(--secondary); background:#ebf8ff; }
+  .screenshot-zone.has-images { border-style:solid; text-align:left; }
+  .screenshot-thumbs { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+  .screenshot-thumb { position:relative; width:120px; height:80px; border-radius:6px; overflow:hidden; border:1px solid var(--border); }
+  .screenshot-thumb img { width:100%; height:100%; object-fit:cover; }
+  .screenshot-remove { position:absolute; top:2px; right:2px; width:20px; height:20px; background:rgba(0,0,0,.6); color:#fff; border:none; border-radius:50%; font-size:12px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
 
   .summary { background: var(--card); border-radius:12px; padding:24px; box-shadow:0 2px 8px rgba(0,0,0,.1); display:none; }
   .summary.visible { display:block; }
@@ -84,20 +98,25 @@
   .stat-fail { background:#fff5f5; color: var(--danger); }
   .stat-na { background:#f7fafc; color: var(--muted); }
   .issue-list { font-size:14px; }
-  .issue-item { padding:10px 12px; border-bottom:1px solid var(--border); }
+  .issue-item { padding:12px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
   .issue-item:last-child { border:none; }
   .btn-export { background: var(--primary); color:#fff; padding:10px 24px; border:none; border-radius:6px; font-size:14px; cursor:pointer; margin-top:12px; }
+  .btn-export:hover { opacity:.85; }
+  .export-row { display:flex; gap:8px; margin-top:12px; }
 
   @media (max-width:768px) {
     .topnav { flex-wrap:wrap; padding:8px 12px; }
     .container { padding:12px; }
     .summary-grid { grid-template-columns:1fr; }
+    .screenshot-thumb { width:80px; height:54px; }
   }
   @media print {
     .topnav { position:static; }
     .step { break-inside:avoid; }
     .step-body { display:block !important; }
-    .btn-row, .result-area textarea, .topnav select, .topnav a { display:none; }
+    .btn-row, .result-area textarea, .topnav select, .topnav a, .screenshot-zone, .screenshot-remove { display:none; }
+    .screenshot-thumb { width:200px; height:auto; }
+    .screenshot-thumb img { height:auto; }
   }
 </style>
 </head>
@@ -130,12 +149,16 @@
     </div>
     <h3 style="margin-bottom:8px;">Issues Found</h3>
     <div class="issue-list" id="issue-list"></div>
-    <button class="btn-export" onclick="exportReport()">Export Markdown Report</button>
+    <div class="export-row">
+      <button class="btn-export" onclick="exportHTML()">Export HTML Report</button>
+    </div>
   </div>
 </div>
 
 <script>
-const STEPS = [
+var REPO = 'chiehweihuang/aia-project-hub';
+
+var STEPS = [
   { id:'auto-scan', title:'Step 1：自動化掃描', time:'~5 min', type:'auto' },
   { id:'page-title', title:'Step 2：頁面標題', time:'~1 min', type:'manual' },
   { id:'headings', title:'Step 3：標題結構', time:'~3 min', type:'manual' },
@@ -153,32 +176,32 @@ const STEPS = [
   { id:'drag', title:'Step 15：拖曳替代（WCAG 2.2）', time:'~1 min', type:'manual' }
 ];
 
-const STEP_CONTENT = {
-  'auto-scan': '<h4>做什麼</h4><p>用自動化工具先掃一輪，抓出機器能檢測到的問題（約佔 WCAG 項目的 30-40%）。</p><h4>操作步驟</h4><ul><li>在 Chrome 開啟要測試的頁面</li><li>按 <code>F12</code> 打開 DevTools</li><li><strong>axe DevTools：</strong>切到 axe 分頁 → Scan All of My Page → 等待結果</li><li><strong>Lighthouse：</strong>切到 Lighthouse 分頁 → 只勾 Accessibility → Analyze → 記錄分數</li><li>如果裝了 WAVE：點擊 WAVE 擴充圖示 → 截圖 errors 和 alerts</li></ul><div class="tip-box">axe 和 Lighthouse 的結果有重疊但也互補。axe 更精確，Lighthouse 會給整體分數。兩個都跑。</div><h4>工具</h4><span class="tool-badge">axe DevTools</span><span class="tool-badge">Lighthouse</span><span class="tool-badge">WAVE (optional)</span>',
+var STEP_CONTENT = {
+  'auto-scan': '<h4>做什麼</h4><p>用自動化工具先掃一輪，抓出機器能檢測到的問題（約佔 WCAG 項目的 30-40%）。</p><h4>操作步驟</h4><ul><li>在 Chrome 開啟要測試的頁面</li><li>按 <code>F12</code> 打開 DevTools</li><li><strong>axe DevTools：</strong>切到 axe 分頁 &rarr; Scan All of My Page &rarr; 等待結果</li><li><strong>Lighthouse：</strong>切到 Lighthouse 分頁 &rarr; 只勾 Accessibility &rarr; Analyze &rarr; 記錄分數</li><li>如果裝了 WAVE：點擊 WAVE 擴充圖示 &rarr; 截圖 errors 和 alerts</li></ul><div class="tip-box">axe 和 Lighthouse 的結果有重疊但也互補。axe 更精確，Lighthouse 會給整體分數。兩個都跑。</div><h4>工具</h4><span class="tool-badge">axe DevTools</span><span class="tool-badge">Lighthouse</span><span class="tool-badge">WAVE (optional)</span>',
   'page-title': '<h4>檢查什麼</h4><p>瀏覽器分頁上的標題是否有意義、能區分不同頁面。</p><h4>操作步驟</h4><ul><li>看瀏覽器分頁上的文字</li><li>確認不是「Untitled」或所有頁面都叫「AIA」</li><li>建議格式：「活動 — APAC AIA」或「APAC AIA | 首頁」</li></ul><div class="tip-box">自動掃描通常已經檢查了這項。如果 axe 沒報錯，快速確認即可。</div>',
-  'headings': '<h4>檢查什麼</h4><p>H1-H6 標題層級是否正確、不跳級。每頁只有一個 H1。</p><h4>操作步驟</h4><ul><li>安裝 <strong>HeadingsMap</strong> Chrome 擴充</li><li>點擊 HeadingsMap 圖示 → 查看標題樹狀結構</li><li>確認：只有一個 H1，層級遞進（H1→H2→H3），不跳級</li><li>如果看到 H1 直接跳到 H3 → 記錄為 issue</li></ul><div class="warn-box">常見問題：Elementor 中為了視覺效果選錯標題層級。字體大小應該用 Style 調，不是改 H tag。</div><h4>工具</h4><span class="tool-badge">HeadingsMap</span>',
-  'images': '<h4>檢查什麼</h4><p>有意義的圖片有 alt text，裝飾性圖片 alt 留空。</p><h4>操作步驟</h4><ul><li>axe/WAVE 通常會列出缺少 alt 的圖片 → 先看自動掃描結果</li><li>對每張有意義的圖片：右鍵 → Inspect → 看 <code>alt</code> 屬性</li><li>確認 alt 描述了圖片的<strong>意義</strong>（不是檔名如 IMG_0234.jpg）</li><li>裝飾性圖片（純裝飾背景）：<code>alt=""</code> 留空</li><li>可點擊的圖片（如 logo 連結）：alt 描述<strong>動作</strong>（如「返回首頁」）</li></ul><div class="warn-box">跨專案經驗：Footer 贊助商 Logo 被設成空 alt，螢幕閱讀器跳過。但它有意義 → 需要 alt。</div>',
-  'contrast': '<h4>檢查什麼</h4><p>文字 vs 背景對比 &gt;= 4.5:1（一般文字）或 &gt;= 3:1（大文字 18pt+）。</p><h4>操作步驟</h4><ul><li>axe/Lighthouse 通常已列出對比度不足的元素 → 先看自動掃描</li><li>開啟 <strong>Colour Contrast Analyser (CCA)</strong></li><li>用滴管工具取文字色和背景色 → 看是否通過</li><li>特別注意：Banner 上的文字、淺色按鈕文字、placeholder 文字</li><li>hover 和 focus 狀態的文字也要測</li></ul><h4>非文字對比</h4><ul><li>按鈕邊框、icon、input 邊框 vs 背景 &gt;= 3:1</li><li>Focus indicator 的對比度</li></ul><h4>工具</h4><span class="tool-badge">CCA</span><span class="tool-badge">axe DevTools</span>',
+  'headings': '<h4>檢查什麼</h4><p>H1-H6 標題層級是否正確、不跳級。每頁只有一個 H1。</p><h4>操作步驟</h4><ul><li>安裝 <strong>HeadingsMap</strong> Chrome 擴充</li><li>點擊 HeadingsMap 圖示 &rarr; 查看標題樹狀結構</li><li>確認：只有一個 H1，層級遞進（H1&rarr;H2&rarr;H3），不跳級</li><li>如果看到 H1 直接跳到 H3 &rarr; 記錄為 issue</li></ul><div class="warn-box">常見問題：Elementor 中為了視覺效果選錯標題層級。字體大小應該用 Style 調，不是改 H tag。</div><h4>工具</h4><span class="tool-badge">HeadingsMap</span>',
+  'images': '<h4>檢查什麼</h4><p>有意義的圖片有 alt text，裝飾性圖片 alt 留空。</p><h4>操作步驟</h4><ul><li>axe/WAVE 通常會列出缺少 alt 的圖片 &rarr; 先看自動掃描結果</li><li>對每張有意義的圖片：右鍵 &rarr; Inspect &rarr; 看 <code>alt</code> 屬性</li><li>確認 alt 描述了圖片的<strong>意義</strong>（不是檔名如 IMG_0234.jpg）</li><li>裝飾性圖片（純裝飾背景）：<code>alt=""</code> 留空</li><li>可點擊的圖片（如 logo 連結）：alt 描述<strong>動作</strong>（如「返回首頁」）</li></ul><div class="warn-box">跨專案經驗：Footer 贊助商 Logo 被設成空 alt，螢幕閱讀器跳過。但它有意義 &rarr; 需要 alt。</div>',
+  'contrast': '<h4>檢查什麼</h4><p>文字 vs 背景對比 &gt;= 4.5:1（一般文字）或 &gt;= 3:1（大文字 18pt+）。</p><h4>操作步驟</h4><ul><li>axe/Lighthouse 通常已列出對比度不足的元素 &rarr; 先看自動掃描</li><li>開啟 <strong>Colour Contrast Analyser (CCA)</strong></li><li>用滴管工具取文字色和背景色 &rarr; 看是否通過</li><li>特別注意：Banner 上的文字、淺色按鈕文字、placeholder 文字</li><li>hover 和 focus 狀態的文字也要測</li></ul><h4>非文字對比</h4><ul><li>按鈕邊框、icon、input 邊框 vs 背景 &gt;= 3:1</li><li>Focus indicator 的對比度</li></ul><h4>工具</h4><span class="tool-badge">CCA</span><span class="tool-badge">axe DevTools</span>',
   'keyboard': '<h4>檢查什麼</h4><p>所有互動元素都能用 Tab 到達、操作、且不會卡住。</p><h4>操作步驟</h4><ul><li>把滑鼠移開螢幕</li><li>從網址列按 <code>Tab</code> 開始</li><li>一路 Tab 到頁面底部，確認：<ul><li>每個連結、按鈕、輸入框都能 Tab 到</li><li>Tab 順序跟視覺順序一致（左到右、上到下）</li><li>每個元素獲得焦點時有<strong>可見的 focus indicator</strong></li><li>不會被 sticky header 或 cookie banner <strong>完全遮住</strong></li></ul></li><li>如有下拉選單：<code>Enter</code> 展開、<code>Esc</code> 關閉</li><li>如有 Carousel/Slider：能否用鍵盤切換</li><li>如有 Popup/Modal：焦點是否移入？<code>Esc</code> 能否關閉？</li></ul><div class="warn-box">這是最重要的手動測試。自動工具無法完整檢測鍵盤問題。至少花 5 分鐘認真 Tab 一輪。</div>',
-  'links': '<h4>檢查什麼</h4><p>連結文字在脫離上下文時仍有意義。不能只靠顏色區分連結。</p><h4>操作步驟</h4><ul><li>掃一眼所有連結文字 → 有沒有「按此」「了解更多」「更多」？</li><li>連結是否有底線或其他非顏色的視覺提示？</li><li>新窗口開啟的連結有沒有提示？</li></ul>',
-  'language': '<h4>檢查什麼</h4><p>頁面宣告正確的主要語言，英文段落有 lang="en" 標記。</p><h4>操作步驟</h4><ul><li>右鍵 → View Page Source → 搜尋 <code>lang=</code></li><li>確認 <code>&lt;html lang="zh-Hant"&gt;</code> 或 <code>zh-TW</code></li><li>如果頁面有整段英文：檢查該區塊是否有 <code>lang="en"</code></li></ul>',
-  'landmarks': '<h4>檢查什麼</h4><p>頁面有 header / nav / main / footer 地標。有 Skip to Content 連結。</p><h4>操作步驟</h4><ul><li>安裝 <strong>Landmarks</strong> Chrome 擴充 → 點擊圖示查看地標</li><li>確認有：header, nav, main, footer（至少 main 要有）</li><li>按 Tab → 第一個可聚焦元素應該是「Skip to Content」連結</li><li>Home 和 Events 之間比對：幫助功能的位置是否一致</li></ul><h4>工具</h4><span class="tool-badge">Landmarks 擴充</span>',
-  'forms': '<h4>檢查什麼</h4><p>每個欄位有 label，錯誤訊息清楚，能用鍵盤完整操作。</p><h4>操作步驟</h4><ul><li>如果頁面沒有表單 → 標記 N/A</li><li>點擊 label 文字 → 對應的 input 是否獲得焦點？</li><li>故意送出空白表單 → 錯誤訊息是否指出哪個欄位有問題？</li><li>故意輸入錯誤格式 → 有沒有修正建議？</li><li>用 Tab 完成整個表單流程</li><li>必填欄位不能只靠紅色星號 → 需有文字說明</li></ul>',
-  'screen-reader': '<h4>檢查什麼</h4><p>用螢幕閱讀器從頭到尾「聽」一遍頁面。</p><h4>準備</h4><ul><li><strong>Mac：</strong>按 <code>Cmd + F5</code> 開啟 VoiceOver</li><li><strong>Windows：</strong>下載 NVDA（免費）→ <code>Ctrl + Alt + N</code> 開啟</li></ul><h4>測試流程</h4><ul><li>頁面載入 → 聽朗讀的頁面標題是否正確</li><li>用 <code>H</code> 鍵跳轉標題 → 順序是否合理？</li><li>用 <code>Tab</code> 跳轉互動元素 → 朗讀內容有意義嗎？</li><li>圖片 → 有聽到替代文字嗎？裝飾性的有被跳過嗎？</li><li>連結 → 用 Links 清單聽所有連結，能單獨理解嗎？</li><li>整體感受：閉著眼睛你知道自己在哪裡嗎？</li></ul><div class="tip-box">不需要精通螢幕閱讀器。開著聽 5-10 分鐘就能發現大部分問題。</div>',
-  'resize': '<h4>檢查什麼</h4><p>放大到 200% 內容不破版。320px 寬度無水平捲軸。</p><h4>操作步驟</h4><ul><li><code>Ctrl/Cmd + +</code> 放大到 200% → 文字是否可見、不重疊？</li><li>DevTools → Toggle Device Toolbar → 設寬度 320px → 有沒有水平捲軸？</li><li>手機模式下所有內容是否正常顯示？</li></ul>',
-  'multimedia': '<h4>檢查什麼</h4><p>影片有字幕、音訊有文字稿、不自動播放。</p><h4>操作步驟</h4><ul><li>如果頁面沒有影片/音訊 → 標記 N/A</li><li>YouTube 嵌入影片：CC 字幕有打開嗎？</li><li>影片播放器能用鍵盤操作嗎？</li><li>有沒有一進頁面就自動播放的媒體？</li></ul>',
-  'target-size': '<h4>檢查什麼</h4><p>可點擊元素至少 24x24 CSS px，或與相鄰目標有足夠間距。</p><h4>操作步驟</h4><ul><li>DevTools → Inspect 按鈕和連結 → 查看實際大小（含 padding）</li><li>特別注意：nav 連結、社群 icon、小按鈕</li><li>行內連結（文字中的連結）不受此規則限制</li></ul>',
-  'drag': '<h4>檢查什麼</h4><p>拖曳操作有非拖曳的替代方式。</p><h4>操作步驟</h4><ul><li>如果沒有 Carousel / Slider / 拖曳功能 → 標記 N/A</li><li>如果有 Carousel：有沒有上一張/下一張的按鈕？</li></ul>'
+  'links': '<h4>檢查什麼</h4><p>連結文字在脫離上下文時仍有意義。不能只靠顏色區分連結。</p><h4>操作步驟</h4><ul><li>掃一眼所有連結文字 &rarr; 有沒有「按此」「了解更多」「更多」？</li><li>連結是否有底線或其他非顏色的視覺提示？</li><li>新窗口開啟的連結有沒有提示？</li></ul>',
+  'language': '<h4>檢查什麼</h4><p>頁面宣告正確的主要語言，英文段落有 lang="en" 標記。</p><h4>操作步驟</h4><ul><li>右鍵 &rarr; View Page Source &rarr; 搜尋 <code>lang=</code></li><li>確認 <code>&lt;html lang="zh-Hant"&gt;</code> 或 <code>zh-TW</code></li><li>如果頁面有整段英文：檢查該區塊是否有 <code>lang="en"</code></li></ul>',
+  'landmarks': '<h4>檢查什麼</h4><p>頁面有 header / nav / main / footer 地標。有 Skip to Content 連結。</p><h4>操作步驟</h4><ul><li>安裝 <strong>Landmarks</strong> Chrome 擴充 &rarr; 點擊圖示查看地標</li><li>確認有：header, nav, main, footer（至少 main 要有）</li><li>按 Tab &rarr; 第一個可聚焦元素應該是「Skip to Content」連結</li><li>Home 和 Events 之間比對：幫助功能的位置是否一致</li></ul><h4>工具</h4><span class="tool-badge">Landmarks 擴充</span>',
+  'forms': '<h4>檢查什麼</h4><p>每個欄位有 label，錯誤訊息清楚，能用鍵盤完整操作。</p><h4>操作步驟</h4><ul><li>如果頁面沒有表單 &rarr; 標記 N/A</li><li>點擊 label 文字 &rarr; 對應的 input 是否獲得焦點？</li><li>故意送出空白表單 &rarr; 錯誤訊息是否指出哪個欄位有問題？</li><li>故意輸入錯誤格式 &rarr; 有沒有修正建議？</li><li>用 Tab 完成整個表單流程</li><li>必填欄位不能只靠紅色星號 &rarr; 需有文字說明</li></ul>',
+  'screen-reader': '<h4>檢查什麼</h4><p>用螢幕閱讀器從頭到尾「聽」一遍頁面。</p><h4>準備</h4><ul><li><strong>Mac：</strong>按 <code>Cmd + F5</code> 開啟 VoiceOver</li><li><strong>Windows：</strong>下載 NVDA（免費）&rarr; <code>Ctrl + Alt + N</code> 開啟</li></ul><h4>測試流程</h4><ul><li>頁面載入 &rarr; 聽朗讀的頁面標題是否正確</li><li>用 <code>H</code> 鍵跳轉標題 &rarr; 順序是否合理？</li><li>用 <code>Tab</code> 跳轉互動元素 &rarr; 朗讀內容有意義嗎？</li><li>圖片 &rarr; 有聽到替代文字嗎？裝飾性的有被跳過嗎？</li><li>連結 &rarr; 用 Links 清單聽所有連結，能單獨理解嗎？</li><li>整體感受：閉著眼睛你知道自己在哪裡嗎？</li></ul><div class="tip-box">不需要精通螢幕閱讀器。開著聽 5-10 分鐘就能發現大部分問題。</div>',
+  'resize': '<h4>檢查什麼</h4><p>放大到 200% 內容不破版。320px 寬度無水平捲軸。</p><h4>操作步驟</h4><ul><li><code>Ctrl/Cmd + +</code> 放大到 200% &rarr; 文字是否可見、不重疊？</li><li>DevTools &rarr; Toggle Device Toolbar &rarr; 設寬度 320px &rarr; 有沒有水平捲軸？</li><li>手機模式下所有內容是否正常顯示？</li></ul>',
+  'multimedia': '<h4>檢查什麼</h4><p>影片有字幕、音訊有文字稿、不自動播放。</p><h4>操作步驟</h4><ul><li>如果頁面沒有影片/音訊 &rarr; 標記 N/A</li><li>YouTube 嵌入影片：CC 字幕有打開嗎？</li><li>影片播放器能用鍵盤操作嗎？</li><li>有沒有一進頁面就自動播放的媒體？</li></ul>',
+  'target-size': '<h4>檢查什麼</h4><p>可點擊元素至少 24x24 CSS px，或與相鄰目標有足夠間距。</p><h4>操作步驟</h4><ul><li>DevTools &rarr; Inspect 按鈕和連結 &rarr; 查看實際大小（含 padding）</li><li>特別注意：nav 連結、社群 icon、小按鈕</li><li>行內連結（文字中的連結）不受此規則限制</li></ul>',
+  'drag': '<h4>檢查什麼</h4><p>拖曳操作有非拖曳的替代方式。</p><h4>操作步驟</h4><ul><li>如果沒有 Carousel / Slider / 拖曳功能 &rarr; 標記 N/A</li><li>如果有 Carousel：有沒有上一張/下一張的按鈕？</li></ul>'
 };
 
-let currentStep = 0;
-let results = {};
-let currentPage = 'home';
+var currentStep = 0;
+var results = {};
+var currentPage = 'home';
 
 function selectPage(page) {
   currentPage = page;
   results = {};
-  const saved = localStorage.getItem('wcag-test-' + page);
+  var saved = localStorage.getItem('wcag-test-' + page);
   if (saved) {
     try { results = JSON.parse(saved); } catch(e) { results = {}; }
   }
@@ -186,36 +209,36 @@ function selectPage(page) {
 }
 
 function render() {
-  const container = document.getElementById('steps-container');
-  // Clear existing content safely
+  var container = document.getElementById('steps-container');
   while (container.firstChild) container.removeChild(container.firstChild);
 
   STEPS.forEach(function(step, i) {
-    const r = results[step.id] || {};
-    const isDone = !!r.status;
-    const isActive = i === currentStep;
+    var r = results[step.id] || {};
+    var isDone = !!r.status;
+    var isFail = r.status === 'fail';
+    var isActive = i === currentStep;
 
-    const div = document.createElement('div');
-    div.className = 'step' + (isActive ? ' active' : '') + (isDone ? ' done' : '');
+    var div = document.createElement('div');
+    div.className = 'step' + (isActive ? ' active' : '') + (isDone && !isFail ? ' done' : '') + (isFail ? ' done-fail' : '');
 
     // Header
-    const header = document.createElement('div');
+    var header = document.createElement('div');
     header.className = 'step-header';
     header.onclick = function() { goToStep(i); };
 
-    const num = document.createElement('div');
+    var num = document.createElement('div');
     num.className = 'step-num';
-    num.textContent = isDone ? '\u2713' : (i + 1);
+    num.textContent = isFail ? '\u2717' : isDone ? '\u2713' : (i + 1);
 
-    const title = document.createElement('div');
+    var title = document.createElement('div');
     title.className = 'step-title';
     title.textContent = step.title;
 
-    const typeBadge = document.createElement('span');
+    var typeBadge = document.createElement('span');
     typeBadge.className = 'step-type type-' + step.type;
     typeBadge.textContent = step.type === 'auto' ? 'Auto' : step.type === 'sr' ? 'Screen Reader' : 'Manual';
 
-    const time = document.createElement('span');
+    var time = document.createElement('span');
     time.className = 'step-time';
     time.textContent = step.time;
 
@@ -224,46 +247,96 @@ function render() {
     header.appendChild(typeBadge);
     header.appendChild(time);
 
-    // Body (static trusted content from STEP_CONTENT)
-    const body = document.createElement('div');
+    // Body
+    var body = document.createElement('div');
     body.className = 'step-body';
 
-    const contentHtml = STEP_CONTENT[step.id] || '';
-    const contentDiv = document.createElement('div');
-    contentDiv.innerHTML = contentHtml; // Safe: content is hardcoded, not user input
+    var contentDiv = document.createElement('div');
+    contentDiv.innerHTML = STEP_CONTENT[step.id] || ''; // Safe: hardcoded content
     body.appendChild(contentDiv);
 
     // Result area
-    const resultArea = document.createElement('div');
+    var resultArea = document.createElement('div');
     resultArea.className = 'result-area';
 
-    const label1 = document.createElement('label');
-    label1.textContent = '結果判定';
+    var label1 = document.createElement('label');
+    label1.textContent = '\u7D50\u679C\u5224\u5B9A';
     resultArea.appendChild(label1);
 
-    const btnRow = document.createElement('div');
+    var btnRow = document.createElement('div');
     btnRow.className = 'btn-row';
 
     ['pass', 'fail', 'na'].forEach(function(status) {
-      const btn = document.createElement('button');
+      var btn = document.createElement('button');
       btn.className = 'btn btn-' + status;
       btn.textContent = status === 'pass' ? 'Pass' : status === 'fail' ? 'Fail' : 'N/A';
+      if (r.status === status) btn.style.outline = '3px solid var(--text)';
       btn.onclick = function() { setResult(step.id, status, i); };
       btnRow.appendChild(btn);
     });
+
+    // GitHub Issue button (only for fail)
+    if (r.status === 'fail') {
+      var issueBtn = document.createElement('button');
+      issueBtn.className = 'btn btn-issue';
+      issueBtn.textContent = 'Open GitHub Issue';
+      issueBtn.onclick = function() { openIssue(step, r); };
+      btnRow.appendChild(issueBtn);
+    }
+
     resultArea.appendChild(btnRow);
 
-    const label2 = document.createElement('label');
-    label2.textContent = '備註 / 問題描述';
+    var label2 = document.createElement('label');
+    label2.textContent = '\u5099\u8A3B';
     label2.style.marginTop = '12px';
     resultArea.appendChild(label2);
 
-    const textarea = document.createElement('textarea');
-    textarea.placeholder = '貼上掃描結果、截圖描述、問題細節...';
+    var textarea = document.createElement('textarea');
+    textarea.placeholder = '\u554F\u984C\u63CF\u8FF0\u3001axe \u5831\u544A\u91CD\u9EDE\u3001\u89C0\u5BDF\u7D50\u679C...';
     textarea.value = r.note || '';
     textarea.oninput = function() { saveNote(step.id, this.value); };
     resultArea.appendChild(textarea);
 
+    // Screenshot paste zone
+    var ssLabel = document.createElement('label');
+    ssLabel.textContent = '\u622A\u5716\uFF08Ctrl+V \u8CBC\u4E0A\uFF09';
+    ssLabel.style.marginTop = '8px';
+    resultArea.appendChild(ssLabel);
+
+    var ssZone = document.createElement('div');
+    ssZone.className = 'screenshot-zone' + ((r.screenshots && r.screenshots.length) ? ' has-images' : '');
+    ssZone.setAttribute('data-step', step.id);
+
+    var ssHint = document.createElement('div');
+    ssHint.textContent = (r.screenshots && r.screenshots.length) ? r.screenshots.length + ' \u5F35\u622A\u5716' : '\u8907\u88FD\u622A\u5716\u5F8C Ctrl+V \u8CBC\u5230\u9019\u88E1';
+    ssZone.appendChild(ssHint);
+
+    // Show existing thumbnails
+    if (r.screenshots && r.screenshots.length) {
+      var thumbs = document.createElement('div');
+      thumbs.className = 'screenshot-thumbs';
+      r.screenshots.forEach(function(dataUrl, idx) {
+        var thumb = document.createElement('div');
+        thumb.className = 'screenshot-thumb';
+        var img = document.createElement('img');
+        img.src = dataUrl;
+        img.alt = 'Screenshot ' + (idx + 1);
+        thumb.appendChild(img);
+        var removeBtn = document.createElement('button');
+        removeBtn.className = 'screenshot-remove';
+        removeBtn.textContent = '\u00D7';
+        removeBtn.onclick = function(e) { e.stopPropagation(); removeScreenshot(step.id, idx); };
+        thumb.appendChild(removeBtn);
+        thumbs.appendChild(thumb);
+      });
+      ssZone.appendChild(thumbs);
+    }
+
+    // Paste handler on the zone
+    ssZone.addEventListener('paste', function(e) { handlePaste(e, step.id); });
+    ssZone.setAttribute('tabindex', '0');
+
+    resultArea.appendChild(ssZone);
     body.appendChild(resultArea);
     div.appendChild(header);
     div.appendChild(body);
@@ -272,6 +345,54 @@ function render() {
 
   updateProgress();
   updateSummary();
+}
+
+// Screenshot paste handler
+function handlePaste(e, stepId) {
+  var items = (e.clipboardData || e.originalEvent.clipboardData).items;
+  for (var i = 0; i < items.length; i++) {
+    if (items[i].type.indexOf('image') !== -1) {
+      e.preventDefault();
+      var blob = items[i].getAsFile();
+      var reader = new FileReader();
+      reader.onload = function(ev) {
+        if (!results[stepId]) results[stepId] = {};
+        if (!results[stepId].screenshots) results[stepId].screenshots = [];
+        results[stepId].screenshots.push(ev.target.result);
+        save();
+        render();
+      };
+      reader.readAsDataURL(blob);
+      return;
+    }
+  }
+}
+
+function removeScreenshot(stepId, idx) {
+  if (results[stepId] && results[stepId].screenshots) {
+    results[stepId].screenshots.splice(idx, 1);
+    save();
+    render();
+  }
+}
+
+// GitHub Issue
+function openIssue(step, r) {
+  var pageName = currentPage === 'home' ? 'Home' : 'Events';
+  var title = '[A11y] ' + step.title + ' - ' + pageName;
+  var body = '## WCAG 2.2 AA Issue\n\n';
+  body += '**Page:** ' + pageName + '\n';
+  body += '**Test step:** ' + step.title + '\n';
+  body += '**Type:** ' + step.type + '\n\n';
+  body += '### Description\n\n' + (r.note || '(no description)') + '\n\n';
+  if (r.screenshots && r.screenshots.length) {
+    body += '### Screenshots\n\n';
+    body += '_' + r.screenshots.length + ' screenshot(s) attached in the testing flow. Please drag-drop them into this issue after creation._\n\n';
+  }
+  body += '---\n_Created from WCAG Testing Flow_';
+
+  var url = 'https://github.com/' + REPO + '/issues/new?title=' + encodeURIComponent(title) + '&body=' + encodeURIComponent(body) + '&labels=a11y';
+  window.open(url, '_blank');
 }
 
 function goToStep(i) {
@@ -301,44 +422,61 @@ function save() {
 }
 
 function updateProgress() {
-  const done = Object.values(results).filter(function(r) { return r.status; }).length;
-  const total = STEPS.length;
-  const pct = Math.round(done / total * 100);
+  var done = Object.values(results).filter(function(r) { return r.status; }).length;
+  var total = STEPS.length;
+  var pct = Math.round(done / total * 100);
   document.getElementById('progress-text').textContent = 'Step ' + done + ' / ' + total;
   document.getElementById('progress-pct').textContent = pct + '%';
   document.getElementById('progress-fill').style.width = pct + '%';
 }
 
 function updateSummary() {
-  const vals = Object.values(results);
-  const pass = vals.filter(function(r) { return r.status === 'pass'; }).length;
-  const fail = vals.filter(function(r) { return r.status === 'fail'; }).length;
-  const na = vals.filter(function(r) { return r.status === 'na'; }).length;
+  var vals = Object.values(results);
+  var pass = vals.filter(function(r) { return r.status === 'pass'; }).length;
+  var fail = vals.filter(function(r) { return r.status === 'fail'; }).length;
+  var na = vals.filter(function(r) { return r.status === 'na'; }).length;
   document.getElementById('sum-pass').textContent = pass;
   document.getElementById('sum-fail').textContent = fail;
   document.getElementById('sum-na').textContent = na;
 
-  const issueList = document.getElementById('issue-list');
+  var issueList = document.getElementById('issue-list');
   while (issueList.firstChild) issueList.removeChild(issueList.firstChild);
 
-  const issues = STEPS.filter(function(s) { return results[s.id] && results[s.id].status === 'fail'; });
+  var issues = STEPS.filter(function(s) { return results[s.id] && results[s.id].status === 'fail'; });
   if (issues.length === 0) {
-    const p = document.createElement('p');
+    var p = document.createElement('p');
     p.style.cssText = 'color:var(--muted); padding:8px;';
     p.textContent = 'No issues found yet.';
     issueList.appendChild(p);
   } else {
     issues.forEach(function(s) {
-      const note = results[s.id].note || '(no description)';
-      const item = document.createElement('div');
+      var r = results[s.id];
+      var item = document.createElement('div');
       item.className = 'issue-item';
-      const stepSpan = document.createElement('strong');
+
+      var left = document.createElement('div');
+      var stepSpan = document.createElement('strong');
       stepSpan.textContent = s.title;
-      const noteSpan = document.createElement('span');
-      noteSpan.style.cssText = 'color:var(--muted); font-size:13px; display:block; margin-top:4px;';
-      noteSpan.textContent = note;
-      item.appendChild(stepSpan);
-      item.appendChild(noteSpan);
+      left.appendChild(stepSpan);
+      var noteSpan = document.createElement('div');
+      noteSpan.style.cssText = 'color:var(--muted); font-size:13px; margin-top:4px;';
+      noteSpan.textContent = r.note || '(no description)';
+      left.appendChild(noteSpan);
+      if (r.screenshots && r.screenshots.length) {
+        var ssCount = document.createElement('div');
+        ssCount.style.cssText = 'font-size:12px; color:var(--secondary); margin-top:4px;';
+        ssCount.textContent = r.screenshots.length + ' screenshot(s)';
+        left.appendChild(ssCount);
+      }
+
+      var issueBtn = document.createElement('button');
+      issueBtn.className = 'btn btn-issue';
+      issueBtn.textContent = 'Open Issue';
+      issueBtn.style.flexShrink = '0';
+      issueBtn.onclick = function() { openIssue(s, r); };
+
+      item.appendChild(left);
+      item.appendChild(issueBtn);
       issueList.appendChild(item);
     });
   }
@@ -348,40 +486,89 @@ function updateSummary() {
   }
 }
 
-function exportReport() {
-  const pageName = currentPage === 'home' ? 'Home 首頁' : 'Events 活動頁';
-  const date = new Date().toISOString().split('T')[0];
-  var md = '# WCAG 2.2 AA Test Report\n\n';
-  md += '- **Page:** ' + pageName + '\n';
-  md += '- **Date:** ' + date + '\n';
-  md += '- **Tester:** \n\n';
-
+function exportHTML() {
+  var pageName = currentPage === 'home' ? 'Home \u9996\u9801' : 'Events \u6D3B\u52D5\u9801';
+  var date = new Date().toISOString().split('T')[0];
   var vals = Object.values(results);
   var pass = vals.filter(function(r) { return r.status === 'pass'; }).length;
   var fail = vals.filter(function(r) { return r.status === 'fail'; }).length;
   var na = vals.filter(function(r) { return r.status === 'na'; }).length;
-  md += '## Summary\n\n| Pass | Fail | N/A |\n|------|------|-----|\n| ' + pass + ' | ' + fail + ' | ' + na + ' |\n\n';
-  md += '## Results\n\n';
+  var total = STEPS.length;
+  var score = total > 0 ? Math.round((pass / (pass + fail || 1)) * 100) : 0;
 
+  var html = '<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">';
+  html += '<title>WCAG Test Report - ' + pageName + ' - ' + date + '</title>';
+  html += '<style>body{font-family:system-ui,sans-serif;max-width:800px;margin:0 auto;padding:24px;color:#2d3748;line-height:1.6}';
+  html += 'h1{color:#1a365d;border-bottom:2px solid #e2e8f0;padding-bottom:12px}';
+  html += '.score{font-size:48px;font-weight:700;text-align:center;padding:24px;border-radius:12px;margin:16px 0}';
+  html += '.score-good{background:#f0fff4;color:#276749}.score-ok{background:#fffff0;color:#b45309}.score-bad{background:#fff5f5;color:#e53e3e}';
+  html += '.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;text-align:center;margin:16px 0}';
+  html += '.stat{padding:16px;border-radius:8px}.stat-pass{background:#f0fff4;color:#276749}.stat-fail{background:#fff5f5;color:#e53e3e}.stat-na{background:#f7fafc;color:#718096}';
+  html += '.stat .n{font-size:28px;font-weight:700}.stat .l{font-size:13px}';
+  html += '.item{border-left:4px solid #e2e8f0;padding:12px 16px;margin:12px 0;border-radius:0 8px 8px 0}';
+  html += '.item-pass{border-color:#276749;background:#f0fff4}.item-fail{border-color:#e53e3e;background:#fff5f5}.item-na{border-color:#a0aec0;background:#f7fafc}';
+  html += '.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600;margin-left:8px}';
+  html += '.badge-pass{background:#276749;color:#fff}.badge-fail{background:#e53e3e;color:#fff}.badge-na{background:#a0aec0;color:#fff}';
+  html += '.note{font-size:13px;color:#596577;margin-top:4px}';
+  html += '.screenshots{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.screenshots img{max-width:300px;border-radius:6px;border:1px solid #e2e8f0}';
+  html += 'footer{margin-top:32px;padding-top:16px;border-top:1px solid #e2e8f0;font-size:12px;color:#a0aec0}';
+  html += '</style></head><body>';
+
+  html += '<h1>WCAG 2.2 AA Test Report</h1>';
+  html += '<p><strong>Page:</strong> ' + pageName + '</p>';
+  html += '<p><strong>Date:</strong> ' + date + '</p>';
+  html += '<p><strong>Standard:</strong> WCAG 2.2 Level AA</p>';
+
+  var scoreClass = score >= 80 ? 'score-good' : score >= 50 ? 'score-ok' : 'score-bad';
+  html += '<div class="score ' + scoreClass + '">' + score + '%</div>';
+
+  html += '<div class="stats">';
+  html += '<div class="stat stat-pass"><div class="n">' + pass + '</div><div class="l">Pass</div></div>';
+  html += '<div class="stat stat-fail"><div class="n">' + fail + '</div><div class="l">Fail</div></div>';
+  html += '<div class="stat stat-na"><div class="n">' + na + '</div><div class="l">N/A</div></div>';
+  html += '</div>';
+
+  html += '<h2>Results</h2>';
   STEPS.forEach(function(s) {
     var r = results[s.id] || {};
-    var status = r.status ? r.status.toUpperCase() : 'NOT TESTED';
-    md += '### ' + s.title + '\n\n';
-    md += '**Result:** ' + status + '\n\n';
-    if (r.note) md += '**Notes:** ' + r.note + '\n\n';
-    md += '---\n\n';
+    var status = r.status || 'not tested';
+    var cls = status === 'pass' ? 'item-pass' : status === 'fail' ? 'item-fail' : 'item-na';
+    var badgeCls = status === 'pass' ? 'badge-pass' : status === 'fail' ? 'badge-fail' : 'badge-na';
+    html += '<div class="item ' + cls + '">';
+    html += '<strong>' + s.title + '</strong><span class="badge ' + badgeCls + '">' + status.toUpperCase() + '</span>';
+    if (r.note) html += '<div class="note">' + r.note.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</div>';
+    if (r.screenshots && r.screenshots.length) {
+      html += '<div class="screenshots">';
+      r.screenshots.forEach(function(dataUrl, idx) {
+        html += '<img src="' + dataUrl + '" alt="Screenshot ' + (idx + 1) + '">';
+      });
+      html += '</div>';
+    }
+    html += '</div>';
   });
 
-  var blob = new Blob([md], { type: 'text/markdown' });
+  html += '<footer>Generated by AIA WCAG Testing Flow</footer>';
+  html += '</body></html>';
+
+  var blob = new Blob([html], { type: 'text/html' });
   var url = URL.createObjectURL(blob);
   var a = document.createElement('a');
   a.href = url;
-  a.download = 'wcag-test-' + currentPage + '-' + date + '.md';
+  a.download = 'wcag-report-' + currentPage + '-' + date + '.html';
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
 }
+
+// Global paste listener (delegates to active step's screenshot zone)
+document.addEventListener('paste', function(e) {
+  var activeZone = document.querySelector('.step.active .screenshot-zone');
+  if (activeZone) {
+    var stepId = activeZone.getAttribute('data-step');
+    handlePaste(e, stepId);
+  }
+});
 
 // Init
 selectPage('home');
