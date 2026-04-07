@@ -394,6 +394,10 @@
   [data-theme="dark"] .table-item.checked { background:#1a3a2a; }
   [data-theme="dark"] .progress-bar-wrap { background:#4a5568; }
 
+  /* PM MODE */
+  body:not(.pm-mode) .item-checkbox { cursor:default; opacity:.6; pointer-events:none; }
+  body:not(.pm-mode) .item-note { pointer-events:none; opacity:.6; }
+
   /* Print styles */
   @media print {
     body { background: white; }
@@ -445,12 +449,13 @@
     </div>
   </div>
 
-  <!-- Toolbar -->
+  <!-- Toolbar (PM only visible when PM mode active) -->
   <div class="toolbar">
-    <button onclick="exportState()">匯出進度 (JSON)</button>
-    <button onclick="document.getElementById('importFile').click()">匯入進度</button>
+    <button id="pm-btn" onclick="togglePM()" style="background:var(--primary); color:#fff;">PM</button>
+    <button class="pm-only" onclick="exportState()" style="display:none;">匯出進度 (JSON)</button>
+    <button class="pm-only" onclick="document.getElementById('importFile').click()" style="display:none;">匯入進度</button>
     <input type="file" id="importFile" accept=".json" style="display:none" onchange="importState(event)">
-    <button class="danger" onclick="resetAll()">重置全部</button>
+    <button class="pm-only danger" onclick="resetAll()" style="display:none;">重置全部</button>
   </div>
 
   <div id="app"></div>
@@ -625,7 +630,36 @@ function updateProgress() {
   });
 }
 
+var PM_HASH = '48a065997cc1fd886d8339dc18fbbe5b850ed67b358a55eb4578f03c524211a8';
+var isPM = false;
+
+function togglePM() {
+  if (isPM) {
+    isPM = false;
+    document.body.classList.remove('pm-mode');
+    document.getElementById('pm-btn').textContent = 'PM';
+    document.getElementById('pm-btn').style.background = 'var(--primary)';
+    document.querySelectorAll('.pm-only').forEach(function(el) { el.style.display = 'none'; });
+    return;
+  }
+  var pw = prompt('PM 密碼：');
+  if (!pw) return;
+  crypto.subtle.digest('SHA-256', new TextEncoder().encode(pw)).then(function(buf) {
+    var hash = Array.from(new Uint8Array(buf)).map(function(b) { return b.toString(16).padStart(2,'0'); }).join('');
+    if (hash === PM_HASH) {
+      isPM = true;
+      document.body.classList.add('pm-mode');
+      document.getElementById('pm-btn').textContent = 'PM ON';
+      document.getElementById('pm-btn').style.background = '#e53e3e';
+      document.querySelectorAll('.pm-only').forEach(function(el) { el.style.display = ''; });
+    } else {
+      alert('密碼錯誤');
+    }
+  });
+}
+
 function toggleCheck(fullId) {
+  if (!isPM) return;
   if (!state[fullId]) state[fullId] = {};
   state[fullId].checked = !state[fullId].checked;
   saveState(state);
