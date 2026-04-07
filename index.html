@@ -216,64 +216,77 @@
 <!-- ====== TAB 1: OVERVIEW ====== -->
 <div id="overview" class="section visible">
   <div class="mou-alert">
-    <h2>Phase 1 範圍</h2>
-    <p><strong>頁面：</strong>首頁（Home）審閱與重新設計 + 活動頁（Events）全新頁面設計</p>
-    <p><strong>平台：</strong>Elementor + Ally: Web accessibility plugin for WordPress（No-code，不含客製化程式開發）</p>
-    <p><strong>合規：</strong>WCAG 2.2 AA + RWD + 中文為主</p>
-    <p><strong>設計師：</strong>Christina（Tiny Oak Studio）</p>
+    <h2>Phase 1：首頁 + 活動頁</h2>
+    <p>Elementor + Ally（No-code） | WCAG 2.2 AA | RWD | 中文為主</p>
+    <p style="margin-top:8px; font-size:14px;"><strong>目標：</strong>所有人 W0 並行準備 &rarr; W1 素材全部到齊 &rarr; Christina 啟動設計。任一項延遲 = 整體延後。</p>
   </div>
 
+  <!-- Schneider -->
+  <div class="card" style="border-left-color: var(--schneider);">
+    <h2 style="color:var(--schneider);">Schneider (TBC) &mdash; 品牌 / 素材設計師</h2>
+    <p style="font-size:13px; color:var(--danger); font-weight:600; margin-bottom:8px;">你的交付直接決定 Christina 能否開工。</p>
+    <ul>
+      <li><strong>Logo SVG 導出</strong> &mdash; 中文版 + 英文版 &times; 淺底 + 深底，共 4 個 SVG 檔 + Favicon</li>
+      <li><strong>品牌色碼</strong> &mdash; 主色、輔色、背景色（HEX 值）。需通過 WCAG 對比度，Bertram 會測</li>
+      <li><strong>字體確認</strong> &mdash; 中文 + 英文字體名稱、粗細、層級規範</li>
+    </ul>
+  </div>
+
+  <!-- Claire -->
+  <div class="card" style="border-left-color: var(--claire);">
+    <h2 style="color:var(--claire);">Claire (TBC) &mdash; 內容創作者</h2>
+    <ul>
+      <li><strong>內容盤點 + 標題層級規劃</strong> &mdash; 首頁和活動頁的資訊架構文件（H1-H6 怎麼排）</li>
+      <li><strong>文案初稿</strong> &mdash; 首頁 + 活動頁，中英雙語，每頁 300-600 字</li>
+      <li>連結文字要有描述性（避免「了解更多」「按此」）</li>
+    </ul>
+  </div>
+
+  <!-- Becky -->
+  <div class="card" style="border-left-color: var(--becky);">
+    <h2 style="color:var(--becky);">Becky (TBC) &mdash; 無障礙測試</h2>
+    <ul>
+      <li><strong>測試工具安裝</strong> &mdash; axe DevTools、Colour Contrast Analyser、HeadingsMap、Landmarks 擴充</li>
+      <li>Mac：確認 VoiceOver 可用 | Windows：下載 NVDA</li>
+      <li>W3 起開始「邊建邊測」&mdash; Christina 建一頁你測一頁</li>
+    </ul>
+  </div>
+
+  <!-- Bertram -->
+  <div class="card" style="border-left-color: var(--bertram);">
+    <h2 style="color:var(--bertram);">Bertram &mdash; 專案經理</h2>
+    <ul>
+      <li><strong>從 Shared Drive 下載圖片</strong> &mdash; 整理到 Web_Assets 資料夾 + 壓縮</li>
+      <li><strong>色碼對比度測試</strong> &mdash; 拿到 Schneider 的色碼後立即用 CCA 測 WCAG 2.2 AA</li>
+      <li><strong>團隊照片選擇</strong> &mdash; 每人 2 版選 1 版（依賴圖片下載完成）</li>
+      <li><strong>社群媒體帳號 URL 清單</strong> &mdash; Facebook / LINE / YouTube / LinkedIn</li>
+      <li><strong>文案協助</strong> &mdash; 與 Claire 共同撰寫首頁 + 活動頁文案</li>
+    </ul>
+  </div>
+
+  <!-- Christina -->
+  <div class="card" style="border-left-color: var(--christina);">
+    <h2 style="color:var(--christina);">Christina &mdash; 網站設計師（Critical Path）</h2>
+    <p style="font-size:13px; color:var(--muted); margin-bottom:8px;">W0 你不需要做任何事。等素材到齊後（W1），你的工作開始：</p>
+    <ul>
+      <li>W2-W3：Wireframe &rarr; Mockup（團隊 5 天內回饋）</li>
+      <li>W3-W5：Elementor 頁面建置 + Ally 外掛設定</li>
+      <li>W7：根據測試結果修正</li>
+    </ul>
+  </div>
+
+  <!-- 團隊共同 -->
   <div class="card">
-    <h2>團隊成員</h2>
-    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:12px; margin-top:12px;">
-      <div style="padding:12px; border-radius:8px; border-top:3px solid var(--christina);">
-        <strong>Christina</strong><br><span style="font-size:13px; color:var(--muted);">網站設計師 + 頁面建置者（Critical Path）</span>
-      </div>
-      <div style="padding:12px; border-radius:8px; border-top:3px solid var(--schneider);">
-        <strong>Schneider (TBC)</strong><br><span style="font-size:13px; color:var(--muted);">品牌 / 素材設計師</span>
-      </div>
-      <div style="padding:12px; border-radius:8px; border-top:3px solid var(--claire);">
-        <strong>Claire (TBC)</strong><br><span style="font-size:13px; color:var(--muted);">內容創作者（W3C Invited Expert）</span>
-      </div>
-      <div style="padding:12px; border-radius:8px; border-top:3px solid var(--becky);">
-        <strong>Becky (TBC)</strong><br><span style="font-size:13px; color:var(--muted);">頁面建置支援 + 無障礙測試</span>
-      </div>
-      <div style="padding:12px; border-radius:8px; border-top:3px solid var(--bertram);">
-        <strong>Bertram</strong><br><span style="font-size:13px; color:var(--muted);">專案經理 + 無障礙測試</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="card" style="border-left-color: var(--danger);">
-    <h2>W0 待辦：並行準備（Christina 啟動前）</h2>
-    <p style="font-size:13px; color:var(--muted); margin-bottom:12px;">以下全部完成 = W1 素材交付日，Christina 正式啟動設計。任一項延遲 = 整體時程延後。</p>
-    <table class="asset-table">
-      <thead><tr><th>#</th><th>行動</th><th>負責人</th><th>阻擋</th></tr></thead>
-      <tbody>
-        <tr><td>1</td><td>Logo SVG 導出（中/英 x 淺/深底共 4 版）+ Favicon</td><td>Schneider (TBC)</td><td style="color:var(--danger); font-weight:600;">阻擋 Christina 啟動</td></tr>
-        <tr><td>2</td><td>品牌色碼 HEX 值 + 字體檔案確認</td><td>Schneider (TBC)</td><td style="color:var(--danger); font-weight:600;">阻擋 Christina 啟動</td></tr>
-        <tr><td>3</td><td>色碼 WCAG 2.2 AA 對比度測試（拿到色碼後立即）</td><td>Bertram</td><td>依賴 #2</td></tr>
-        <tr><td>4</td><td>從 Shared Drive 下載圖片到 Web_Assets + 壓縮優化</td><td>Bertram</td><td>&mdash;</td></tr>
-        <tr><td>5</td><td>內容盤點 + 標題層級規劃（資訊架構文件）</td><td>Claire (TBC)</td><td>&mdash;</td></tr>
-        <tr><td>6</td><td>首頁 + 活動頁文案初稿（中英）</td><td>Claire / Bertram</td><td>&mdash;</td></tr>
-        <tr><td>7</td><td>團隊照片選擇（每人選 1 版）</td><td>Bertram</td><td>依賴 #4</td></tr>
-        <tr><td>8</td><td>社群媒體帳號 URL 清單整理</td><td>Bertram</td><td>&mdash;</td></tr>
-        <tr><td>9</td><td>測試工具安裝確認（axe / CCA / VoiceOver）</td><td>Becky (TBC)</td><td>&mdash;</td></tr>
-        <tr><td>10</td><td>確認是否放置影片（影響版面規劃）</td><td>團隊討論</td><td>W1 前決定</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="card">
-    <h2>後續階段（W1 之後再處理）</h2>
-    <table class="asset-table">
-      <thead><tr><th>行動</th><th>負責人</th><th>階段</th></tr></thead>
-      <tbody>
-        <tr><td>技術與法規文件確認（Privacy Policy, GDPR 等）</td><td>團隊討論</td><td>W3-W5 建置期間</td></tr>
-        <tr><td>Google Analytics 4 (GA4) 整合需求確認</td><td>團隊討論</td><td>W3-W5 建置期間</td></tr>
-        <tr><td>網域 / DNS / 主機存取權限提供</td><td>AIA 團隊</td><td>W3 建置啟動前</td></tr>
-      </tbody>
-    </table>
+    <h2>團隊共同決定（W1 前）</h2>
+    <ul>
+      <li><strong>是否放置影片？</strong> &mdash; 會影響首頁版面規劃</li>
+    </ul>
+    <h2 style="margin-top:16px;">後續階段（W1 之後再處理）</h2>
+    <ul>
+      <li>技術與法規文件（Privacy Policy, GDPR 等）&mdash; W3-W5</li>
+      <li>Google Analytics 4 (GA4) 整合 &mdash; W3-W5</li>
+      <li>網域 / DNS / 主機存取權限 &mdash; W3 前</li>
+    </ul>
   </div>
 </div>
 
