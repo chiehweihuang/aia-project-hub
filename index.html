@@ -23,6 +23,34 @@
     --becky: #4299e1;
     --bertram: #e53e3e;
   }
+  [data-theme="dark"] {
+    --primary: #0f2440;
+    --secondary: #63b3ed;
+    --accent: #ed8936;
+    --success: #48bb78;
+    --warning: #ecc94b;
+    --danger: #fc8181;
+    --bg: #1a202c;
+    --card: #2d3748;
+    --text: #e2e8f0;
+    --muted: #a0aec0;
+    --border: #4a5568;
+  }
+  [data-theme="dark"] .mou-alert, [data-theme="dark"] .alert-box { background:#2d3748; border-color:#b7791f; }
+  [data-theme="dark"] .mou-alert h2, [data-theme="dark"] .alert-box h2 { color:#ecc94b; }
+  [data-theme="dark"] .asset-table th { background:#2d3748; }
+  [data-theme="dark"] .asset-table tr:hover { background:#4a5568; }
+  [data-theme="dark"] .check-item:hover { background:#4a5568; }
+  [data-theme="dark"] .check-item.checked { background:#2f4a3a; }
+  [data-theme="dark"] .checklist-header { background:#2d3748; }
+  [data-theme="dark"] .checklist-header:hover { background:#4a5568; }
+  [data-theme="dark"] #gate { background:#0f2440; }
+  [data-theme="dark"] .gate-box { background:#2d3748; }
+  [data-theme="dark"] .gate-box input { background:#1a202c; color:#e2e8f0; border-color:#4a5568; }
+  [data-theme="dark"] .status-need { background:#5a2020; color:#fc8181; }
+  [data-theme="dark"] .status-partial { background:#5a4a10; color:#ecc94b; }
+  [data-theme="dark"] .status-ready { background:#1a4a2a; color:#68d391; }
+  [data-theme="dark"] .download-card { color:var(--text); }
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family: 'Segoe UI', 'Microsoft JhengHei', sans-serif; background: var(--bg); color: var(--text); line-height:1.6; }
 
@@ -171,7 +199,8 @@
   <button onclick="showSection('checklist',this)">啟動 Checklist</button>
   <button onclick="showSection('downloads',this)">專案文件</button>
   <button onclick="window.open('pages/testing-flow.html','_blank')" style="background:var(--success);">WCAG 測試</button>
-  <button id="admin-btn" onclick="toggleAdmin()" style="margin-left:auto; background:rgba(255,255,255,.18); font-size:11px;">PM</button>
+  <button id="theme-btn" onclick="toggleTheme()" style="margin-left:auto; background:rgba(255,255,255,.18); font-size:11px;" aria-label="切換深色模式">L/D</button>
+  <button id="admin-btn" onclick="toggleAdmin()" style="background:rgba(255,255,255,.18); font-size:11px;">PM</button>
 </nav>
 </header>
 
@@ -449,6 +478,24 @@ function toggleGroup(header) {
   body.classList.toggle('open');
 }
 
+// Theme toggle
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('aia-theme', next);
+  document.getElementById('theme-btn').textContent = next === 'dark' ? 'LT' : 'DK';
+}
+
+// Restore theme
+(function() {
+  const saved = localStorage.getItem('aia-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  if (saved === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+})();
+
 // Admin mode
 const ADMIN_HASH = '48a065997cc1fd886d8339dc18fbbe5b850ed67b358a55eb4578f03c524211a8';
 let isAdmin = false;
@@ -500,6 +547,10 @@ function updateProgress(section) {
 
 // Restore saved state on load
 document.addEventListener('DOMContentLoaded', () => {
+  // Theme button label
+  const themeBtn = document.getElementById('theme-btn');
+  if (themeBtn) themeBtn.textContent = document.documentElement.getAttribute('data-theme') === 'dark' ? 'LT' : 'DK';
+
   document.querySelectorAll('.check-item').forEach(item => {
     const key = item.dataset.key;
     if (key && localStorage.getItem('aia-' + key)) {
