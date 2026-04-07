@@ -84,6 +84,8 @@
   .check-item.checked .check-title { text-decoration:line-through; color:var(--muted); }
   .check-box { width:22px; height:22px; border:2px solid var(--border); border-radius:6px; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px; transition:.2s; background:#fff; }
   .check-box:hover { border-color: var(--secondary); }
+  body:not(.admin-mode) .check-box { cursor:default; opacity:.6; }
+  body:not(.admin-mode) .check-box:hover { border-color: var(--border); }
   .check-item.checked .check-box { background: var(--success); border-color: var(--success); }
   .check-box svg { display:none; width:14px; height:14px; }
   .check-item.checked .check-box svg { display:block; }
@@ -155,6 +157,8 @@
   <button onclick="showSection('structure',this)">工作架構</button>
   <button onclick="showSection('checklist',this)">啟動 Checklist</button>
   <button onclick="showSection('downloads',this)">文件下載</button>
+  <button onclick="window.open('pages/testing-flow.html','_blank')" style="background:var(--success);">WCAG 測試</button>
+  <button id="admin-btn" onclick="toggleAdmin()" style="margin-left:auto; background:rgba(255,255,255,.08); font-size:11px;">管理模式</button>
 </nav>
 
 <!-- ====== TAB 1: OVERVIEW ====== -->
@@ -432,8 +436,34 @@ function toggleGroup(header) {
   body.classList.toggle('open');
 }
 
+// Admin mode
+const ADMIN_HASH = '48a065997cc1fd886d8339dc18fbbe5b850ed67b358a55eb4578f03c524211a8';
+let isAdmin = false;
+
+async function toggleAdmin() {
+  if (isAdmin) {
+    isAdmin = false;
+    document.body.classList.remove('admin-mode');
+    document.getElementById('admin-btn').textContent = '管理模式';
+    document.getElementById('admin-btn').style.background = 'rgba(255,255,255,.08)';
+    return;
+  }
+  const pw = prompt('請輸入管理密碼：');
+  if (!pw) return;
+  const hash = await sha256(pw);
+  if (hash === ADMIN_HASH) {
+    isAdmin = true;
+    document.body.classList.add('admin-mode');
+    document.getElementById('admin-btn').textContent = '管理模式 ON';
+    document.getElementById('admin-btn').style.background = '#e53e3e';
+  } else {
+    alert('管理密碼錯誤');
+  }
+}
+
 // Checkbox toggle with localStorage persistence
 function toggleCheck(box) {
+  if (!isAdmin) return;
   const item = box.closest('.check-item');
   item.classList.toggle('checked');
   const key = item.dataset.key;
