@@ -199,7 +199,7 @@
   <button onclick="showSection('checklist',this)">啟動 Checklist</button>
   <button onclick="showSection('downloads',this)">專案文件</button>
   <button onclick="window.open('pages/testing-flow.html','_blank')" style="background:var(--success);">WCAG 測試</button>
-  <button id="theme-btn" onclick="toggleTheme()" style="margin-left:auto; background:rgba(255,255,255,.18); font-size:11px;" aria-label="切換深色模式">L/D</button>
+  <button id="theme-btn" onclick="toggleTheme()" style="margin-left:auto; background:rgba(255,255,255,.18); font-size:11px;" aria-label="切換深色模式">🌙 Dark</button>
   <button id="admin-btn" onclick="toggleAdmin()" style="background:rgba(255,255,255,.18); font-size:11px;">PM</button>
 </nav>
 </header>
@@ -485,7 +485,7 @@ function toggleTheme() {
   const next = current === 'dark' ? 'light' : 'dark';
   html.setAttribute('data-theme', next);
   localStorage.setItem('aia-theme', next);
-  document.getElementById('theme-btn').textContent = next === 'dark' ? 'LT' : 'DK';
+  document.getElementById('theme-btn').textContent = next === 'dark' ? '\u2600\uFE0F Light' : '\uD83C\uDF19 Dark';
 }
 
 // Restore theme
@@ -549,7 +549,7 @@ function updateProgress(section) {
 document.addEventListener('DOMContentLoaded', () => {
   // Theme button label
   const themeBtn = document.getElementById('theme-btn');
-  if (themeBtn) themeBtn.textContent = document.documentElement.getAttribute('data-theme') === 'dark' ? 'LT' : 'DK';
+  if (themeBtn) themeBtn.textContent = document.documentElement.getAttribute('data-theme') === 'dark' ? '\u2600\uFE0F Light' : '\uD83C\uDF19 Dark';
 
   document.querySelectorAll('.check-item').forEach(item => {
     const key = item.dataset.key;
