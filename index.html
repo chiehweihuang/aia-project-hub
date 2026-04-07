@@ -156,7 +156,7 @@
   <button onclick="showSection('assets',this)">素材清單</button>
   <button onclick="showSection('structure',this)">工作架構</button>
   <button onclick="showSection('checklist',this)">啟動 Checklist</button>
-  <button onclick="showSection('downloads',this)">文件下載</button>
+  <button onclick="showSection('downloads',this)">專案文件</button>
   <button onclick="window.open('pages/testing-flow.html','_blank')" style="background:var(--success);">WCAG 測試</button>
   <button id="admin-btn" onclick="toggleAdmin()" style="margin-left:auto; background:rgba(255,255,255,.08); font-size:11px;">管理模式</button>
 </nav>
@@ -357,32 +357,16 @@
   <iframe class="iframe-wrap" src="pages/checklist.html"></iframe>
 </div>
 
-<!-- ====== TAB 6: DOWNLOADS ====== -->
+<!-- ====== TAB 6: LINKS ====== -->
 <div id="downloads" class="section">
   <div class="card">
-    <h2>原始文件下載</h2>
-    <p>以下為專案相關的原始文件，可直接下載。</p>
+    <h2>專案文件</h2>
+    <p>線上文件，點擊直接開啟最新版。</p>
   </div>
   <div class="download-grid">
-    <a class="download-card" href="docs/AIA_%E7%94%98%E7%89%B9%E5%9C%96_v6.xlsx" download>
+    <a class="download-card" href="https://docs.google.com/spreadsheets/d/1WOc6G5hGGwK2shaiZzb3y08xnJ7UowyJSK9kgIbsRuA/edit?gid=470773879#gid=470773879" target="_blank" rel="noopener">
       <div class="download-icon">&#128202;</div>
-      <div class="download-info"><h4>AIA 甘特圖 v6</h4><p>.xlsx &mdash; 專案時程規劃</p></div>
-    </a>
-    <a class="download-card" href="docs/AIR%202024%20-%20Accessiflow%20-%20translated.xlsx" download>
-      <div class="download-icon">&#128203;</div>
-      <div class="download-info"><h4>AIR 2024 Accessiflow 翻譯版</h4><p>.xlsx &mdash; 無障礙報告</p></div>
-    </a>
-    <a class="download-card" href="docs/Christina-%E7%B4%A0%E6%9D%90%E9%9C%80%E6%B1%82%E6%B8%85%E5%96%AE.docx" download>
-      <div class="download-icon">&#128196;</div>
-      <div class="download-info"><h4>Christina 素材需求清單</h4><p>.docx &mdash; 設計師需求</p></div>
-    </a>
-    <a class="download-card" href="docs/%E7%B4%A0%E6%9D%90%E7%9B%A4%E9%BB%9E%E8%88%87%E8%A1%8C%E5%8B%95%E6%B8%85%E5%96%AE_2026-03-24.docx" download>
-      <div class="download-icon">&#128196;</div>
-      <div class="download-info"><h4>素材盤點與行動清單（2026-03-24）</h4><p>.docx &mdash; 初版盤點</p></div>
-    </a>
-    <a class="download-card" href="docs/%E7%B4%A0%E6%9D%90%E7%9B%A4%E9%BB%9E%E8%88%87%E8%A1%8C%E5%8B%95%E6%B8%85%E5%96%AE_merged_2026-04-06.md" download>
-      <div class="download-icon">&#128221;</div>
-      <div class="download-info"><h4>素材盤點融合版（2026-04-06）</h4><p>.md &mdash; 最新融合版</p></div>
+      <div class="download-info"><h4>AIA 甘特圖 / 時程表</h4><p>Google Sheets &mdash; 即時更新</p></div>
     </a>
   </div>
 </div>
