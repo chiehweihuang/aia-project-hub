@@ -158,7 +158,7 @@
   <button onclick="showSection('checklist',this)">啟動 Checklist</button>
   <button onclick="showSection('downloads',this)">專案文件</button>
   <button onclick="window.open('pages/testing-flow.html','_blank')" style="background:var(--success);">WCAG 測試</button>
-  <button id="admin-btn" onclick="toggleAdmin()" style="margin-left:auto; background:rgba(255,255,255,.08); font-size:11px;">管理模式</button>
+  <button id="admin-btn" onclick="toggleAdmin()" style="margin-left:auto; background:rgba(255,255,255,.08); font-size:11px;">PM</button>
 </nav>
 
 <!-- ====== TAB 1: OVERVIEW ====== -->
@@ -428,7 +428,7 @@ async function toggleAdmin() {
   if (isAdmin) {
     isAdmin = false;
     document.body.classList.remove('admin-mode');
-    document.getElementById('admin-btn').textContent = '管理模式';
+    document.getElementById('admin-btn').textContent = 'PM';
     document.getElementById('admin-btn').style.background = 'rgba(255,255,255,.08)';
     return;
   }
@@ -438,7 +438,7 @@ async function toggleAdmin() {
   if (hash === ADMIN_HASH) {
     isAdmin = true;
     document.body.classList.add('admin-mode');
-    document.getElementById('admin-btn').textContent = '管理模式 ON';
+    document.getElementById('admin-btn').textContent = 'PM ON';
     document.getElementById('admin-btn').style.background = '#e53e3e';
   } else {
     alert('管理密碼錯誤');
