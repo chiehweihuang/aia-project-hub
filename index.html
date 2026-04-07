@@ -24,10 +24,10 @@
     --bertram: #e53e3e;
   }
   [data-theme="dark"] {
-    --primary: #0f2440;
+    --primary: #90cdf4;
     --secondary: #63b3ed;
-    --accent: #ed8936;
-    --success: #48bb78;
+    --accent: #c05621;
+    --success: #276749;
     --warning: #ecc94b;
     --danger: #fc8181;
     --bg: #1a202c;
@@ -36,14 +36,21 @@
     --muted: #a0aec0;
     --border: #4a5568;
   }
-  [data-theme="dark"] .mou-alert, [data-theme="dark"] .alert-box { background:#2d3748; border-color:#b7791f; }
+  [data-theme="dark"] .topnav { background: #0f2440; }
+  [data-theme="dark"] .topnav h1 a { color: #e2e8f0 !important; }
+  [data-theme="dark"] .mou-alert, [data-theme="dark"] .alert-box { background:#2a2a1a; border-color:#b7791f; }
   [data-theme="dark"] .mou-alert h2, [data-theme="dark"] .alert-box h2 { color:#ecc94b; }
-  [data-theme="dark"] .asset-table th { background:#2d3748; }
+  [data-theme="dark"] .card h2 { color: #90cdf4; }
+  [data-theme="dark"] .card h3 { color: #63b3ed; }
+  [data-theme="dark"] .asset-table th { background:#1a365d; }
+  [data-theme="dark"] .asset-table td { border-color:#4a5568; }
   [data-theme="dark"] .asset-table tr:hover { background:#4a5568; }
   [data-theme="dark"] .check-item:hover { background:#4a5568; }
   [data-theme="dark"] .check-item.checked { background:#2f4a3a; }
-  [data-theme="dark"] .checklist-header { background:#2d3748; }
-  [data-theme="dark"] .checklist-header:hover { background:#4a5568; }
+  [data-theme="dark"] .topnav button:hover, [data-theme="dark"] .topnav button.active { background: var(--accent); color:#fff; }
+  [data-theme="dark"] .topnav button[style*="success"] { background: var(--success) !important; }
+  [data-theme="dark"] .checklist-header { background:#1a365d; }
+  [data-theme="dark"] .checklist-header:hover { background:#2a4a6e; }
   [data-theme="dark"] #gate { background:#0f2440; }
   [data-theme="dark"] .gate-box { background:#2d3748; }
   [data-theme="dark"] .gate-box input { background:#1a202c; color:#e2e8f0; border-color:#4a5568; }
