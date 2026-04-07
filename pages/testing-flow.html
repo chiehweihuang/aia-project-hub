@@ -171,6 +171,7 @@
     <div class="issue-list" id="issue-list"></div>
     <div class="export-row">
       <button class="btn-export" onclick="exportHTML()">Export HTML Report</button>
+      <button class="btn-export" onclick="exportJSONL()" style="background:var(--secondary);">Export JSONL</button>
       <button class="btn-export" id="pm-reset-all" style="display:none; background:#e53e3e;" onclick="pmResetAll()">Reset All</button>
     </div>
   </div>
@@ -657,6 +658,63 @@ function exportHTML() {
   var a = document.createElement('a');
   a.href = url;
   a.download = 'wcag-report-' + currentPage + '-' + date + '.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function exportJSONL() {
+  var pageName = currentPage === 'home' ? 'Home' : 'Events';
+  var date = new Date().toISOString().split('T')[0];
+  var ts = new Date().toISOString();
+  var lines = [];
+
+  // Summary line
+  var vals = Object.values(results);
+  var pass = vals.filter(function(r) { return r.status === 'pass'; }).length;
+  var fail = vals.filter(function(r) { return r.status === 'fail'; }).length;
+  var na = vals.filter(function(r) { return r.status === 'na'; }).length;
+  var total = STEPS.length;
+  var score = (pass + fail) > 0 ? Math.round((pass / (pass + fail)) * 100) : 0;
+
+  lines.push(JSON.stringify({
+    type: 'summary',
+    page: pageName,
+    date: date,
+    timestamp: ts,
+    standard: 'WCAG 2.2 AA',
+    total_steps: total,
+    pass: pass,
+    fail: fail,
+    na: na,
+    not_tested: total - pass - fail - na,
+    score_pct: score
+  }));
+
+  // Per-step lines
+  STEPS.forEach(function(s) {
+    var r = results[s.id] || {};
+    var line = {
+      type: 'result',
+      page: pageName,
+      date: date,
+      step_id: s.id,
+      step_title: s.title,
+      step_type: s.type,
+      status: r.status || 'not_tested',
+      note: r.note || '',
+      screenshots: (r.screenshots && r.screenshots.length) ? r.screenshots.length : 0
+    };
+    lines.push(JSON.stringify(line));
+  });
+
+  var content = lines.join('\n') + '\n';
+  var blob = new Blob([content], { type: 'application/jsonl' });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = 'wcag-test-' + currentPage + '-' + date + '.jsonl';
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
