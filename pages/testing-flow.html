@@ -128,10 +128,30 @@
     <option value="home">測試頁面：Home 首頁</option>
     <option value="events">測試頁面：Events 活動頁</option>
   </select>
+  <button id="pm-btn" onclick="pmAction()" style="background:rgba(255,255,255,.18); font-size:11px;">PM</button>
   <a href="../index.html">返回專案總覽</a>
 </nav>
 
 <div class="container">
+  <!-- Instructions -->
+  <div id="instructions" style="background:var(--card); border-radius:12px; padding:20px; margin-bottom:20px; box-shadow:0 1px 4px rgba(0,0,0,.08); border-left:4px solid var(--secondary);">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <h2 style="color:var(--primary); font-size:18px; margin:0;">使用說明</h2>
+      <button onclick="document.getElementById('instructions').style.display='none'" style="background:none; border:none; font-size:18px; cursor:pointer; color:var(--muted);">&#10005;</button>
+    </div>
+    <ol style="padding-left:20px; margin-top:12px; font-size:14px;">
+      <li><strong>選擇測試頁面</strong> -- 上方下拉選單選 Home 或 Events</li>
+      <li><strong>逐步測試</strong> -- 點擊每個 Step 展開操作指引，按照步驟執行</li>
+      <li><strong>標記結果</strong> -- 每步完成後點 <span style="color:var(--success); font-weight:600;">Pass</span> / <span style="color:var(--danger); font-weight:600;">Fail</span> / <span style="color:var(--muted); font-weight:600;">N/A</span></li>
+      <li><strong>貼截圖</strong> -- 發現問題時 <code>Win+Shift+S</code> 截圖，然後 <code>Ctrl+V</code> 貼到該步驟的截圖區</li>
+      <li><strong>寫備註</strong> -- 在備註欄描述問題（axe 報告重點、觀察結果等）</li>
+      <li><strong>開 Issue</strong> -- Fail 的項目會出現「Open GitHub Issue」按鈕，點擊自動建立 issue</li>
+      <li><strong>匯出報告</strong> -- 全部測完後點「Export HTML Report」下載完整報告（含截圖）</li>
+    </ol>
+    <p style="font-size:13px; color:var(--muted); margin-top:12px;">測試結果自動儲存在你的瀏覽器中。換電腦或清除瀏覽器資料會遺失。完成後請務必匯出報告。</p>
+    <p style="font-size:13px; color:var(--muted); margin-top:4px;">預估時間：每頁約 60-90 分鐘（首次測試）。</p>
+  </div>
+
   <div class="progress-label">
     <span id="progress-text">Step 0 / 0</span>
     <span id="progress-pct">0%</span>
@@ -158,40 +178,86 @@
 <script>
 var REPO = 'chiehweihuang/aia-project-hub';
 
+var ADMIN_HASH = '48a065997cc1fd886d8339dc18fbbe5b850ed67b358a55eb4578f03c524211a8';
+
+function pmAction() {
+  var pw = prompt('PM 密碼：');
+  if (!pw) return;
+  crypto.subtle.digest('SHA-256', new TextEncoder().encode(pw)).then(function(buf) {
+    var hash = Array.from(new Uint8Array(buf)).map(function(b) { return b.toString(16).padStart(2,'0'); }).join('');
+    if (hash === ADMIN_HASH) {
+      if (confirm('清除「' + (currentPage === 'home' ? 'Home 首頁' : 'Events 活動頁') + '」的所有測試結果？')) {
+        localStorage.removeItem('wcag-test-' + currentPage);
+        results = {};
+        currentStep = 0;
+        document.getElementById('summary').classList.remove('visible');
+        render();
+        alert('已清除。');
+      }
+    } else {
+      alert('密碼錯誤');
+    }
+  });
+}
+
 var STEPS = [
   { id:'auto-scan', title:'Step 1：自動化掃描', time:'~5 min', type:'auto' },
   { id:'page-title', title:'Step 2：頁面標題', time:'~1 min', type:'manual' },
   { id:'headings', title:'Step 3：標題結構', time:'~3 min', type:'manual' },
-  { id:'images', title:'Step 4：圖片替代文字', time:'~5 min', type:'manual' },
-  { id:'contrast', title:'Step 5：色彩對比度', time:'~5 min', type:'manual' },
-  { id:'keyboard', title:'Step 6：鍵盤導覽', time:'~8 min', type:'manual' },
-  { id:'links', title:'Step 7：連結文字', time:'~3 min', type:'manual' },
-  { id:'language', title:'Step 8：語言設定', time:'~2 min', type:'manual' },
-  { id:'landmarks', title:'Step 9：頁面地標', time:'~3 min', type:'manual' },
-  { id:'forms', title:'Step 10：表單', time:'~5 min', type:'manual' },
-  { id:'screen-reader', title:'Step 11：螢幕閱讀器測試', time:'~10 min', type:'sr' },
-  { id:'resize', title:'Step 12：文字放大與響應式', time:'~3 min', type:'manual' },
-  { id:'multimedia', title:'Step 13：多媒體', time:'~3 min', type:'manual' },
-  { id:'target-size', title:'Step 14：觸控目標大小（WCAG 2.2）', time:'~2 min', type:'manual' },
-  { id:'drag', title:'Step 15：拖曳替代（WCAG 2.2）', time:'~1 min', type:'manual' }
+  { id:'info-images', title:'Step 4：資訊性圖片', time:'~5 min', type:'manual' },
+  { id:'func-images', title:'Step 5：功能性圖片（按鈕/連結）', time:'~3 min', type:'manual' },
+  { id:'deco-images', title:'Step 6：裝飾性圖片', time:'~2 min', type:'manual' },
+  { id:'contrast', title:'Step 7：文字對比度', time:'~5 min', type:'manual' },
+  { id:'non-text-contrast', title:'Step 8：非文字對比度', time:'~3 min', type:'manual' },
+  { id:'color-use', title:'Step 9：色彩使用（不能只靠顏色）', time:'~2 min', type:'manual' },
+  { id:'keyboard', title:'Step 10：鍵盤導覽', time:'~8 min', type:'manual' },
+  { id:'focus-visible', title:'Step 11：焦點可見性', time:'~3 min', type:'manual' },
+  { id:'focus-obscured', title:'Step 12：焦點不被遮擋（WCAG 2.2）', time:'~2 min', type:'manual' },
+  { id:'links', title:'Step 13：連結文字', time:'~3 min', type:'manual' },
+  { id:'language', title:'Step 14：語言設定', time:'~2 min', type:'manual' },
+  { id:'landmarks', title:'Step 15：頁面地標 + Skip Link', time:'~3 min', type:'manual' },
+  { id:'lists', title:'Step 16：列表結構', time:'~2 min', type:'manual' },
+  { id:'nav-consistency', title:'Step 17：導覽一致性 + Consistent Help（WCAG 2.2）', time:'~3 min', type:'manual' },
+  { id:'forms', title:'Step 18：表單', time:'~5 min', type:'manual' },
+  { id:'errors', title:'Step 19：錯誤識別與建議', time:'~3 min', type:'manual' },
+  { id:'redundant-entry', title:'Step 20：重複輸入（WCAG 2.2）', time:'~1 min', type:'manual' },
+  { id:'widget-a11y', title:'Step 21：Widget 無障礙（Elementor）', time:'~5 min', type:'manual' },
+  { id:'resize', title:'Step 22：文字放大與響應式', time:'~3 min', type:'manual' },
+  { id:'multimedia', title:'Step 23：多媒體', time:'~3 min', type:'manual' },
+  { id:'target-size', title:'Step 24：觸控目標大小（WCAG 2.2）', time:'~2 min', type:'manual' },
+  { id:'drag', title:'Step 25：拖曳替代（WCAG 2.2）', time:'~1 min', type:'manual' },
+  { id:'auth', title:'Step 26：無障礙認證（WCAG 2.2）', time:'~1 min', type:'manual' },
+  { id:'screen-reader', title:'Step 27：螢幕閱讀器綜合測試', time:'~10 min', type:'sr' }
 ];
 
 var STEP_CONTENT = {
   'auto-scan': '<h4>做什麼</h4><p>用自動化工具先掃一輪，抓出機器能檢測到的問題（約佔 WCAG 項目的 30-40%）。</p><h4>操作步驟</h4><ul><li>在 Chrome 開啟要測試的頁面</li><li>按 <code>F12</code> 打開 DevTools</li><li><strong>axe DevTools：</strong>切到 axe 分頁 &rarr; Scan All of My Page &rarr; 等待結果</li><li><strong>Lighthouse：</strong>切到 Lighthouse 分頁 &rarr; 只勾 Accessibility &rarr; Analyze &rarr; 記錄分數</li><li>如果裝了 WAVE：點擊 WAVE 擴充圖示 &rarr; 截圖 errors 和 alerts</li></ul><div class="tip-box">axe 和 Lighthouse 的結果有重疊但也互補。axe 更精確，Lighthouse 會給整體分數。兩個都跑。</div><h4>工具</h4><span class="tool-badge">axe DevTools</span><span class="tool-badge">Lighthouse</span><span class="tool-badge">WAVE (optional)</span>',
   'page-title': '<h4>檢查什麼</h4><p>瀏覽器分頁上的標題是否有意義、能區分不同頁面。</p><h4>操作步驟</h4><ul><li>看瀏覽器分頁上的文字</li><li>確認不是「Untitled」或所有頁面都叫「AIA」</li><li>建議格式：「活動 — APAC AIA」或「APAC AIA | 首頁」</li></ul><div class="tip-box">自動掃描通常已經檢查了這項。如果 axe 沒報錯，快速確認即可。</div>',
   'headings': '<h4>檢查什麼</h4><p>H1-H6 標題層級是否正確、不跳級。每頁只有一個 H1。</p><h4>操作步驟</h4><ul><li>安裝 <strong>HeadingsMap</strong> Chrome 擴充</li><li>點擊 HeadingsMap 圖示 &rarr; 查看標題樹狀結構</li><li>確認：只有一個 H1，層級遞進（H1&rarr;H2&rarr;H3），不跳級</li><li>如果看到 H1 直接跳到 H3 &rarr; 記錄為 issue</li></ul><div class="warn-box">常見問題：Elementor 中為了視覺效果選錯標題層級。字體大小應該用 Style 調，不是改 H tag。</div><h4>工具</h4><span class="tool-badge">HeadingsMap</span>',
-  'images': '<h4>檢查什麼</h4><p>有意義的圖片有 alt text，裝飾性圖片 alt 留空。</p><h4>操作步驟</h4><ul><li>axe/WAVE 通常會列出缺少 alt 的圖片 &rarr; 先看自動掃描結果</li><li>對每張有意義的圖片：右鍵 &rarr; Inspect &rarr; 看 <code>alt</code> 屬性</li><li>確認 alt 描述了圖片的<strong>意義</strong>（不是檔名如 IMG_0234.jpg）</li><li>裝飾性圖片（純裝飾背景）：<code>alt=""</code> 留空</li><li>可點擊的圖片（如 logo 連結）：alt 描述<strong>動作</strong>（如「返回首頁」）</li></ul><div class="warn-box">跨專案經驗：Footer 贊助商 Logo 被設成空 alt，螢幕閱讀器跳過。但它有意義 &rarr; 需要 alt。</div>',
-  'contrast': '<h4>檢查什麼</h4><p>文字 vs 背景對比 &gt;= 4.5:1（一般文字）或 &gt;= 3:1（大文字 18pt+）。</p><h4>操作步驟</h4><ul><li>axe/Lighthouse 通常已列出對比度不足的元素 &rarr; 先看自動掃描</li><li>開啟 <strong>Colour Contrast Analyser (CCA)</strong></li><li>用滴管工具取文字色和背景色 &rarr; 看是否通過</li><li>特別注意：Banner 上的文字、淺色按鈕文字、placeholder 文字</li><li>hover 和 focus 狀態的文字也要測</li></ul><h4>非文字對比</h4><ul><li>按鈕邊框、icon、input 邊框 vs 背景 &gt;= 3:1</li><li>Focus indicator 的對比度</li></ul><h4>工具</h4><span class="tool-badge">CCA</span><span class="tool-badge">axe DevTools</span>',
+  'info-images': '<h4>檢查什麼</h4><p>有意義的圖片（團隊照片、活動照片、贊助商 Logo）必須有描述性 alt text。</p><h4>操作步驟</h4><ul><li>axe/WAVE 會列出缺少 alt 的圖片 &rarr; 先看自動掃描結果</li><li>對每張有意義的圖片：右鍵 &rarr; Inspect &rarr; 看 <code>alt</code> 屬性</li><li>alt 要描述圖片的<strong>意義</strong>（如「KOOP 贊助商標誌」），不是檔名</li><li>確認沒有 <code>alt="IMG_0234.jpg"</code> 這種</li></ul><div class="warn-box">跨專案經驗：Footer 贊助商 Logo 被設成空 alt，螢幕閱讀器完全跳過。但它在傳達「這是贊助商」&rarr; 需要 alt。</div><h4>WCAG</h4><span class="tool-badge">SC 1.1.1 Non-text Content (A)</span>',
+  'func-images': '<h4>檢查什麼</h4><p>可點擊的圖片（Logo 連結、社群 icon、圖片按鈕）的 alt 要描述<strong>動作/目的地</strong>，不是圖片外觀。</p><h4>操作步驟</h4><ul><li>找出所有可點擊的圖片和 Icon</li><li>alt 應該是「返回首頁」而非「箭頭圖示」</li><li>Social Icons：確認螢幕閱讀器朗讀「Facebook 連結」而非「圖片」</li><li>如果圖片旁邊已有文字連結，圖片 alt 可留空（避免重複朗讀）</li></ul><h4>WCAG</h4><span class="tool-badge">SC 1.1.1 Non-text Content (A)</span>',
+  'deco-images': '<h4>檢查什麼</h4><p>純裝飾的圖片（背景圖、分隔線、裝飾圖形）的 alt 必須留空。</p><h4>操作步驟</h4><ul><li>確認裝飾性圖片有 <code>alt=""</code>（空字串，不是沒有 alt）</li><li>背景圖用 CSS background-image 的不需要 alt（本身就不會被朗讀）</li><li>螢幕閱讀器測試：裝飾性圖片應該被完全跳過</li></ul><h4>WCAG</h4><span class="tool-badge">SC 1.1.1 Non-text Content (A)</span>',
+  'contrast': '<h4>檢查什麼</h4><p>文字 vs 背景對比 &gt;= 4.5:1（一般文字）或 &gt;= 3:1（大文字 18pt+）。</p><h4>操作步驟</h4><ul><li>axe/Lighthouse 通常已列出對比度不足的元素 &rarr; 先看自動掃描</li><li>開啟 <strong>Colour Contrast Analyser (CCA)</strong></li><li>用滴管工具取文字色和背景色 &rarr; 看是否通過</li><li>特別注意：Banner 上的文字、淺色按鈕文字、placeholder 文字</li><li>hover 和 focus 狀態的文字也要測</li></ul><h4>工具</h4><span class="tool-badge">CCA</span><span class="tool-badge">axe DevTools</span><h4>WCAG</h4><span class="tool-badge">SC 1.4.3 Contrast Minimum (AA)</span>',
+  'non-text-contrast': '<h4>檢查什麼</h4><p>按鈕邊框、input 邊框、icon 等 UI 元件與背景的對比 &gt;= 3:1。</p><h4>操作步驟</h4><ul><li>用 CCA 測試按鈕邊框/背景與周圍背景</li><li>Form input 邊框與背景</li><li>Icon 與背景（各狀態：normal, hover）</li><li>Focus indicator 的對比度</li></ul><h4>WCAG</h4><span class="tool-badge">SC 1.4.11 Non-text Contrast (AA)</span>',
+  'color-use': '<h4>檢查什麼</h4><p>不能只靠顏色傳達資訊。把螢幕調成灰階，資訊是否仍可理解？</p><h4>操作步驟</h4><ul><li>Chrome DevTools &rarr; Rendering &rarr; Emulate vision deficiencies &rarr; Achromatopsia（灰階）</li><li>連結是否有底線或其他非顏色提示？</li><li>錯誤訊息不能只用紅色 &rarr; 需有 icon 或文字</li><li>必填欄位不能只用紅色星號 &rarr; 需有文字說明</li></ul><h4>WCAG</h4><span class="tool-badge">SC 1.4.1 Use of Color (A)</span>',
   'keyboard': '<h4>檢查什麼</h4><p>所有互動元素都能用 Tab 到達、操作、且不會卡住。</p><h4>操作步驟</h4><ul><li>把滑鼠移開螢幕</li><li>從網址列按 <code>Tab</code> 開始</li><li>一路 Tab 到頁面底部，確認：<ul><li>每個連結、按鈕、輸入框都能 Tab 到</li><li>Tab 順序跟視覺順序一致（左到右、上到下）</li><li>每個元素獲得焦點時有<strong>可見的 focus indicator</strong></li><li>不會被 sticky header 或 cookie banner <strong>完全遮住</strong></li></ul></li><li>如有下拉選單：<code>Enter</code> 展開、<code>Esc</code> 關閉</li><li>如有 Carousel/Slider：能否用鍵盤切換</li><li>如有 Popup/Modal：焦點是否移入？<code>Esc</code> 能否關閉？</li></ul><div class="warn-box">這是最重要的手動測試。自動工具無法完整檢測鍵盤問題。至少花 5 分鐘認真 Tab 一輪。</div>',
   'links': '<h4>檢查什麼</h4><p>連結文字在脫離上下文時仍有意義。不能只靠顏色區分連結。</p><h4>操作步驟</h4><ul><li>掃一眼所有連結文字 &rarr; 有沒有「按此」「了解更多」「更多」？</li><li>連結是否有底線或其他非顏色的視覺提示？</li><li>新窗口開啟的連結有沒有提示？</li></ul>',
   'language': '<h4>檢查什麼</h4><p>頁面宣告正確的主要語言，英文段落有 lang="en" 標記。</p><h4>操作步驟</h4><ul><li>右鍵 &rarr; View Page Source &rarr; 搜尋 <code>lang=</code></li><li>確認 <code>&lt;html lang="zh-Hant"&gt;</code> 或 <code>zh-TW</code></li><li>如果頁面有整段英文：檢查該區塊是否有 <code>lang="en"</code></li></ul>',
-  'landmarks': '<h4>檢查什麼</h4><p>頁面有 header / nav / main / footer 地標。有 Skip to Content 連結。</p><h4>操作步驟</h4><ul><li>安裝 <strong>Landmarks</strong> Chrome 擴充 &rarr; 點擊圖示查看地標</li><li>確認有：header, nav, main, footer（至少 main 要有）</li><li>按 Tab &rarr; 第一個可聚焦元素應該是「Skip to Content」連結</li><li>Home 和 Events 之間比對：幫助功能的位置是否一致</li></ul><h4>工具</h4><span class="tool-badge">Landmarks 擴充</span>',
-  'forms': '<h4>檢查什麼</h4><p>每個欄位有 label，錯誤訊息清楚，能用鍵盤完整操作。</p><h4>操作步驟</h4><ul><li>如果頁面沒有表單 &rarr; 標記 N/A</li><li>點擊 label 文字 &rarr; 對應的 input 是否獲得焦點？</li><li>故意送出空白表單 &rarr; 錯誤訊息是否指出哪個欄位有問題？</li><li>故意輸入錯誤格式 &rarr; 有沒有修正建議？</li><li>用 Tab 完成整個表單流程</li><li>必填欄位不能只靠紅色星號 &rarr; 需有文字說明</li></ul>',
+  'focus-visible': '<h4>檢查什麼</h4><p>用鍵盤 Tab 時，目前選到的元素有清晰可見的 focus 指示器（方框、底線、色變）。</p><h4>操作步驟</h4><ul><li>Tab 遍歷所有元素，每個都要有<strong>可見的</strong> focus 指示器</li><li>確認主題或 Elementor 沒有用 <code>outline: none</code> 移除預設 focus</li><li>不同背景色的區段都測一下（淺色背景 + 深色背景）</li></ul><h4>WCAG</h4><span class="tool-badge">SC 2.4.7 Focus Visible (AA)</span>',
+  'focus-obscured': '<h4>檢查什麼</h4><p>獲得焦點的元素不能被 sticky header、cookie banner 或浮動選單<strong>完全</strong>遮擋。</p><h4>操作步驟</h4><ul><li>Tab 到頁面中段，特別注意 sticky header 下方的元素</li><li>如有 cookie 同意橫幅，Tab 到被橫幅覆蓋的區域</li><li>焦點元素至少要<strong>部分可見</strong></li></ul><div class="warn-box">如果有 Elementor Sticky Header，這項很容易失敗。</div><h4>WCAG</h4><span class="tool-badge">SC 2.4.11 Focus Not Obscured (AA) NEW</span>',
+  'landmarks': '<h4>檢查什麼</h4><p>頁面有 header / nav / main / footer 地標。有 Skip to Content 連結。</p><h4>操作步驟</h4><ul><li>安裝 <strong>Landmarks</strong> Chrome 擴充 &rarr; 點擊圖示查看地標</li><li>確認有：header, nav, main, footer（至少 main 要有）</li><li>按 Tab &rarr; 第一個可聚焦元素應該是「Skip to Content」連結</li><li>點擊 Skip Link 是否跳到主要內容區</li></ul><h4>工具</h4><span class="tool-badge">Landmarks 擴充</span><h4>WCAG</h4><span class="tool-badge">SC 1.3.1 (A)</span><span class="tool-badge">SC 2.4.1 Bypass Blocks (A)</span>',
+  'lists': '<h4>檢查什麼</h4><p>看起來像列表的東西，程式碼裡也要是真正的列表結構。</p><h4>操作步驟</h4><ul><li>螢幕閱讀器應朗讀「列表，X 個項目」</li><li>確認沒有用手打「&#8226;」符號模擬列表（應使用 HTML list）</li><li>導覽選單應輸出為列表結構</li></ul><h4>WCAG</h4><span class="tool-badge">SC 1.3.1 Info and Relationships (A)</span>',
+  'nav-consistency': '<h4>檢查什麼</h4><p>選單在每一頁都相同位置、相同順序。幫助機制位置一致。</p><h4>操作步驟</h4><ul><li>在 Home 和 Events 之間切換，比對：<ul><li>主導覽列位置和順序相同</li><li>相同功能用相同名稱和 icon</li><li>Footer 連結一致</li><li>聯絡/幫助功能在相同相對位置</li></ul></li></ul><h4>WCAG</h4><span class="tool-badge">SC 3.2.3 Consistent Navigation (AA)</span><span class="tool-badge">SC 3.2.6 Consistent Help (A) NEW</span>',
+  'forms': '<h4>檢查什麼</h4><p>每個欄位有 label，能用鍵盤完整操作。</p><h4>操作步驟</h4><ul><li>如果頁面沒有表單 &rarr; 標記 N/A</li><li>點擊 label 文字 &rarr; 對應的 input 是否獲得焦點？</li><li>Placeholder 不能替代 Label</li><li>用 Tab 完成整個表單流程（填寫、選擇、送出）</li><li>必填欄位不能只靠紅色星號</li></ul><h4>WCAG</h4><span class="tool-badge">SC 1.3.1 (A)</span><span class="tool-badge">SC 3.3.2 Labels (A)</span><span class="tool-badge">SC 4.1.2 Name, Role, Value (A)</span>',
+  'errors': '<h4>檢查什麼</h4><p>填錯表單時，錯誤訊息指出哪個欄位有問題，並建議怎麼改。</p><h4>操作步驟</h4><ul><li>如果頁面沒有表單 &rarr; 標記 N/A</li><li>故意送出空白必填表單 &rarr; 錯誤訊息是否指出哪個欄位？</li><li>輸入錯誤格式（如 email）&rarr; 有沒有修正建議？</li><li>錯誤訊息不能只靠紅色</li><li>焦點是否移至第一個錯誤欄位？</li></ul><h4>WCAG</h4><span class="tool-badge">SC 3.3.1 Error Identification (A)</span><span class="tool-badge">SC 3.3.3 Error Suggestion (AA)</span>',
+  'redundant-entry': '<h4>檢查什麼</h4><p>同一個表單流程中，不重複要求使用者輸入已填過的資料。</p><h4>操作步驟</h4><ul><li>如果沒有多步驟表單 &rarr; 標記 N/A</li><li>走完整個表單流程，檢查是否要求重複輸入</li></ul><h4>WCAG</h4><span class="tool-badge">SC 3.3.7 Redundant Entry (A) NEW</span>',
+  'widget-a11y': '<h4>檢查什麼</h4><p>Elementor Widget（手風琴、分頁、輪播等）是否有正確的 ARIA 標記。</p><h4>操作步驟</h4><ul><li>用 axe DevTools 掃描</li><li>Accordion/Toggle Widget：能否用 Enter 展開收合？螢幕閱讀器朗讀「已展開/已收合」？</li><li>Tab Widget：能否用方向鍵切換分頁？</li><li>Carousel/Slider：能否用鍵盤操作？有 aria-live 公告？</li><li>如果沒有使用這些 Widget &rarr; 標記 N/A</li></ul><div class="warn-box">Elementor 的 Accordion 已知有鍵盤問題。如發現無法操作，記錄為平台限制。</div><h4>WCAG</h4><span class="tool-badge">SC 4.1.2 Name, Role, Value (A)</span>',
   'screen-reader': '<h4>檢查什麼</h4><p>用螢幕閱讀器從頭到尾「聽」一遍頁面。</p><h4>準備</h4><ul><li><strong>Mac：</strong>按 <code>Cmd + F5</code> 開啟 VoiceOver</li><li><strong>Windows：</strong>下載 NVDA（免費）&rarr; <code>Ctrl + Alt + N</code> 開啟</li></ul><h4>測試流程</h4><ul><li>頁面載入 &rarr; 聽朗讀的頁面標題是否正確</li><li>用 <code>H</code> 鍵跳轉標題 &rarr; 順序是否合理？</li><li>用 <code>Tab</code> 跳轉互動元素 &rarr; 朗讀內容有意義嗎？</li><li>圖片 &rarr; 有聽到替代文字嗎？裝飾性的有被跳過嗎？</li><li>連結 &rarr; 用 Links 清單聽所有連結，能單獨理解嗎？</li><li>整體感受：閉著眼睛你知道自己在哪裡嗎？</li></ul><div class="tip-box">不需要精通螢幕閱讀器。開著聽 5-10 分鐘就能發現大部分問題。</div>',
   'resize': '<h4>檢查什麼</h4><p>放大到 200% 內容不破版。320px 寬度無水平捲軸。</p><h4>操作步驟</h4><ul><li><code>Ctrl/Cmd + +</code> 放大到 200% &rarr; 文字是否可見、不重疊？</li><li>DevTools &rarr; Toggle Device Toolbar &rarr; 設寬度 320px &rarr; 有沒有水平捲軸？</li><li>手機模式下所有內容是否正常顯示？</li></ul>',
   'multimedia': '<h4>檢查什麼</h4><p>影片有字幕、音訊有文字稿、不自動播放。</p><h4>操作步驟</h4><ul><li>如果頁面沒有影片/音訊 &rarr; 標記 N/A</li><li>YouTube 嵌入影片：CC 字幕有打開嗎？</li><li>影片播放器能用鍵盤操作嗎？</li><li>有沒有一進頁面就自動播放的媒體？</li></ul>',
   'target-size': '<h4>檢查什麼</h4><p>可點擊元素至少 24x24 CSS px，或與相鄰目標有足夠間距。</p><h4>操作步驟</h4><ul><li>DevTools &rarr; Inspect 按鈕和連結 &rarr; 查看實際大小（含 padding）</li><li>特別注意：nav 連結、社群 icon、小按鈕</li><li>行內連結（文字中的連結）不受此規則限制</li></ul>',
-  'drag': '<h4>檢查什麼</h4><p>拖曳操作有非拖曳的替代方式。</p><h4>操作步驟</h4><ul><li>如果沒有 Carousel / Slider / 拖曳功能 &rarr; 標記 N/A</li><li>如果有 Carousel：有沒有上一張/下一張的按鈕？</li></ul>'
+  'drag': '<h4>檢查什麼</h4><p>拖曳操作有非拖曳的替代方式。</p><h4>操作步驟</h4><ul><li>如果沒有 Carousel / Slider / 拖曳功能 &rarr; 標記 N/A</li><li>如果有 Carousel：有沒有上一張/下一張的按鈕？</li></ul><h4>WCAG</h4><span class="tool-badge">SC 2.5.7 Dragging Movements (AA) NEW</span>',
+  'auth': '<h4>檢查什麼</h4><p>認證流程不能要求認知功能測試（記憶密碼、解謎 CAPTCHA）。</p><h4>操作步驟</h4><ul><li>如果沒有登入/註冊功能 &rarr; 標記 N/A</li><li>如果有：支援密碼管理器自動填入嗎？</li><li>有 CAPTCHA 嗎？有替代方式嗎？</li></ul><h4>WCAG</h4><span class="tool-badge">SC 3.3.8 Accessible Authentication (AA) NEW</span>'
 };
 
 var currentStep = 0;
