@@ -303,64 +303,76 @@
     <p>Home（重新設計）+ Events（新頁面）。每個里程碑交付物最多 2 次小幅修訂。內容凍結於建置階段後。</p>
   </div>
   <div class="card">
-    <h2>工作流程（5 階段）</h2>
-    <p>每個階段都內嵌 A11y 交付標準（Shift-Left），不另外安排獨立無障礙審查任務。所有頁面建置使用 Elementor + Ally 外掛。</p>
+    <h2>工作流程（6 階段，W0-W8）</h2>
+    <p>以 Christina（Critical Path）為主軸排程：所有人的工作圍繞「Christina 什麼時候需要什麼」來安排。每個階段都內嵌 A11y 交付標準（Shift-Left）。建置平台：Elementor + Ally 外掛。</p>
+    <p style="margin-top:8px; font-size:13px; color:var(--danger);"><strong>最大風險：</strong>W0 的素材交付。如果 Logo SVG / 色碼 / 字體延遲，整條鏈往後推。</p>
   </div>
   <div class="flow-container">
     <div class="flow">
       <div class="flow-phase phase-1">
-        <div class="phase-header">Phase 1：素材準備<br>W1-W2</div>
+        <div class="phase-header">W0：並行準備<br>（Christina 尚未啟動）</div>
         <div class="phase-body">
-          <div class="task task-schneider"><div class="owner">Schneider</div>品牌色彩系統<br>✅ 色彩對比度 ≥ 4.5:1</div>
-          <div class="task task-schneider"><div class="owner">Schneider</div>Logo SVG + Favicon<br>✅ 附 alt text 建議</div>
-          <div class="task task-schneider"><div class="owner">Schneider</div>字型 + 排版規範<br>✅ 400% 放大測試</div>
-          <div class="task task-claire"><div class="owner">Claire</div>內容盤點 + 資訊架構<br>✅ 標題層級規劃</div>
-          <div class="task task-bertram"><div class="owner">Bertram</div>制定 A11y 交付標準<br>Kick-Off Checklist 確認</div>
+          <div class="task task-schneider"><div class="owner">Schneider</div>Logo SVG 導出（4版）+ Favicon<br>✅ 附 alt text 建議</div>
+          <div class="task task-schneider"><div class="owner">Schneider</div>品牌色碼 + 字體確認<br>✅ 色彩對比度 ≥ 4.5:1</div>
+          <div class="task task-claire"><div class="owner">Claire</div>內容盤點 + 標題層級規劃<br>✅ 資訊架構文件</div>
+          <div class="task task-bertram"><div class="owner">Bertram</div>素材整理 + Alt Text 草稿<br>Web_Assets 資料夾完成</div>
+          <div class="task task-becky"><div class="owner">Becky</div>測試工具準備 + 方法研究<br>axe/CCA/VoiceOver 安裝確認</div>
+          <div class="task task-bertram"><div class="owner">Bertram</div>♿ A11y 工作坊（1hr）<br>每人拿到角色 checklist</div>
         </div>
       </div>
       <div class="flow-arrow">→</div>
 
       <div class="flow-phase phase-2">
-        <div class="phase-header">Phase 2：設計<br>W2-W4</div>
+        <div class="phase-header">W1：素材交付日<br>▶ Christina 啟動</div>
         <div class="phase-body">
-          <div class="task task-christina"><div class="owner">Christina</div>Wireframe（結構/導覽）<br>✅ 標題結構 + 導覽規劃</div>
-          <div class="task task-christina"><div class="owner">Christina</div>Mockup（視覺設計）<br>✅ Focus 狀態 + 對比度</div>
-          <div class="task task-claire"><div class="owner">Claire</div>撰寫頁面文案<br>✅ 描述性連結文字</div>
-          <div class="task task-bertram"><div class="owner">Bertram</div>設計審查<br>對照 A11y Checklist</div>
+          <div class="task task-schneider" style="background:#fff5f5; border-left-color:#e53e3e;"><div class="owner">Schneider ⚠ 交付</div>所有素材到齊交給 Christina<br>Logo SVG + 色碼 + 字體 + 圖片</div>
+          <div class="task task-claire"><div class="owner">Claire</div>首頁 + 活動頁文案初稿<br>✅ 描述性連結文字</div>
+          <div class="task task-bertram"><div class="owner">Bertram</div>驗收素材完整性<br>缺漏即時通知補齊</div>
         </div>
       </div>
       <div class="flow-arrow">→</div>
 
       <div class="flow-phase phase-3">
-        <div class="phase-header">Phase 3：Elementor 建置<br>W3-W6</div>
+        <div class="phase-header">W2-W3：設計<br>Christina 主導</div>
         <div class="phase-body">
-          <div class="task task-christina"><div class="owner">Christina</div>Elementor 頁面建置<br>✅ Widget 無障礙設定</div>
-          <div class="task task-christina"><div class="owner">Christina</div>Ally 外掛設定<br>✅ Skip Link + 掃描啟用</div>
-          <div class="task task-becky"><div class="owner">Becky</div>協助 Widget 配置<br>✅ 即時 Lighthouse 掃描</div>
-          <div class="task task-claire"><div class="owner">Claire</div>內容輸入 + 圖片 alt<br>✅ 實際 alt text 填入</div>
-          <div class="task task-schneider"><div class="owner">Schneider</div>補充素材 on demand</div>
+          <div class="task task-christina"><div class="owner">Christina</div>Wireframe（結構/導覽）<br>✅ 標題結構 + 導覽規劃</div>
+          <div class="task task-christina"><div class="owner">Christina</div>Mockup（視覺設計）<br>✅ Focus 狀態 + 對比度</div>
+          <div class="task task-claire"><div class="owner">Claire</div>持續補充文案<br>✅ 最終版文案交付</div>
+          <div class="task task-bertram"><div class="owner">Bertram</div>設計審查（3天內回饋）<br>對照 A11y Checklist</div>
         </div>
       </div>
       <div class="flow-arrow">→</div>
 
       <div class="flow-phase phase-4">
-        <div class="phase-header">Phase 4：測試<br>W6-W7</div>
+        <div class="phase-header">W3-W5：Elementor 建置<br>Becky 邊建邊測</div>
         <div class="phase-body">
-          <div class="task task-becky"><div class="owner">Becky</div>自動掃描 (axe/Lighthouse/Ally)<br>修正 Critical/Serious</div>
-          <div class="task task-becky"><div class="owner">Becky</div>鍵盤 Tab 測試<br>記錄問題截圖</div>
-          <div class="task task-becky"><div class="owner">Becky</div>螢幕閱讀器測試<br>VoiceOver 基本流程</div>
-          <div class="task task-bertram"><div class="owner">Bertram</div>WCAG 2.2 完整檢查<br>25 項逐一驗證</div>
+          <div class="task task-christina"><div class="owner">Christina</div>Elementor 頁面建置<br>✅ Widget 無障礙設定</div>
+          <div class="task task-christina"><div class="owner">Christina</div>Ally 外掛設定<br>✅ Skip Link + 掃描啟用</div>
+          <div class="task task-becky"><div class="owner">Becky</div>邊建邊測：即時 Lighthouse<br>✅ 每頁 ≥ 90 分才繼續</div>
+          <div class="task task-claire"><div class="owner">Claire</div>內容輸入 + 圖片 alt 填入</div>
+          <div class="task task-schneider"><div class="owner">Schneider</div>待命補充素材</div>
         </div>
       </div>
       <div class="flow-arrow">→</div>
 
       <div class="flow-phase phase-5">
-        <div class="phase-header">Phase 5：修正上線<br>W7-W8</div>
+        <div class="phase-header">W5-W6：完整測試<br>Christina 待命修 bug</div>
         <div class="phase-body">
-          <div class="task task-christina"><div class="owner">Christina</div>Elementor 修正<br>無障礙問題調整</div>
+          <div class="task task-becky"><div class="owner">Becky</div>自動掃描 (axe/Lighthouse/Ally)<br>匯出報告 + 分類問題</div>
+          <div class="task task-becky"><div class="owner">Becky</div>鍵盤 Tab 全頁測試<br>記錄問題截圖</div>
+          <div class="task task-becky"><div class="owner">Becky</div>螢幕閱讀器測試<br>VoiceOver/NVDA 基本流程</div>
+          <div class="task task-bertram"><div class="owner">Bertram</div>WCAG 2.2 完整檢查<br>15 項逐一驗證（測試流程）</div>
+        </div>
+      </div>
+      <div class="flow-arrow">→</div>
+
+      <div class="flow-phase" style="flex:1; min-width:220px;">
+        <div class="phase-header" style="background:#e53e3e;">W7-W8：修正 + 上線</div>
+        <div class="phase-body">
+          <div class="task task-christina"><div class="owner">Christina</div>Elementor 修正<br>Critical/High 問題調整</div>
           <div class="task task-becky"><div class="owner">Becky</div>迴歸測試<br>確認修正有效</div>
-          <div class="task task-bertram"><div class="owner">Bertram</div>最終 UAT 驗收<br>25 項無障礙逐一確認</div>
           <div class="task task-claire"><div class="owner">Claire</div>最終內容校對</div>
+          <div class="task task-bertram"><div class="owner">Bertram</div>最終 UAT 驗收<br>全項無障礙確認 → ▶ 上線</div>
         </div>
       </div>
     </div>
