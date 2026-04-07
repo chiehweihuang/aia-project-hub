@@ -171,6 +171,7 @@
     <div class="issue-list" id="issue-list"></div>
     <div class="export-row">
       <button class="btn-export" onclick="exportHTML()">Export HTML Report</button>
+      <button class="btn-export" id="pm-reset-all" style="display:none; background:#e53e3e;" onclick="pmResetAll()">Reset All</button>
     </div>
   </div>
 </div>
@@ -180,24 +181,45 @@ var REPO = 'chiehweihuang/aia-project-hub';
 
 var ADMIN_HASH = '48a065997cc1fd886d8339dc18fbbe5b850ed67b358a55eb4578f03c524211a8';
 
+var isPM = false;
+
 function pmAction() {
+  if (isPM) {
+    isPM = false;
+    document.getElementById('pm-btn').textContent = 'PM';
+    document.getElementById('pm-btn').style.background = 'rgba(255,255,255,.18)';
+    render();
+    return;
+  }
   var pw = prompt('PM 密碼：');
   if (!pw) return;
   crypto.subtle.digest('SHA-256', new TextEncoder().encode(pw)).then(function(buf) {
     var hash = Array.from(new Uint8Array(buf)).map(function(b) { return b.toString(16).padStart(2,'0'); }).join('');
     if (hash === ADMIN_HASH) {
-      if (confirm('清除「' + (currentPage === 'home' ? 'Home 首頁' : 'Events 活動頁') + '」的所有測試結果？')) {
-        localStorage.removeItem('wcag-test-' + currentPage);
-        results = {};
-        currentStep = 0;
-        document.getElementById('summary').classList.remove('visible');
-        render();
-        alert('已清除。');
-      }
+      isPM = true;
+      document.getElementById('pm-btn').textContent = 'PM ON';
+      document.getElementById('pm-btn').style.background = '#e53e3e';
+      render();
     } else {
       alert('密碼錯誤');
     }
   });
+}
+
+function pmResetAll() {
+  if (confirm('清除「' + (currentPage === 'home' ? 'Home 首頁' : 'Events 活動頁') + '」的所有測試結果？')) {
+    localStorage.removeItem('wcag-test-' + currentPage);
+    results = {};
+    currentStep = 0;
+    document.getElementById('summary').classList.remove('visible');
+    render();
+  }
+}
+
+function pmResetStep(stepId) {
+  delete results[stepId];
+  save();
+  render();
 }
 
 var STEPS = [
@@ -348,6 +370,16 @@ function render() {
       issueBtn.textContent = 'Open GitHub Issue';
       issueBtn.onclick = function() { openIssue(step, r); };
       btnRow.appendChild(issueBtn);
+    }
+
+    // PM: per-step reset button
+    if (isPM && r.status) {
+      var resetBtn = document.createElement('button');
+      resetBtn.className = 'btn';
+      resetBtn.style.cssText = 'background:#718096; color:#fff; font-size:12px; padding:6px 12px;';
+      resetBtn.textContent = 'Reset';
+      resetBtn.onclick = (function(sid) { return function() { pmResetStep(sid); }; })(step.id);
+      btnRow.appendChild(resetBtn);
     }
 
     resultArea.appendChild(btnRow);
@@ -550,6 +582,10 @@ function updateSummary() {
   if (Object.keys(results).length === STEPS.length) {
     document.getElementById('summary').classList.add('visible');
   }
+
+  // PM toolbar visibility
+  var pmResetBtn = document.getElementById('pm-reset-all');
+  if (pmResetBtn) pmResetBtn.style.display = isPM ? 'inline-block' : 'none';
 }
 
 function exportHTML() {
