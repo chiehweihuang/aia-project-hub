@@ -430,9 +430,12 @@
 <body>
 
 <header>
-  <div class="container">
-    <h1>APAC AIA | 網頁設計專案啟動清單</h1>
-    <p>Project Kick-Off Checklist — 確保設計階段開始前，所有基礎資產與規範文件均已準備就緒。</p>
+  <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+    <div>
+      <h1>APAC AIA | 網頁設計專案啟動清單</h1>
+      <p>Project Kick-Off Checklist — 確保設計階段開始前，所有基礎資產與規範文件均已準備就緒。</p>
+    </div>
+    <button id="pm-btn" onclick="togglePM()" style="background:rgba(255,255,255,.18); color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer; font-size:11px; flex-shrink:0;">PM</button>
   </div>
 </header>
 
@@ -449,9 +452,8 @@
     </div>
   </div>
 
-  <!-- Toolbar (PM only visible when PM mode active) -->
+  <!-- Toolbar (PM only) -->
   <div class="toolbar">
-    <button id="pm-btn" onclick="togglePM()" style="background:var(--primary); color:#fff;">PM</button>
     <button class="pm-only" onclick="exportState()" style="display:none;">匯出進度 (JSON)</button>
     <button class="pm-only" onclick="document.getElementById('importFile').click()" style="display:none;">匯入進度</button>
     <input type="file" id="importFile" accept=".json" style="display:none" onchange="importState(event)">
@@ -638,7 +640,7 @@ function togglePM() {
     isPM = false;
     document.body.classList.remove('pm-mode');
     document.getElementById('pm-btn').textContent = 'PM';
-    document.getElementById('pm-btn').style.background = 'var(--primary)';
+    document.getElementById('pm-btn').style.background = 'rgba(255,255,255,.18)';
     document.querySelectorAll('.pm-only').forEach(function(el) { el.style.display = 'none'; });
     return;
   }
