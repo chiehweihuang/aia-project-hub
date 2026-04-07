@@ -8,14 +8,14 @@
   :root {
     --primary: #1a365d;
     --secondary: #2b6cb0;
-    --accent: #ed8936;
-    --success: #38a169;
+    --accent: #b45309;
+    --success: #276749;
     --warning: #d69e2e;
     --danger: #e53e3e;
     --bg: #f7fafc;
     --card: #ffffff;
     --text: #2d3748;
-    --muted: #718096;
+    --muted: #596577;
     --border: #e2e8f0;
     --christina: #9f7aea;
     --schneider: #ed8936;
@@ -25,6 +25,14 @@
   }
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family: 'Segoe UI', 'Microsoft JhengHei', sans-serif; background: var(--bg); color: var(--text); line-height:1.6; }
+
+  /* SKIP LINK */
+  .skip-link { position:absolute; top:-40px; left:0; background:var(--primary); color:#fff; padding:8px 16px; z-index:10000; font-size:14px; text-decoration:none; }
+  .skip-link:focus { top:0; }
+
+  /* FOCUS */
+  :focus-visible { outline:3px solid var(--secondary); outline-offset:2px; }
+  button:focus-visible { outline:3px solid #fff; outline-offset:2px; }
 
   /* PASSWORD GATE */
   #gate { position:fixed; inset:0; z-index:9999; background: var(--primary); display:flex; align-items:center; justify-content:center; }
@@ -47,8 +55,8 @@
   /* NAV */
   .topnav { position:sticky; top:0; z-index:100; background: var(--primary); padding:12px 24px; display:flex; gap:8px; flex-wrap:wrap; align-items:center; box-shadow: 0 2px 8px rgba(0,0,0,.15); }
   .topnav h1 { color:#fff; font-size:16px; margin-right:auto; white-space:nowrap; }
-  .topnav button { background: rgba(255,255,255,.15); color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer; font-size:13px; transition:.2s; }
-  .topnav button:hover, .topnav button.active { background: var(--accent); }
+  .topnav button { background: rgba(255,255,255,.2); color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer; font-size:13px; transition:.2s; }
+  .topnav button:hover, .topnav button.active { background: var(--accent); color:#fff; }
 
   /* SECTIONS */
   .section { display:none; padding:24px; max-width:1400px; margin:0 auto; }
@@ -64,7 +72,7 @@
 
   /* ALERT BOX */
   .mou-alert, .alert-box { background:#fffff0; border:2px solid #ecc94b; border-radius:12px; padding:16px 20px; margin-bottom:20px; }
-  .mou-alert h3, .alert-box h3 { color:#975a16; margin-bottom:8px; }
+  .mou-alert h2, .alert-box h2 { color:#744210; margin-bottom:8px; font-size:18px; }
 
   /* CHECKLIST */
   .checklist-section { background: var(--card); border-radius:12px; margin-bottom:20px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,.08); }
@@ -135,21 +143,26 @@
 </head>
 <body>
 
+<!-- SKIP LINK -->
+<a class="skip-link" href="#main-content">跳至主要內容</a>
+
 <!-- PASSWORD GATE -->
-<div id="gate">
+<div id="gate" role="dialog" aria-label="密碼驗證">
   <div class="gate-box">
-    <h1>AIA 網站重新設計</h1>
+    <p style="font-size:22px; font-weight:700; color:var(--primary); margin-bottom:8px;">AIA 網站重新設計</p>
     <p>Phase 1 專案文件 &mdash; 僅限團隊成員檢視</p>
-    <input type="password" id="pw" placeholder="請輸入檢視密碼" autocomplete="off">
+    <label for="pw" style="display:block; font-size:13px; font-weight:600; margin-bottom:4px; text-align:left;">檢視密碼</label>
+    <input type="password" id="pw" autocomplete="off">
     <button onclick="tryAuth()">進入</button>
-    <div class="gate-error" id="gate-err"></div>
+    <div class="gate-error" id="gate-err" role="alert"></div>
   </div>
 </div>
 
 <!-- MAIN APP -->
 <div id="app">
 
-<nav class="topnav">
+<header>
+<nav class="topnav" aria-label="專案導覽">
   <h1>AIA 網站重新設計 2026</h1>
   <button class="active" onclick="showSection('overview',this)">專案總覽</button>
   <button onclick="showSection('specs',this)">專案規範</button>
@@ -158,13 +171,16 @@
   <button onclick="showSection('checklist',this)">啟動 Checklist</button>
   <button onclick="showSection('downloads',this)">專案文件</button>
   <button onclick="window.open('pages/testing-flow.html','_blank')" style="background:var(--success);">WCAG 測試</button>
-  <button id="admin-btn" onclick="toggleAdmin()" style="margin-left:auto; background:rgba(255,255,255,.08); font-size:11px;">PM</button>
+  <button id="admin-btn" onclick="toggleAdmin()" style="margin-left:auto; background:rgba(255,255,255,.18); font-size:11px;">PM</button>
 </nav>
+</header>
+
+<main id="main-content">
 
 <!-- ====== TAB 1: OVERVIEW ====== -->
 <div id="overview" class="section visible">
   <div class="mou-alert">
-    <h3>Phase 1 範圍</h3>
+    <h2>Phase 1 範圍</h2>
     <p><strong>頁面：</strong>首頁（Home）審閱與重新設計 + 活動頁（Events）全新頁面設計</p>
     <p><strong>平台：</strong>Elementor + Ally: Web accessibility plugin for WordPress（No-code，不含客製化程式開發）</p>
     <p><strong>合規：</strong>WCAG 2.2 AA + RWD + 中文為主</p>
@@ -371,6 +387,7 @@
   </div>
 </div>
 
+</main>
 </div><!-- /app -->
 
 <script>
