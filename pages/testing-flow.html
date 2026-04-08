@@ -161,7 +161,7 @@
       <li><strong>貼截圖</strong> -- 發現問題時 <code>Win+Shift+S</code> 截圖，然後 <code>Ctrl+V</code> 貼到該步驟的截圖區</li>
       <li><strong>寫備註</strong> -- 在備註欄描述問題（axe 報告重點、觀察結果等）</li>
       <li><strong>開 Issue</strong> -- Fail 的項目會出現「Open GitHub Issue」按鈕，點擊自動建立 issue</li>
-      <li><strong>匯出報告</strong> -- 全部測完後點「Export HTML Report」下載完整報告（含截圖）</li>
+      <li><strong>匯出報告</strong> -- 隨時可點頂部「Export HTML Report」下載報告（含截圖）。未完成項目會提醒但不阻擋匯出</li>
     </ol>
     <p style="font-size:13px; color:var(--muted); margin-top:12px;">測試結果自動儲存在你的瀏覽器中。換電腦或清除瀏覽器資料會遺失。完成後請務必匯出報告。</p>
     <p style="font-size:13px; margin-top:8px;">
@@ -177,6 +177,11 @@
     <span id="progress-pct">0%</span>
   </div>
   <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+
+  <div style="display:flex; gap:8px; margin-bottom:16px;">
+    <button class="btn-export" onclick="confirmExportHTML()">Export HTML Report</button>
+    <button class="btn-export" onclick="confirmExportJSONL()" style="background:var(--secondary);">Export JSONL</button>
+  </div>
 
   <div id="steps-container"></div>
 
@@ -698,6 +703,27 @@ function exportHTML() {
   a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
+}
+
+function getUntested() {
+  var tested = Object.values(results).filter(function(r) { return r.status; }).length;
+  return STEPS.length - tested;
+}
+
+function confirmExportHTML() {
+  var untested = getUntested();
+  if (untested > 0) {
+    if (!confirm('還有 ' + untested + ' 個項目尚未測試。確定要匯出報告嗎？')) return;
+  }
+  exportHTML();
+}
+
+function confirmExportJSONL() {
+  var untested = getUntested();
+  if (untested > 0) {
+    if (!confirm('還有 ' + untested + ' 個項目尚未測試。確定要匯出嗎？')) return;
+  }
+  exportJSONL();
 }
 
 function exportJSONL() {
