@@ -53,6 +53,12 @@
   .type-auto { background:#dbeafe; color:#1e40af; }
   .type-manual { background:#fef3c7; color:#92400e; }
   .type-sr { background:#ede9fe; color:#5b21b6; }
+  .phase-tag { display:inline-block; padding:2px 8px; border-radius:4px; font-size:10px; font-weight:700; margin-left:4px; }
+  .phase-p1 { background:#c6f6d5; color:#276749; }
+  .phase-cond { background:#fefcbf; color:#975a16; }
+  .phase-p2 { background:#e2e8f0; color:#718096; }
+  .step.phase-p2-step { opacity:.5; }
+  .step.phase-p2-step .step-header { background:#f7fafc; }
 
   .step-body { display:none; padding:0 20px 20px; }
   .step.active .step-body { display:block; }
@@ -149,7 +155,12 @@
       <li><strong>匯出報告</strong> -- 全部測完後點「Export HTML Report」下載完整報告（含截圖）</li>
     </ol>
     <p style="font-size:13px; color:var(--muted); margin-top:12px;">測試結果自動儲存在你的瀏覽器中。換電腦或清除瀏覽器資料會遺失。完成後請務必匯出報告。</p>
-    <p style="font-size:13px; color:var(--muted); margin-top:4px;">預估時間：每頁約 60-90 分鐘（首次測試）。</p>
+    <p style="font-size:13px; margin-top:8px;">
+      <span class="phase-tag phase-p1">P1 必測</span> Phase 1 必須測試（21 步）&emsp;
+      <span class="phase-tag phase-cond">條件式</span> 看功能決定，沒有就標 N/A（5 步）&emsp;
+      <span class="phase-tag phase-p2">Phase 2+</span> 延後到有該功能時再測（4 步）
+    </p>
+    <p style="font-size:13px; color:var(--muted); margin-top:4px;">Phase 1 預估時間：每頁約 60-90 分鐘（首次測試）。Phase 2+ 項目目前可跳過。</p>
   </div>
 
   <div class="progress-label">
@@ -224,33 +235,40 @@ function pmResetStep(stepId) {
 }
 
 var STEPS = [
-  { id:'auto-scan', title:'Step 1：自動化掃描', time:'~5 min', type:'auto' },
-  { id:'page-title', title:'Step 2：頁面標題', time:'~1 min', type:'manual' },
-  { id:'headings', title:'Step 3：標題結構', time:'~3 min', type:'manual' },
-  { id:'info-images', title:'Step 4：資訊性圖片', time:'~5 min', type:'manual' },
-  { id:'func-images', title:'Step 5：功能性圖片（按鈕/連結）', time:'~3 min', type:'manual' },
-  { id:'deco-images', title:'Step 6：裝飾性圖片', time:'~2 min', type:'manual' },
-  { id:'contrast', title:'Step 7：文字對比度', time:'~5 min', type:'manual' },
-  { id:'non-text-contrast', title:'Step 8：非文字對比度', time:'~3 min', type:'manual' },
-  { id:'color-use', title:'Step 9：色彩使用（不能只靠顏色）', time:'~2 min', type:'manual' },
-  { id:'keyboard', title:'Step 10：鍵盤導覽', time:'~8 min', type:'manual' },
-  { id:'focus-visible', title:'Step 11：焦點可見性', time:'~3 min', type:'manual' },
-  { id:'focus-obscured', title:'Step 12：焦點不被遮擋（WCAG 2.2）', time:'~2 min', type:'manual' },
-  { id:'links', title:'Step 13：連結文字', time:'~3 min', type:'manual' },
-  { id:'language', title:'Step 14：語言設定', time:'~2 min', type:'manual' },
-  { id:'landmarks', title:'Step 15：頁面地標 + Skip Link', time:'~3 min', type:'manual' },
-  { id:'lists', title:'Step 16：列表結構', time:'~2 min', type:'manual' },
-  { id:'nav-consistency', title:'Step 17：導覽一致性 + Consistent Help（WCAG 2.2）', time:'~3 min', type:'manual' },
-  { id:'forms', title:'Step 18：表單', time:'~5 min', type:'manual' },
-  { id:'errors', title:'Step 19：錯誤識別與建議', time:'~3 min', type:'manual' },
-  { id:'redundant-entry', title:'Step 20：重複輸入（WCAG 2.2）', time:'~1 min', type:'manual' },
-  { id:'widget-a11y', title:'Step 21：Widget 無障礙（Elementor）', time:'~5 min', type:'manual' },
-  { id:'resize', title:'Step 22：文字放大與響應式', time:'~3 min', type:'manual' },
-  { id:'multimedia', title:'Step 23：多媒體', time:'~3 min', type:'manual' },
-  { id:'target-size', title:'Step 24：觸控目標大小（WCAG 2.2）', time:'~2 min', type:'manual' },
-  { id:'drag', title:'Step 25：拖曳替代（WCAG 2.2）', time:'~1 min', type:'manual' },
-  { id:'auth', title:'Step 26：無障礙認證（WCAG 2.2）', time:'~1 min', type:'manual' },
-  { id:'screen-reader', title:'Step 27：螢幕閱讀器綜合測試', time:'~10 min', type:'sr' }
+  // ── Phase 1 必測（19 步）──
+  { id:'auto-scan', title:'Step 1：自動化掃描', time:'~5 min', type:'auto', phase:'p1' },
+  { id:'page-title', title:'Step 2：頁面標題', time:'~1 min', type:'manual', phase:'p1' },
+  { id:'headings', title:'Step 3：標題結構', time:'~3 min', type:'manual', phase:'p1' },
+  { id:'info-images', title:'Step 4：資訊性圖片', time:'~5 min', type:'manual', phase:'p1' },
+  { id:'func-images', title:'Step 5：功能性圖片（按鈕/連結）', time:'~3 min', type:'manual', phase:'p1' },
+  { id:'deco-images', title:'Step 6：裝飾性圖片', time:'~2 min', type:'manual', phase:'p1' },
+  { id:'contrast', title:'Step 7：文字對比度', time:'~5 min', type:'manual', phase:'p1' },
+  { id:'non-text-contrast', title:'Step 8：非文字對比度', time:'~3 min', type:'manual', phase:'p1' },
+  { id:'color-use', title:'Step 9：色彩使用（不能只靠顏色）', time:'~2 min', type:'manual', phase:'p1' },
+  { id:'keyboard', title:'Step 10：鍵盤導覽 + DOM 順序', time:'~8 min', type:'manual', phase:'p1' },
+  { id:'focus-visible', title:'Step 11：焦點可見性', time:'~3 min', type:'manual', phase:'p1' },
+  { id:'focus-obscured', title:'Step 12：焦點不被遮擋（WCAG 2.2）', time:'~2 min', type:'manual', phase:'p1' },
+  { id:'links', title:'Step 13：連結文字', time:'~3 min', type:'manual', phase:'p1' },
+  { id:'language', title:'Step 14：語言設定', time:'~2 min', type:'manual', phase:'p1' },
+  { id:'landmarks', title:'Step 15：頁面地標 + Skip Link', time:'~3 min', type:'manual', phase:'p1' },
+  { id:'images-of-text', title:'Step 16：文字圖片', time:'~2 min', type:'manual', phase:'p1' },
+  { id:'nav-consistency', title:'Step 17：導覽一致性 + Consistent Help（WCAG 2.2）', time:'~3 min', type:'manual', phase:'p1' },
+  { id:'resize', title:'Step 18：文字放大與響應式', time:'~3 min', type:'manual', phase:'p1' },
+  { id:'target-size', title:'Step 19：觸控目標大小（WCAG 2.2）', time:'~2 min', type:'manual', phase:'p1' },
+  // ── Phase 1 條件式（看功能決定）──
+  { id:'tables', title:'Step 20：表格', time:'~3 min', type:'manual', phase:'cond' },
+  { id:'lists', title:'Step 21：列表結構', time:'~2 min', type:'manual', phase:'cond' },
+  { id:'widget-a11y', title:'Step 22：Widget 無障礙（Elementor）', time:'~5 min', type:'manual', phase:'cond' },
+  { id:'multimedia', title:'Step 23：多媒體', time:'~3 min', type:'manual', phase:'cond' },
+  { id:'drag', title:'Step 24：拖曳替代（WCAG 2.2）', time:'~1 min', type:'manual', phase:'cond' },
+  // ── Phase 2+（延後）──
+  { id:'forms', title:'Step 25：表單', time:'~5 min', type:'manual', phase:'p2' },
+  { id:'errors', title:'Step 26：錯誤識別與建議', time:'~3 min', type:'manual', phase:'p2' },
+  { id:'redundant-entry', title:'Step 27：重複輸入（WCAG 2.2）', time:'~1 min', type:'manual', phase:'p2' },
+  { id:'auth', title:'Step 28：無障礙認證（WCAG 2.2）', time:'~1 min', type:'manual', phase:'p2' },
+  // ── 綜合測試（每個 Phase 都做）──
+  { id:'screen-reader', title:'Step 29：螢幕閱讀器綜合測試', time:'~10 min', type:'sr', phase:'p1' },
+  { id:'dom-reading-order', title:'Step 30：閱讀順序驗證', time:'~3 min', type:'manual', phase:'p1' }
 ];
 
 var STEP_CONTENT = {
@@ -263,7 +281,7 @@ var STEP_CONTENT = {
   'contrast': '<h4>檢查什麼</h4><p>文字 vs 背景對比 &gt;= 4.5:1（一般文字）或 &gt;= 3:1（大文字 18pt+）。</p><h4>操作步驟</h4><ul><li>axe/Lighthouse 通常已列出對比度不足的元素 &rarr; 先看自動掃描</li><li>開啟 <strong>Colour Contrast Analyser (CCA)</strong></li><li>用滴管工具取文字色和背景色 &rarr; 看是否通過</li><li>特別注意：Banner 上的文字、淺色按鈕文字、placeholder 文字</li><li>hover 和 focus 狀態的文字也要測</li></ul><h4>工具</h4><span class="tool-badge">CCA</span><span class="tool-badge">axe DevTools</span><h4>WCAG</h4><span class="tool-badge">SC 1.4.3 Contrast Minimum (AA)</span>',
   'non-text-contrast': '<h4>檢查什麼</h4><p>按鈕邊框、input 邊框、icon 等 UI 元件與背景的對比 &gt;= 3:1。</p><h4>操作步驟</h4><ul><li>用 CCA 測試按鈕邊框/背景與周圍背景</li><li>Form input 邊框與背景</li><li>Icon 與背景（各狀態：normal, hover）</li><li>Focus indicator 的對比度</li></ul><h4>WCAG</h4><span class="tool-badge">SC 1.4.11 Non-text Contrast (AA)</span>',
   'color-use': '<h4>檢查什麼</h4><p>不能只靠顏色傳達資訊。把螢幕調成灰階，資訊是否仍可理解？</p><h4>操作步驟</h4><ul><li>Chrome DevTools &rarr; Rendering &rarr; Emulate vision deficiencies &rarr; Achromatopsia（灰階）</li><li>連結是否有底線或其他非顏色提示？</li><li>錯誤訊息不能只用紅色 &rarr; 需有 icon 或文字</li><li>必填欄位不能只用紅色星號 &rarr; 需有文字說明</li></ul><h4>WCAG</h4><span class="tool-badge">SC 1.4.1 Use of Color (A)</span>',
-  'keyboard': '<h4>檢查什麼</h4><p>所有互動元素都能用 Tab 到達、操作、且不會卡住。</p><h4>操作步驟</h4><ul><li>把滑鼠移開螢幕</li><li>從網址列按 <code>Tab</code> 開始</li><li>一路 Tab 到頁面底部，確認：<ul><li>每個連結、按鈕、輸入框都能 Tab 到</li><li>Tab 順序跟視覺順序一致（左到右、上到下）</li><li>每個元素獲得焦點時有<strong>可見的 focus indicator</strong></li><li>不會被 sticky header 或 cookie banner <strong>完全遮住</strong></li></ul></li><li>如有下拉選單：<code>Enter</code> 展開、<code>Esc</code> 關閉</li><li>如有 Carousel/Slider：能否用鍵盤切換</li><li>如有 Popup/Modal：焦點是否移入？<code>Esc</code> 能否關閉？</li></ul><div class="warn-box">這是最重要的手動測試。自動工具無法完整檢測鍵盤問題。至少花 5 分鐘認真 Tab 一輪。</div>',
+  'keyboard': '<h4>檢查什麼</h4><p>所有互動元素都能用 Tab 到達、操作、且不會卡住。Tab 順序跟視覺順序一致。</p><h4>操作步驟</h4><ul><li>把滑鼠移開螢幕</li><li>從網址列按 <code>Tab</code> 開始</li><li>一路 Tab 到頁面底部，確認：<ul><li>每個連結、按鈕、輸入框都能 Tab 到</li><li>Tab 順序跟視覺順序一致（左到右、上到下）</li><li>每個元素獲得焦點時有<strong>可見的 focus indicator</strong></li><li>不會被 sticky header 或 cookie banner <strong>完全遮住</strong></li></ul></li><li>如有下拉選單：<code>Enter</code> 展開、<code>Esc</code> 關閉</li><li>如有 Carousel/Slider：能否用鍵盤切換</li><li>如有 Popup/Modal：焦點是否移入？<code>Esc</code> 能否關閉？</li></ul><div class="warn-box">這是最重要的手動測試。自動工具無法完整檢測鍵盤問題。至少花 5 分鐘認真 Tab 一輪。</div><h4>WCAG</h4><span class="tool-badge">SC 2.1.1 Keyboard (A)</span><span class="tool-badge">SC 2.1.2 No Keyboard Trap (A)</span><span class="tool-badge">SC 2.4.3 Focus Order (A)</span><span class="tool-badge">SC 1.3.2 Meaningful Sequence (A)</span>',
   'links': '<h4>檢查什麼</h4><p>連結文字在脫離上下文時仍有意義。不能只靠顏色區分連結。</p><h4>操作步驟</h4><ul><li>掃一眼所有連結文字 &rarr; 有沒有「按此」「了解更多」「更多」？</li><li>連結是否有底線或其他非顏色的視覺提示？</li><li>新窗口開啟的連結有沒有提示？</li></ul>',
   'language': '<h4>檢查什麼</h4><p>頁面宣告正確的主要語言，英文段落有 lang="en" 標記。</p><h4>操作步驟</h4><ul><li>右鍵 &rarr; View Page Source &rarr; 搜尋 <code>lang=</code></li><li>確認 <code>&lt;html lang="zh-Hant"&gt;</code> 或 <code>zh-TW</code></li><li>如果頁面有整段英文：檢查該區塊是否有 <code>lang="en"</code></li></ul>',
   'focus-visible': '<h4>檢查什麼</h4><p>用鍵盤 Tab 時，目前選到的元素有清晰可見的 focus 指示器（方框、底線、色變）。</p><h4>操作步驟</h4><ul><li>Tab 遍歷所有元素，每個都要有<strong>可見的</strong> focus 指示器</li><li>確認主題或 Elementor 沒有用 <code>outline: none</code> 移除預設 focus</li><li>不同背景色的區段都測一下（淺色背景 + 深色背景）</li></ul><h4>WCAG</h4><span class="tool-badge">SC 2.4.7 Focus Visible (AA)</span>',
@@ -280,7 +298,10 @@ var STEP_CONTENT = {
   'multimedia': '<h4>檢查什麼</h4><p>影片有字幕、音訊有文字稿、不自動播放。</p><h4>操作步驟</h4><ul><li>如果頁面沒有影片/音訊 &rarr; 標記 N/A</li><li>YouTube 嵌入影片：CC 字幕有打開嗎？</li><li>影片播放器能用鍵盤操作嗎？</li><li>有沒有一進頁面就自動播放的媒體？</li></ul>',
   'target-size': '<h4>檢查什麼</h4><p>可點擊元素至少 24x24 CSS px，或與相鄰目標有足夠間距。</p><h4>操作步驟</h4><ul><li>DevTools &rarr; Inspect 按鈕和連結 &rarr; 查看實際大小（含 padding）</li><li>特別注意：nav 連結、社群 icon、小按鈕</li><li>行內連結（文字中的連結）不受此規則限制</li></ul>',
   'drag': '<h4>檢查什麼</h4><p>拖曳操作有非拖曳的替代方式。</p><h4>操作步驟</h4><ul><li>如果沒有 Carousel / Slider / 拖曳功能 &rarr; 標記 N/A</li><li>如果有 Carousel：有沒有上一張/下一張的按鈕？</li></ul><h4>WCAG</h4><span class="tool-badge">SC 2.5.7 Dragging Movements (AA) NEW</span>',
-  'auth': '<h4>檢查什麼</h4><p>認證流程不能要求認知功能測試（記憶密碼、解謎 CAPTCHA）。</p><h4>操作步驟</h4><ul><li>如果沒有登入/註冊功能 &rarr; 標記 N/A</li><li>如果有：支援密碼管理器自動填入嗎？</li><li>有 CAPTCHA 嗎？有替代方式嗎？</li></ul><h4>WCAG</h4><span class="tool-badge">SC 3.3.8 Accessible Authentication (AA) NEW</span>'
+  'auth': '<h4>檢查什麼</h4><p>認證流程不能要求認知功能測試（記憶密碼、解謎 CAPTCHA）。</p><h4>操作步驟</h4><ul><li>如果沒有登入/註冊功能 &rarr; 標記 N/A</li><li>如果有：支援密碼管理器自動填入嗎？</li><li>有 CAPTCHA 嗎？有替代方式嗎？</li></ul><h4>WCAG</h4><span class="tool-badge">SC 3.3.8 Accessible Authentication (AA) NEW</span>',
+  'images-of-text': '<h4>檢查什麼</h4><p>不要用圖片來顯示文字。如果能用真正的文字 + CSS 達到同樣效果，就不該用圖片。</p><h4>操作步驟</h4><ul><li>Banner / Hero 區塊的標題是真正的 HTML 文字還是圖片？</li><li>右鍵 &rarr; Inspect：如果是 <code>&lt;img&gt;</code> 且內容是文字 &rarr; Fail</li><li>Logo 除外（Logo 是品牌圖形，可以是圖片）</li><li>活動海報如果只有圖片版 &rarr; 需要提供同等的文字版內容</li></ul><h4>WCAG</h4><span class="tool-badge">SC 1.4.5 Images of Text (AA)</span>',
+  'tables': '<h4>檢查什麼</h4><p>資料表格有正確的表頭（th），螢幕閱讀器能朗讀「這格對應哪一欄哪一列」。</p><h4>操作步驟</h4><ul><li>如果頁面沒有表格 &rarr; 標記 N/A</li><li>Events 頁面如果有活動時間表 &rarr; 確認用 HTML table，不是用多個 Column 模擬</li><li>表頭用 <code>&lt;th&gt;</code>，不是用粗體的 <code>&lt;td&gt;</code></li><li>螢幕閱讀器在表格中導覽時是否朗讀表頭</li></ul><h4>WCAG</h4><span class="tool-badge">SC 1.3.1 Info and Relationships (A)</span>',
+  'dom-reading-order': '<h4>檢查什麼</h4><p>用螢幕閱讀器或 Tab 鍵瀏覽時，內容的順序跟視覺上看到的順序一致。</p><h4>操作步驟</h4><ul><li>關掉 CSS（Chrome DevTools &rarr; 按 Ctrl+Shift+P &rarr; 輸入 "Disable CSS"）</li><li>頁面內容的順序是否仍然有意義？</li><li>特別注意 Elementor 的多欄排版 &rarr; DOM 順序可能跟視覺順序不同</li><li>手機版和桌面版的內容順序是否一致？</li></ul><div class="warn-box">Elementor 的拖拉排版很容易造成 DOM 順序混亂。這是 Elementor 網站最常見的問題之一。</div><h4>WCAG</h4><span class="tool-badge">SC 1.3.2 Meaningful Sequence (A)</span>'
 };
 
 var currentStep = 0;
@@ -308,7 +329,8 @@ function render() {
     var isActive = i === currentStep;
 
     var div = document.createElement('div');
-    div.className = 'step' + (isActive ? ' active' : '') + (isDone && !isFail ? ' done' : '') + (isFail ? ' done-fail' : '');
+    var phaseClass = (step.phase === 'p2' && !isDone) ? ' phase-p2-step' : '';
+    div.className = 'step' + (isActive ? ' active' : '') + (isDone && !isFail ? ' done' : '') + (isFail ? ' done-fail' : '') + phaseClass;
 
     // Header
     var header = document.createElement('div');
@@ -331,8 +353,13 @@ function render() {
     time.className = 'step-time';
     time.textContent = step.time;
 
+    var phaseTag = document.createElement('span');
+    phaseTag.className = 'phase-tag phase-' + step.phase;
+    phaseTag.textContent = step.phase === 'p1' ? 'P1 必測' : step.phase === 'cond' ? '條件式' : 'Phase 2+';
+
     header.appendChild(num);
     header.appendChild(title);
+    header.appendChild(phaseTag);
     header.appendChild(typeBadge);
     header.appendChild(time);
 
