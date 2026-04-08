@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>無障礙測試工具安裝教學 — AIA</title>
+<style>
+  :root {
+    --primary: #1a365d;
+    --secondary: #2b6cb0;
+    --accent: #b45309;
+    --success: #276749;
+    --bg: #f7fafc;
+    --card: #ffffff;
+    --text: #2d3748;
+    --muted: #596577;
+    --border: #e2e8f0;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Segoe UI', 'Microsoft JhengHei', sans-serif; background: var(--bg); color: var(--text); line-height:1.7; }
+  :focus-visible { outline:3px solid var(--secondary); outline-offset:2px; }
+
+  .topnav { position:sticky; top:0; z-index:100; background: var(--primary); padding:12px 24px; display:flex; gap:12px; align-items:center; box-shadow: 0 2px 8px rgba(0,0,0,.15); }
+  .topnav h1 { color:#fff; font-size:16px; margin-right:auto; }
+  .topnav a { color:#fff; text-decoration:none; font-size:13px; opacity:.8; }
+  .topnav a:hover { opacity:1; }
+
+  .container { max-width:800px; margin:0 auto; padding:24px 20px 80px; }
+
+  .intro { background: var(--card); border-radius:12px; padding:20px; margin-bottom:24px; box-shadow:0 1px 4px rgba(0,0,0,.08); border-left:4px solid var(--secondary); }
+  .intro h2 { color: var(--primary); font-size:18px; margin-bottom:8px; }
+  .intro p { font-size:14px; color: var(--muted); }
+
+  .tool-card { background: var(--card); border-radius:12px; margin-bottom:20px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,.08); }
+  .tool-header { padding:16px 20px; cursor:pointer; display:flex; align-items:center; gap:12px; border-left:4px solid var(--secondary); }
+  .tool-header:hover { background:#f7fafc; }
+  .tool-header h3 { flex:1; font-size:16px; }
+  .tool-tag { display:inline-block; padding:2px 8px; border-radius:4px; font-size:11px; font-weight:600; }
+  .tag-extension { background:#dbeafe; color:#1e40af; }
+  .tag-app { background:#fef3c7; color:#92400e; }
+  .tag-builtin { background:#c6f6d5; color:#276749; }
+  .tool-chevron { transition:.3s; font-size:14px; color:var(--muted); }
+  .tool-chevron.open { transform:rotate(90deg); }
+
+  .tool-body { display:none; padding:0 20px 20px; }
+  .tool-body.open { display:block; }
+  .tool-body h4 { font-size:14px; color: var(--secondary); margin:12px 0 6px; }
+  .tool-body p { font-size:14px; margin-bottom:8px; }
+  .tool-body ul, .tool-body ol { padding-left:20px; font-size:14px; }
+  .tool-body li { margin-bottom:6px; }
+  .tool-body code { background:#edf2f7; padding:1px 6px; border-radius:3px; font-size:13px; }
+
+  .install-link { display:inline-block; background: var(--secondary); color:#fff; padding:8px 20px; border-radius:6px; text-decoration:none; font-size:14px; font-weight:600; margin:8px 0; transition:.2s; }
+  .install-link:hover { opacity:.85; transform:translateY(-1px); }
+
+  .tip { background:#fffff0; border:1px solid #ecc94b; border-radius:8px; padding:12px 16px; margin:8px 0; font-size:13px; }
+  .warn { background:#fff5f5; border:1px solid #feb2b2; border-radius:8px; padding:12px 16px; margin:8px 0; font-size:13px; color:#c53030; }
+
+  .checklist { background:#f0fff4; border-radius:8px; padding:16px; margin-top:20px; }
+  .checklist h3 { color: var(--success); margin-bottom:8px; font-size:15px; }
+  .checklist li { margin-bottom:4px; }
+
+  /* Dark mode */
+  [data-theme="dark"] { --primary:#90cdf4; --secondary:#63b3ed; --bg:#1a202c; --card:#2d3748; --text:#e2e8f0; --muted:#a0aec0; --border:#4a5568; }
+  [data-theme="dark"] .topnav { background:#0f2440; }
+  [data-theme="dark"] .tool-header:hover { background:#4a5568; }
+  [data-theme="dark"] .install-link { background:#2b6cb0; }
+  [data-theme="dark"] .tip { background:#2a2a1a; border-color:#b7791f; }
+  [data-theme="dark"] .warn { background:#3a2020; border-color:#fc8181; }
+  [data-theme="dark"] .checklist { background:#1a3a2a; }
+  [data-theme="dark"] code { background:#1a202c; }
+
+  @media (max-width:768px) {
+    .topnav { flex-wrap:wrap; padding:8px 12px; }
+    .container { padding:12px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <h1>無障礙測試工具安裝教學</h1>
+  <a href="../index.html">返回專案總覽</a>
+  <a href="testing-flow.html">前往測試流程</a>
+</nav>
+
+<div class="container">
+
+<div class="intro">
+  <h2>開始測試前，請先安裝以下工具</h2>
+  <p>全部免費。安裝完成後即可使用 WCAG 2.2 測試流程進行測試。預估安裝時間：15-20 分鐘。</p>
+</div>
+
+<!-- 1. axe DevTools -->
+<div class="tool-card">
+  <div class="tool-header" onclick="toggle(this)">
+    <h3>1. axe DevTools</h3>
+    <span class="tool-tag tag-extension">Chrome 擴充</span>
+    <span class="tool-chevron">&#9654;</span>
+  </div>
+  <div class="tool-body">
+    <h4>是什麼</h4>
+    <p>業界最廣泛使用的自動化無障礙掃描工具。能檢測出約 30-40% 的 WCAG 問題，是測試的第一步。</p>
+
+    <h4>安裝</h4>
+    <a class="install-link" href="https://chrome.google.com/webstore/detail/axe-devtools-web-accessibility/lhdoppojpmngadmnindnejefpokejbdd" target="_blank" rel="noopener">Chrome Web Store &rarr; 安裝 axe DevTools</a>
+
+    <h4>使用方法</h4>
+    <ol>
+      <li>打開要測試的網頁</li>
+      <li>按 <code>F12</code> 開啟 DevTools</li>
+      <li>在上方分頁列找到 <strong>axe DevTools</strong>（可能需要按 <code>&gt;&gt;</code> 展開更多分頁）</li>
+      <li>點擊 <strong>Scan All of My Page</strong></li>
+      <li>等待掃描完成，查看結果列表</li>
+      <li>每個問題會標示嚴重程度（Critical / Serious / Moderate / Minor）</li>
+    </ol>
+
+    <div class="tip">免費版已經非常夠用。不需要登入或付費。掃描結果可以直接截圖貼到測試流程頁面。</div>
+  </div>
+</div>
+
+<!-- 2. Lighthouse -->
+<div class="tool-card">
+  <div class="tool-header" onclick="toggle(this)">
+    <h3>2. Lighthouse</h3>
+    <span class="tool-tag tag-builtin">Chrome 內建</span>
+    <span class="tool-chevron">&#9654;</span>
+  </div>
+  <div class="tool-body">
+    <h4>是什麼</h4>
+    <p>Google 內建的網頁品質檢測工具，會給無障礙一個 0-100 的分數。跟 axe 互補——Lighthouse 給整體分數，axe 給細節。</p>
+
+    <h4>安裝</h4>
+    <p><strong>不需要安裝</strong>，Chrome 已經內建。</p>
+
+    <h4>使用方法</h4>
+    <ol>
+      <li>打開要測試的網頁</li>
+      <li>按 <code>F12</code> 開啟 DevTools</li>
+      <li>找到 <strong>Lighthouse</strong> 分頁</li>
+      <li>Categories 只勾選 <strong>Accessibility</strong>（其他取消勾選）</li>
+      <li>點擊 <strong>Analyze page load</strong></li>
+      <li>等待完成，記錄 Accessibility 分數</li>
+    </ol>
+
+    <div class="tip">目標分數：<strong>90 分以上</strong>。如果低於 90，先看 axe 的詳細報告找出問題。</div>
+  </div>
+</div>
+
+<!-- 3. WAVE -->
+<div class="tool-card">
+  <div class="tool-header" onclick="toggle(this)">
+    <h3>3. WAVE</h3>
+    <span class="tool-tag tag-extension">Chrome 擴充</span>
+    <span class="tool-chevron">&#9654;</span>
+  </div>
+  <div class="tool-body">
+    <h4>是什麼</h4>
+    <p>WebAIM 開發的視覺化無障礙檢測工具。最大特色是直接在網頁上標記問題位置，用顏色和圖示告訴你「這裡有問題」。比 axe 更直觀。</p>
+
+    <h4>安裝</h4>
+    <a class="install-link" href="https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh" target="_blank" rel="noopener">Chrome Web Store &rarr; 安裝 WAVE</a>
+
+    <h4>使用方法</h4>
+    <ol>
+      <li>打開要測試的網頁</li>
+      <li>點擊瀏覽器工具列的 WAVE 圖示</li>
+      <li>頁面會出現各種標記：
+        <ul>
+          <li><strong style="color:#e53e3e;">紅色</strong> = Error（必須修）</li>
+          <li><strong style="color:#d69e2e;">黃色</strong> = Alert（需要人工判斷）</li>
+          <li><strong style="color:#38a169;">綠色</strong> = Feature（做得好的地方）</li>
+          <li><strong style="color:#805ad5;">紫色</strong> = Structural（結構資訊）</li>
+        </ul>
+      </li>
+      <li>點擊任何標記可以看詳細說明</li>
+    </ol>
+
+    <div class="tip">WAVE 的「Contrast」分頁特別好用——會列出所有對比度不足的元素，不需要一個一個用 CCA 手動測。</div>
+  </div>
+</div>
+
+<!-- 4. Colour Contrast Analyser -->
+<div class="tool-card">
+  <div class="tool-header" onclick="toggle(this)">
+    <h3>4. Colour Contrast Analyser (CCA)</h3>
+    <span class="tool-tag tag-app">桌面應用程式</span>
+    <span class="tool-chevron">&#9654;</span>
+  </div>
+  <div class="tool-body">
+    <h4>是什麼</h4>
+    <p>TPGi 開發的對比度檢測工具。用滴管取色，即時顯示對比度數值和 Pass/Fail 結果。測對比度最精確的工具。</p>
+
+    <h4>安裝</h4>
+    <a class="install-link" href="https://www.tpgi.com/color-contrast-checker/" target="_blank" rel="noopener">TPGi 官網 &rarr; 下載 CCA</a>
+    <p>選擇 Windows 或 Mac 版本，下載安裝。</p>
+
+    <h4>使用方法</h4>
+    <ol>
+      <li>開啟 CCA</li>
+      <li>Foreground（前景色）：點滴管圖示，在網頁上點擊<strong>文字</strong></li>
+      <li>Background（背景色）：點滴管圖示，在網頁上點擊<strong>文字後面的背景</strong></li>
+      <li>查看結果：
+        <ul>
+          <li>一般文字：需要 <strong>&ge; 4.5:1</strong></li>
+          <li>大文字（18pt 以上 / 14pt 粗體以上）：需要 <strong>&ge; 3:1</strong></li>
+          <li>非文字 UI 元件（按鈕邊框、icon）：需要 <strong>&ge; 3:1</strong></li>
+        </ul>
+      </li>
+    </ol>
+
+    <div class="tip">測對比度的時候，別忘了測 hover 和 focus 狀態的顏色——滑鼠移上去或 Tab 選到時顏色可能會變。</div>
+  </div>
+</div>
+
+<!-- 5. HeadingsMap -->
+<div class="tool-card">
+  <div class="tool-header" onclick="toggle(this)">
+    <h3>5. HeadingsMap</h3>
+    <span class="tool-tag tag-extension">Chrome 擴充</span>
+    <span class="tool-chevron">&#9654;</span>
+  </div>
+  <div class="tool-body">
+    <h4>是什麼</h4>
+    <p>顯示網頁的標題結構樹（H1-H6）。一眼看出標題有沒有跳級、有沒有多個 H1。</p>
+
+    <h4>安裝</h4>
+    <a class="install-link" href="https://chrome.google.com/webstore/detail/headingsmap/flbjommegcjonpdmenkdiocclhjacmbi" target="_blank" rel="noopener">Chrome Web Store &rarr; 安裝 HeadingsMap</a>
+
+    <h4>使用方法</h4>
+    <ol>
+      <li>打開要測試的網頁</li>
+      <li>點擊瀏覽器工具列的 HeadingsMap 圖示</li>
+      <li>會顯示整頁的標題樹狀結構</li>
+      <li>檢查：
+        <ul>
+          <li>只有一個 H1</li>
+          <li>層級遞進：H1 &rarr; H2 &rarr; H3（不跳級）</li>
+          <li>標題文字有意義（不是「Section 1」「Section 2」）</li>
+        </ul>
+      </li>
+    </ol>
+
+    <div class="warn">Elementor 中最常見的問題：為了讓文字看起來大/小而選錯標題層級。字體大小應該用 Style 設定，不是改 H tag。</div>
+  </div>
+</div>
+
+<!-- 6. Landmarks -->
+<div class="tool-card">
+  <div class="tool-header" onclick="toggle(this)">
+    <h3>6. Landmarks</h3>
+    <span class="tool-tag tag-extension">Chrome 擴充</span>
+    <span class="tool-chevron">&#9654;</span>
+  </div>
+  <div class="tool-body">
+    <h4>是什麼</h4>
+    <p>顯示網頁的地標區域（header, nav, main, footer 等）。螢幕閱讀器使用者用地標快速跳轉到頁面不同區域。</p>
+
+    <h4>安裝</h4>
+    <a class="install-link" href="https://chrome.google.com/webstore/detail/landmark-navigation-via-k/ddpokpbjopmeeiiolheejjpkonlkklgp" target="_blank" rel="noopener">Chrome Web Store &rarr; 安裝 Landmarks</a>
+
+    <h4>使用方法</h4>
+    <ol>
+      <li>打開要測試的網頁</li>
+      <li>點擊瀏覽器工具列的 Landmarks 圖示</li>
+      <li>會在頁面上框出地標區域</li>
+      <li>確認至少有：<code>main</code>（主內容區）</li>
+      <li>理想狀態：<code>header</code> + <code>nav</code> + <code>main</code> + <code>footer</code></li>
+    </ol>
+  </div>
+</div>
+
+<!-- 7. VoiceOver -->
+<div class="tool-card">
+  <div class="tool-header" onclick="toggle(this)">
+    <h3>7. VoiceOver（Mac）</h3>
+    <span class="tool-tag tag-builtin">Mac 內建</span>
+    <span class="tool-chevron">&#9654;</span>
+  </div>
+  <div class="tool-body">
+    <h4>是什麼</h4>
+    <p>Mac 內建的螢幕閱讀器。視障者用它來「聽」網頁內容。測試時開著它瀏覽網頁，就能知道視障者的體驗如何。</p>
+
+    <h4>安裝</h4>
+    <p><strong>不需要安裝</strong>，Mac 已經內建。</p>
+
+    <h4>開啟 / 關閉</h4>
+    <p>按 <code>Cmd + F5</code> 開啟，再按一次關閉。</p>
+
+    <h4>基本操作</h4>
+    <ol>
+      <li><code>VO</code> 鍵 = <code>Ctrl + Option</code>（以下簡寫 VO）</li>
+      <li><code>VO + 右方向鍵</code>：移到下一個元素</li>
+      <li><code>VO + 左方向鍵</code>：移到上一個元素</li>
+      <li><code>Tab</code>：跳到下一個互動元素（連結/按鈕）</li>
+      <li><code>VO + U</code>：開啟 Rotor（可選擇用 Headings / Links / Landmarks 瀏覽）</li>
+      <li><code>H</code>：跳到下一個標題</li>
+      <li><code>Enter</code> 或 <code>VO + Space</code>：點擊/啟動元素</li>
+    </ol>
+
+    <h4>測試重點</h4>
+    <ul>
+      <li>頁面載入時聽到的標題是否正確？</li>
+      <li>用 H 鍵跳標題，順序合理嗎？</li>
+      <li>圖片有聽到 alt text 嗎？裝飾性圖片被跳過了嗎？</li>
+      <li>連結文字聽起來有意義嗎？（不是一堆「了解更多」）</li>
+      <li>整體感受：閉著眼睛你知道自己在哪裡嗎？</li>
+    </ul>
+
+    <div class="tip">不需要精通 VoiceOver。開著聽 5-10 分鐘就能發現大部分問題。重點是「聽起來有沒有意義」。</div>
+  </div>
+</div>
+
+<!-- 8. NVDA -->
+<div class="tool-card">
+  <div class="tool-header" onclick="toggle(this)">
+    <h3>8. NVDA（Windows）</h3>
+    <span class="tool-tag tag-app">免費下載</span>
+    <span class="tool-chevron">&#9654;</span>
+  </div>
+  <div class="tool-body">
+    <h4>是什麼</h4>
+    <p>Windows 上最廣泛使用的免費螢幕閱讀器。功能完整，全球超過 20 萬人使用。</p>
+
+    <h4>安裝</h4>
+    <a class="install-link" href="https://www.nvaccess.org/download/" target="_blank" rel="noopener">NV Access 官網 &rarr; 下載 NVDA</a>
+    <p>下載後執行安裝程式，選擇「Install on this computer」。</p>
+
+    <h4>開啟 / 關閉</h4>
+    <p>開啟：<code>Ctrl + Alt + N</code>。關閉：<code>Insert + Q</code>，然後按 Enter 確認。</p>
+
+    <h4>基本操作</h4>
+    <ol>
+      <li>NVDA 鍵（預設 = <code>Insert</code>，筆電可改為 <code>Caps Lock</code>）</li>
+      <li><code>下方向鍵</code>：讀下一行</li>
+      <li><code>上方向鍵</code>：讀上一行</li>
+      <li><code>Tab</code>：跳到下一個互動元素</li>
+      <li><code>H</code>：跳到下一個標題</li>
+      <li><code>D</code>：跳到下一個地標</li>
+      <li><code>Insert + F7</code>：開啟元素清單（標題/連結/地標）</li>
+      <li><code>Enter</code>：點擊/啟動元素</li>
+    </ol>
+
+    <h4>測試重點</h4>
+    <p>跟 VoiceOver 相同——聽標題、聽圖片、聽連結、整體感受。</p>
+
+    <div class="tip">第一次用會不習慣。先在本站（專案總覽頁面）練習 5 分鐘，熟悉基本操作後再去測 AIA 網站。</div>
+  </div>
+</div>
+
+<!-- Checklist -->
+<div class="checklist">
+  <h3>安裝確認清單</h3>
+  <p style="font-size:13px; color:var(--muted); margin-bottom:8px;">全部打勾就可以開始測試了。</p>
+  <ul>
+    <li>axe DevTools -- Chrome 擴充已安裝</li>
+    <li>Lighthouse -- Chrome 內建，確認 DevTools 能找到分頁</li>
+    <li>WAVE -- Chrome 擴充已安裝</li>
+    <li>Colour Contrast Analyser (CCA) -- 桌面應用已安裝</li>
+    <li>HeadingsMap -- Chrome 擴充已安裝</li>
+    <li>Landmarks -- Chrome 擴充已安裝</li>
+    <li>VoiceOver (Mac) 或 NVDA (Windows) -- 能正常開啟和關閉</li>
+  </ul>
+</div>
+
+</div>
+
+<script>
+function toggle(header) {
+  var body = header.nextElementSibling;
+  var chevron = header.querySelector('.tool-chevron');
+  body.classList.toggle('open');
+  chevron.classList.toggle('open');
+}
+
+// Dark mode sync
+(function() {
+  var theme = localStorage.getItem('aia-theme');
+  if (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches) theme = 'dark';
+  if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+})();
+</script>
+
+</body>
+</html>
