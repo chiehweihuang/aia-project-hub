@@ -131,8 +131,17 @@
 <nav class="topnav">
   <h1>WCAG 2.2 AA 測試流程</h1>
   <select id="page-select" onchange="selectPage(this.value)">
-    <option value="home">測試頁面：Home 首頁</option>
-    <option value="events">測試頁面：Events 活動頁</option>
+    <optgroup label="Phase 1">
+      <option value="home">Home 首頁</option>
+      <option value="events">Events 活動頁</option>
+    </optgroup>
+    <optgroup label="Phase 2+（尚未開始）">
+      <option value="about" disabled style="color:#a0aec0;">About 關於我們</option>
+      <option value="team" disabled style="color:#a0aec0;">Team 團隊介紹</option>
+      <option value="joinus" disabled style="color:#a0aec0;">Join Us 加入我們</option>
+      <option value="blog" disabled style="color:#a0aec0;">News / Blog 新聞</option>
+      <option value="contact" disabled style="color:#a0aec0;">Contact 聯絡我們</option>
+    </optgroup>
   </select>
   <button id="pm-btn" onclick="pmAction()" style="background:rgba(255,255,255,.18); font-size:11px;">PM</button>
   <a href="../index.html">返回專案總覽</a>
