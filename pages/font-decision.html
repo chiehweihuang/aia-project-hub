@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>字型選擇決策紀錄 — AIA</title>
+<style>
+  :root {
+    --primary: #1a365d;
+    --secondary: #2b6cb0;
+    --accent: #b45309;
+    --success: #276749;
+    --danger: #e53e3e;
+    --warning: #d69e2e;
+    --bg: #f7fafc;
+    --card: #ffffff;
+    --text: #2d3748;
+    --muted: #596577;
+    --border: #e2e8f0;
+  }
+  [data-theme="dark"] {
+    --primary: #90cdf4;
+    --secondary: #63b3ed;
+    --accent: #c05621;
+    --success: #276749;
+    --danger: #fc8181;
+    --warning: #ecc94b;
+    --bg: #1a202c;
+    --card: #2d3748;
+    --text: #e2e8f0;
+    --muted: #a0aec0;
+    --border: #4a5568;
+  }
+  [data-theme="dark"] .topnav { background: #0f2440; }
+  [data-theme="dark"] .rejected-card { background: #2a2020; border-color: #4a5568; }
+  [data-theme="dark"] .note-box { background: #2a2a1a; border-color: #b7791f; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Segoe UI', 'Microsoft JhengHei', sans-serif; background: var(--bg); color: var(--text); line-height:1.7; }
+  :focus-visible { outline:3px solid var(--secondary); outline-offset:2px; }
+
+  .skip-link { position:absolute; top:-40px; left:0; background:var(--primary); color:#fff; padding:8px 16px; z-index:10000; font-size:14px; text-decoration:none; }
+  .skip-link:focus { top:0; }
+
+  .topnav { position:sticky; top:0; z-index:100; background: var(--primary); padding:12px 24px; display:flex; gap:12px; align-items:center; box-shadow: 0 2px 8px rgba(0,0,0,.15); }
+  .topnav h1 { color:#fff; font-size:16px; margin-right:auto; }
+  .topnav a { color:#fff; text-decoration:none; font-size:13px; opacity:.8; }
+  .topnav a:hover { opacity:1; }
+
+  .container { max-width:800px; margin:0 auto; padding:24px 20px 80px; }
+
+  .intro { background: var(--card); border-radius:12px; padding:20px; margin-bottom:24px; box-shadow:0 1px 4px rgba(0,0,0,.08); border-left:4px solid var(--secondary); }
+  .intro h2 { color: var(--primary); font-size:18px; margin-bottom:8px; }
+  .intro p { font-size:14px; color: var(--muted); }
+  .intro .meta { font-size:13px; color: var(--muted); margin-top:4px; }
+
+  .decision-table { width:100%; border-collapse:collapse; font-size:14px; margin-bottom:24px; }
+  .decision-table th { background: var(--primary); color:#fff; padding:10px 14px; text-align:left; }
+  [data-theme="dark"] .decision-table th { background:#1a365d; }
+  .decision-table td { padding:10px 14px; border-bottom:1px solid var(--border); vertical-align:top; }
+  .decision-table tr:hover { background:rgba(43, 108, 176, 0.05); }
+  .decision-table .font-name { font-weight:600; }
+
+  .card { background: var(--card); border-radius:12px; padding:20px; margin-bottom:20px; box-shadow:0 1px 4px rgba(0,0,0,.08); border-left:4px solid var(--secondary); }
+  .card h3 { color: var(--primary); font-size:16px; margin-bottom:12px; }
+
+  .reason { background: var(--card); border-radius:8px; padding:14px 16px; margin-bottom:8px; font-size:14px; border-left:3px solid var(--success); }
+
+  .rejected-card { background:#fff5f5; border:1px solid #fed7d7; border-radius:12px; padding:20px; margin-bottom:20px; }
+  .rejected-card h3 { color: var(--danger); font-size:16px; margin-bottom:8px; }
+  .rejected-card h4 { font-size:14px; color: var(--text); margin:12px 0 6px; }
+  .rejected-card p { font-size:14px; margin-bottom:6px; }
+  .rejected-card ul { padding-left:20px; font-size:14px; }
+  .rejected-card li { margin-bottom:6px; }
+
+  .tag { display:inline-block; padding:2px 8px; border-radius:4px; font-size:11px; font-weight:600; }
+  .tag-open { background:#c6f6d5; color:#276749; }
+  .tag-risk { background:#fed7d7; color:#c53030; }
+  .tag-cost { background:#fefcbf; color:#975a16; }
+
+  .note-box { background:#fffff0; border:1px solid #ecc94b; border-radius:8px; padding:14px 16px; margin-top:20px; font-size:13px; line-height:1.8; }
+  .note-box strong { color: var(--accent); }
+
+  @media (max-width:768px) {
+    .topnav { padding:8px 12px; }
+    .topnav h1 { font-size:14px; }
+    .container { padding:12px; }
+    .decision-table { font-size:13px; }
+    .decision-table th, .decision-table td { padding:8px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">跳至主要內容</a>
+
+<nav class="topnav" aria-label="頁面導覽">
+  <h1>字型選擇決策紀錄</h1>
+  <a href="../index.html">返回專案總覽</a>
+</nav>
+
+<main id="main-content">
+<div class="container">
+
+  <div class="intro">
+    <h2>字型選擇決策紀錄</h2>
+    <p>APAC AIA 網站重新設計 Phase 1 的字型方案評估與最終決定。</p>
+    <div class="meta">決策者：Bertram | 日期：2026-04-16 | 狀態：已決定</div>
+  </div>
+
+  <div class="card">
+    <h3>最終選擇</h3>
+    <table class="decision-table">
+      <thead>
+        <tr><th>用途</th><th>字型</th><th>來源</th><th>授權</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>中文標題</td>
+          <td class="font-name">Noto Serif TC</td>
+          <td>Google Fonts</td>
+          <td><span class="tag tag-open">開源 (OFL)</span></td>
+        </tr>
+        <tr>
+          <td>中文內文</td>
+          <td class="font-name">Noto Sans TC</td>
+          <td>Google Fonts</td>
+          <td><span class="tag tag-open">開源 (OFL)</span></td>
+        </tr>
+        <tr>
+          <td>英文</td>
+          <td class="font-name">Inter</td>
+          <td>Google Fonts</td>
+          <td><span class="tag tag-open">開源 (OFL)</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="reason">
+      選擇理由：免費開源、Google Fonts CDN 載入快速、中英文字元完整、WCAG 可讀性已驗證、無授權疑慮。
+    </div>
+  </div>
+
+  <h2 style="font-size:18px; color:var(--primary); margin:32px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--border);">曾評估但排除的字型</h2>
+
+  <div class="rejected-card">
+    <h3>文鼎新特黑（AR New Te Hei）</h3>
+    <h4>原始考量</h4>
+    <p>作為中文標題/內文字型，幾何無襯線、筆劃極粗、視覺衝擊力強。</p>
+    <h4>排除原因</h4>
+    <ul>
+      <li><span class="tag tag-cost">付費授權</span> 文鼎為商業字型公司，@font-face 網頁嵌入需另購授權（iFontCloud 租賃或直接聯繫文鼎）</li>
+      <li>風格落差：文鼎新特黑極粗 vs. 標誌使用的 Adobe Ming Std Light 極細，視覺一致性需設計師額外處理</li>
+      <li><span class="tag tag-cost">成本不符</span> Phase 1 為 pro bono 專案，額外字型授權費用不合理</li>
+    </ul>
+  </div>
+
+  <div class="rejected-card">
+    <h3>王漢宗中圓體繁</h3>
+    <h4>原始考量</h4>
+    <p>作為英文字型，圓體風格柔和溫暖，與 AIA「包容」調性相合。</p>
+    <h4>排除原因</h4>
+    <ul>
+      <li><span class="tag tag-risk">授權爭議</span> 王漢宗字型系列雖以 GPL v2 釋出，但 2005 年文鼎科技指控多套字型與文鼎字型高度相似。justfont 篩選出 10 套較無疑慮的王漢宗字型，「中圓體繁」不在安全清單上，且文鼎爭議清單中包含多款圓體系列（細圓體、特圓體、迭圓體），風險較高</li>
+      <li>英文品質：此為中文字型，拉丁字母為附帶設計，小字號段落排版的字距與比例不如專用西文字型</li>
+      <li><span class="tag tag-risk">法律風險</span> NPO 專案不宜承擔字型侵權爭議的風險</li>
+    </ul>
+  </div>
+
+  <div class="note-box">
+    <strong>備註：</strong>
+    <ul style="padding-left:20px; margin-top:6px;">
+      <li>標誌原始字型為 Adobe Ming Std Light（Adobe 專有），僅保留於標誌 SVG 中，不用於網頁排版</li>
+      <li>若未來希望提升品牌辨識度，可評估其他開源中文字型（如思源宋體變體、芫荽體等），但須確認 WCAG 可讀性</li>
+    </ul>
+  </div>
+
+</div>
+</main>
+
+<script>
+// Sync dark mode from parent if loaded in iframe or via localStorage
+(function() {
+  var saved = localStorage.getItem('aia-theme');
+  if (saved === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  } else if (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+})();
+</script>
+
+</body>
+</html>
