@@ -1,12 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 24">
-  <!-- AIA favicon: three-letter geometric mark from logo -->
-  <!-- Left A: golden lines, dark circle inside -->
-  <path d="M6 2.5 L0 20 L2.8 20 L6 10 L9.2 20 L12 20 Z" fill="#f8b62d"/>
-  <circle cx="4.2" cy="15.5" r="1.7" fill="#231815"/>
-  <!-- Middle I: golden circle top, dark line -->
-  <circle cx="16" cy="3.5" r="2.2" fill="#f8b62d"/>
-  <path d="M14.5 8 L17.5 8 L17.5 20 L14.5 20 Z" fill="#231815"/>
-  <!-- Right A: dark lines, golden circle top -->
-  <circle cx="22.5" cy="3.5" r="2.2" fill="#f8b62d"/>
-  <path d="M26 2.5 L20 20 L22.8 20 L26 10 L29.2 20 L32 20 Z" fill="#231815"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" fill="#ededeb"/>
+  <!-- Left A: golden amber, dark dot inside -->
+  <path d="M8.2 5.5 L2 25 L5.2 25 L8.2 14.5 L11.2 25 L14.4 25 Z" fill="#e8a820" stroke="#e8a820" stroke-width="0.2" stroke-linejoin="round"/>
+  <circle cx="6.3" cy="19.5" r="1.6" fill="#2c1a0e"/>
+  <!-- Middle I: golden dot top, dark brown stem -->
+  <circle cx="16" cy="7.2" r="2.1" fill="#e8a820"/>
+  <path d="M14.5 11.5 L14.1 25 L17.9 25 L17.5 11.5 Z" fill="#2c1a0e"/>
+  <!-- Right A: dark brown, golden dot top -->
+  <circle cx="25.8" cy="7.2" r="2.1" fill="#e8a820"/>
+  <path d="M24 5.5 L17.8 25 L21 25 L24 14.5 L27 25 L30.2 25 Z" fill="#2c1a0e" stroke="#2c1a0e" stroke-width="0.2" stroke-linejoin="round"/>
 </svg>
