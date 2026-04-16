@@ -1065,6 +1065,20 @@ function updateProgress(section) {
 
 // Restore saved state on load
 document.addEventListener('DOMContentLoaded', async () => {
+  // Hash routing: #downloads, #overview, #specs, etc.
+  var hash = window.location.hash.replace('#', '');
+  if (hash && document.getElementById(hash)) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
+    document.getElementById(hash).classList.add('visible');
+    document.querySelectorAll('.topnav button').forEach(b => b.classList.remove('active'));
+    // Find matching tab button
+    document.querySelectorAll('.topnav button').forEach(b => {
+      if (b.getAttribute('onclick') && b.getAttribute('onclick').indexOf("'" + hash + "'") !== -1) {
+        b.classList.add('active');
+      }
+    });
+  }
+
   // Theme button label
   const themeBtn = document.getElementById('theme-btn');
   if (themeBtn) themeBtn.textContent = document.documentElement.getAttribute('data-theme') === 'dark' ? 'Light' : 'Dark';
