@@ -5,25 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WCAG 2.2 AA 測試流程 — AIA 網站</title>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
   :root {
-    --primary: #1a365d;
-    --secondary: #2b6cb0;
-    --accent: #b45309;
-    --success: #276749;
-    --warning: #d69e2e;
-    --danger: #e53e3e;
-    --bg: #f7fafc;
+    --primary: #003b5c;
+    --secondary: #19abe4;
+    --accent: #f8b62d;
+    --success: #0a7c3e;
+    --warning: #c78c00;
+    --danger: #c0392b;
+    --bg: #f7f8f8;
     --card: #ffffff;
-    --text: #2d3748;
-    --muted: #596577;
-    --border: #e2e8f0;
+    --text: #231815;
+    --muted: #5a6670;
+    --border: #e0e0e0;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family: 'Segoe UI', 'Microsoft JhengHei', sans-serif; background: var(--bg); color: var(--text); line-height:1.7; }
+  body { font-family: 'Noto Sans TC', 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height:1.7; }
   :focus-visible { outline:3px solid var(--secondary); outline-offset:2px; }
 
-  .topnav { position:sticky; top:0; z-index:100; background: var(--success); padding:12px 24px; display:flex; gap:12px; align-items:center; box-shadow: 0 2px 8px rgba(0,0,0,.15); }
-  .topnav h1 { color:#fff; font-size:16px; margin-right:auto; }
+  .topnav { position:sticky; top:0; z-index:100; background: linear-gradient(135deg, #003b5c 60%, #0a7c3e); padding:12px 24px; display:flex; gap:12px; align-items:center; box-shadow: 0 2px 12px rgba(0,59,92,.25); }
+  .topnav h1 { font-family: 'Noto Serif TC', serif; color:#fff; font-size:16px; font-weight:700; letter-spacing:2px; margin-right:auto; }
   .topnav select { padding:6px 12px; border-radius:6px; border:none; font-size:14px; }
   .topnav a { color:#fff; text-decoration:none; font-size:13px; opacity:.8; }
   .topnav a:hover { opacity:1; }

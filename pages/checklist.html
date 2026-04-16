@@ -5,30 +5,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>APAC AIA | 網頁設計專案啟動清單</title>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
   :root {
-    --primary: #1B3A5C;
-    --accent: #2E75B6;
-    --accent-light: #E8F0F8;
-    --green: #28a745;
-    --green-light: #d4edda;
-    --wcag-green: #38a169;
-    --wcag-green-light: #c6f6d5;
-    --yellow: #ffc107;
-    --yellow-light: #fff3cd;
-    --gray: #6c757d;
-    --gray-light: #f8f9fa;
-    --border: #dee2e6;
-    --text: #333;
+    --primary: #003b5c;
+    --accent: #19abe4;
+    --accent-light: #e6f5fc;
+    --green: #0a7c3e;
+    --green-light: #e6f7ed;
+    --wcag-green: #0a7c3e;
+    --wcag-green-light: #e6f7ed;
+    --yellow: #f8b62d;
+    --yellow-light: #fef7e0;
+    --gray: #5a6670;
+    --gray-light: #f7f8f8;
+    --border: #e0e0e0;
+    --text: #231815;
     --bg: #ffffff;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
+    font-family: 'Noto Sans TC', 'Inter', sans-serif;
     background: var(--gray-light);
     color: var(--text);
-    line-height: 1.6;
+    line-height: 1.7;
   }
 
   .container {
@@ -39,14 +40,14 @@
 
   /* Header */
   header {
-    background: var(--primary);
+    background: linear-gradient(135deg, #003b5c 60%, #19abe4);
     color: white;
     padding: 32px 0 24px;
     margin-bottom: 24px;
   }
   header .container { padding-top: 0; padding-bottom: 0; }
-  header h1 { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
-  header p { opacity: 0.8; font-size: 14px; }
+  header h1 { font-family: 'Noto Serif TC', serif; font-size: 22px; font-weight: 700; letter-spacing: 3px; margin-bottom: 4px; }
+  header p { font-family: 'Inter', sans-serif; opacity: 0.8; font-size: 13px; letter-spacing: 0.5px; }
 
   /* Overall progress */
   .overall-progress {
@@ -116,14 +117,14 @@
     cursor: pointer;
     user-select: none;
   }
-  .section-header:hover { background: #244a6e; }
+  .section-header:hover { background: #0c4e6e; }
   .section-header.wcag-header {
     background: var(--wcag-green);
   }
   .section-header.wcag-header:hover {
-    background: #2d7d56;
+    background: #086830;
   }
-  .section-header h3 { font-size: 16px; font-weight: 600; }
+  .section-header h3 { font-size: 15px; font-weight: 600; letter-spacing: 1px; }
   .section-progress {
     display: flex;
     align-items: center;
@@ -139,7 +140,7 @@
   }
   .section-progress .mini-fill {
     height: 100%;
-    background: white;
+    background: var(--yellow);
     border-radius: 3px;
     transition: width 0.3s ease;
   }
@@ -374,25 +375,25 @@
   }
 
   /* DARK MODE */
-  [data-theme="dark"] { --primary:#0f2440; --accent:#63b3ed; --accent-light:#2d3748; --green:#48bb78; --green-light:#1a3a2a; --wcag-green:#48bb78; --wcag-green-light:#1a3a2a; --yellow:#ecc94b; --yellow-light:#3a3a1a; --gray:#a0aec0; --gray-light:#2d3748; --border:#4a5568; --text:#e2e8f0; --bg:#1a202c; }
-  [data-theme="dark"] body { background:#1a202c; color:#e2e8f0; }
-  [data-theme="dark"] header { background:#0f2440; }
-  [data-theme="dark"] .overall-progress { background:#2d3748; }
-  [data-theme="dark"] .section { background:#2d3748; }
-  [data-theme="dark"] .section-header { background:#1a365d; }
-  [data-theme="dark"] .section-header:hover { background:#2a4a6e; }
-  [data-theme="dark"] .section-header.wcag-header { background:#276749; }
-  [data-theme="dark"] .section-header.wcag-header:hover { background:#2d7d56; }
-  [data-theme="dark"] .checklist-item:hover, [data-theme="dark"] .wcag-item:hover { background:#4a5568; }
-  [data-theme="dark"] .checklist-item.checked { background:#1a3a2a; }
-  [data-theme="dark"] .wcag-item.checked { background:#1a3a2a; }
-  [data-theme="dark"] .item-checkbox { background:#2d3748; border-color:#4a5568; }
-  [data-theme="dark"] .item-note { background:#1a202c; color:#e2e8f0; border-color:#4a5568; }
-  [data-theme="dark"] .toolbar button { background:#2d3748; color:#e2e8f0; border-color:#4a5568; }
-  [data-theme="dark"] .table-header { background:#1a365d; color:#e2e8f0; }
-  [data-theme="dark"] .table-item:hover { background:#4a5568; }
-  [data-theme="dark"] .table-item.checked { background:#1a3a2a; }
-  [data-theme="dark"] .progress-bar-wrap { background:#4a5568; }
+  [data-theme="dark"] { --primary:#63c5f1; --accent:#19abe4; --accent-light:#14304a; --green:#34c77b; --green-light:#1a3a20; --wcag-green:#34c77b; --wcag-green-light:#1a3a20; --yellow:#f8b62d; --yellow-light:#2a2510; --gray:#94a3b0; --gray-light:#14304a; --border:#1e4060; --text:#e8ecef; --bg:#0c1e2e; }
+  [data-theme="dark"] body { background:#0c1e2e; color:#e8ecef; }
+  [data-theme="dark"] header { background: linear-gradient(135deg, #001f33 60%, #0c4e6e); }
+  [data-theme="dark"] .overall-progress { background:#14304a; }
+  [data-theme="dark"] .section { background:#14304a; }
+  [data-theme="dark"] .section-header { background:#0a2a40; }
+  [data-theme="dark"] .section-header:hover { background:#14405e; }
+  [data-theme="dark"] .section-header.wcag-header { background:#064a25; }
+  [data-theme="dark"] .section-header.wcag-header:hover { background:#086830; }
+  [data-theme="dark"] .checklist-item:hover, [data-theme="dark"] .wcag-item:hover { background:#1e4060; }
+  [data-theme="dark"] .checklist-item.checked { background:#1a3a20; }
+  [data-theme="dark"] .wcag-item.checked { background:#1a3a20; }
+  [data-theme="dark"] .item-checkbox { background:#14304a; border-color:#1e4060; }
+  [data-theme="dark"] .item-note { background:#0c1e2e; color:#e8ecef; border-color:#1e4060; }
+  [data-theme="dark"] .toolbar button { background:#14304a; color:#e8ecef; border-color:#1e4060; }
+  [data-theme="dark"] .table-header { background:#0a2a40; color:#e8ecef; }
+  [data-theme="dark"] .table-item:hover { background:#1e4060; }
+  [data-theme="dark"] .table-item.checked { background:#1a3a20; }
+  [data-theme="dark"] .progress-bar-wrap { background:#1e4060; }
 
   /* PM MODE */
   body:not(.pm-mode) .item-checkbox { cursor:default; opacity:.6; pointer-events:none; }
