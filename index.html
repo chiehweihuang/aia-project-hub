@@ -807,6 +807,8 @@ async function toggleAdmin() {
     document.body.classList.remove('admin-mode');
     document.getElementById('admin-btn').textContent = 'PM';
     document.getElementById('admin-btn').style.background = '';
+    localStorage.removeItem('aia-pm');
+    syncPMToIframes(false);
     return;
   }
   const pw = prompt('請輸入管理密碼：');
@@ -817,9 +819,23 @@ async function toggleAdmin() {
     document.body.classList.add('admin-mode');
     document.getElementById('admin-btn').textContent = 'PM ON';
     document.getElementById('admin-btn').style.background = '#c0392b';
+    localStorage.setItem('aia-pm', '1');
+    syncPMToIframes(true);
   } else {
     alert('管理密碼錯誤');
   }
+}
+
+// Sync PM state to iframe sub-pages (checklist, work-structure)
+function syncPMToIframes(activate) {
+  document.querySelectorAll('iframe').forEach(function(f) {
+    try {
+      var win = f.contentWindow;
+      if (win && typeof win.setPMFromParent === 'function') {
+        win.setPMFromParent(activate);
+      }
+    } catch(e) {}
+  });
 }
 
 // Checkbox toggle with localStorage persistence
@@ -851,6 +867,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // Theme button label
   const themeBtn = document.getElementById('theme-btn');
   if (themeBtn) themeBtn.textContent = document.documentElement.getAttribute('data-theme') === 'dark' ? 'Light' : 'Dark';
+
+  // Restore PM state from localStorage
+  if (localStorage.getItem('aia-pm') === '1') {
+    isAdmin = true;
+    document.body.classList.add('admin-mode');
+    document.getElementById('admin-btn').textContent = 'PM ON';
+    document.getElementById('admin-btn').style.background = '#c0392b';
+  }
 
   document.querySelectorAll('.check-item').forEach(item => {
     const key = item.dataset.key;

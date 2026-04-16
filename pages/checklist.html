@@ -643,6 +643,7 @@ function togglePM() {
     document.getElementById('pm-btn').textContent = 'PM';
     document.getElementById('pm-btn').style.background = 'rgba(255,255,255,.18)';
     document.querySelectorAll('.pm-only').forEach(function(el) { el.style.display = 'none'; });
+    localStorage.removeItem('aia-pm');
     return;
   }
   var pw = prompt('PM 密碼：');
@@ -653,8 +654,9 @@ function togglePM() {
       isPM = true;
       document.body.classList.add('pm-mode');
       document.getElementById('pm-btn').textContent = 'PM ON';
-      document.getElementById('pm-btn').style.background = '#e53e3e';
+      document.getElementById('pm-btn').style.background = '#c0392b';
       document.querySelectorAll('.pm-only').forEach(function(el) { el.style.display = ''; });
+      localStorage.setItem('aia-pm', '1');
     } else {
       alert('密碼錯誤');
     }
@@ -851,11 +853,37 @@ function updateLastUpdated(iso) {
 render();
 if (state._lastUpdated) updateLastUpdated(state._lastUpdated);
 
-// Sync dark mode from localStorage
+// Called by parent (index.html) to sync PM state into this iframe
+function setPMFromParent(activate) {
+  if (activate && !isPM) {
+    isPM = true;
+    document.body.classList.add('pm-mode');
+    document.getElementById('pm-btn').textContent = 'PM ON';
+    document.getElementById('pm-btn').style.background = '#c0392b';
+    document.querySelectorAll('.pm-only').forEach(function(el) { el.style.display = ''; });
+  } else if (!activate && isPM) {
+    isPM = false;
+    document.body.classList.remove('pm-mode');
+    document.getElementById('pm-btn').textContent = 'PM';
+    document.getElementById('pm-btn').style.background = 'rgba(255,255,255,.18)';
+    document.querySelectorAll('.pm-only').forEach(function(el) { el.style.display = 'none'; });
+  }
+}
+
+// Sync dark mode and PM state from localStorage
 (function() {
   var theme = localStorage.getItem('aia-theme');
   if (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches) theme = 'dark';
   if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+
+  // Auto-restore PM if parent had it active
+  if (localStorage.getItem('aia-pm') === '1') {
+    isPM = true;
+    document.body.classList.add('pm-mode');
+    document.getElementById('pm-btn').textContent = 'PM ON';
+    document.getElementById('pm-btn').style.background = '#c0392b';
+    document.querySelectorAll('.pm-only').forEach(function(el) { el.style.display = ''; });
+  }
 })();
 </script>
 </body>
