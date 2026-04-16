@@ -222,7 +222,7 @@
     border-left: 4px solid var(--sky);
     transition: transform .15s, box-shadow .15s, border-color .15s;
   }
-  .card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,.1); border-color: var(--sky); }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,.1), inset 0 0 0 3px var(--sky); border-color: var(--sky); }
   .card h2 {
     font-family: 'Noto Serif TC', serif;
     font-size: 18px; font-weight: 600;
@@ -252,7 +252,7 @@
     border-radius: 12px; padding: 20px 24px; margin-bottom: 24px;
     transition: box-shadow .15s;
   }
-  .mou-alert:hover, .alert-box:hover { box-shadow: 0 4px 16px rgba(10,124,62,.15); border-color: var(--sky); }
+  .mou-alert:hover, .alert-box:hover { box-shadow: 0 4px 16px rgba(10,124,62,.15), inset 0 0 0 3px var(--sky); border-color: var(--sky); }
   .mou-alert h2, .alert-box h2 {
     font-family: 'Noto Serif TC', serif;
     color: var(--navy); margin-bottom: 8px;
@@ -267,7 +267,7 @@
     border: 1px solid var(--border);
     transition: box-shadow .15s, border-color .15s;
   }
-  .checklist-section:hover { box-shadow: 0 4px 16px rgba(0,0,0,.1); border-color: var(--sky); }
+  .checklist-section:hover { box-shadow: 0 4px 16px rgba(0,0,0,.1), inset 0 0 0 3px var(--sky); border-color: var(--sky); }
   .checklist-header {
     padding: 14px 20px; background: var(--navy); color: #fff;
     cursor: pointer; display: flex; justify-content: space-between;
@@ -365,7 +365,7 @@
   .download-card:hover {
     border-color: var(--sky);
     transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(0,59,92,.12);
+    box-shadow: 0 4px 16px rgba(0,59,92,.12), inset 0 0 0 3px var(--sky);
   }
   .download-icon { font-size: 32px; flex-shrink: 0; }
   .download-info h4 {

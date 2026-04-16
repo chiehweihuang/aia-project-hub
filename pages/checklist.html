@@ -60,7 +60,7 @@
     border: 1px solid var(--border);
     transition: box-shadow .15s;
   }
-  .overall-progress:hover { box-shadow: 0 4px 16px rgba(0,0,0,.1); border-color: var(--accent); }
+  .overall-progress:hover { box-shadow: 0 4px 16px rgba(0,0,0,.1), inset 0 0 0 3px var(--accent); border-color: var(--accent); }
   .overall-progress h2 { font-size: 16px; color: var(--primary); margin-bottom: 12px; }
   .progress-bar-wrap {
     background: #e9ecef;
@@ -113,7 +113,7 @@
     transition: box-shadow .15s;
   }
   .section:hover {
-    box-shadow: 0 4px 16px rgba(0,0,0,.1); border-color: var(--accent);
+    box-shadow: 0 4px 16px rgba(0,0,0,.1), inset 0 0 0 3px var(--accent); border-color: var(--accent);
     overflow: hidden;
   }
   .section-header {
@@ -413,6 +413,11 @@
   [data-theme="dark"] .table-item:hover { background:#1e4060; }
   [data-theme="dark"] .table-item.checked { background:#1a3a20; }
   [data-theme="dark"] .progress-bar-wrap { background:#1e4060; }
+  [data-theme="dark"] .timeline-phase { background:#0c1e2e; }
+  [data-theme="dark"] .phase-name { color:#e8ecef; }
+  [data-theme="dark"] .phase-weeks { background:#1e4060; color:#94a3b0; }
+  [data-theme="dark"] .phase-tasks li { color:#c0ccd8; }
+  [data-theme="dark"] .phase-tasks li:before { color:#5a6670; }
 
   /* PM MODE */
   body:not(.pm-mode) .item-checkbox { cursor:default; opacity:.6; pointer-events:none; }
