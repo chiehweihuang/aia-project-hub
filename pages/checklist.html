@@ -185,7 +185,13 @@
     border-color: var(--green);
   }
   .item-checkbox svg { display: none; }
-  .checklist-item.checked .item-checkbox svg { display: block; }
+  .checklist-item.checked .item-checkbox svg,
+  .table-item.checked .item-checkbox svg,
+  .wcag-item.checked .item-checkbox svg { display: block; }
+  .table-item.checked .item-checkbox {
+    background: var(--green);
+    border-color: var(--green);
+  }
 
   .item-content { flex: 1; min-width: 0; }
   .item-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
