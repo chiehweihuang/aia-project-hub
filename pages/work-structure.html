@@ -65,15 +65,18 @@
   .tag-xp { background:#fed7d7; color:#9c1a1a; font-size:11px; }
   .tag-highrisk { background:#fefcbf; color:#7a4600; font-size:11px; }
 
-  /* FLOW DIAGRAM */
-  .flow-container { overflow-x:auto; padding:20px 0; }
-  .flow { display:flex; gap:0; align-items:flex-start; min-width:1200px; }
-  .flow-phase { flex:1; min-width:220px; }
-  .flow-phase .phase-header { text-align:center; padding:12px; border-radius:8px 8px 0 0; color:#fff; font-weight:700; font-size:15px; }
-  .flow-phase .phase-body { border:2px solid var(--border); border-top:none; border-radius:0 0 8px 8px; padding:12px; min-height:200px; }
-  .flow-phase .task { padding:8px 10px; border-radius:6px; margin-bottom:8px; font-size:13px; position:relative; }
+  /* FLOW DIAGRAM - vertical layout */
+  .flow-container { padding:20px 0; }
+  .flow { display:flex; flex-direction:column; gap:0; }
+  .flow-phase { width:100%; max-width:700px; margin:0 auto; }
+  .flow-phase .phase-header { text-align:center; padding:14px 16px; border-radius:8px 8px 0 0; color:#fff; font-weight:700; font-size:15px; }
+  .flow-phase .phase-body { border:2px solid var(--border); border-top:none; border-radius:0 0 8px 8px; padding:16px; display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .flow-phase .task { padding:10px 12px; border-radius:6px; font-size:13px; position:relative; }
   .flow-phase .task .owner { font-size:11px; font-weight:600; opacity:.8; }
-  .flow-arrow { display:flex; align-items:center; padding:0 4px; font-size:24px; color: var(--muted); margin-top:40px; }
+  .flow-arrow { text-align:center; padding:8px 0; font-size:24px; color:var(--muted); }
+  @media (max-width:600px) {
+    .flow-phase .phase-body { grid-template-columns:1fr; }
+  }
 
   .phase-1 .phase-header { background: #805ad5; }
   .phase-2 .phase-header { background: #dd6b20; }
@@ -183,6 +186,10 @@
   [data-theme="dark"] .task-claire { background:rgba(10,124,62,.15); }
   [data-theme="dark"] .task-becky { background:rgba(25,171,228,.15); }
   [data-theme="dark"] .task-bertram { background:rgba(192,57,43,.15); }
+  [data-theme="dark"] .task[style*="fff5f5"] { background:rgba(192,57,43,.2) !important; color:#e8ecef !important; }
+  [data-theme="dark"] .task[style*="fff5f5"] .owner { color:#ff9a8f !important; }
+  [data-theme="dark"] .task[style*="ebf8ff"] { background:rgba(25,171,228,.2) !important; color:#e8ecef !important; }
+  [data-theme="dark"] .task[style*="ebf8ff"] .owner { color:#63c5f1 !important; }
   [data-theme="dark"] .role-card .name { color:#e8ecef; }
   [data-theme="dark"] .role-card .title { color:#94a3b0; }
   [data-theme="dark"] .phase-name { color:#e8ecef; }
@@ -349,27 +356,26 @@
   <div class="flow-container">
     <div class="flow">
       <div class="flow-phase phase-1">
-        <div class="phase-header">素材準備<br>（全員並行，1 週）</div>
+        <div class="phase-header">素材準備（大部分已完成）</div>
         <div class="phase-body">
-          <div class="task task-schneider"><div class="owner">Schneider (TBC)</div>Logo SVG（4版）+ 色碼 + 字體<br>✅ 色彩對比度 ≥ 4.5:1</div>
-          <div class="task task-claire"><div class="owner">Claire (TBC)</div>內容盤點 + 文案初稿<br>✅ 標題層級 + 描述性連結文字</div>
-          <div class="task task-bertram"><div class="owner">Bertram</div>素材整理 + 對比度驗收<br>Web_Assets 資料夾完成</div>
+          <div class="task task-schneider" style="opacity:.6; text-decoration:line-through;"><div class="owner">Schneider</div>Logo SVG（7版）+ 色碼 + 字體 ✓</div>
+          <div class="task task-bertram" style="opacity:.6; text-decoration:line-through;"><div class="owner">Bertram</div>Brand Style Guide + 對比度驗收 ✓</div>
+          <div class="task task-claire"><div class="owner">Claire (TBC)</div>內容盤點 + 文案初稿<br>根據 Wireframe 撰寫中</div>
           <div class="task task-becky"><div class="owner">Becky (TBC)</div>測試工具安裝<br>axe/Lighthouse/CCA/VoiceOver</div>
-          <div class="task task-bertram" style="background:#fff5f5; border-left-color:#e53e3e;"><div class="owner">▶ 素材到齊</div>全部交付給 Christina → 她開始設計</div>
         </div>
       </div>
-      <div class="flow-arrow">→</div>
+      <div class="flow-arrow">&#8595;</div>
 
       <div class="flow-phase phase-2">
-        <div class="phase-header">概念設計<br>Christina 主導</div>
+        <div class="phase-header">概念設計（進行中）</div>
         <div class="phase-body">
-          <div class="task task-christina"><div class="owner">Christina</div>首頁概念設計（2 個方向）<br>Loom 影片說明設計理念</div>
-          <div class="task task-bertram"><div class="owner">全員</div>選擇設計方向 + 回饋<br>5 天內回覆</div>
-          <div class="task task-christina"><div class="owner">Christina</div>首頁 + 活動頁完整設計稿<br>✅ 含 Focus 狀態 + 對比度</div>
+          <div class="task task-christina" style="opacity:.6; text-decoration:line-through;"><div class="owner">Christina</div>Wireframe 已提供 ✓</div>
+          <div class="task task-bertram"><div class="owner">全員</div>根據 Wireframe 填入內容<br>整理中，5 天內回覆</div>
+          <div class="task task-christina"><div class="owner">Christina</div>首頁 + 活動頁完整設計稿<br>等待團隊內容回饋後進行</div>
           <div class="task task-bertram"><div class="owner">全員</div>設計審核 + 定稿<br>5 天內回覆 → 進入建置</div>
         </div>
       </div>
-      <div class="flow-arrow">→</div>
+      <div class="flow-arrow">&#8595;</div>
 
       <div class="flow-phase phase-3">
         <div class="phase-header">首頁建置 + 測試</div>
@@ -380,7 +386,7 @@
           <div class="task task-christina"><div class="owner">Christina</div>修正 Issues<br>迴歸測試確認</div>
         </div>
       </div>
-      <div class="flow-arrow">→</div>
+      <div class="flow-arrow">&#8595;</div>
 
       <div class="flow-phase phase-4">
         <div class="phase-header">活動頁建置 + 測試</div>
@@ -391,7 +397,7 @@
           <div class="task task-christina"><div class="owner">Christina</div>修正 Issues<br>迴歸測試確認</div>
         </div>
       </div>
-      <div class="flow-arrow">→</div>
+      <div class="flow-arrow">&#8595;</div>
 
       <div class="flow-phase" style="flex:1; min-width:220px;">
         <div class="phase-header" style="background:#e53e3e;">上線 + Phase 2 規劃</div>
