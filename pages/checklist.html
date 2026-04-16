@@ -768,7 +768,7 @@ function render() {
         html += `<div class="t-spec">${item.spec}</div>`;
         html += `<div></div>`;
         html += `</div>`;
-        html += `<div class="note-row"><input type="text" placeholder="備註..." value="${escHtml(note)}" onchange="updateNote('${fullId}', this.value)"></div>`;
+        html += `<div class="note-row"><input type="text" aria-label="${item.title} 備註" placeholder="備註..." value="${escHtml(note)}" onchange="updateNote('${fullId}', this.value)"></div>`;
       });
       html += `</div>`;
     } else if (isWcag) {
@@ -790,7 +790,7 @@ function render() {
         }
         html += `</div>`;
         html += `<div class="wcag-spec">${escHtml(item.spec)}</div>`;
-        html += `<input class="item-note" type="text" placeholder="備註..." value="${escHtml(note)}" onchange="updateNote('${fullId}', this.value)">`;
+        html += `<input class="item-note" type="text" aria-label="${item.title} 備註" placeholder="備註..." value="${escHtml(note)}" onchange="updateNote('${fullId}', this.value)">`;
         html += `</div></div>`;
       });
       html += `</div>`;
@@ -805,7 +805,7 @@ function render() {
         html += `<div class="item-content">`;
         html += `<div class="item-title">${item.title}</div>`;
         if (item.spec) html += `<div class="item-spec">${item.spec}</div>`;
-        html += `<input class="item-note" type="text" placeholder="備註..." value="${escHtml(note)}" onchange="updateNote('${fullId}', this.value)">`;
+        html += `<input class="item-note" type="text" aria-label="${item.title} 備註" placeholder="備註..." value="${escHtml(note)}" onchange="updateNote('${fullId}', this.value)">`;
         html += `</div></div>`;
       });
       html += `</div>`;
