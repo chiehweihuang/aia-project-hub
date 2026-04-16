@@ -872,13 +872,27 @@ async function fetchRemoteState() {
   } catch(e) { console.error('fetchRemoteState:', e); return null; }
 }
 
-async function pushRemoteState(state) {
+async function fetchSHA(pat) {
+  try {
+    const headers = { 'Accept': 'application/vnd.github.v3+json' };
+    if (pat) headers['Authorization'] = 'Bearer ' + pat;
+    const res = await fetch(
+      'https://api.github.com/repos/' + REPO_OWNER + '/' + REPO_NAME + '/contents/' + STATE_PATH + '?t=' + Date.now(),
+      { headers: headers, cache: 'no-store' }
+    );
+    if (!res.ok) return null;
+    const data = await res.json();
+    return data.sha;
+  } catch(e) { return null; }
+}
+
+async function pushRemoteState(state, retryCount) {
+  retryCount = retryCount || 0;
   const pat = getGitHubPAT();
   if (!pat) { alert('需要 GitHub PAT 才能發布'); return false; }
 
-  // Get current SHA
-  const current = await fetchRemoteState();
-  const sha = current ? current._sha : null;
+  // Get current SHA using authenticated request
+  const sha = await fetchSHA(pat);
 
   const payload = {
     specs: state.specs || {},
@@ -909,6 +923,10 @@ async function pushRemoteState(state) {
     );
     if (!res.ok) {
       const err = await res.json();
+      if (res.status === 409 && retryCount < 2) {
+        // SHA conflict, retry with fresh SHA
+        return pushRemoteState(state, retryCount + 1);
+      }
       if (res.status === 401 || res.status === 403) {
         sessionStorage.removeItem('aia-gh-pat');
         alert('PAT 無效或權限不足，請重新輸入');

@@ -887,12 +887,24 @@ function fetchRemoteState() {
   }).catch(function(e) { console.error('fetchRemoteState:', e); return null; });
 }
 
-function pushRemoteState(payload) {
+function fetchSHA(pat) {
+  var headers = { 'Accept': 'application/vnd.github.v3+json' };
+  if (pat) headers['Authorization'] = 'Bearer ' + pat;
+  return fetch(
+    'https://api.github.com/repos/' + REPO_OWNER + '/' + REPO_NAME + '/contents/' + STATE_PATH + '?t=' + Date.now(),
+    { headers: headers, cache: 'no-store' }
+  ).then(function(res) {
+    if (!res.ok) return null;
+    return res.json().then(function(data) { return data.sha; });
+  }).catch(function() { return null; });
+}
+
+function pushRemoteState(payload, retryCount) {
+  retryCount = retryCount || 0;
   var pat = getGitHubPAT();
   if (!pat) { alert('需要 GitHub PAT 才能發布'); return Promise.resolve(false); }
 
-  return fetchRemoteState().then(function(current) {
-    var sha = current ? current._sha : null;
+  return fetchSHA(pat).then(function(sha) {
     var clean = {
       specs: payload.specs || {},
       checklist: payload.checklist || {},
@@ -919,6 +931,9 @@ function pushRemoteState(payload) {
       }
     ).then(function(res) {
       if (!res.ok) {
+        if (res.status === 409 && retryCount < 2) {
+          return pushRemoteState(payload, retryCount + 1);
+        }
         if (res.status === 401 || res.status === 403) {
           sessionStorage.removeItem('aia-gh-pat');
           alert('PAT 無效或權限不足，請重新輸入');
