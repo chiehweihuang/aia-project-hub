@@ -1,6 +1,39 @@
 {
-  "specs": {},
-  "checklist": {},
-  "_lastUpdated": null,
-  "_updatedBy": null
+  "specs": {
+    "mou-1": false,
+    "mou-2": false,
+    "mou-3": false,
+    "mou-4": false,
+    "mou-5": false,
+    "mou-6": false,
+    "mou-7": false,
+    "mou-r1": false,
+    "mou-r2": false,
+    "mou-r3": false,
+    "mou-r4": false,
+    "mou-r5": false,
+    "mou-f1": false,
+    "mou-f2": false,
+    "mou-f3": false,
+    "mou-t1": false,
+    "mou-t2": false,
+    "mou-t3": false,
+    "mou-t4": false
+  },
+  "checklist": {
+    "visual.logo": {
+      "checked": true,
+      "note": "https://drive.google.com/drive/u/1/folders/1o97PVSU6796Q79W7zCo2MM2eBJV2QSYc"
+    },
+    "visual.favicon": {
+      "checked": true,
+      "note": ""
+    },
+    "marketing.tone": {
+      "checked": false,
+      "note": ""
+    }
+  },
+  "_lastUpdated": "2026-04-16T04:48:30.361Z",
+  "_updatedBy": "PM"
 }
