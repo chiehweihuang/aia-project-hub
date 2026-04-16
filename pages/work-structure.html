@@ -39,13 +39,15 @@
   .section.visible { display:block; }
 
   /* CARDS */
-  .card { background: var(--card); border-radius:12px; padding:20px; margin-bottom:20px; box-shadow:0 1px 4px rgba(0,0,0,.08); border-left:4px solid var(--secondary); }
+  .card { background: var(--card); border-radius:12px; padding:20px; margin-bottom:20px; box-shadow:0 1px 4px rgba(0,0,0,.08); border:1px solid var(--border); border-left:4px solid var(--secondary); transition:transform .15s, box-shadow .15s; }
+  .card:hover { transform:translateY(-2px); box-shadow:0 4px 16px rgba(0,0,0,.1); }
   .card h2 { font-family:'Noto Serif TC',serif; font-size:18px; font-weight:600; letter-spacing:1px; margin-bottom:12px; color: var(--primary); }
   .card h3 { font-size:15px; font-weight:700; margin: 12px 0 8px; color: var(--secondary); }
 
   /* ROLE CARDS */
   .role-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:20px; margin-bottom:24px; }
-  .role-card { background: var(--card); border-radius:12px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,.08); position:relative; overflow:hidden; }
+  .role-card { background: var(--card); border-radius:12px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,.08); border:1px solid var(--border); position:relative; overflow:hidden; transition:transform .15s, box-shadow .15s; }
+  .role-card:hover { transform:translateY(-2px); box-shadow:0 4px 16px rgba(0,0,0,.1); }
   .role-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; }
   .role-card.christina::before { background: var(--christina); }
   .role-card.schneider::before { background: var(--schneider); }
@@ -104,7 +106,8 @@
   .level-aaa { color:#e53e3e; font-weight:700; }
 
   /* TESTING GUIDE */
-  .test-item { background: var(--card); border-radius:12px; margin-bottom:16px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,.08); }
+  .test-item { background: var(--card); border-radius:12px; margin-bottom:16px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,.08); border:1px solid var(--border); transition:box-shadow .15s; }
+  .test-item:hover { box-shadow:0 4px 16px rgba(0,0,0,.1); }
   .test-header { padding:16px 20px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; transition:.2s; }
   .test-header:hover { background:#edf2f7; }
   .test-header .item-num { font-family:monospace; font-weight:700; margin-right:12px; color: var(--secondary); }
@@ -134,7 +137,8 @@
 
   /* PLATFORM COMPARISON */
   .platform-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:20px; }
-  .platform-card { background: var(--card); border-radius:12px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,.08); }
+  .platform-card { background: var(--card); border-radius:12px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,.08); border:1px solid var(--border); transition:transform .15s, box-shadow .15s; }
+  .platform-card:hover { transform:translateY(-2px); box-shadow:0 4px 16px rgba(0,0,0,.1); }
   .platform-card h3 { font-size:18px; margin-bottom:8px; }
   .platform-card .price { color: var(--success); font-weight:700; margin-bottom:8px; }
   .platform-card .pros { color: var(--success); }

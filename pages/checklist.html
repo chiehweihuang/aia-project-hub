@@ -57,7 +57,10 @@
     padding: 20px 24px;
     margin-bottom: 24px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    border: 1px solid var(--border);
+    transition: box-shadow .15s;
   }
+  .overall-progress:hover { box-shadow: 0 4px 16px rgba(0,0,0,.1); }
   .overall-progress h2 { font-size: 16px; color: var(--primary); margin-bottom: 12px; }
   .progress-bar-wrap {
     background: #e9ecef;
@@ -106,6 +109,11 @@
     border-radius: 12px;
     margin-bottom: 20px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    border: 1px solid var(--border);
+    transition: box-shadow .15s;
+  }
+  .section:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,.1);
     overflow: hidden;
   }
   .section-header {
@@ -163,7 +171,8 @@
     transition: background 0.2s;
   }
   .checklist-item:last-child { border-bottom: none; }
-  .checklist-item:hover { background: var(--gray-light); }
+  .checklist-item { transition: background .15s; }
+  .checklist-item:hover { background: rgba(25,171,228,.06); }
   .checklist-item.checked { background: var(--green-light); }
   .checklist-item.checked .item-title { text-decoration: line-through; color: var(--gray); }
 
@@ -297,7 +306,8 @@
     transition: background 0.2s;
     font-size: 13px;
   }
-  .table-item:hover { background: var(--gray-light); }
+  .table-item { transition: background .15s; }
+  .table-item:hover { background: rgba(25,171,228,.06); }
   .table-item.checked { background: var(--green-light); }
   .table-item.checked .t-title { text-decoration: line-through; color: var(--gray); }
   .t-title { font-weight: 600; }
