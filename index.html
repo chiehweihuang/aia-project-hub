@@ -220,9 +220,9 @@
     box-shadow: 0 1px 4px rgba(0,0,0,.06);
     border: 1px solid var(--border);
     border-left: 4px solid var(--sky);
-    transition: transform .15s, box-shadow .15s;
+    transition: transform .15s, box-shadow .15s, border-color .15s;
   }
-  .card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,.1); }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,.1); border-color: var(--sky); }
   .card h2 {
     font-family: 'Noto Serif TC', serif;
     font-size: 18px; font-weight: 600;
@@ -252,7 +252,7 @@
     border-radius: 12px; padding: 20px 24px; margin-bottom: 24px;
     transition: box-shadow .15s;
   }
-  .mou-alert:hover, .alert-box:hover { box-shadow: 0 4px 16px rgba(10,124,62,.15); }
+  .mou-alert:hover, .alert-box:hover { box-shadow: 0 4px 16px rgba(10,124,62,.15); border-color: var(--sky); }
   .mou-alert h2, .alert-box h2 {
     font-family: 'Noto Serif TC', serif;
     color: var(--navy); margin-bottom: 8px;
@@ -265,9 +265,9 @@
     margin-bottom: 20px; overflow: hidden;
     box-shadow: 0 1px 4px rgba(0,0,0,.06);
     border: 1px solid var(--border);
-    transition: box-shadow .15s;
+    transition: box-shadow .15s, border-color .15s;
   }
-  .checklist-section:hover { box-shadow: 0 4px 16px rgba(0,0,0,.1); }
+  .checklist-section:hover { box-shadow: 0 4px 16px rgba(0,0,0,.1); border-color: var(--sky); }
   .checklist-header {
     padding: 14px 20px; background: var(--navy); color: #fff;
     cursor: pointer; display: flex; justify-content: space-between;

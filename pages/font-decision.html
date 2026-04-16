@@ -53,7 +53,7 @@
   .intro { background: var(--card); border-radius:12px; padding:20px; margin-bottom:24px; box-shadow:0 1px 4px rgba(0,0,0,.08); border-left:4px solid var(--secondary); }
   .intro h2 { font-family: 'Noto Serif TC', serif; color: var(--primary); font-size:18px; font-weight:600; letter-spacing:1px; margin-bottom:8px; }
   .intro { transition:transform .15s, box-shadow .15s; }
-  .intro:hover { transform:translateY(-2px); box-shadow:0 4px 16px rgba(0,0,0,.1); }
+  .intro:hover { transform:translateY(-2px); box-shadow:0 4px 16px rgba(0,0,0,.1); border-color:var(--secondary); }
   .intro p { font-size:14px; color: var(--muted); }
   .intro .meta { font-size:13px; color: var(--muted); margin-top:4px; }
 
@@ -65,14 +65,14 @@
   .decision-table tr:hover { background:rgba(25,171,228,.08); }
   .decision-table .font-name { font-weight:600; }
 
-  .card { background: var(--card); border-radius:12px; padding:20px; margin-bottom:20px; box-shadow:0 1px 4px rgba(0,0,0,.08); border:1px solid var(--border); border-left:4px solid var(--secondary); transition:transform .15s, box-shadow .15s; }
-  .card:hover { transform:translateY(-2px); box-shadow:0 4px 16px rgba(0,0,0,.1); }
+  .card { background: var(--card); border-radius:12px; padding:20px; margin-bottom:20px; box-shadow:0 1px 4px rgba(0,0,0,.08); border:1px solid var(--border); border-left:4px solid var(--secondary); transition:transform .15s, box-shadow .15s, border-color .15s; }
+  .card:hover { transform:translateY(-2px); box-shadow:0 4px 16px rgba(0,0,0,.1); border-color:var(--secondary); }
   .card h3 { font-family: 'Noto Serif TC', serif; color: var(--primary); font-size:16px; font-weight:600; letter-spacing:1px; margin-bottom:12px; }
 
   .reason { background: var(--card); border-radius:8px; padding:14px 16px; margin-bottom:8px; font-size:14px; border-left:3px solid var(--success); }
 
-  .rejected-card { background:#fff5f5; border:1px solid #fed7d7; border-radius:12px; padding:20px; margin-bottom:20px; transition:transform .15s, box-shadow .15s; }
-  .rejected-card:hover { transform:translateY(-2px); box-shadow:0 4px 16px rgba(0,0,0,.08); }
+  .rejected-card { background:#fff5f5; border:1px solid #fed7d7; border-radius:12px; padding:20px; margin-bottom:20px; transition:transform .15s, box-shadow .15s, border-color .15s; }
+  .rejected-card:hover { transform:translateY(-2px); box-shadow:0 4px 16px rgba(0,0,0,.08); border-color:var(--secondary); }
   .rejected-card h3 { color: var(--danger); font-size:16px; margin-bottom:8px; }
   .rejected-card h4 { font-size:14px; color: var(--text); margin:12px 0 6px; }
   .rejected-card p { font-size:14px; margin-bottom:6px; }
