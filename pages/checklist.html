@@ -60,7 +60,7 @@
     border: 1px solid var(--border);
     transition: box-shadow .15s;
   }
-  .overall-progress:hover { box-shadow: 0 4px 16px rgba(0,0,0,.1), inset 0 0 0 3px var(--accent); border-color: var(--accent); }
+  .overall-progress:hover { box-shadow: 0 4px 16px rgba(0,0,0,.1); border-color: var(--accent); outline: 3px solid var(--accent); outline-offset: -1px; }
   .overall-progress h2 { font-size: 16px; color: var(--primary); margin-bottom: 12px; }
   .progress-bar-wrap {
     background: #e9ecef;
@@ -113,7 +113,7 @@
     transition: box-shadow .15s;
   }
   .section:hover {
-    box-shadow: 0 4px 16px rgba(0,0,0,.1), inset 0 0 0 3px var(--accent); border-color: var(--accent);
+    box-shadow: 0 4px 16px rgba(0,0,0,.1); border-color: var(--accent); outline: 3px solid var(--accent); outline-offset: -1px;
     overflow: hidden;
   }
   .section-header {
