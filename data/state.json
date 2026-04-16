@@ -44,8 +44,12 @@
     "marketing.tone": {
       "checked": false,
       "note": ""
+    },
+    "tools.hub": {
+      "checked": true,
+      "note": "https://chiehweihuang.github.io/aia-project-hub/index.html"
     }
   },
-  "_lastUpdated": "2026-04-16T05:35:43.308Z",
+  "_lastUpdated": "2026-04-16T11:51:44.801Z",
   "_updatedBy": "PM"
 }
