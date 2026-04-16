@@ -445,6 +445,7 @@
       <h1>APAC AIA | 網頁設計專案啟動清單</h1>
       <p>Project Kick-Off Checklist — 確保設計階段開始前，所有基礎資產與規範文件均已準備就緒。</p>
     </div>
+    <button id="publish-cl-btn" class="pm-only" onclick="publishChecklist()" style="display:none; background:#0a7c3e; color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer; font-size:11px; flex-shrink:0;">發布變更</button>
     <button id="pm-btn" onclick="togglePM()" style="background:rgba(255,255,255,.18); color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer; font-size:11px; flex-shrink:0;">PM</button>
   </div>
 </header>
@@ -858,9 +859,123 @@ function updateLastUpdated(iso) {
   el.textContent = "上次更新：" + d.toLocaleString("zh-TW");
 }
 
-// Init
-render();
-if (state._lastUpdated) updateLastUpdated(state._lastUpdated);
+// ─── Remote State Sync ───
+var REPO_OWNER = 'chiehweihuang';
+var REPO_NAME = 'aia-project-hub';
+var STATE_PATH = 'data/state.json';
+
+function getGitHubPAT() {
+  var pat = sessionStorage.getItem('aia-gh-pat');
+  if (!pat) {
+    pat = prompt('GitHub Personal Access Token（僅本次有效）：');
+    if (pat) sessionStorage.setItem('aia-gh-pat', pat);
+  }
+  return pat;
+}
+
+function fetchRemoteState() {
+  return fetch(
+    'https://api.github.com/repos/' + REPO_OWNER + '/' + REPO_NAME + '/contents/' + STATE_PATH,
+    { headers: { 'Accept': 'application/vnd.github.v3+json' }, cache: 'no-store' }
+  ).then(function(res) {
+    if (!res.ok) return null;
+    return res.json().then(function(data) {
+      var content = JSON.parse(atob(data.content));
+      content._sha = data.sha;
+      return content;
+    });
+  }).catch(function(e) { console.error('fetchRemoteState:', e); return null; });
+}
+
+function pushRemoteState(payload) {
+  var pat = getGitHubPAT();
+  if (!pat) { alert('需要 GitHub PAT 才能發布'); return Promise.resolve(false); }
+
+  return fetchRemoteState().then(function(current) {
+    var sha = current ? current._sha : null;
+    var clean = {
+      specs: payload.specs || {},
+      checklist: payload.checklist || {},
+      _lastUpdated: new Date().toISOString(),
+      _updatedBy: 'PM'
+    };
+    var body = {
+      message: 'sync: update project state',
+      content: btoa(unescape(encodeURIComponent(JSON.stringify(clean, null, 2) + '\n'))),
+      branch: 'main'
+    };
+    if (sha) body.sha = sha;
+
+    return fetch(
+      'https://api.github.com/repos/' + REPO_OWNER + '/' + REPO_NAME + '/contents/' + STATE_PATH,
+      {
+        method: 'PUT',
+        headers: {
+          'Authorization': 'Bearer ' + pat,
+          'Accept': 'application/vnd.github.v3+json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+      }
+    ).then(function(res) {
+      if (!res.ok) {
+        if (res.status === 401 || res.status === 403) {
+          sessionStorage.removeItem('aia-gh-pat');
+          alert('PAT 無效或權限不足，請重新輸入');
+        } else {
+          res.json().then(function(err) { alert('發布失敗: ' + (err.message || res.status)); });
+        }
+        return false;
+      }
+      return true;
+    });
+  }).catch(function(e) { alert('發布失敗: ' + e.message); return false; });
+}
+
+// Expose for parent (index.html) to collect checklist state
+function getChecklistState() {
+  var clean = {};
+  getAllItemIds().forEach(function(id) {
+    if (state[id]) {
+      clean[id] = { checked: !!state[id].checked, note: state[id].note || '' };
+    }
+  });
+  return clean;
+}
+
+function publishChecklist() {
+  var btn = document.getElementById('publish-cl-btn');
+  if (btn) { btn.textContent = '發布中...'; btn.disabled = true; }
+
+  fetchRemoteState().then(function(remote) {
+    var payload = remote || { specs: {}, checklist: {} };
+    payload.checklist = getChecklistState();
+    return pushRemoteState(payload);
+  }).then(function(ok) {
+    if (btn) {
+      btn.textContent = ok ? '已發布' : '發布失敗';
+      btn.disabled = false;
+      if (ok) setTimeout(function() { btn.textContent = '發布變更'; }, 2000);
+    }
+  });
+}
+
+// Init: load remote state, then render
+(function initAsync() {
+  fetchRemoteState().then(function(remote) {
+    if (remote && remote.checklist && Object.keys(remote.checklist).length > 0) {
+      // Merge remote into local state (remote wins)
+      Object.keys(remote.checklist).forEach(function(id) {
+        if (!state[id]) state[id] = {};
+        state[id].checked = remote.checklist[id].checked;
+        if (remote.checklist[id].note) state[id].note = remote.checklist[id].note;
+      });
+      saveState(state);
+    }
+    render();
+    if (state._lastUpdated) updateLastUpdated(state._lastUpdated);
+  });
+})();
 
 // Called by parent (index.html) to sync PM state into this iframe
 function setPMFromParent(activate) {
@@ -885,7 +1000,6 @@ function setPMFromParent(activate) {
   if (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches) theme = 'dark';
   if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
 
-  // Auto-restore PM if parent had it active
   if (localStorage.getItem('aia-pm') === '1') {
     isPM = true;
     document.body.classList.add('pm-mode');

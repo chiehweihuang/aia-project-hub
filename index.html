@@ -401,6 +401,7 @@
   <button onclick="showSection('downloads',this)">專案文件</button>
   <button class="wcag-btn" onclick="window.open('pages/testing-flow.html','_blank')">WCAG 測試</button>
   <button id="theme-btn" class="util-btn" onclick="toggleTheme()" style="margin-left:auto;" aria-label="切換深色模式">Dark</button>
+  <button id="publish-btn" class="util-btn" onclick="publishState()" style="display:none; background:#0a7c3e; color:#fff;">發布變更</button>
   <button id="admin-btn" class="util-btn" onclick="toggleAdmin()">PM</button>
 </nav>
 </header>
@@ -808,6 +809,7 @@ async function toggleAdmin() {
     document.body.classList.remove('admin-mode');
     document.getElementById('admin-btn').textContent = 'PM';
     document.getElementById('admin-btn').style.background = '';
+    document.getElementById('publish-btn').style.display = 'none';
     localStorage.removeItem('aia-pm');
     syncPMToIframes(false);
     return;
@@ -820,6 +822,7 @@ async function toggleAdmin() {
     document.body.classList.add('admin-mode');
     document.getElementById('admin-btn').textContent = 'PM ON';
     document.getElementById('admin-btn').style.background = '#c0392b';
+    document.getElementById('publish-btn').style.display = '';
     localStorage.setItem('aia-pm', '1');
     syncPMToIframes(true);
   } else {
@@ -839,7 +842,134 @@ function syncPMToIframes(activate) {
   });
 }
 
-// Checkbox toggle with localStorage persistence
+// ─── Remote State Sync ───
+const REPO_OWNER = 'chiehweihuang';
+const REPO_NAME = 'aia-project-hub';
+const STATE_PATH = 'data/state.json';
+let remoteState = { specs: {}, checklist: {} };
+let specsDirty = false;
+
+function getGitHubPAT() {
+  let pat = sessionStorage.getItem('aia-gh-pat');
+  if (!pat) {
+    pat = prompt('GitHub Personal Access Token（僅本次有效）：');
+    if (pat) sessionStorage.setItem('aia-gh-pat', pat);
+  }
+  return pat;
+}
+
+async function fetchRemoteState() {
+  try {
+    const res = await fetch(
+      'https://api.github.com/repos/' + REPO_OWNER + '/' + REPO_NAME + '/contents/' + STATE_PATH,
+      { headers: { 'Accept': 'application/vnd.github.v3+json' }, cache: 'no-store' }
+    );
+    if (!res.ok) return null;
+    const data = await res.json();
+    const content = JSON.parse(atob(data.content));
+    content._sha = data.sha;
+    return content;
+  } catch(e) { console.error('fetchRemoteState:', e); return null; }
+}
+
+async function pushRemoteState(state) {
+  const pat = getGitHubPAT();
+  if (!pat) { alert('需要 GitHub PAT 才能發布'); return false; }
+
+  // Get current SHA
+  const current = await fetchRemoteState();
+  const sha = current ? current._sha : null;
+
+  const payload = {
+    specs: state.specs || {},
+    checklist: state.checklist || {},
+    _lastUpdated: new Date().toISOString(),
+    _updatedBy: 'PM'
+  };
+
+  const body = {
+    message: 'sync: update project state',
+    content: btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2) + '\n'))),
+    branch: 'main'
+  };
+  if (sha) body.sha = sha;
+
+  try {
+    const res = await fetch(
+      'https://api.github.com/repos/' + REPO_OWNER + '/' + REPO_NAME + '/contents/' + STATE_PATH,
+      {
+        method: 'PUT',
+        headers: {
+          'Authorization': 'Bearer ' + pat,
+          'Accept': 'application/vnd.github.v3+json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+      }
+    );
+    if (!res.ok) {
+      const err = await res.json();
+      if (res.status === 401 || res.status === 403) {
+        sessionStorage.removeItem('aia-gh-pat');
+        alert('PAT 無效或權限不足，請重新輸入');
+      } else {
+        alert('發布失敗: ' + (err.message || res.status));
+      }
+      return false;
+    }
+    return true;
+  } catch(e) { alert('發布失敗: ' + e.message); return false; }
+}
+
+function getSpecsState() {
+  const state = {};
+  document.querySelectorAll('.check-item').forEach(item => {
+    const key = item.dataset.key;
+    if (key) state[key] = item.classList.contains('checked');
+  });
+  return state;
+}
+
+function applySpecsState(specs) {
+  document.querySelectorAll('.check-item').forEach(item => {
+    const key = item.dataset.key;
+    if (key && specs[key]) {
+      item.classList.add('checked');
+    } else if (key) {
+      item.classList.remove('checked');
+    }
+  });
+  document.querySelectorAll('.checklist-section').forEach(updateProgress);
+}
+
+async function publishState() {
+  const btn = document.getElementById('publish-btn');
+  if (btn) { btn.textContent = '發布中...'; btn.disabled = true; }
+
+  // Collect current specs state
+  remoteState.specs = getSpecsState();
+
+  // Also get checklist state from iframe if available
+  try {
+    const iframes = document.querySelectorAll('iframe');
+    iframes.forEach(f => {
+      try {
+        if (f.contentWindow && typeof f.contentWindow.getChecklistState === 'function') {
+          remoteState.checklist = f.contentWindow.getChecklistState();
+        }
+      } catch(e) {}
+    });
+  } catch(e) {}
+
+  const ok = await pushRemoteState(remoteState);
+  if (btn) {
+    btn.textContent = ok ? '已發布' : '發布失敗';
+    btn.disabled = false;
+    if (ok) { specsDirty = false; setTimeout(() => { btn.textContent = '發布變更'; }, 2000); }
+  }
+}
+
+// Checkbox toggle
 function toggleCheck(box) {
   if (!isAdmin) return;
   const item = box.closest('.check-item');
@@ -851,6 +981,9 @@ function toggleCheck(box) {
     localStorage.removeItem('aia-' + key);
   }
   updateProgress(item.closest('.checklist-section'));
+  specsDirty = true;
+  const btn = document.getElementById('publish-btn');
+  if (btn) btn.textContent = '發布變更 *';
 }
 
 function updateProgress(section) {
@@ -864,7 +997,7 @@ function updateProgress(section) {
 }
 
 // Restore saved state on load
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   // Theme button label
   const themeBtn = document.getElementById('theme-btn');
   if (themeBtn) themeBtn.textContent = document.documentElement.getAttribute('data-theme') === 'dark' ? 'Light' : 'Dark';
@@ -875,14 +1008,23 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.add('admin-mode');
     document.getElementById('admin-btn').textContent = 'PM ON';
     document.getElementById('admin-btn').style.background = '#c0392b';
+    document.getElementById('publish-btn').style.display = '';
   }
 
-  document.querySelectorAll('.check-item').forEach(item => {
-    const key = item.dataset.key;
-    if (key && localStorage.getItem('aia-' + key)) {
-      item.classList.add('checked');
-    }
-  });
+  // Load remote state first, fallback to localStorage
+  const remote = await fetchRemoteState();
+  if (remote && remote.specs && Object.keys(remote.specs).length > 0) {
+    remoteState = remote;
+    applySpecsState(remote.specs);
+  } else {
+    // Fallback: localStorage
+    document.querySelectorAll('.check-item').forEach(item => {
+      const key = item.dataset.key;
+      if (key && localStorage.getItem('aia-' + key)) {
+        item.classList.add('checked');
+      }
+    });
+  }
   document.querySelectorAll('.checklist-section').forEach(updateProgress);
 });
 </script>
