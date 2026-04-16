@@ -27,13 +27,25 @@
     },
     "visual.favicon": {
       "checked": true,
-      "note": ""
+      "note": "https://drive.google.com/drive/u/1/folders/10r_k--WfIBv-emyUDJSWzDxyOt5gRJW6"
+    },
+    "visual.colors": {
+      "checked": true,
+      "note": "https://chiehweihuang.github.io/aia-project-hub/pages/brand-style-guide.html"
+    },
+    "visual.fonts": {
+      "checked": true,
+      "note": "https://chiehweihuang.github.io/aia-project-hub/pages/font-decision.html"
+    },
+    "visual.styleguide": {
+      "checked": true,
+      "note": "https://chiehweihuang.github.io/aia-project-hub/pages/brand-style-guide.html"
     },
     "marketing.tone": {
       "checked": false,
       "note": ""
     }
   },
-  "_lastUpdated": "2026-04-16T04:48:56.631Z",
+  "_lastUpdated": "2026-04-16T05:00:43.503Z",
   "_updatedBy": "PM"
 }
