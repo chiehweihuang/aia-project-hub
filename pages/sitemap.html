@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APAC AIA — 網站架構圖 Sitemap</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans TC', 'Inter', sans-serif;
+    background: #f0f2f5;
+    color: #231815;
+    min-height: 100vh;
+  }
+
+  .page { max-width: 1100px; margin: 0 auto; padding: 40px 24px 60px; }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #003b5c;
+    letter-spacing: 3px;
+    margin-bottom: 6px;
+  }
+  .header .sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #888;
+    letter-spacing: 2px;
+  }
+  .header .date {
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 8px;
+  }
+
+  /* Legend */
+  .legend {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #555;
+  }
+  .legend-dot {
+    width: 14px; height: 14px;
+    border-radius: 4px;
+  }
+  .legend-dot.p1 { background: #003b5c; }
+  .legend-dot.p2 { background: #19abe4; }
+  .legend-dot.p3 { background: #e0e0e0; border: 1px dashed #999; }
+
+  /* Tree Structure */
+  .tree { display: flex; flex-direction: column; align-items: center; }
+
+  /* Root node */
+  .root-node {
+    background: linear-gradient(135deg, #003b5c, #0c3e5f);
+    color: #fff;
+    padding: 20px 40px;
+    border-radius: 14px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 16px rgba(0,59,92,0.3);
+  }
+  .root-node .name {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+  .root-node .url {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: #f8b62d;
+    margin-top: 4px;
+    letter-spacing: 1px;
+  }
+
+  /* Connector lines */
+  .connector {
+    width: 2px;
+    height: 32px;
+    background: #003b5c;
+    margin: 0 auto;
+  }
+  .connector-light {
+    background: #19abe4;
+  }
+
+  /* Branch container */
+  .branch-row {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    position: relative;
+    width: 100%;
+  }
+  .branch-row::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2px;
+    background: #003b5c;
+  }
+
+  /* Level 1 nodes */
+  .level1-group {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 0;
+  }
+
+  .node-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 140px;
+  }
+
+  .node {
+    border-radius: 10px;
+    padding: 14px 20px;
+    text-align: center;
+    min-width: 130px;
+    position: relative;
+    transition: transform 0.2s;
+  }
+  .node:hover { transform: translateY(-2px); }
+
+  .node .name {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .node .name-en {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    opacity: 0.7;
+  }
+  .node .phase-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-top: 6px;
+    letter-spacing: 1px;
+  }
+
+  /* Phase 1 */
+  .node.p1 {
+    background: #003b5c;
+    color: #fff;
+    box-shadow: 0 3px 12px rgba(0,59,92,0.25);
+  }
+  .node.p1 .phase-tag {
+    background: #f8b62d;
+    color: #003b5c;
+  }
+
+  /* Phase 2 */
+  .node.p2 {
+    background: #fff;
+    color: #003b5c;
+    border: 2px solid #19abe4;
+    box-shadow: 0 2px 8px rgba(25,171,228,0.15);
+  }
+  .node.p2 .phase-tag {
+    background: #e0f3fc;
+    color: #19abe4;
+  }
+
+  /* Phase 3 / TBD */
+  .node.p3 {
+    background: #fff;
+    color: #999;
+    border: 2px dashed #ccc;
+  }
+  .node.p3 .phase-tag {
+    background: #f0f0f0;
+    color: #999;
+  }
+
+  /* Sub-page list */
+  .sub-connector {
+    width: 2px;
+    height: 20px;
+    background: #ddd;
+    margin: 0 auto;
+  }
+  .sub-pages {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+  }
+  .sub-node {
+    font-size: 12px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    text-align: center;
+    min-width: 110px;
+  }
+  .sub-node.p1 {
+    background: rgba(0,59,92,0.08);
+    color: #003b5c;
+    border: 1px solid rgba(0,59,92,0.15);
+  }
+  .sub-node.p2 {
+    background: rgba(25,171,228,0.06);
+    color: #19abe4;
+    border: 1px solid rgba(25,171,228,0.2);
+  }
+  .sub-node.p3 {
+    background: #f8f8f8;
+    color: #aaa;
+    border: 1px dashed #ddd;
+  }
+
+  /* Horizontal line for branches */
+  .h-line {
+    height: 2px;
+    background: #b0c4d4;
+    margin: 0 auto;
+  }
+
+  /* Notes section */
+  .notes {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .note-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .note-card h3 {
+    font-size: 14px;
+    color: #003b5c;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .note-card p, .note-card li {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.8;
+  }
+  .note-card ul {
+    list-style: none;
+    padding: 0;
+  }
+  .note-card li::before {
+    content: '·';
+    color: #19abe4;
+    font-weight: bold;
+    margin-right: 6px;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 11px;
+    color: #bbb;
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <h1>APAC AIA 網站架構圖</h1>
+    <div class="sub">SITEMAP &amp; INFORMATION ARCHITECTURE</div>
+    <div class="date">2026-04-16 · v1.0 · 供設計師參考</div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot p1"></div> Phase 1（首頁 + 活動頁）</div>
+    <div class="legend-item"><div class="legend-dot p2"></div> Phase 2（擴展頁面）</div>
+    <div class="legend-item"><div class="legend-dot p3"></div> Phase 3+（未來規劃）</div>
+  </div>
+
+  <!-- ═══════ TREE ═══════ -->
+  <div class="tree">
+
+    <!-- Root -->
+    <div class="root-node">
+      <div class="name">apac-aia.org</div>
+      <div class="url">APAC AIA 亞太包容創新協會</div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- Horizontal connector bar -->
+    <div style="display:flex;align-items:flex-start;justify-content:center;width:100%;">
+      <div style="width:920px;height:2px;background:#b0c4d4;"></div>
+    </div>
+
+    <!-- Level 1 Pages -->
+    <div class="level1-group">
+
+      <!-- 首頁 -->
+      <div class="node-col">
+        <div class="connector" style="height:24px;"></div>
+        <div class="node p1">
+          <div class="name">首頁</div>
+          <div class="name-en">Home</div>
+          <span class="phase-tag">PHASE 1</span>
+        </div>
+        <div class="sub-connector"></div>
+        <div class="sub-pages">
+          <div class="sub-node p1">Hero / CTA</div>
+          <div class="sub-node p1">組織簡介</div>
+          <div class="sub-node p1">近期活動預告</div>
+          <div class="sub-node p1">合作夥伴</div>
+          <div class="sub-node p2">最新消息</div>
+        </div>
+      </div>
+
+      <!-- 活動 -->
+      <div class="node-col">
+        <div class="connector" style="height:24px;"></div>
+        <div class="node p1">
+          <div class="name">活動</div>
+          <div class="name-en">Events</div>
+          <span class="phase-tag">PHASE 1</span>
+        </div>
+        <div class="sub-connector"></div>
+        <div class="sub-pages">
+          <div class="sub-node p1">活動列表</div>
+          <div class="sub-node p1">活動詳情頁</div>
+          <div class="sub-node p1">報名連結</div>
+          <div class="sub-node p1">講師介紹</div>
+          <div class="sub-node p2">過往活動回顧</div>
+        </div>
+      </div>
+
+      <!-- 關於我們 -->
+      <div class="node-col">
+        <div class="connector connector-light" style="height:24px;"></div>
+        <div class="node p2">
+          <div class="name">關於我們</div>
+          <div class="name-en">About</div>
+          <span class="phase-tag">PHASE 2</span>
+        </div>
+        <div class="sub-connector"></div>
+        <div class="sub-pages">
+          <div class="sub-node p2">使命與願景</div>
+          <div class="sub-node p2">團隊介紹</div>
+          <div class="sub-node p2">組織歷程</div>
+        </div>
+      </div>
+
+      <!-- 加入我們 -->
+      <div class="node-col">
+        <div class="connector connector-light" style="height:24px;"></div>
+        <div class="node p2">
+          <div class="name">加入我們</div>
+          <div class="name-en">Join Us</div>
+          <span class="phase-tag">PHASE 2</span>
+        </div>
+        <div class="sub-connector"></div>
+        <div class="sub-pages">
+          <div class="sub-node p2">志工招募</div>
+          <div class="sub-node p2">捐款支持</div>
+          <div class="sub-node p2">合作提案</div>
+        </div>
+      </div>
+
+      <!-- Blog / Media -->
+      <div class="node-col">
+        <div class="connector connector-light" style="height:24px;"></div>
+        <div class="node p2">
+          <div class="name">媒體</div>
+          <div class="name-en">Blog / Media</div>
+          <span class="phase-tag">PHASE 2</span>
+        </div>
+        <div class="sub-connector"></div>
+        <div class="sub-pages">
+          <div class="sub-node p2">文章列表</div>
+          <div class="sub-node p2">Podcast</div>
+          <div class="sub-node p3">影片庫</div>
+        </div>
+      </div>
+
+      <!-- Summit -->
+      <div class="node-col">
+        <div class="connector" style="height:24px;background:#ddd;"></div>
+        <div class="node p3">
+          <div class="name">峰會專區</div>
+          <div class="name-en">Summit</div>
+          <span class="phase-tag">PHASE 3+</span>
+        </div>
+        <div class="sub-connector"></div>
+        <div class="sub-pages">
+          <div class="sub-node p3">年度峰會頁</div>
+          <div class="sub-node p3">議程表</div>
+          <div class="sub-node p3">講者庫</div>
+          <div class="sub-node p3">線上報名系統</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════ Global Elements ═══════ -->
+  <div style="margin-top:48px;text-align:center;">
+    <div style="font-size:14px;font-weight:600;color:#003b5c;letter-spacing:2px;margin-bottom:16px;">全站共用元素</div>
+    <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
+      <div style="background:#003b5c;color:#fff;padding:8px 18px;border-radius:8px;font-size:12px;">Header 導覽列</div>
+      <div style="background:#003b5c;color:#fff;padding:8px 18px;border-radius:8px;font-size:12px;">Footer 頁尾</div>
+      <div style="background:#003b5c;color:#fff;padding:8px 18px;border-radius:8px;font-size:12px;">語言切換 中/英</div>
+      <div style="background:rgba(0,59,92,0.08);color:#003b5c;padding:8px 18px;border-radius:8px;font-size:12px;border:1px solid rgba(0,59,92,0.15);">麵包屑導航</div>
+      <div style="background:rgba(0,59,92,0.08);color:#003b5c;padding:8px 18px;border-radius:8px;font-size:12px;border:1px solid rgba(0,59,92,0.15);">社群媒體連結</div>
+      <div style="background:rgba(25,171,228,0.08);color:#19abe4;padding:8px 18px;border-radius:8px;font-size:12px;border:1px solid rgba(25,171,228,0.2);">Cookie 通知 (P2)</div>
+      <div style="background:#f8f8f8;color:#aaa;padding:8px 18px;border-radius:8px;font-size:12px;border:1px dashed #ddd;">Dark Mode 切換 (P2+)</div>
+    </div>
+  </div>
+
+  <!-- ═══════ NOTES ═══════ -->
+  <div class="notes">
+    <div class="note-card">
+      <h3>Phase 1 範圍（MOU 約定）</h3>
+      <ul>
+        <li>首頁（Home）+ 活動頁（Events）</li>
+        <li>No-code 方案（Elementor / Divi / Oxygen）</li>
+        <li>WCAG 2.2 AA 無障礙合規</li>
+        <li>中文為主，英文頁面留待 Phase 2</li>
+        <li>回應式設計（桌機、平板、手機）</li>
+        <li>每個里程碑最多 2 次修改</li>
+      </ul>
+    </div>
+    <div class="note-card">
+      <h3>URL 結構建議</h3>
+      <ul>
+        <li>apac-aia.org/ → 首頁（中文）</li>
+        <li>apac-aia.org/events/ → 活動列表</li>
+        <li>apac-aia.org/events/[slug]/ → 活動詳情</li>
+        <li>apac-aia.org/en/ → 英文首頁（Phase 2）</li>
+        <li>apac-aia.org/en/events/ → 英文活動</li>
+        <li>統一使用 /en/ 前綴，解決目前 /en/ vs /eng/ 混亂</li>
+      </ul>
+    </div>
+    <div class="note-card">
+      <h3>無障礙要求（全站適用）</h3>
+      <ul>
+        <li>所有圖片必須提供 alt text</li>
+        <li>標題層級正確巢狀（H1 → H2 → H3）</li>
+        <li>文字對比度通過 WCAG AA（見 Style Guide）</li>
+        <li>鍵盤可完整導航</li>
+        <li>表單欄位須有 label</li>
+        <li>影音內容須有字幕 / 逐字稿</li>
+      </ul>
+    </div>
+    <div class="note-card">
+      <h3>已備妥的設計資源</h3>
+      <ul>
+        <li>Brand Style Guide v1.0（HTML 格式）</li>
+        <li>SVG Logo × 5 種變體</li>
+        <li>品牌色碼 × 5 色（WCAG 驗證完畢）</li>
+        <li>字型：Noto Serif TC / Noto Sans TC / Inter</li>
+        <li>深色模式色彩對應規則（Phase 2+ 備用）</li>
+        <li>字型選擇決策紀錄</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">
+    © 2026 APAC AIA 亞太包容創新協會 · Sitemap v1.0 · April 2026
+  </div>
+
+</div>
+</body>
+</html>
