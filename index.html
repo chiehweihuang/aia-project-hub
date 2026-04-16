@@ -787,7 +787,7 @@ async function tryAuth() {
   const pw = document.getElementById('pw').value;
   const hash = await sha256(pw);
   if (hash === HASH) {
-    sessionStorage.setItem('aia-auth', '1');
+    localStorage.setItem('aia-auth', Date.now() + 7 * 24 * 60 * 60 * 1000);
     unlock();
   } else {
     document.getElementById('pw').classList.add('error');
@@ -802,7 +802,12 @@ function unlock() {
 }
 
 // Auto-unlock if session exists
-if (sessionStorage.getItem('aia-auth')) unlock();
+// Auto-unlock if auth not expired (7 days)
+(function() {
+  var exp = localStorage.getItem('aia-auth');
+  if (exp && Date.now() < Number(exp)) { unlock(); }
+  else { localStorage.removeItem('aia-auth'); }
+})();
 
 // Enter key to submit
 document.getElementById('pw').addEventListener('keydown', e => { if (e.key === 'Enter') tryAuth(); });
