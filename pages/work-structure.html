@@ -70,8 +70,9 @@
   .flow { display:flex; flex-direction:column; gap:0; }
   .flow-phase { width:100%; max-width:700px; margin:0 auto; }
   .flow-phase .phase-header { text-align:center; padding:14px 16px; border-radius:8px 8px 0 0; color:#fff; font-weight:700; font-size:15px; }
-  .flow-phase .phase-body { border:2px solid var(--border); border-top:none; border-radius:0 0 8px 8px; padding:16px; display:grid; grid-template-columns:1fr 1fr; gap:8px; }
-  .flow-phase .task { padding:10px 12px; border-radius:6px; font-size:13px; position:relative; }
+  .flow-phase .phase-body { border:2px solid var(--border); border-top:none; border-radius:0 0 8px 8px; padding:16px; display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .flow-phase .task { padding:10px 12px; border-radius:6px; font-size:13px; position:relative; border:1px solid var(--border); transition:transform .15s, box-shadow .15s; }
+  .flow-phase .task:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,.1); }
   .flow-phase .task .owner { font-size:11px; font-weight:600; opacity:.8; }
   .flow-arrow { text-align:center; padding:8px 0; font-size:24px; color:var(--muted); }
   @media (max-width:600px) {
@@ -179,8 +180,9 @@
   [data-theme="dark"] .ally-note { background:#1a3a20; border-color:#34c77b; }
   [data-theme="dark"] .limitation-note { background:#2a1515; border-color:#e87c73; }
   [data-theme="dark"] .platform-card { background:#14304a; }
-  [data-theme="dark"] .flow-phase .phase-body { background:#14304a; border-color:#1e4060; }
-  [data-theme="dark"] .task { color:#e8ecef; }
+  [data-theme="dark"] .flow-phase .phase-body { background:#14304a; border-color:#2a5070; }
+  [data-theme="dark"] .task { color:#e8ecef; border-color:#2a5070 !important; }
+  [data-theme="dark"] .task:hover { box-shadow:0 4px 12px rgba(0,0,0,.3); }
   [data-theme="dark"] .task-christina { background:rgba(123,97,193,.15); }
   [data-theme="dark"] .task-schneider { background:rgba(199,110,26,.15); }
   [data-theme="dark"] .task-claire { background:rgba(10,124,62,.15); }
