@@ -41,7 +41,7 @@
   .mini-card .icon { font-size:22px; margin-bottom:4px; }
   .mini-card .title { font-weight:700; font-size:13px; margin-bottom:3px; }
   .mini-card .desc { font-size:11px; color:#666; line-height:1.5; }
-  .mini-card .desc-en { font-size:10px; color:#999; line-height:1.4; margin-top:3px; font-family:'Inter',sans-serif; }
+  .mini-card .desc-en { font-size:11px; color:#999; line-height:1.4; margin-top:3px; font-family:'Inter',sans-serif; }
 
   .opt-a .option-num { background:#e8f5e9; color:#2e7d32; }
   .opt-a .mini-card { background:#f8fdf8; border:1px solid #c8e6c9; }
@@ -64,7 +64,7 @@
 
   /* Interactive voting */
   [data-key] { cursor:pointer; }
-  [data-key]:hover { border-color:#19abe4 !important; }
+  @media(hover:hover) { [data-key]:hover { border-color:#19abe4 !important; } }
   [data-key].selected { border-color:#003b5c !important; background:#f0f7fb; box-shadow:0 0 0 2px #003b5c; }
   [data-key].selected::after {
     content:'✓'; position:absolute; top:10px; right:12px; font-size:12px; font-weight:700;
@@ -98,20 +98,33 @@
   .progress-label { font-size:12px; color:#999; margin-bottom:10px; }
   .missing-hint { font-size:13px; color:#c62828; margin-top:10px; line-height:1.7; }
 
+  .back-link {
+    display:inline-flex; align-items:center; gap:6px;
+    color:rgba(255,255,255,.75); font-size:13px; text-decoration:none;
+    margin-bottom:16px; padding:10px 0; min-height:44px;
+    transition:color .15s;
+  }
+  @media(hover:hover) { .back-link:hover { color:#fff; } }
+
   @media(max-width:600px) {
+    body { font-size:16px; }
     .option-pair, .cards-row { grid-template-columns:1fr; }
-    .header { padding:28px 20px 22px; }
+    .header { padding:20px 20px 22px; }
     .decision-header { padding:12px 16px; font-size:15px; }
     .decision-body { padding:16px; }
-    .option { padding:14px; }
-    .opt-choice { padding:12px 14px; }
+    .option { padding:14px; min-height:44px; }
+    .opt-choice { padding:12px 14px; min-height:44px; }
+    [data-key].selected::after { top:8px; right:10px; }
     .content-block { padding:12px; }
+    .mini-card { padding:10px 8px; }
+    .mini-card .desc-en { display:none; } /* 卡片預覽在手機上隱藏英文小字，避免過擠 */
     .response-panel { padding:20px 16px; }
     .response-preview { padding:12px 14px; font-size:13px; }
-    .event-input, .comment-input { font-size:16px; } /* prevents iOS auto-zoom on focus */
-    .copy-btn { font-size:14px; padding:14px 12px; }
+    .event-input, .comment-input { font-size:16px; }
+    .copy-btn { font-size:15px; padding:16px 12px; min-height:44px; }
     .intro { padding:18px 16px; }
     .sub-title { font-size:13px; }
+    .footer-note { font-size:12px; padding:16px; }
   }
 </style>
 </head>
@@ -119,6 +132,7 @@
 <div class="page">
 
   <div class="header">
+    <a href="../index.html" class="back-link">&#8592; 返回專案文件</a>
     <h1>AIA 首頁文案選項</h1>
     <p>請各位夥伴花 5 分鐘，按首頁的瀏覽順序，<strong>直接點選</strong>偏好的選項。<br>選完後底部會自動產生回覆文字，複製貼上傳給 Bertram 就好。</p>
   </div>
