@@ -533,6 +533,17 @@ We believe embracing diversity sparks innovation, creativity, and resilience —
 const selections = {};
 const REQUIRED_KEYS = ['tagline','pitch','cta','about','cards','cards_title','mission_yesno','joinus'];
 
+const OPTION_NAMES = {
+  tagline:      { A:'維持原版', B:'更具行動感' },
+  pitch:        { A:'使命導向', B:'場域導向', C:'改寫 wireframe 原文' },
+  cta:          { A:'了解更多 / Learn More', B:'參與我們的活動 / Join an Event' },
+  about:        { A:'故事型', B:'結構型', C:'改寫 wireframe 原文' },
+  cards:        { A:'我們創造什麼連結', B:'AIA 解決什麼問題', C:'保留原版，優化語氣' },
+  cards_title:  { A:'我們在做的事 / What We Do', B:'我們的行動 / Our Impact' },
+  mission:      { A:'願景型', B:'使命型', C:'核心價值型' },
+  joinus:       { A:'使命號召型', B:'務實邀請型', C:'改寫 wireframe 原文' },
+};
+
 const KEY_LABELS = {
   tagline: { section:'❶', label:'Tagline' },
   pitch:   { section:'❶', label:'Pitch' },
@@ -604,40 +615,41 @@ function updateResponse() {
   document.getElementById('progress-label').textContent = `已選 ${done} / ${total} 項`;
 
   // Build response text
+  const name = (key, val) => OPTION_NAMES[key]?.[val] ? `${val} — ${OPTION_NAMES[key][val]}` : val;
   let lines = [];
 
   // ❶ Hero
   let heroParts = [];
-  if (selections.tagline) heroParts.push(`Tagline: ${selections.tagline}`);
-  if (selections.pitch) heroParts.push(`Pitch: ${selections.pitch}`);
-  if (selections.cta) heroParts.push(`CTA: ${selections.cta}`);
-  if (heroParts.length > 0) lines.push(`❶ ${heroParts.join(' ／ ')}`);
+  if (selections.tagline) heroParts.push(`   Tagline: ${name('tagline', selections.tagline)}`);
+  if (selections.pitch)   heroParts.push(`   Pitch: ${name('pitch', selections.pitch)}`);
+  if (selections.cta)     heroParts.push(`   CTA: ${name('cta', selections.cta)}`);
+  if (heroParts.length > 0) lines.push(`❶ Hero 區\n${heroParts.join('\n')}`);
 
   // ❷ About
-  if (selections.about) lines.push(`❷ ${selections.about}`);
+  if (selections.about) lines.push(`❷ 關於協會: ${name('about', selections.about)}`);
 
   // ❸ Cards
   let cardsParts = [];
-  if (selections.cards) cardsParts.push(`卡片: ${selections.cards}`);
-  if (selections.cards_title) cardsParts.push(`標題: ${selections.cards_title}`);
-  if (cardsParts.length > 0) lines.push(`❸ ${cardsParts.join(' ／ ')}`);
+  if (selections.cards)       cardsParts.push(`   卡片: ${name('cards', selections.cards)}`);
+  if (selections.cards_title) cardsParts.push(`   區塊標題: ${name('cards_title', selections.cards_title)}`);
+  if (cardsParts.length > 0) lines.push(`❸ 三張卡片\n${cardsParts.join('\n')}`);
 
   // ❹ Mission
   if (selections.mission_yesno === '不要') {
-    lines.push('❹ 不要，直接拿掉');
+    lines.push('❹ Mission / Vision: 不要，直接拿掉');
   } else if (selections.mission_yesno === '要') {
     if (selections.mission) {
-      lines.push(`❹ 要，${selections.mission}`);
+      lines.push(`❹ Mission / Vision: 要，${name('mission', selections.mission)}`);
     } else {
-      lines.push('❹ 要，（版本未選）');
+      lines.push('❹ Mission / Vision: 要，（版本未選）');
     }
   }
 
   // ❺ Join Us
-  if (selections.joinus) lines.push(`❺ ${selections.joinus}`);
+  if (selections.joinus) lines.push(`❺ 加入我們: ${name('joinus', selections.joinus)}`);
 
   // ❻ Event
-  if (selections.event) lines.push(`❻ ${selections.event}`);
+  if (selections.event) lines.push(`❻ Event Banner: ${selections.event}`);
 
   // Comment
   const comment = document.getElementById('comment-input').value.trim();
