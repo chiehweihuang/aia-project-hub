@@ -343,10 +343,22 @@
   }
 
   @media (max-width:600px) {
+    .header-banner { padding: 32px 20px 28px; }
+    .header-banner h1 { font-size: 28px; letter-spacing: 2px; }
+    .header-banner .subtitle { font-size: 13px; letter-spacing: 2px; }
+    .section { padding: 28px 20px; }
+    .section-title { font-size: 18px; letter-spacing: 1px; }
+    .font-block { padding: 20px; }
+    .font-sample-serif, .font-sample-sans { font-size: 22px; }
+    .font-sample-inter { font-size: 18px; }
+    .footer { padding: 16px 20px; flex-direction: column; gap: 4px; text-align: center; }
     .logo-grid, .usage-grid { grid-template-columns: 1fr; }
-    .contrast-table { display:block; overflow-x:auto; -webkit-overflow-scrolling:touch; }
-    .color-palette { gap:12px; }
-    .logo-card { min-height:180px; padding:24px 20px; }
+    .logo-card { min-height: 160px; padding: 24px 20px; }
+    .contrast-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .color-palette { gap: 12px; }
+    .color-swatch { min-width: 80px; }
+    .swatch-circle { width: 72px; height: 72px; }
+    .usage-card { padding: 16px 18px; }
   }
   @media print {
     .page { max-width: 100%; }
