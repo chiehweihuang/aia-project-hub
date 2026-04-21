@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIA 首頁文案選項 — 團隊投票</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Noto Sans TC','Inter',sans-serif; background:#f5f5f5; color:#231815; line-height:1.7; font-size:15px; }
+  .page { max-width:800px; margin:0 auto; padding:0 20px 80px; }
+
+  .header { background:linear-gradient(135deg,#003b5c 0%,#003b5c 65%,#19abe4 100%); padding:40px 36px 32px; color:#fff; margin:0 -20px 32px; }
+  .header h1 { font-size:24px; font-weight:700; letter-spacing:1px; margin-bottom:4px; }
+  .header p { font-size:14px; opacity:.8; margin-top:8px; line-height:1.6; }
+
+  .intro { background:#fff; border-radius:10px; padding:24px 28px; margin-bottom:28px; box-shadow:0 1px 4px rgba(0,0,0,.06); font-size:14px; line-height:1.8; color:#444; }
+  .intro strong { color:#003b5c; }
+
+  .decision { background:#fff; border-radius:12px; margin-bottom:24px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,.06); }
+  .decision-header { background:#003b5c; color:#fff; padding:14px 24px; font-size:16px; font-weight:700; display:flex; align-items:center; gap:8px; }
+  .decision-body { padding:20px 24px; }
+  .decision-context { font-size:13px; color:#888; margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid #eee; }
+
+  .sub-decision { border-top:2px solid #f0f0f0; padding-top:18px; margin-top:18px; }
+  .sub-title { font-weight:700; font-size:14px; color:#003b5c; margin-bottom:10px; }
+
+  .option { border:2px solid #e0e0e0; border-radius:10px; padding:20px; margin-bottom:14px; transition:all .15s; position:relative; }
+  .option:last-child { margin-bottom:0; }
+  .option h3 { font-size:15px; font-weight:700; margin-bottom:10px; display:flex; align-items:center; gap:8px; }
+  .option-num { display:inline-flex; align-items:center; justify-content:center; width:26px; height:26px; border-radius:50%; font-size:13px; font-weight:700; flex-shrink:0; }
+
+  .content-block { border:1px solid #e8e8e8; border-radius:8px; padding:14px 16px; margin-bottom:8px; }
+  .content-block:last-child { margin-bottom:0; }
+  .content-block-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:#999; margin-bottom:4px; }
+  .content-zh { font-size:14px; line-height:1.8; }
+  .content-en { font-size:13px; line-height:1.7; color:#555; font-family:'Inter','Noto Sans TC',sans-serif; }
+
+  .cards-row { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:10px; }
+  .mini-card { border-radius:8px; padding:12px 10px; text-align:center; }
+  .mini-card .icon { font-size:22px; margin-bottom:4px; }
+  .mini-card .title { font-weight:700; font-size:13px; margin-bottom:3px; }
+  .mini-card .desc { font-size:11px; color:#666; line-height:1.5; }
+  .mini-card .desc-en { font-size:10px; color:#999; line-height:1.4; margin-top:3px; font-family:'Inter',sans-serif; }
+
+  .opt-a .option-num { background:#e8f5e9; color:#2e7d32; }
+  .opt-a .mini-card { background:#f8fdf8; border:1px solid #c8e6c9; }
+  .opt-a .mini-card .title { color:#1b5e20; }
+  .opt-b .option-num { background:#fff3e0; color:#e65100; }
+  .opt-b .mini-card { background:#fff8f0; border:1px solid #ffccbc; }
+  .opt-b .mini-card .title { color:#bf360c; }
+  .opt-c .option-num { background:#e8eaf6; color:#555; }
+  .opt-c .mini-card { background:#f9f9f9; border:1px solid #e0e0e0; }
+  .opt-c .mini-card .title { color:#555; }
+
+  .option-pair { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:4px; }
+  .opt-choice { border:2px solid #e0e0e0; border-radius:8px; padding:14px 16px; position:relative; transition:all .15s; }
+  .opt-choice h4 { font-size:13px; font-weight:700; margin-bottom:4px; color:#003b5c; }
+  .opt-choice p { font-size:13px; line-height:1.6; color:#444; }
+
+  .flow-arrow { text-align:center; padding:4px 0; color:#bbb; font-size:20px; }
+  .section-note { font-size:12px; color:#999; padding:10px 14px; background:#fafafa; border-radius:6px; }
+  .footer-note { text-align:center; margin-top:40px; padding:20px; font-size:13px; color:#999; }
+
+  /* Interactive voting */
+  [data-key] { cursor:pointer; }
+  [data-key]:hover { border-color:#19abe4 !important; }
+  [data-key].selected { border-color:#003b5c !important; background:#f0f7fb; box-shadow:0 0 0 2px #003b5c; }
+  [data-key].selected::after {
+    content:'✓'; position:absolute; top:10px; right:12px; font-size:12px; font-weight:700;
+    color:#fff; background:#003b5c; width:22px; height:22px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  .event-input { width:100%; border:2px solid #e0e0e0; border-radius:8px; padding:12px 16px; font-size:15px;
+    font-family:'Noto Sans TC','Inter',sans-serif; outline:none; transition:border-color .2s; }
+  .event-input:focus { border-color:#003b5c; }
+  .event-input.filled { border-color:#003b5c; background:#f0f7fb; }
+
+  .comment-input { width:100%; border:2px solid #e0e0e0; border-radius:8px; padding:12px 16px; font-size:14px;
+    font-family:'Noto Sans TC','Inter',sans-serif; outline:none; transition:border-color .2s; resize:vertical; min-height:60px; }
+  .comment-input:focus { border-color:#003b5c; }
+
+  .response-panel { background:#fff; border-radius:12px; padding:28px; box-shadow:0 2px 12px rgba(0,0,0,.1);
+    border-left:4px solid #F8B62D; margin-top:8px; position:relative; }
+  .response-preview { background:#f8f8f8; border-radius:8px; padding:16px 20px;
+    font-size:14px; line-height:2; white-space:pre-line; min-height:80px; color:#333; }
+  .response-preview .empty { color:#bbb; font-style:italic; }
+  .copy-btn { display:block; width:100%; margin-top:14px; padding:14px; border:none; border-radius:8px;
+    font-size:15px; font-weight:700; font-family:'Noto Sans TC','Inter',sans-serif; cursor:pointer; transition:all .2s; }
+  .copy-btn.disabled { background:#e0e0e0; color:#999; cursor:not-allowed; }
+  .copy-btn.ready { background:#003b5c; color:#fff; }
+  .copy-btn.ready:hover { background:#004d7a; }
+  .copy-btn.copied { background:#2e7d32; color:#fff; }
+  .progress-bar { display:flex; gap:6px; margin-bottom:16px; }
+  .progress-dot { flex:1; height:6px; border-radius:3px; background:#e0e0e0; transition:background .3s; }
+  .progress-dot.done { background:#003b5c; }
+  .progress-label { font-size:12px; color:#999; margin-bottom:10px; }
+  .missing-hint { font-size:13px; color:#c62828; margin-top:10px; line-height:1.7; }
+
+  @media(max-width:600px) { .option-pair,.cards-row { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <h1>AIA 首頁文案選項</h1>
+    <p>請各位夥伴花 5 分鐘，按首頁的瀏覽順序，<strong>直接點選</strong>偏好的選項。<br>選完後底部會自動產生回覆文字，複製貼上傳給 Bertram 就好。</p>
+  </div>
+
+  <div class="intro">
+    這份文件按首頁從上到下的順序，列出每個區塊需要團隊決定的文案方向。每個選項都準備好了中英文草稿，<strong>直接點你喜歡的就好</strong>。如果都不滿意，底部有留言區可以說。
+  </div>
+
+  <!-- ❶ HERO -->
+  <div class="decision">
+    <div class="decision-header">❶ Hero 區 — 訪客第一眼看到的畫面</div>
+    <div class="decision-body">
+      <div class="decision-context">
+        首頁最上方的全屏區塊，包含 Tagline（標語）、Elevator Pitch（一段話介紹）和 CTA 按鈕。
+      </div>
+
+      <!-- Tagline -->
+      <div class="sub-title">Tagline / 標語 — 點選一組</div>
+      <div class="option-pair" style="margin-bottom:18px;">
+        <div class="opt-choice" data-key="tagline" data-value="A">
+          <h4>A — 維持原版</h4>
+          <p>多元共融 ｜ 以人為本 ｜ 科技創新</p>
+          <p style="font-size:12px; color:#888; margin-top:4px; font-family:'Inter',sans-serif;">Diversity & Inclusion ｜ Human-Centered ｜ Tech Innovation</p>
+        </div>
+        <div class="opt-choice" data-key="tagline" data-value="B">
+          <h4>B — 更具行動感</h4>
+          <p>連結多元 ｜ 以人為本 ｜ 創新共好</p>
+          <p style="font-size:12px; color:#888; margin-top:4px; font-family:'Inter',sans-serif;">Connecting Diversity ｜ Human-Centered ｜ Innovation for All</p>
+        </div>
+      </div>
+
+      <!-- Elevator Pitch -->
+      <div class="sub-decision">
+        <div class="sub-title">Elevator Pitch — 點選一個版本</div>
+
+        <div class="option" data-key="pitch" data-value="A">
+          <h3><span class="option-num" style="background:#e3f2fd;color:#1565c0;">A</span> 使命導向（從「為什麼」出發）</h3>
+          <div class="content-block">
+            <div class="content-block-label">中文</div>
+            <div class="content-zh">我們相信，當多元的聲音被聽見、被理解、被納入設計，科技才能真正服務每一個人。亞太包容創新協會透過教育、培訓和國際合作，讓包容從理念走向實踐。</div>
+          </div>
+          <div class="content-block">
+            <div class="content-block-label">English</div>
+            <div class="content-en">We believe technology serves everyone only when diverse voices are heard, understood, and included by design. APAC AIA turns inclusion from ideal to practice through education, training, and global collaboration.</div>
+          </div>
+        </div>
+
+        <div class="option" data-key="pitch" data-value="B">
+          <h3><span class="option-num" style="background:#e8f5e9;color:#2e7d32;">B</span> 場域導向（從「我們做什麼」出發）</h3>
+          <div class="content-block">
+            <div class="content-block-label">中文</div>
+            <div class="content-zh">亞太包容創新協會是一個連結設計師、開發者、企業家與身心障礙社群的場域。我們整合國內外資源，透過活動與培訓推動以人為本的科技創新。</div>
+          </div>
+          <div class="content-block">
+            <div class="content-block-label">English</div>
+            <div class="content-en">APAC AIA connects designers, developers, entrepreneurs, and the disability community. We bring together resources across the Asia-Pacific to drive human-centered tech innovation through events and training.</div>
+          </div>
+        </div>
+
+        <div class="option" data-key="pitch" data-value="C">
+          <h3><span class="option-num" style="background:#f3e5f5;color:#6a1b9a;">C</span> 改寫 wireframe 原文</h3>
+          <div class="content-block">
+            <div class="content-block-label">中文</div>
+            <div class="content-zh">亞太包容創新協會致力推動多元共融與以人為本的科技創新文化，透過教育、培訓和國際合作，建立促進包容性的生態系統。</div>
+          </div>
+          <div class="content-block">
+            <div class="content-block-label">English</div>
+            <div class="content-en">APAC AIA fosters a culture of diversity, inclusion, and human-centered innovation. Through education, training, and global collaboration, we build ecosystems that champion inclusivity for all.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="sub-decision">
+        <div class="sub-title">CTA 按鈕 — 點選一個</div>
+        <div class="option-pair">
+          <div class="opt-choice" data-key="cta" data-value="A">
+            <h4>A — 了解更多 / Learn More</h4>
+            <p>通用、安全，連結至下方 About 區塊</p>
+          </div>
+          <div class="opt-choice" data-key="cta" data-value="B">
+            <h4>B — 參與我們的活動 / Join an Event</h4>
+            <p>直接導流到 P1 活動頁</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="flow-arrow">▼</div>
+
+  <!-- ❷ ABOUT -->
+  <div class="decision">
+    <div class="decision-header">❷ 關於協會 — 組織介紹段落</div>
+    <div class="decision-body">
+      <div class="decision-context">
+        Hero 下方，用 2-3 段文字說明 AIA 的成立背景和核心價值。<br><strong>點選一個版本。</strong>
+      </div>
+
+      <div class="option" data-key="about" data-value="A">
+        <h3><span class="option-num" style="background:#e3f2fd;color:#1565c0;">A</span> 故事型（從「為什麼成立」切入）</h3>
+        <div class="content-block">
+          <div class="content-block-label">中文</div>
+          <div class="content-zh">在亞太地區，推動無障礙與多元共融的知識和資源長期分散在不同領域、不同國家。設計師不知道使用者的真實需求，企業想做卻不知道從何開始，而身心障礙者的聲音往往到不了做決策的人面前。
+
+亞太包容創新協會成立於 2024 年，總部位於台灣台北。我們的存在，是為了把這些人拉進同一個房間 — 透過活動、培訓和國際合作，讓包容性從抽象的價值觀變成具體的行動。</div>
+        </div>
+        <div class="content-block">
+          <div class="content-block-label">English</div>
+          <div class="content-en">Across the Asia-Pacific, knowledge and resources for accessibility and inclusion have long been scattered across disciplines and borders. Designers lack direct insight into users' real needs, businesses want to act but don't know where to start, and the voices of people with disabilities rarely reach decision-makers.
+
+Founded in 2024 in Taipei, APAC AIA exists to bring these groups together — turning inclusion from an abstract value into concrete action through events, training, and international collaboration.</div>
+        </div>
+      </div>
+
+      <div class="option" data-key="about" data-value="B">
+        <h3><span class="option-num" style="background:#e8f5e9;color:#2e7d32;">B</span> 結構型（清楚列出使命和方法）</h3>
+        <div class="content-block">
+          <div class="content-block-label">中文</div>
+          <div class="content-zh">亞太包容創新協會成立於 2024 年，是一個總部位於台灣台北的非營利組織。
+
+我們的使命是推動多元共融、以人為本的科技創新文化。我們的方法是整合國內外資源，透過三種方式創造改變：跨界對話讓不同背景的人相互理解、國際合作引入全球最佳實踐、實作培訓讓理念落地為行動。
+
+我們相信，擁抱多樣性能夠激發創新、創造力和韌性，最終影響社會中的每個人。</div>
+        </div>
+        <div class="content-block">
+          <div class="content-block-label">English</div>
+          <div class="content-en">Founded in 2024, APAC Authentic Inclusion Association is a Taipei-based nonprofit.
+
+Our mission is to foster a culture of diversity, inclusion, and human-centered tech innovation. We create change in three ways: cross-sector dialogue that builds mutual understanding, international partnerships that bring global best practices to the Asia-Pacific, and hands-on training that turns principles into action.
+
+We believe embracing diversity sparks innovation, creativity, and resilience — ultimately impacting everyone.</div>
+        </div>
+      </div>
+
+      <div class="option" data-key="about" data-value="C">
+        <h3><span class="option-num" style="background:#f3e5f5;color:#6a1b9a;">C</span> 改寫 wireframe 原文</h3>
+        <div class="content-block">
+          <div class="content-block-label">中文</div>
+          <div class="content-zh">總部位於台灣台北的非營利組織「亞太包容創新協會」成立於 2024 年。
+
+協會的主要目標是推動多元共融、以人為本的科技創新文化，建立促進個人和組織共同支持的生態系統，透過教育、培訓和合作倡導包容性與可能性。
+
+我們堅信，擁抱多樣性能夠激發創新、創造力和韌性，最終影響社會中的每個人。</div>
+        </div>
+        <div class="content-block">
+          <div class="content-block-label">English</div>
+          <div class="content-en">Founded in 2024 and headquartered in Taipei, APAC Authentic Inclusion Association is a nonprofit dedicated to fostering diversity, inclusion, and human-centered tech innovation.
+
+We build supportive ecosystems for individuals and organizations through education, training, and collaborative advocacy for inclusivity and possibility.
+
+We believe embracing diversity sparks innovation, creativity, and resilience — ultimately impacting everyone in society.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="flow-arrow">▼</div>
+
+  <!-- ❸ ADVANTAGES -->
+  <div class="decision">
+    <div class="decision-header">❸ 三張卡片 — 我們在做的事</div>
+    <div class="decision-body">
+      <div class="decision-context">
+        首頁中間的三張卡片區塊。AIA 是整合國內外資源的場域，把設計師、開發者、企業家與身心障礙者連結在一起。<br><strong>點選一組。</strong>
+      </div>
+
+      <!-- Option A -->
+      <div class="option opt-a" data-key="cards" data-value="A">
+        <h3><span class="option-num">A</span> 我們創造什麼連結</h3>
+        <div style="font-size:13px; color:#666; margin-bottom:10px;">角度：AIA 作為橋樑，強調連結不同群體的力量</div>
+        <div class="cards-row">
+          <div class="mini-card">
+            <div class="icon">🔗</div>
+            <div class="title">跨界對話</div>
+            <div class="desc">讓做產品的人聽到使用者的聲音</div>
+            <div class="desc-en">Cross-Sector Dialogue — Bridging creators and users</div>
+          </div>
+          <div class="mini-card">
+            <div class="icon">🌏</div>
+            <div class="title">國際接軌</div>
+            <div class="desc">把全球最佳實踐帶進亞太</div>
+            <div class="desc-en">Global Standards — Bringing best practices to APAC</div>
+          </div>
+          <div class="mini-card">
+            <div class="icon">🚀</div>
+            <div class="title">從理念到落地</div>
+            <div class="desc">透過活動和培訓把包容性變成可執行的事</div>
+            <div class="desc-en">Idea to Action — Making inclusion practical through events & training</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Option B -->
+      <div class="option opt-b" data-key="cards" data-value="B">
+        <h3><span class="option-num">B</span> AIA 解決什麼問題</h3>
+        <div style="font-size:13px; color:#666; margin-bottom:10px;">角度：先點出現狀的痛點，再給出 AIA 的解法</div>
+        <div class="cards-row">
+          <div class="mini-card">
+            <div class="icon">🧱</div>
+            <div class="title">打破專業的隔牆</div>
+            <div class="desc">設計、開發、商業、使用者坐進同一個房間</div>
+            <div class="desc-en">Breaking Silos — Designers, developers, businesses & users in one room</div>
+          </div>
+          <div class="mini-card">
+            <div class="icon">📡</div>
+            <div class="title">填補資訊落差</div>
+            <div class="desc">讓亞太與國際的無障礙實踐不再脫節</div>
+            <div class="desc-en">Closing the Gap — Connecting APAC with global accessibility practices</div>
+          </div>
+          <div class="mini-card">
+            <div class="icon">⚙️</div>
+            <div class="title">從口號變成方法</div>
+            <div class="desc">讓「多元共融」成為可執行的工作流程</div>
+            <div class="desc-en">Words to Workflows — Turning "inclusion" into actionable processes</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Option C -->
+      <div class="option opt-c" data-key="cards" data-value="C">
+        <h3><span class="option-num">C</span> 保留原版，優化語氣</h3>
+        <div style="font-size:13px; color:#666; margin-bottom:10px;">角度：維持 wireframe 原始架構，僅調整用詞</div>
+        <div class="cards-row">
+          <div class="mini-card">
+            <div class="icon">👥</div>
+            <div class="title">跨領域專家社群</div>
+            <div class="desc">原：強大的專業團隊</div>
+            <div class="desc-en">Cross-Disciplinary Community</div>
+          </div>
+          <div class="mini-card">
+            <div class="icon">🔗</div>
+            <div class="title">國內外合作網絡</div>
+            <div class="desc">原：豐富的網路資源</div>
+            <div class="desc-en">Domestic & International Network</div>
+          </div>
+          <div class="mini-card">
+            <div class="icon">🌐</div>
+            <div class="title">接軌國際標準</div>
+            <div class="desc">原：廣泛的國際合作</div>
+            <div class="desc-en">Aligned with Global Standards</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section Title sub-pick -->
+      <div class="sub-decision">
+        <div class="sub-title">這個區塊的標題 — 點選一個</div>
+        <div class="option-pair">
+          <div class="opt-choice" data-key="cards_title" data-value="A">
+            <h4>A — 我們在做的事 / What We Do</h4>
+            <p>直接、不包裝</p>
+          </div>
+          <div class="opt-choice" data-key="cards_title" data-value="B">
+            <h4>B — 我們的行動 / Our Impact</h4>
+            <p>強調成果和影響力</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="flow-arrow">▼</div>
+
+  <!-- ❹ MISSION / VISION -->
+  <div class="decision">
+    <div class="decision-header">❹ Mission / Vision — 取代原 Our Team 區塊</div>
+    <div class="decision-body">
+      <div class="decision-context">
+        wireframe 原本在這裡放 3 位團隊成員照片。建議改為一段使命或願景宣言 — 首頁從頭到尾都在建立使命認同，團隊介紹留給 About 頁。<br><br>
+        先決定：<strong>要替換為 Mission/Vision，還是直接拿掉這個區塊？</strong>
+      </div>
+
+      <div class="option-pair" style="margin-bottom:18px;">
+        <div class="opt-choice" data-key="mission_yesno" data-value="要">
+          <h4>要 — 替換為 Mission / Vision</h4>
+          <p>放一段使命宣言，強化認同感（請接著選下方 A/B/C）</p>
+        </div>
+        <div class="opt-choice" data-key="mission_yesno" data-value="不要">
+          <h4>不要 — 直接拿掉</h4>
+          <p>首頁更簡潔，少一個區塊</p>
+        </div>
+      </div>
+
+      <div id="mission-options" style="font-size:13px; color:#888; margin-bottom:14px;">如果選「要」，請再選一個版本：</div>
+
+      <div class="option" data-key="mission" data-value="A">
+        <h3><span class="option-num" style="background:#e3f2fd;color:#1565c0;">A</span> 願景型（我們想看到的未來）</h3>
+        <div class="content-block">
+          <div class="content-block-label">中文</div>
+          <div class="content-zh">我們的願景是一個每個人都能平等參與數位世界的未來 — 不因身體、語言、文化的差異而被排除在外。這不只是技術問題，而是我們選擇建造什麼樣的社會。</div>
+        </div>
+        <div class="content-block">
+          <div class="content-block-label">English</div>
+          <div class="content-en">We envision a future where everyone can participate equally in the digital world — regardless of physical ability, language, or cultural background. This isn't just a technical challenge; it's a choice about what kind of society we build.</div>
+        </div>
+      </div>
+
+      <div class="option" data-key="mission" data-value="B">
+        <h3><span class="option-num" style="background:#e8f5e9;color:#2e7d32;">B</span> 使命型（我們為什麼存在）</h3>
+        <div class="content-block">
+          <div class="content-block-label">中文</div>
+          <div class="content-zh">當設計排除了任何一個人，創新就不完整。亞太包容創新協會存在的理由，是確保科技進步的過程中，沒有人被落下。</div>
+        </div>
+        <div class="content-block">
+          <div class="content-block-label">English</div>
+          <div class="content-en">When design excludes anyone, innovation is incomplete. APAC AIA exists to ensure that as technology advances, no one is left behind.</div>
+        </div>
+      </div>
+
+      <div class="option" data-key="mission" data-value="C">
+        <h3><span class="option-num" style="background:#f3e5f5;color:#6a1b9a;">C</span> 核心價值型（我們相信什麼）</h3>
+        <div class="content-block">
+          <div class="content-block-label">中文</div>
+          <div class="content-zh">我們相信多樣性是創新的前提，不是附加條件。當不同的聲音被納入設計流程，產品會更好，組織會更強，社會會更有韌性。</div>
+        </div>
+        <div class="content-block">
+          <div class="content-block-label">English</div>
+          <div class="content-en">We believe diversity is a prerequisite for innovation, not an afterthought. When different voices are included in the design process, products improve, organizations grow stronger, and society becomes more resilient.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="flow-arrow">▼</div>
+
+  <!-- ❺ JOIN US -->
+  <div class="decision">
+    <div class="decision-header">❺ 加入我們 — 團隊精神怎麼說？</div>
+    <div class="decision-body">
+      <div class="decision-context">
+        首頁的招募區塊，讓訪客想加入 AIA。<br><strong>點選一個版本。</strong>
+      </div>
+
+      <div class="option" data-key="joinus" data-value="A">
+        <h3><span class="option-num" style="background:#e3f2fd;color:#1565c0;">A</span> 使命號召型</h3>
+        <div class="content-block">
+          <div class="content-block-label">中文</div>
+          <div class="content-zh">改變不會自己發生。我們正在尋找設計師、開發者、研究者、倡議者 — 任何相信科技應該服務所有人的夥伴。不論你的背景是什麼，這裡都有你能發揮的位置。</div>
+        </div>
+        <div class="content-block">
+          <div class="content-block-label">English</div>
+          <div class="content-en">Change doesn't happen on its own. We're looking for designers, developers, researchers, advocates — anyone who believes technology should serve everyone. Whatever your background, there's a place for you here.</div>
+        </div>
+      </div>
+
+      <div class="option" data-key="joinus" data-value="B">
+        <h3><span class="option-num" style="background:#e8f5e9;color:#2e7d32;">B</span> 務實邀請型</h3>
+        <div class="content-block">
+          <div class="content-block-label">中文</div>
+          <div class="content-zh">我們是一個小而靈活的團隊，正在尋找志同道合的夥伴。無論是專業技能、國際經驗、還是對無障礙議題的熱情，我們都歡迎你帶著你擅長的事加入。</div>
+        </div>
+        <div class="content-block">
+          <div class="content-block-label">English</div>
+          <div class="content-en">We're a small, agile team looking for like-minded people. Whether you bring professional skills, international experience, or passion for accessibility — we welcome what you're good at.</div>
+        </div>
+      </div>
+
+      <div class="option" data-key="joinus" data-value="C">
+        <h3><span class="option-num" style="background:#f3e5f5;color:#6a1b9a;">C</span> 改寫 wireframe 原文</h3>
+        <div class="content-block">
+          <div class="content-block-label">中文</div>
+          <div class="content-zh">我們正在尋找志同道合的夥伴加入團隊。我們相信多元背景能激發最好的創新，如果你也認同為所有人打造更好世界的理念，歡迎加入我們的行列。</div>
+        </div>
+        <div class="content-block">
+          <div class="content-block-label">English</div>
+          <div class="content-en">We are actively looking for talent to join our team. Our ethos is to build a better world for all. If this is something you are interested in helping with, join us.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="flow-arrow">▼</div>
+
+  <!-- ❻ EVENT BANNER -->
+  <div class="decision">
+    <div class="decision-header">❻ Event Banner — 首頁放哪個活動？</div>
+    <div class="decision-body">
+      <div class="decision-context">
+        首頁底部有一個活動橫幅，需要決定放哪一場活動。
+      </div>
+      <div style="padding:8px 0;">
+        <div style="font-size:13px; color:#666; margin-bottom:8px;">請輸入活動名稱：</div>
+        <input type="text" id="event-input" class="event-input" placeholder="例：2026 亞太無障礙峰會" oninput="onEventInput(this)">
+        <div style="font-size:11px; color:#aaa; margin-top:6px;">Shared Drive 有 A1 活動時間表＋議程可參考。確認活動後，文案由 Bertram 撰寫。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESPONSE PANEL -->
+  <div class="response-panel">
+    <div style="font-weight:700; font-size:16px; color:#003b5c; margin-bottom:6px;">你的回覆</div>
+    <div class="progress-label" id="progress-label">已選 0 / 8 項</div>
+    <div class="progress-bar" id="progress-bar">
+      <div class="progress-dot" data-for="tagline"></div>
+      <div class="progress-dot" data-for="pitch"></div>
+      <div class="progress-dot" data-for="cta"></div>
+      <div class="progress-dot" data-for="about"></div>
+      <div class="progress-dot" data-for="cards"></div>
+      <div class="progress-dot" data-for="cards_title"></div>
+      <div class="progress-dot" data-for="mission_yesno"></div>
+      <div class="progress-dot" data-for="joinus"></div>
+    </div>
+    <div class="response-preview" id="response-preview">
+      <span class="empty">點選上方的選項後，回覆文字會自動出現在這裡。</span>
+    </div>
+    <div style="margin-top:16px;">
+      <div style="font-size:13px; color:#666; margin-bottom:6px;">額外意見（選填）：</div>
+      <textarea id="comment-input" class="comment-input" placeholder="有什麼想法、建議、或覺得哪裡怪怪的，都可以寫在這裡。" oninput="updateResponse()"></textarea>
+    </div>
+    <div class="missing-hint" id="missing-hint"></div>
+    <button class="copy-btn disabled" id="copy-btn" onclick="copyResponse()">還有項目未選</button>
+  </div>
+
+  <div class="footer-note">
+    AIA 網站重新設計 Phase 1 ｜ 文案選項 v2 ｜ 2026-04-21
+  </div>
+
+</div>
+
+<script>
+const selections = {};
+const REQUIRED_KEYS = ['tagline','pitch','cta','about','cards','cards_title','mission_yesno','joinus'];
+
+const KEY_LABELS = {
+  tagline: { section:'❶', label:'Tagline' },
+  pitch:   { section:'❶', label:'Pitch' },
+  cta:     { section:'❶', label:'CTA' },
+  about:   { section:'❷', label:'關於協會' },
+  cards:   { section:'❸', label:'卡片' },
+  cards_title: { section:'❸', label:'標題' },
+  mission_yesno: { section:'❹', label:'Mission/Vision' },
+  mission: { section:'❹', label:'Mission 版本' },
+  joinus:  { section:'❺', label:'加入我們' },
+  event:   { section:'❻', label:'活動' }
+};
+
+// Click handlers for all selectable elements
+document.querySelectorAll('[data-key]').forEach(el => {
+  el.addEventListener('click', () => {
+    const key = el.dataset.key;
+    const value = el.dataset.value;
+
+    // Deselect siblings
+    document.querySelectorAll(`[data-key="${key}"]`).forEach(sib => sib.classList.remove('selected'));
+    el.classList.add('selected');
+    selections[key] = value;
+
+    // If mission_yesno is "不要", clear mission sub-selection
+    if (key === 'mission_yesno' && value === '不要') {
+      delete selections.mission;
+      document.querySelectorAll('[data-key="mission"]').forEach(sib => sib.classList.remove('selected'));
+    }
+
+    updateResponse();
+  });
+});
+
+function onEventInput(input) {
+  const val = input.value.trim();
+  if (val) {
+    input.classList.add('filled');
+    selections.event = val;
+  } else {
+    input.classList.remove('filled');
+    delete selections.event;
+  }
+  updateResponse();
+}
+
+function updateResponse() {
+  // Calculate completion
+  let done = 0;
+  let missing = [];
+  REQUIRED_KEYS.forEach(key => {
+    const dot = document.querySelector(`.progress-dot[data-for="${key}"]`);
+    if (selections[key]) {
+      done++;
+      if (dot) dot.classList.add('done');
+    } else {
+      if (dot) dot.classList.remove('done');
+      missing.push(KEY_LABELS[key] ? `${KEY_LABELS[key].section} ${KEY_LABELS[key].label}` : key);
+    }
+  });
+
+  // Check if mission needs sub-selection
+  const needsMissionSub = selections.mission_yesno === '要' && !selections.mission;
+  if (needsMissionSub && !missing.includes('❹ Mission 版本')) {
+    missing.push('❹ Mission 版本');
+  }
+
+  const total = REQUIRED_KEYS.length;
+  document.getElementById('progress-label').textContent = `已選 ${done} / ${total} 項`;
+
+  // Build response text
+  let lines = [];
+
+  // ❶ Hero
+  let heroParts = [];
+  if (selections.tagline) heroParts.push(`Tagline: ${selections.tagline}`);
+  if (selections.pitch) heroParts.push(`Pitch: ${selections.pitch}`);
+  if (selections.cta) heroParts.push(`CTA: ${selections.cta}`);
+  if (heroParts.length > 0) lines.push(`❶ ${heroParts.join(' ／ ')}`);
+
+  // ❷ About
+  if (selections.about) lines.push(`❷ ${selections.about}`);
+
+  // ❸ Cards
+  let cardsParts = [];
+  if (selections.cards) cardsParts.push(`卡片: ${selections.cards}`);
+  if (selections.cards_title) cardsParts.push(`標題: ${selections.cards_title}`);
+  if (cardsParts.length > 0) lines.push(`❸ ${cardsParts.join(' ／ ')}`);
+
+  // ❹ Mission
+  if (selections.mission_yesno === '不要') {
+    lines.push('❹ 不要，直接拿掉');
+  } else if (selections.mission_yesno === '要') {
+    if (selections.mission) {
+      lines.push(`❹ 要，${selections.mission}`);
+    } else {
+      lines.push('❹ 要，（版本未選）');
+    }
+  }
+
+  // ❺ Join Us
+  if (selections.joinus) lines.push(`❺ ${selections.joinus}`);
+
+  // ❻ Event
+  if (selections.event) lines.push(`❻ ${selections.event}`);
+
+  // Comment
+  const comment = document.getElementById('comment-input').value.trim();
+  if (comment) lines.push(`\n💬 ${comment}`);
+
+  const preview = document.getElementById('response-preview');
+  const btn = document.getElementById('copy-btn');
+  const hint = document.getElementById('missing-hint');
+
+  if (lines.length === 0) {
+    preview.innerHTML = '<span class="empty">點選上方的選項後，回覆文字會自動出現在這裡。</span>';
+  } else {
+    preview.textContent = lines.join('\n');
+  }
+
+  const allDone = missing.length === 0 && !needsMissionSub;
+  if (allDone) {
+    btn.className = 'copy-btn ready';
+    btn.textContent = '複製回覆文字';
+    hint.textContent = '';
+  } else {
+    btn.className = 'copy-btn disabled';
+    btn.textContent = `還有 ${missing.length + (needsMissionSub ? 1 : 0)} 個項目未選`;
+    const allMissing = [...missing];
+    if (needsMissionSub && !allMissing.includes('❹ Mission 版本')) {
+      // already added above
+    }
+    hint.textContent = '未選：' + missing.join('、') + (needsMissionSub ? '、❹ Mission 版本' : '');
+  }
+}
+
+function copyResponse() {
+  const btn = document.getElementById('copy-btn');
+  if (btn.classList.contains('disabled')) return;
+
+  const text = document.getElementById('response-preview').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.className = 'copy-btn copied';
+    btn.textContent = '已複製 ✓';
+    setTimeout(() => {
+      btn.className = 'copy-btn ready';
+      btn.textContent = '複製回覆文字';
+    }, 2000);
+  }).catch(() => {
+    // Fallback
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    btn.className = 'copy-btn copied';
+    btn.textContent = '已複製 ✓';
+    setTimeout(() => {
+      btn.className = 'copy-btn ready';
+      btn.textContent = '複製回覆文字';
+    }, 2000);
+  });
+}
+</script>
+</body>
+</html>
