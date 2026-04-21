@@ -115,10 +115,21 @@
   .export-row { display:flex; gap:8px; margin-top:12px; }
 
   @media (max-width:768px) {
-    .topnav { flex-wrap:wrap; padding:8px 12px; }
+    .topnav { flex-wrap:wrap; padding:8px 12px; gap:8px; }
+    .topnav h1 { width:100%; font-size:14px; }
     .container { padding:12px; }
-    .summary-grid { grid-template-columns:1fr; }
+    .summary-grid { grid-template-columns:1fr 1fr; }
     .screenshot-thumb { width:80px; height:54px; }
+  }
+  @media (max-width:480px) {
+    .step-header { padding:12px; flex-wrap:wrap; gap:6px; }
+    .step-time { display:none; }
+    .step-title { font-size:14px; }
+    .step-type, .phase-tag { font-size:10px; padding:2px 5px; }
+    .btn { padding:10px 14px; font-size:13px; min-height:44px; }
+    .btn-row { gap:6px; }
+    .summary-grid { grid-template-columns:1fr; }
+    .stat { padding:12px; }
   }
   @media print {
     .topnav { position:static; }
