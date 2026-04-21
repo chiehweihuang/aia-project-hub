@@ -185,6 +185,7 @@
     background: var(--success) !important; color: #fff !important;
   }
   .topnav .wcag-btn:hover { opacity: .9; }
+  .nav-btns { display:flex; gap:8px; align-items:center; }
   .topnav .util-btn {
     background: rgba(255,255,255,.08);
     font-size: 11px; letter-spacing: 0;
@@ -379,9 +380,11 @@
 
   /* RESPONSIVE */
   @media (max-width:768px) {
-    .topnav { padding: 10px 12px; }
-    .topnav h1 { font-size: 15px; letter-spacing: 2px; width: 100%; margin-bottom: 6px; }
-    .topnav button { font-size: 11px; padding: 6px 10px; }
+    .topnav { padding: 10px 12px 0; flex-wrap: wrap; gap: 4px; }
+    .topnav h1 { font-size: 14px; letter-spacing: 1px; flex: 0 0 100%; margin-right: 0; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,.2); margin-bottom: 0; }
+    .nav-btns { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; flex-wrap: nowrap; padding-bottom: 10px; scrollbar-width: none; }
+    .nav-btns::-webkit-scrollbar { display: none; }
+    .topnav button { font-size: 11px; padding: 6px 10px; white-space: nowrap; flex-shrink: 0; }
     .section { padding: 16px 12px; }
     .card { padding: 16px; }
     .section-heading h2 { font-size: 18px; }
@@ -417,16 +420,18 @@
 <header>
 <nav class="topnav" aria-label="專案導覽">
   <h1><a href="#main-content" style="color:#fff; text-decoration:none;" onclick="document.querySelectorAll('.section').forEach(s=>s.classList.remove('visible'));document.getElementById('checklist').classList.add('visible');document.querySelectorAll('.topnav button').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.topnav button')[0].classList.add('active');window.scrollTo(0,0);return false;">AIA 網站重新設計</a></h1>
-  <button class="active" onclick="showSection('checklist',this)">Checklist</button>
-  <button onclick="showSection('overview',this)">專案總覽</button>
-  <button onclick="showSection('specs',this)">專案規範</button>
-  <button onclick="showSection('assets',this)">素材清單</button>
-  <button onclick="showSection('structure',this)">工作架構</button>
-  <button onclick="showSection('downloads',this)">專案文件</button>
-  <button class="wcag-btn" onclick="window.open('pages/testing-flow.html','_blank')">WCAG 測試</button>
-  <button id="theme-btn" class="util-btn" onclick="toggleTheme()" style="margin-left:auto;" aria-label="切換深色模式">Dark</button>
-  <button id="publish-btn" class="util-btn" onclick="publishState()" style="display:none; background:#0a7c3e; color:#fff;">發布變更</button>
-  <button id="admin-btn" class="util-btn" onclick="toggleAdmin()">PM</button>
+  <div class="nav-btns">
+    <button class="active" onclick="showSection('checklist',this)">Checklist</button>
+    <button onclick="showSection('overview',this)">專案總覽</button>
+    <button onclick="showSection('specs',this)">專案規範</button>
+    <button onclick="showSection('assets',this)">素材清單</button>
+    <button onclick="showSection('structure',this)">工作架構</button>
+    <button onclick="showSection('downloads',this)">專案文件</button>
+    <button class="wcag-btn" onclick="window.open('pages/testing-flow.html','_blank')">WCAG 測試</button>
+    <button id="theme-btn" class="util-btn" onclick="toggleTheme()" style="margin-left:auto;" aria-label="切換深色模式">Dark</button>
+    <button id="publish-btn" class="util-btn" onclick="publishState()" style="display:none; background:#0a7c3e; color:#fff;">發布變更</button>
+    <button id="admin-btn" class="util-btn" onclick="toggleAdmin()">PM</button>
+  </div>
 </nav>
 </header>
 
