@@ -342,6 +342,12 @@
     justify-content: space-between;
   }
 
+  @media (max-width:600px) {
+    .logo-grid, .usage-grid { grid-template-columns: 1fr; }
+    .contrast-table { display:block; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+    .color-palette { gap:12px; }
+    .logo-card { min-height:180px; padding:24px 20px; }
+  }
   @media print {
     .page { max-width: 100%; }
     .section { padding: 30px 40px; }
