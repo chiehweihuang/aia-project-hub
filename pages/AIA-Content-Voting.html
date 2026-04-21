@@ -98,7 +98,21 @@
   .progress-label { font-size:12px; color:#999; margin-bottom:10px; }
   .missing-hint { font-size:13px; color:#c62828; margin-top:10px; line-height:1.7; }
 
-  @media(max-width:600px) { .option-pair,.cards-row { grid-template-columns:1fr; } }
+  @media(max-width:600px) {
+    .option-pair, .cards-row { grid-template-columns:1fr; }
+    .header { padding:28px 20px 22px; }
+    .decision-header { padding:12px 16px; font-size:15px; }
+    .decision-body { padding:16px; }
+    .option { padding:14px; }
+    .opt-choice { padding:12px 14px; }
+    .content-block { padding:12px; }
+    .response-panel { padding:20px 16px; }
+    .response-preview { padding:12px 14px; font-size:13px; }
+    .event-input, .comment-input { font-size:16px; } /* prevents iOS auto-zoom on focus */
+    .copy-btn { font-size:14px; padding:14px 12px; }
+    .intro { padding:18px 16px; }
+    .sub-title { font-size:13px; }
+  }
 </style>
 </head>
 <body>
