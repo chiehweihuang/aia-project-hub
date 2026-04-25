@@ -110,7 +110,7 @@
   .final-panel { background:linear-gradient(135deg,#003b5c 0%,#19abe4 100%); border-radius:12px; margin-bottom:28px; box-shadow:0 2px 12px rgba(0,59,92,.15); overflow:hidden; }
   .final-label { padding:18px 24px; color:#F8B62D; font-weight:700; font-size:14px; letter-spacing:2px; cursor:pointer; list-style:none; display:flex; align-items:center; gap:10px; user-select:none; }
   .final-label::-webkit-details-marker { display:none; }
-  .final-label::after { content:'4'; margin-left:auto; font-size:22px; transition:transform .2s; color:#fff; }
+  .final-label::after { content:'⌄'; margin-left:auto; font-size:22px; transition:transform .2s; color:#fff; }
   .final-panel[open] .final-label::after { transform:rotate(180deg); }
   .final-label:focus-visible { outline:2px solid #F8B62D; outline-offset:-4px; }
   .final-list { background:#fff; padding:10px 24px 18px; }
@@ -123,7 +123,7 @@
   /* Collapsible decisions */
   summary.decision-header { cursor:pointer; list-style:none; user-select:none; }
   summary.decision-header::-webkit-details-marker { display:none; }
-  summary.decision-header::after { content:'4'; margin-left:auto; font-size:20px; transition:transform .2s; flex-shrink:0; }
+  summary.decision-header::after { content:'⌄'; margin-left:auto; font-size:20px; transition:transform .2s; flex-shrink:0; }
   details.decision[open] > summary.decision-header::after { transform:rotate(180deg); }
   summary.decision-header:focus-visible { outline:2px solid #19abe4; outline-offset:-4px; }
 
