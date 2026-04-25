@@ -106,6 +106,27 @@
   }
   @media(hover:hover) { .back-link:hover { color:#fff; } }
 
+  /* Final Selection Panel */
+  .final-panel { background:linear-gradient(135deg,#003b5c 0%,#19abe4 100%); border-radius:12px; margin-bottom:28px; box-shadow:0 2px 12px rgba(0,59,92,.15); overflow:hidden; }
+  .final-label { padding:18px 24px; color:#F8B62D; font-weight:700; font-size:14px; letter-spacing:2px; cursor:pointer; list-style:none; display:flex; align-items:center; gap:10px; user-select:none; }
+  .final-label::-webkit-details-marker { display:none; }
+  .final-label::after { content:'4'; margin-left:auto; font-size:22px; transition:transform .2s; color:#fff; }
+  .final-panel[open] .final-label::after { transform:rotate(180deg); }
+  .final-label:focus-visible { outline:2px solid #F8B62D; outline-offset:-4px; }
+  .final-list { background:#fff; padding:10px 24px 18px; }
+  .final-item { display:flex; gap:14px; padding:12px 0; border-bottom:1px dashed #e0e0e0; align-items:flex-start; }
+  .final-item:last-child { border-bottom:none; }
+  .final-num { font-size:18px; color:#003b5c; flex-shrink:0; font-weight:700; min-width:28px; }
+  .final-title { font-weight:700; font-size:14px; color:#003b5c; margin-bottom:3px; }
+  .final-detail { font-size:13px; color:#555; line-height:1.7; }
+
+  /* Collapsible decisions */
+  summary.decision-header { cursor:pointer; list-style:none; user-select:none; }
+  summary.decision-header::-webkit-details-marker { display:none; }
+  summary.decision-header::after { content:'4'; margin-left:auto; font-size:20px; transition:transform .2s; flex-shrink:0; }
+  details.decision[open] > summary.decision-header::after { transform:rotate(180deg); }
+  summary.decision-header:focus-visible { outline:2px solid #19abe4; outline-offset:-4px; }
+
   @media(max-width:600px) {
     body { font-size:16px; }
     .option-pair, .cards-row { grid-template-columns:1fr; }
@@ -124,6 +145,10 @@
     .copy-btn { font-size:15px; padding:16px 12px; min-height:44px; }
     .intro { padding:18px 16px; }
     .sub-title { font-size:13px; }
+    .final-label { padding:14px 18px; font-size:13px; letter-spacing:1px; }
+    .final-list { padding:6px 18px 14px; }
+    .final-detail { font-size:12px; }
+    .final-num { min-width:22px; font-size:16px; }
     .footer-note { font-size:12px; padding:16px; }
   }
 </style>
@@ -141,9 +166,22 @@
     這份文件按首頁從上到下的順序，列出每個區塊需要團隊決定的文案方向。每個選項都準備好了中英文草稿，<strong>直接點你喜歡的就好</strong>。如果都不滿意，底部有留言區可以說。
   </div>
 
+  <!-- FINAL SELECTION (collapsible, default open) -->
+  <details class="final-panel" open>
+    <summary class="final-label">🎯 團隊最終決定 · FINAL SELECTION</summary>
+    <div class="final-list">
+      <div class="final-item"><span class="final-num">❶</span><div><div class="final-title">Hero 區</div><div class="final-detail">Tagline <strong>A</strong> — 維持原版 · Pitch <strong>C</strong> — 改寫 wireframe 原文 · CTA <strong>B</strong> — 參與我們的活動</div></div></div>
+      <div class="final-item"><span class="final-num">❷</span><div><div class="final-title">關於協會</div><div class="final-detail"><strong>A</strong> — 故事型</div></div></div>
+      <div class="final-item"><span class="final-num">❸</span><div><div class="final-title">三張卡片</div><div class="final-detail">卡片 <strong>A</strong> — 我們創造什麼連結 · 標題 <strong>A</strong> — 我們在做的事 / What We Do</div></div></div>
+      <div class="final-item"><span class="final-num">❹</span><div><div class="final-title">Mission / Vision</div><div class="final-detail"><strong>不要</strong> — 直接拿掉</div></div></div>
+      <div class="final-item"><span class="final-num">❺</span><div><div class="final-title">加入我們</div><div class="final-detail"><strong>B</strong> — 務實邀請型</div></div></div>
+      <div class="final-item"><span class="final-num">❻</span><div><div class="final-title">Event Banner</div><div class="final-detail">ADALS 2026｜亞太數位包容與資訊無障礙領導力高峰會</div></div></div>
+    </div>
+  </details>
+
   <!-- ❶ HERO -->
-  <div class="decision">
-    <div class="decision-header">❶ Hero 區 — 訪客第一眼看到的畫面</div>
+  <details class="decision">
+    <summary class="decision-header">❶ Hero 區 — 訪客第一眼看到的畫面</summary>
     <div class="decision-body">
       <div class="decision-context">
         首頁最上方的全屏區塊，包含 Tagline（標語）、Elevator Pitch（一段話介紹）和 CTA 按鈕。
@@ -221,13 +259,13 @@
       </div>
 
     </div>
-  </div>
+  </details>
 
   <div class="flow-arrow">▼</div>
 
   <!-- ❷ ABOUT -->
-  <div class="decision">
-    <div class="decision-header">❷ 關於協會 — 組織介紹段落</div>
+  <details class="decision">
+    <summary class="decision-header">❷ 關於協會 — 組織介紹段落</summary>
     <div class="decision-body">
       <div class="decision-context">
         Hero 下方，用 2-3 段文字說明 AIA 的成立背景和核心價值。<br><strong>點選一個版本。</strong>
@@ -290,13 +328,13 @@ We believe embracing diversity sparks innovation, creativity, and resilience —
       </div>
 
     </div>
-  </div>
+  </details>
 
   <div class="flow-arrow">▼</div>
 
   <!-- ❸ ADVANTAGES -->
-  <div class="decision">
-    <div class="decision-header">❸ 三張卡片 — 我們在做的事</div>
+  <details class="decision">
+    <summary class="decision-header">❸ 三張卡片 — 我們在做的事</summary>
     <div class="decision-body">
       <div class="decision-context">
         首頁中間的三張卡片區塊。AIA 是整合國內外資源的場域，把設計師、開發者、企業家與身心障礙者連結在一起。<br><strong>點選一組。</strong><br><span style="font-size:12px;color:#1565c0;margin-top:6px;display:inline-block;">敘事提示：這個區塊在整頁的職責是「方法」— About 已經說了問題，這裡說解法。Cards A（跨界對話 / 國際接軌 / 從理念到落地）是方法導向；Cards B（打破隔牆 / 填補落差）是問題導向，和 About 有重複。</span>
@@ -396,13 +434,13 @@ We believe embracing diversity sparks innovation, creativity, and resilience —
       </div>
 
     </div>
-  </div>
+  </details>
 
   <div class="flow-arrow">▼</div>
 
   <!-- ❹ MISSION / VISION -->
-  <div class="decision">
-    <div class="decision-header">❹ Mission / Vision — 取代原 Our Team 區塊</div>
+  <details class="decision">
+    <summary class="decision-header">❹ Mission / Vision — 取代原 Our Team 區塊</summary>
     <div class="decision-body">
       <div class="decision-context">
         wireframe 原本在這裡放 3 位團隊成員照片。建議改為一段使命或願景宣言 — 首頁從頭到尾都在建立使命認同，團隊介紹留給 About 頁。<br><br>
@@ -459,13 +497,13 @@ We believe embracing diversity sparks innovation, creativity, and resilience —
       </div>
 
     </div>
-  </div>
+  </details>
 
   <div class="flow-arrow">▼</div>
 
   <!-- ❺ JOIN US -->
-  <div class="decision">
-    <div class="decision-header">❺ 加入我們 — 團隊精神怎麼說？</div>
+  <details class="decision">
+    <summary class="decision-header">❺ 加入我們 — 團隊精神怎麼說？</summary>
     <div class="decision-body">
       <div class="decision-context">
         首頁的招募區塊，讓訪客想加入 AIA。<br><strong>點選一個版本。</strong>
@@ -508,13 +546,13 @@ We believe embracing diversity sparks innovation, creativity, and resilience —
       </div>
 
     </div>
-  </div>
+  </details>
 
   <div class="flow-arrow">▼</div>
 
   <!-- ❻ EVENT BANNER -->
-  <div class="decision">
-    <div class="decision-header">❻ Event Banner — 首頁放哪個活動？</div>
+  <details class="decision">
+    <summary class="decision-header">❻ Event Banner — 首頁放哪個活動？</summary>
     <div class="decision-body">
       <div class="decision-context">
         首頁底部有一個活動橫幅，需要決定放哪一場活動。
@@ -524,7 +562,7 @@ We believe embracing diversity sparks innovation, creativity, and resilience —
         <input type="text" id="event-input" class="event-input" placeholder="例：2026 亞太無障礙峰會" oninput="onEventInput(this)">
       </div>
     </div>
-  </div>
+  </details>
 
   <!-- RESPONSE PANEL -->
   <div class="response-panel">
