@@ -113,12 +113,25 @@
   .final-label::after { content:'⌄'; margin-left:auto; font-size:22px; transition:transform .2s; color:#fff; }
   .final-panel[open] .final-label::after { transform:rotate(180deg); }
   .final-label:focus-visible { outline:2px solid #F8B62D; outline-offset:-4px; }
-  .final-list { background:#fff; padding:10px 24px 18px; }
-  .final-item { display:flex; gap:14px; padding:12px 0; border-bottom:1px dashed #e0e0e0; align-items:flex-start; }
-  .final-item:last-child { border-bottom:none; }
-  .final-num { font-size:18px; color:#003b5c; flex-shrink:0; font-weight:700; min-width:28px; }
-  .final-title { font-weight:700; font-size:14px; color:#003b5c; margin-bottom:3px; }
-  .final-detail { font-size:13px; color:#555; line-height:1.7; }
+  .final-list { background:#fff; padding:18px 24px 22px; }
+  .final-section { padding:16px 0; border-bottom:1px solid #eef0f4; }
+  .final-section:first-child { padding-top:6px; }
+  .final-section:last-child { border-bottom:none; padding-bottom:6px; }
+  .final-section-title { font-size:16px; font-weight:700; color:#003b5c; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .final-num { font-size:18px; color:#003b5c; flex-shrink:0; font-weight:700; }
+  .final-sub { background:#f8f9fb; border-left:3px solid #19abe4; border-radius:0 6px 6px 0; padding:12px 16px; margin-bottom:8px; }
+  .final-sub:last-child { margin-bottom:0; }
+  .final-sub-label { font-size:11px; font-weight:700; color:#003b5c; margin-bottom:8px; text-transform:uppercase; letter-spacing:1px; }
+  .final-text-zh { font-size:13px; line-height:1.8; color:#333; white-space:pre-line; margin-bottom:4px; }
+  .final-text-zh:last-child { margin-bottom:0; }
+  .final-text-en { font-size:12px; line-height:1.7; color:#666; font-family:'Inter','Noto Sans TC',sans-serif; white-space:pre-line; }
+  .final-sub-removed { background:#fff5f5; border-left-color:#c62828; }
+  .final-cards-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:8px; }
+  .final-mini-card { background:#fff; border:1px solid #c8e6c9; border-radius:6px; padding:10px 8px; text-align:center; }
+  .final-card-icon { font-size:20px; margin-bottom:4px; }
+  .final-card-title { font-size:12px; font-weight:700; color:#1b5e20; margin-bottom:3px; }
+  .final-card-desc { font-size:11px; color:#555; line-height:1.5; margin-bottom:3px; }
+  .final-card-desc-en { font-size:10px; color:#888; line-height:1.4; font-family:'Inter',sans-serif; }
 
   /* Collapsible decisions */
   summary.decision-header { cursor:pointer; list-style:none; user-select:none; }
@@ -146,9 +159,13 @@
     .intro { padding:18px 16px; }
     .sub-title { font-size:13px; }
     .final-label { padding:14px 18px; font-size:13px; letter-spacing:1px; }
-    .final-list { padding:6px 18px 14px; }
-    .final-detail { font-size:12px; }
-    .final-num { min-width:22px; font-size:16px; }
+    .final-list { padding:14px 16px 18px; }
+    .final-num { font-size:16px; }
+    .final-sub { padding:10px 12px; }
+    .final-text-zh { font-size:12px; }
+    .final-text-en { font-size:11px; }
+    .final-cards-grid { grid-template-columns:1fr; gap:6px; }
+    .final-section-title { font-size:14px; }
     .footer-note { font-size:12px; padding:16px; }
   }
 </style>
@@ -170,12 +187,93 @@
   <details class="final-panel" open>
     <summary class="final-label">🎯 團隊最終決定 · FINAL SELECTION</summary>
     <div class="final-list">
-      <div class="final-item"><span class="final-num">❶</span><div><div class="final-title">Hero 區</div><div class="final-detail">Tagline <strong>A</strong> — 維持原版 · Pitch <strong>C</strong> — 改寫 wireframe 原文 · CTA <strong>B</strong> — 參與我們的活動</div></div></div>
-      <div class="final-item"><span class="final-num">❷</span><div><div class="final-title">關於協會</div><div class="final-detail"><strong>A</strong> — 故事型</div></div></div>
-      <div class="final-item"><span class="final-num">❸</span><div><div class="final-title">三張卡片</div><div class="final-detail">卡片 <strong>A</strong> — 我們創造什麼連結 · 標題 <strong>A</strong> — 我們在做的事 / What We Do</div></div></div>
-      <div class="final-item"><span class="final-num">❹</span><div><div class="final-title">Mission / Vision</div><div class="final-detail"><strong>不要</strong> — 直接拿掉</div></div></div>
-      <div class="final-item"><span class="final-num">❺</span><div><div class="final-title">加入我們</div><div class="final-detail"><strong>B</strong> — 務實邀請型</div></div></div>
-      <div class="final-item"><span class="final-num">❻</span><div><div class="final-title">Event Banner</div><div class="final-detail">ADALS 2026｜亞太數位包容與資訊無障礙領導力高峰會</div></div></div>
+
+      <section class="final-section">
+        <h3 class="final-section-title"><span class="final-num">❶</span> Hero 區</h3>
+        <div class="final-sub">
+          <div class="final-sub-label">Tagline · A — 維持原版</div>
+          <div class="final-text-zh">多元共融 ｜ 以人為本 ｜ 科技創新</div>
+          <div class="final-text-en">Diversity &amp; Inclusion ｜ Human-Centered ｜ Tech Innovation</div>
+        </div>
+        <div class="final-sub">
+          <div class="final-sub-label">Elevator Pitch · C — 改寫 wireframe 原文</div>
+          <div class="final-text-zh">亞太包容創新協會致力推動多元共融與以人為本的科技創新文化，透過教育、培訓和國際合作，建立促進包容性的生態系統。</div>
+          <div class="final-text-en">APAC AIA fosters a culture of diversity, inclusion, and human-centered innovation. Through education, training, and global collaboration, we build ecosystems that champion inclusivity for all.</div>
+        </div>
+        <div class="final-sub">
+          <div class="final-sub-label">CTA 按鈕 · B</div>
+          <div class="final-text-zh">參與我們的活動</div>
+          <div class="final-text-en">Join an Event</div>
+        </div>
+      </section>
+
+      <section class="final-section">
+        <h3 class="final-section-title"><span class="final-num">❷</span> 關於協會 · A — 故事型</h3>
+        <div class="final-sub">
+          <div class="final-text-zh">有人因為身體狀況、年齡、或與科技的距離，長期被排除在數位世界之外。推動真實共融的知識和資源，卻分散在不同領域、不同國家。設計師不知道這些使用者的真實需求，企業想做卻不知道從何開始，而這些人的聲音往往到不了做決策的人面前。
+
+亞太包容創新協會，就是為了改變這個現狀而在 2024 年成立。</div>
+          <div class="final-text-en">Many people are excluded from the digital world — because of disability, age, or simply their distance from technology. The knowledge and resources for authentic inclusion have long been scattered across disciplines and borders. Designers, developers, and decision-makers want to act but lack the insight and connections to do so. And the voices of those left behind rarely reach the people with power to change things.
+
+APAC AIA was founded in 2024 in Taipei to change this.</div>
+        </div>
+      </section>
+
+      <section class="final-section">
+        <h3 class="final-section-title"><span class="final-num">❸</span> 三張卡片</h3>
+        <div class="final-sub">
+          <div class="final-sub-label">區塊標題 · A</div>
+          <div class="final-text-zh">我們在做的事</div>
+          <div class="final-text-en">What We Do</div>
+        </div>
+        <div class="final-sub">
+          <div class="final-sub-label">卡片組 · A — 我們創造什麼連結</div>
+          <div class="final-cards-grid">
+            <div class="final-mini-card">
+              <div class="final-card-icon">🔗</div>
+              <div class="final-card-title">跨界對話</div>
+              <div class="final-card-desc">讓做產品的人聽到使用者的聲音</div>
+              <div class="final-card-desc-en">Cross-Sector Dialogue — Bridging creators and users</div>
+            </div>
+            <div class="final-mini-card">
+              <div class="final-card-icon">🌏</div>
+              <div class="final-card-title">國際接軌</div>
+              <div class="final-card-desc">把全球最佳實踐帶進亞太</div>
+              <div class="final-card-desc-en">Global Standards — Bringing best practices to APAC</div>
+            </div>
+            <div class="final-mini-card">
+              <div class="final-card-icon">🚀</div>
+              <div class="final-card-title">從理念到落地</div>
+              <div class="final-card-desc">透過活動和培訓把包容性變成可執行的事</div>
+              <div class="final-card-desc-en">Idea to Action — Making inclusion practical through events &amp; training</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-section">
+        <h3 class="final-section-title"><span class="final-num">❹</span> Mission / Vision</h3>
+        <div class="final-sub final-sub-removed">
+          <div class="final-text-zh"><strong>不要 — 直接從首頁拿掉這個區塊</strong></div>
+          <div class="final-text-en" style="font-style:italic;">Section to be removed from homepage</div>
+        </div>
+      </section>
+
+      <section class="final-section">
+        <h3 class="final-section-title"><span class="final-num">❺</span> 加入我們 · B — 務實邀請型</h3>
+        <div class="final-sub">
+          <div class="final-text-zh">我們是一個小而靈活的團隊，正在尋找志同道合的夥伴。無論是專業技能、國際經驗、還是對無障礙議題的熱情，我們都歡迎你帶著你擅長的事加入。</div>
+          <div class="final-text-en">We are a small, agile team looking for like-minded people. Whether you bring professional skills, international experience, or passion for accessibility — we welcome what you are good at.</div>
+        </div>
+      </section>
+
+      <section class="final-section">
+        <h3 class="final-section-title"><span class="final-num">❻</span> Event Banner</h3>
+        <div class="final-sub">
+          <div class="final-text-zh">ADALS 2026｜亞太數位包容與資訊無障礙領導力高峰會</div>
+        </div>
+      </section>
+
     </div>
   </details>
 
