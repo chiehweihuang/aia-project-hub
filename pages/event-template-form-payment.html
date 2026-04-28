@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ADALS 2026 報名流程設計範本 — 給 Christina 的參考</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@300;400;500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+  :root {
+    --primary:#003b5c; --secondary:#19abe4; --gold:#F8B62D;
+    --text:#231815; --muted:#6b6b6b; --border:#e0e0e0;
+    --bg:#f5f5f5; --card:#fff; --note-bg:#fff8e7; --note-border:#F8B62D;
+    --error:#c62828; --success:#2e7d32;
+  }
+  body { font-family:'Noto Sans TC','IBM Plex Sans',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; font-size:15px; }
+
+  /* ── Skip link ── */
+  .skip { position:absolute; left:-9999px; top:0; padding:8px 16px; background:#000; color:#fff; z-index:1000; }
+  .skip:focus { left:8px; top:8px; }
+
+  /* ── Header ── */
+  .page-header { background:linear-gradient(135deg,#003b5c 0%,#003b5c 60%,#19abe4 100%); color:#fff; padding:48px 24px 40px; }
+  .page-header-inner { max-width:1100px; margin:0 auto; }
+  .back-link { display:inline-flex; align-items:center; gap:6px; color:rgba(255,255,255,.75); font-size:13px; text-decoration:none; padding:8px 0; min-height:44px; }
+  .back-link:hover, .back-link:focus { color:#fff; }
+  .page-header h1 { font-family:'Noto Serif TC',serif; font-size:32px; font-weight:700; letter-spacing:1px; margin:8px 0 8px; }
+  .page-header .subtitle { font-size:15px; opacity:.85; max-width:680px; line-height:1.7; }
+  .page-header .meta { margin-top:16px; font-size:12px; opacity:.6; letter-spacing:1px; }
+
+  /* ── Sticky nav ── */
+  .toc { position:sticky; top:0; background:#fff; border-bottom:1px solid var(--border); z-index:90; }
+  .toc-inner { max-width:1100px; margin:0 auto; padding:0 24px; display:flex; gap:0; align-items:center; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:thin; }
+  .toc a { padding:14px 16px; font-size:13px; color:var(--muted); text-decoration:none; white-space:nowrap; flex-shrink:0; border-bottom:3px solid transparent; transition:color .15s, border-color .15s; }
+  .toc a:hover, .toc a:focus { color:var(--primary); border-bottom-color:var(--secondary); }
+
+  /* ── Layout ── */
+  main { max-width:1100px; margin:0 auto; padding:48px 24px 80px; }
+  section { margin-bottom:64px; }
+  section:last-child { margin-bottom:0; }
+  .section-num { font-family:'IBM Plex Sans',sans-serif; font-size:13px; color:var(--secondary); font-weight:600; letter-spacing:2px; margin-bottom:6px; }
+  h2 { font-family:'Noto Serif TC',serif; font-size:24px; font-weight:700; color:var(--primary); margin-bottom:20px; padding-bottom:12px; border-bottom:2px solid var(--primary); }
+  h3 { font-size:17px; font-weight:700; color:var(--primary); margin:28px 0 12px; }
+  h4 { font-size:14px; font-weight:600; color:var(--primary); margin:16px 0 8px; }
+  p { margin-bottom:12px; }
+
+  /* ── Demo + Annotation grid ── */
+  .demo-grid { display:grid; grid-template-columns:1fr 320px; gap:24px; margin:20px 0; align-items:start; }
+  .demo-box { background:var(--card); border-radius:10px; padding:24px; box-shadow:0 1px 4px rgba(0,0,0,.06); border:1px solid var(--border); }
+  .demo-label { font-size:11px; font-weight:700; color:var(--secondary); letter-spacing:2px; margin-bottom:14px; }
+  .annot-box { background:var(--note-bg); border-left:4px solid var(--note-border); padding:18px 20px; border-radius:0 8px 8px 0; font-size:13px; line-height:1.8; }
+  .annot-box h5 { font-size:12px; font-weight:700; color:var(--primary); letter-spacing:1px; margin-bottom:8px; text-transform:uppercase; }
+  .annot-box ul { padding-left:18px; }
+  .annot-box li { margin-bottom:5px; }
+  .annot-box code { background:rgba(0,59,92,.1); padding:1px 6px; border-radius:3px; font-family:'IBM Plex Sans','Consolas',monospace; font-size:12px; }
+  @media (max-width:900px) { .demo-grid { grid-template-columns:1fr; } }
+
+  /* ── Pure annotation block (no demo) ── */
+  .note { background:var(--note-bg); border-left:4px solid var(--note-border); padding:16px 20px; border-radius:0 8px 8px 0; margin:16px 0; font-size:13px; line-height:1.8; }
+  .note strong { color:var(--primary); }
+  .note.warn { background:#fff5f5; border-left-color:var(--error); }
+  .note.warn strong { color:var(--error); }
+  .note.ok { background:#f3faf3; border-left-color:var(--success); }
+  .note.ok strong { color:var(--success); }
+
+  /* ── 4 scenario cards ── */
+  .scenario-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin:18px 0; }
+  .scenario { background:var(--card); border:1px solid var(--border); border-left:4px solid var(--secondary); border-radius:8px; padding:16px 18px; }
+  .scenario-title { font-weight:700; color:var(--primary); margin-bottom:6px; font-size:14px; }
+  .scenario-route { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .scenario-tool { display:inline-block; padding:3px 10px; background:rgba(0,59,92,.08); color:var(--primary); font-size:11px; font-weight:600; border-radius:4px; }
+  @media (max-width:600px) { .scenario-grid { grid-template-columns:1fr; } }
+
+  /* ── Step flow ── */
+  .flow { display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin:24px 0; }
+  .step { background:#fff; border:2px solid var(--border); border-radius:10px; padding:14px 10px; text-align:center; position:relative; }
+  .step.active { border-color:var(--secondary); background:#f0f7fb; }
+  .step-num { font-family:'IBM Plex Sans',sans-serif; font-weight:700; color:var(--secondary); font-size:11px; letter-spacing:2px; }
+  .step-name { font-size:13px; font-weight:600; margin-top:4px; color:var(--primary); }
+  .step:not(:last-child)::after { content:'→'; position:absolute; right:-10px; top:50%; transform:translateY(-50%); color:var(--border); font-size:14px; z-index:1; }
+  @media (max-width:700px) {
+    .flow { grid-template-columns:repeat(3,1fr); }
+    .step:nth-child(3n)::after { display:none; }
+  }
+  @media (max-width:480px) { .flow { grid-template-columns:repeat(2,1fr); } .step::after { display:none; } }
+
+  /* ── Ticket cards demo ── */
+  .ticket-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin-top:8px; }
+  .ticket-card { background:#fff; border:2px solid var(--border); border-radius:10px; padding:18px 16px; cursor:pointer; transition:all .15s; }
+  .ticket-card:hover, .ticket-card:focus-within { border-color:var(--secondary); }
+  .ticket-card.selected { border-color:var(--primary); background:#f0f7fb; box-shadow:0 0 0 2px var(--primary); }
+  .ticket-card label { display:block; cursor:pointer; }
+  .ticket-card input[type="radio"] { position:absolute; opacity:0; pointer-events:none; }
+  .ticket-card input[type="radio"]:focus + .ticket-card-content { outline:2px solid var(--secondary); outline-offset:2px; border-radius:8px; }
+  .ticket-tier { font-size:11px; font-weight:700; letter-spacing:2px; color:var(--secondary); }
+  .ticket-name { font-weight:700; color:var(--primary); margin-top:4px; }
+  .ticket-price { font-size:18px; font-weight:700; color:var(--primary); margin-top:8px; font-family:'IBM Plex Sans',sans-serif; }
+  .ticket-meta { font-size:12px; color:var(--muted); margin-top:6px; line-height:1.5; }
+
+  /* ── Form demo ── */
+  .form-demo { display:grid; gap:18px; }
+  .field { display:flex; flex-direction:column; gap:6px; }
+  .field label { font-size:14px; font-weight:600; color:var(--primary); }
+  .field .req { color:var(--error); margin-left:2px; }
+  .field input, .field select, .field textarea {
+    padding:11px 14px; font-size:16px; font-family:inherit; color:var(--text);
+    border:2px solid var(--border); border-radius:6px; background:#fff; transition:border-color .15s;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline:none; border-color:var(--secondary); box-shadow:0 0 0 3px rgba(25,171,228,.15);
+  }
+  .field textarea { resize:vertical; min-height:80px; }
+  .field .hint { font-size:12px; color:var(--muted); }
+  .field.error input, .field.error select { border-color:var(--error); }
+  .field .err-msg { font-size:13px; color:var(--error); display:flex; align-items:center; gap:4px; }
+  .field .err-msg::before { content:'⚠'; }
+  fieldset { border:1px solid var(--border); border-radius:8px; padding:16px 18px; }
+  legend { font-size:13px; font-weight:700; color:var(--primary); padding:0 8px; }
+  .check-row { display:flex; flex-direction:column; gap:8px; margin-top:8px; }
+  .check-row label { display:flex; gap:8px; align-items:flex-start; cursor:pointer; font-size:14px; font-weight:400; color:var(--text); }
+  .check-row input[type="checkbox"] { margin-top:3px; flex-shrink:0; }
+
+  /* ── Buttons ── */
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:6px; padding:14px 24px; min-height:44px; border:none; border-radius:8px; font-size:15px; font-weight:700; font-family:inherit; cursor:pointer; transition:all .15s; }
+  .btn-primary { background:var(--primary); color:#fff; }
+  .btn-primary:hover, .btn-primary:focus { background:#004d7a; }
+  .btn-secondary { background:#fff; color:var(--primary); border:2px solid var(--primary); }
+  .btn-disabled { background:#e0e0e0; color:#999; cursor:not-allowed; }
+  .btn-row { display:flex; gap:12px; flex-wrap:wrap; margin-top:18px; }
+
+  /* ── Payment branching diagram ── */
+  .branch { background:#fff; border:1px solid var(--border); border-radius:10px; padding:24px; margin:18px 0; }
+  .branch-header { font-size:14px; font-weight:700; color:var(--primary); margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--border); }
+  .branch-row-item { display:grid; grid-template-columns:140px 30px 1fr; gap:8px; align-items:center; padding:10px 0; border-bottom:1px dashed #eee; font-size:13px; }
+  .branch-row-item:last-child { border-bottom:none; }
+  .branch-row-item .from { font-weight:600; color:var(--text); }
+  .branch-row-item .arrow { color:var(--secondary); text-align:center; font-weight:700; }
+  .branch-row-item .to { color:var(--muted); }
+  .branch-row-item .to strong { color:var(--primary); }
+
+  /* ── Mock embed ── */
+  .mock-embed { background:#fafafa; border:2px dashed var(--border); border-radius:10px; padding:32px 24px; text-align:center; color:var(--muted); }
+  .mock-embed-label { font-size:11px; font-weight:700; letter-spacing:2px; color:var(--secondary); margin-bottom:8px; }
+  .mock-embed-title { font-size:15px; font-weight:600; color:var(--text); margin-bottom:6px; }
+  .mock-embed-desc { font-size:13px; line-height:1.7; }
+  .mock-embed code { background:#fff; padding:2px 8px; border-radius:3px; font-family:'IBM Plex Sans','Consolas',monospace; font-size:12px; border:1px solid var(--border); }
+
+  /* ── State examples ── */
+  .state-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px; margin-top:14px; }
+  .state-box { background:#fff; border:1px solid var(--border); border-radius:8px; padding:18px; }
+  .state-tag { display:inline-block; padding:3px 10px; font-size:10px; font-weight:700; letter-spacing:1px; border-radius:4px; margin-bottom:10px; text-transform:uppercase; }
+  .state-tag.loading { background:#fff8e7; color:#a06c00; }
+  .state-tag.error { background:#fdecec; color:var(--error); }
+  .state-tag.success { background:#e8f5e9; color:var(--success); }
+  .state-tag.warning { background:#fff3e0; color:#e65100; }
+
+  /* ── Spinner mock ── */
+  .spinner { display:inline-block; width:18px; height:18px; border:2px solid var(--border); border-top-color:var(--secondary); border-radius:50%; animation:spin .9s linear infinite; }
+  @keyframes spin { to { transform:rotate(360deg); } }
+  @media (prefers-reduced-motion:reduce) { .spinner { animation:none; border-top-color:var(--border); } }
+
+  /* ── Tech checklist ── */
+  .checklist { background:#fff; border:1px solid var(--border); border-radius:10px; padding:24px; }
+  .checklist h4 { margin-top:0; }
+  .checklist ul { list-style:none; padding:0; }
+  .checklist li { padding:8px 0 8px 28px; position:relative; font-size:14px; line-height:1.7; border-bottom:1px solid #f0f0f0; }
+  .checklist li:last-child { border-bottom:none; }
+  .checklist li::before { content:'✓'; position:absolute; left:6px; top:8px; color:var(--success); font-weight:700; }
+  .checklist li.dont::before { content:'✗'; color:var(--error); }
+  .checklist code { background:rgba(0,59,92,.08); padding:1px 6px; border-radius:3px; font-family:'IBM Plex Sans','Consolas',monospace; font-size:12px; }
+
+  /* ── Visually hidden (sr-only) ── */
+  .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+
+  /* ── Mobile adjustments ── */
+  @media (max-width:600px) {
+    .page-header { padding:32px 20px 28px; }
+    .page-header h1 { font-size:24px; }
+    main { padding:32px 16px 60px; }
+    h2 { font-size:20px; }
+    h3 { font-size:15px; }
+    .demo-box { padding:18px 16px; }
+    .branch-row-item { grid-template-columns:1fr; gap:4px; padding:10px 0; }
+    .branch-row-item .arrow { display:none; }
+    .branch-row-item .to::before { content:'→ '; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip">跳至主要內容</a>
+
+<header class="page-header">
+  <div class="page-header-inner">
+    <a href="../index.html" class="back-link">← 返回專案文件</a>
+    <h1>ADALS 2026 報名流程設計範本</h1>
+    <p class="subtitle">給 Christina 的參考文件 — 表單可及性、付款分流與狀態切換的設計建議。本範本不是 production code，是讓 Elementor + Ally 建置時可以對照的視覺與邏輯規格。</p>
+    <div class="meta">VERSION 1.0 · 2026-04-28 · 依據 Handoff ADALS 2026 Site & Internal Memo §6 完整金流決策路徑</div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="文件導覽">
+  <div class="toc-inner">
+    <a href="#overview">範本說明</a>
+    <a href="#flow">報名流程</a>
+    <a href="#tickets">票種選擇</a>
+    <a href="#form">報名表單</a>
+    <a href="#payment">付款方式分流</a>
+    <a href="#sponsor">贊助洽詢</a>
+    <a href="#states">狀態示範</a>
+    <a href="#tech">技術註記</a>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- §1 範本說明 ────────────────────────────────────────────── -->
+<section id="overview">
+  <div class="section-num">§1 OVERVIEW</div>
+  <h2>範本目的</h2>
+
+  <p>ADALS 2026 不是一般的會議網站。這場會議要面對 CTO 級觀眾，網站本身就是 WCAG 2.2 AA 的範例。這份範本聚焦在最容易出問題的兩個地方：<strong>報名表單</strong>與<strong>付款流程</strong>。</p>
+
+  <h3>四種收款情境（出自 §6.1）</h3>
+  <p>不能用同一個工具解決所有情境。不同情境走不同路徑：</p>
+  <div class="scenario-grid">
+    <div class="scenario">
+      <div class="scenario-title">台灣付費門票</div>
+      <div class="scenario-route">NT$1,500–3,000 · 個人 · 集中</div>
+      <span class="scenario-tool">藍新金流（信用卡 + ATM + 超商）</span>
+    </div>
+    <div class="scenario">
+      <div class="scenario-title">國外付費門票</div>
+      <div class="scenario-route">USD 60–120 · 個人 · 少量</div>
+      <span class="scenario-tool">PayPal Business（信用卡）</span>
+    </div>
+    <div class="scenario">
+      <div class="scenario-title">台灣企業贊助</div>
+      <div class="scenario-route">NT$50K–300K · 公司 · 一次性</div>
+      <span class="scenario-tool">玉山銀行 + Invoice（不上線收）</span>
+    </div>
+    <div class="scenario">
+      <div class="scenario-title">國外企業贊助</div>
+      <div class="scenario-route">USD 1,500–10,000 · 公司 · 一次性</div>
+      <span class="scenario-tool">SWIFT 電匯 + 英文 Invoice</span>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>關鍵設計原則：</strong>贊助走 invoice + 匯款，門票走線上刷卡。網站只負責「門票」流程，贊助是「洽詢表單 → 人工開立 invoice → 線下匯款」三步走，不上網路即時收款。
+  </div>
+</section>
+
+<!-- §2 報名流程 ────────────────────────────────────────────── -->
+<section id="flow">
+  <div class="section-num">§2 FLOW</div>
+  <h2>報名流程五步驟</h2>
+
+  <div class="flow" role="list" aria-label="報名流程步驟">
+    <div class="step active" role="listitem"><div class="step-num">STEP 1</div><div class="step-name">票種選擇</div></div>
+    <div class="step" role="listitem"><div class="step-num">STEP 2</div><div class="step-name">填寫資料</div></div>
+    <div class="step" role="listitem"><div class="step-num">STEP 3</div><div class="step-name">確認</div></div>
+    <div class="step" role="listitem"><div class="step-num">STEP 4</div><div class="step-name">付款</div></div>
+    <div class="step" role="listitem"><div class="step-num">STEP 5</div><div class="step-name">完成</div></div>
+  </div>
+
+  <div class="note">
+    <strong>為什麼五步驟而不是一頁式？</strong>Stripe Atlas、Google Forms 等研究都指出：付費表單分步可以降低中途放棄率（特別是付款卡關時，使用者不會丟掉前面填好的資料）。但分步必須有<strong>清楚的進度指示</strong>和<strong>可回到上一步</strong>的能力，否則會造成挫折。
+  </div>
+</section>
+
+<!-- §3 票種選擇 ────────────────────────────────────────────── -->
+<section id="tickets">
+  <div class="section-num">§3 STEP 1 · TICKET SELECTION</div>
+  <h2>票種選擇示範</h2>
+
+  <div class="demo-grid">
+    <div class="demo-box">
+      <div class="demo-label">DEMO · STEP 1 / 5</div>
+      <fieldset style="border:none; padding:0;">
+        <legend style="font-size:16px; font-weight:700; color:var(--primary); padding:0; margin-bottom:14px;">選擇票種</legend>
+        <div class="ticket-row" role="radiogroup" aria-label="ADALS 2026 票種">
+          <div class="ticket-card selected">
+            <label>
+              <input type="radio" name="demo-ticket" value="standard" checked>
+              <div class="ticket-card-content">
+                <div class="ticket-tier">STANDARD</div>
+                <div class="ticket-name">一般票</div>
+                <div class="ticket-price">NT$ 3,000</div>
+                <div class="ticket-meta">兩日完整議程<br>含午餐、茶點</div>
+              </div>
+            </label>
+          </div>
+          <div class="ticket-card">
+            <label>
+              <input type="radio" name="demo-ticket" value="early">
+              <div class="ticket-card-content">
+                <div class="ticket-tier">EARLY BIRD</div>
+                <div class="ticket-name">早鳥票</div>
+                <div class="ticket-price">NT$ 2,200</div>
+                <div class="ticket-meta">2026/06/30 前<br>限額 50 張</div>
+              </div>
+            </label>
+          </div>
+          <div class="ticket-card">
+            <label>
+              <input type="radio" name="demo-ticket" value="student">
+              <div class="ticket-card-content">
+                <div class="ticket-tier">STUDENT</div>
+                <div class="ticket-name">學生票</div>
+                <div class="ticket-price">NT$ 1,500</div>
+                <div class="ticket-meta">須上傳學生證<br>限學位生</div>
+              </div>
+            </label>
+          </div>
+          <div class="ticket-card">
+            <label>
+              <input type="radio" name="demo-ticket" value="intl">
+              <div class="ticket-card-content">
+                <div class="ticket-tier">INTERNATIONAL</div>
+                <div class="ticket-name">國際票</div>
+                <div class="ticket-price">USD 100</div>
+                <div class="ticket-meta">海外付款<br>PayPal</div>
+              </div>
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+    <aside class="annot-box">
+      <h5>設計重點</h5>
+      <ul>
+        <li><code>&lt;fieldset&gt;</code> + <code>&lt;legend&gt;</code> 包整組 radio，screen reader 會把整組讀為一個問題</li>
+        <li>整張卡片可點，但<strong>真實 input 是 radio</strong>，視覺只是 wrapper</li>
+        <li>選中狀態用 <strong>border + background 雙重提示</strong>，不只靠顏色（色盲使用者）</li>
+        <li>價格用 <code>IBM Plex Sans</code> 等寬字體，數字易辨識</li>
+        <li>票種代碼（STANDARD/EARLY BIRD）用全英文大寫 + tracking，是視覺錨點，不是給螢幕閱讀器念的</li>
+        <li>學生票要明確寫「須上傳學生證」，避免事後爭議</li>
+        <li>國際票特別標明「海外付款 / PayPal」，告知這條會走不同付款流程</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<!-- §4 報名表單 ────────────────────────────────────────────── -->
+<section id="form">
+  <div class="section-num">§4 STEP 2 · REGISTRATION FORM</div>
+  <h2>報名表單示範</h2>
+
+  <p>ADALS 報名表單應該<strong>盡量短</strong>，只問付款與通知絕對需要的資訊。其他偏好（飲食、住宿、議程關注）可以在報名成功後用後續 email 收集，不要塞進報名流程。</p>
+
+  <div class="demo-grid">
+    <div class="demo-box">
+      <div class="demo-label">DEMO · STEP 2 / 5</div>
+      <form class="form-demo" novalidate aria-label="ADALS 2026 報名表單範例">
+
+        <div class="field">
+          <label for="demo-name">姓名 <span class="req" aria-hidden="true">*</span><span class="sr-only">必填</span></label>
+          <input id="demo-name" name="name" type="text" required aria-required="true" autocomplete="name">
+          <div class="hint" id="demo-name-hint">將出現在報到名牌上。</div>
+        </div>
+
+        <div class="field error">
+          <label for="demo-email">電子郵件 <span class="req" aria-hidden="true">*</span><span class="sr-only">必填</span></label>
+          <input id="demo-email" name="email" type="email" required aria-required="true" aria-invalid="true" aria-describedby="demo-email-err" autocomplete="email" value="bertram@example">
+          <div class="err-msg" id="demo-email-err" role="alert">電子郵件格式不正確，請輸入完整地址（例如 name@domain.com）。</div>
+        </div>
+
+        <div class="field">
+          <label for="demo-org">服務單位 / 機構</label>
+          <input id="demo-org" name="org" type="text" autocomplete="organization">
+          <div class="hint">用於議程後分組討論時的名牌資訊。</div>
+        </div>
+
+        <div class="field">
+          <label for="demo-role">角色身分 <span class="req" aria-hidden="true">*</span><span class="sr-only">必填</span></label>
+          <select id="demo-role" name="role" required aria-required="true">
+            <option value="">請選擇</option>
+            <option>企業高層（CTO/CDO/CIO/CSR）</option>
+            <option>中層執行（PM/UX/工程師）</option>
+            <option>政府單位</option>
+            <option>學校 / NPO</option>
+            <option>其他</option>
+          </select>
+          <div class="hint">幫助主辦方安排議程互動分組。</div>
+        </div>
+
+        <fieldset>
+          <legend>無障礙需求（選填）</legend>
+          <div class="check-row">
+            <label><input type="checkbox" name="a11y" value="wheelchair"> 輪椅使用 / 行動不便</label>
+            <label><input type="checkbox" name="a11y" value="hearing"> 需要手語翻譯或即時字幕</label>
+            <label><input type="checkbox" name="a11y" value="vision"> 需要大字版議程或螢幕閱讀器友善資料</label>
+            <label><input type="checkbox" name="a11y" value="other"> 其他需求（會後與您聯繫詳談）</label>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label><input type="checkbox" required aria-required="true"> 我已閱讀並同意 <a href="#">會議行為準則</a> 與 <a href="#">個資使用條款</a> <span class="req" aria-hidden="true">*</span></label>
+        </div>
+
+        <div class="btn-row">
+          <button type="button" class="btn btn-secondary">← 上一步</button>
+          <button type="submit" class="btn btn-primary">下一步：確認資料 →</button>
+        </div>
+      </form>
+    </div>
+
+    <aside class="annot-box">
+      <h5>每個欄位都有理由</h5>
+      <ul>
+        <li><strong>姓名</strong>：報到名牌</li>
+        <li><strong>Email</strong>：付款收據、議程提醒、無障礙需求確認</li>
+        <li><strong>服務單位</strong>：分組討論名牌（選填，避免無組織者卡關）</li>
+        <li><strong>角色身分</strong>：議程互動安排（5 選項即可，不要過細）</li>
+        <li><strong>無障礙需求</strong>：用 fieldset 包，避免被誤認為單選</li>
+      </ul>
+      <h5 style="margin-top:14px;">a11y 重點</h5>
+      <ul>
+        <li>每個 input 必須有 <code>&lt;label for&gt;</code></li>
+        <li>必填欄位用 <code>aria-required="true"</code>（不要只靠紅色 *）</li>
+        <li>錯誤訊息用 <code>aria-invalid</code> + <code>aria-describedby</code> 連結到 <code>role="alert"</code></li>
+        <li><code>autocomplete</code> 屬性讓密碼管理工具與輔助技術可以填入正確內容（WCAG 1.3.5）</li>
+        <li>iOS Safari：input 必須 <code>font-size: 16px</code> 或以上，避免 focus 時自動放大頁面</li>
+      </ul>
+    </aside>
+  </div>
+
+  <div class="note warn">
+    <strong>不要犯的錯：</strong>用佔位符（placeholder）取代 label。Placeholder 在輸入後消失，老人和認知障礙使用者會忘記這個欄位是什麼。Label 必須一直在。
+  </div>
+</section>
+
+<!-- §5 付款方式分流 ────────────────────────────────────────── -->
+<section id="payment">
+  <div class="section-num">§5 STEP 4 · PAYMENT BRANCHING</div>
+  <h2>付款方式分流</h2>
+
+  <p>付款不是一個畫面，是一個<strong>分流路由器</strong>。根據 Step 1 的票種選擇，導向不同金流：</p>
+
+  <div class="branch">
+    <div class="branch-header">票種 → 付款方式</div>
+    <div class="branch-row-item">
+      <span class="from">一般票 / 早鳥 / 學生票</span>
+      <span class="arrow">→</span>
+      <span class="to"><strong>藍新金流 NewebPay</strong>（信用卡 / ATM / 超商代碼）</span>
+    </div>
+    <div class="branch-row-item">
+      <span class="from">國際票（USD）</span>
+      <span class="arrow">→</span>
+      <span class="to"><strong>PayPal Business</strong>（信用卡，國際付款）</span>
+    </div>
+    <div class="branch-row-item">
+      <span class="from">企業贊助洽詢</span>
+      <span class="arrow">→</span>
+      <span class="to"><strong>不上線收</strong>，跳轉到贊助洽詢表單，由 Claire 人工開立 invoice + 等銀行匯款</span>
+    </div>
+  </div>
+
+  <h3>分流 A：藍新金流（台灣門票）</h3>
+  <div class="demo-grid">
+    <div class="demo-box">
+      <div class="mock-embed">
+        <div class="mock-embed-label">MOCK · NEWEBPAY EMBED</div>
+        <div class="mock-embed-title">藍新金流付款頁</div>
+        <div class="mock-embed-desc">實際是跳轉到藍新代收頁面，由藍新處理刷卡 / ATM / 超商代碼三種付款。<br>付款完成後 callback 回 ADALS 網站確認頁。</div>
+        <div style="margin-top:14px;"><code>POST → core.newebpay.com/MPG/mpg_gateway</code></div>
+      </div>
+    </div>
+    <aside class="annot-box">
+      <h5>為什麼是藍新</h5>
+      <ul>
+        <li>信用卡分期<strong>一般會員就能用</strong>（綠界要付 NT$10,000 年費）</li>
+        <li>費率可申請 2.4%（綠界 2.75%）</li>
+        <li>子公司 ezPay 是<strong>唯一電子支付專營執照</strong>，合規位階高</li>
+        <li>API 結構與綠界類似，技術整合難度相當</li>
+      </ul>
+      <h5 style="margin-top:14px;">a11y 注意</h5>
+      <ul>
+        <li>跳轉前要明確告知「您將被導向藍新付款頁」</li>
+        <li>付款失敗回來時要保留前面填的資料，不要清空</li>
+        <li>callback 確認頁要有清楚的成功 / 失敗訊息，不要只寫 200/400</li>
+      </ul>
+    </aside>
+  </div>
+
+  <h3>分流 B：PayPal Business（國際門票）</h3>
+  <div class="demo-grid">
+    <div class="demo-box">
+      <div class="mock-embed">
+        <div class="mock-embed-label">MOCK · PAYPAL CHECKOUT</div>
+        <div class="mock-embed-title">PayPal 結帳</div>
+        <div class="mock-embed-desc">使用 PayPal Smart Buttons SDK 嵌入。使用者可以用 PayPal 帳戶或信用卡付款（不需註冊 PayPal 帳號）。<br>領款匯入 APAC AIA 玉山銀行帳戶。</div>
+        <div style="margin-top:14px;"><code>&lt;script src="paypal.com/sdk/js?client-id=..."&gt;</code></div>
+      </div>
+    </div>
+    <aside class="annot-box">
+      <h5>限制</h5>
+      <ul>
+        <li>費率 4.4% + USD 0.30（高於藍新，但這是台灣協會收國外刷卡<strong>唯一現實選項</strong>）</li>
+        <li>必須先開玉山銀行帳戶，才能把 PayPal 餘額領出來</li>
+        <li>已關閉台幣交易（剛好符合本場景：只用於外幣）</li>
+      </ul>
+      <h5 style="margin-top:14px;">不要選的東西</h5>
+      <ul>
+        <li><strong>Stripe</strong>：2026/04 仍不支援台灣本地實體</li>
+        <li><strong>Wise Business</strong>：台灣協會明確不在支援名單</li>
+        <li><strong>Payoneer</strong>：NPO 法人支援不明朗</li>
+      </ul>
+    </aside>
+  </div>
+
+  <h3>分流 C：贊助洽詢（不走線上付款）</h3>
+  <div class="demo-grid">
+    <div class="demo-box">
+      <div class="mock-embed">
+        <div class="mock-embed-label">REDIRECT</div>
+        <div class="mock-embed-title">跳轉到贊助洽詢表單</div>
+        <div class="mock-embed-desc">企業贊助 NT$50K–300K（國內）/ USD 1,500–10,000（國外）不走線上付款。<br>表單收完後，Claire 開立 invoice，企業以銀行匯款 / SWIFT 電匯付款。</div>
+        <div style="margin-top:14px;"><a href="#sponsor" class="btn btn-secondary" style="margin-top:8px;">前往贊助洽詢 ↓</a></div>
+      </div>
+    </div>
+    <aside class="annot-box">
+      <h5>為什麼不上線收？</h5>
+      <ul>
+        <li>金額大，企業財務需要 invoice + 匯款 audit trail</li>
+        <li>線上刷卡費率（2.4–4.4%）對 NT$300K 是 NT$7,200–13,200 額外成本</li>
+        <li>企業贊助節奏慢，不需要即時收款</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<!-- §6 贊助洽詢 ────────────────────────────────────────────── -->
+<section id="sponsor">
+  <div class="section-num">§6 SPONSOR INQUIRY</div>
+  <h2>贊助洽詢流程（與門票分開）</h2>
+
+  <p>贊助流程的目的是<strong>收集足夠的企業資訊</strong>，讓 Claire 能直接開立 invoice 並在後續對話中討論細節。線上不收錢、不簽合約，只收意向。</p>
+
+  <div class="demo-grid">
+    <div class="demo-box">
+      <div class="demo-label">DEMO · SPONSOR INQUIRY FORM</div>
+      <form class="form-demo" novalidate aria-label="贊助洽詢表單範例">
+        <div class="field">
+          <label for="s-tier">贊助級別 <span class="req" aria-hidden="true">*</span></label>
+          <select id="s-tier" required aria-required="true">
+            <option value="">請選擇</option>
+            <option>Platinum NT$300,000（限 1 家）</option>
+            <option>Gold NT$200,000（限 2 家）</option>
+            <option>Silver NT$100,000（限 4 家）</option>
+            <option>Bronze NT$50,000（不限）</option>
+            <option>客製方案 / 想了解更多</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="s-company">公司 / 機構名稱 <span class="req" aria-hidden="true">*</span></label>
+          <input id="s-company" type="text" required aria-required="true" autocomplete="organization">
+        </div>
+        <div class="field">
+          <label for="s-tax">統一編號 / Tax ID</label>
+          <input id="s-tax" type="text">
+          <div class="hint">用於開立 invoice。國外公司請填 Company Registration Number。</div>
+        </div>
+        <div class="field">
+          <label for="s-contact">聯絡人姓名 <span class="req" aria-hidden="true">*</span></label>
+          <input id="s-contact" type="text" required aria-required="true" autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="s-email">聯絡 Email <span class="req" aria-hidden="true">*</span></label>
+          <input id="s-email" type="email" required aria-required="true" autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="s-currency">付款幣別偏好</label>
+          <select id="s-currency">
+            <option>新台幣 TWD（一般銀行匯款）</option>
+            <option>美金 USD（SWIFT 國際電匯）</option>
+            <option>其他幣別 / 待討論</option>
+          </select>
+          <div class="hint">USD 將提供 SWIFT 資訊，匯款手續費由付款方負擔（國際慣例）。</div>
+        </div>
+        <div class="field">
+          <label for="s-message">附註訊息</label>
+          <textarea id="s-message" rows="3"></textarea>
+        </div>
+        <div class="btn-row">
+          <button type="submit" class="btn btn-primary">送出贊助洽詢</button>
+        </div>
+      </form>
+    </div>
+
+    <aside class="annot-box">
+      <h5>表單欄位邏輯</h5>
+      <ul>
+        <li><strong>贊助級別</strong>放第一個，讓不確定的人能選「想了解更多」進入對話</li>
+        <li><strong>統一編號 / Tax ID</strong> 一個欄位涵蓋台灣與國外，hint 說明差異</li>
+        <li><strong>付款幣別偏好</strong>讓贊助方一開始就知道有 SWIFT 選項，不會以為只能 TWD</li>
+        <li>不問「您希望獲得什麼回饋」（這在贊助方案頁已寫清楚）</li>
+        <li>不問「您想了解什麼」（送出後 Claire 會直接打電話 / 寫信）</li>
+      </ul>
+      <h5 style="margin-top:14px;">送出之後</h5>
+      <ul>
+        <li>顯示「已收到，Claire 會在 2 個工作日內回覆」</li>
+        <li>立刻寄一封確認 email，附上贊助方案 PDF</li>
+        <li><strong>不要</strong>說「請等通知」這種被動語</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<!-- §7 狀態示範 ────────────────────────────────────────────── -->
+<section id="states">
+  <div class="section-num">§7 STATES</div>
+  <h2>狀態示範</h2>
+
+  <p>Elementor 預設只處理「正常」狀態。但實際使用時，使用者會遇到很多<strong>非正常</strong>狀態。每個狀態都需要明確的視覺與文字提示。</p>
+
+  <div class="state-grid">
+    <div class="state-box">
+      <span class="state-tag loading">LOADING</span>
+      <h4>處理中</h4>
+      <p style="font-size:13px;"><span class="spinner" aria-hidden="true"></span> &nbsp; 正在送出您的報名⋯</p>
+      <div class="hint" style="margin-top:8px; font-size:12px; color:var(--muted);">
+        spinner 用 <code>aria-hidden="true"</code>（純裝飾），實際狀態用 <code>role="status"</code> 或 <code>aria-live="polite"</code> 文字告知 SR。<br>
+        尊重 <code>prefers-reduced-motion</code>，停止旋轉動畫。
+      </div>
+    </div>
+
+    <div class="state-box">
+      <span class="state-tag error">ERROR</span>
+      <h4>表單驗證失敗</h4>
+      <p style="font-size:13px; color:var(--error);">⚠ 請檢查以下欄位：電子郵件格式不正確。</p>
+      <div class="hint" style="margin-top:8px; font-size:12px; color:var(--muted);">
+        錯誤摘要放在<strong>表單頂端</strong>並 focus 過去；個別欄位錯誤用 <code>role="alert"</code> + <code>aria-describedby</code>。<br>
+        不要只用紅色，必須有圖示或文字。
+      </div>
+    </div>
+
+    <div class="state-box">
+      <span class="state-tag warning">PAYMENT FAILED</span>
+      <h4>付款失敗</h4>
+      <p style="font-size:13px;">付款未成功，您的資料已保留。可以：</p>
+      <ul style="font-size:12px; padding-left:18px; margin-top:6px; color:var(--muted);">
+        <li>重新嘗試付款</li>
+        <li>更換付款方式</li>
+        <li>聯繫主辦方協助</li>
+      </ul>
+      <div class="hint" style="margin-top:8px; font-size:12px; color:var(--muted);">
+        <strong>關鍵：絕對不要清空表單資料</strong>。失敗訊息要說清楚「為什麼失敗」（卡片被拒、餘額不足、超時等）。
+      </div>
+    </div>
+
+    <div class="state-box">
+      <span class="state-tag success">SUCCESS</span>
+      <h4>報名成功</h4>
+      <p style="font-size:13px;">✓ 報名完成！報名編號：ADALS-2026-00142</p>
+      <ul style="font-size:12px; padding-left:18px; margin-top:6px; color:var(--muted);">
+        <li>確認信已寄至 your@email.com</li>
+        <li>議程 PDF 連結 5 分鐘內寄達</li>
+        <li>無障礙需求由專人回覆</li>
+      </ul>
+      <div class="hint" style="margin-top:8px; font-size:12px; color:var(--muted);">
+        成功頁應該<strong>立刻可以做下一件事</strong>（加入行事曆、分享、加入 LinkedIn 群組），而不是 dead end。
+      </div>
+    </div>
+  </div>
+
+  <div class="note warn">
+    <strong>容易被忽略的狀態：</strong>
+    <ul style="margin-top:6px; padding-left:18px;">
+      <li><strong>網路斷線</strong>：表單送出失敗時要有重試機制，不能直接拋錯</li>
+      <li><strong>學生票售完</strong>：在票種選擇頁就要把該選項標記為「售完」，不要送出後才報錯</li>
+      <li><strong>session 過期</strong>：填一半離開回來，要能還原（用 localStorage 暫存）</li>
+      <li><strong>付款處理中重複按鈕</strong>：按鈕送出後要立刻 disable，避免重複扣款</li>
+    </ul>
+  </div>
+</section>
+
+<!-- §8 技術註記 ────────────────────────────────────────────── -->
+<section id="tech">
+  <div class="section-num">§8 TECH NOTES</div>
+  <h2>技術註記</h2>
+
+  <h3>表單服務選擇</h3>
+  <div class="checklist">
+    <h4>建議</h4>
+    <ul>
+      <li><strong>Fillout</strong>（fillout.com）— 有 WCAG 公開承諾，可嵌入 iframe，logic branching 支援良好</li>
+      <li><strong>Cognito Forms</strong>（cognitoforms.com）— 有 a11y 聲明，付費版可串金流</li>
+      <li>若 Christina 想用 Elementor 原生表單：用 <strong>Elementor Pro Forms</strong> + <strong>Ally 外掛</strong> 補強，不要用 Contact Form 7（a11y 不及格）</li>
+    </ul>
+    <h4 style="margin-top:18px;">不要用</h4>
+    <ul>
+      <li class="dont"><strong>Typeform</strong> — 動畫過度、鍵盤導航有缺陷、screen reader 體驗差</li>
+      <li class="dont"><strong>KKTix / Accupass</strong> — 內部評估可及性不可接受</li>
+      <li class="dont"><strong>Eventbrite</strong> — 跨境費率累計 6–8%、版型限制論述呈現</li>
+      <li class="dont"><strong>Google Forms</strong> — 無法嵌入金流，且樣式無法符合 ADALS 設計風格</li>
+    </ul>
+  </div>
+
+  <h3>WCAG 2.2 AA 表單檢查清單</h3>
+  <div class="checklist">
+    <ul>
+      <li>所有 input 有 <code>&lt;label for&gt;</code>，不用 placeholder 取代 label（1.3.1, 3.3.2）</li>
+      <li>必填欄位用 <code>aria-required="true"</code>（不只靠紅色 *）</li>
+      <li>錯誤訊息用 <code>role="alert"</code> 或 <code>aria-live="assertive"</code>（3.3.1）</li>
+      <li>錯誤訊息明確指出<strong>是什麼錯</strong> + <strong>怎麼修正</strong>（3.3.3）</li>
+      <li><code>autocomplete</code> 屬性正確使用（1.3.5）</li>
+      <li>Radio / Checkbox 群組用 <code>&lt;fieldset&gt; + &lt;legend&gt;</code></li>
+      <li>所有互動元素 focus 可見（2.4.7），<strong>不要</strong> <code>outline: none</code></li>
+      <li>觸控目標 ≥ 44×44 CSS pixels（2.5.8）</li>
+      <li>iOS 防自動縮放：input <code>font-size: 16px</code> 以上</li>
+      <li>表單可用鍵盤完整操作（2.1.1）</li>
+      <li>送出按鈕避免雙擊重複送出（disable on submit）</li>
+      <li>顏色對比 ≥ 4.5:1（文字）、3:1（UI 元件邊框）</li>
+    </ul>
+  </div>
+
+  <h3>雙語切換</h3>
+  <div class="note">
+    使用 <code>data-zh="..."</code> / <code>data-en="..."</code> 屬性，JS 切換時必須<strong>同步更新</strong> <code>&lt;html lang&gt;</code> 屬性（讓 screen reader 用對的語言發音）。Form label、error message、button text 都要支援雙語切換。
+  </div>
+
+  <h3>整合工具評估：netiCRM</h3>
+  <div class="note ok">
+    <strong>強烈建議 Claire 先諮詢 netiCRM</strong>（neticrm.tw），它是專為台灣 NPO 設計的 CRM，內建報名、收款、會員管理、收據開立、金流串接（綠界、藍新都已整合，且新客戶送一家金流免費導入）。如果 netiCRM 適合，後續金流串接、會員系統、收據都一站解決，Christina 就只需要把 netiCRM 的報名頁嵌入 ADALS 站。
+  </div>
+
+  <h3>不要做的事</h3>
+  <div class="checklist">
+    <ul>
+      <li class="dont">不要先做網站再想金流（金流申請時間會反向影響網站設計）</li>
+      <li class="dont">不要假設 Stripe 可開（2026/04 仍不行）</li>
+      <li class="dont">不要假設 Wise Business 可開（台灣協會明確不在支援名單）</li>
+      <li class="dont">不要用 Tailwind 預設樣式</li>
+      <li class="dont">不要用 Inter / Roboto / 系統 sans-serif 作為主要字體</li>
+      <li class="dont">不要把內部金流附錄放在 public 網站（前一個 session 的錯誤）</li>
+      <li class="dont">不要用 stock photo（破壞論述質感）</li>
+    </ul>
+  </div>
+</section>
+
+<footer style="background:#003b5c; color:rgba(255,255,255,.7); text-align:center; padding:24px; font-size:12px; letter-spacing:1px;">
+  ADALS 2026 報名流程設計範本 v1.0 · 給 Christina 的參考 · 2026-04-28<br>
+  依據 Handoff ADALS 2026 Site &amp; Internal Memo §6 完整金流決策路徑
+</footer>
+
+</main>
+
+</body>
+</html>
