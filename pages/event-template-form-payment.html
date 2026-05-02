@@ -173,6 +173,38 @@
   /* ── Visually hidden (sr-only) ── */
   .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
 
+  /* ── Event Ladder section ── */
+  details.event-ladder { background:var(--card); border-radius:10px; border:1px solid var(--border); padding:0; margin:24px 0 32px; }
+  details.event-ladder > summary { cursor:pointer; padding:18px 24px; font-weight:700; color:var(--primary); font-size:16px; list-style:none; display:flex; align-items:center; gap:10px; user-select:none; }
+  details.event-ladder > summary::-webkit-details-marker { display:none; }
+  details.event-ladder > summary::after { content:'⌄'; margin-left:auto; font-size:20px; transition:transform .2s; line-height:1; }
+  details.event-ladder[open] > summary::after { transform:rotate(180deg); }
+  details.event-ladder[open] > summary { border-bottom:1px solid var(--border); }
+  details.event-ladder > .event-ladder-body { padding:18px 24px 24px; }
+  .event-compare-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:14px 0 22px; border-radius:8px; border:1px solid var(--border); }
+  table.event-compare { width:100%; border-collapse:collapse; font-size:13px; min-width:560px; }
+  table.event-compare th { background:var(--primary); color:#fff; padding:10px 14px; text-align:left; font-weight:600; font-size:12px; letter-spacing:1px; }
+  table.event-compare td { padding:10px 14px; border-bottom:1px solid var(--border); vertical-align:top; }
+  table.event-compare tbody tr:nth-child(even) td { background:#fafafa; }
+  table.event-compare tbody tr:last-child td { border-bottom:none; }
+  table.event-compare .complexity { display:inline-block; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:700; }
+  table.event-compare .complexity.none { background:#e8f5e9; color:#1b5e20; }
+  table.event-compare .complexity.low { background:#e3f2fd; color:#0d47a1; }
+  table.event-compare .complexity.medium { background:#fff3e0; color:#bf360c; }
+  table.event-compare .complexity.high { background:#fce4ec; color:#880e4f; }
+  details.event-card { background:#fafafa; border:1px solid var(--border); border-radius:8px; padding:0; margin-bottom:8px; }
+  details.event-card > summary { cursor:pointer; padding:12px 16px; font-weight:600; color:var(--primary); font-size:14px; list-style:none; display:flex; align-items:center; gap:10px; user-select:none; }
+  details.event-card > summary::-webkit-details-marker { display:none; }
+  details.event-card > summary::after { content:'+'; margin-left:auto; font-size:18px; line-height:1; transition:transform .2s; }
+  details.event-card[open] > summary::after { transform:rotate(45deg); }
+  details.event-card > .event-card-body { padding:8px 16px 16px; font-size:13px; line-height:1.7; border-top:1px solid var(--border); }
+  details.event-card .ec-h { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--secondary); margin:12px 0 4px; }
+  details.event-card .ec-h:first-child { margin-top:0; }
+  table.payment-compare { width:100%; border-collapse:collapse; font-size:12px; min-width:600px; }
+  table.payment-compare th, table.payment-compare td { padding:10px 12px; border:1px solid var(--border); text-align:left; vertical-align:top; }
+  table.payment-compare thead th { background:var(--primary); color:#fff; font-weight:600; font-size:11px; letter-spacing:1px; }
+  table.payment-compare tbody th { background:#f3ede4; font-weight:700; color:var(--primary); font-size:12px; }
+
   /* ── Mobile adjustments ── */
   @media (max-width:600px) {
     .page-header { padding:32px 20px 28px; }
@@ -203,6 +235,7 @@
 <nav class="toc" aria-label="文件導覽">
   <div class="toc-inner">
     <a href="#overview">範本說明</a>
+    <a href="#event-types">活動類型比較</a>
     <a href="#flow">報名流程</a>
     <a href="#tickets">票種選擇</a>
     <a href="#form">報名表單</a>
@@ -259,6 +292,247 @@
   <div class="note">
     <strong>關鍵設計原則：</strong>贊助走 invoice + 匯款，門票走線上刷卡。網站只負責「門票」流程，贊助是「洽詢表單 → 人工開立 invoice → 線下匯款」三步走，不上網路即時收款。
   </div>
+</section>
+
+<!-- 活動類型比較 (整段可摺疊) ───────────────────────────────── -->
+<section id="event-types">
+  <div class="section-num">EVENT LADDER · 範本適用範圍</div>
+  <h2>活動類型比較</h2>
+
+  <p>本範本展示的是 <strong>ADALS 規模(大型國際年度)的最大複雜度版本</strong>。其他活動類型不需要這麼複雜——在 netiCRM 後台<strong>同一個平台 + 不同模板</strong>就能處理,Christina 不需要為每種活動重刻 UI。</p>
+
+  <details class="event-ladder">
+    <summary>展開 / 收合活動類型比較</summary>
+    <div class="event-ladder-body">
+
+      <h3 style="margin-top:0;">五種活動類型 — 一覽表</h3>
+      <p style="font-size:13px; color:var(--muted);">點擊各類型可展開完整 spec。</p>
+      <div class="event-compare-wrap">
+        <table class="event-compare">
+          <thead>
+            <tr>
+              <th>活動類型</th>
+              <th>規模</th>
+              <th>付費複雜度</th>
+              <th>推薦平台</th>
+              <th>Christina 工作量</th>
+              <th>範例</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>線上免費 webinar</strong></td>
+              <td>50–300 人</td>
+              <td><span class="complexity none">無</span></td>
+              <td>netiCRM 免費 event 或 Zoom 內建</td>
+              <td>~1 小時</td>
+              <td>AIA 雙月談</td>
+            </tr>
+            <tr>
+              <td><strong>線下小型工作坊</strong></td>
+              <td>20–50 人</td>
+              <td><span class="complexity low">低</span></td>
+              <td>netiCRM 單一票種 event</td>
+              <td>半天</td>
+              <td>WCAG 入門班</td>
+            </tr>
+            <tr>
+              <td><strong>線下中型活動</strong></td>
+              <td>50–150 人</td>
+              <td><span class="complexity low">低</span></td>
+              <td>netiCRM 多票種 + 早鳥</td>
+              <td>1–2 天</td>
+              <td>區域 a11y 論壇</td>
+            </tr>
+            <tr>
+              <td><strong>Hybrid 中型活動</strong></td>
+              <td>100–200 人(現場+線上)</td>
+              <td><span class="complexity medium">中</span></td>
+              <td>netiCRM 雙 SKU + Zoom 整合</td>
+              <td>2–3 天</td>
+              <td>(假設) APAC a11y day</td>
+            </tr>
+            <tr>
+              <td><strong>大型國際年度 ★</strong></td>
+              <td>150–200+ 人(含贊助)</td>
+              <td><span class="complexity high">高</span></td>
+              <td>netiCRM 完整 stack + SWIFT</td>
+              <td>5–7 天 + ongoing</td>
+              <td><strong>ADALS 2026</strong>(本範本對應)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>各類型完整 spec(點擊展開)</h3>
+
+      <details class="event-card">
+        <summary>① 線上免費 webinar — 例:AIA 雙月談</summary>
+        <div class="event-card-body">
+          <div class="ec-h">典型情境</div>
+          <p>定期講座、AMA、線上工作坊預習。免費,目的是 community 經營與會員觸及。</p>
+          <div class="ec-h">付款</div>
+          <p>無付款流程。</p>
+          <div class="ec-h">報名表單</div>
+          <p>姓名 + Email(用於寄 Zoom 連結)。可選填:身份(讓主持人了解聽眾組成)。<strong>不要</strong>問太多——免費活動表單越長,放棄率越高。</p>
+          <div class="ec-h">需要的步驟</div>
+          <p>1 步:填表 → Zoom 連結用 email 寄出。</p>
+          <div class="ec-h">平台建議</div>
+          <p>netiCRM 免費 event(可整合會員資料庫,適合長期 ops);或 Zoom 內建報名(更簡單,但資料不留在 APAC AIA)。</p>
+          <div class="ec-h">Christina 工作量</div>
+          <p>~1 小時(設定表單 + Zoom 連結 + 確認 email 模板)。</p>
+        </div>
+      </details>
+
+      <details class="event-card">
+        <summary>② 線下小型工作坊 — 例:WCAG 入門班 NT$1,500</summary>
+        <div class="event-card-body">
+          <div class="ec-h">典型情境</div>
+          <p>單一價位、地點固定、場次有限。台灣本地參與者為主。</p>
+          <div class="ec-h">付款</div>
+          <p>單一金流(藍新)、單一票種。<strong>不需要 PayPal、不需要 SWIFT</strong>。</p>
+          <div class="ec-h">報名表單</div>
+          <p>姓名 + Email + 飲食偏好(午餐用)+ 無障礙需求。</p>
+          <div class="ec-h">需要的步驟</div>
+          <p>3 步:填表 → 付款 → 確認(跳過票種選擇,因為只有一種)。</p>
+          <div class="ec-h">平台建議</div>
+          <p>netiCRM 單一票種 event。Christina 在後台 fork ADALS event template,刪掉用不到的設定即可。</p>
+          <div class="ec-h">Christina 工作量</div>
+          <p>半天(複製 ADALS event 設定 + 改文案 + 改視覺風格)。</p>
+        </div>
+      </details>
+
+      <details class="event-card">
+        <summary>③ 線下中型活動 — 例:區域 a11y 論壇 NT$2,500–4,000</summary>
+        <div class="event-card-body">
+          <div class="ec-h">典型情境</div>
+          <p>2-3 個議程軌、有早鳥優惠、可能有學生票。仍以台灣參與者為主。</p>
+          <div class="ec-h">付款</div>
+          <p>藍新(信用卡 + ATM + 超商)。多票種(早鳥 / 一般 / 學生)。</p>
+          <div class="ec-h">報名表單</div>
+          <p>同 ② + 議程軌偏好(讓主辦方分組)。</p>
+          <div class="ec-h">需要的步驟</div>
+          <p>4 步:票種 → 表單 → 付款 → 確認。</p>
+          <div class="ec-h">平台建議</div>
+          <p>netiCRM 多票種 event + 早鳥規則(後台時間自動切換)。</p>
+          <div class="ec-h">Christina 工作量</div>
+          <p>1-2 天(主要在票種設定 + 多種確認頁文案)。</p>
+        </div>
+      </details>
+
+      <details class="event-card">
+        <summary>④ Hybrid 中型活動 — 線上 + 線下並行</summary>
+        <div class="event-card-body">
+          <div class="ec-h">典型情境</div>
+          <p>現場名額有限 + 線上不限 + 兩個價位。線上場次需要 Zoom / YouTube 串流。</p>
+          <div class="ec-h">付款</div>
+          <p><strong>兩個 SKU</strong>:現場票(藍新)+ 線上票(藍新國內 / PayPal 國際)。國際線上參與者比例會比純線下高很多。</p>
+          <div class="ec-h">報名表單</div>
+          <p>同 ③ + 「現場 / 線上」必選欄位 + 線上者問時區。</p>
+          <div class="ec-h">需要的步驟</div>
+          <p>5 步:票種(含現場/線上分流) → 表單 → 付款 → 確認 → 行前資訊(現場者收會場地圖,線上者收 Zoom 連結)。</p>
+          <div class="ec-h">平台建議</div>
+          <p>netiCRM 雙 event(分開管理現場容量 vs 線上)或單 event 雙 ticket type(看 netiCRM 客製能力)。</p>
+          <div class="ec-h">Christina 工作量</div>
+          <p>2-3 天(主要在「行前資訊分流寄送」邏輯,以及兩條 UX 都要設計確認頁)。</p>
+          <div class="ec-h">最大風險</div>
+          <p><strong>把現場確認 email 寄給線上人,或反之。</strong>需要 netiCRM 後台條件規則確認對。</p>
+        </div>
+      </details>
+
+      <details class="event-card">
+        <summary>⑤ 大型國際年度 ★ — ADALS 2026(本範本對應)</summary>
+        <div class="event-card-body">
+          <div class="ec-h">典型情境</div>
+          <p>多票種 + 國際參與者 + 贊助體系 + 多幣別。</p>
+          <div class="ec-h">付款</div>
+          <p>完整 4 路徑:藍新(台灣門票)+ PayPal(國際門票)+ SWIFT(國外贊助)+ 銀行匯款(台灣贊助)。多幣別 invoice。</p>
+          <div class="ec-h">報名表單</div>
+          <p>多票種 + 完整資訊 + 雙語切換。詳見 §4。</p>
+          <div class="ec-h">需要的步驟</div>
+          <p>5 步全流程。詳見 §2。</p>
+          <div class="ec-h">平台建議</div>
+          <p>netiCRM 完整 stack(主推)或自建備案,兩條路徑詳見 §8。</p>
+          <div class="ec-h">Christina 工作量</div>
+          <p>5-7 天 setup + 整年 ongoing 維護。</p>
+          <div class="ec-h">→ 完整 spec</div>
+          <p>就是這份範本 §2 起的所有內容。</p>
+        </div>
+      </details>
+
+      <h3>付費差異:線上 / 線下 / Hybrid / 跨國</h3>
+      <p style="font-size:13px; color:var(--muted);">同樣的活動規模,不同的舉辦形式 + 觀眾來源,會直接影響付款基礎建設需求。</p>
+      <div class="event-compare-wrap">
+        <table class="payment-compare">
+          <thead>
+            <tr>
+              <th style="width:18%;">維度</th>
+              <th>線下 (Offline)</th>
+              <th>線上 (Online)</th>
+              <th>Hybrid</th>
+              <th>跨國 (International)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>主要金流</th>
+              <td>線上預付 + 現場補單(現金/轉帳)</td>
+              <td>100% 線上(無現場退路)</td>
+              <td>兩條並行,需各自 SKU</td>
+              <td>必須 PayPal / 國際卡(NewebPay 不支援國際付款者)</td>
+            </tr>
+            <tr>
+              <th>票種結構</th>
+              <td>通常 1–2 種(早鳥 / 一般)</td>
+              <td>通常 1 種</td>
+              <td><strong>至少 2 SKU</strong>(現場 / 線上)</td>
+              <td>多幣別 SKU(USD / TWD)</td>
+            </tr>
+            <tr>
+              <th>收據格式</th>
+              <td>可選擇實體 / 數位</td>
+              <td>數位 only</td>
+              <td>兩種選項並存</td>
+              <td><strong>必須英文</strong>(統編改 Tax ID)</td>
+            </tr>
+            <tr>
+              <th>容量管理</th>
+              <td>場地硬上限</td>
+              <td>幾乎無限(看頻寬)</td>
+              <td>兩條容量分管</td>
+              <td>取決於線上 / 線下混合比例</td>
+            </tr>
+            <tr>
+              <th>退費處理</th>
+              <td>涉及實體成本(已定餐、已印名牌)</td>
+              <td>簡單(數位資產可回收)</td>
+              <td>兩條政策可能不同</td>
+              <td>跨境匯費吃成本(USD 50+ 不退費)</td>
+            </tr>
+            <tr>
+              <th>不需要</th>
+              <td>國際卡(若只給台灣)</td>
+              <td>場地金流硬體</td>
+              <td>純現場票流程</td>
+              <td>純台灣 NewebPay(對國際付款者無感)</td>
+            </tr>
+            <tr>
+              <th>特別風險</th>
+              <td>現場報到混亂、現金管理</td>
+              <td>連結漏寄、Zoom session limit</td>
+              <td>兩邊體驗不一致(線上者覺得二等)</td>
+              <td>時區、語言、信用卡跨境反詐騙拒絕</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note">
+        <strong>關鍵 takeaway:</strong>付費複雜度真正的驅動因子是「<strong>觀眾的地理範圍</strong>」+「<strong>活動形式</strong>」這兩個正交軸。線下台灣活動最簡單(只需藍新);跨國 Hybrid 活動最複雜(藍新 + PayPal + SWIFT + 雙語收據都要)。設計平台時要先確認這兩軸,再決定金流 stack。
+      </div>
+
+    </div>
+  </details>
 </section>
 
 <!-- §2 報名流程 ────────────────────────────────────────────── -->
