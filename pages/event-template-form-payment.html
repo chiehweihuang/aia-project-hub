@@ -220,6 +220,15 @@
   <div class="section-num">§1 OVERVIEW</div>
   <h2>範本目的</h2>
 
+  <div class="note warn">
+    <strong>本範本的 scope 範圍（請先讀）：</strong>
+    <ul style="margin-top:6px; padding-left:18px;">
+      <li>本範本聚焦在 <strong>Christina 在 Elementor + Ally 內可建置的 UI 層</strong>：報名表單視覺、票種卡片、確認頁、狀態示範</li>
+      <li>金流整合層（NewebPay API、PayPal SDK、tax-compliant receipt）<strong>不在 Christina 的 scope 內</strong> — 由 netiCRM 平台內建處理，或由工程獨立介入</li>
+      <li>金流路徑（netiCRM 主推 vs. 自建備案）待理事會決定，本範本提供的 UX 原則 <strong>兩條路徑都適用</strong></li>
+    </ul>
+  </div>
+
   <p>ADALS 2026 不是一般的會議網站。這場會議要面對 CTO 級觀眾，網站本身就是 WCAG 2.2 AA 的範例。這份範本聚焦在最容易出問題的兩個地方：<strong>報名表單</strong>與<strong>付款流程</strong>。</p>
 
   <h3>四種收款情境（出自 §6.1）</h3>
@@ -459,49 +468,63 @@
     </div>
   </div>
 
-  <h3>分流 A：藍新金流（台灣門票）</h3>
+  <h3>分流 A：台灣門票（底層金流：藍新 NewebPay）</h3>
   <div class="demo-grid">
     <div class="demo-box">
-      <div class="mock-embed">
-        <div class="mock-embed-label">MOCK · NEWEBPAY EMBED</div>
-        <div class="mock-embed-title">藍新金流付款頁</div>
-        <div class="mock-embed-desc">實際是跳轉到藍新代收頁面，由藍新處理刷卡 / ATM / 超商代碼三種付款。<br>付款完成後 callback 回 ADALS 網站確認頁。</div>
-        <div style="margin-top:14px;"><code>POST → core.newebpay.com/MPG/mpg_gateway</code></div>
-      </div>
+      <div class="demo-label">CHRISTINA 的 UX 職責</div>
+      <h4 style="margin-top:0;">付款前引導頁</h4>
+      <p style="font-size:14px;">告知使用者「將前往藍新付款頁，完成後自動跳回 ADALS 網站」，提供「確認跳轉」按鈕。</p>
+      <h4 style="margin-top:14px;">付款後確認頁</h4>
+      <p style="font-size:14px;">顯示成功/失敗狀態、訂單編號、後續資訊（收據寄送、議程連結）。</p>
+      <p style="font-size:13px; color:var(--muted); margin-top:14px; padding-top:14px; border-top:1px solid var(--border);">
+        <strong>付款頁本身由藍新代收</strong>，Christina 不需要設計也不能設計（藍新 hosted 頁面無法客製）。Christina 設計的是<strong>引導頁與確認頁</strong>這兩個前後 wrapper。
+      </p>
     </div>
     <aside class="annot-box">
-      <h5>為什麼是藍新</h5>
+      <h5>誰建什麼</h5>
+      <ul>
+        <li><strong>Christina (Elementor)</strong>：跳轉前引導頁、跳轉後確認頁、錯誤頁的視覺設計</li>
+        <li><strong>netiCRM 主推路徑</strong>：藍新串接、callback、簽章 — netiCRM 後台一鍵啟用，沒人寫 code</li>
+        <li><strong>備案路徑</strong>：藍新 API、callback、簽章、合規收據 — 由工程資源獨立介入，<strong>不是 Christina 的工作</strong></li>
+      </ul>
+      <h5 style="margin-top:14px;">為什麼底層是藍新</h5>
       <ul>
         <li>信用卡分期<strong>一般會員就能用</strong>（綠界要付 NT$10,000 年費）</li>
         <li>費率可申請 2.4%（綠界 2.75%）</li>
         <li>子公司 ezPay 是<strong>唯一電子支付專營執照</strong>，合規位階高</li>
-        <li>API 結構與綠界類似，技術整合難度相當</li>
       </ul>
-      <h5 style="margin-top:14px;">a11y 注意</h5>
+      <h5 style="margin-top:14px;">a11y 注意（Christina 範圍內）</h5>
       <ul>
-        <li>跳轉前要明確告知「您將被導向藍新付款頁」</li>
-        <li>付款失敗回來時要保留前面填的資料，不要清空</li>
-        <li>callback 確認頁要有清楚的成功 / 失敗訊息，不要只寫 200/400</li>
+        <li>跳轉前明確告知「將被導向藍新付款頁」</li>
+        <li>付款失敗回來時，前面填的資料要保留</li>
+        <li>確認頁要有清楚的成功 / 失敗訊息，不要只寫 200/400</li>
       </ul>
     </aside>
   </div>
 
-  <h3>分流 B：PayPal Business（國際門票）</h3>
+  <h3>分流 B：國際門票（底層：PayPal Business 或 netiCRM 內建國際卡）</h3>
   <div class="demo-grid">
     <div class="demo-box">
-      <div class="mock-embed">
-        <div class="mock-embed-label">MOCK · PAYPAL CHECKOUT</div>
-        <div class="mock-embed-title">PayPal 結帳</div>
-        <div class="mock-embed-desc">使用 PayPal Smart Buttons SDK 嵌入。使用者可以用 PayPal 帳戶或信用卡付款（不需註冊 PayPal 帳號）。<br>領款匯入 APAC AIA 玉山銀行帳戶。</div>
-        <div style="margin-top:14px;"><code>&lt;script src="paypal.com/sdk/js?client-id=..."&gt;</code></div>
-      </div>
+      <div class="demo-label">CHRISTINA 的 UX 職責</div>
+      <h4 style="margin-top:0;">國際票種選擇 + 引導頁</h4>
+      <p style="font-size:14px;">明確標示這條走美元計價（USD 100），告知將跳出至 PayPal 結帳。</p>
+      <h4 style="margin-top:14px;">付款後確認頁（雙語）</h4>
+      <p style="font-size:14px;">英文為主、中文為輔的成功訊息；提供報名編號、英文收據寄送說明。</p>
+      <p style="font-size:13px; color:var(--muted); margin-top:14px; padding-top:14px; border-top:1px solid var(--border);">
+        <strong>PayPal Smart Buttons SDK 由工程介入</strong>（或由 netiCRM 內建處理）。Christina 不負責 SDK 嵌入與 webhook 處理，只負責前後 wrapper UI。
+      </p>
     </div>
     <aside class="annot-box">
-      <h5>限制</h5>
+      <h5>誰建什麼</h5>
       <ul>
-        <li>費率 4.4% + USD 0.30（高於藍新，但這是台灣協會收國外刷卡<strong>唯一現實選項</strong>）</li>
-        <li>必須先開玉山銀行帳戶，才能把 PayPal 餘額領出來</li>
-        <li>已關閉台幣交易（剛好符合本場景：只用於外幣）</li>
+        <li><strong>Christina (Elementor)</strong>：國際票引導頁、英文確認頁、雙語錯誤訊息</li>
+        <li><strong>netiCRM 主推路徑</strong>：用 netiCRM 內建國際卡，<strong>不需另外申請 PayPal</strong></li>
+        <li><strong>備案路徑</strong>：PayPal Smart Buttons SDK 由工程嵌入 + 後端 webhook — 不是 Elementor 範圍</li>
+      </ul>
+      <h5 style="margin-top:14px;">PayPal 限制（若採此路徑）</h5>
+      <ul>
+        <li>費率 4.4% + USD 0.30（高於藍新，但是台灣協會收國外刷卡<strong>唯一現實選項</strong>）</li>
+        <li>必須先開玉山銀行帳戶才能領款</li>
       </ul>
       <h5 style="margin-top:14px;">不要選的東西</h5>
       <ul>
@@ -515,15 +538,24 @@
   <h3>分流 C：贊助洽詢（不走線上付款）</h3>
   <div class="demo-grid">
     <div class="demo-box">
-      <div class="mock-embed">
-        <div class="mock-embed-label">REDIRECT</div>
-        <div class="mock-embed-title">跳轉到贊助洽詢表單</div>
-        <div class="mock-embed-desc">企業贊助 NT$50K–300K（國內）/ USD 1,500–10,000（國外）不走線上付款。<br>表單收完後，Claire 開立 invoice，企業以銀行匯款 / SWIFT 電匯付款。</div>
-        <div style="margin-top:14px;"><a href="#sponsor" class="btn btn-secondary" style="margin-top:8px;">前往贊助洽詢 ↓</a></div>
-      </div>
+      <div class="demo-label">CHRISTINA 的 UX 職責 · 完全在 scope 內</div>
+      <h4 style="margin-top:0;">贊助洽詢入口頁</h4>
+      <p style="font-size:14px;">在 ADALS 主頁清楚區隔「個人報名」與「企業贊助」兩條路徑，避免企業誤入購票流程。</p>
+      <h4 style="margin-top:14px;">贊助洽詢表單（見 §6）</h4>
+      <p style="font-size:14px;">收集足夠資訊讓 Claire 後續人工處理 invoice。表單送出後，顯示「2 個工作日內回覆」訊息 + 寄出確認 email。</p>
+      <p style="font-size:13px; color:var(--muted); margin-top:14px; padding-top:14px; border-top:1px solid var(--border);">
+        <strong>這條分流完全沒有金流整合</strong> — 表單由 Elementor Pro Forms 或 Fillout / Cognito 嵌入即可。Invoice 與 SWIFT 電匯由 Claire 線下手動處理。
+      </p>
+      <div style="margin-top:14px;"><a href="#sponsor" class="btn btn-secondary">前往贊助洽詢示範 ↓</a></div>
     </div>
     <aside class="annot-box">
-      <h5>為什麼不上線收？</h5>
+      <h5>誰建什麼</h5>
+      <ul>
+        <li><strong>Christina (Elementor)</strong>：整條流程都在 scope 內 — 入口頁 + 表單 + 送出後訊息頁</li>
+        <li><strong>Claire（線下）</strong>：收到表單通知 → 開英文 invoice → 提供 SWIFT 資訊給對方</li>
+        <li><strong>沒有平台 / 工程介入</strong></li>
+      </ul>
+      <h5 style="margin-top:14px;">為什麼不上線收？</h5>
       <ul>
         <li>金額大，企業財務需要 invoice + 匯款 audit trail</li>
         <li>線上刷卡費率（2.4–4.4%）對 NT$300K 是 NT$7,200–13,200 額外成本</li>
@@ -682,6 +714,35 @@
 <section id="tech">
   <div class="section-num">§8 TECH NOTES</div>
   <h2>技術註記</h2>
+
+  <h3>Scope 拆分：Christina vs. 平台 / 工程</h3>
+  <div class="checklist">
+    <h4>Christina 的職責（Elementor + Ally 內，無需寫 code）</h4>
+    <ul>
+      <li>Hero / About / Programme / Audience / Sponsorship / Venue 等視覺頁面</li>
+      <li>票種選擇 UI（若採自建路徑）或 netiCRM 嵌入位置（若採 netiCRM）</li>
+      <li>報名表單欄位視覺 + 引導文字 + 必填標記 + 錯誤提示文案</li>
+      <li>付款前引導頁、付款後確認頁的視覺設計</li>
+      <li>錯誤頁、成功頁、loading 狀態的視覺呈現</li>
+      <li>WCAG 2.2 AA 視覺合規（對比度、focus ring、觸控目標 ≥ 44×44）</li>
+      <li>中英雙語切換的視覺與互動</li>
+    </ul>
+    <h4 style="margin-top:18px;">平台 / 工程的職責（Christina 不碰，超出 Elementor 範圍）</h4>
+    <ul>
+      <li class="dont">藍新（NewebPay）/ PayPal / 其他金流的 API 串接</li>
+      <li class="dont">付款 callback、簽章驗證、訂單 idempotency、refund 處理</li>
+      <li class="dont">台灣稅法合規收據生成（統編、捐款扣抵編號、社團法人格式）</li>
+      <li class="dont">會員資料庫 schema、跨年度資料管理</li>
+      <li class="dont">SWIFT 電匯流程與英文 invoice 生成（Claire 線下手動）</li>
+      <li class="dont">寄信系統（確認信、收據、提醒）</li>
+    </ul>
+    <p style="font-size:13px; color:var(--muted); margin-top:14px; padding:12px 14px; background:#fafafa; border-radius:6px;">
+      <strong>路徑依賴：</strong>「平台 / 工程的職責」具體由誰承擔取決於理事會決定的金流路徑：
+      <strong>netiCRM 主推</strong> → 平台內建處理；
+      <strong>自建備案</strong> → Bertram 或工程資源獨立介入。
+      不論哪條路徑，<strong>Christina 的 scope 都不變</strong>。
+    </p>
+  </div>
 
   <h3>表單服務選擇</h3>
   <div class="checklist">
