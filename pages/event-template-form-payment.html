@@ -738,7 +738,7 @@
     <div class="branch-row-item">
       <span class="from">企業贊助洽詢</span>
       <span class="arrow">→</span>
-      <span class="to"><strong>不上線收</strong>，跳轉到贊助洽詢表單，由 Claire 人工開立 invoice + 等銀行匯款</span>
+      <span class="to"><strong>不上線收</strong>，跳轉到贊助洽詢表單，由祕書長 / 總務人工開立 invoice + 等銀行匯款</span>
     </div>
   </div>
 
@@ -816,9 +816,9 @@
       <h4 style="margin-top:0;">贊助洽詢入口頁</h4>
       <p style="font-size:14px;">在 ADALS 主頁清楚區隔「個人報名」與「企業贊助」兩條路徑，避免企業誤入購票流程。</p>
       <h4 style="margin-top:14px;">贊助洽詢表單（見 §6）</h4>
-      <p style="font-size:14px;">收集足夠資訊讓 Claire 後續人工處理 invoice。表單送出後，顯示「2 個工作日內回覆」訊息 + 寄出確認 email。</p>
+      <p style="font-size:14px;">收集足夠資訊讓祕書長 / 總務後續人工處理 invoice。表單送出後，顯示「2 個工作日內回覆」訊息 + 寄出確認 email。</p>
       <p style="font-size:13px; color:var(--muted); margin-top:14px; padding-top:14px; border-top:1px solid var(--border);">
-        <strong>這條分流完全沒有金流整合</strong> — 表單由 Elementor Pro Forms 或 Fillout / Cognito 嵌入即可。Invoice 與 SWIFT 電匯由 Claire 線下手動處理。
+        <strong>這條分流完全沒有金流整合</strong> — 表單由 Elementor Pro Forms 或 Fillout / Cognito 嵌入即可。Invoice 與 SWIFT 電匯由祕書長 / 總務線下手動處理。
       </p>
       <div style="margin-top:14px;"><a href="#sponsor" class="btn btn-secondary">前往贊助洽詢示範 ↓</a></div>
     </div>
@@ -826,7 +826,7 @@
       <h5>誰建什麼</h5>
       <ul>
         <li><strong>Christina (Elementor)</strong>：整條流程都在 scope 內 — 入口頁 + 表單 + 送出後訊息頁</li>
-        <li><strong>Claire（線下）</strong>：收到表單通知 → 開英文 invoice → 提供 SWIFT 資訊給對方</li>
+        <li><strong>祕書長 / 總務（線下）</strong>：收到表單通知 → 開英文 invoice → 提供 SWIFT 資訊給對方</li>
         <li><strong>沒有平台 / 工程介入</strong></li>
       </ul>
       <h5 style="margin-top:14px;">為什麼不上線收？</h5>
@@ -844,7 +844,7 @@
   <div class="section-num">§6 SPONSOR INQUIRY</div>
   <h2>贊助洽詢流程（與門票分開）</h2>
 
-  <p>贊助流程的目的是<strong>收集足夠的企業資訊</strong>，讓 Claire 能直接開立 invoice 並在後續對話中討論細節。線上不收錢、不簽合約，只收意向。</p>
+  <p>贊助流程的目的是<strong>收集足夠的企業資訊</strong>，讓祕書長 / 總務能直接開立 invoice;大額或策略性贊助再由理事長 Claire 介入討論。線上不收錢、不簽合約，只收意向。</p>
 
   <div class="demo-grid">
     <div class="demo-box">
@@ -904,11 +904,11 @@
         <li><strong>統一編號 / Tax ID</strong> 一個欄位涵蓋台灣與國外，hint 說明差異</li>
         <li><strong>付款幣別偏好</strong>讓贊助方一開始就知道有 SWIFT 選項，不會以為只能 TWD</li>
         <li>不問「您希望獲得什麼回饋」（這在贊助方案頁已寫清楚）</li>
-        <li>不問「您想了解什麼」（送出後 Claire 會直接打電話 / 寫信）</li>
+        <li>不問「您想了解什麼」（送出後由祕書長 / 總務聯繫 / 寫信）</li>
       </ul>
       <h5 style="margin-top:14px;">送出之後</h5>
       <ul>
-        <li>顯示「已收到，Claire 會在 2 個工作日內回覆」</li>
+        <li>顯示「已收到，祕書長 / 總務會在 2 個工作日內回覆」</li>
         <li>立刻寄一封確認 email，附上贊助方案 PDF</li>
         <li><strong>不要</strong>說「請等通知」這種被動語</li>
       </ul>
@@ -1007,7 +1007,7 @@
       <li class="dont">付款 callback、簽章驗證、訂單 idempotency、refund 處理</li>
       <li class="dont">台灣稅法合規收據生成（統編、捐款扣抵編號、社團法人格式）</li>
       <li class="dont">會員資料庫 schema、跨年度資料管理</li>
-      <li class="dont">SWIFT 電匯流程與英文 invoice 生成（Claire 線下手動）</li>
+      <li class="dont">SWIFT 電匯流程與英文 invoice 生成（祕書長 / 總務線下手動）</li>
       <li class="dont">寄信系統（確認信、收據、提醒）</li>
     </ul>
     <p style="font-size:13px; color:var(--muted); margin-top:14px; padding:12px 14px; background:#fafafa; border-radius:6px;">
@@ -1060,7 +1060,7 @@
 
   <h3>整合工具評估：netiCRM</h3>
   <div class="note ok">
-    <strong>強烈建議 Claire 先諮詢 netiCRM</strong>（neticrm.tw），它是專為台灣 NPO 設計的 CRM，內建報名、收款、會員管理、收據開立、金流串接（綠界、藍新都已整合，且新客戶送一家金流免費導入）。如果 netiCRM 適合，後續金流串接、會員系統、收據都一站解決，Christina 就只需要把 netiCRM 的報名頁嵌入 ADALS 站。
+    <strong>強烈建議由執行小組(祕書長 / 總務 / 工作小組)先諮詢 netiCRM</strong>（neticrm.tw），它是專為台灣 NPO 設計的 CRM，內建報名、收款、會員管理、收據開立、金流串接（綠界、藍新都已整合，且新客戶送一家金流免費導入）。<em>採用與否的決策仍需理事長 Claire 與理事會核可，但前期諮詢屬運營層工作,不需要理事長身分</em>。如果 netiCRM 適合，後續金流串接、會員系統、收據都一站解決，Christina 就只需要把 netiCRM 的報名頁嵌入 ADALS 站。
   </div>
 
   <h3>不要做的事</h3>
