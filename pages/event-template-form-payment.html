@@ -258,40 +258,13 @@
     <ul style="margin-top:6px; padding-left:18px;">
       <li>本範本聚焦在 <strong>Christina 在 Elementor + Ally 內可建置的 UI 層</strong>：報名表單視覺、票種卡片、確認頁、狀態示範</li>
       <li>金流整合層（NewebPay API、PayPal SDK、tax-compliant receipt）<strong>不在 Christina 的 scope 內</strong> — 由 netiCRM 平台內建處理，或由工程獨立介入</li>
-      <li>金流路徑（netiCRM 主推 vs. 自建備案）待理事會決定，本範本提供的 UX 原則 <strong>兩條路徑都適用</strong></li>
+      <li>金流選項的完整比較與推薦理由 <strong>另闢一頁</strong>(給祕書長 / 常務理事 / 理事長)，本頁不重複論述 → <a href="payment-stack-decision.html">金流基礎建設決策依據 →</a></li>
     </ul>
   </div>
 
-  <p>ADALS 2026 不是一般的會議網站。這場會議要面對 CTO 級觀眾，網站本身就是 WCAG 2.2 AA 的範例。這份範本聚焦在最容易出問題的兩個地方：<strong>報名表單</strong>與<strong>付款流程</strong>。</p>
+  <p>ADALS 2026 不是一般的會議網站。這場會議要面對 CTO 級觀眾，網站本身就是 WCAG 2.2 AA 的範例。本頁聚焦 <strong>Christina 的 UI 設計工作</strong>：報名表單視覺、流程串接、確認頁、狀態示範。</p>
 
-  <h3>四種收款情境（出自 §6.1）</h3>
-  <p>不能用同一個工具解決所有情境。不同情境走不同路徑：</p>
-  <div class="scenario-grid">
-    <div class="scenario">
-      <div class="scenario-title">台灣付費門票</div>
-      <div class="scenario-route">NT$1,500–3,000 · 個人 · 集中</div>
-      <span class="scenario-tool">藍新金流（信用卡 + ATM + 超商）</span>
-    </div>
-    <div class="scenario">
-      <div class="scenario-title">國外付費門票</div>
-      <div class="scenario-route">USD 60–120 · 個人 · 少量</div>
-      <span class="scenario-tool">PayPal Business（信用卡）</span>
-    </div>
-    <div class="scenario">
-      <div class="scenario-title">台灣企業贊助</div>
-      <div class="scenario-route">NT$50K–300K · 公司 · 一次性</div>
-      <span class="scenario-tool">玉山銀行 + Invoice（不上線收）</span>
-    </div>
-    <div class="scenario">
-      <div class="scenario-title">國外企業贊助</div>
-      <div class="scenario-route">USD 1,500–10,000 · 公司 · 一次性</div>
-      <span class="scenario-tool">SWIFT 電匯 + 英文 Invoice</span>
-    </div>
-  </div>
-
-  <div class="note">
-    <strong>關鍵設計原則：</strong>贊助走 invoice + 匯款，門票走線上刷卡。網站只負責「門票」流程，贊助是「洽詢表單 → 人工開立 invoice → 線下匯款」三步走，不上網路即時收款。
-  </div>
+  <p style="font-size:14px; color:var(--muted);">至於金流走哪條路徑(netiCRM 主推 vs 自建備案)、各情境的金流商選擇、銀行帳戶決策等 — 這些屬 governance 層級決策，已彙整於 <a href="payment-stack-decision.html">金流基礎建設決策依據</a>。本範本的 UX 原則 <strong>不論金流路徑為何皆適用</strong>。</p>
 </section>
 
 <!-- 活動類型比較 (整段可摺疊) ───────────────────────────────── -->
@@ -305,16 +278,15 @@
     <summary>展開 / 收合活動類型比較</summary>
     <div class="event-ladder-body">
 
-      <h3 style="margin-top:0;">五種活動類型 — 一覽表</h3>
-      <p style="font-size:13px; color:var(--muted);">點擊各類型可展開完整 spec。</p>
+      <h3 style="margin-top:0;">五種活動類型 — UI 設計工作量比較</h3>
+      <p style="font-size:13px; color:var(--muted);">本表聚焦 Christina 在 Elementor 上的設計工作量。金流 / 平台選擇詳見 <a href="payment-stack-decision.html#event-stacks">金流頁 §8</a>。</p>
       <div class="event-compare-wrap">
         <table class="event-compare">
           <thead>
             <tr>
               <th>活動類型</th>
               <th>規模</th>
-              <th>付費複雜度</th>
-              <th>推薦平台</th>
+              <th>UI 流程步驟</th>
               <th>Christina 工作量</th>
               <th>範例</th>
             </tr>
@@ -323,40 +295,35 @@
             <tr>
               <td><strong>線上免費 webinar</strong></td>
               <td>50–300 人</td>
-              <td><span class="complexity none">無</span></td>
-              <td>netiCRM 免費 event 或 Zoom 內建</td>
+              <td>1 步(填表 → Zoom 連結)</td>
               <td>~1 小時</td>
               <td>AIA 雙月談</td>
             </tr>
             <tr>
               <td><strong>線下小型工作坊</strong></td>
               <td>20–50 人</td>
-              <td><span class="complexity low">低</span></td>
-              <td>netiCRM 單一票種 event</td>
+              <td>3 步(跳過票種選擇)</td>
               <td>半天</td>
               <td>WCAG 入門班</td>
             </tr>
             <tr>
               <td><strong>線下中型活動</strong></td>
               <td>50–150 人</td>
-              <td><span class="complexity low">低</span></td>
-              <td>netiCRM 多票種 + 早鳥</td>
+              <td>4 步(票種 + 表單 + 付款 + 確認)</td>
               <td>1–2 天</td>
               <td>區域 a11y 論壇</td>
             </tr>
             <tr>
               <td><strong>Hybrid 中型活動</strong></td>
               <td>100–200 人(現場+線上)</td>
-              <td><span class="complexity medium">中</span></td>
-              <td>netiCRM 雙 SKU + Zoom 整合</td>
+              <td>5 步(現場/線上分流 + 行前資訊)</td>
               <td>2–3 天</td>
               <td>(假設) APAC a11y day</td>
             </tr>
             <tr>
               <td><strong>大型國際年度 ★</strong></td>
               <td>150–200+ 人(含贊助)</td>
-              <td><span class="complexity high">高</span></td>
-              <td>netiCRM 完整 stack + SWIFT</td>
+              <td>5 步全流程 + 雙語</td>
               <td>5–7 天 + ongoing</td>
               <td><strong>ADALS 2026</strong>(本範本對應)</td>
             </tr>
@@ -364,21 +331,18 @@
         </table>
       </div>
 
-      <h3>各類型完整 spec(點擊展開)</h3>
+      <h3>各類型 UI 設計重點(點擊展開)</h3>
+      <p style="font-size:13px; color:var(--muted);">每張卡片聚焦該類型的表單欄位、步驟差異、Christina 設計工作量。<strong>金流選擇與平台建議在金流頁</strong>。</p>
 
       <details class="event-card">
         <summary>① 線上免費 webinar — 例:AIA 雙月談</summary>
         <div class="event-card-body">
           <div class="ec-h">典型情境</div>
           <p>定期講座、AMA、線上工作坊預習。免費,目的是 community 經營與會員觸及。</p>
-          <div class="ec-h">付款</div>
-          <p>無付款流程。</p>
           <div class="ec-h">報名表單</div>
           <p>姓名 + Email(用於寄 Zoom 連結)。可選填:身份(讓主持人了解聽眾組成)。<strong>不要</strong>問太多——免費活動表單越長,放棄率越高。</p>
-          <div class="ec-h">需要的步驟</div>
-          <p>1 步:填表 → Zoom 連結用 email 寄出。</p>
-          <div class="ec-h">平台建議</div>
-          <p>netiCRM 免費 event(可整合會員資料庫,適合長期 ops);或 Zoom 內建報名(更簡單,但資料不留在 APAC AIA)。</p>
+          <div class="ec-h">UI 流程</div>
+          <p>1 步:填表 → Zoom 連結用 email 寄出。沒有付款頁、沒有票種選擇。</p>
           <div class="ec-h">Christina 工作量</div>
           <p>~1 小時(設定表單 + Zoom 連結 + 確認 email 模板)。</p>
         </div>
@@ -389,14 +353,10 @@
         <div class="event-card-body">
           <div class="ec-h">典型情境</div>
           <p>單一價位、地點固定、場次有限。台灣本地參與者為主。</p>
-          <div class="ec-h">付款</div>
-          <p>單一金流(藍新)、單一票種。<strong>不需要 PayPal、不需要 SWIFT</strong>。</p>
           <div class="ec-h">報名表單</div>
           <p>姓名 + Email + 飲食偏好(午餐用)+ 無障礙需求。</p>
-          <div class="ec-h">需要的步驟</div>
+          <div class="ec-h">UI 流程</div>
           <p>3 步:填表 → 付款 → 確認(跳過票種選擇,因為只有一種)。</p>
-          <div class="ec-h">平台建議</div>
-          <p>netiCRM 單一票種 event。Christina 在後台 fork ADALS event template,刪掉用不到的設定即可。</p>
           <div class="ec-h">Christina 工作量</div>
           <p>半天(複製 ADALS event 設定 + 改文案 + 改視覺風格)。</p>
         </div>
@@ -407,14 +367,10 @@
         <div class="event-card-body">
           <div class="ec-h">典型情境</div>
           <p>2-3 個議程軌、有早鳥優惠、可能有學生票。仍以台灣參與者為主。</p>
-          <div class="ec-h">付款</div>
-          <p>藍新(信用卡 + ATM + 超商)。多票種(早鳥 / 一般 / 學生)。</p>
           <div class="ec-h">報名表單</div>
           <p>同 ② + 議程軌偏好(讓主辦方分組)。</p>
-          <div class="ec-h">需要的步驟</div>
+          <div class="ec-h">UI 流程</div>
           <p>4 步:票種 → 表單 → 付款 → 確認。</p>
-          <div class="ec-h">平台建議</div>
-          <p>netiCRM 多票種 event + 早鳥規則(後台時間自動切換)。</p>
           <div class="ec-h">Christina 工作量</div>
           <p>1-2 天(主要在票種設定 + 多種確認頁文案)。</p>
         </div>
@@ -425,18 +381,14 @@
         <div class="event-card-body">
           <div class="ec-h">典型情境</div>
           <p>現場名額有限 + 線上不限 + 兩個價位。線上場次需要 Zoom / YouTube 串流。</p>
-          <div class="ec-h">付款</div>
-          <p><strong>兩個 SKU</strong>:現場票(藍新)+ 線上票(藍新國內 / PayPal 國際)。國際線上參與者比例會比純線下高很多。</p>
           <div class="ec-h">報名表單</div>
           <p>同 ③ + 「現場 / 線上」必選欄位 + 線上者問時區。</p>
-          <div class="ec-h">需要的步驟</div>
+          <div class="ec-h">UI 流程</div>
           <p>5 步:票種(含現場/線上分流) → 表單 → 付款 → 確認 → 行前資訊(現場者收會場地圖,線上者收 Zoom 連結)。</p>
-          <div class="ec-h">平台建議</div>
-          <p>netiCRM 雙 event(分開管理現場容量 vs 線上)或單 event 雙 ticket type(看 netiCRM 客製能力)。</p>
           <div class="ec-h">Christina 工作量</div>
           <p>2-3 天(主要在「行前資訊分流寄送」邏輯,以及兩條 UX 都要設計確認頁)。</p>
-          <div class="ec-h">最大風險</div>
-          <p><strong>把現場確認 email 寄給線上人,或反之。</strong>需要 netiCRM 後台條件規則確認對。</p>
+          <div class="ec-h">最大設計風險</div>
+          <p><strong>把現場確認 email 寄給線上人,或反之。</strong>確認頁與行前 email 的條件分支要分清楚。</p>
         </div>
       </details>
 
@@ -445,91 +397,16 @@
         <div class="event-card-body">
           <div class="ec-h">典型情境</div>
           <p>多票種 + 國際參與者 + 贊助體系 + 多幣別。</p>
-          <div class="ec-h">付款</div>
-          <p>完整 4 路徑:藍新(台灣門票)+ PayPal(國際門票)+ SWIFT(國外贊助)+ 銀行匯款(台灣贊助)。多幣別 invoice。</p>
           <div class="ec-h">報名表單</div>
           <p>多票種 + 完整資訊 + 雙語切換。詳見 §4。</p>
-          <div class="ec-h">需要的步驟</div>
+          <div class="ec-h">UI 流程</div>
           <p>5 步全流程。詳見 §2。</p>
-          <div class="ec-h">平台建議</div>
-          <p>netiCRM 完整 stack(主推)或自建備案,兩條路徑詳見 §8。</p>
           <div class="ec-h">Christina 工作量</div>
           <p>5-7 天 setup + 整年 ongoing 維護。</p>
-          <div class="ec-h">→ 完整 spec</div>
-          <p>就是這份範本 §2 起的所有內容。</p>
+          <div class="ec-h">→ 完整 UI spec</div>
+          <p>就是這份範本 §2 起的所有內容。金流選擇與付費差異請看 <a href="payment-stack-decision.html">金流基礎建設決策依據</a>。</p>
         </div>
       </details>
-
-      <h3>付費差異:線上 / 線下 / Hybrid / 跨國</h3>
-      <p style="font-size:13px; color:var(--muted);">同樣的活動規模,不同的舉辦形式 + 觀眾來源,會直接影響付款基礎建設需求。</p>
-      <div class="event-compare-wrap">
-        <table class="payment-compare">
-          <thead>
-            <tr>
-              <th style="width:18%;">維度</th>
-              <th>線下 (Offline)</th>
-              <th>線上 (Online)</th>
-              <th>Hybrid</th>
-              <th>跨國 (International)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>主要金流</th>
-              <td>線上預付 + 現場補單(現金/轉帳)</td>
-              <td>100% 線上(無現場退路)</td>
-              <td>兩條並行,需各自 SKU</td>
-              <td>必須 PayPal / 國際卡(NewebPay 不支援國際付款者)</td>
-            </tr>
-            <tr>
-              <th>票種結構</th>
-              <td>通常 1–2 種(早鳥 / 一般)</td>
-              <td>通常 1 種</td>
-              <td><strong>至少 2 SKU</strong>(現場 / 線上)</td>
-              <td>多幣別 SKU(USD / TWD)</td>
-            </tr>
-            <tr>
-              <th>收據格式</th>
-              <td>可選擇實體 / 數位</td>
-              <td>數位 only</td>
-              <td>兩種選項並存</td>
-              <td><strong>必須英文</strong>(統編改 Tax ID)</td>
-            </tr>
-            <tr>
-              <th>容量管理</th>
-              <td>場地硬上限</td>
-              <td>幾乎無限(看頻寬)</td>
-              <td>兩條容量分管</td>
-              <td>取決於線上 / 線下混合比例</td>
-            </tr>
-            <tr>
-              <th>退費處理</th>
-              <td>涉及實體成本(已定餐、已印名牌)</td>
-              <td>簡單(數位資產可回收)</td>
-              <td>兩條政策可能不同</td>
-              <td>跨境匯費吃成本(USD 50+ 不退費)</td>
-            </tr>
-            <tr>
-              <th>不需要</th>
-              <td>國際卡(若只給台灣)</td>
-              <td>場地金流硬體</td>
-              <td>純現場票流程</td>
-              <td>純台灣 NewebPay(對國際付款者無感)</td>
-            </tr>
-            <tr>
-              <th>特別風險</th>
-              <td>現場報到混亂、現金管理</td>
-              <td>連結漏寄、Zoom session limit</td>
-              <td>兩邊體驗不一致(線上者覺得二等)</td>
-              <td>時區、語言、信用卡跨境反詐騙拒絕</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="note">
-        <strong>關鍵 takeaway:</strong>付費複雜度真正的驅動因子是「<strong>觀眾的地理範圍</strong>」+「<strong>活動形式</strong>」這兩個正交軸。線下台灣活動最簡單(只需藍新);跨國 Hybrid 活動最複雜(藍新 + PayPal + SWIFT + 雙語收據都要)。設計平台時要先確認這兩軸,再決定金流 stack。
-      </div>
 
     </div>
   </details>
@@ -716,124 +593,100 @@
   </div>
 </section>
 
-<!-- §5 付款方式分流 ────────────────────────────────────────── -->
+<!-- §5 付款流程的 UI 設計 ────────────────────────────────────── -->
 <section id="payment">
-  <div class="section-num">§5 STEP 4 · PAYMENT BRANCHING</div>
-  <h2>付款方式分流</h2>
+  <div class="section-num">§5 STEP 4 · PAYMENT FLOW UI</div>
+  <h2>付款流程的 UI 設計</h2>
 
-  <p>付款不是一個畫面，是一個<strong>分流路由器</strong>。根據 Step 1 的票種選擇，導向不同金流：</p>
+  <p>付款不是一個畫面，是一個<strong>分流路由器</strong>。根據 Step 1 的票種選擇，導向三條不同的 UI 流程。本節聚焦 Christina 在每條流程要設計的 <strong>前後 wrapper UI</strong>(引導頁 + 確認頁)。</p>
+
+  <div class="note">
+    <strong>Christina 不負責的事:</strong>金流 API 串接、callback、簽章驗證、合規收據生成 — 這些由 netiCRM 內建處理或工程獨立介入。每條分流為什麼選某金流商、費率比較、銀行帳戶決策等,完整論述見 <a href="payment-stack-decision.html">金流基礎建設決策依據</a>。
+  </div>
 
   <div class="branch">
-    <div class="branch-header">票種 → 付款方式</div>
+    <div class="branch-header">票種 → UI 分流</div>
     <div class="branch-row-item">
       <span class="from">一般票 / 早鳥 / 學生票</span>
       <span class="arrow">→</span>
-      <span class="to"><strong>藍新金流 NewebPay</strong>（信用卡 / ATM / 超商代碼）</span>
+      <span class="to">分流 A:跳轉到台灣金流付款頁,完成後跳回</span>
     </div>
     <div class="branch-row-item">
-      <span class="from">國際票（USD）</span>
+      <span class="from">國際票(USD)</span>
       <span class="arrow">→</span>
-      <span class="to"><strong>PayPal Business</strong>（信用卡，國際付款）</span>
+      <span class="to">分流 B:跳出國際付款 checkout,雙語確認</span>
     </div>
     <div class="branch-row-item">
       <span class="from">企業贊助洽詢</span>
       <span class="arrow">→</span>
-      <span class="to"><strong>不上線收</strong>，跳轉到贊助洽詢表單，由祕書長 / 總務人工開立 invoice + 等銀行匯款</span>
+      <span class="to">分流 C:不上線收,跳轉到贊助洽詢表單(完全在 Christina scope 內)</span>
     </div>
   </div>
 
-  <h3>分流 A：台灣門票（底層金流：藍新 NewebPay）</h3>
+  <h3>分流 A:台灣門票</h3>
   <div class="demo-grid">
     <div class="demo-box">
-      <div class="demo-label">CHRISTINA 的 UX 職責</div>
+      <div class="demo-label">CHRISTINA 的 UX 設計</div>
       <h4 style="margin-top:0;">付款前引導頁</h4>
-      <p style="font-size:14px;">告知使用者「將前往藍新付款頁，完成後自動跳回 ADALS 網站」，提供「確認跳轉」按鈕。</p>
+      <p style="font-size:14px;">告知使用者「將前往金流商付款頁,完成後自動跳回 ADALS 網站」,提供「確認跳轉」按鈕。</p>
       <h4 style="margin-top:14px;">付款後確認頁</h4>
-      <p style="font-size:14px;">顯示成功/失敗狀態、訂單編號、後續資訊（收據寄送、議程連結）。</p>
+      <p style="font-size:14px;">顯示成功/失敗狀態、訂單編號、後續資訊(收據寄送、議程連結)。</p>
       <p style="font-size:13px; color:var(--muted); margin-top:14px; padding-top:14px; border-top:1px solid var(--border);">
-        <strong>付款頁本身由藍新代收</strong>，Christina 不需要設計也不能設計（藍新 hosted 頁面無法客製）。Christina 設計的是<strong>引導頁與確認頁</strong>這兩個前後 wrapper。
+        <strong>付款頁本身由金流商代收</strong>(藍新 hosted),Christina 不能客製。設計範圍是<strong>跳轉前引導頁與跳轉後確認頁</strong>這兩個 wrapper。
       </p>
     </div>
     <aside class="annot-box">
-      <h5>誰建什麼</h5>
+      <h5>a11y 注意(Christina 範圍內)</h5>
       <ul>
-        <li><strong>Christina (Elementor)</strong>：跳轉前引導頁、跳轉後確認頁、錯誤頁的視覺設計</li>
-        <li><strong>netiCRM 主推路徑</strong>：藍新串接、callback、簽章 — netiCRM 後台一鍵啟用，沒人寫 code</li>
-        <li><strong>備案路徑</strong>：藍新 API、callback、簽章、合規收據 — 由工程資源獨立介入，<strong>不是 Christina 的工作</strong></li>
-      </ul>
-      <h5 style="margin-top:14px;">為什麼底層是藍新</h5>
-      <ul>
-        <li>信用卡分期<strong>一般會員就能用</strong>（綠界要付 NT$10,000 年費）</li>
-        <li>費率可申請 2.4%（綠界 2.75%）</li>
-        <li>子公司 ezPay 是<strong>唯一電子支付專營執照</strong>，合規位階高</li>
-      </ul>
-      <h5 style="margin-top:14px;">a11y 注意（Christina 範圍內）</h5>
-      <ul>
-        <li>跳轉前明確告知「將被導向藍新付款頁」</li>
-        <li>付款失敗回來時，前面填的資料要保留</li>
-        <li>確認頁要有清楚的成功 / 失敗訊息，不要只寫 200/400</li>
+        <li>跳轉前明確告知「將被導向 [金流商] 付款頁」(用文字,不只圖示)</li>
+        <li>付款失敗回來時,前面填的資料要保留</li>
+        <li>確認頁要有清楚的成功 / 失敗訊息,不要只顯示 status code</li>
+        <li>跳轉按鈕要可鍵盤操作 (Tab + Enter)</li>
       </ul>
     </aside>
   </div>
 
-  <h3>分流 B：國際門票（底層：PayPal Business 或 netiCRM 內建國際卡）</h3>
+  <h3>分流 B:國際門票</h3>
   <div class="demo-grid">
     <div class="demo-box">
-      <div class="demo-label">CHRISTINA 的 UX 職責</div>
-      <h4 style="margin-top:0;">國際票種選擇 + 引導頁</h4>
-      <p style="font-size:14px;">明確標示這條走美元計價（USD 100），告知將跳出至 PayPal 結帳。</p>
-      <h4 style="margin-top:14px;">付款後確認頁（雙語）</h4>
-      <p style="font-size:14px;">英文為主、中文為輔的成功訊息；提供報名編號、英文收據寄送說明。</p>
+      <div class="demo-label">CHRISTINA 的 UX 設計</div>
+      <h4 style="margin-top:0;">國際票引導頁(英文為主)</h4>
+      <p style="font-size:14px;">明確標示美元計價(USD 100),告知將跳出至國際金流商 checkout。</p>
+      <h4 style="margin-top:14px;">付款後確認頁(雙語)</h4>
+      <p style="font-size:14px;">英文為主、中文為輔的成功訊息;提供報名編號、英文收據寄送說明。</p>
       <p style="font-size:13px; color:var(--muted); margin-top:14px; padding-top:14px; border-top:1px solid var(--border);">
-        <strong>PayPal Smart Buttons SDK 由工程介入</strong>（或由 netiCRM 內建處理）。Christina 不負責 SDK 嵌入與 webhook 處理，只負責前後 wrapper UI。
+        <strong>金流嵌入由 netiCRM 內建或工程介入</strong>。Christina 不負責 SDK 嵌入與 webhook,只負責前後 wrapper UI。
       </p>
     </div>
     <aside class="annot-box">
-      <h5>誰建什麼</h5>
+      <h5>a11y 注意(Christina 範圍內)</h5>
       <ul>
-        <li><strong>Christina (Elementor)</strong>：國際票引導頁、英文確認頁、雙語錯誤訊息</li>
-        <li><strong>netiCRM 主推路徑</strong>：用 netiCRM 內建國際卡，<strong>不需另外申請 PayPal</strong></li>
-        <li><strong>備案路徑</strong>：PayPal Smart Buttons SDK 由工程嵌入 + 後端 webhook — 不是 Elementor 範圍</li>
-      </ul>
-      <h5 style="margin-top:14px;">PayPal 限制（若採此路徑）</h5>
-      <ul>
-        <li>費率 4.4% + USD 0.30（高於藍新，但是台灣協會收國外刷卡<strong>唯一現實選項</strong>）</li>
-        <li>必須先開玉山銀行帳戶才能領款</li>
-      </ul>
-      <h5 style="margin-top:14px;">不要選的東西</h5>
-      <ul>
-        <li><strong>Stripe</strong>：2026/04 仍不支援台灣本地實體</li>
-        <li><strong>Wise Business</strong>：台灣協會明確不在支援名單</li>
-        <li><strong>Payoneer</strong>：NPO 法人支援不明朗</li>
+        <li>確認頁雙語切換要同步更新 <code>&lt;html lang&gt;</code></li>
+        <li>英文文案不要直接 Google 翻譯,專業會議的英文需校對</li>
+        <li>時區、幣別、稅務說明都需要清楚標示(海外與會者敏感)</li>
       </ul>
     </aside>
   </div>
 
-  <h3>分流 C：贊助洽詢（不走線上付款）</h3>
+  <h3>分流 C:贊助洽詢(不走線上付款)</h3>
   <div class="demo-grid">
     <div class="demo-box">
-      <div class="demo-label">CHRISTINA 的 UX 職責 · 完全在 scope 內</div>
+      <div class="demo-label">CHRISTINA 的 UX 設計 · 完全在 scope 內</div>
       <h4 style="margin-top:0;">贊助洽詢入口頁</h4>
-      <p style="font-size:14px;">在 ADALS 主頁清楚區隔「個人報名」與「企業贊助」兩條路徑，避免企業誤入購票流程。</p>
-      <h4 style="margin-top:14px;">贊助洽詢表單（見 §6）</h4>
-      <p style="font-size:14px;">收集足夠資訊讓祕書長 / 總務後續人工處理 invoice。表單送出後，顯示「2 個工作日內回覆」訊息 + 寄出確認 email。</p>
+      <p style="font-size:14px;">在 ADALS 主頁清楚區隔「個人報名」與「企業贊助」兩條路徑,避免企業誤入購票流程。</p>
+      <h4 style="margin-top:14px;">贊助洽詢表單(見 §6)</h4>
+      <p style="font-size:14px;">收集足夠資訊讓祕書長 / 總務後續人工處理 invoice。表單送出後,顯示「2 個工作日內回覆」訊息 + 寄出確認 email。</p>
       <p style="font-size:13px; color:var(--muted); margin-top:14px; padding-top:14px; border-top:1px solid var(--border);">
-        <strong>這條分流完全沒有金流整合</strong> — 表單由 Elementor Pro Forms 或 Fillout / Cognito 嵌入即可。Invoice 與 SWIFT 電匯由祕書長 / 總務線下手動處理。
+        <strong>這條分流沒有金流整合</strong> — 表單由 Elementor Pro Forms 或 Fillout / Cognito 嵌入即可。Invoice 與匯款由祕書長 / 總務線下處理。
       </p>
       <div style="margin-top:14px;"><a href="#sponsor" class="btn btn-secondary">前往贊助洽詢示範 ↓</a></div>
     </div>
     <aside class="annot-box">
-      <h5>誰建什麼</h5>
+      <h5>UX 設計重點</h5>
       <ul>
-        <li><strong>Christina (Elementor)</strong>：整條流程都在 scope 內 — 入口頁 + 表單 + 送出後訊息頁</li>
-        <li><strong>祕書長 / 總務（線下）</strong>：收到表單通知 → 開英文 invoice → 提供 SWIFT 資訊給對方</li>
-        <li><strong>沒有平台 / 工程介入</strong></li>
-      </ul>
-      <h5 style="margin-top:14px;">為什麼不上線收？</h5>
-      <ul>
-        <li>金額大，企業財務需要 invoice + 匯款 audit trail</li>
-        <li>線上刷卡費率（2.4–4.4%）對 NT$300K 是 NT$7,200–13,200 額外成本</li>
-        <li>企業贊助節奏慢，不需要即時收款</li>
+        <li><strong>入口頁分流</strong>:「個人報名」「企業贊助」兩條 CTA 平行展示</li>
+        <li><strong>送出後訊息</strong>:不要說「請等通知」(被動語氣),改「祕書長將在 2 個工作日內回覆」</li>
+        <li><strong>確認 email 自動寄出</strong>:附贊助方案 PDF,降低焦慮感</li>
       </ul>
     </aside>
   </div>
@@ -1058,28 +911,27 @@
     使用 <code>data-zh="..."</code> / <code>data-en="..."</code> 屬性，JS 切換時必須<strong>同步更新</strong> <code>&lt;html lang&gt;</code> 屬性（讓 screen reader 用對的語言發音）。Form label、error message、button text 都要支援雙語切換。
   </div>
 
-  <h3>整合工具評估：netiCRM</h3>
+  <h3>金流選擇 — 連到完整論述</h3>
   <div class="note ok">
-    <strong>強烈建議由執行小組(祕書長 / 總務 / 工作小組)先諮詢 netiCRM</strong>（neticrm.tw），它是專為台灣 NPO 設計的 CRM，內建報名、收款、會員管理、收據開立、金流串接（綠界、藍新都已整合，且新客戶送一家金流免費導入）。<em>採用與否的決策仍需理事長 Claire 與理事會核可，但前期諮詢屬運營層工作,不需要理事長身分</em>。如果 netiCRM 適合，後續金流串接、會員系統、收據都一站解決，Christina 就只需要把 netiCRM 的報名頁嵌入 ADALS 站。
+    本頁不重複論述金流商比較與平台選擇,完整論述(包含 netiCRM 主推 vs 自建備案、銀行帳戶決策、4 個 use case lookup、跨國 / 線下 / 線上 / Hybrid 付費差異)請看 <a href="payment-stack-decision.html"><strong>金流基礎建設決策依據</strong></a> — 受眾為祕書長 / 常務理事 / 理事長,Christina 想了解金流全貌也可以讀。
   </div>
 
-  <h3>不要做的事</h3>
+  <h3>UI 設計 — 不要做的事</h3>
   <div class="checklist">
     <ul>
-      <li class="dont">不要先做網站再想金流（金流申請時間會反向影響網站設計）</li>
-      <li class="dont">不要假設 Stripe 可開（2026/04 仍不行）</li>
-      <li class="dont">不要假設 Wise Business 可開（台灣協會明確不在支援名單）</li>
       <li class="dont">不要用 Tailwind 預設樣式</li>
       <li class="dont">不要用 Inter / Roboto / 系統 sans-serif 作為主要字體</li>
-      <li class="dont">不要把內部金流附錄放在 public 網站（前一個 session 的錯誤）</li>
-      <li class="dont">不要用 stock photo（破壞論述質感）</li>
+      <li class="dont">不要用 stock photo(破壞論述質感)</li>
+      <li class="dont">不要用 placeholder 取代 label(失去 visibility)</li>
+      <li class="dont">不要對 input 用 <code>outline: none</code>(破壞鍵盤 a11y)</li>
+      <li class="dont">不要把內部金流附錄放在 public 網站</li>
     </ul>
   </div>
 </section>
 
 <footer style="background:#003b5c; color:rgba(255,255,255,.7); text-align:center; padding:24px; font-size:12px; letter-spacing:1px;">
-  ADALS 2026 報名流程設計範本 v1.0 · 給 Christina 的參考 · 2026-04-28<br>
-  依據 Handoff ADALS 2026 Site &amp; Internal Memo §6 完整金流決策路徑
+  ADALS 2026 報名流程 UI 設計範本 v2.0 · 給 Christina 的參考 · 2026-05-07<br>
+  金流決策依據 → <a href="payment-stack-decision.html" style="color:rgba(255,255,255,.85);">payment-stack-decision.html</a>
 </footer>
 
 </main>
