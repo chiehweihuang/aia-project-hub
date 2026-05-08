@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APAC AIA 金流基礎建設決策依據</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@300;400;500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap');
+
+  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+  :root {
+    --primary:#003b5c; --secondary:#19abe4; --gold:#F8B62D;
+    --text:#231815; --muted:#6b6b6b; --border:#e0e0e0;
+    --bg:#f5f5f5; --card:#fff; --note-bg:#fff8e7; --note-border:#F8B62D;
+    --error:#c62828; --success:#2e7d32; --warn-bg:#fff3e0;
+  }
+  body { font-family:'Noto Sans TC','IBM Plex Sans',sans-serif; background:var(--bg); color:var(--text); line-height:1.78; font-size:15px; }
+
+  .skip { position:absolute; left:-9999px; top:0; padding:8px 16px; background:#000; color:#fff; z-index:1000; }
+  .skip:focus { left:8px; top:8px; }
+
+  .page-header { background:linear-gradient(135deg,#003b5c 0%,#003b5c 60%,#19abe4 100%); color:#fff; padding:48px 24px 40px; }
+  .page-header-inner { max-width:1100px; margin:0 auto; }
+  .back-link { display:inline-flex; align-items:center; gap:6px; color:rgba(255,255,255,.75); font-size:13px; text-decoration:none; padding:8px 0; min-height:44px; }
+  .back-link:hover, .back-link:focus { color:#fff; }
+  .page-header h1 { font-family:'Noto Serif TC',serif; font-size:32px; font-weight:700; letter-spacing:1px; margin:8px 0 8px; }
+  .page-header .subtitle { font-size:15px; opacity:.85; max-width:760px; line-height:1.7; }
+  .page-header .meta { margin-top:16px; font-size:12px; opacity:.6; letter-spacing:1px; font-family:'IBM Plex Mono',monospace; }
+  .audience-tag { display:inline-block; padding:4px 12px; background:rgba(248,182,45,.18); color:var(--gold); font-size:12px; font-weight:600; letter-spacing:1px; border-radius:4px; margin-top:14px; }
+
+  .toc { position:sticky; top:0; background:#fff; border-bottom:1px solid var(--border); z-index:90; }
+  .toc-inner { max-width:1100px; margin:0 auto; padding:0 24px; display:flex; gap:0; align-items:center; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:thin; }
+  .toc a { padding:14px 14px; font-size:12.5px; color:var(--muted); text-decoration:none; white-space:nowrap; flex-shrink:0; border-bottom:3px solid transparent; transition:color .15s, border-color .15s; }
+  .toc a:hover, .toc a:focus { color:var(--primary); border-bottom-color:var(--secondary); }
+
+  main { max-width:1100px; margin:0 auto; padding:48px 24px 80px; }
+  section { margin-bottom:64px; }
+  section:last-child { margin-bottom:0; }
+  .section-num { font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--secondary); font-weight:600; letter-spacing:2px; margin-bottom:6px; }
+  h2 { font-family:'Noto Serif TC',serif; font-size:24px; font-weight:700; color:var(--primary); margin-bottom:20px; padding-bottom:12px; border-bottom:2px solid var(--primary); }
+  h3 { font-size:17px; font-weight:700; color:var(--primary); margin:28px 0 12px; }
+  h4 { font-size:14px; font-weight:600; color:var(--primary); margin:16px 0 8px; }
+  p { margin-bottom:12px; }
+  strong { color:var(--primary); }
+
+  .note { background:var(--note-bg); border-left:4px solid var(--note-border); padding:16px 20px; border-radius:0 8px 8px 0; margin:16px 0; font-size:13.5px; line-height:1.8; }
+  .note strong { color:var(--primary); }
+  .note.warn { background:#fff5f5; border-left-color:var(--error); }
+  .note.warn strong { color:var(--error); }
+  .note.ok { background:#f3faf3; border-left-color:var(--success); }
+  .note.ok strong { color:var(--success); }
+  .note.tldr { background:linear-gradient(135deg,rgba(248,182,45,.12),rgba(248,182,45,.04)); border-left-color:var(--gold); }
+  .note.tldr strong { color:#a06c00; }
+
+  .scenario-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin:18px 0; }
+  .scenario { background:var(--card); border:1px solid var(--border); border-left:4px solid var(--secondary); border-radius:8px; padding:16px 18px; }
+  .scenario-title { font-weight:700; color:var(--primary); margin-bottom:6px; font-size:14px; }
+  .scenario-route { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .scenario-tool { display:inline-block; padding:3px 10px; background:rgba(0,59,92,.08); color:var(--primary); font-size:11px; font-weight:600; border-radius:4px; }
+  @media (max-width:600px) { .scenario-grid { grid-template-columns:1fr; } }
+
+  table { width:100%; border-collapse:collapse; margin:14px 0; font-size:13px; }
+  th, td { padding:10px 14px; text-align:left; vertical-align:top; }
+  thead th { background:var(--primary); color:#fff; font-weight:600; font-size:12px; letter-spacing:1px; }
+  tbody tr { border-bottom:1px solid var(--border); }
+  tbody tr:last-child { border-bottom:none; }
+  tbody th { font-weight:600; color:var(--primary); background:transparent; text-align:left; padding:10px 14px; vertical-align:top; }
+  tbody tr:nth-child(even) th, tbody tr:nth-child(even) td { background:#fafafa; }
+  .label-col { white-space:nowrap; }
+  td .check { color:var(--success); font-weight:700; }
+  td .x { color:var(--error); font-weight:700; }
+  .table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; border-radius:8px; border:1px solid var(--border); margin:14px 0; }
+  .table-wrap table { margin:0; min-width:560px; }
+
+  .compact-list { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:18px 22px; margin:16px 0; }
+  .compact-list h4 { margin-top:0; }
+  .compact-list ul { padding-left:20px; font-size:13.5px; line-height:1.85; }
+  .compact-list li { margin-bottom:6px; }
+
+  .checklist-block { background:#fff; border:1px solid var(--border); border-radius:10px; padding:22px 24px; margin:18px 0; }
+  .checklist-block h4 { margin-top:0; }
+  .checklist-block ol { padding-left:24px; font-size:14px; line-height:1.85; }
+  .checklist-block ol li { margin-bottom:10px; }
+  .checklist-block .task-meta { display:inline-block; margin-left:8px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--muted); padding:2px 8px; background:#f5f5f5; border-radius:4px; }
+  .checklist-block .task-owner { display:inline-block; margin-left:6px; padding:2px 8px; background:rgba(0,59,92,.08); color:var(--primary); font-size:11px; font-weight:600; border-radius:4px; }
+
+  details.deep { background:#fafafa; border:1px solid var(--border); border-radius:8px; padding:0; margin:14px 0; }
+  details.deep > summary { cursor:pointer; padding:14px 18px; font-weight:600; color:var(--primary); font-size:14px; list-style:none; display:flex; align-items:center; gap:10px; user-select:none; }
+  details.deep > summary::-webkit-details-marker { display:none; }
+  details.deep > summary::after { content:'⌄'; margin-left:auto; font-size:18px; line-height:1; transition:transform .2s; }
+  details.deep[open] > summary::after { transform:rotate(180deg); }
+  details.deep[open] > summary { border-bottom:1px solid var(--border); }
+  details.deep > .deep-body { padding:14px 18px 18px; font-size:13.5px; line-height:1.8; }
+
+  .path-card { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:22px 24px; margin:14px 0; position:relative; }
+  .path-card.primary { border-color:var(--success); background:#f3faf3; }
+  .path-card.fallback { border-color:var(--secondary); background:#f8fbfd; }
+  .path-card .path-label { display:inline-block; padding:3px 12px; font-size:11px; font-weight:700; letter-spacing:2px; border-radius:4px; margin-bottom:10px; }
+  .path-card.primary .path-label { background:var(--success); color:#fff; }
+  .path-card.fallback .path-label { background:var(--secondary); color:#fff; }
+  .path-card h3 { margin-top:0; }
+
+  .ref-link { display:inline-block; margin-top:18px; padding:10px 16px; background:#fff; border:1px solid var(--secondary); color:var(--secondary); text-decoration:none; border-radius:6px; font-size:13px; font-weight:600; }
+  .ref-link:hover { background:var(--secondary); color:#fff; }
+
+  .phone { font-family:'IBM Plex Mono',monospace; font-weight:600; color:var(--primary); }
+
+  @media (max-width:600px) {
+    .page-header { padding:32px 20px 28px; }
+    .page-header h1 { font-size:24px; }
+    main { padding:32px 16px 60px; }
+    h2 { font-size:20px; }
+    h3 { font-size:15px; }
+    table { font-size:12px; }
+    th, td { padding:8px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip">跳至主要內容</a>
+
+<header class="page-header">
+  <div class="page-header-inner">
+    <a href="../index.html" class="back-link">← 返回專案文件</a>
+    <h1>金流基礎建設決策依據</h1>
+    <p class="subtitle">APAC AIA 收款 stack 完整選項比較與推薦理由 — 從 ADALS 2026 出發,涵蓋未來活動 / 會員 / 捐款的長期基礎建設選擇。</p>
+    <span class="audience-tag">受眾 · 祕書長 / 常務理事 / 理事長</span>
+    <div class="meta">VERSION 1.0 · 2026-05-07 · 內容取材自 ADALS 2026 內部討論文件 §3「金流先做,網站才有意義」</div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="文件導覽">
+  <div class="toc-inner">
+    <a href="#why">§1 為什麼這頁</a>
+    <a href="#tldr">§2 結論</a>
+    <a href="#scenarios">§3 收款情境</a>
+    <a href="#bank">§4 銀行帳戶</a>
+    <a href="#why-neticrm">§5 為什麼 netiCRM</a>
+    <a href="#use-cases">§6 4 use case 比較</a>
+    <a href="#payment-diff">§7 付費差異</a>
+    <a href="#event-stacks">§8 活動類型 stack</a>
+    <a href="#path">§9 路徑判斷</a>
+    <a href="#actions">§10 行動 checklist</a>
+    <a href="#dont">§11 不要做的事</a>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- §1 為什麼這頁存在 ─────────────────────────────────────── -->
+<section id="why">
+  <div class="section-num">§1 PURPOSE</div>
+  <h2>為什麼這頁存在</h2>
+
+  <p>APAC AIA 從 ADALS 2026 開始將會持續舉辦活動、收會員費、收捐款。這些都涉及收款,而收款的選擇牽涉:</p>
+  <ul style="padding-left:22px; line-height:1.85;">
+    <li><strong>合規</strong>:台灣稅法收據、社團法人格式、捐款扣抵編號</li>
+    <li><strong>跨境</strong>:海外贊助、海外個人購票、外幣 invoice</li>
+    <li><strong>長期 ops</strong>:會員資料、跨年度追蹤、自動寄信</li>
+    <li><strong>預算</strong>:NT$20K/年 vs 自建工程成本 vs 平台費率</li>
+  </ul>
+
+  <p>這些不是 Christina 在 Elementor 內可以解決的問題,屬於組織治理層級。本頁完整列出考量過的選項、刪除理由、保留理由,讓<strong>祕書長</strong>掌握運營層細節、<strong>常務理事</strong>能 propose 想法 + 評估可行性、<strong>理事長</strong>有充分依據做策略決定。</p>
+
+  <div class="note">
+    <strong>跟 Christina 範本的關係:</strong>
+    <a href="event-template-form-payment.html">Event Page Design Template(給 Christina)</a> 聚焦 UI 規格,本頁聚焦 governance decision。Christina 想了解金流的全貌可以讀本頁,但她的工作不會改變 — UI 永遠是 UI,金流由 platform / engineering 處理。
+  </div>
+</section>
+
+<!-- §2 結論先 ──────────────────────────────────────────── -->
+<section id="tldr">
+  <div class="section-num">§2 TL;DR</div>
+  <h2>結論先(讀完這節即可了解推薦)</h2>
+
+  <div class="note tldr">
+    <strong>推薦 stack(主推路徑):</strong>
+    <ol style="margin-top:8px; padding-left:22px;">
+      <li><strong>底層銀行:玉山銀行</strong>(可綁 PayPal、NPO 開戶經驗豐富)+ 兆豐銀行為第二帳戶(SWIFT 較便宜)</li>
+      <li><strong>上層 CRM:netiCRM</strong>(專為台灣 NPO 設計,內建報名 + 收款 + 收據 + 會員管理 + 藍新/綠界/TapPay/MyPay 整合)</li>
+      <li><strong>跨境大額:SWIFT 電匯</strong>(企業贊助 USD 1,500+ 直接匯到玉山,不走刷卡平台)</li>
+    </ol>
+  </div>
+
+  <div class="note">
+    <strong>備案路徑(若 netiCRM 不採用):</strong>玉山(底層)+ 藍新自建報名頁(國內購票)+ PayPal Business(海外購票)+ SWIFT(海外大額)。費率跟主推一樣(藍新就是 netiCRM 底層),差在「**工程開發成本顯著**」+「**4 個 stack 要對帳**」這兩個隱性成本。
+  </div>
+
+  <h3>路徑判斷快查</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>條件</th><th>建議路徑</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>有「ADALS 之外」長期需求(會員、捐款、後續活動)</td><td><strong>netiCRM 主推</strong></td></tr>
+        <tr><td>只辦 ADALS 一場,之後不延伸</td><td><strong>備案</strong>(NT$20K/年 不划算)</td></tr>
+        <tr><td>預算極緊,無法承擔 NT$20K/年</td><td><strong>備案</strong>(但需評估執行小組是否有開發資源)</td></tr>
+        <tr><td>沒有開發資源也預算緊</td><td><strong>諮詢 netiCRM 看 NPO 試辦條件</strong>(可能談到減免)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- §3 4 種收款情境 ─────────────────────────────────────── -->
+<section id="scenarios">
+  <div class="section-num">§3 SCENARIOS</div>
+  <h2>4 種收款情境</h2>
+
+  <p>不能用同一個工具解決所有情境。每個情境的金額規模、付款者類型、合規要求都不同:</p>
+
+  <div class="scenario-grid">
+    <div class="scenario">
+      <div class="scenario-title">台灣付費門票</div>
+      <div class="scenario-route">NT$1,500–8,500 · 個人 · 集中</div>
+      <span class="scenario-tool">藍新金流(信用卡 + ATM + 超商)</span>
+    </div>
+    <div class="scenario">
+      <div class="scenario-title">國外付費門票</div>
+      <div class="scenario-route">USD 60–500 · 個人 · 少量</div>
+      <span class="scenario-tool">PayPal Business 或 netiCRM 國際卡</span>
+    </div>
+    <div class="scenario">
+      <div class="scenario-title">台灣企業贊助</div>
+      <div class="scenario-route">NT$50K–300K · 公司 · 一次性</div>
+      <span class="scenario-tool">玉山銀行匯款 + Invoice(不上線)</span>
+    </div>
+    <div class="scenario">
+      <div class="scenario-title">國外企業贊助</div>
+      <div class="scenario-route">USD 1,500–10,000 · 公司 · 一次性</div>
+      <span class="scenario-tool">SWIFT 電匯 + 英文 Invoice(不上線)</span>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>關鍵設計原則:</strong>贊助走 invoice + 匯款,門票走線上刷卡。**網站只負責「門票」流程**,贊助是「洽詢表單 → 祕書長 / 總務開立 invoice → 線下匯款」三步走。
+  </div>
+</section>
+
+<!-- §4 銀行帳戶決策 ─────────────────────────────────────── -->
+<section id="bank">
+  <div class="section-num">§4 BANK</div>
+  <h2>銀行帳戶 — 第一順位</h2>
+
+  <h3>現況問題</h3>
+  <p>APAC AIA 目前只有郵局帳戶。郵局帳戶不足以支撐:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>不足點</th><th>影響</th></tr></thead>
+      <tbody>
+        <tr><td>不接受國外電匯入帳</td><td>國外贊助無法收款</td></tr>
+        <tr><td>大多數金流商不支援郵局領款</td><td>綠界、藍新、PayPal 都需綁定一般銀行</td></tr>
+        <tr><td>大額企業匯款處理較慢</td><td>台灣企業贊助體驗差</td></tr>
+        <tr><td>國際 SWIFT 訊息流不順</td><td>跨境電匯易卡關</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>推薦銀行配置</h3>
+
+  <div class="path-card primary">
+    <span class="path-label">第一帳戶</span>
+    <h3>玉山銀行 ✓</h3>
+    <ul style="padding-left:22px; line-height:1.85;">
+      <li>**唯一可綁 PayPal 領款的台灣銀行**</li>
+      <li>英文網銀介面友善(對國外贊助商查 SWIFT 資訊有用)</li>
+      <li>對 NPO 開戶經驗較多</li>
+      <li>台北車站附近有分行(凱薩飯店一帶)</li>
+    </ul>
+    <p style="margin-top:10px;"><strong>開戶人:</strong>理事長 Claire 親辦(法定代表人簽署)。預估時程 2-3 週。</p>
+  </div>
+
+  <div class="path-card fallback">
+    <span class="path-label">第二帳戶(可選)</span>
+    <h3>兆豐銀行</h3>
+    <ul style="padding-left:22px; line-height:1.85;">
+      <li>公股銀行,SWIFT 處理快、手續費較低</li>
+      <li>大額國際電匯首選</li>
+      <li>但無法綁 PayPal</li>
+    </ul>
+    <p style="margin-top:10px;"><strong>策略:</strong>若預算與時間允許,讓國外贊助商選 SWIFT 時優先匯到兆豐(費用較低);其他狀況走玉山。</p>
+  </div>
+
+  <details class="deep">
+    <summary>其他考慮過但未選的銀行</summary>
+    <div class="deep-body">
+      <p><strong>中國信託 / 國泰世華 / 富邦</strong> △ — 一般協會常用,服務齊全,但無玉山的 PayPal 綁定優勢,國際電匯費用普遍。沒有不選的理由,但也沒有特別選的理由。若 Claire 已有與某銀行的關係可作第一帳戶,玉山可降為第二帳戶補 PayPal 綁定缺口。</p>
+    </div>
+  </details>
+</section>
+
+<!-- §5 為什麼 netiCRM ─────────────────────────────────── -->
+<section id="why-neticrm">
+  <div class="section-num">§5 WHY NETICRM</div>
+  <h2>為什麼 netiCRM 是主推</h2>
+
+  <h3>三層結構性整合(Eventbrite 處理不了的)</h3>
+  <ol style="padding-left:24px; line-height:1.95; font-size:14px;">
+    <li><strong>台灣稅務無縫對接</strong> — netiCRM 內建符合台灣稅法的收據格式(統編、捐款扣抵編號、社團法人格式),NPO 法人會計直接可用。Eventbrite 給的是美式收據,要另外手動補開台灣格式收據 — 雙重工時 + 合規風險。</li>
+    <li><strong>海外付款者整合</strong> — netiCRM 內建國際卡(底層藍新)讓海外與會者用本地信用卡付款;若需要 PayPal UX,可另加 PayPal Business 作為 alternative checkout。後台統一進 NPO 帳戶並產生對應收據。Eventbrite 的 Taiwan organizer payout 不在 Pro 支援名單。</li>
+    <li><strong>會員資料跨年度持續使用</strong> — 會員年費、贊助履約追蹤、捐款歷程、自動寄信、會員資格自動審查 — 這些 NPO 標準工作流程 netiCRM 內建,Eventbrite 沒有(它是售票平台,活動結束資料就斷了)。</li>
+  </ol>
+
+  <h3>費率比較(Eventbrite vs netiCRM + 藍新)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>票價情境</th><th>Eventbrite</th><th>netiCRM + 藍新</th><th>差距</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>學生票(~NT$2,000)</td><td>9.3%</td><td>7.6%</td><td>netiCRM 低 1.7 pp</td></tr>
+        <tr><td>一般票(~NT$4,500)</td><td>7.8%</td><td>4.7%</td><td>netiCRM 低 3.1 pp</td></tr>
+        <tr><td>高階票(~NT$8,500)</td><td>7.2%</td><td>3.6%</td><td>netiCRM 低 3.6 pp</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:12.5px; color:var(--muted); margin-top:-4px;">註:% 假設 ~200 張銷售規模。netiCRM 固定年費 NT$20,960 對銷量 dilution 後反映在 %。</p>
+
+  <div class="note">
+    <strong>但純看 % 差距其實低估了 netiCRM 的真實優勢。</strong>真正的價值在於:每年自動產出合規收據、跨國刷卡無縫、會員資料屬於 APAC AIA 自己。即使在學生情境(% 差距最小)下,netiCRM 仍勝出。
+  </div>
+
+  <h3>netiCRM 真實費率(<a href="https://neticrm.tw/pricing" target="_blank" rel="noopener">官方 pricing</a>)</h3>
+  <ul style="padding-left:22px; line-height:1.85;">
+    <li>Micro 方案 NT$12,960/年(3,000 名單上限,ADALS 足夠)</li>
+    <li>首年開通費 NT$8,000(2 年合約可免)</li>
+    <li><strong>第一年合計約 NT$20,960</strong>;第二年起 NT$12,960/年</li>
+    <li>30 天免費試用(cover 不了整個 6/15-9/17 報名期)</li>
+    <li>第三方金流(藍新 2.4%)另計</li>
+    <li>新客戶送一家金流免費導入</li>
+  </ul>
+</section>
+
+<!-- §6 4 use case lookup ──────────────────────────────── -->
+<section id="use-cases">
+  <div class="section-num">§6 USE CASES</div>
+  <h2>4 個 use case lookup 比較</h2>
+
+  <p>每個 use case 的 top 2-3 方案完整比較,可作為查找用:</p>
+
+  <h3>Use case 1:國外大額匯款(企業贊助 USD 1,500-10,000+)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>方案</th><th>優點</th><th>缺點</th></tr></thead>
+      <tbody>
+        <tr><td><strong>SWIFT 電匯到玉山(主推)</strong></td><td>直接收款、合規簡單、無中介</td><td>雙方手續費共 USD 40-80;贊助商需操作 SWIFT</td></tr>
+        <tr><td><strong>SWIFT 電匯到兆豐(備用)</strong></td><td>公股銀行 SWIFT 處理快、手續費較低</td><td>不能綁 PayPal,需另開戶</td></tr>
+        <tr><td>PayPal Business(僅小額)</td><td>贊助商熟悉、操作簡單</td><td>4.4% + USD 0.30,大額不划算(USD 5,000 吃 USD 220+)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:13px; color:var(--muted);">→ 第一屆 SWIFT 玉山為主;有大額或量增評估開兆豐第二帳戶。</p>
+
+  <h3>Use case 2:國外購票(海外個人 USD 60-500)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>方案</th><th>優點</th><th>缺點</th></tr></thead>
+      <tbody>
+        <tr><td><strong>netiCRM 內建國際卡(主推,若已採 netiCRM)</strong></td><td>一站式、收據自動、跟報名 / 會員同流;**不需另外申請 PayPal Business**</td><td>中文介面對海外 attendee UX 較陌生;國際卡費率高於國內 2.4%(實際費率諮詢 netiCRM 時確認)</td></tr>
+        <tr><td><strong>PayPal Business(備案,綁玉山領款)</strong></td><td>海外 UX 熟悉、信任度高、台灣協會可申請;不採 netiCRM 時是主方案</td><td>4.4% + USD 0.30(高於 netiCRM 國際卡)、跟 netiCRM 是兩個 stack 要對帳</td></tr>
+        <tr><td>Stripe via 美國 LLC(第二屆評估)</td><td>費率 2.9%、開發友善、UX 國際標準</td><td>美國 LLC 設立 USD 200-500 + 年維護 USD 100-300、跨境會計複雜</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:13px; color:var(--muted);">→ 第一屆採 netiCRM:用 netiCRM 內建國際卡為主,PayPal Business **不必申請**;若海外與會者預期多 + UX 反饋差,再加 PayPal 為 alternative checkout。不採 netiCRM(走備案):PayPal Business 為主方案。</p>
+
+  <h3>Use case 3:國內購票(台灣個人 NT$2,000-8,500)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>方案</th><th>優點</th><th>缺點</th></tr></thead>
+      <tbody>
+        <tr><td><strong>netiCRM(內建藍新,主推)</strong></td><td>報名 + 收款 + 收據 + 會員一站、台灣付款方式齊全(信用卡 / ATM / 超商代碼)</td><td>NT$20,960/年(第一年)+ 透過底層藍新 2.4%</td></tr>
+        <tr><td>藍新 + 自建報名頁(備案)</td><td>0 系統年費、藍新 2.4%</td><td>**報名頁要工程開發、收據自製、無會員管理**</td></tr>
+        <tr><td>綠界 ECPay</td><td>市佔最高、SDK 成熟</td><td>信用卡分期需 NT$10,000/年特約會員、費率 2.88%、市場負評多</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:13px; color:var(--muted);">→ 第一屆 netiCRM;若諮詢結果不採用 → 走備案:藍新 + 自建;不建議綠界。</p>
+
+  <h3>Use case 4:國內捐款(個人 / 會員,未來 use case)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>方案</th><th>優點</th><th>缺點</th></tr></thead>
+      <tbody>
+        <tr><td><strong>netiCRM(主推)</strong></td><td>自動產合規收據(統編 + 捐款扣抵編號 + 社團法人格式)、會員整合、自動寄收據</td><td>系統年費(若 ADALS 已採用,邊際成本 0)</td></tr>
+        <tr><td>MyPay(備選)</td><td>固定手續費 NT$9/筆(對小額極省)、專為 NPO 捐款設計、netiCRM 已整合</td><td>主捐款流程,不適合報名 / 購票場景</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:13px; color:var(--muted);">→ 第一屆 netiCRM;未來若想優化小額捐款,可在 netiCRM 內加 MyPay 為第二金流。</p>
+
+  <details class="deep">
+    <summary>已刪除的選項與原因</summary>
+    <div class="deep-body">
+      <ul style="padding-left:22px; line-height:1.85;">
+        <li><strong>Stripe Taiwan(直接開戶)✗</strong> — Stripe 至 2026/04 仍不接受台灣本地實體開戶(公司、行號、協會、個人皆不可)。台灣不在 Stripe 支援的 46 個地區內。</li>
+        <li><strong>Wise Business ✗</strong> — Wise 官方文件明確列示,慈善與信託組織的商業帳戶服務只支援 EEA、加拿大、美國、瑞士、澳洲、紐西蘭。台灣協會不在支援名單。</li>
+        <li><strong>Payoneer ✗</strong> — 主要針對「個人收款」(自由工作者、跨境電商賣家),企業 / 協會用途的支援與 Wise 類似有地區限制。對 NPO 法人的支援不明朗,且台灣 NPO 使用案例極少。</li>
+        <li><strong>透過境外實體(美國 LLC / 香港公司)中轉 △</strong> — 註冊美國 LLC 後可開 Mercury 銀行 + Stripe US。但對單場會議不划算(設立 USD 200-500 + 維護 USD 100-300/年 + 跨境會計複雜)。第二屆規模化再評估。</li>
+        <li><strong>銀行直接金流(中信、玉山等)✗</strong> — 銀行對非營利協會的金流申請門檻嚴(中信要求資本額 500 萬以上、近四個月平均營業額 30 萬以上、實體商品)。協會型 NPO 不符合條件。</li>
+        <li><strong>TapPay ✗</strong> — 純信用卡 token 化解決方案,沒有 ATM、超商代碼、虛擬帳號等台灣本地常用付款方式。功能子集太窄。</li>
+      </ul>
+    </div>
+  </details>
+</section>
+
+<!-- §7 跨國/線下/線上/Hybrid 付費差異 ────────────────────── -->
+<section id="payment-diff">
+  <div class="section-num">§7 PAYMENT DIFF</div>
+  <h2>跨國 / 線下 / 線上 / Hybrid 付費差異</h2>
+
+  <p>同樣的活動規模,不同的舉辦形式 + 觀眾來源,會直接影響付款基礎建設需求:</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:18%;">維度</th>
+          <th>線下 (Offline)</th>
+          <th>線上 (Online)</th>
+          <th>Hybrid</th>
+          <th>跨國 (International)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row" class="label-col">主要金流</th>
+          <td>線上預付 + 現場補單(現金/轉帳)</td>
+          <td>100% 線上(無現場退路)</td>
+          <td>兩條並行,需各自 SKU</td>
+          <td><strong>必須 PayPal / 國際卡</strong>(NewebPay 不支援國際付款者)</td>
+        </tr>
+        <tr>
+          <th scope="row" class="label-col">票種結構</th>
+          <td>1–2 種(早鳥 / 一般)</td>
+          <td>通常 1 種</td>
+          <td><strong>至少 2 SKU</strong>(現場 / 線上)</td>
+          <td>多幣別 SKU(USD / TWD)</td>
+        </tr>
+        <tr>
+          <th scope="row" class="label-col">收據格式</th>
+          <td>可選擇實體 / 數位</td>
+          <td>數位 only</td>
+          <td>兩種選項並存</td>
+          <td><strong>必須英文</strong>(統編改 Tax ID)</td>
+        </tr>
+        <tr>
+          <th scope="row" class="label-col">容量管理</th>
+          <td>場地硬上限</td>
+          <td>幾乎無限(看頻寬)</td>
+          <td>兩條容量分管</td>
+          <td>取決於線上 / 線下混合比例</td>
+        </tr>
+        <tr>
+          <th scope="row" class="label-col">退費處理</th>
+          <td>涉及實體成本(已定餐、已印名牌)</td>
+          <td>簡單(數位資產可回收)</td>
+          <td>兩條政策可能不同</td>
+          <td>跨境匯費吃成本(USD 50+ 不退費)</td>
+        </tr>
+        <tr>
+          <th scope="row" class="label-col">不需要</th>
+          <td>國際卡(若只給台灣)</td>
+          <td>場地金流硬體</td>
+          <td>純現場票流程</td>
+          <td>純台灣 NewebPay(對國際付款者無感)</td>
+        </tr>
+        <tr>
+          <th scope="row" class="label-col">特別風險</th>
+          <td>現場報到混亂、現金管理</td>
+          <td>連結漏寄、Zoom session limit</td>
+          <td>兩邊體驗不一致(線上者覺得二等)</td>
+          <td>時區、語言、信用卡跨境反詐騙拒絕</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note">
+    <strong>關鍵 takeaway:</strong>付費複雜度真正的驅動因子是「<strong>觀眾的地理範圍</strong>」+「<strong>活動形式</strong>」這兩個正交軸。線下台灣活動最簡單(只需藍新);跨國 Hybrid 活動最複雜(藍新 + PayPal + SWIFT + 雙語收據都要)。設計平台時要先確認這兩軸,再決定金流 stack。
+  </div>
+</section>
+
+<!-- §8 5 種活動類型 payment stack ────────────────────────── -->
+<section id="event-stacks">
+  <div class="section-num">§8 EVENT STACKS</div>
+  <h2>5 種活動類型 — 各自需要的 payment stack</h2>
+
+  <p>同一份 netiCRM(或備案)可以服務 APAC AIA 各種活動,但每種活動只開啟需要的 stack:</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>活動類型</th>
+          <th>規模</th>
+          <th>付款方式</th>
+          <th>收據類型</th>
+          <th>範例</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>線上免費 webinar</strong></td>
+          <td>50–300 人</td>
+          <td>無付款</td>
+          <td>不適用</td>
+          <td>AIA 雙月談</td>
+        </tr>
+        <tr>
+          <td><strong>線下小型工作坊</strong></td>
+          <td>20–50 人</td>
+          <td>單一藍新(信用卡 + ATM + 超商)</td>
+          <td>台灣 NPO 收據</td>
+          <td>WCAG 入門班</td>
+        </tr>
+        <tr>
+          <td><strong>線下中型活動</strong></td>
+          <td>50–150 人</td>
+          <td>藍新多票種 + 早鳥規則</td>
+          <td>台灣 NPO 收據</td>
+          <td>區域 a11y 論壇</td>
+        </tr>
+        <tr>
+          <td><strong>Hybrid 中型</strong></td>
+          <td>100–200 人</td>
+          <td>藍新(現場/國內線上)+ PayPal(國際線上)</td>
+          <td>雙語收據(中 + 英)</td>
+          <td>(假設)APAC a11y day</td>
+        </tr>
+        <tr>
+          <td><strong>大型國際年度 ★</strong></td>
+          <td>150–200+ 人</td>
+          <td>藍新 + PayPal + SWIFT(贊助)</td>
+          <td>雙語收據 + 英文 invoice</td>
+          <td><strong>ADALS 2026</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note">
+    <strong>採 netiCRM 最大價值:</strong>同一個後台,Christina 在「複製 ADALS event template → 砍掉用不到的設定」即可建出簡化版本。不採 netiCRM(備案)的話,每種類型都要重新刻 stack(省 NT$20K/年但每場活動都要重做)。
+  </div>
+</section>
+
+<!-- §9 路徑判斷 ──────────────────────────────────────── -->
+<section id="path">
+  <div class="section-num">§9 PATH DECISION</div>
+  <h2>netiCRM 主推 vs 自建備案 — 路徑判斷</h2>
+
+  <div class="path-card primary">
+    <span class="path-label">PATH A · PRIMARY</span>
+    <h3>netiCRM 主推路徑</h3>
+    <p><strong>stack:</strong>玉山銀行(底層)+ netiCRM(上層收款 / 報名 / 會員 / 收據)+ SWIFT(海外大額)</p>
+    <p><strong>第一年成本:</strong>玉山開戶 0 元 + netiCRM NT$20,960 + 藍新 2.4% per transaction + SWIFT 雙方手續費 USD 40-80/筆</p>
+    <p><strong>適合:</strong>有「ADALS 之外」長期需求(會員、捐款、後續活動)</p>
+    <p><strong>優勢:</strong>三個 use case(國內購票 / 國內捐款 / 海外購票 via 內建國際卡)整合在同一 stack,自動產 NPO 合規收據,跨年度資料屬 APAC AIA 自己</p>
+    <p><strong>限制:</strong>需要先諮詢 netiCRM 確認 NPO 條件;首年 NT$20,960 預算需到位</p>
+  </div>
+
+  <div class="path-card fallback">
+    <span class="path-label">PATH B · FALLBACK</span>
+    <h3>自建備案路徑</h3>
+    <p><strong>stack:</strong>玉山銀行(底層)+ 藍新自建報名頁(國內購票)+ PayPal Business(海外購票)+ SWIFT(海外大額)</p>
+    <p><strong>第一年成本:</strong>玉山開戶 0 元 + 藍新 2.4% + PayPal 4.4% + SWIFT 手續費 + **工程開發成本(隱性)**</p>
+    <p><strong>適合:</strong>只辦 ADALS 一場 / 預算極緊 / 願意承擔工程成本</p>
+    <p><strong>劣勢:</strong>4 個 stack 對帳成本、收據要自製、無會員管理、第二屆要再建</p>
+    <p><strong>限制:</strong>需要工程資源(Bertram 自接 OR 外包)</p>
+  </div>
+
+  <h3>判斷流程</h3>
+  <div class="checklist-block">
+    <ol>
+      <li>APAC AIA 是否預期持續舉辦活動 / 收會員費 / 收捐款?<br><span class="task-meta">是 → 強烈傾向 Path A</span> <span class="task-meta">否 → 評估 Path B</span></li>
+      <li>NT$20K/年預算是否在執行小組可批的範圍?<br><span class="task-meta">是 → Path A 可行</span> <span class="task-meta">否 → 上 board 討論預算</span></li>
+      <li>執行小組(包含 Bertram)是否願意承擔金流串接 + 收據合規 + 會員 DB 的工程責任?<br><span class="task-meta">是 → Path B 可行</span> <span class="task-meta">否 → 必須走 Path A</span></li>
+      <li>諮詢 netiCRM 是否取得合理 NPO 條件?<br><span class="task-meta">是 → 確認 Path A</span> <span class="task-meta">否 → 退回 Path B 或重新諮詢</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- §10 行動 checklist ─────────────────────────────────── -->
+<section id="actions">
+  <div class="section-num">§10 ACTIONS</div>
+  <h2>行動 checklist + 時程</h2>
+
+  <p><strong>時間錨點:</strong>6 月中報名頁上線 → 從 5 月上旬起算約 6-7 週。下面金流類項目從接觸到完成設定 4-5 週,**5 月上旬必須啟動**。</p>
+
+  <h3>第一順位:平行啟動(本週起)</h3>
+  <div class="checklist-block">
+    <ol>
+      <li><strong>玉山銀行開戶</strong> <span class="task-owner">Claire 親辦</span> <span class="task-meta">2-3 週</span><br>詢問協會法人開戶條件 + PayPal 綁定流程。客服 <span class="phone">0800-30-1313</span></li>
+      <li><strong>諮詢 netiCRM</strong> <span class="task-owner">執行小組</span> <span class="task-meta">1 週內首次溝通</span><br>從 <code>neticrm.tw</code> 聯絡表單寄出。問:NPO 試辦條件、首屆活動最適配置、能否 6 月底前完成導入、30 天試用能否延長</li>
+      <li><strong>內部 alignment 會議</strong> <span class="task-owner">理事提案 + 共評層 + 理事會</span> <span class="task-meta">理事會議程上獨立議題</span><br>議題:「APAC AIA 第一年要不要建 NPO 運營基礎建設」。預算 + 編制 + 長期分工層級決策</li>
+    </ol>
+  </div>
+
+  <h3>第二順位:玉山帳戶開好後</h3>
+  <div class="checklist-block">
+    <ol>
+      <li><strong>申請 PayPal Business(綁玉山)</strong> <span class="task-owner">執行小組</span> <span class="task-meta">1 週</span></li>
+      <li><strong>(若採 Path B)申請藍新金流</strong> <span class="task-owner">執行小組</span> <span class="task-meta">1-2 週</span><br>客服 <span class="phone">02-2370-2058</span>。問機關團體開戶條件、信用卡費率、分期條件、串接資源</li>
+    </ol>
+  </div>
+
+  <h3>第三順位:文件準備</h3>
+  <div class="checklist-block">
+    <ol>
+      <li><strong>APAC AIA 英文名、英文地址、稅號整理</strong> <span class="task-owner">祕書長</span></li>
+      <li><strong>英文 Invoice 模板(含 SWIFT 資訊)</strong> <span class="task-owner">會計師 + 祕書長</span></li>
+      <li><strong>英文 Receipt 模板</strong> <span class="task-owner">會計師 + 祕書長</span></li>
+      <li><strong>找熟悉 NPO 跨國捐款的會計師</strong> <span class="task-owner">理事長 / 祕書長</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- §11 不要做的事 + 客服電話 ────────────────────────────── -->
+<section id="dont">
+  <div class="section-num">§11 DON'T</div>
+  <h2>不要做的事 + 客服電話</h2>
+
+  <h3>金流相關 — 不要做的事</h3>
+  <div class="note warn">
+    <ul style="padding-left:22px; line-height:1.85;">
+      <li><strong>不要用 KKTix / Accupass</strong> — 可及性已被內部評估為不可接受</li>
+      <li><strong>不要用 Eventbrite</strong> — 跨境費率累計 6–8%、贊助處理不適合、版型限制論述呈現、台灣 organizer payout 不在 Pro 支援名單</li>
+      <li><strong>不要用 Typeform 收款</strong> — 可及性差、超出表單範圍</li>
+      <li><strong>不要假設 Stripe 可開</strong> — 至 2026/04 仍不行</li>
+      <li><strong>不要假設 Wise Business 可開</strong> — 台灣協會明確不在支援名單</li>
+      <li><strong>不要先做網站再想金流</strong> — 金流申請時間與銀行帳戶綁定路徑會反向影響網站設計</li>
+    </ul>
+  </div>
+
+  <h3>需要 Claire / 執行小組親自致電確認的單位</h3>
+  <p>本頁所有資訊整理自公開來源,**不能取代官方客服回覆**。建議親自致電以下單位確認:</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>單位</th><th>電話 / 聯絡方式</th><th>確認事項</th></tr></thead>
+      <tbody>
+        <tr><td>玉山銀行(企金 / NPO 開戶)</td><td><span class="phone">0800-30-1313</span></td><td>協會法人開戶所需文件、所需時程、PayPal 綁定流程</td></tr>
+        <tr><td>藍新金流</td><td><span class="phone">02-2370-2058</span></td><td>機關團體 / 社團法人開戶、信用卡費率、分期條件、串接資源</td></tr>
+        <tr><td>綠界 ECPay(備案)</td><td><span class="phone">02-2655-1775</span></td><td>社團法人特約會員費率、SDK 串接</td></tr>
+        <tr><td>PayPal Taiwan</td><td>透過官網客服</td><td>協會法人 Business 帳戶開戶要求、費率、領款流程</td></tr>
+        <tr><td>netiCRM</td><td>neticrm.tw 聯絡表單</td><td>NPO 整合方案、價格、客製化能力</td></tr>
+        <tr><td>會計師(熟悉 NPO 跨國捐款)</td><td>由執行小組詢問人脈</td><td>跨境贊助稅務、receipt 格式、是否需事先申請免稅</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p style="margin-top:24px;">
+    <a class="ref-link" href="event-template-form-payment.html">← 前往 Christina UI 設計範本</a>
+    <a class="ref-link" href="../index.html" style="margin-left:8px;">返回專案文件 ←</a>
+  </p>
+</section>
+
+</main>
+
+<footer style="background:#003b5c; color:rgba(255,255,255,.7); text-align:center; padding:24px; font-size:12px; letter-spacing:1px;">
+  APAC AIA 金流基礎建設決策依據 v1.0 · 2026-05-07<br>
+  受眾:祕書長 / 常務理事 / 理事長 · 內容取材自 ADALS 2026 內部討論文件
+</footer>
+
+</body>
+</html>
