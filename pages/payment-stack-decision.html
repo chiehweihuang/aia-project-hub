@@ -94,9 +94,11 @@
 
   .path-card { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:22px 24px; margin:14px 0; position:relative; }
   .path-card.primary { border-color:var(--success); background:#f3faf3; }
+  .path-card.alternative { border-color:var(--gold); background:#fffaeb; }
   .path-card.fallback { border-color:var(--secondary); background:#f8fbfd; }
   .path-card .path-label { display:inline-block; padding:3px 12px; font-size:11px; font-weight:700; letter-spacing:2px; border-radius:4px; margin-bottom:10px; }
   .path-card.primary .path-label { background:var(--success); color:#fff; }
+  .path-card.alternative .path-label { background:var(--gold); color:#003b5c; }
   .path-card.fallback .path-label { background:var(--secondary); color:#fff; }
   .path-card h3 { margin-top:0; }
 
@@ -184,13 +186,14 @@
   </div>
 
   <div class="note">
-    <strong>備案路徑(若不採用 netiCRM):</strong>玉山銀行(收款)+ 藍新(國內刷卡,需自己寫報名頁)+ PayPal(海外刷卡)+ SWIFT(海外贊助)。
-    <p style="margin-top:10px;"><strong>刷卡費率跟主推一樣</strong> — netiCRM 內部用的就是藍新,改成自建只是把 netiCRM 這層平台拿掉,刷卡費率不變。</p>
-    <p style="margin-top:6px;"><strong>差在多兩件 netiCRM 原本替你做掉的事:</strong></p>
-    <ol style="margin:6px 0 0; padding-left:22px;">
-      <li><strong>寫程式</strong> — 要自己寫(或外包)程式把報名表單串到藍新 + PayPal、設計收據格式、蓋會員資料庫</li>
-      <li><strong>跨系統對帳</strong> — 收款進來會分散在 4 個系統(玉山 / 藍新 / PayPal / SWIFT),每月要人工把每筆款項對起來,沒有單一後台一次看完</li>
+    <strong>不採 netiCRM 還有其他選項嗎?</strong>有,但都受限於「能在臺灣使用」這個前提。實際可考慮的<strong>三條路徑光譜</strong>:
+    <ol style="margin:8px 0 0; padding-left:22px;">
+      <li><strong>主推 · netiCRM 一站式 NPO 平台</strong>(上方推薦 stack)</li>
+      <li><strong>替代 · WordPress + 套件半 no-code</strong> — 整合進 AIA 既有 WordPress 站,Christina 既有 Elementor 經驗可用。但 plugin 品質、Taiwan-compatibility、NPO 收據合規各個都需評估</li>
+      <li><strong>自建 · 寫程式串接</strong> — 藍新 + PayPal API + 自製收據 + 會員 DB,最大彈性但工程成本高</li>
     </ol>
+    <p style="margin-top:10px;">三條的<strong>刷卡費率本質一樣</strong>(都用藍新 2.4%),差在「替你做掉哪些工作」與「需要承擔哪些隱性成本」。完整比較見 §9。</p>
+    <p style="margin-top:6px; font-size:12.5px; color:var(--muted);">註:已排除的 no-code 選項(KKTix / Accupass / Eventbrite 因可及性或 Taiwan organizer 限制)詳見 §6 與 §11。</p>
   </div>
 
   <h3>路徑判斷快查</h3>
@@ -557,32 +560,54 @@
   <h2>netiCRM 主推 vs 自建備案 — 路徑判斷</h2>
 
   <div class="path-card primary">
-    <span class="path-label">PATH A · PRIMARY</span>
-    <h3>netiCRM 主推路徑</h3>
+    <span class="path-label">PATH A · PRIMARY · 主推</span>
+    <h3>netiCRM 一站式 NPO 平台</h3>
     <p><strong>stack:</strong>玉山銀行(底層)+ netiCRM(上層收款 / 報名 / 會員 / 收據)+ SWIFT(海外大額)</p>
     <p><strong>第一年成本:</strong>玉山開戶 0 元 + netiCRM NT$20,960 + 藍新 2.4% per transaction + SWIFT 雙方手續費 USD 40-80/筆</p>
+    <p><strong>Taiwan 可用性:</strong>✓ 完全 Taiwan-native(本就為台灣 NPO 設計)</p>
     <p><strong>適合:</strong>有「ADALS 之外」長期需求(會員、捐款、後續活動)</p>
     <p><strong>優勢:</strong>三個 use case(國內購票 / 國內捐款 / 海外購票 via 內建國際卡)整合在同一 stack,自動產 NPO 合規收據,跨年度資料屬 APAC AIA 自己</p>
     <p><strong>限制:</strong>需要先諮詢 netiCRM 確認 NPO 條件;首年 NT$20,960 預算需到位</p>
   </div>
 
+  <div class="path-card alternative">
+    <span class="path-label">PATH B · ALTERNATIVE · 替代</span>
+    <h3>WordPress + 套件 — 半 no-code 整合路徑</h3>
+    <p><strong>stack:</strong>玉山銀行 + WordPress(Elementor + WooCommerce + 藍新 WooCommerce 模組 + Events 套件 + 視需求加 Memberships 套件)+ PayPal Business + SWIFT</p>
+    <p><strong>第一年成本:</strong>玉山開戶 0 + plugin 授權約 NT$10,000-20,000(Events Calendar Pro + 視需求 Memberships)+ 藍新 2.4% + PayPal 4.4% + SWIFT 手續費</p>
+    <p><strong>Taiwan 可用性:</strong>△ <strong>需逐 plugin 驗證</strong>。藍新有官方 WooCommerce 模組(Taiwan ✓)、Events Calendar Pro 等國際 plugin 在台灣可用 ✓,但是否每個 plugin 持續維護、是否符合 NPO 收據合規 — <em>需執行小組逐一 vet</em></p>
+    <p><strong>適合:</strong>已維護 WordPress 站、想整合在 AIA 主站、Christina 願意管理多 plugin stack</p>
+    <p><strong>優勢:</strong>整合在現有 WordPress 系統、Elementor 既已熟悉、無需學新平台</p>
+    <p><strong>劣勢與風險:</strong></p>
+    <ol style="padding-left:22px; margin:6px 0 8px;">
+      <li><strong>Plugin 品質不一</strong> — 各 plugin 維護程度差異大,需 vet 每個 plugin 的更新狀態與 Taiwan 中文支援</li>
+      <li><strong>NPO 收據需另接</strong> — WordPress 無台灣 NPO 收據原生支援。需透過藍新 e-invoice 服務或手動補開,捐款扣抵編號等格式自行確認</li>
+      <li><strong>Member management 不直觀</strong> — WooCommerce Memberships 是 retail 導向,沒有 NPO 會員資格自動審查、捐款歷程等內建工作流程</li>
+      <li><strong>無 NPO 專屬支援</strong> — netiCRM 有 NPO 客服協助申請藍新優惠費率與導入,WordPress plugin 沒有</li>
+      <li><strong>多 plugin 同時維護</strong> — plugin 更新衝突風險,Christina 要持續監控</li>
+    </ol>
+    <p><strong>限制:</strong>選用的每個 plugin 都需要評估 Taiwan 可用性、NPO 適用性、彼此整合相容性 — 這層 vetting 工作本身就是隱性成本</p>
+  </div>
+
   <div class="path-card fallback">
-    <span class="path-label">PATH B · FALLBACK</span>
-    <h3>自建備案路徑</h3>
-    <p><strong>stack:</strong>玉山銀行(底層)+ 藍新自建報名頁(國內購票)+ PayPal Business(海外購票)+ SWIFT(海外大額)</p>
-    <p><strong>第一年成本:</strong>玉山開戶 0 元 + 藍新 2.4% + PayPal 4.4% + SWIFT 手續費 + **工程開發成本(隱性)**</p>
-    <p><strong>適合:</strong>只辦 ADALS 一場 / 預算極緊 / 願意承擔工程成本</p>
-    <p><strong>劣勢:</strong>4 個 stack 對帳成本、收據要自製、無會員管理、第二屆要再建</p>
-    <p><strong>限制:</strong>需要工程資源(Bertram 自接 OR 外包)</p>
+    <span class="path-label">PATH C · DIY · 自建工程</span>
+    <h3>寫程式串接 — 自建報名 + 金流</h3>
+    <p><strong>stack:</strong>玉山銀行(底層)+ 藍新 API(自寫報名頁)+ PayPal Business + SWIFT</p>
+    <p><strong>第一年成本:</strong>玉山開戶 0 元 + 藍新 2.4% + PayPal 4.4% + SWIFT 手續費 + <strong>工程開發成本(隱性)</strong></p>
+    <p><strong>Taiwan 可用性:</strong>✓ 自寫程式可完全 Taiwan-compatible(藍新、玉山均在地)</p>
+    <p><strong>適合:</strong>只辦 ADALS 一場 / 預算極緊 / 有工程資源</p>
+    <p><strong>劣勢:</strong>4 個系統對帳成本、收據要自製(含 NPO 合規格式)、無會員管理、第二屆活動要再建</p>
+    <p><strong>限制:</strong>需要工程資源(內部 OR 外包)</p>
   </div>
 
   <h3>判斷流程</h3>
   <div class="checklist-block">
     <ol>
-      <li>APAC AIA 是否預期持續舉辦活動 / 收會員費 / 收捐款?<br><span class="task-meta">是 → 強烈傾向 Path A</span> <span class="task-meta">否 → 評估 Path B</span></li>
-      <li>NT$20K/年預算是否在執行小組可批的範圍?<br><span class="task-meta">是 → Path A 可行</span> <span class="task-meta">否 → 上 board 討論預算</span></li>
-      <li>執行小組(包含 Bertram)是否願意承擔金流串接 + 收據合規 + 會員 DB 的工程責任?<br><span class="task-meta">是 → Path B 可行</span> <span class="task-meta">否 → 必須走 Path A</span></li>
-      <li>諮詢 netiCRM 是否取得合理 NPO 條件?<br><span class="task-meta">是 → 確認 Path A</span> <span class="task-meta">否 → 退回 Path B 或重新諮詢</span></li>
+      <li>APAC AIA 是否預期持續舉辦活動 / 收會員費 / 收捐款?<br><span class="task-meta">是 → 強烈傾向 Path A</span> <span class="task-meta">否 → 評估 Path B 或 C</span></li>
+      <li>NT$20K/年預算是否在執行小組可批的範圍?<br><span class="task-meta">是 → Path A 可行</span> <span class="task-meta">否 → Path B 或 C</span></li>
+      <li>AIA 主站是否已用 WordPress + Elementor?<br><span class="task-meta">是 → Path B 候選成立(但需 vet plugin)</span> <span class="task-meta">否 → 跳過 Path B</span></li>
+      <li>有工程資源(內部 OR 外包)寫 API 串接嗎?<br><span class="task-meta">是 → Path C 可行</span> <span class="task-meta">否 → 必須走 Path A 或 Path B</span></li>
+      <li>諮詢 netiCRM 是否取得合理 NPO 條件?<br><span class="task-meta">是 → 確認 Path A</span> <span class="task-meta">否 → 退回 Path B 或 C</span></li>
     </ol>
   </div>
 </section>
@@ -607,7 +632,7 @@
   <div class="checklist-block">
     <ol>
       <li><strong>申請 PayPal Business(綁玉山)</strong> <span class="task-owner">執行小組</span> <span class="task-meta">1 週</span></li>
-      <li><strong>(若採 Path B)申請藍新金流</strong> <span class="task-owner">執行小組</span> <span class="task-meta">1-2 週</span><br>客服 <span class="phone">02-2370-2058</span>。問機關團體開戶條件、信用卡費率、分期條件、串接資源</li>
+      <li><strong>(若不採 netiCRM,即 Path B 或 C)申請藍新金流</strong> <span class="task-owner">執行小組</span> <span class="task-meta">1-2 週</span><br>客服 <span class="phone">02-2370-2058</span>。問機關團體開戶條件、信用卡費率、分期條件、串接資源(Path B 還要詢問官方 WooCommerce 模組維護狀態)</li>
     </ol>
   </div>
 
