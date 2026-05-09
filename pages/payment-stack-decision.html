@@ -380,8 +380,9 @@
       <thead><tr><th>方案</th><th>優點</th><th>缺點</th></tr></thead>
       <tbody>
         <tr><td><strong>netiCRM(內建藍新,主推)</strong></td><td>報名 + 收款 + 收據 + 會員一站、台灣付款方式齊全(信用卡 / ATM / 超商代碼)</td><td>NT$20,960/年(第一年)+ 透過底層藍新 2.4%</td></tr>
-        <tr><td>藍新 + 自建報名頁(備案)</td><td>0 系統年費、藍新 2.4%</td><td>**報名頁要工程開發、收據自製、無會員管理**</td></tr>
+        <tr><td>藍新 + 自建報名頁(備案)</td><td>0 系統年費、藍新 2.4%</td><td><strong>報名頁要工程開發、收據自製、無會員管理</strong></td></tr>
         <tr><td>綠界 ECPay</td><td>市佔最高、SDK 成熟</td><td>信用卡分期需 NT$10,000/年特約會員、費率 2.88%、市場負評多</td></tr>
+        <tr><td><strong>LINE Pay 商家版</strong>(補強選項,非獨立 stack)</td><td>台灣用戶熟悉度極高、申請相對快、對 LINE OA 通知整合順</td><td>純 gateway 不含報名 / 收據 / 會員 — 須搭主 platform(netiCRM / WordPress 等);NPO 商家申請流程須驗證;不支援國際付款者</td></tr>
       </tbody>
     </table>
   </div>
@@ -552,6 +553,18 @@
   <div class="note">
     <strong>採 netiCRM 最大價值:</strong>同一個平台支援所有活動類型 — 執行小組複製既有 event 設定即可建出簡化版本。不採 netiCRM(備案)的話,每種活動類型都要重新建立金流串接 + 收據邏輯 + 會員管理(省 NT$20K/年但每場活動都要重做)。
   </div>
+
+  <div class="note" style="background:#f8fbfd; border-left-color:var(--secondary);">
+    <strong>小型活動的 baseline 選項:Google Form + 銀行匯款 + 手工收據</strong>
+    <p style="margin-top:8px;">對於 <strong>線上免費 webinar</strong>(僅收 Email 寄 Zoom 連結)和 <strong>線下小型工作坊</strong>(20-50 人、單一價位)兩類,如果不想搭任何平台,純手工流程是可行的:</p>
+    <ul style="padding-left:22px; margin:6px 0;">
+      <li><strong>報名</strong>:Google Form(免費)</li>
+      <li><strong>付款</strong>:每位與會者 ATM 轉帳到玉山指定帳號,帳號後 5 碼當報名編號</li>
+      <li><strong>確認</strong>:祕書長 / 總務每日核對銀行對帳單,人工發確認 email + 寄手工收據</li>
+    </ul>
+    <p style="margin-top:6px;"><strong>規模上限:</strong>大概 30 人以內。對 50+ 規模對帳人力成本太高;對 ADALS 規模(150-200 人)完全不可行。</p>
+    <p style="margin-top:6px;"><strong>適用情境:</strong>APAC AIA 未來辦小型 workshop 或 community 聚會、不想為單場活動建 netiCRM event 時的最簡 fallback。</p>
+  </div>
 </section>
 
 <!-- §9 路徑判斷 ──────────────────────────────────────── -->
@@ -675,6 +688,7 @@
         <tr><td>藍新金流</td><td><span class="phone">02-2370-2058</span></td><td>機關團體 / 社團法人開戶、信用卡費率、分期條件、串接資源</td></tr>
         <tr><td>綠界 ECPay(備案)</td><td><span class="phone">02-2655-1775</span></td><td>社團法人特約會員費率、SDK 串接</td></tr>
         <tr><td>PayPal Taiwan</td><td>透過官網客服</td><td>協會法人 Business 帳戶開戶要求、費率、領款流程</td></tr>
+        <tr><td>LINE Pay 商家(補強)</td><td>透過 LINE Pay 商家版官網申請</td><td>NPO 商家申請資格、費率、與 LINE OA 整合方式</td></tr>
         <tr><td>netiCRM</td><td>neticrm.tw 聯絡表單</td><td>NPO 整合方案、價格、客製化能力</td></tr>
         <tr><td>會計師(熟悉 NPO 跨國捐款)</td><td>由執行小組詢問人脈</td><td>跨境贊助稅務、receipt 格式、是否需事先申請免稅</td></tr>
       </tbody>
