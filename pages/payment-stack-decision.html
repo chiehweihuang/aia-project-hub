@@ -184,7 +184,13 @@
   </div>
 
   <div class="note">
-    <strong>備案路徑(若 netiCRM 不採用):</strong>玉山(底層)+ 藍新自建報名頁(國內購票)+ PayPal Business(海外購票)+ SWIFT(海外大額)。費率跟主推一樣(藍新就是 netiCRM 底層),差在「**工程開發成本顯著**」+「**4 個 stack 要對帳**」這兩個隱性成本。
+    <strong>備案路徑(若不採用 netiCRM):</strong>玉山銀行(收款)+ 藍新(國內刷卡,需自己寫報名頁)+ PayPal(海外刷卡)+ SWIFT(海外贊助)。
+    <p style="margin-top:10px;"><strong>刷卡費率跟主推一樣</strong> — netiCRM 內部用的就是藍新,改成自建只是把 netiCRM 這層平台拿掉,刷卡費率不變。</p>
+    <p style="margin-top:6px;"><strong>差在多兩件 netiCRM 原本替你做掉的事:</strong></p>
+    <ol style="margin:6px 0 0; padding-left:22px;">
+      <li><strong>寫程式</strong> — 要自己寫(或外包)程式把報名表單串到藍新 + PayPal、設計收據格式、蓋會員資料庫</li>
+      <li><strong>跨系統對帳</strong> — 收款進來會分散在 4 個系統(玉山 / 藍新 / PayPal / SWIFT),每月要人工把每筆款項對起來,沒有單一後台一次看完</li>
+    </ol>
   </div>
 
   <h3>路徑判斷快查</h3>
