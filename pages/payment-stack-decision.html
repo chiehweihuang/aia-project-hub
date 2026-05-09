@@ -95,10 +95,12 @@
   .path-card { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:22px 24px; margin:14px 0; position:relative; }
   .path-card.primary { border-color:var(--success); background:#f3faf3; }
   .path-card.alternative { border-color:var(--gold); background:#fffaeb; }
+  .path-card.baseline { border-color:#9e9e9e; background:#fafafa; }
   .path-card.fallback { border-color:var(--secondary); background:#f8fbfd; }
   .path-card .path-label { display:inline-block; padding:3px 12px; font-size:11px; font-weight:700; letter-spacing:2px; border-radius:4px; margin-bottom:10px; }
   .path-card.primary .path-label { background:var(--success); color:#fff; }
   .path-card.alternative .path-label { background:var(--gold); color:#003b5c; }
+  .path-card.baseline .path-label { background:#757575; color:#fff; }
   .path-card.fallback .path-label { background:var(--secondary); color:#fff; }
   .path-card h3 { margin-top:0; }
 
@@ -177,7 +179,7 @@
   <h2>結論先 — 三條路徑 Price + Effort + Risk 比較</h2>
 
   <div class="note tldr">
-    <strong>推薦 stack:</strong>玉山銀行(底層,可選兆豐第二帳戶)+ netiCRM(上層 CRM)+ SWIFT(海外大額贊助)。詳細比較如下,刷卡費率三條一樣(藍新 2.4%),差別在固定成本、setup 投入、長期風險。
+    <strong>推薦 stack:</strong>玉山銀行(底層,可選兆豐第二帳戶)+ netiCRM(上層 CRM)+ SWIFT(海外大額贊助)。詳細比較如下,刷卡費率四條都一樣(藍新 2.4%),差別在固定成本、setup 投入、長期風險、人工 burden。
     <p style="margin-top:8px; font-size:12.5px; color:var(--muted);">價格與時程皆為粗估範圍。</p>
   </div>
 
@@ -261,6 +263,38 @@
     </ul>
   </div>
 
+  <div class="path-card baseline">
+    <span class="path-label">PATH D · BASELINE · 最低成本</span>
+    <h3>純免費 stack(0 預付 + 大量人工)</h3>
+
+    <h4 style="margin:14px 0 6px; font-size:13px; color:var(--primary);">Price · 差異化成本</h4>
+    <ul style="margin:0 0 6px; padding-left:22px; font-size:14px;">
+      <li>Plugin 授權:0 元(全用 free 版)</li>
+      <li>一次性 setup:0 元(僅內部時間)</li>
+      <li>第二年起:0 元</li>
+      <li><em>per-transaction 費(藍新 / PayPal / SWIFT)仍要付,同其他三條</em></li>
+    </ul>
+
+    <h4 style="margin:14px 0 6px; font-size:13px; color:var(--primary);">Effort</h4>
+    <ul style="margin:0 0 6px; padding-left:22px; font-size:14px;">
+      <li>Setup:估 3-5 天(WordPress + free plugins 拼裝)</li>
+      <li>Ongoing:每筆訂單祕書長 / 總務手工開收據 + Excel 管理會員</li>
+      <li>ADALS 規模(200 張)估手工開單 1-2 週工時</li>
+      <li>學習曲線:中(但 free 版功能限制較多,設計彈性低)</li>
+    </ul>
+
+    <h4 style="margin:14px 0 6px; font-size:13px; color:var(--primary);">Risks</h4>
+    <ul style="margin:0; padding-left:22px; font-size:14px;">
+      <li>Events Calendar free 版<strong>無多票種 / 早鳥規則</strong> → ADALS 多票種需求需 hack 或無法實作</li>
+      <li>收據格式全靠人工把關 NPO 合規 → 出錯 risk 高</li>
+      <li>跨年 ops 不可持續(Excel 第二屆要重建)</li>
+      <li>Elementor free 版設計彈性受限 → 視覺品質受影響</li>
+      <li>Vendor 風險:同 Path B(各 plugin 廠商依賴),且 free 版可能停更或 EOL 速度更快</li>
+    </ul>
+
+    <p style="margin-top:10px; font-size:12.5px; color:var(--muted);"><strong>適合:</strong>小型活動(&lt; 30 人 workshop / community 聚會)、0 預算嚴格限制的場合 · <strong>不適合 ADALS 規模</strong>(200 人 + 多票種,人工 burden 與功能受限都過重)</p>
+  </div>
+
   <details class="deep" style="margin-top:14px;">
     <summary>PATH C · 寫程式自建(已排除,點擊看細節)</summary>
     <div class="deep-body">
@@ -295,10 +329,19 @@
   <div class="note tldr">
     <strong>排序(由低到高):</strong>
     <ul style="margin-top:6px; padding-left:22px;">
-      <li><strong>Price:</strong>A &lt; B(略多)&lt;&lt; C(高一個量級)</li>
-      <li><strong>Effort:</strong>A &lt; B &lt;&lt; C</li>
-      <li><strong>Risk:</strong>A &lt; B &lt;&lt; C</li>
+      <li><strong>Price(預付 + 年費):</strong>D(0)&lt; A &lt; B &lt;&lt; C(高一個量級)</li>
+      <li><strong>Effort + Risk(對 ADALS 規模 200 人):</strong>A &lt; B &lt;&lt; D &lt; C
+        <ul style="font-size:13px; color:var(--muted);">
+          <li>D 在 ADALS 規模下 effort/risk 反而高 — 多票種卡關 + 200 張人工開單 burden</li>
+        </ul>
+      </li>
+      <li><strong>Effort + Risk(對小型活動 &lt; 30 人):</strong>D &lt; A &lt; B &lt;&lt; C
+        <ul style="font-size:13px; color:var(--muted);">
+          <li>D 對小型活動是 cleanest baseline</li>
+        </ul>
+      </li>
     </ul>
+    <p style="margin-top:8px; font-size:12.5px; color:var(--muted);">→ Path D 是<strong>條件性選項</strong>:不適用 ADALS 規模,但適合 APAC AIA 未來辦小型 workshop / community 聚會時的 0 成本 baseline。</p>
   </div>
 </section>
 
