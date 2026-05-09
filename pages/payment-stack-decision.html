@@ -171,43 +171,121 @@
   </div>
 </section>
 
-<!-- §2 結論先 ──────────────────────────────────────────── -->
+<!-- §2 結論先 — Price + Effort + Risk 三條路徑比較 ─────────── -->
 <section id="tldr">
   <div class="section-num">§2 TL;DR</div>
-  <h2>結論先(讀完這節即可了解推薦)</h2>
+  <h2>結論先 — 三條路徑 Price + Effort + Risk 比較</h2>
 
   <div class="note tldr">
-    <strong>推薦 stack(主推路徑):</strong>
-    <ol style="margin-top:8px; padding-left:22px;">
-      <li><strong>底層銀行:玉山銀行</strong>(可綁 PayPal、NPO 開戶經驗豐富)+ 兆豐銀行為第二帳戶(SWIFT 較便宜)</li>
-      <li><strong>上層 CRM:netiCRM</strong>(專為台灣 NPO 設計,內建報名 + 收款 + 收據 + 會員管理 + 藍新/綠界/TapPay/MyPay 整合)</li>
-      <li><strong>跨境大額:SWIFT 電匯</strong>(企業贊助 USD 1,500+ 直接匯到玉山,不走刷卡平台)</li>
-    </ol>
+    <strong>推薦 stack:</strong>玉山銀行(底層,可選兆豐第二帳戶)+ netiCRM(上層 CRM)+ SWIFT(海外大額贊助)。詳細比較如下,刷卡費率三條一樣(藍新 2.4%),差別在固定成本、setup 投入、長期風險。
+    <p style="margin-top:8px; font-size:12.5px; color:var(--muted);">價格與時程皆為粗估範圍。</p>
   </div>
 
-  <div class="note">
-    <strong>不採 netiCRM 還有其他選項嗎?</strong>有,但都受限於「能在臺灣使用」這個前提。實際可考慮的<strong>兩條主要路徑</strong>:
-    <ol style="margin:8px 0 0; padding-left:22px;">
-      <li><strong>主推 · netiCRM 一站式 NPO 平台</strong>(上方推薦 stack)</li>
-      <li><strong>替代 · WordPress + 套件半 no-code</strong> — 整合進 AIA 既有 WordPress 站,Christina 既有 Elementor 經驗可用。但 plugin 品質、Taiwan-compatibility、NPO 收據合規各個都需評估</li>
-    </ol>
-    <p style="margin-top:10px;"><strong>刷卡費率本質一樣</strong>(都用藍新 2.4%),差在「替你做掉哪些工作」與「需要承擔哪些隱性成本」。完整比較見 §9。</p>
-    <p style="margin-top:6px; font-size:12.5px; color:var(--muted);">註:**寫程式自建路徑**(藍新 API + PayPal SDK + 自製收據 + 自蓋會員 DB)<strong>已排除</strong> — 工程成本與長期維護負擔過高,APAC AIA 不應走此路。其他已排除的 no-code 選項(KKTix / Accupass / Eventbrite 因可及性或 Taiwan organizer 限制)詳見 §6 與 §11。</p>
+  <div class="path-card primary">
+    <span class="path-label">PATH A · PRIMARY · 主推</span>
+    <h3>netiCRM 一站式 NPO 平台</h3>
+
+    <h4 style="margin:14px 0 6px; font-size:13px; color:var(--primary);">Price · 差異化成本</h4>
+    <ul style="margin:0 0 6px; padding-left:22px; font-size:14px;">
+      <li>第一年:NT$20,960(NT$12,960 年費 + NT$8,000 開通費)</li>
+      <li>第二年起:NT$12,960/年(2 年合約可免開通費)</li>
+      <li>一次性工程成本:0</li>
+    </ul>
+
+    <h4 style="margin:14px 0 6px; font-size:13px; color:var(--primary);">Effort</h4>
+    <ul style="margin:0 0 6px; padding-left:22px; font-size:14px;">
+      <li>諮詢:1 週內首次溝通</li>
+      <li>Setup:5-7 天(後台 + 嵌入 AIA 站)</li>
+      <li>Ongoing:每場活動 2-4 小時建置</li>
+      <li>學習曲線:中(1-2 週熟悉後台)</li>
+    </ul>
+
+    <h4 style="margin:14px 0 6px; font-size:13px; color:var(--primary);">Risks</h4>
+    <ul style="margin:0; padding-left:22px; font-size:14px;">
+      <li>諮詢結果可能 NT$20K 方案不適合 → 退 Path B</li>
+      <li>雙語 / wrap 客製範圍諮詢前未驗證</li>
+      <li>NPO 條件談判實際費率可能跟 NT$20,960 有差</li>
+      <li>跨年資料 export / migration 難度未驗證</li>
+      <li>對 netiCRM 公司延續性的依賴</li>
+    </ul>
   </div>
 
-  <h3>路徑判斷快查</h3>
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr><th>條件</th><th>建議路徑</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>有「ADALS 之外」長期需求(會員、捐款、後續活動)</td><td><strong>netiCRM 主推</strong></td></tr>
-        <tr><td>只辦 ADALS 一場,之後不延伸</td><td><strong>備案</strong>(NT$20K/年 不划算)</td></tr>
-        <tr><td>預算極緊,無法承擔 NT$20K/年</td><td><strong>備案</strong>(但需評估執行小組是否有開發資源)</td></tr>
-        <tr><td>沒有開發資源也預算緊</td><td><strong>諮詢 netiCRM 看 NPO 試辦條件</strong>(可能談到減免)</td></tr>
-      </tbody>
-    </table>
+  <div class="path-card alternative">
+    <span class="path-label">PATH B · ALTERNATIVE · 替代</span>
+    <h3>WordPress + 套件半 no-code</h3>
+
+    <h4 style="margin:14px 0 6px; font-size:13px; color:var(--primary);">Price · 差異化成本</h4>
+    <ul style="margin:0 0 6px; padding-left:22px; font-size:14px;">
+      <li>Plugin 授權第一年:估 NT$10,000-15,000
+        <ul style="font-size:13px; color:var(--muted);">
+          <li>Events Calendar Pro:~NT$4,000</li>
+          <li>Memberships(若需要):~NT$6,000</li>
+          <li>e-invoice plugin(NPO 合規):~NT$5,000</li>
+        </ul>
+      </li>
+      <li>Elementor Pro:若已授權即不增加</li>
+      <li>一次性工程協助 setup:估 NT$30-50K</li>
+      <li>第二年起:授權 NT$10,000-15,000/年</li>
+    </ul>
+
+    <h4 style="margin:14px 0 6px; font-size:13px; color:var(--primary);">Effort</h4>
+    <ul style="margin:0 0 6px; padding-left:22px; font-size:14px;">
+      <li>Plugin 評估:1-2 週逐個 vet</li>
+      <li>Setup + 串接:1-2 週(需工程協助)</li>
+      <li>收據 e-invoice + 會員:額外 2 週</li>
+      <li>Ongoing:多 plugin 維護,每月 2-4 小時</li>
+      <li>學習曲線:中(WooCommerce 對 Christina 是新)</li>
+    </ul>
+
+    <h4 style="margin:14px 0 6px; font-size:13px; color:var(--primary);">Risks</h4>
+    <ul style="margin:0; padding-left:22px; font-size:14px;">
+      <li>Plugin 停更 = 整 stack 連鎖風險</li>
+      <li>NPO 收據合規高 risk(自製不一定過財政部規格)</li>
+      <li>多 plugin 同時更新可能 break</li>
+      <li>跨年資料分散 4-5 個 DB,migration 困難</li>
+      <li>沒 NPO 客服 channel,出事自己解</li>
+      <li>授權年費若不續 = 功能下架</li>
+    </ul>
+  </div>
+
+  <details class="deep" style="margin-top:14px;">
+    <summary>PATH C · 寫程式自建(已排除,點擊看細節)</summary>
+    <div class="deep-body">
+      <h4 style="margin-top:0;">Price · 一次性 + ongoing</h4>
+      <ul>
+        <li>一次性 first build:估 NT$300-500K(senior 工程師 6-8 週外包)</li>
+        <li>Server hosting:估 NT$2,000-5,000/年</li>
+        <li>Ongoing 工程維護:估 NT$50-100K/年</li>
+      </ul>
+      <h4>為什麼不推薦</h4>
+      <ul>
+        <li>工程資源依賴(人離開 = 系統無人維護)</li>
+        <li>合規 risk 最高(自寫 NPO 收據易違規)</li>
+        <li>Callback bug = 重複扣款 / 漏扣</li>
+        <li>Security 自負(PCI / SSL / XSS)</li>
+        <li>第二屆要再建,無 reusable infrastructure</li>
+        <li>沒 vendor escalation channel</li>
+      </ul>
+    </div>
+  </details>
+
+  <div class="note" style="margin-top:18px;">
+    <strong>共同的 per-transaction 費用(三條一樣):</strong>
+    <ul style="margin-top:6px; padding-left:22px;">
+      <li>國內刷卡:藍新 2.4%(可申請)/ 2.75%(標準)</li>
+      <li>國際刷卡:PayPal 4.4% + USD$0.30/筆</li>
+      <li>跨境贊助:SWIFT 手續費 USD 40-80/筆</li>
+      <li>玉山銀行帳戶:免費,無年費</li>
+    </ul>
+  </div>
+
+  <div class="note tldr">
+    <strong>排序(由低到高):</strong>
+    <ul style="margin-top:6px; padding-left:22px;">
+      <li><strong>Price:</strong>A &lt; B(略多)&lt;&lt; C(高一個量級)</li>
+      <li><strong>Effort:</strong>A &lt; B &lt;&lt; C</li>
+      <li><strong>Risk:</strong>A &lt; B &lt;&lt; C</li>
+    </ul>
   </div>
 </section>
 
@@ -329,15 +407,7 @@
     <strong>但純看 % 差距其實低估了 netiCRM 的真實優勢。</strong>真正的價值在於:每年自動產出合規收據、跨國刷卡無縫、會員資料屬於 APAC AIA 自己。即使在學生情境(% 差距最小)下,netiCRM 仍勝出。
   </div>
 
-  <h3>netiCRM 真實費率(<a href="https://neticrm.tw/pricing" target="_blank" rel="noopener">官方 pricing</a>)</h3>
-  <ul style="padding-left:22px; line-height:1.85;">
-    <li>Micro 方案 NT$12,960/年(3,000 名單上限,ADALS 足夠)</li>
-    <li>首年開通費 NT$8,000(2 年合約可免)</li>
-    <li><strong>第一年合計約 NT$20,960</strong>;第二年起 NT$12,960/年</li>
-    <li>30 天免費試用(cover 不了整個 6/15-9/17 報名期)</li>
-    <li>第三方金流(藍新 2.4%)另計</li>
-    <li>新客戶送一家金流免費導入</li>
-  </ul>
+  <p style="font-size:13px; color:var(--muted);">netiCRM 真實費率與其他細節已彙整於 <a href="#tldr">§2 TL;DR</a> Path A · Price 區塊。<a href="https://neticrm.tw/pricing" target="_blank" rel="noopener">官方 pricing</a>。</p>
 </section>
 
 <!-- §6 4 use case lookup ──────────────────────────────── -->
@@ -566,57 +636,12 @@
   </div>
 </section>
 
-<!-- §9 路徑判斷 ──────────────────────────────────────── -->
+<!-- §9 路徑判斷流程 ────────────────────────────────────── -->
 <section id="path">
   <div class="section-num">§9 PATH DECISION</div>
-  <h2>路徑判斷 — Path A 主推 vs Path B 替代</h2>
+  <h2>路徑判斷流程</h2>
 
-  <div class="path-card primary">
-    <span class="path-label">PATH A · PRIMARY · 主推</span>
-    <h3>netiCRM 一站式 NPO 平台</h3>
-    <p><strong>stack:</strong>玉山銀行(底層)+ netiCRM(上層收款 / 報名 / 會員 / 收據)+ SWIFT(海外大額)</p>
-    <p><strong>第一年成本:</strong>玉山開戶 0 元 + netiCRM NT$20,960 + 藍新 2.4% per transaction + SWIFT 雙方手續費 USD 40-80/筆</p>
-    <p><strong>Taiwan 可用性:</strong>✓ 完全 Taiwan-native(本就為台灣 NPO 設計)</p>
-    <p><strong>適合:</strong>有「ADALS 之外」長期需求(會員、捐款、後續活動)</p>
-    <p><strong>優勢:</strong>三個 use case(國內購票 / 國內捐款 / 海外購票 via 內建國際卡)整合在同一 stack,自動產 NPO 合規收據,跨年度資料屬 APAC AIA 自己</p>
-    <p><strong>限制:</strong>需要先諮詢 netiCRM 確認 NPO 條件;首年 NT$20,960 預算需到位</p>
-  </div>
-
-  <div class="path-card alternative">
-    <span class="path-label">PATH B · ALTERNATIVE · 替代</span>
-    <h3>WordPress + 套件 — 半 no-code 整合路徑</h3>
-    <p><strong>stack:</strong>玉山銀行 + WordPress(Elementor + WooCommerce + 藍新 WooCommerce 模組 + Events 套件 + 視需求加 Memberships 套件)+ PayPal Business + SWIFT</p>
-    <p><strong>第一年成本:</strong>玉山開戶 0 + plugin 授權約 NT$10,000-20,000(Events Calendar Pro + 視需求 Memberships)+ 藍新 2.4% + PayPal 4.4% + SWIFT 手續費</p>
-    <p><strong>Taiwan 可用性:</strong>△ <strong>需逐 plugin 驗證</strong>。藍新有官方 WooCommerce 模組(Taiwan ✓)、Events Calendar Pro 等國際 plugin 在台灣可用 ✓,但是否每個 plugin 持續維護、是否符合 NPO 收據合規 — <em>需執行小組逐一 vet</em></p>
-    <p><strong>適合:</strong>已維護 WordPress 站、想整合在 AIA 主站、Christina 願意管理多 plugin stack</p>
-    <p><strong>優勢:</strong>整合在現有 WordPress 系統、Elementor 既已熟悉、無需學新平台</p>
-    <p><strong>劣勢與風險:</strong></p>
-    <ol style="padding-left:22px; margin:6px 0 8px;">
-      <li><strong>Plugin 品質不一</strong> — 各 plugin 維護程度差異大,需 vet 每個 plugin 的更新狀態與 Taiwan 中文支援</li>
-      <li><strong>NPO 收據需另接</strong> — WordPress 無台灣 NPO 收據原生支援。需透過藍新 e-invoice 服務或手動補開,捐款扣抵編號等格式自行確認</li>
-      <li><strong>Member management 不直觀</strong> — WooCommerce Memberships 是 retail 導向,沒有 NPO 會員資格自動審查、捐款歷程等內建工作流程</li>
-      <li><strong>無 NPO 專屬支援</strong> — netiCRM 有 NPO 客服協助申請藍新優惠費率與導入,WordPress plugin 沒有</li>
-      <li><strong>多 plugin 同時維護</strong> — plugin 更新衝突風險,Christina 要持續監控</li>
-    </ol>
-    <p><strong>限制:</strong>選用的每個 plugin 都需要評估 Taiwan 可用性、NPO 適用性、彼此整合相容性 — 這層 vetting 工作本身就是隱性成本</p>
-  </div>
-
-  <details class="deep">
-    <summary>已考慮過但不推薦的路徑 · 寫程式自建</summary>
-    <div class="deep-body">
-      <p><strong>stack:</strong>玉山銀行 + 藍新 API(自寫報名頁)+ PayPal Business + SWIFT</p>
-      <p><strong>第一年成本:</strong>玉山開戶 0 + 藍新 2.4% + PayPal 4.4% + SWIFT 手續費 + <strong>工程開發成本(隱性,可觀)</strong></p>
-      <p><strong>為什麼不推薦:</strong></p>
-      <ul style="padding-left:22px;">
-        <li>工程成本高 — 報名表單、藍新 / PayPal 串接、callback 簽章、收據合規格式、會員 DB 都要從頭寫</li>
-        <li>無 NPO 合規收據原生支援,自製有合規 risk</li>
-        <li>4 個系統(玉山 / 藍新 / PayPal / SWIFT)各自對帳,人力成本高</li>
-        <li>第二屆活動需要再建一次(無 reusable infrastructure)</li>
-        <li>APAC AIA 不應把運營容量花在「自己重做別人已做好的事」</li>
-      </ul>
-      <p style="margin-top:8px; font-size:13px; color:var(--muted);">此路徑保留紀錄是為了顯示「已考慮並排除」的審計軌跡。實際決策應在 Path A 與 Path B 之間。</p>
-    </div>
-  </details>
+  <p style="font-size:13px; color:var(--muted);">三條路徑的完整 Price + Effort + Risk 比較見 <a href="#tldr">§2 TL;DR</a>。本節聚焦在「依條件判斷該走 A 還是 B」的決策流程。</p>
 
   <h3>判斷流程(Path A vs Path B)</h3>
   <div class="checklist-block">
