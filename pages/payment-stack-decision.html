@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
+<script>
+(function(){
+  var exp = localStorage.getItem('aia-auth');
+  if (!exp || Date.now() > +exp) {
+    localStorage.removeItem('aia-auth');
+    window.location.replace('../index.html');
+  }
+})();
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>APAC AIA 金流基礎建設決策依據</title>
