@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<script>
+(function(){
+  var exp = localStorage.getItem('aia-auth');
+  if (!exp || Date.now() > +exp) {
+    localStorage.removeItem('aia-auth');
+    window.location.replace('../index.html');
+  }
+})();
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>活動列表設計範本 — AIA</title>
+  <meta name="description" content="AIA 活動列表頁面設計範本。重點活動 ADALS 2026 數位無障礙領袖峰會,2026 年 9 月 17-18 日舉行。">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@300;400;500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+    /* ============================================================
+       AIA Brand Tokens — derived from brand-style-guide.html
+       Note: Logo not embedded; placeholder used pending new asset.
+       ============================================================ */
+    :root {
+      --color-navy:        #003B5C;
+      --color-navy-soft:   #134B70;
+      --color-sky:         #19ABE4;
+      --color-sky-light:   #D8F0F8;
+      --color-gold:        #F8B62D;
+      --color-gold-dark:   #8B5E0E;
+      --color-black:       #231815;
+      --color-white:       #FFFFFF;
+      --color-offwhite:    #F7F8F8;
+      --color-gray-100:    #F0F2F4;
+      --color-gray-200:    #DDE2E7;
+      --color-gray-500:    #686868;
+      --color-gray-700:    #4A4A4A;
+
+      --font-sans: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC",
+                   -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-serif: "Noto Serif TC", serif;
+
+      --space-xs: 0.5rem;
+      --space-sm: 0.75rem;
+      --space-md: 1.25rem;
+      --space-lg: 2rem;
+      --space-xl: 3rem;
+      --space-2xl: 5rem;
+
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 16px;
+
+      --shadow-card: 0 2px 8px rgba(0, 59, 92, 0.08);
+      --shadow-card-hover: 0 6px 20px rgba(0, 59, 92, 0.15);
+
+      --max-content: 1200px;
+    }
+
+    /* Reset & base */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--color-navy);
+      background: var(--color-white);
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a {
+      color: var(--color-navy);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    a:hover { color: var(--color-navy-soft); }
+    button { font-family: inherit; cursor: pointer; }
+
+    :focus-visible {
+      outline: 3px solid var(--color-gold);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--color-navy);
+      color: var(--color-white);
+      padding: var(--space-sm) var(--space-md);
+      text-decoration: none;
+      z-index: 1000;
+    }
+    .skip-link:focus { top: 0; color: var(--color-white); }
+
+    /* ============================================================
+       Hub back bar (matches existing hub style)
+       ============================================================ */
+    .hub-bar {
+      background: linear-gradient(135deg, #003b5c 0%, #003b5c 60%, #19abe4 100%);
+      color: var(--color-white);
+      padding: 12px 24px;
+      font-family: var(--font-sans);
+    }
+    .hub-bar__inner {
+      max-width: var(--max-content);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .hub-bar a.back-link {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 44px;
+      padding: 8px 0;
+    }
+    .hub-bar a.back-link:hover { color: var(--color-white); }
+    .hub-bar__label {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      opacity: 0.7;
+      text-transform: uppercase;
+    }
+
+    /* ============================================================
+       Mockup preview frame note
+       ============================================================ */
+    .preview-note {
+      background: #fff8e7;
+      border-bottom: 1px solid #F8B62D;
+      padding: 14px 24px;
+      font-size: 13px;
+      color: var(--color-navy);
+    }
+    .preview-note__inner {
+      max-width: var(--max-content);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .preview-note__label {
+      display: inline-block;
+      background: var(--color-gold-dark);
+      color: var(--color-white);
+      padding: 3px 10px;
+      border-radius: 3px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    /* ============================================================
+       Header / Nav (page being designed)
+       ============================================================ */
+    .site-header {
+      background: var(--color-white);
+      border-bottom: 1px solid var(--color-gray-200);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .site-header__inner {
+      max-width: var(--max-content);
+      margin: 0 auto;
+      padding: var(--space-md) var(--space-lg);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-lg);
+    }
+    .site-logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      text-decoration: none;
+      color: var(--color-navy);
+      font-weight: 700;
+      font-size: 1.125rem;
+    }
+    .site-logo__placeholder {
+      width: 48px;
+      height: 48px;
+      background: var(--color-navy);
+      color: var(--color-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.125rem;
+      letter-spacing: 0.05em;
+      border-radius: var(--radius-sm);
+    }
+    .site-logo__note {
+      font-size: 0.75rem;
+      color: var(--color-gray-500);
+      font-weight: 400;
+    }
+    .main-nav { display: flex; gap: var(--space-md); align-items: center; }
+    .main-nav a {
+      text-decoration: none;
+      padding: var(--space-sm) var(--space-md);
+      color: var(--color-navy);
+      font-weight: 500;
+      border-radius: var(--radius-sm);
+    }
+    .main-nav a:hover { background: var(--color-gray-100); }
+    .main-nav a[aria-current="page"] {
+      background: var(--color-navy);
+      color: var(--color-white);
+    }
+    .lang-toggle {
+      border: 1px solid var(--color-gray-200);
+      background: var(--color-white);
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--radius-sm);
+      font-size: 0.875rem;
+      color: var(--color-navy);
+    }
+    @media (max-width: 768px) {
+      .main-nav { display: none; }
+    }
+
+    /* ============================================================
+       Page header
+       ============================================================ */
+    .page-header {
+      background: var(--color-offwhite);
+      padding: var(--space-2xl) var(--space-lg) var(--space-xl);
+    }
+    .page-header__inner {
+      max-width: var(--max-content);
+      margin: 0 auto;
+    }
+    .page-header h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 1.5rem + 2vw, 3rem);
+      color: var(--color-navy);
+      margin: 0 0 var(--space-sm);
+      line-height: 1.2;
+      font-weight: 700;
+    }
+    .page-header__sub {
+      font-size: 1.125rem;
+      color: var(--color-gray-700);
+      margin: 0;
+      max-width: 60ch;
+    }
+    .page-header__eyebrow {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 0.875rem;
+      color: var(--color-sky);
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin: 0 0 var(--space-sm);
+    }
+
+    /* Sections */
+    main { padding-bottom: var(--space-2xl); }
+    section { padding: var(--space-xl) var(--space-lg); }
+    .section-inner { max-width: var(--max-content); margin: 0 auto; }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+      color: var(--color-navy);
+      margin: 0 0 var(--space-sm);
+      line-height: 1.3;
+      font-weight: 700;
+    }
+    .section-subtitle {
+      font-size: 1rem;
+      color: var(--color-gray-700);
+      margin: 0 0 var(--space-lg);
+      max-width: 70ch;
+    }
+
+    /* ============================================================
+       Featured event (ADALS 2026 hero card)
+       ============================================================ */
+    .featured-event {
+      background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-soft) 100%);
+      color: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+      position: relative;
+      overflow: hidden;
+    }
+    .featured-event::before {
+      content: "";
+      position: absolute;
+      right: -50px;
+      bottom: -50px;
+      width: 250px;
+      height: 250px;
+      background: var(--color-gold);
+      opacity: 0.12;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .featured-event__layout {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-xl);
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    @media (max-width: 768px) {
+      .featured-event__layout {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+      }
+    }
+    .featured-event__date {
+      background: var(--color-gold);
+      color: var(--color-navy);
+      padding: var(--space-md) var(--space-lg);
+      border-radius: var(--radius-md);
+      text-align: center;
+      min-width: 200px;
+    }
+    .featured-event__date-year {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 0.875rem;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      margin: 0 0 var(--space-xs);
+    }
+    .featured-event__date-day {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: clamp(2rem, 1.5rem + 2vw, 3rem);
+      font-weight: 800;
+      line-height: 1;
+      margin: 0;
+    }
+    .featured-event__date-month {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin: var(--space-xs) 0 0;
+    }
+    .featured-event__tag {
+      display: inline-block;
+      background: var(--color-gold);
+      color: var(--color-navy);
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--radius-sm);
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin: 0 0 var(--space-sm);
+    }
+    .featured-event h2 {
+      font-family: var(--font-serif);
+      font-size: inherit;
+      margin: 0;
+    }
+    .featured-event__title {
+      display: block;
+      font-size: clamp(1.75rem, 1.3rem + 2vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: var(--space-sm);
+    }
+    .featured-event__subtitle {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 1.25rem;
+      color: var(--color-sky);
+      margin: 0 0 var(--space-md);
+      font-weight: 500;
+    }
+    .featured-event__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      font-size: 0.9375rem;
+      color: var(--color-white);
+      margin: 0 0 var(--space-md);
+      list-style: none;
+      padding: 0;
+    }
+    .featured-event__meta li {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    .featured-event__meta svg {
+      width: 1.125rem;
+      height: 1.125rem;
+      flex-shrink: 0;
+    }
+    .featured-event__desc {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.92);
+      margin: 0 0 var(--space-lg);
+      max-width: 60ch;
+    }
+    .featured-event__cta {
+      display: flex;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: var(--space-sm) var(--space-lg);
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      border: 2px solid transparent;
+      transition: background-color 0.2s, border-color 0.2s;
+      min-height: 44px;
+    }
+    .btn--primary { background: var(--color-gold); color: var(--color-navy); }
+    .btn--primary:hover { background: #FFC547; color: var(--color-navy); }
+    .btn--secondary { background: transparent; color: var(--color-white); border-color: var(--color-white); }
+    .btn--secondary:hover { background: var(--color-white); color: var(--color-navy); }
+
+    /* Filter tabs */
+    .filter-tabs {
+      display: flex;
+      gap: var(--space-xs);
+      border-bottom: 2px solid var(--color-gray-200);
+      margin: 0 0 var(--space-lg);
+      flex-wrap: wrap;
+    }
+    .filter-tabs button {
+      background: transparent;
+      border: none;
+      padding: var(--space-sm) var(--space-md);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--color-gray-700);
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      min-height: 44px;
+    }
+    .filter-tabs button[aria-selected="true"] {
+      color: var(--color-navy);
+      border-bottom-color: var(--color-navy);
+      font-weight: 700;
+    }
+
+    /* Event grid */
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+      gap: var(--space-lg);
+    }
+    .event-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-gray-200);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      transition: box-shadow 0.2s, transform 0.2s;
+      position: relative;
+    }
+    .event-card:hover {
+      box-shadow: var(--shadow-card-hover);
+      transform: translateY(-2px);
+    }
+    .event-card--past { opacity: 0.75; background: var(--color-gray-100); }
+    .event-card__date {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 0.875rem;
+      color: var(--color-sky);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin: 0;
+    }
+    .event-card--past .event-card__date { color: var(--color-gray-500); }
+    .event-card__type-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 2px var(--space-sm);
+      background: var(--color-sky-light);
+      color: var(--color-navy);
+      border-radius: 999px;
+      font-weight: 600;
+      margin: 0;
+      align-self: flex-start;
+    }
+    .event-card__type-tag--past { background: var(--color-gray-200); color: var(--color-gray-700); }
+    .event-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      color: var(--color-navy);
+      margin: 0 0 var(--space-xs);
+      line-height: 1.3;
+      font-weight: 700;
+    }
+    .event-card h3 a { text-decoration: none; color: inherit; }
+    .event-card h3 a:hover { color: var(--color-navy-soft); }
+    .event-card h3 a::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius-md);
+    }
+    .event-card__desc {
+      font-size: 0.9375rem;
+      color: var(--color-gray-700);
+      line-height: 1.6;
+      margin: 0;
+      flex-grow: 1;
+    }
+    .event-card__meta {
+      font-size: 0.8125rem;
+      color: var(--color-gray-500);
+      margin: var(--space-sm) 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      list-style: none;
+      padding: 0;
+    }
+    .event-card__meta li { display: inline; }
+    .event-card__meta li::after { content: "・"; margin-left: var(--space-sm); }
+    .event-card__meta li:last-child::after { content: none; }
+
+    .section--features { padding-top: var(--space-2xl); }
+    .section--all-events { background: var(--color-offwhite); }
+    .section--past { padding-top: var(--space-xl); padding-bottom: var(--space-2xl); }
+
+    /* Annotations (matches hub style) */
+    .annotation {
+      background: #fff8e7;
+      border-left: 4px solid #F8B62D;
+      padding: 18px 22px;
+      border-radius: 0 8px 8px 0;
+      margin: var(--space-md) 0;
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--color-navy);
+    }
+    .annotation h3 {
+      font-family: var(--font-serif);
+      margin: 0 0 8px;
+      font-size: 16px;
+      color: var(--color-navy);
+    }
+    .annotation__label {
+      display: inline-block;
+      background: var(--color-gold-dark);
+      color: var(--color-white);
+      padding: 2px 10px;
+      border-radius: 3px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      font-family: 'IBM Plex Sans', sans-serif;
+    }
+    .annotation ul { margin: 4px 0 0; padding-left: 22px; }
+    .annotation li { margin-bottom: 4px; }
+    .annotation code {
+      background: rgba(0,59,92,.1);
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-family: 'IBM Plex Sans','Consolas',monospace;
+      font-size: 13px;
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--color-navy);
+      color: var(--color-white);
+      padding: var(--space-2xl) var(--space-lg) var(--space-lg);
+    }
+    .site-footer__inner {
+      max-width: var(--max-content);
+      margin: 0 auto;
+    }
+    .site-footer p { margin: 0 0 var(--space-sm); color: rgba(255,255,255,0.85); }
+    .site-footer a { color: var(--color-sky); text-decoration: underline; }
+    .site-footer__small {
+      margin-top: var(--space-lg);
+      padding-top: var(--space-md);
+      border-top: 1px solid rgba(255,255,255,0.15);
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.7);
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">略過導覽,直接到主要內容</a>
+
+  <!-- ============================================================
+       Hub Back Bar (only visible in hub context)
+       ============================================================ -->
+  <div class="hub-bar">
+    <div class="hub-bar__inner">
+      <a href="../index.html" class="back-link">
+        ← 返回 AIA Project Hub
+      </a>
+      <span class="hub-bar__label">EVENTS LIST DESIGN TEMPLATE</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       Preview Note
+       ============================================================ -->
+  <div class="preview-note">
+    <div class="preview-note__inner">
+      <span class="preview-note__label">範本</span>
+      <span>
+        本頁為「活動列表」設計範本(events listing page)。
+        報名與付款的詳細範本見
+        <a href="event-template-form-payment.html">event-template-form-payment.html</a>。
+      </span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       Site Header (the actual events page nav)
+       ============================================================ -->
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+      <a class="site-logo" href="#">
+        <span class="site-logo__placeholder" aria-hidden="true">AiA</span>
+        <span>
+          亞太包容創新協會
+          <span class="site-logo__note">(logo 待設計師交付新版)</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="主導覽">
+        <a href="#">首頁</a>
+        <a href="#">關於我們</a>
+        <a href="#" aria-current="page">活動</a>
+        <a href="#">資源</a>
+        <a href="#">聯絡我們</a>
+        <button class="lang-toggle" type="button" aria-label="切換語言">EN</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       Page Header
+       ============================================================ -->
+  <div class="page-header">
+    <div class="page-header__inner">
+      <p class="page-header__eyebrow">EVENTS</p>
+      <h1>活動列表</h1>
+      <p class="page-header__sub">
+        AIA 主辦與共同主辦的論壇、工作坊、政策對話與峰會。
+        我們持續推動數位無障礙與包容創新議題,歡迎報名參與。
+      </p>
+    </div>
+  </div>
+
+  <main id="main-content">
+
+    <!-- Featured: ADALS 2026 -->
+    <section class="section--features" aria-labelledby="featured-heading">
+      <div class="section-inner">
+        <h2 id="featured-heading" class="section-title">重點活動</h2>
+        <p class="section-subtitle">即將舉行的旗艦活動。</p>
+
+        <article class="featured-event" aria-labelledby="adals-title">
+          <div class="featured-event__layout">
+            <div class="featured-event__date" aria-hidden="true">
+              <p class="featured-event__date-year">2026</p>
+              <p class="featured-event__date-day">09.17</p>
+              <p class="featured-event__date-month">— 09.18</p>
+            </div>
+            <div class="featured-event__content">
+              <span class="featured-event__tag">重點活動 FEATURED</span>
+              <h2 id="adals-title">
+                <span class="featured-event__title">ADALS 2026</span>
+                <span class="featured-event__subtitle">亞太數位無障礙領袖峰會</span>
+              </h2>
+              <ul class="featured-event__meta">
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+                    <path d="M16 2v4M8 2v4M3 10h18"></path>
+                  </svg>
+                  <time datetime="2026-09-17/2026-09-18">2026 年 9 月 17 日(四)— 9 月 18 日(五)</time>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M12 22s-8-7-8-13a8 8 0 0116 0c0 6-8 13-8 13z"></path>
+                    <circle cx="12" cy="9" r="3"></circle>
+                  </svg>
+                  <span>台北(地點待定)</span>
+                </li>
+              </ul>
+              <p class="featured-event__desc">
+                ADALS(亞太數位無障礙領袖峰會)是 AIA 主辦的旗艦活動,
+                邀請亞太區政策制定者、產業代表、學界與倡議組織共同探討數位無障礙的現況與未來。
+                兩日議程包含主題演講、工作坊、案例研究與政策圓桌。
+              </p>
+              <div class="featured-event__cta">
+                <a class="btn btn--primary" href="event-template-form-payment.html">立即報名</a>
+                <a class="btn btn--secondary" href="event-template-form-payment.html">了解詳情</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- All events -->
+    <section class="section--all-events" aria-labelledby="all-events-heading">
+      <div class="section-inner">
+        <h2 id="all-events-heading" class="section-title">所有活動</h2>
+        <p class="section-subtitle">依時間順序排列,點擊卡片查看詳細資訊與報名。</p>
+
+        <div class="filter-tabs" role="tablist" aria-label="活動類型篩選">
+          <button role="tab" aria-selected="true">全部</button>
+          <button role="tab" aria-selected="false">即將舉行</button>
+          <button role="tab" aria-selected="false">過往活動</button>
+        </div>
+
+        <div class="event-grid" role="list">
+
+          <article class="event-card" role="listitem">
+            <p class="event-card__date">2026.09.17 – 09.18</p>
+            <span class="event-card__type-tag">峰會 Summit</span>
+            <h3><a href="event-template-form-payment.html">ADALS 2026 亞太數位無障礙領袖峰會</a></h3>
+            <p class="event-card__desc">
+              兩日議程包含主題演講、工作坊、案例研究與政策圓桌。
+              邀請亞太區政策制定者、產業代表與倡議組織。
+            </p>
+            <ul class="event-card__meta">
+              <li>台北</li><li>需報名</li><li>提供同步口譯</li>
+            </ul>
+          </article>
+
+          <article class="event-card" role="listitem">
+            <p class="event-card__date">2026.07(規劃中)</p>
+            <span class="event-card__type-tag">工作坊 Workshop</span>
+            <h3><a href="#tbd">WCAG 2.2 實作工作坊(籌備中)</a></h3>
+            <p class="event-card__desc">
+              針對網頁開發者與設計師,實機演練 WCAG 2.2 AA 各項條款的設計判斷與實作技巧。
+            </p>
+            <ul class="event-card__meta">
+              <li>線上 + 實體</li><li>免費</li><li>需報名</li>
+            </ul>
+          </article>
+
+          <article class="event-card" role="listitem">
+            <p class="event-card__date">2026.05</p>
+            <span class="event-card__type-tag">論壇 Forum</span>
+            <h3><a href="#tbd">包容創新月系列論壇(籌備中)</a></h3>
+            <p class="event-card__desc">
+              連續四週的線上論壇,每週聚焦一個包容議題:科技、教育、職場、城市。
+            </p>
+            <ul class="event-card__meta">
+              <li>線上</li><li>免費</li>
+            </ul>
+          </article>
+
+          <article class="event-card event-card--past" role="listitem">
+            <p class="event-card__date">2025.11.22</p>
+            <span class="event-card__type-tag event-card__type-tag--past">已結束</span>
+            <h3><a href="#past">2025 秋季無障礙設計工作坊</a></h3>
+            <p class="event-card__desc">
+              以實際案例帶領參與者拆解網頁、APP 與印刷品的無障礙設計實務。
+            </p>
+            <ul class="event-card__meta"><li>台北</li><li>已舉辦</li></ul>
+          </article>
+
+          <article class="event-card event-card--past" role="listitem">
+            <p class="event-card__date">2025.07.10</p>
+            <span class="event-card__type-tag event-card__type-tag--past">已結束</span>
+            <h3><a href="#past">數位無障礙政策對話會</a></h3>
+            <p class="event-card__desc">
+              邀請政府部門、產業代表與倡議團體就現行政策進行對話。
+            </p>
+            <ul class="event-card__meta"><li>台北</li><li>已舉辦</li></ul>
+          </article>
+
+          <article class="event-card event-card--past" role="listitem">
+            <p class="event-card__date">2024.10.05</p>
+            <span class="event-card__type-tag event-card__type-tag--past">已結束</span>
+            <h3><a href="#past">AIA 創會啟動論壇</a></h3>
+            <p class="event-card__desc">
+              亞太包容創新協會成立之際的啟動論壇,公布組織使命與三年規劃。
+            </p>
+            <ul class="event-card__meta"><li>台北</li><li>已舉辦</li></ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Integration notes -->
+    <section class="section--past" aria-labelledby="integration-heading">
+      <div class="section-inner">
+        <h2 id="integration-heading" class="section-title">報名與付款整合說明</h2>
+        <p class="section-subtitle">本頁為前端範本,實際報名邏輯由 netiCRM 提供。</p>
+
+        <div class="annotation">
+          <span class="annotation__label">整合說明</span>
+          <h3>採用模式 (b):iframe / embed</h3>
+          <p>
+            點擊「立即報名」後,使用者跳轉至 ADALS 2026 詳情頁
+            (<code>event-template-form-payment.html</code>),
+            該頁面在報名區塊嵌入 netiCRM 表單 iframe。優點:
+          </p>
+          <ul>
+            <li><strong>No code</strong> — netiCRM 後台建立活動後產生 embed URL,WordPress 端只需貼 iframe</li>
+            <li><strong>付款流程由 netiCRM 處理</strong> — 預計支援藍新金流(NewebPay)+ PayPal</li>
+            <li><strong>會員資料、報名記錄、收據</strong>統一進 netiCRM 後台,無需另建系統</li>
+            <li><strong>視覺差異</strong>可用自訂 CSS 在 netiCRM 後台 override,讓表單樣式接近本站</li>
+          </ul>
+          <p>
+            付款選項顯示:
+            <span class="event-card__type-tag" style="margin-right: 4px;">藍新金流</span>
+            <span class="event-card__type-tag" style="background: var(--color-gold); color: var(--color-navy);">PayPal</span>
+          </p>
+        </div>
+
+        <div class="annotation">
+          <span class="annotation__label">a11y 規範</span>
+          <h3>嵌入 netiCRM 表單時必須確認</h3>
+          <ul>
+            <li>iframe 必須加 <code>title</code> 屬性(例:「ADALS 2026 報名表單」)</li>
+            <li>iframe 內表單欄位都有 <code>&lt;label&gt;</code>,且必填用 <code>aria-required="true"</code></li>
+            <li>錯誤訊息使用 <code>role="alert"</code> 即時通知讀屏使用者</li>
+            <li>付款選項(藍新 vs PayPal)用 <code>&lt;fieldset&gt;</code> + <code>&lt;legend&gt;</code> 包裹</li>
+            <li>切換語言時 iframe 來源 URL 也要切換(中文 / 英文版表單)</li>
+          </ul>
+        </div>
+
+        <div class="annotation">
+          <span class="annotation__label">參考</span>
+          <h3>已存在的詳情頁範本</h3>
+          <p>
+            ADALS 2026 報名流程詳情頁範本見
+            <a href="event-template-form-payment.html">event-template-form-payment.html</a>。
+            該範本已涵蓋 5 種活動類型、報名 5 步驟、票種選擇、表單示範、
+            台灣/國際/贊助三種付款分流、各種狀態頁、WCAG 2.2 AA 表單檢查清單與雙語切換規範。
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__inner">
+      <p><strong>亞太包容創新協會</strong></p>
+      <p>APAC Authentic Inclusion Association</p>
+      <p>
+        <a href="#">聯絡我們</a> ・
+        <a href="#">關於我們</a> ・
+        <a href="#">資源</a>
+      </p>
+      <p class="site-footer__small">
+        © 2026 AIA. All rights reserved. ・
+        本頁面為設計範本,正式 logo 待設計師交付新版。
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
