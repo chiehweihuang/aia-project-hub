@@ -38,6 +38,20 @@
   .page-header .subtitle { font-size:15px; opacity:.85; max-width:680px; line-height:1.7; }
   .page-header .meta { margin-top:16px; font-size:12px; opacity:.6; letter-spacing:1px; }
 
+  /* ── Part divider (Part 1 必要規格 / Part 2 參考範例) ── */
+  .part-divider { margin:64px -24px 32px; padding:32px 24px 28px; border-radius:0; position:relative; }
+  .part-divider:first-of-type { margin-top:0; }
+  .part-divider-label { font-family:'IBM Plex Sans',sans-serif; font-size:12px; letter-spacing:4px; font-weight:700; margin-bottom:8px; }
+  .part-divider-title { font-family:'Noto Serif TC',serif; font-size:28px; font-weight:700; margin-bottom:12px; padding:0; border:none; color:var(--primary); }
+  .part-divider-sub { font-size:14px; line-height:1.7; max-width:800px; margin:0; color:var(--text); }
+  .part-divider.required { background:linear-gradient(135deg,#fdf2f2 0%,#fff5f0 100%); border-left:6px solid #c62828; }
+  .part-divider.required .part-divider-label { color:#c62828; }
+  .part-divider.reference { background:linear-gradient(135deg,#fff8e7 0%,#fffaf0 100%); border-left:6px solid var(--gold); }
+  .part-divider.reference .part-divider-label { color:#8B5E0E; }
+  .section-tag-adals { display:inline-block; background:rgba(248,182,45,.18); color:#8B5E0E; font-family:'IBM Plex Sans',sans-serif; font-size:11px; font-weight:700; letter-spacing:1px; padding:3px 10px; border-radius:4px; margin-left:8px; vertical-align:middle; }
+  .toc-part-label { font-family:'IBM Plex Sans',sans-serif; font-size:10px; font-weight:700; letter-spacing:2px; padding:14px 8px 14px 16px; flex-shrink:0; }
+  .toc-divider-pipe { width:1px; height:20px; background:var(--border); margin:0 4px; flex-shrink:0; }
+
   /* ── Flow indicator (cross-template navigation) ── */
   .flow-nav { background:#fff8e7; border-bottom:1px solid #f0d97a; padding:14px 24px; }
   .flow-nav-inner { max-width:1100px; margin:0 auto; display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
@@ -268,14 +282,21 @@
 
 <nav class="toc" aria-label="文件導覽">
   <div class="toc-inner">
-    <a href="#overview">範本說明</a>
-    <a href="#event-types">活動類型比較</a>
-    <a href="#flow">報名流程</a>
-    <a href="#tickets">票種選擇</a>
-    <a href="#form">報名表單</a>
-    <a href="#payment">付款方式分流</a>
-    <a href="#sponsor">贊助洽詢</a>
-    <a href="#states">狀態示範</a>
+    <span class="toc-part-label" style="color:#c62828;">PART 1 必要規格</span>
+    <a href="#overview">定位</a>
+    <a href="#a11y-floor">a11y 門檻</a>
+    <a href="#tech-constraints">技術整合</a>
+    <a href="#content-capability">內容能力</a>
+    <a href="#freedom">自由空間</a>
+    <span class="toc-divider-pipe" aria-hidden="true"></span>
+    <span class="toc-part-label" style="color:#8B5E0E;">PART 2 參考範例</span>
+    <a href="#event-types">活動類型</a>
+    <a href="#flow">流程示例</a>
+    <a href="#tickets">票種示例</a>
+    <a href="#form">表單示例</a>
+    <a href="#payment">付款示例</a>
+    <a href="#sponsor">贊助</a>
+    <a href="#states">狀態</a>
     <a href="#tech">技術註記</a>
   </div>
 </nav>
@@ -283,28 +304,123 @@
 <main id="main">
 
 <!-- §1 範本說明 ────────────────────────────────────────────── -->
+<!-- ═══════════════════════════════════════════════════════════════════
+     PART 1 — 必要規格(設計師必須遵守)
+     ═══════════════════════════════════════════════════════════════════ -->
+<div class="part-divider required">
+  <div class="part-divider-label">PART 1</div>
+  <h2 class="part-divider-title">必要規格(設計師必須遵守)</h2>
+  <p class="part-divider-sub">以下五節由 a11y 法規、技術整合、業務邏輯定義,設計師不得偏離。Part 1 較短,讀完即可進入 Part 2 參考範例(更多細節)。</p>
+</div>
+
 <section id="overview">
-  <div class="section-num">§1 OVERVIEW</div>
-  <h2>範本目的</h2>
-
-  <div class="note warn">
-    <strong>本範本的 scope 範圍（請先讀）：</strong>
-    <ul style="margin-top:6px; padding-left:18px;">
-      <li>本範本聚焦在 <strong>Christina 在 Elementor + Ally 內可建置的 UI 層</strong>：報名表單視覺、票種卡片、確認頁、狀態示範</li>
-      <li>金流整合層（NewebPay API、PayPal SDK、tax-compliant receipt）<strong>不在 Christina 的 scope 內</strong> — 由 netiCRM 平台內建處理，或由工程獨立介入</li>
-      <li>金流選項的完整比較與推薦理由 <strong>另闢一頁</strong>(給祕書長 / 常務理事 / 理事長)，本頁不重複論述 → <a href="payment-stack-decision.html">金流基礎建設決策依據 →</a></li>
-    </ul>
+  <div class="section-num" style="color:#c62828;">PART 1 · §A · 文件定位</div>
+  <h2>文件定位</h2>
+  <p>本文件分為兩部分:</p>
+  <ul>
+    <li><strong>Part 1 必要規格</strong>(本部分): 硬性限制,不得偏離。涵蓋 a11y 最低門檻、技術整合限制、必須具備的能力、以及明列「不規定」的事項。</li>
+    <li><strong>Part 2 參考範例</strong>(下半部): 以 ADALS 2026(最複雜活動類型)為示例,呈現一個可能的設計方向。實際 UI / 排版 / 視覺由設計師決定。簡單活動可 scale down。</li>
+  </ul>
+  <div class="note">
+    <strong>Scope 提醒:</strong>本範本聚焦在 <strong>Christina 在 Elementor + Ally 內可建置的 UI 層</strong>(報名表單視覺、票種卡片、確認頁、狀態示範)。金流整合層(NewebPay API、PayPal SDK、tax-compliant receipt)由 netiCRM 平台處理或工程獨立介入,不在此範本 scope。金流選項的完整比較 → <a href="payment-stack-decision.html">金流基礎建設決策依據</a>。
   </div>
-
-  <p>ADALS 2026 不是一般的會議網站。這場會議要面對 CTO 級觀眾，網站本身就是 WCAG 2.2 AA 的範例。本頁聚焦 <strong>Christina 的 UI 設計工作</strong>：報名表單視覺、流程串接、確認頁、狀態示範。</p>
-
-  <p style="font-size:14px; color:var(--muted);">至於金流走哪條路徑(netiCRM 主推 vs 自建備案)、各情境的金流商選擇、銀行帳戶決策等 — 這些屬 governance 層級決策，已彙整於 <a href="payment-stack-decision.html">金流基礎建設決策依據</a>。本範本的 UX 原則 <strong>不論金流路徑為何皆適用</strong>。</p>
 </section>
+
+<section id="a11y-floor">
+  <div class="section-num" style="color:#c62828;">PART 1 · §B · 可及性最低門檻</div>
+  <h2>可及性最低門檻(WCAG 2.2 AA)</h2>
+  <p>所有報名頁面實作必須通過以下條款。詳細範例與表單細節見 Part 2 §報名表單 + §技術註記。</p>
+  <ul>
+    <li><strong>1.3.1 資訊與關聯</strong> — 表單欄位有 <code>&lt;label&gt;</code>,錯誤訊息與欄位明確關聯(<code>aria-describedby</code>)</li>
+    <li><strong>1.4.3 對比</strong> — 一般文字 ≥ 4.5:1、大字 ≥ 3:1、UI 元件 ≥ 3:1</li>
+    <li><strong>1.4.11 非文字對比</strong> — 表單邊框、focus ring 對背景 ≥ 3:1</li>
+    <li><strong>1.4.12 文字間距</strong> — 行高 ≥ 1.5,使用者可覆寫(不寫死 <code>line-height</code>)</li>
+    <li><strong>2.1.1 鍵盤可操作</strong> — 所有報名動作可純鍵盤完成</li>
+    <li><strong>2.4.7 焦點可見</strong> — focus ring 明顯,不靠顏色獨立識別</li>
+    <li><strong>2.4.11 焦點不被遮蔽</strong>(WCAG 2.2 新)— 焦點不被 sticky header / modal 部分遮住</li>
+    <li><strong>2.5.5 / 2.5.8 觸控目標</strong> — 互動元件 ≥ 44×44 px(WCAG 2.2 SC 2.5.8 最低 24×24,建議 44×44)</li>
+    <li><strong>3.3.1 錯誤識別</strong> — 表單錯誤明確指出哪個欄位、什麼問題</li>
+    <li><strong>3.3.2 標籤或指示</strong> — 每個輸入欄位都有可見 label(不能只用 placeholder)</li>
+    <li><strong>3.3.3 錯誤建議</strong> — 系統知道修正方式時要提供範例</li>
+    <li><strong>3.3.4 錯誤防止(法律/財務/資料)</strong> — 付款步驟必須可檢閱、可取消、可確認(三步)</li>
+    <li><strong>4.1.3 狀態訊息</strong> — 「處理中」「成功」「失敗」用 <code>role="status"</code> 或 <code>role="alert"</code></li>
+  </ul>
+  <div class="note">
+    <strong>字體大小最低門檻</strong>(非 WCAG 條文,實務 a11y 共識): body ≥ 16px(1rem)為絕對最低,建議 18px 對銀髮 audience 更友善。Caption / small text ≥ 14px。互動元件命中區 ≥ 44×44 px。使用 rem / em 而非 px,讓使用者可在瀏覽器調大字體。
+  </div>
+</section>
+
+<section id="tech-constraints">
+  <div class="section-num" style="color:#c62828;">PART 1 · §C · 技術整合限制</div>
+  <h2>技術整合限制 <span style="font-size:14px; font-weight:400; color:#8B5E0E;">(高度可能,仍在確認)</span></h2>
+  <div class="note warn">
+    <strong>狀態:高度可能,仍在確認中。</strong>若最終決策改變(例如改用其他平台或自建表單),Part 2 範例需要重新校準。設計階段以下述方向進行,實作前再次確認。
+  </div>
+  <ul>
+    <li><strong>報名表單:netiCRM iframe 嵌入</strong> — no-code 路徑。netiCRM 後台建活動 → 產 embed URL → WordPress 端貼 iframe。視覺差異用 netiCRM 後台 CSS override 處理。</li>
+    <li><strong>付款金流:藍新(NewebPay)+ PayPal</strong> — 由 netiCRM 後台處理,網站端只負責導向 + 顯示結果。台灣付款走藍新,國際付款走 PayPal,贊助洽詢不走線上付款。</li>
+    <li><strong>會員資料、報名記錄、收據</strong> — 統一進 netiCRM 後台,網站端不另建系統。</li>
+    <li><strong>iframe a11y 要求</strong> — iframe 必須加 <code>title</code> 屬性(例: 「ADALS 2026 報名表單」),內部表單必須通過 §B WCAG 清單(透過 netiCRM 後台 CSS override + 表單欄位設定)。</li>
+    <li><strong>切語言時 iframe 來源 URL 同步切換</strong> — 中文表單與英文表單為不同 embed URL,語言切換時需替換。</li>
+  </ul>
+</section>
+
+<section id="content-capability">
+  <div class="section-num" style="color:#c62828;">PART 1 · §D · 內容能力要求</div>
+  <h2>內容能力要求</h2>
+
+  <h3>雙語(zh / en)支援</h3>
+  <ul>
+    <li><strong>系統能力: 必須</strong> — 切換語言功能必須存在(Polylang / WPML 或同等方案)。</li>
+    <li><strong>每個活動的雙語: 可選</strong> — 不是所有活動都需要雙語。ADALS 2026 預計雙語;小型內部工作坊可能僅中文。活動管理者自行決定是否啟用該活動的英文版。</li>
+    <li><strong>設計考量</strong>:
+      <ul>
+        <li>單語狀態: 介面不出現空英文 / 中文欄位(例如「英文標題:(未提供)」這種顯示)</li>
+        <li>雙語狀態: 中英並列或可切換的排版仍需合理(英文標題通常更長,設計時要預留)</li>
+        <li>網頁 <code>&lt;html lang&gt;</code> 屬性必須隨語言切換(讀屏會切換發音)</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>付款分流類型</h3>
+  <ul>
+    <li><strong>必須支援的分流類型</strong>: 台灣付款、國際付款、贊助洽詢、免費報名(無付款)</li>
+    <li><strong>每個活動啟用哪些</strong>: 由活動管理者決定。免費活動只啟用「免費報名」分流;ADALS 啟用所有四種。</li>
+    <li><strong>狀態頁: 四種必須各有對應</strong>: 處理中、驗證失敗、付款失敗、報名成功。可共用版面但訊息與行動方向必須清楚。</li>
+  </ul>
+</section>
+
+<section id="freedom">
+  <div class="section-num" style="color:#c62828;">PART 1 · §E · 設計師自由空間</div>
+  <h2>設計師自由空間(明列「不規定」的事)</h2>
+  <p>以下事項本範本<strong>不規定</strong>,由設計師依視覺判斷與品牌規範決定:</p>
+  <ul>
+    <li>報名流程的步驟數量與排序(Part 2 示範 5 步驟,簡單活動可合併至 2-3 步)</li>
+    <li>票種卡片的視覺樣式(欄位、邊框、選中狀態、價格顯示位置)</li>
+    <li>表單欄位的排版(單欄 / 雙欄、欄位順序、grouping、必填標示樣式)</li>
+    <li>狀態頁的視覺設計(僅要求訊息清楚 + WCAG 4.1.3)</li>
+    <li>雙語切換按鈕的位置與樣式(頂部 / 側邊 / hamburger 內)</li>
+    <li>按鈕樣式、間距、層級、hover / focus 細節(只要 focus 可見)</li>
+    <li>字體選擇(已由品牌規範定義,範本不重複)</li>
+    <li>動畫、轉場效果(只要尊重 <code>prefers-reduced-motion</code>)</li>
+    <li>響應式斷點與佈局策略(只要 320px-1920px 範圍內可用、200% zoom 不爆版)</li>
+    <li><strong>Part 2 提到的所有「示例」皆為一種可能,可全部重新設計</strong></li>
+  </ul>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     PART 2 — 參考範例(ADALS 為複雜情境示例,可 scale down)
+     ═══════════════════════════════════════════════════════════════════ -->
+<div class="part-divider reference">
+  <div class="part-divider-label">PART 2</div>
+  <h2 class="part-divider-title">參考範例(ADALS 為複雜情境示例,可 scale down)</h2>
+  <p class="part-divider-sub">以下為一個可能的設計方向,以 ADALS 2026(最複雜活動類型)為示例。簡單活動(免費單場、線上工作坊等)可 scale down —— 例如省略票種選擇、合併流程步驟、單一付款分流。所有 UI / 排版 / 視覺風格皆為示例,實際設計由設計師決定(見 Part 1 §E)。</p>
+</div>
 
 <!-- 活動類型比較 (整段可摺疊) ───────────────────────────────── -->
 <section id="event-types">
-  <div class="section-num">EVENT LADDER · 範本適用範圍</div>
-  <h2>活動類型比較</h2>
+  <div class="section-num"><span style="color:#8B5E0E;">PART 2 · </span>EVENT LADDER · 活動類型光譜</div>
+  <h2>活動類型比較 <span class="section-tag-adals">參考範例</span></h2>
 
   <p>本範本展示的是 <strong>ADALS 規模(大型國際年度)的最大複雜度版本</strong>。其他活動類型不需要這麼複雜——在 netiCRM 後台<strong>同一個平台 + 不同模板</strong>就能處理,Christina 不需要為每種活動重刻 UI。</p>
 
@@ -448,8 +564,8 @@
 
 <!-- §2 報名流程 ────────────────────────────────────────────── -->
 <section id="flow">
-  <div class="section-num">§2 FLOW</div>
-  <h2>報名流程五步驟</h2>
+  <div class="section-num"><span style="color:#8B5E0E;">PART 2 · </span>§2 FLOW</div>
+  <h2>報名流程五步驟 <span class="section-tag-adals">ADALS 範例,可 scale down</span></h2>
 
   <div class="flow" role="list" aria-label="報名流程步驟">
     <div class="step active" role="listitem"><div class="step-num">STEP 1</div><div class="step-name">票種選擇</div></div>
@@ -466,8 +582,8 @@
 
 <!-- §3 票種選擇 ────────────────────────────────────────────── -->
 <section id="tickets">
-  <div class="section-num">§3 STEP 1 · TICKET SELECTION</div>
-  <h2>票種選擇示範</h2>
+  <div class="section-num"><span style="color:#8B5E0E;">PART 2 · </span>§3 STEP 1 · TICKET SELECTION</div>
+  <h2>票種選擇示範 <span class="section-tag-adals">ADALS 範例,簡單活動可省略</span></h2>
 
   <div class="demo-grid">
     <div class="demo-box">
@@ -540,8 +656,8 @@
 
 <!-- §4 報名表單 ────────────────────────────────────────────── -->
 <section id="form">
-  <div class="section-num">§4 STEP 2 · REGISTRATION FORM</div>
-  <h2>報名表單示範</h2>
+  <div class="section-num"><span style="color:#8B5E0E;">PART 2 · </span>§4 STEP 2 · REGISTRATION FORM</div>
+  <h2>報名表單示範 <span class="section-tag-adals">參考範例</span></h2>
 
   <p>ADALS 報名表單應該<strong>盡量短</strong>，只問付款與通知絕對需要的資訊。其他偏好（飲食、住宿、議程關注）可以在報名成功後用後續 email 收集，不要塞進報名流程。</p>
 
@@ -629,8 +745,8 @@
 
 <!-- §5 付款流程的 UI 設計 ────────────────────────────────────── -->
 <section id="payment">
-  <div class="section-num">§5 STEP 4 · PAYMENT FLOW UI</div>
-  <h2>付款流程的 UI 設計</h2>
+  <div class="section-num"><span style="color:#8B5E0E;">PART 2 · </span>§5 STEP 4 · PAYMENT FLOW UI</div>
+  <h2>付款流程的 UI 設計 <span class="section-tag-adals">ADALS 範例(三流),簡單活動可只用一流</span></h2>
 
   <p>付款不是一個畫面，是一個<strong>分流路由器</strong>。根據 Step 1 的票種選擇，導向三條不同的 UI 流程。本節聚焦 Christina 在每條流程要設計的 <strong>前後 wrapper UI</strong>(引導頁 + 確認頁)。</p>
 
@@ -728,8 +844,8 @@
 
 <!-- §6 贊助洽詢 ────────────────────────────────────────────── -->
 <section id="sponsor">
-  <div class="section-num">§6 SPONSOR INQUIRY</div>
-  <h2>贊助洽詢流程（與門票分開）</h2>
+  <div class="section-num"><span style="color:#8B5E0E;">PART 2 · </span>§6 SPONSOR INQUIRY</div>
+  <h2>贊助洽詢流程(與門票分開) <span class="section-tag-adals">ADALS 範例,小活動可省略</span></h2>
 
   <p>贊助流程的目的是<strong>收集足夠的企業資訊</strong>，讓祕書長 / 總務能直接開立 invoice;大額或策略性贊助再由理事長 Claire 介入討論。線上不收錢、不簽合約，只收意向。</p>
 
@@ -805,8 +921,8 @@
 
 <!-- §7 狀態示範 ────────────────────────────────────────────── -->
 <section id="states">
-  <div class="section-num">§7 STATES</div>
-  <h2>狀態示範</h2>
+  <div class="section-num"><span style="color:#8B5E0E;">PART 2 · </span>§7 STATES</div>
+  <h2>狀態示範 <span class="section-tag-adals">參考範例(四種狀態必有,樣式自決)</span></h2>
 
   <p>Elementor 預設只處理「正常」狀態。但實際使用時，使用者會遇到很多<strong>非正常</strong>狀態。每個狀態都需要明確的視覺與文字提示。</p>
 
@@ -873,8 +989,11 @@
 
 <!-- §8 技術註記 ────────────────────────────────────────────── -->
 <section id="tech">
-  <div class="section-num">§8 TECH NOTES</div>
-  <h2>技術註記</h2>
+  <div class="section-num"><span style="color:#8B5E0E;">PART 2 · </span>§8 TECH NOTES</div>
+  <h2>技術註記(深度參考)<span class="section-tag-adals">補充細節</span></h2>
+  <div class="note">
+    <strong>注意:</strong>本節為 Part 1 §B-§D 各條的<strong>詳細展開</strong>。Part 1 已給核心硬性限制,本節提供工具選擇建議、實作細節、避雷指引。Part 1 已涵蓋者本節不重複。
+  </div>
 
   <h3>Scope 拆分：Christina vs. 平台 / 工程</h3>
   <div class="checklist">
