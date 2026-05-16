@@ -142,6 +142,75 @@
     }
 
     /* ============================================================
+       Flow indicator (cross-template navigation)
+       Shows relationship to event-template-form-payment.html
+       ============================================================ */
+    .flow-nav {
+      background: #fff8e7;
+      border-bottom: 1px solid #f0d97a;
+      padding: 14px 24px;
+    }
+    .flow-nav__inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .flow-nav__label {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--color-gold-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .flow-nav__step {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      text-decoration: none;
+      border: 2px solid var(--color-navy);
+      color: var(--color-navy);
+      background: var(--color-white);
+      font-weight: 500;
+      min-height: 44px;
+      transition: background-color .15s, color .15s;
+    }
+    .flow-nav__step:hover,
+    .flow-nav__step:focus {
+      background: var(--color-navy);
+      color: var(--color-white);
+    }
+    .flow-nav__step--current {
+      background: var(--color-navy);
+      color: var(--color-white);
+      cursor: default;
+    }
+    .flow-nav__num {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      background: var(--color-gold);
+      color: var(--color-navy);
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .flow-nav__arrow {
+      color: var(--color-gold-dark);
+      font-size: 18px;
+    }
+
+    /* ============================================================
        Mockup preview frame note
        ============================================================ */
     .preview-note {
@@ -629,6 +698,24 @@
   </div>
 
   <!-- ============================================================
+       Flow indicator (cross-template navigation)
+       ============================================================ -->
+  <nav class="flow-nav" aria-label="活動頁面流程">
+    <div class="flow-nav__inner">
+      <span class="flow-nav__label">頁面流程</span>
+      <span class="flow-nav__step flow-nav__step--current" aria-current="page">
+        <span class="flow-nav__num" aria-hidden="true">1</span>
+        <span>活動列表頁(本頁)</span>
+      </span>
+      <span class="flow-nav__arrow" aria-hidden="true">→</span>
+      <a href="event-template-form-payment.html" class="flow-nav__step">
+        <span class="flow-nav__num" aria-hidden="true">2</span>
+        <span>活動報名頁面</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ============================================================
        Preview Note
        ============================================================ -->
   <div class="preview-note">
@@ -826,8 +913,8 @@
           <span class="annotation__label">整合說明</span>
           <h3>採用模式 (b):iframe / embed</h3>
           <p>
-            點擊「立即報名」後,使用者跳轉至 ADALS 2026 詳情頁
-            (<code>event-template-form-payment.html</code>),
+            點擊「立即報名」後,使用者跳轉至該活動的「活動報名頁面」
+            (範本見 <code>event-template-form-payment.html</code>),
             該頁面在報名區塊嵌入 netiCRM 表單 iframe。優點:
           </p>
           <ul>
@@ -857,12 +944,13 @@
 
         <div class="annotation">
           <span class="annotation__label">參考</span>
-          <h3>已存在的詳情頁範本</h3>
+          <h3>已存在的「活動報名頁面」範本</h3>
           <p>
-            ADALS 2026 報名流程詳情頁範本見
+            活動報名頁面設計範本(範例情境:ADALS 2026)見
             <a href="event-template-form-payment.html">event-template-form-payment.html</a>。
             該範本已涵蓋 5 種活動類型、報名 5 步驟、票種選擇、表單示範、
             台灣/國際/贊助三種付款分流、各種狀態頁、WCAG 2.2 AA 表單檢查清單與雙語切換規範。
+            <strong>定位為「參考範例」非「設計要求」 —— 列出可能元素與技術限制,實際 UI 由設計師決定。</strong>
           </p>
         </div>
 

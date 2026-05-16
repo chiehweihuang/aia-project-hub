@@ -12,7 +12,7 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ADALS 2026 報名流程設計範本 — 給 Christina 的參考</title>
+<title>活動報名頁面設計範本 — 給 Christina 的參考(範例情境:ADALS 2026)</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@300;400;500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
 
@@ -37,6 +37,16 @@
   .page-header h1 { font-family:'Noto Serif TC',serif; font-size:32px; font-weight:700; letter-spacing:1px; margin:8px 0 8px; }
   .page-header .subtitle { font-size:15px; opacity:.85; max-width:680px; line-height:1.7; }
   .page-header .meta { margin-top:16px; font-size:12px; opacity:.6; letter-spacing:1px; }
+
+  /* ── Flow indicator (cross-template navigation) ── */
+  .flow-nav { background:#fff8e7; border-bottom:1px solid #f0d97a; padding:14px 24px; }
+  .flow-nav-inner { max-width:1100px; margin:0 auto; display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+  .flow-nav-label { font-family:'IBM Plex Sans',sans-serif; font-size:11px; letter-spacing:2px; color:#8B5E0E; font-weight:700; text-transform:uppercase; }
+  .flow-nav-step { display:inline-flex; align-items:center; gap:8px; padding:8px 14px; border-radius:999px; font-size:13px; text-decoration:none; border:2px solid var(--primary); color:var(--primary); background:#fff; font-weight:500; min-height:44px; transition:background-color .15s, color .15s; }
+  .flow-nav-step:hover, .flow-nav-step:focus { background:var(--primary); color:#fff; }
+  .flow-nav-step.current { background:var(--primary); color:#fff; cursor:default; }
+  .flow-nav-num { font-family:'IBM Plex Sans',sans-serif; font-size:12px; font-weight:700; background:var(--gold); color:var(--primary); width:22px; height:22px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .flow-nav-arrow { color:#8B5E0E; font-size:18px; }
 
   /* ── Sticky nav ── */
   .toc { position:sticky; top:0; background:#fff; border-bottom:1px solid var(--border); z-index:90; }
@@ -235,11 +245,26 @@
 <header class="page-header">
   <div class="page-header-inner">
     <a href="../index.html" class="back-link">← 返回專案文件</a>
-    <h1>ADALS 2026 報名流程設計範本</h1>
-    <p class="subtitle">給 Christina 的參考文件 — 表單可及性、付款分流與狀態切換的設計建議。本範本不是 production code，是讓 Elementor + Ally 建置時可以對照的視覺與邏輯規格。</p>
-    <div class="meta">VERSION 1.0 · 2026-04-28 · 依據 Handoff ADALS 2026 Site & Internal Memo §6 完整金流決策路徑</div>
+    <h1>活動報名頁面設計範本</h1>
+    <p class="subtitle">給 Christina 的<strong>參考範例</strong>(非設計要求)— 列出常見的活動報名頁面元素、可及性最低門檻與技術限制(如 netiCRM iframe、付款分流)。實際 UI / 排版 / 視覺由設計師決定。文件以 ADALS 2026 為示例情境,概念可套用到其他活動。</p>
+    <div class="meta">VERSION 1.1 · 2026-05-16 · 範例情境:ADALS 2026 · 文件定位:參考範例,非規格</div>
   </div>
 </header>
+
+<nav class="flow-nav" aria-label="活動頁面流程">
+  <div class="flow-nav-inner">
+    <span class="flow-nav-label">頁面流程</span>
+    <a href="event-template-list.html" class="flow-nav-step">
+      <span class="flow-nav-num" aria-hidden="true">1</span>
+      <span>活動列表頁</span>
+    </a>
+    <span class="flow-nav-arrow" aria-hidden="true">→</span>
+    <span class="flow-nav-step current" aria-current="page">
+      <span class="flow-nav-num" aria-hidden="true">2</span>
+      <span>活動報名頁面(本頁)</span>
+    </span>
+  </div>
+</nav>
 
 <nav class="toc" aria-label="文件導覽">
   <div class="toc-inner">
@@ -939,7 +964,7 @@
 </section>
 
 <footer style="background:#003b5c; color:rgba(255,255,255,.7); text-align:center; padding:24px; font-size:12px; letter-spacing:1px;">
-  ADALS 2026 報名流程 UI 設計範本 v2.0 · 給 Christina 的參考 · 2026-05-07<br>
+  活動報名頁面設計範本 v2.1 · 給 Christina 的參考範例(非設計要求)· 範例情境:ADALS 2026 · 2026-05-16<br>
   金流決策依據 → <a href="payment-stack-decision.html" style="color:rgba(255,255,255,.85);">payment-stack-decision.html</a>
 </footer>
 
