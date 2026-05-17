@@ -1,5 +1,6 @@
 
 # Local verification artifacts (Claude/Codex agent workspace)
-verify_linkage.py
+verify_*.py
 *-verify.png
+verify-*.png
 form-part2-*.png
