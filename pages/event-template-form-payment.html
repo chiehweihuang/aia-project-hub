@@ -309,8 +309,8 @@
      ═══════════════════════════════════════════════════════════════════ -->
 <div class="part-divider required">
   <div class="part-divider-label">PART 1</div>
-  <h2 class="part-divider-title">必要規格(設計師必須遵守)</h2>
-  <p class="part-divider-sub">以下五節由 a11y 法規、技術整合、業務邏輯定義,設計師不得偏離。Part 1 較短,讀完即可進入 Part 2 參考範例(更多細節)。</p>
+  <h2 class="part-divider-title">規格依據(實作基準)</h2>
+  <p class="part-divider-sub">以下五節彙整 a11y 法規、技術整合、業務邏輯的硬性要求,作為實作時的共同基準。Part 1 較短,讀完即可進入 Part 2 參考範例(更多細節)。</p>
 </div>
 
 <section id="overview">
@@ -318,7 +318,7 @@
   <h2>文件定位</h2>
   <p>本文件分為兩部分:</p>
   <ul>
-    <li><strong>Part 1 必要規格</strong>(本部分): 硬性限制,不得偏離。涵蓋 a11y 最低門檻、技術整合限制、必須具備的能力、以及明列「不規定」的事項。</li>
+    <li><strong>Part 1 規格依據</strong>(本部分): 實作時的共同基準。彙整 a11y 法規門檻、技術整合限制、業務邏輯能力要求、以及明列「不規定」的事項。</li>
     <li><strong>Part 2 參考範例</strong>(下半部): 以 ADALS 2026(最複雜活動類型)為示例,呈現一個可能的設計方向。實際 UI / 排版 / 視覺由設計師決定。簡單活動可 scale down。</li>
   </ul>
   <div class="note">
@@ -329,24 +329,46 @@
 <section id="a11y-floor">
   <div class="section-num" style="color:#c62828;">PART 1 · §B · 可及性最低門檻</div>
   <h2>可及性最低門檻(WCAG 2.2 AA)</h2>
-  <p>所有報名頁面實作必須通過以下條款。詳細範例與表單細節見 Part 2 §報名表單 + §技術註記。</p>
-  <ul>
-    <li><strong>1.3.1 資訊與關聯</strong> — 表單欄位有 <code>&lt;label&gt;</code>,錯誤訊息與欄位明確關聯(<code>aria-describedby</code>)</li>
-    <li><strong>1.4.3 對比</strong> — 一般文字 ≥ 4.5:1、大字 ≥ 3:1、UI 元件 ≥ 3:1</li>
-    <li><strong>1.4.11 非文字對比</strong> — 表單邊框、focus ring 對背景 ≥ 3:1</li>
-    <li><strong>1.4.12 文字間距</strong> — 行高 ≥ 1.5,使用者可覆寫(不寫死 <code>line-height</code>)</li>
-    <li><strong>2.1.1 鍵盤可操作</strong> — 所有報名動作可純鍵盤完成</li>
-    <li><strong>2.4.7 焦點可見</strong> — focus ring 明顯,不靠顏色獨立識別</li>
-    <li><strong>2.4.11 焦點不被遮蔽</strong>(WCAG 2.2 新)— 焦點不被 sticky header / modal 部分遮住</li>
-    <li><strong>2.5.5 / 2.5.8 觸控目標</strong> — 互動元件 ≥ 44×44 px(WCAG 2.2 SC 2.5.8 最低 24×24,建議 44×44)</li>
-    <li><strong>3.3.1 錯誤識別</strong> — 表單錯誤明確指出哪個欄位、什麼問題</li>
-    <li><strong>3.3.2 標籤或指示</strong> — 每個輸入欄位都有可見 label(不能只用 placeholder)</li>
-    <li><strong>3.3.3 錯誤建議</strong> — 系統知道修正方式時要提供範例</li>
-    <li><strong>3.3.4 錯誤防止(法律/財務/資料)</strong> — 付款步驟必須可檢閱、可取消、可確認(三步)</li>
-    <li><strong>4.1.3 狀態訊息</strong> — 「處理中」「成功」「失敗」用 <code>role="status"</code> 或 <code>role="alert"</code></li>
-  </ul>
+
   <div class="note">
-    <strong>字體大小最低門檻</strong>(非 WCAG 條文,實務 a11y 共識): body ≥ 16px(1rem)為絕對最低,建議 18px 對銀髮 audience 更友善。Caption / small text ≥ 14px。互動元件命中區 ≥ 44×44 px。使用 rem / em 而非 px,讓使用者可在瀏覽器調大字體。
+    <strong>主要清單:</strong>本專案 WCAG 2.2 AA 測試清單以
+    <a href="testing-flow.html"><strong>testing-flow.html</strong></a>
+    為 canonical 來源(34 個 step,涵蓋全頁測試)。實作前請以該頁為準。
+    本節只列出對「報名 / 付款表單」特別重要的子集 + 範本級補充。
+  </div>
+
+  <h3>從 testing-flow 取出的 form 相關子集</h3>
+  <p>這些是 testing-flow 中對表單 / 付款流程影響最大的條款,實作時優先檢查:</p>
+  <ul>
+    <li><strong>1.3.1 Info and Relationships</strong>(A)— 表單欄位有 <code>&lt;label&gt;</code>,錯誤訊息與欄位用 <code>aria-describedby</code> 關聯</li>
+    <li><strong>1.4.1 Use of Color</strong>(A)— 錯誤訊息不能只靠紅色 / 必填不能只靠紅星號</li>
+    <li><strong>1.4.11 Non-text Contrast</strong>(AA)— input 邊框、focus ring 對背景 ≥ 3:1</li>
+    <li><strong>2.1.1 Keyboard</strong>(A)— 報名流程可純鍵盤完成</li>
+    <li><strong>2.4.3 Focus Order</strong>(A)— 欄位 Tab 順序合理</li>
+    <li><strong>2.4.7 Focus Visible</strong>(AA)— focus ring 明顯可見</li>
+    <li><strong>2.4.11 Focus Not Obscured</strong>(AA, WCAG 2.2 新)— sticky header / modal 不遮焦點</li>
+    <li><strong>2.5.8 Target Size (Minimum)</strong>(AA, WCAG 2.2 新)— 互動元件 ≥ 24×24 px,建議 44×44</li>
+    <li><strong>3.3.1 Error Identification</strong>(A)— 指出哪個欄位錯</li>
+    <li><strong>3.3.2 Labels or Instructions</strong>(A)— 可見 label,不只 placeholder</li>
+    <li><strong>3.3.3 Error Suggestion</strong>(AA)— 提供修正建議</li>
+    <li><strong>3.3.7 Redundant Entry</strong>(A, WCAG 2.2 新)— 多步驟不重問同樣資訊</li>
+    <li><strong>3.3.8 Accessible Authentication</strong>(AA, WCAG 2.2 新)— 若有登入,支援密碼管理器</li>
+    <li><strong>4.1.2 Name, Role, Value</strong>(A)— 自訂元件(custom radio、card 點擊區)有正確 accessible name + role</li>
+  </ul>
+
+  <h3>Form-payment 特別補充(testing-flow 已加入,本範本特別關注)</h3>
+  <ul>
+    <li><strong>1.3.5 Identify Input Purpose</strong>(AA)— 常見欄位(email、name、tel、address)加 <code>autocomplete</code> 屬性,讓密碼管理器/瀏覽器正確 autofill</li>
+    <li><strong>1.4.12 Text Spacing</strong>(AA)— 使用者覆寫文字間距(行高 1.5x、段距 2x、字距 0.12em、詞距 0.16em)時內容不丟失</li>
+    <li><strong>3.3.4 Error Prevention (Legal, Financial, Data)</strong>(AA)— 付款步驟可檢閱、可取消、可確認(三步)</li>
+    <li><strong>4.1.3 Status Messages</strong>(AA)— 「處理中」「成功」「失敗」用 <code>role="status"</code> 或 <code>role="alert"</code>,讓螢幕閱讀器即時朗讀</li>
+  </ul>
+
+  <div class="note">
+    <strong>字體大小 guardrail</strong>(非 WCAG 條文,實務 a11y 共識):
+    body ≥ 16px(1rem)為絕對最低,建議 18px 對銀髮 audience 更友善。
+    Caption / small text ≥ 14px。
+    使用 rem / em 而非 px,讓使用者可在瀏覽器調大字體。
   </div>
 </section>
 
