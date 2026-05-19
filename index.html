@@ -924,9 +924,9 @@ function toggleTheme() {
   document.getElementById('theme-btn').textContent = next === 'dark' ? 'Light' : 'Dark';
 }
 
-// Restore theme
+// Restore theme — Light mode is default. Only switch to dark when user has explicitly opted in via the toggle (saved as localStorage 'aia-theme=dark'). Do NOT auto-detect OS prefers-color-scheme.
 (function() {
-  const saved = localStorage.getItem('aia-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  const saved = localStorage.getItem('aia-theme');
   if (saved === 'dark') {
     document.documentElement.setAttribute('data-theme', 'dark');
   }

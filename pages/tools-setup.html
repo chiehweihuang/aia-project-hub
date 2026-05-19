@@ -387,10 +387,9 @@ function toggle(header) {
   chevron.classList.toggle('open');
 }
 
-// Dark mode sync
+// Light mode is default. Only switch to dark when user has explicitly opted in (localStorage 'aia-theme=dark'). Do NOT auto-detect OS prefers-color-scheme.
 (function() {
   var theme = localStorage.getItem('aia-theme');
-  if (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches) theme = 'dark';
   if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
 })();
 </script>

@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<script>
+(function(){
+  var exp = localStorage.getItem('aia-auth');
+  if (!exp || Date.now() > +exp) {
+    localStorage.removeItem('aia-auth');
+    window.location.replace('../index.html');
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>netiCRM 諮詢準備 — 整合方案 + 問題清單 + 省錢策略</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@300;400;500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap');
+
+  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+  :root {
+    --primary:#003b5c; --secondary:#19abe4; --gold:#F8B62D;
+    --text:#231815; --muted:#6b6b6b; --border:#e0e0e0;
+    --bg:#f5f5f5; --card:#fff; --note-bg:#fff8e7; --note-border:#F8B62D;
+    --error:#c62828; --success:#2e7d32; --warn-bg:#fff3e0;
+  }
+  body { font-family:'Noto Sans TC','IBM Plex Sans',sans-serif; background:var(--bg); color:var(--text); line-height:1.78; font-size:16px; }
+
+  .skip { position:absolute; left:-9999px; top:0; padding:8px 16px; background:#000; color:#fff; z-index:1000; }
+  .skip:focus { left:8px; top:8px; }
+
+  .page-header { background:#003b5c; color:#fff; padding:48px 24px 40px; }
+  .page-header-inner { max-width:1100px; margin:0 auto; }
+  .back-link { display:inline-flex; align-items:center; gap:6px; color:rgba(255,255,255,.75); font-size:14px; text-decoration:none; padding:8px 0; min-height:44px; }
+  .back-link:hover, .back-link:focus { color:#fff; }
+  .page-header h1 { font-family:'Noto Serif TC',serif; font-size:32px; font-weight:700; letter-spacing:1px; margin:8px 0 8px; }
+  .page-header .subtitle { font-size:16px; opacity:.85; max-width:760px; line-height:1.7; }
+  .page-header .meta { margin-top:16px; font-size:12px; opacity:.6; letter-spacing:1px; font-family:'IBM Plex Mono',monospace; }
+  .audience-tag { display:inline-block; padding:4px 12px; background:rgba(248,182,45,.18); color:var(--gold); font-size:13px; font-weight:600; letter-spacing:1px; border-radius:4px; margin-top:14px; }
+
+  .toc { position:sticky; top:0; background:#fff; border-bottom:1px solid var(--border); z-index:90; }
+  .toc-inner { max-width:1100px; margin:0 auto; padding:0 24px; display:flex; gap:0; align-items:center; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:thin; }
+  .toc a { padding:14px 14px; font-size:13.5px; color:var(--muted); text-decoration:none; white-space:nowrap; flex-shrink:0; border-bottom:3px solid transparent; transition:color .15s, border-color .15s; }
+  .toc a:hover, .toc a:focus { color:var(--primary); border-bottom-color:var(--secondary); }
+
+  main { max-width:1100px; margin:0 auto; padding:48px 24px 80px; }
+  section { margin-bottom:64px; }
+  section:last-child { margin-bottom:0; }
+  .section-num { font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--secondary); font-weight:600; letter-spacing:2px; margin-bottom:6px; }
+  h2 { font-family:'Noto Serif TC',serif; font-size:26px; font-weight:700; color:var(--primary); margin-bottom:20px; padding-bottom:12px; border-bottom:2px solid var(--primary); }
+  h3 { font-size:18px; font-weight:700; color:var(--primary); margin:28px 0 12px; }
+  h4 { font-size:15px; font-weight:600; color:var(--primary); margin:16px 0 8px; }
+  p { margin-bottom:12px; }
+  strong { color:var(--primary); }
+
+  .note { background:var(--note-bg); border-left:4px solid var(--note-border); padding:16px 20px; border-radius:0 8px 8px 0; margin:16px 0; font-size:14.5px; line-height:1.8; }
+  .note strong { color:var(--primary); }
+  .note.warn { background:#fff5f5; border-left-color:var(--error); }
+  .note.warn strong { color:var(--error); }
+  .note.ok { background:#f3faf3; border-left-color:var(--success); }
+  .note.ok strong { color:var(--success); }
+  .note.tldr { background:linear-gradient(135deg,rgba(248,182,45,.12),rgba(248,182,45,.04)); border-left-color:var(--gold); }
+  .note.tldr strong { color:#a06c00; }
+
+  table { width:100%; border-collapse:collapse; margin:14px 0; font-size:14px; }
+  th, td { padding:10px 14px; text-align:left; vertical-align:top; }
+  thead th { background:var(--primary); color:#fff; font-weight:600; font-size:13px; letter-spacing:1px; }
+  tbody tr { border-bottom:1px solid var(--border); }
+  tbody tr:last-child { border-bottom:none; }
+  tbody th { font-weight:600; color:var(--primary); background:transparent; text-align:left; padding:10px 14px; vertical-align:top; }
+  tbody tr:nth-child(even) th, tbody tr:nth-child(even) td { background:#fafafa; }
+  .label-col { white-space:nowrap; }
+  .table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; border-radius:8px; border:1px solid var(--border); margin:14px 0; }
+  .table-wrap table { margin:0; min-width:560px; }
+
+  .path-card { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:22px 24px; margin:14px 0; }
+  .path-card.primary { border-color:var(--success); background:#f3faf3; }
+  .path-card.alternative { border-color:var(--gold); background:#fffaeb; }
+  .path-card.baseline { border-color:#9e9e9e; background:#fafafa; }
+  .path-card.fallback { border-color:var(--secondary); background:#f8fbfd; }
+  .path-card .path-label { display:inline-block; padding:3px 12px; font-size:12px; font-weight:700; letter-spacing:2px; border-radius:4px; margin-bottom:10px; }
+  .path-card.primary .path-label { background:var(--success); color:#fff; }
+  .path-card.alternative .path-label { background:var(--gold); color:#003b5c; }
+  .path-card.baseline .path-label { background:#757575; color:#fff; }
+  .path-card.fallback .path-label { background:var(--secondary); color:#fff; }
+  .path-card h3 { margin-top:0; }
+
+  .q-block { background:#fff; border:1px solid var(--border); border-left:4px solid var(--secondary); border-radius:0 8px 8px 0; padding:18px 22px; margin:14px 0; }
+  .q-block h3 { margin-top:0; }
+  .q-block .priority { display:inline-block; padding:2px 10px; font-size:11px; font-weight:700; letter-spacing:1.5px; border-radius:4px; margin-left:10px; vertical-align:middle; }
+  .q-block .priority.must { background:#c62828; color:#fff; }
+  .q-block .priority.should { background:#F8B62D; color:#003b5c; }
+  .q-block .priority.nice { background:#9e9e9e; color:#fff; }
+  .q-block ol { padding-left:24px; font-size:14.5px; line-height:1.9; }
+  .q-block ol li { margin-bottom:8px; }
+  .q-block .why { font-size:13px; color:var(--muted); margin-top:6px; font-style:italic; }
+
+  details.deep { background:#fafafa; border:1px solid var(--border); border-radius:8px; padding:0; margin:14px 0; }
+  details.deep > summary { cursor:pointer; padding:14px 18px; font-weight:600; color:var(--primary); font-size:15px; list-style:none; display:flex; align-items:center; gap:10px; user-select:none; min-height:44px; }
+  details.deep > summary::-webkit-details-marker { display:none; }
+  details.deep > summary::after { content:'⌄'; margin-left:auto; font-size:18px; line-height:1; transition:transform .2s; }
+  details.deep[open] > summary::after { transform:rotate(180deg); }
+  details.deep[open] > summary { border-bottom:1px solid var(--border); }
+  details.deep > .deep-body { padding:14px 18px 18px; font-size:14px; line-height:1.8; }
+
+  .ref-link { display:inline-block; margin-top:18px; padding:10px 16px; background:#fff; border:1px solid var(--secondary); color:var(--secondary); text-decoration:none; border-radius:6px; font-size:14px; font-weight:600; }
+  .ref-link:hover, .ref-link:focus { background:var(--secondary); color:#fff; }
+
+  .legend { display:flex; flex-wrap:wrap; gap:14px; font-size:13px; color:var(--muted); margin:10px 0 18px; }
+  .legend span.pri { display:inline-flex; align-items:center; gap:6px; }
+  .legend span.pri::before { content:''; width:12px; height:12px; border-radius:3px; }
+  .legend span.pri.must::before { background:#c62828; }
+  .legend span.pri.should::before { background:#F8B62D; }
+  .legend span.pri.nice::before { background:#9e9e9e; }
+
+  @media (max-width:600px) {
+    .page-header { padding:32px 20px 28px; }
+    .page-header h1 { font-size:24px; }
+    main { padding:32px 16px 60px; }
+    h2 { font-size:22px; }
+    h3 { font-size:16px; }
+    table { font-size:13px; }
+    th, td { padding:8px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip">跳至主要內容</a>
+
+<header class="page-header">
+  <div class="page-header-inner">
+    <a href="../index.html" class="back-link">← 返回專案文件</a>
+    <h1>netiCRM 諮詢準備 — 整合方案 + 問題清單 + 省錢策略</h1>
+    <p class="subtitle">本週要寄出 enquiry 與後續開會用。<strong>「中英雙語建置加購 NT$10,500」是什麼?</strong>、AIA 自建網站如何整合、netiCRM 能提供什麼價值、採 netiCRM 前提下的省錢做法。</p>
+    <span class="audience-tag">受眾 · 執行小組(主)/ 祕書長 / 理事長(整合方案 + 省錢策略)</span>
+    <div class="meta">VERSION 1.0 · 2026-05-19 · 配合 payment-stack-decision v2.1 諮詢階段</div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="文件導覽">
+  <div class="toc-inner">
+    <a href="#exec-summary">§0 一頁總結</a>
+    <a href="#bilingual-explainer">§1 中英雙語加購是什麼</a>
+    <a href="#aia-context">§2 AIA 自建網站現況</a>
+    <a href="#neticrm-value">§3 netiCRM 對 AIA 的價值</a>
+    <a href="#integration-paths">§4 4 條整合路徑</a>
+    <a href="#question-list">§5 諮詢問題清單</a>
+    <a href="#cost-saving">§6 省錢策略</a>
+    <a href="#mvp-setup">§7 建議 MVP 配置</a>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- §0 Executive Summary -->
+<section id="exec-summary">
+  <div class="section-num">§0 EXECUTIVE SUMMARY</div>
+  <h2>一頁總結</h2>
+
+  <div class="note tldr">
+    <strong>三個核心答案</strong>
+    <ol style="margin-top:8px; padding-left:24px; line-height:1.9;">
+      <li><strong>「中英雙語建置加購 NT$10,500」是什麼?</strong>:netiCRM 預設只給繁體中文募款頁,此一次性加購讓他們替你建一個英文版頁面(英中切換或兩個獨立網址),用於 ADALS 國際與會者 / 海外贊助。AIA 目前可能<strong>不需要</strong>立刻買 — 看諮詢結果(見 §1)。</li>
+      <li><strong>AIA 自建網站怎麼跟 netiCRM 整合?</strong>:有 4 條路徑(iframe 嵌入 / API 自建表單 / 子域名 wrap / 全包),最便宜的是 iframe 嵌入 —— 0 加購、保留 AIA 站視覺、ADALS 報名 / 捐款表單從 netiCRM 拉進來(見 §4)。</li>
+      <li><strong>netiCRM 對 AIA 的核心價值是什麼?</strong>:抵稅收據 + 公益勸募合規 + 統一編號 + 跨年 donor CRM + event registration + 已串接金流 — 這些自建要花 6-12 個月才能做到的合規層,netiCRM 即開即用(見 §3)。</li>
+    </ol>
+  </div>
+
+  <div class="note">
+    <strong>本頁怎麼用</strong>:
+    <ul style="padding-left:22px; margin-top:6px; line-height:1.85;">
+      <li><strong>開會前</strong>:執行小組讀 §5 問題清單,標記哪些是必問(MUST) / 該問(SHOULD) / 加分(NICE)</li>
+      <li><strong>開會時</strong>:依問題清單逐項問,記錄 netiCRM 答覆</li>
+      <li><strong>開會後</strong>:對照 §4 整合路徑 + §6 省錢策略 + §7 MVP 配置,出最終 quote 與內部簽核版</li>
+    </ul>
+  </div>
+</section>
+
+<!-- §1 Bilingual Explainer -->
+<section id="bilingual-explainer">
+  <div class="section-num">§1 EXPLAINER</div>
+  <h2>「中英雙語建置加購 NT$10,500」到底是什麼?</h2>
+
+  <p>這個項目在 payment-stack-decision §2 規格表出現,Recur.tw 那一欄寫「未提」。先解釋兩個欄位各自的意思,再說 AIA 該不該買。</p>
+
+  <h3>netiCRM 欄:NT$10,500 加購 = 一次性「建一個英文版」服務費</h3>
+  <ul style="font-size:14.5px; line-height:1.9; padding-left:24px;">
+    <li><strong>預設狀態</strong>:netiCRM 微型方案買來後,所有對外頁面(募款頁、報名頁、收據)都是<strong>繁體中文 only</strong>。後台管理介面同樣是繁中。</li>
+    <li><strong>NT$10,500 涵蓋什麼</strong>(依公開資訊推測,須諮詢確認):netiCRM 工程師替 AIA 建一份「英文版的對外頁面」,讓海外捐款者 / 報名者能用英文流程。技術上是 CiviCRM 多語言模組的啟用 + 內容翻譯協作 + UI 文字英文化。</li>
+    <li><strong>不涵蓋什麼</strong>:後台管理(admin)介面;這部分仍是繁中,給 AIA 工作人員用。</li>
+    <li><strong>是一次性還是年費</strong>?:不確定。「建置加購」這個名稱看似一次性,但若 netiCRM 後續需要維護雙語會不會收年費,要問。</li>
+  </ul>
+
+  <h3>Recur.tw 欄:「未提」= Recur 公開資料沒寫</h3>
+  <ul style="font-size:14.5px; line-height:1.9; padding-left:24px;">
+    <li>「未提」不是「沒有」也不是「有」 — 是 Recur 的公開定價 / spec 頁面<strong>沒有明確提到</strong>是否支援中英雙語。</li>
+    <li>本週諮詢 Recur 時可以順便問:有沒有英文版表單?跨幣別?雙語頁面客製?</li>
+    <li>但提醒:即使 Recur 有英文版,還是不解決 §3 提到的 NPO 法規層缺失問題。</li>
+  </ul>
+
+  <div class="note tldr">
+    <strong>AIA 該不該買這 NT$10,500?</strong> 三個決定關鍵:
+    <ol style="margin-top:6px; padding-left:24px; line-height:1.9;">
+      <li><strong>ADALS 2026 海外與會者比例</strong>:若 &lt; 10% 海外與會者,可能不需要 — 把 AIA 主站做雙語,只把 netiCRM 表單 label 改為英文也許足夠。若 &gt; 30%,雙語頁明顯加分。</li>
+      <li><strong>「英文版」具體範圍</strong>:只要英文表單,還是整頁英文(含頁面標題、說明文字、感謝信、收據)?範圍越大越值得加購。</li>
+      <li><strong>替代方案存在嗎</strong>:能不能用「兩份獨立中文 / 英文表單」,各自設不同 URL,放在 AIA 主站不同語言頁面?如果 netiCRM 支援這種「複製表單 + 改 label」,可能不用花 NT$10,500。問 netiCRM 確認。</li>
+    </ol>
+  </div>
+</section>
+
+<!-- §2 AIA Context -->
+<section id="aia-context">
+  <div class="section-num">§2 CONTEXT</div>
+  <h2>AIA 自建網站現況與整合需求</h2>
+
+  <h3>現況</h3>
+  <ul style="font-size:14.5px; line-height:1.9; padding-left:24px;">
+    <li><strong>主站平台</strong>:WordPress + Elementor Page Builder(per work-structure.html)</li>
+    <li><strong>設計風格</strong>:有既定 Style Guide(Brand 色彩、字體、Logo)</li>
+    <li><strong>無障礙</strong>:目標 WCAG 2.2 AA(AIA 是 a11y NPO,自家站不能不無障礙)</li>
+    <li><strong>語言</strong>:目標中英雙語(海外 a11y community / 國際 a11y experts)</li>
+    <li><strong>建置者</strong>:Christina 是關鍵路徑(所有頁面)</li>
+  </ul>
+
+  <h3>需要 netiCRM 接的場景</h3>
+  <table>
+    <thead>
+      <tr><th>場景</th><th>規模</th><th>對 netiCRM 的需求</th></tr>
+    </thead>
+    <tbody>
+      <tr><th class="label-col">ADALS 2026 報名 + 收款</th><td>150-200 人</td><td>表單(中 + 英)+ 信用卡 / ATM / 超商代碼 + 收據 + 報名管理</td></tr>
+      <tr><th class="label-col">海外個人購票</th><td>USD 60-500 / 人</td><td>國際卡 + 英文表單 + 英文收據</td></tr>
+      <tr><th class="label-col">企業贊助 invoice</th><td>NT$50K-300K</td><td>線上不收錢,只收意向;invoice 線下開</td></tr>
+      <tr><th class="label-col">個人捐款(認定後)</th><td>NT$100-5,000</td><td>抵稅收據 + 統一編號 + 月捐選項</td></tr>
+      <tr><th class="label-col">會員資料庫</th><td>未來累積</td><td>跨年 donor / member CRM</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note">
+    <strong>關鍵 framing</strong>:netiCRM 不是來「替代 AIA 主站」 — 是來<strong>當主站的金流 / 報名 / CRM 後端</strong>。AIA 站負責品牌敘事 + 內容呈現;netiCRM 負責「按鈕一按開始繳費 / 開收據 / 進 CRM」這條路徑。
+  </div>
+</section>
+
+<!-- §3 netiCRM Value -->
+<section id="neticrm-value">
+  <div class="section-num">§3 VALUE</div>
+  <h2>netiCRM 對 AIA 的具體價值(vs 全自建)</h2>
+
+  <p>「為什麼不自己用 WordPress + 5 個 plugin 拼出來?」這個問題的答案就是 netiCRM 的價值所在。下面 7 項是 AIA 自建會做不到或做得很痛苦的事。</p>
+
+  <h3>1. 台灣 NPO 抵稅收據(architectural,不能後補)</h3>
+  <ul style="font-size:14.5px; line-height:1.9; padding-left:24px;">
+    <li>合規收據格式(統編、捐款扣抵編號、社團法人格式)直接內建</li>
+    <li>AIA 取得所得稅法 §11(4) 認定後,netiCRM 後台一個 toggle 就 unlock 抵稅功能</li>
+    <li>自建要找會計師 + 工程師對接國稅局格式 — 估 1-3 個月工時</li>
+  </ul>
+
+  <h3>2. 公益勸募條例合規欄位 + 年度報表</h3>
+  <ul style="font-size:14.5px; line-height:1.9; padding-left:24px;">
+    <li>內政部「公益勸募條例」要求的欄位(勸募字號、用途、執行狀況)內建</li>
+    <li>年度勸募申報的資料可篩選 / 匯出(完整報表產出能力需向 netiCRM 確認)</li>
+    <li>自建要研讀條例 + 改表單 + 寫匯出邏輯</li>
+  </ul>
+
+  <h3>3. 統一編號 handling(企業捐款者)</h3>
+  <ul style="font-size:14.5px; line-height:1.9; padding-left:24px;">
+    <li>企業捐款者填統編,系統自動帶到收據</li>
+    <li>統編格式驗證(8 位數字)、查核機制(若有對接)</li>
+    <li>自建要寫驗證邏輯 + 跟政府 OpenAPI 對接</li>
+  </ul>
+
+  <h3>4. 跨年 donor / 會員 CRM(這是「CRM」的本質)</h3>
+  <ul style="font-size:14.5px; line-height:1.9; padding-left:24px;">
+    <li>每位 donor 的捐款歷程、互動紀錄、寄信狀態、會員資格</li>
+    <li>不限自訂欄位 / 標籤 / 群組</li>
+    <li>自建只能用 Google Sheets 對單 — 50 人以後變人類負擔</li>
+  </ul>
+
+  <h3>5. Event Registration(ADALS 主幹)</h3>
+  <ul style="font-size:14.5px; line-height:1.9; padding-left:24px;">
+    <li>活動報名頁(無限建置)、QR Code 簽到、優惠碼、多票種</li>
+    <li>報名 + 繳費 + 收據一條龍</li>
+    <li>自建要 WordPress + Events Calendar Pro + Event Tickets Plus + 收據邏輯 + 串金流 = 5 個 plugin 拼裝(maintainability 失敗,見 payment-stack §7.6)</li>
+  </ul>
+
+  <h3>6. 已串好的金流(藍新 / MyPay / 國際卡)</h3>
+  <ul style="font-size:14.5px; line-height:1.9; padding-left:24px;">
+    <li>不用自己接金流 SDK</li>
+    <li>金流出問題 netiCRM 客服可協助 escalation</li>
+    <li>自建要直接面對藍新 / 綠界客服 + 處理 callback bug</li>
+  </ul>
+
+  <h3>7. Mass Email + Campaign Tracking</h3>
+  <ul style="font-size:14.5px; line-height:1.9; padding-left:24px;">
+    <li>每小時 400 封內建寄信、開信追蹤、campaign tracking</li>
+    <li>自建要接 SendGrid / Mailgun / Mailchimp + 寫 tracking</li>
+  </ul>
+
+  <div class="note ok">
+    <strong>用最白話的比喻</strong>:netiCRM = 「為台灣 NPO 預先組裝好的 IKEA 家具」 — 比自己劈木頭快、便宜、合規。WordPress + 多 plugin = 「自己劈木頭組」 — 可行但需要木工技能 + 持續維護;省下的錢用在請木工和買工具。
+  </div>
+</section>
+
+<!-- §4 Integration Paths -->
+<section id="integration-paths">
+  <div class="section-num">§4 INTEGRATION</div>
+  <h2>AIA 自建站 × netiCRM 的 4 條整合路徑</h2>
+
+  <p>「自建網站要如何整合 netiCRM?」有 4 條典型路徑,由簡到繁。每條的成本、彈性、Maintainability 不同。</p>
+
+  <div class="path-card primary">
+    <span class="path-label">PATH 1 · PRIMARY · 主推</span>
+    <h3>iframe 嵌入(最便宜、最快)</h3>
+    <p>AIA WordPress 站的某頁(例:報名 / 捐款 / 加入會員)直接嵌入 netiCRM 的表單作為 iframe。表單視覺由 netiCRM 主機提供,但 AIA 站的 header / footer / 品牌都保留。</p>
+    <table style="margin:10px 0;">
+      <tbody>
+        <tr><th class="label-col">技術需求</th><td>WordPress 用 Custom HTML widget 貼 iframe code,無需開發</td></tr>
+        <tr><th class="label-col">netiCRM 加購</th><td>0(微型基本方案內建)</td></tr>
+        <tr><th class="label-col">視覺一致性</th><td>中 — iframe 內樣式跟 AIA 主站可能略差,但可接受</td></tr>
+        <tr><th class="label-col">中英雙語</th><td>若要英文版:諮詢 netiCRM 能否複製表單改 label;或買 NT$10,500 雙語加購</td></tr>
+        <tr><th class="label-col">URL</th><td>表單仍在 neticrm.tw/xxx,但 iframe 外殼是 aia.org.tw — donor 看到 AIA 站</td></tr>
+        <tr><th class="label-col">Maintainability</th><td>極高 — Elementor 內貼 embed code 就好</td></tr>
+        <tr><th class="label-col">適用</th><td>第一年 ADALS / 過渡期 — 先用最便宜方式上線,確認 UX 與工作流順暢後再評估升級</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="path-card alternative">
+    <span class="path-label">PATH 2 · ALTERNATIVE · 替代</span>
+    <h3>自訂域名(donate.aia.org.tw)+ CSS 客製</h3>
+    <p>netiCRM 表單 host 在 AIA 的子域名下,例如 <code>donate.aia.org.tw</code> 或 <code>register.aia.org.tw</code>。donor 不會看到 neticrm.tw,看起來像 AIA 自家頁面。CSS 客製讓表單視覺貼近 AIA 設計。</p>
+    <table style="margin:10px 0;">
+      <tbody>
+        <tr><th class="label-col">技術需求</th><td>DNS CNAME 設定(IT 5 分鐘)+ netiCRM 配合啟用自訂域名</td></tr>
+        <tr><th class="label-col">netiCRM 加購</th><td>自訂域名 首年 NT$6,000 / 年費 NT$2,000</td></tr>
+        <tr><th class="label-col">視覺一致性</th><td>高 — CSS 客製可貼近 AIA 設計</td></tr>
+        <tr><th class="label-col">中英雙語</th><td>建議同時買雙語加購(NT$10,500),否則自訂域名加值有限</td></tr>
+        <tr><th class="label-col">URL</th><td>donate.aia.org.tw — 完整品牌一致</td></tr>
+        <tr><th class="label-col">Maintainability</th><td>高 — DNS 一次設,後續 netiCRM 維護</td></tr>
+        <tr><th class="label-col">適用</th><td>第二年起 / 品牌一致性需求強 / 海外捐款者多時</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="path-card fallback">
+    <span class="path-label">PATH 3 · FALLBACK · 進階</span>
+    <h3>REST API + 自建表單(完全客製)</h3>
+    <p>AIA 站自建表單(完全用 Elementor + AIA 設計),透過 netiCRM 的 REST API 把資料寫回 netiCRM 後台。donor 100% 看到 AIA 設計,但表單背後跑 netiCRM。</p>
+    <table style="margin:10px 0;">
+      <tbody>
+        <tr><th class="label-col">技術需求</th><td>需開發工程師 — 寫 API call、處理 callback、串金流流程</td></tr>
+        <tr><th class="label-col">netiCRM 加購</th><td>0(API 內建)— 但開發成本可能 NT$30-50K 外包</td></tr>
+        <tr><th class="label-col">視覺一致性</th><td>滿分 — 完全 AIA 設計</td></tr>
+        <tr><th class="label-col">中英雙語</th><td>由 AIA 站處理(已是雙語的話直接 reuse)</td></tr>
+        <tr><th class="label-col">URL</th><td>aia.org.tw/donate(完全自家)</td></tr>
+        <tr><th class="label-col">Maintainability</th><td>中 — API 改版時要跟著改;工程師離職交接成本</td></tr>
+        <tr><th class="label-col">適用</th><td>第三年以後 / 品牌極度敏感 / 有專職工程師</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="path-card baseline">
+    <span class="path-label">PATH 4 · BASELINE · 全包</span>
+    <h3>netiCRM 全包(域名 + 雙語 + 收據 + 電子發票 + 客製)</h3>
+    <p>把所有加購買滿,netiCRM 端做最完整的解決方案。AIA 主站只負責「介紹 AIA + 連結到 donate.aia.org.tw」。</p>
+    <table style="margin:10px 0;">
+      <tbody>
+        <tr><th class="label-col">技術需求</th><td>低 — netiCRM 包辦</td></tr>
+        <tr><th class="label-col">netiCRM 加購</th><td>NT$10,500 雙語 + NT$6,000 域名 + NT$3,750-21,250 收據客製 + NT$16,800 電子發票 = NT$37,050-54,550 加購(一次性 + 年費)</td></tr>
+        <tr><th class="label-col">視覺一致性</th><td>高(CSS 客製 + 自訂域名)</td></tr>
+        <tr><th class="label-col">中英雙語</th><td>含</td></tr>
+        <tr><th class="label-col">URL</th><td>donate.aia.org.tw</td></tr>
+        <tr><th class="label-col">Maintainability</th><td>最高 — netiCRM 一個窗口</td></tr>
+        <tr><th class="label-col">適用</th><td>不缺預算 / 想最少自己折騰 / 有海外大量 donor</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note tldr">
+    <strong>推薦演化路徑</strong>:第一年 PATH 1(iframe,只買微型基本)→ 第二年若 ADALS 海外比例高再加 PATH 2(域名 + 雙語)→ 第三年若工程資源到位再考慮 PATH 3 局部客製。<strong>不建議一開始就 PATH 4 全包</strong> — 投入大但很多功能可能第一年用不到。
+  </div>
+</section>
+
+<!-- §5 Question List -->
+<section id="question-list">
+  <div class="section-num">§5 QUESTIONS</div>
+  <h2>諮詢問題清單(分類版,給開會用)</h2>
+
+  <p>本清單分 11 大類,每題標示優先度。優先度說明:</p>
+  <div class="legend">
+    <span class="pri must">MUST 必問 — 決策依據</span>
+    <span class="pri should">SHOULD 該問 — 規劃所需</span>
+    <span class="pri nice">NICE 加分 — 加深理解</span>
+  </div>
+
+  <!-- A. 雙語 -->
+  <div class="q-block">
+    <h3>A. 中英雙語 / 在地化 <span class="priority must">MUST</span></h3>
+    <ol>
+      <li>「中英雙語建置加購 NT$10,500」具體包含什麼?是<strong>一次性 setup</strong> 還是<strong>年費</strong>?</li>
+      <li>NT$10,500 涵蓋的範圍是「整套對外頁面」還是「只有募款頁 / 報名頁」?後台管理介面包含嗎?</li>
+      <li>不買這個加購,能不能<strong>複製一份表單、把欄位 label 改為英文</strong>?(這樣 AIA 自己分兩份表單給中文 / 英文 donor)</li>
+      <li>英中切換的 UX 是「同一頁切換按鈕」還是「兩個獨立網址」?哪一種建議?</li>
+      <li>感謝信 / 收據是否能對英文 donor 自動產出英文版?</li>
+      <li>後台是否也有英文模式?(對未來找國際志工 admin 有用)</li>
+      <li>有沒有客戶實際做雙語的範例網址可以看?</li>
+    </ol>
+    <p class="why">為什麼必問:這項是 NT$10,500 的支出決策依據,且影響 ADALS 海外與會者體驗。</p>
+  </div>
+
+  <!-- B. 整合方式 -->
+  <div class="q-block">
+    <h3>B. 整合方式(iframe / API / WordPress)<span class="priority must">MUST</span></h3>
+    <ol>
+      <li>iframe 嵌入到 WordPress + Elementor 站的<strong>標準流程</strong>是什麼?</li>
+      <li>iframe 是否支援<strong>自適應高度</strong>(避免內嵌捲軸 + 表單變長時自動撐高)?</li>
+      <li>有沒有 JavaScript SDK / Web Component 替代 iframe?(更現代的嵌入法)</li>
+      <li>有沒有<strong>官方 WordPress plugin</strong>?</li>
+      <li>REST API 文件公開嗎?可否提供連結?</li>
+      <li>API 有<strong>rate limit</strong> 嗎?(萬一 ADALS 開賣瞬間湧入)</li>
+      <li>API 是否支援 <strong>webhook 通知</strong>(有人捐款 → notify Slack / Email)?</li>
+      <li>有<strong>自訂子域名</strong>(donate.aia.org.tw)的設定方式?DNS 需要 CNAME 還是 A record?</li>
+      <li>SSL 憑證:自訂域名是 netiCRM 申請 Let's Encrypt 還是 AIA 提供?</li>
+    </ol>
+    <p class="why">為什麼必問:決定 §4 走哪條整合路徑、決定 AIA 工程量。</p>
+  </div>
+
+  <!-- C. UI 客製 -->
+  <div class="q-block">
+    <h3>C. UI 客製範圍 <span class="priority should">SHOULD</span></h3>
+    <ol>
+      <li>CSS 客製能改到哪些範圍?(顏色、字體、間距、表單欄位順序?)</li>
+      <li>LOGO 替換是內建還是加購?</li>
+      <li>表單欄位能<strong>新增 / 刪除 / 重排</strong>嗎?有上限嗎?</li>
+      <li>確認頁 / 感謝頁 / 失敗頁文字能改嗎?</li>
+      <li>自動寄信(感謝信、收據信)的<strong>內容、寄件人</strong>能改嗎?需要 SMTP 設定?</li>
+      <li>付款失敗後能 redirect 回 AIA 站特定頁嗎?</li>
+      <li>有沒有 brand kit / theme 工具(上傳 logo + 色碼直接套用)?</li>
+    </ol>
+    <p class="why">為什麼該問:影響 ADALS 報名頁與 AIA 主站視覺一致性。</p>
+  </div>
+
+  <!-- D. 金流 -->
+  <div class="q-block">
+    <h3>D. 金流 / Gateway <span class="priority must">MUST</span></h3>
+    <ol>
+      <li>預設綁的<strong>金流 provider</strong> 有哪些?(藍新 / 綠界 / MyPay)</li>
+      <li><strong>國際卡</strong>支援度?(VISA / Mastercard / AMEX / JCB)費率多少?</li>
+      <li>跨幣別?(只能 TWD,還是能開 USD / HKD?)— ADALS 海外 sponsor 需要</li>
+      <li>LINE Pay / Apple Pay / Google Pay 支援?</li>
+      <li>ATM 虛擬帳號 / 超商代碼?</li>
+      <li>定期定額 recurring(月捐)的 UX?跟一般捐款一個流程嗎?</li>
+      <li>信用卡分期?(若 ADALS 高階票價 NT$8,500 想分 3-6 期)</li>
+      <li>失敗重試 / dunning 邏輯有嗎?(月捐 churn 處理)</li>
+      <li>收款<strong>撥款週期</strong>?D+? 多久款項入到 AIA 玉山帳戶?</li>
+      <li>金流出問題的<strong>escalation channel</strong>?(藍新 vs netiCRM 誰先處理)</li>
+    </ol>
+    <p class="why">為什麼必問:ADALS 多元支付決定報名轉換率。</p>
+  </div>
+
+  <!-- E. 收據 / 發票 -->
+  <div class="q-block">
+    <h3>E. 收據 / 發票 <span class="priority must">MUST</span></h3>
+    <ol>
+      <li>標準收據 template 長什麼樣?能否拿<strong>樣本看</strong>?</li>
+      <li>收據客製 NT$3,750-21,250 的<strong>差別在哪</strong>?(LOGO、章程、上傳簽名、客製欄位?)範圍上限?</li>
+      <li>電子收據與紙本收據兩種都自動寄嗎?還是 AIA 自己印紙本?</li>
+      <li>電子發票串接 NT$16,800 涵蓋什麼?是<strong>一次性 setup</strong> 還是<strong>年費</strong>?</li>
+      <li>我們有需要電子發票(統一發票)嗎?何種情境 NPO 必開?(ADALS 報名費是<strong>銷售</strong>還是<strong>捐款</strong>?)</li>
+      <li>統一發票(B2B 企業贊助)和捐款收據(個人 NPO)的<strong>區分處理</strong>邏輯?</li>
+      <li>若年度開錯收據可<strong>作廢 / 重開</strong>嗎?需要客服協助還是自助?</li>
+      <li>收據編號自動產生嗎?有沒有編號規則?</li>
+      <li>政府(國稅局 / 內政部)有對 NPO 抵稅收據格式新規嗎?netiCRM 跟進的節奏?</li>
+    </ol>
+    <p class="why">為什麼必問:抵稅收據是 NPO 核心,出錯 = 合規風險。</p>
+  </div>
+
+  <!-- F. NPO Compliance -->
+  <div class="q-block">
+    <h3>F. NPO 合規(11(4) 認定 + 公益勸募條例)<span class="priority must">MUST</span></h3>
+    <ol>
+      <li>AIA <strong>還沒拿到所得稅法 §11(4) 認定 + 公益勸募字號</strong>,先採用 netiCRM 該怎麼用?哪些功能會是 disabled 狀態?</li>
+      <li>取得認定後,<strong>啟用抵稅收據</strong>的流程是?要重新 setup 還是 toggle 一鍵切換?</li>
+      <li>「年度勸募申報報表」具體會產出什麼?<strong>能直接交給內政部</strong>嗎,還是匯出 Excel 再人工整理?</li>
+      <li>公益勸募條例 §10(揭露)/ §14(用途)/ §15(報告)需要的欄位都內建嗎?</li>
+      <li>統一編號 handling 是<strong>自動驗證格式</strong>還是只記錄字串?有沒有對接<strong>財政部統編查詢 API</strong>?</li>
+      <li>個資法 / GDPR 對 EU donor 的處理?(我們未來可能有 EU 國際贊助)</li>
+      <li>donor 要求<strong>刪除個資</strong>時的處理流程?(右被遺忘權)</li>
+    </ol>
+    <p class="why">為什麼必問:法規不合規 = donor trust 崩盤 + 主管機關開罰。</p>
+  </div>
+
+  <!-- G. 資料 / Export -->
+  <div class="q-block">
+    <h3>G. 資料所有權 / Export / Migration <span class="priority should">SHOULD</span></h3>
+    <ol>
+      <li>全部 donor 資料能 <strong>export 為 CSV / Excel</strong> 嗎?完整度?</li>
+      <li>自動備份多久一次?保留多久?</li>
+      <li>若未來想搬到其他平台(自建 CiviCRM、Salesforce NPSP),<strong>資料 export 完整度</strong>?</li>
+      <li>跨年資料保留無上限嗎?還是會自動 archive?</li>
+      <li>合約終止時資料怎麼處理?有<strong>retention 期</strong>讓 AIA 拿資料嗎?</li>
+      <li>API key 管理?能分權限(read-only / write)嗎?</li>
+      <li>能 import 既有 donor 名單 Excel 嗎?(若 AIA 已有歷史 contact)</li>
+    </ol>
+    <p class="why">為什麼該問:資料是 NPO 最重要的資產;未來 vendor lock-in 程度。</p>
+  </div>
+
+  <!-- H. 計費 / 合約 -->
+  <div class="q-block">
+    <h3>H. 計費 / 合約 / 試辦 <span class="priority must">MUST</span></h3>
+    <ol>
+      <li>微型 NT$12,960/年 + NT$8,000 開通費 + <strong>申請 2 年合約免開通費</strong>,正確嗎?</li>
+      <li><strong>NPO 試辦條件</strong>是什麼?有沒有試用期(30 天 / 60 天)?試用結束自動續約還是要手動?</li>
+      <li>中途升級方案(微型 → 小型)如何計費?是<strong>差價</strong>還是重新算?</li>
+      <li>中途<strong>降級</strong>可以嗎?</li>
+      <li>年費繳費方式?轉帳 / 信用卡 / 月付?</li>
+      <li>若 contact 數超過 3,000(微型上限)會怎樣?<strong>自動升級</strong>還是<strong>停權</strong>?有沒有 grace period?</li>
+      <li>有沒有「ADALS 一次性活動方案」(只用 3 個月)的特殊定價?</li>
+      <li>政府補助 / 公益優惠?</li>
+    </ol>
+    <p class="why">為什麼必問:錢的事不能模糊。</p>
+  </div>
+
+  <!-- I. Onboarding / Support -->
+  <div class="q-block">
+    <h3>I. Onboarding / Support / SLA <span class="priority should">SHOULD</span></h3>
+    <ol>
+      <li>從簽約到上線的<strong>標準時程</strong>?ADALS 6 月底前需要上線,做得到嗎?</li>
+      <li>Onboarding 過程中有<strong>專人對接</strong>嗎?</li>
+      <li>開通後客服管道?(電話 / Email / Slack / Discord?)<strong>回應時效</strong>承諾?</li>
+      <li>出問題的 escalation channel?(誰是 ultimate decision-maker)</li>
+      <li>系統 SLA?(uptime guarantee 99.x%)</li>
+      <li>系統一年<strong>維護更新節奏</strong>?有預告嗎?會影響服務嗎?</li>
+      <li>文件 / 教學影片 / KB <strong>完整度</strong>?有沒有公開連結?</li>
+      <li>提供 admin 操作<strong>訓練</strong>嗎?(線上 / 線下 / 一對一)費用?</li>
+      <li>有用戶社群 / 論壇嗎?</li>
+    </ol>
+    <p class="why">為什麼該問:選工具不只看功能,還看出事時誰救你。</p>
+  </div>
+
+  <!-- J. WordPress / Elementor 整合 -->
+  <div class="q-block">
+    <h3>J. WordPress / Elementor 整合 <span class="priority should">SHOULD</span></h3>
+    <ol>
+      <li>有<strong>官方 WordPress plugin</strong> 嗎?維護中?</li>
+      <li>WP 站內顯示「最近捐款者牆」、「捐款金額累計進度條」、「會員人數」的方法?需要 plugin 還是手動 API?</li>
+      <li>跟 WP 既有 SEO plugin(Yoast / RankMath)有衝突嗎?</li>
+      <li>跟 GA4 / Google Tag Manager 整合追蹤?(donor conversion funnel)</li>
+      <li>隱私權政策 / Cookie 政策怎麼處理?(GDPR / 個資法 — iframe 跨域 cookie)</li>
+      <li>有實際 WP + Elementor + netiCRM 客戶案例 URL 可看嗎?</li>
+    </ol>
+    <p class="why">為什麼該問:AIA 主站建在 WP + Elementor 上,整合摩擦會直接打 Christina 的工。</p>
+  </div>
+
+  <!-- K. 無障礙 -->
+  <div class="q-block">
+    <h3>K. 無障礙(AIA 特殊敏感)<span class="priority must">MUST</span></h3>
+    <ol>
+      <li>netiCRM 表單頁面是否符合 <strong>WCAG 2.2 AA</strong>?有沒有測試報告?</li>
+      <li>是否支援<strong>螢幕閱讀器</strong>(NVDA / JAWS / VoiceOver)測試?</li>
+      <li>鍵盤可達性?(Tab / Enter / Esc 全流程)</li>
+      <li>表單錯誤訊息<strong>是否被 screen reader 朗讀</strong>?(aria-live region 設定)</li>
+      <li>色彩對比度?(對 low vision donor)</li>
+      <li>中文 + 英文 lang 屬性處理?</li>
+      <li>願意接受 AIA 做<strong>a11y 第三方測試</strong>並接受改善建議嗎?</li>
+    </ol>
+    <p class="why">為什麼必問:AIA 是 a11y NPO — 自家工具不無障礙會被 community 質疑。</p>
+  </div>
+
+  <!-- 加分 -->
+  <div class="q-block">
+    <h3>L. 加分題(Nice to know)<span class="priority nice">NICE</span></h3>
+    <ol>
+      <li>Data center 在哪?(資料主權:台灣 / 新加坡 / 美國)</li>
+      <li>ISO 27001:2022 認證涵蓋範圍?(只是公司還是含 netiCRM 服務?)</li>
+      <li>有沒有 penetration test 報告可看?</li>
+      <li>跟其他 NPO 平台(MyPay、聯合勸募網)的關係?</li>
+      <li>產品 roadmap 公開嗎?未來 12 個月會有什麼新功能?</li>
+      <li>有沒有用戶滿意度調查資料可分享?</li>
+      <li>客戶數成長狀況(2024-2026 年)?</li>
+    </ol>
+    <p class="why">為什麼加分:這些不會 block 採用,但對長期合作判斷有幫助。</p>
+  </div>
+
+  <div class="note tldr">
+    <strong>總計約 80 題,實際開會建議</strong>:
+    <ol style="padding-left:24px; margin-top:6px;">
+      <li>會前內部討論 30 分鐘,刪掉 AIA 用不到的(例如:若決定第一年只走 iframe,可跳過 §C 的 LOGO 客製細節)</li>
+      <li>剩下約 40-50 題,實際提問會大概 60-90 分鐘</li>
+      <li>建議分 2 場開:第 1 場 60 分鐘問 MUST 類 + 整合方式;第 2 場(若 quote 進入細節)再問 SHOULD / NICE</li>
+    </ol>
+  </div>
+</section>
+
+<!-- §6 Cost Saving -->
+<section id="cost-saving">
+  <div class="section-num">§6 COST-SAVING</div>
+  <h2>採 netiCRM 前提下的省錢策略</h2>
+
+  <p>本節假設 AIA 已決定採 netiCRM。在這個前提下,以下 8 個招數能讓總成本壓到最低,且不影響核心功能。</p>
+
+  <h3>招數 1:申請 2 年合約免開通費(省 NT$8,000)</h3>
+  <ul style="padding-left:24px; line-height:1.85;">
+    <li>微型方案開通費 NT$8,000,簽 2 年合約直接免</li>
+    <li>2 年承諾下:NT$12,960 × 2 = NT$25,920(vs 1 年 NT$12,960 + 開通 NT$8,000 = NT$20,960 + 第 2 年 NT$12,960 = NT$33,920)</li>
+    <li>結論:2 年合約省 NT$8,000(等於一年的開通費)</li>
+  </ul>
+
+  <h3>招數 2:第一年走 iframe(§4 PATH 1),0 加購</h3>
+  <ul style="padding-left:24px; line-height:1.85;">
+    <li>不買雙語(NT$10,500)、不買域名(NT$6,000)、不買收據客製、不買電子發票</li>
+    <li>iframe 嵌入到 WordPress,Christina 5 分鐘搞定</li>
+    <li>第一年總成本:<strong>NT$12,960(微型)</strong>only</li>
+  </ul>
+
+  <h3>招數 3:中英雙語先用「兩份表單」策略試水(可能省 NT$10,500)</h3>
+  <ul style="padding-left:24px; line-height:1.85;">
+    <li>諮詢時問:「能不能複製一份表單、把欄位 label 改為英文,做成兩份表單(中文 / 英文)?」</li>
+    <li>若可以 → 不買 NT$10,500 雙語加購,AIA 主站做語言 router(用戶選中 / 英 → 連到對應 netiCRM 表單)</li>
+    <li>若不可以(netiCRM 限制) → 第一屆 ADALS 只開中文表單,英文 donor 用 PayPal 或 invoice 走另一條路</li>
+    <li>第二年依實際海外 donor 比例再決定是否升級</li>
+  </ul>
+
+  <h3>招數 4:延後買電子發票串接(省 NT$16,800/年)</h3>
+  <ul style="padding-left:24px; line-height:1.85;">
+    <li>「ADALS 報名費需開統一發票」這件事先讓<strong>會計師 / 國稅局判斷</strong>,不是預設要買</li>
+    <li>若 ADALS 報名費被分類為「<strong>非銷售性活動</strong>」(NPO 推廣活動),可能不需要</li>
+    <li>若會計師確認需開 → 再買</li>
+    <li>不要先入為主買齊</li>
+  </ul>
+
+  <h3>招數 5:用 netiCRM 標準收據 template,不買收據客製(省 NT$3,750-21,250)</h3>
+  <ul style="font-size:14.5px; line-height:1.85; padding-left:24px;">
+    <li>標準收據格式合規(內政部要求的欄位都齊),只是沒有 AIA LOGO</li>
+    <li>第一屆 ADALS donor 收到「合規但無 logo 的收據」可接受</li>
+    <li>等 AIA 拿到 §11(4) 認定、確認需要客製品牌收據時再加購</li>
+  </ul>
+
+  <h3>招數 6:不買自訂域名,接受 neticrm.tw/xxx 網址(省 NT$6,000 首年 + NT$2,000/年)</h3>
+  <ul style="padding-left:24px; line-height:1.85;">
+    <li>iframe 嵌入時,donor 在地址列看到的是 <code>aia.org.tw/donate</code>(AIA 主站)</li>
+    <li>表單內部 action URL 才是 neticrm.tw,donor 不會直接看到</li>
+    <li>除非品牌極度敏感,可以接受</li>
+  </ul>
+
+  <h3>招數 7:MyPay 作為小額捐款專用第二金流(NT$9/筆 vs 藍新 2.4%)</h3>
+  <ul style="font-size:14.5px; line-height:1.85; padding-left:24px;">
+    <li>取得 §11(4) 認定後啟用</li>
+    <li>單筆 ≥ NT$400 的捐款用 MyPay(NT$9 固定費 &lt; NT$400×2.4% = NT$9.6)</li>
+    <li>小額用藍新</li>
+    <li>關鍵:諮詢 netiCRM 時確認 MyPay NT$9/筆條件是否仍適用 AIA(見 payment-stack §7.6 修正版)</li>
+  </ul>
+
+  <h3>招數 8:活動結束後降級(若可行)</h3>
+  <ul style="padding-left:24px; line-height:1.85;">
+    <li>ADALS 6-9 月衝刺期維持微型方案</li>
+    <li>10 月起 ADALS 結束、回到日常捐款 / 會員 ops,contact 數成長前可考慮維持微型</li>
+    <li>跨入第二年若 contact 接近 3,000 上限,再評估升級小型方案</li>
+    <li>諮詢時問:contact 超過上限時的應對與升級路徑</li>
+  </ul>
+
+  <div class="note ok">
+    <strong>最省組合(第一年):微型 + 2 年合約 + 0 加購 + iframe 嵌入</strong>
+    <p style="margin-top:8px;">第一年總成本 = <strong>NT$12,960</strong>(年費),0 開通費,0 加購。等於月付 NT$1,080。</p>
+    <p style="margin-top:6px;">vs 全包路徑(§4 PATH 4)第一年約 NT$50K-65K。<strong>差距 4-5 倍</strong>。第一年用最省組合上線,實際 ADALS 跑完一輪再決定要不要加買哪些加購,風險最低。</p>
+  </div>
+</section>
+
+<!-- §7 MVP Setup -->
+<section id="mvp-setup">
+  <div class="section-num">§7 MVP</div>
+  <h2>建議:Minimum Viable netiCRM 配置(第一年)</h2>
+
+  <div class="path-card primary">
+    <span class="path-label">RECOMMENDED · 第一年 MVP</span>
+    <h3>微型方案 + 2 年合約 + iframe 嵌入 + 0 加購</h3>
+    <table style="margin:10px 0;">
+      <tbody>
+        <tr><th class="label-col">方案</th><td>netiCRM 微型(3,000 聯絡人)</td></tr>
+        <tr><th class="label-col">合約期</th><td>2 年(免開通費 NT$8,000)</td></tr>
+        <tr><th class="label-col">整合方式</th><td>iframe 嵌入到 WordPress(§4 PATH 1)</td></tr>
+        <tr><th class="label-col">中英雙語</th><td>第一年只中文表單;若海外捐款者多再評估</td></tr>
+        <tr><th class="label-col">自訂域名</th><td>不買,用 neticrm.tw 子網址</td></tr>
+        <tr><th class="label-col">收據客製</th><td>用 netiCRM 標準格式</td></tr>
+        <tr><th class="label-col">電子發票</th><td>不買,待會計師判斷</td></tr>
+        <tr><th class="label-col">金流</th><td>內建藍新(2.4%)</td></tr>
+        <tr><th class="label-col">第一年總成本</th><td><strong>NT$12,960</strong>(月均 NT$1,080)</td></tr>
+        <tr><th class="label-col">第二年起</th><td>NT$12,960/年</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>第二年起的升級觸發條件(避免一開始買太多)</h3>
+  <table>
+    <thead>
+      <tr><th>觸發條件</th><th>升級項目</th><th>新增成本</th></tr>
+    </thead>
+    <tbody>
+      <tr><th class="label-col">海外捐款者佔比 &gt; 30%</th><td>+ 中英雙語建置加購</td><td>NT$10,500(一次性)</td></tr>
+      <tr><th class="label-col">品牌一致性需求強</th><td>+ 自訂域名(donate.aia.org.tw)</td><td>首年 NT$6,000 + 年費 NT$2,000</td></tr>
+      <tr><th class="label-col">會計師判定 ADALS 報名費需開電子發票</th><td>+ 電子發票串接</td><td>NT$16,800(查條件)</td></tr>
+      <tr><th class="label-col">取得 §11(4) 認定 + 想要 AIA LOGO 收據</th><td>+ 收據客製</td><td>NT$3,750-21,250(視範圍)</td></tr>
+      <tr><th class="label-col">Contact &gt; 3,000</th><td>升級小型方案</td><td>NT$24,000/年(差額 NT$11,040)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note">
+    <strong>關鍵原則</strong>:第一年用最省組合上線。實際跑一輪 ADALS(報名 / 收款 / 結算)後,根據真實數據(海外比例、金流問題、報表需求),再決定要加買哪些。<strong>不要在沒有實際 ops 經驗時預先買全套加購</strong>。
+  </div>
+
+  <p>
+    <a class="ref-link" href="payment-stack-decision.html">← 回 payment-stack-decision(主決策文件)</a>
+    <a class="ref-link" href="../index.html" style="margin-left:8px;">回專案文件首頁 ←</a>
+  </p>
+</section>
+
+</main>
+
+<footer style="background:#003b5c; color:rgba(255,255,255,.7); text-align:center; padding:24px; font-size:13px; letter-spacing:1px;">
+  APAC AIA · netiCRM 諮詢準備 v1.0 · 2026-05-19<br>
+  整合方案 + 問題清單 + 省錢策略 · 配合 payment-stack-decision v2.1
+</footer>
+
+<script>
+// Light mode is default. Only switch to dark when user has explicitly opted in (localStorage 'aia-theme=dark'). Do NOT auto-detect OS prefers-color-scheme.
+(function() {
+  var theme = localStorage.getItem('aia-theme');
+  if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+})();
+</script>
+
+</body>
+</html>
