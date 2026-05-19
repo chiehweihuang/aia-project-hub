@@ -73,6 +73,7 @@
   .legend-dot.p1 { background: #003b5c; }
   .legend-dot.p2 { background: #19abe4; }
   .legend-dot.p3 { background: #e0e0e0; border: 1px dashed #999; }
+  .legend-dot.pending { background: #f8b62d; }
 
   /* Tree Structure */
   .tree { display: flex; flex-direction: column; align-items: center; }
@@ -245,6 +246,12 @@
     color: #aaa;
     border: 1px dashed #ddd;
   }
+  .sub-node.pending {
+    background: rgba(248,182,45,0.08);
+    color: #8a5a00;
+    border: 1px solid rgba(248,182,45,0.55);
+    font-weight: 500;
+  }
 
   /* Horizontal line for branches */
   .h-line {
@@ -266,6 +273,13 @@
     padding: 24px;
     box-shadow: 0 1px 4px rgba(0,0,0,0.06);
   }
+  .note-card.full { grid-column: 1 / -1; }
+  .note-card .pending-title {
+    margin-top: 14px;
+    font-weight: 600;
+    color: #8a5a00;
+  }
+  .note-card .pending-title:first-of-type { margin-top: 10px; }
   .note-card h3 {
     font-size: 14px;
     color: #003b5c;
@@ -333,6 +347,7 @@
     <div class="legend-item"><div class="legend-dot p1"></div> Phase 1（首頁 + 活動頁）</div>
     <div class="legend-item"><div class="legend-dot p2"></div> Phase 2（擴展頁面）</div>
     <div class="legend-item"><div class="legend-dot p3"></div> Phase 3+（未來規劃）</div>
+    <div class="legend-item"><div class="legend-dot pending"></div> 待議 Pending（未定案）</div>
   </div>
 
   <!-- ═══════ TREE ═══════ -->
@@ -366,9 +381,10 @@
         <div class="sub-pages">
           <div class="sub-node p1">Hero / CTA</div>
           <div class="sub-node p1">About — 關於協會</div>
+          <div class="sub-node pending">ⓐ Our Impact（存廢待議）</div>
           <div class="sub-node p1">Advantages — 三張卡片</div>
-          <div class="sub-node p1">Mission / Vision</div>
-          <div class="sub-node p1">Event Banner</div>
+          <div class="sub-node pending">ⓑ Partnering Organizations（位置待議）</div>
+          <div class="sub-node pending">ⓒ Event Banner（時機+位置待議）</div>
           <div class="sub-node p1">Join Us — 加入我們</div>
         </div>
       </div>
@@ -383,13 +399,15 @@
         </div>
         <div class="sub-connector"></div>
         <div class="sub-pages">
+          <div class="sub-node p1">峰會專區 Summit</div>
           <div class="sub-node p1">活動列表</div>
-          <div class="sub-node p1">報名連結</div>
           <!-- TEMP HIDDEN: 講師介紹 (restore when speaker bio scope decided)
           <div class="sub-node p1">講師介紹</div>
           -->
           <div class="sub-node p2">過往活動回顧</div>
-          <div class="sub-node p3">峰會專區 Summit</div>
+          <div style="font-size:10px; color:#888; padding:8px 6px 0; text-align:center; max-width:160px; line-height:1.55; font-style:italic;">
+            結構為意圖示意，<br>可由設計師決定<br>單頁滾動或分頁<br>（只要峰會凸顯即可）
+          </div>
         </div>
       </div>
 
@@ -503,6 +521,21 @@
         <li>深色模式色彩對應規則（Phase 2+ 備用）</li>
         <li>字型選擇決策紀錄</li>
       </ul>
+    </div>
+    <div class="note-card full">
+      <h3>首頁區段待議事項 ⓐ ⓑ ⓒ</h3>
+
+      <p class="pending-title">ⓐ Our Impact 區段</p>
+      <p><strong>目前狀態 · PDF 位置：</strong>在 About 區之後 / What We Do 之前（首頁中段）。顯示「已舉辦 X 場活動 / X 個合作組織 / 觸及 X 位專業人士」三個數字版位。</p>
+      <p><strong>⚠ Concern：</strong>協會 2024 才成立，三個數字版位填什麼都尷尬（小數字看起來慘 / 大數字會被質疑灌水 / 空著讓人懷疑）。</p>
+
+      <p class="pending-title">ⓑ Partnering Organizations 區段</p>
+      <p><strong>目前狀態 · PDF 位置：</strong>在 What We Do（三張卡片）之後 / Events（近期活動）之前。顯示「自 2024 年以來，我們一直與以下單位合作」+ partner logos。</p>
+      <p><strong>⚠ Concern：</strong>Partnering 是訪客建立信任最直接的 signal，放更前面比放現在位置對信任建立更有效；也是 ADALS 招商可信度的關鍵 signal。</p>
+
+      <p class="pending-title">ⓒ Event Banner 區段</p>
+      <p><strong>目前狀態 · PDF 位置：</strong>在最下面（原 ❻ Events 區）。ADALS 2026 跟一張 PAST event 並排顯示成兩張對等卡片。</p>
+      <p><strong>⚠ Concern：</strong>ADALS 是協會首場旗艦級高峰會，跟其他活動並排在最下面跟 onepager 對 ADALS 的 flagship 定位矛盾（對應 audit-r1 tracker D6 issue）。UPCOMING + PAST 並排也造成時態混淆。</p>
     </div>
   </div>
 
