@@ -803,9 +803,9 @@
       <div class="download-icon">&#128221;</div>
       <div class="download-info"><h4>任務輸入表</h4><p>Google Sheets &mdash; 團隊填寫問題回報</p></div>
     </a>
-    <a class="download-card" href="https://drive.google.com/file/d/1w-aBjsZKOYnkj-EkXBEkbcxn48jW0yK8/view?usp=sharing" target="_blank" rel="noopener">
+    <a class="download-card" href="https://drive.google.com/file/d/1d4exOcxTleX-yeD3kQDiWp3_k8_1jdyV/view?usp=drive_link" target="_blank" rel="noopener">
       <div class="download-icon">&#128444;</div>
-      <div class="download-info"><h4>Wireframe</h4><p>Christina 提供 &mdash; 首頁 + 活動頁版面結構</p></div>
+      <div class="download-info"><h4>Wireframe（R1）</h4><p>Christina 提供 · 2026-05-14 &mdash; 首頁 + 活動頁版面結構</p></div>
     </a>
   </div>
 
@@ -856,13 +856,42 @@ function unlock() {
   document.getElementById('app').classList.add('visible');
 }
 
+// Symmetric reset — explicitly returns UI to locked state.
+// Needed because BFCache / browser back/forward can restore stale .visible / .hidden class
+// state from a previous session, resulting in BOTH #gate and #app visible at once
+// (the "nested login" bug). Without this, page load only adds classes — never removes them.
+function lock() {
+  document.getElementById('gate').classList.remove('hidden');
+  document.getElementById('app').classList.remove('visible');
+}
+
 // Auto-unlock if session exists
 // Auto-unlock if auth not expired (7 days)
 (function() {
   var exp = localStorage.getItem('aia-auth');
-  if (exp && Date.now() < Number(exp)) { unlock(); }
-  else { localStorage.removeItem('aia-auth'); }
+  if (exp && Date.now() < Number(exp)) {
+    unlock();
+  } else {
+    // Defensive lock(): ensures clean locked state even if classes were polluted
+    // by BFCache restoration of a previous unlocked session
+    lock();
+    localStorage.removeItem('aia-auth');
+  }
 })();
+
+// BFCache restoration handler — re-validate auth state when page is shown from back/forward cache.
+// Without this, a previously-unlocked session restored via browser back button can leave
+// app visible while gate is also un-hidden, producing the nested login appearance.
+window.addEventListener('pageshow', function(e) {
+  if (!e.persisted) return;  // Only act on BFCache restoration, not initial page load
+  var exp = localStorage.getItem('aia-auth');
+  if (exp && Date.now() < Number(exp)) {
+    unlock();
+  } else {
+    lock();
+    localStorage.removeItem('aia-auth');
+  }
+});
 
 // Enter key to submit
 document.getElementById('pw').addEventListener('keydown', e => { if (e.key === 'Enter') tryAuth(); });
