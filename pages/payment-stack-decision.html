@@ -170,29 +170,42 @@
   <h2>一頁總結</h2>
 
   <div class="note tldr">
-    <strong>現況(2026-05-19)</strong>:netiCRM 與 Recur.tw <strong>兩家都尚未採用</strong>。本週將同時寄出諮詢 enquiry,依回覆內容做最終決定。
+    <strong>現況(2026-05-19)</strong>:netiCRM 與 Recur.tw <strong>兩家都尚未採用</strong>。本週將寄出 netiCRM 諮詢;<strong>Recur 部分,本頁論述基於現有公開產品定位,建議另外諮詢確認以驗證假設</strong>(非本週承諾)。
     <p style="margin-top:10px;"><strong>建議方向(分階段)</strong>:</p>
     <ul style="margin-top:6px; padding-left:22px;">
       <li><strong>過渡期(現在 ~ 取得所得稅法 §11(4) 認定前)</strong>:用 §7.6 方案 1(玉山 + Google Form + 銀行匯款)<strong>或</strong>方案 4(netiCRM 微型「最小配置」NT$12,960/年)。小型活動走方案 1;ADALS 規模走方案 4。</li>
       <li><strong>取得認定後</strong>:netiCRM 微型升級為完整配置,unlock 抵稅收據 + 公益勸募合規。可加 MyPay 為小額捐款的第二金流。</li>
       <li><strong>創作者經濟副業(若有)</strong>:netiCRM 主 + Recur.tw 副業專用(課程 / 訂閱)。</li>
-      <li><strong>不採 Recur 為主 stack</strong>:依現有公開產品定位,Recur 看似不支援 Taiwan NPO 法規層(抵稅收據、公益勸募合規、統一編號)— 本週諮詢確認;若 Recur 回覆顯示已支援,本判斷需重評。</li>
+      <li><strong>不採 Recur 為主 stack</strong>:依現有公開產品定位,Recur 看似不支援 Taiwan NPO 法規層(抵稅收據、公益勸募合規、統一編號)— <strong>建議另外諮詢確認</strong>;若 Recur 諮詢回覆顯示已支援,本判斷需重評。</li>
     </ul>
   </div>
 
-  <h3>三條核心理由</h3>
+  <h3>三條核心理由(白話版)</h3>
   <ol style="font-size:14px; line-height:1.9; padding-left:24px;">
-    <li><strong>架構性(architectural)而非偏好</strong>:依 Recur 目前公開產品定位(creator economy),Taiwan NPO 法規層 — 抵稅收據、公益勸募合規、統一編號 handling — 看似不在 product 範圍。AIA 未來取得<strong>所得稅法 §11(4)</strong> 教育文化公益慈善機關或團體認定後,netiCRM 直接 unlock 完整 NPO compliance;Recur 是否能補上,本週諮詢確認。</li>
-    <li><strong>Event registration 整合層</strong>:ADALS 2026 規劃以 netiCRM iframe 作為報名 + 收款入口。Recur 完全不支援 event registration,若改採 Recur 等於 ADALS 流程從零重建。</li>
-    <li><strong>成本不只是手續費</strong>:Recur 並非「全包 2.4%」— 月營收超過 NT$100K 後加 2.5% 平台費,邊際 4.9%(見 §6 修正版 break-even 表)。Break-even 約落在 NT$160K/月;以上 netiCRM 反而便宜。NPO 法規層差異仍在:不能開抵稅收據對 itemizer donor 失去抵稅誘因(實際影響金額看 donor 結構,前版「捐款少 30-50%」屬未經實證估計,本頁已撤回)。</li>
+    <li><strong>是工具當初設計的方向問題,不是品牌偏好問題</strong><br>
+    Recur 這個工具當初是<strong>設計給經營訂閱電子報、線上課程、付費社群的個人創作者</strong>用的,不是設計給公益團體用的。所以台灣公益團體每天會用到的三件事 — <strong>讓捐款人報稅扣抵的正式收據、符合公益勸募條例的欄位、企業捐款時自動帶統一編號</strong> — Recur 從設計之初就沒做這些。<br>
+    當 AIA 未來拿到<strong>所得稅法 §11(4) 認定</strong>(俗稱「11 條認定」,就是讓捐款人能拿著收據去報稅扣抵的必要資格),netiCRM 馬上就能用、能開抵稅收據;Recur 之後有沒有可能也補上這些功能,<strong>建議另外諮詢確認</strong>。</li>
+
+    <li><strong>ADALS 2026 報名流程已經規劃用 netiCRM</strong><br>
+    ADALS 2026 的報名 + 收款頁面,我們已經規劃用 netiCRM 做。Recur <strong>完全沒做活動報名功能</strong>,如果改用 Recur,等於 ADALS 整個報名流程要從零再蓋一次 — 前面的規劃會白做。</li>
+
+    <li><strong>手續費要算總帳,不是看廣告上的數字</strong><br>
+    Recur 在網頁寫「2.4% 全包」聽起來很便宜,但仔細看才知道:<strong>月收入超過 10 萬元的部分,Recur 還會多收 2.5% 平台費</strong>。加總起來這段被收 4.9%,反而比 netiCRM(年費 + 藍新 2.4%)還貴。對中大型 NPO(月收入超過 16 萬元),用 Recur 反而比 netiCRM 貴,差距會隨營收越大越拉開(實際試算見 §6 表格)。<br>
+    另外,Recur 看起來<strong>不能開可以報稅扣抵的收據</strong>,這對「有報稅習慣、會列舉扣除額」的捐款人來說會少一個捐款誘因。實際影響金額要看 AIA 捐款人結構;前版「捐款會掉 30-50%」是沒有實證來源的估計,這個數字已經撤回。</li>
   </ol>
 
   <h3>本週行動(2026-05-19 ~ 2026-05-25)</h3>
   <div class="checklist-block">
     <ol>
       <li><strong>寄出 netiCRM 諮詢</strong> <span class="task-owner">執行小組</span> <span class="task-meta">本週</span><br>透過 <code>neticrm.tw</code> 聯絡表單。<strong>完整問題清單(11 大類約 80 題)+ 4 條整合路徑 + 省錢策略 + MVP 配置</strong>已整理於另一份文件 → <a href="neticrm-consultation-prep.html">netiCRM 諮詢準備頁</a>。重點問:NPO 試辦條件、首屆活動最適配置、6 月底前能否完成導入、報名頁雙語切換、能否嵌入 AIA 官網(WordPress + Elementor)、UI 客製範圍、國際卡費率、中英雙語建置加購 NT$10,500 涵蓋範圍。</li>
-      <li><strong>寄出 Recur.tw 諮詢</strong> <span class="task-owner">執行小組</span> <span class="task-meta">本週</span><br>重點問:是否支援 Taiwan NPO 抵稅收據開立、是否有電子發票串接、統一編號 handling、是否能接 ADALS event registration 流程、超過 NT$100,000/月後的費率。</li>
-      <li><strong>諮詢回覆後,內部 alignment 會議</strong> <span class="task-owner">理事長 + 祕書長 + 常務理事</span> <span class="task-meta">依回覆時程</span><br>核對本頁推論;若 Recur 回覆顯示已有 NPO compliance 模組,需重新評估。</li>
+      <li><strong>netiCRM 諮詢回覆後,內部 alignment 會議</strong> <span class="task-owner">理事長 + 祕書長 + 常務理事</span> <span class="task-meta">依 netiCRM 回覆時程</span><br>核對本頁推論;若需要可同步啟動 Recur 諮詢(見下方)。</li>
+    </ol>
+  </div>
+
+  <h3>建議另外進行(非本週承諾)</h3>
+  <div class="checklist-block" style="border-left:4px solid var(--secondary); background:#f8fbfd;">
+    <ol>
+      <li><strong>諮詢 Recur.tw 以驗證本頁假設</strong> <span class="task-owner">執行小組(時程彈性)</span> <span class="task-meta">建議另外排</span><br>本頁對 Recur 的論述基於現有公開產品定位,屬「依公開資訊推測」層級。若理事會希望雙重驗證,建議另外排一場諮詢。重點問:是否支援 Taiwan NPO 抵稅收據開立、是否有電子發票串接、統一編號 handling、是否能接 ADALS event registration 流程、超過 NT$100,000/月後的費率(本頁推算邊際 4.9%,需向 Recur 確認)。若回覆顯示 Recur 已加 NPO compliance 模組,本頁主結論需重新評估。</li>
     </ol>
   </div>
 
@@ -218,7 +231,7 @@
         <li><strong>「11 條」reference 校準</strong>:正確 reference 為所得稅法 §11(4) 教育文化公益慈善機關或團體;前版誤稱「免稅適用標準 §11」(該標準只有 6 條)。抵稅收據基於 §17/§36;公益勸募字號屬獨立合規門檻(公益勸募條例 §7),非抵稅必要條件。(§0 / §7 / §7.6 已修正)</li>
         <li><strong>「donor 不能抵稅 → 捐款少 30-50%」估計撤回</strong>:無實證來源,Taiwan 抵稅僅對 itemizer 適用 marginal tax rate × 捐款,不會直接掉 30-50%。改為「可能影響部分高所得 donor 意願,實際看 donor 結構」。(§0 / §6 / §8 已修正)</li>
         <li><strong>「netiCRM 已 deep integrated ADALS」</strong>(殘留 v2.0 假設):前版錯,實際為「規劃導入」,本週諮詢中。(§5 / §7 已修正)</li>
-        <li><strong>Recur 整合 Cal.com / Circle</strong>:前版列為原生整合,實際 Recur 公開頁僅見 Discord + Webhooks / Zapier / Make。已加註「未經官方驗證,本週諮詢確認」。(§2 已修正)</li>
+        <li><strong>Recur 整合 Cal.com / Circle</strong>:前版列為原生整合,實際 Recur 公開頁僅見 Discord + Webhooks / Zapier / Make。已加註「未經官方驗證,建議另外諮詢確認」。(§2 已修正)</li>
         <li><strong>netiCRM「年度勸募申報報表」</strong>:前版稱「內建」,Codex 找不到公開文件證明有「一鍵產出申報表」功能。已改為「可篩選 / 匯出符合 申報資料的捐款明細,完整報表產出需向 netiCRM 確認」。(§3 已修正)</li>
         <li><strong>§8 對特定個人之描述</strong>:reframe 為 role-based generic(「具科技 / SaaS 背景的決策者...」),避免對 stake owner 加個人特徵 modifier。</li>
         <li><strong>封存區 v1.0 定價數據過時聲明</strong>:藍新 2.75% → 實 2.8%、Eventbrite 7.2-9.3% → 台灣實 4.99% Professional、綠界 NT$10K/年 + 2.88% → 實 NT$5K 建置 + NT$13K/年 + 分期 3-12%、PayPal 固定費依幣別非單一 USD$0.30。封存區未即時修改但加聲明。</li>
@@ -243,14 +256,14 @@
       <li><strong>符合內政部「公益勸募條例」的欄位與年度報表</strong>(法律要求,不能省)</li>
       <li><strong>公司行號捐款時,自動把統一編號帶到收據上</strong>(企業贊助必備)</li>
     </ol>
-    <p style="margin-top:6px;">這三點本週會寫信問 Recur 確認,目前看公開資訊推測是沒有。</p>
+    <p style="margin-top:6px;">這三點<strong>建議另外諮詢 Recur 確認</strong>(非本週承諾),目前看公開資訊推測是沒有。</p>
     <p style="margin-top:10px;"><strong>費用方面也跟廣告的不一樣</strong>:Recur 不是「不管多少都打包 2.4%」那麼單純。月收入超過 NT$100,000 的部分,Recur 會再加收 2.5% 「平台費」,加上原本金流刷卡 2.4%,等於這段被收 <strong>4.9%</strong>。所以對中大型 NPO,Recur 反而會比 netiCRM 貴(試算見 §6)。</p>
   </div>
 
   <p>本頁主軸已調整為兩個工具的 head-to-head 比較。原 V1.0「完整 stack 評估」內容(§1-§11)已封存於頁尾,可隨時展開查閱。</p>
 
   <div class="note">
-    <strong>誰應該讀這頁</strong>:理事長 / 祕書長 / 常務理事 — 評估 AIA 收款 stack 採用方向時的決策依據。<strong>兩家工具皆尚未採用,本週進行諮詢。</strong>
+    <strong>誰應該讀這頁</strong>:理事長 / 祕書長 / 常務理事 — 評估 AIA 收款 stack 採用方向時的決策依據。<strong>兩家工具皆尚未採用;netiCRM 本週進行諮詢,Recur 建議另外諮詢確認(非本週承諾)。</strong>
   </div>
 </section>
 
@@ -276,7 +289,7 @@
       <tr><th class="label-col">RWD 響應式</th><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
       <tr><th class="label-col">中英雙語</th><td>建置加購 NT$10,500</td><td>未提</td></tr>
       <tr><th class="label-col">API / Webhooks</th><td>有(CiviCRM REST API)</td><td>有(Webhooks + API)</td></tr>
-      <tr><th class="label-col">第三方整合</th><td>WordPress(WP Civi 整合)為主</td><td>Discord(原生)+ Webhooks / Zapier / Make(通用);WordPress 透過 Web Components;<strong>Cal.com / Circle 原生整合未經官方驗證</strong>,本週諮詢確認</td></tr>
+      <tr><th class="label-col">第三方整合</th><td>WordPress(WP Civi 整合)為主</td><td>Discord(原生)+ Webhooks / Zapier / Make(通用);WordPress 透過 Web Components;<strong>Cal.com / Circle 原生整合未經官方驗證</strong>,建議另外諮詢確認</td></tr>
     </tbody>
   </table>
 </section>
@@ -571,7 +584,7 @@
       <li><strong>情境 B(creator economy 副業)</strong>是 Recur 唯一「結構性勝出」的情境 — 課程 / 訂閱本來就不適合放 NPO CRM,而 Recur 是專做這塊的。可考慮 <strong>netiCRM(主)+ Recur(副)雙軌</strong>。</li>
       <li><strong>情境 A / C / E</strong>是「條件性勝出」 — 前提條件全部成立才算省錢,任一條不成立就反轉。諮詢 Recur 時要把這些條件當問題列出來驗證。</li>
       <li><strong>情境 D</strong>不是 Recur 強項 — Path D(0 預算純手工)在這情境更省。</li>
-      <li>所有情境共通的<strong>未驗證假設</strong>:Recur 是否真不能開 NPO 抵稅收據(可能本頁論述過於斷定,本週諮詢確認)。</li>
+      <li>所有情境共通的<strong>未驗證假設</strong>:Recur 是否真不能開 NPO 抵稅收據(可能本頁論述過於斷定,建議另外諮詢確認)。</li>
     </ul>
   </div>
 </section>
