@@ -501,6 +501,47 @@ APAC AIA was founded in 2024 in Taipei to change this.</div>
 
   <div class="flow-arrow">▼</div>
 
+  <!-- ⓓ NAV + FOOTER 雙語 — 新投票 -->
+  <details class="decision" open>
+    <summary class="decision-header">ⓓ 全站 Nav + Footer 是否雙語顯示？<span class="en-sub" style="color:rgba(255,255,255,0.75); font-weight:500;">ⓓ Bilingual nav + footer site-wide?</span></summary>
+    <div class="decision-body">
+      <div class="decision-context">
+        本投票頁的 wrapper 已經中英並列。同樣的處理是否要套到全站共用的 nav 與 footer？兩者可獨立決定。<br><strong>請各選一個。</strong>
+        <span class="en-body">This voting page's wrapper is already bilingual. Should the same treatment apply to the site-wide shared nav and footer? These can be decided independently. <strong>Please pick one for each.</strong></span>
+      </div>
+
+      <div class="sub-title">Nav 導覽列 — 點選一個 / Top Navigation — pick one</div>
+      <div class="option-pair" style="margin-bottom:18px;">
+        <div class="opt-choice" data-key="nav_bilingual" data-value="A">
+          <h4>A — 中英並列（推薦） / Bilingual (recommended)</h4>
+          <p>中文主標 + 英文小字。對國際合作對象友善，與 hero 標題、卡片區的雙語節奏一致。</p>
+          <p style="font-size:12px; color:#555; margin-top:4px; font-family:'Inter','Noto Sans TC',sans-serif;">Chinese primary + English subtitle. Friendly to international partners; consistent with the bilingual rhythm of hero and cards.</p>
+        </div>
+        <div class="opt-choice" data-key="nav_bilingual" data-value="B">
+          <h4>B — 僅中文 / Chinese only</h4>
+          <p>視覺最精簡。台灣訪客優先；英文讀者需從其他線索辨識欄目。</p>
+          <p style="font-size:12px; color:#555; margin-top:4px; font-family:'Inter','Noto Sans TC',sans-serif;">Most minimal visually. Taiwan-first; English readers must rely on other cues to identify menu items.</p>
+        </div>
+      </div>
+
+      <div class="sub-title">Footer 頁尾 — 點選一個 / Footer — pick one</div>
+      <div class="option-pair">
+        <div class="opt-choice" data-key="footer_bilingual" data-value="A">
+          <h4>A — 中英並列 / Bilingual</h4>
+          <p>與 nav 一致，跟整站 i18n 對齊。footer 字體本就較小，並列後視覺密度會提升。</p>
+          <p style="font-size:12px; color:#555; margin-top:4px; font-family:'Inter','Noto Sans TC',sans-serif;">Aligned with nav and the site's overall i18n. Footer text is already small; stacking increases visual density.</p>
+        </div>
+        <div class="opt-choice" data-key="footer_bilingual" data-value="B">
+          <h4>B — 僅中文 / Chinese only</h4>
+          <p>底部最精簡。若 nav 選雙語、footer 選僅中文，整站視覺會略不對稱。</p>
+          <p style="font-size:12px; color:#555; margin-top:4px; font-family:'Inter','Noto Sans TC',sans-serif;">Most minimal at the bottom. If nav is bilingual and footer is Chinese-only, the site becomes visually asymmetric.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <div class="flow-arrow">▼</div>
+
   <!-- ARCHIVE WRAPPER START: 包裝前 6 項投票 -->
   <details style="margin:24px 0;">
     <summary style="cursor:pointer; padding:14px 20px; background:#f0f0f0; border-radius:8px; font-weight:700; color:#666; list-style:none; display:flex; flex-direction:column; align-items:flex-start; gap:2px; min-height:44px;">
@@ -901,11 +942,13 @@ We believe embracing diversity sparks innovation, creativity, and resilience —
   <!-- RESPONSE PANEL -->
   <div class="response-panel">
     <div style="font-weight:700; font-size:16px; color:#003b5c; margin-bottom:6px;">你的回覆<span class="en-sub" style="color:#5c7a8c; font-weight:500;">Your Response</span></div>
-    <div class="progress-label" id="progress-label">已選 0 / 3 項 · Selected 0 / 3</div>
+    <div class="progress-label" id="progress-label">已選 0 / 5 項 · Selected 0 / 5</div>
     <div class="progress-bar" id="progress-bar">
       <div class="progress-dot" data-for="impact"></div>
       <div class="progress-dot" data-for="partners"></div>
       <div class="progress-dot" data-for="event_position"></div>
+      <div class="progress-dot" data-for="nav_bilingual"></div>
+      <div class="progress-dot" data-for="footer_bilingual"></div>
     </div>
     <div class="response-preview" id="response-preview">
       <span class="empty">點選上方的選項後，回覆文字會自動出現在這裡。<br><span style="font-family:'Inter','Noto Sans TC',sans-serif; font-size:12px;">Click an option above and the response text will auto-generate here.</span></span>
@@ -927,8 +970,8 @@ We believe embracing diversity sparks innovation, creativity, and resilience —
 
 <script>
 const selections = {};
-// 本次投票:3 個新 IA 議題(前 6 項已 archive,不計入)
-const REQUIRED_KEYS = ['impact', 'partners', 'event_position'];
+// 本次投票:5 個新議題(前 6 項已 archive,不計入)。ⓐⓑⓒ 是 IA,ⓓ 拆成 nav+footer 兩個子題。
+const REQUIRED_KEYS = ['impact', 'partners', 'event_position', 'nav_bilingual', 'footer_bilingual'];
 
 const OPTION_NAMES = {
   impact: {
@@ -946,12 +989,22 @@ const OPTION_NAMES = {
     B:'兩階段:現在上移 + 6/15 後再升級 · Two-phase: move up now + upgrade after June 15',
     C:'立刻升級為 hero-area level · Upgrade to hero-area level immediately'
   },
+  nav_bilingual: {
+    A:'中英並列(推薦) · Bilingual (recommended)',
+    B:'僅中文 · Chinese only'
+  },
+  footer_bilingual: {
+    A:'中英並列 · Bilingual',
+    B:'僅中文 · Chinese only'
+  },
 };
 
 const KEY_LABELS = {
-  impact:         { section:'ⓐ', label:'Our Impact 處理 · Treatment' },
-  partners:       { section:'ⓑ', label:'Partnering 位置 · Position' },
-  event_position: { section:'ⓒ', label:'Event Banner 位置 · Position' },
+  impact:           { section:'ⓐ', label:'Our Impact 處理 · Treatment' },
+  partners:         { section:'ⓑ', label:'Partnering 位置 · Position' },
+  event_position:   { section:'ⓒ', label:'Event Banner 位置 · Position' },
+  nav_bilingual:    { section:'ⓓ', label:'Nav 雙語 · Bilingual nav' },
+  footer_bilingual: { section:'ⓓ', label:'Footer 雙語 · Bilingual footer' },
 };
 
 // Click + keyboard handlers for all selectable elements
@@ -1018,9 +1071,11 @@ function updateResponse() {
   const name = (key, val) => OPTION_NAMES[key]?.[val] ? `${val} — ${OPTION_NAMES[key][val]}` : val;
   let lines = [];
 
-  if (selections.impact)         lines.push(`ⓐ Our Impact 處理 · Treatment: ${name('impact', selections.impact)}`);
-  if (selections.partners)       lines.push(`ⓑ Partnering Organizations 位置 · Position: ${name('partners', selections.partners)}`);
-  if (selections.event_position) lines.push(`ⓒ Event Banner 位置 · Position: ${name('event_position', selections.event_position)}`);
+  if (selections.impact)           lines.push(`ⓐ Our Impact 處理 · Treatment: ${name('impact', selections.impact)}`);
+  if (selections.partners)         lines.push(`ⓑ Partnering Organizations 位置 · Position: ${name('partners', selections.partners)}`);
+  if (selections.event_position)   lines.push(`ⓒ Event Banner 位置 · Position: ${name('event_position', selections.event_position)}`);
+  if (selections.nav_bilingual)    lines.push(`ⓓ Nav 雙語 · Bilingual nav: ${name('nav_bilingual', selections.nav_bilingual)}`);
+  if (selections.footer_bilingual) lines.push(`ⓓ Footer 雙語 · Bilingual footer: ${name('footer_bilingual', selections.footer_bilingual)}`);
 
   const comment = document.getElementById('comment-input').value.trim();
   if (comment) lines.push(`\n💬 ${comment}`);
