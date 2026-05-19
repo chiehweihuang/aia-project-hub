@@ -266,6 +266,19 @@
         </aside>
       </section>
 
+      <section class="final-section">
+        <h3 class="final-section-title"><span class="final-num">ⓓ</span> Nav 雙語顯示<span class="en-sub" style="color:#5c7a8c; font-weight:400;">Bilingual Nav</span></h3>
+        <div class="final-sub">
+          <div class="final-sub-label">目前狀態 · PDF 位置 / Current state · PDF position</div>
+          <div class="final-text-zh">PDF wireframe 上 nav 是純英文(Home About Media News Event),footer 是純中文(主頁/最新活動/...)。同站上下語言不一致。</div>
+          <div class="final-text-en">In the PDF wireframe, the top nav is English-only (Home / About / Media / News / Event), while the footer PAGES list is Chinese-only (主頁 / 最新活動 / ...). Language inconsistency between top and bottom of the same site.</div>
+        </div>
+        <aside aria-label="提案 concern" style="background:#FFF9E6; border-left:4px solid #F8B62D; padding:10px 14px; border-radius:6px; margin-top:8px; font-size:13px; color:#5d4400; line-height:1.6;">
+          <strong><span aria-hidden="true">⚠ </span>concern</strong>:台灣 NPO 場景下 nav 全英顯得「離主要受眾遠」;雙語則對國際合作對象友善、與 hero 標題雙語節奏一致。請就下方 ⓓ 投票決定 nav 處理方向。footer 因字體密度與整體 i18n 牽連較廣,**留給設計師考量後決定**,不在本次投票範圍。
+          <span class="en-body" style="color:#5d4400; font-size:12px; margin-top:6px;">In a Taiwan-NPO context, an English-only nav feels distant from the primary audience; a bilingual nav is friendly to international partners and aligns with the bilingual rhythm of the hero title. Vote on nav direction at ⓓ below. Footer involves text density and broader i18n constraints — <strong>defer to the designer's overall i18n approach</strong>, not part of this round.</span>
+        </aside>
+      </section>
+
     </div>
   </details>
 
@@ -501,17 +514,42 @@ APAC AIA was founded in 2024 in Taipei to change this.</div>
 
   <div class="flow-arrow">▼</div>
 
-  <!-- ⓓ NAV + FOOTER 雙語 — 新投票 -->
+  <!-- ⓓ NAV 雙語 — 新投票 -->
   <details class="decision" open>
-    <summary class="decision-header">ⓓ 全站 Nav + Footer 是否雙語顯示？<span class="en-sub" style="color:rgba(255,255,255,0.75); font-weight:500;">ⓓ Bilingual nav + footer site-wide?</span></summary>
+    <summary class="decision-header">ⓓ Nav 是否雙語顯示？<span class="en-sub" style="color:rgba(255,255,255,0.75); font-weight:500;">ⓓ Bilingual nav?</span></summary>
     <div class="decision-body">
       <div class="decision-context">
-        本投票頁的 wrapper 已經中英並列。同樣的處理是否要套到全站共用的 nav 與 footer？兩者可獨立決定。<br><strong>請各選一個。</strong>
-        <span class="en-body">This voting page's wrapper is already bilingual. Should the same treatment apply to the site-wide shared nav and footer? These can be decided independently. <strong>Please pick one for each.</strong></span>
+        本投票頁的 wrapper 已經中英並列。同樣的處理是否要套到全站共用的 top nav？<br><strong>請選一個。</strong>（footer 因密度與整體 i18n 牽連較廣，留給設計師判斷，不在本次投票範圍）
+        <span class="en-body">This voting page's wrapper is already bilingual. Should the same treatment apply to the site-wide shared top nav? <strong>Please pick one.</strong> (Footer is deferred to the designer's overall i18n approach due to density and broader constraints — not part of this round.)</span>
       </div>
 
+      <!-- 視覺範例 / Visual example -->
+      <aside aria-label="視覺範例" style="background:#fff; border:1px solid #e0e0e0; border-radius:8px; padding:14px 16px; margin-bottom:18px;">
+        <div style="font-weight:600; color:#003b5c; font-size:13px; margin-bottom:12px;"><span aria-hidden="true">📐 </span>範例 / Example</div>
+
+        <div style="font-size:11px; color:#888; margin-bottom:4px; font-family:'Inter','Noto Sans TC',sans-serif; letter-spacing:0.5px;">A — 中英並列 / Bilingual</div>
+        <div style="background:linear-gradient(135deg,#003b5c,#19abe4); border-radius:6px; padding:12px 18px; display:flex; gap:24px; align-items:center; color:#fff; margin-bottom:14px; font-family:'Noto Sans TC','Inter',sans-serif; flex-wrap:wrap;">
+          <span style="font-weight:700; letter-spacing:1px;">LOGO</span>
+          <span style="line-height:1.2;"><span style="display:block; font-size:14px;">主頁</span><span style="display:block; font-size:11px; opacity:0.7; font-family:'Inter',sans-serif;">Home</span></span>
+          <span style="line-height:1.2;"><span style="display:block; font-size:14px;">認識協會</span><span style="display:block; font-size:11px; opacity:0.7; font-family:'Inter',sans-serif;">About</span></span>
+          <span style="line-height:1.2;"><span style="display:block; font-size:14px;">活動</span><span style="display:block; font-size:11px; opacity:0.7; font-family:'Inter',sans-serif;">Events</span></span>
+          <span style="line-height:1.2;"><span style="display:block; font-size:14px;">最新消息</span><span style="display:block; font-size:11px; opacity:0.7; font-family:'Inter',sans-serif;">News</span></span>
+          <span style="line-height:1.2;"><span style="display:block; font-size:14px;">加入我們</span><span style="display:block; font-size:11px; opacity:0.7; font-family:'Inter',sans-serif;">Join Us</span></span>
+        </div>
+
+        <div style="font-size:11px; color:#888; margin-bottom:4px; font-family:'Inter','Noto Sans TC',sans-serif; letter-spacing:0.5px;">B — 僅中文 / Chinese only</div>
+        <div style="background:linear-gradient(135deg,#003b5c,#19abe4); border-radius:6px; padding:14px 18px; display:flex; gap:32px; align-items:center; color:#fff; font-family:'Noto Sans TC','Inter',sans-serif; flex-wrap:wrap;">
+          <span style="font-weight:700; letter-spacing:1px;">LOGO</span>
+          <span style="font-size:15px;">主頁</span>
+          <span style="font-size:15px;">認識協會</span>
+          <span style="font-size:15px;">活動</span>
+          <span style="font-size:15px;">最新消息</span>
+          <span style="font-size:15px;">加入我們</span>
+        </div>
+      </aside>
+
       <div class="sub-title">Nav 導覽列 — 點選一個 / Top Navigation — pick one</div>
-      <div class="option-pair" style="margin-bottom:18px;">
+      <div class="option-pair" style="margin-bottom:6px;">
         <div class="opt-choice" data-key="nav_bilingual" data-value="A">
           <h4>A — 中英並列（推薦） / Bilingual (recommended)</h4>
           <p>中文主標 + 英文小字。對國際合作對象友善，與 hero 標題、卡片區的雙語節奏一致。</p>
@@ -524,19 +562,10 @@ APAC AIA was founded in 2024 in Taipei to change this.</div>
         </div>
       </div>
 
-      <div class="sub-title">Footer 頁尾 — 點選一個 / Footer — pick one</div>
-      <div class="option-pair">
-        <div class="opt-choice" data-key="footer_bilingual" data-value="A">
-          <h4>A — 中英並列 / Bilingual</h4>
-          <p>與 nav 一致，跟整站 i18n 對齊。footer 字體本就較小，並列後視覺密度會提升。</p>
-          <p style="font-size:12px; color:#555; margin-top:4px; font-family:'Inter','Noto Sans TC',sans-serif;">Aligned with nav and the site's overall i18n. Footer text is already small; stacking increases visual density.</p>
-        </div>
-        <div class="opt-choice" data-key="footer_bilingual" data-value="B">
-          <h4>B — 僅中文 / Chinese only</h4>
-          <p>底部最精簡。若 nav 選雙語、footer 選僅中文，整站視覺會略不對稱。</p>
-          <p style="font-size:12px; color:#555; margin-top:4px; font-family:'Inter','Noto Sans TC',sans-serif;">Most minimal at the bottom. If nav is bilingual and footer is Chinese-only, the site becomes visually asymmetric.</p>
-        </div>
-      </div>
+      <aside aria-label="Footer 處理說明" style="background:#EEF7FB; border-left:4px solid #19abe4; padding:10px 14px; border-radius:6px; margin-top:14px; font-size:12px; color:#003b5c; line-height:1.6;">
+        <strong><span aria-hidden="true">💡 </span>Footer</strong>：不在本次投票範圍。footer 字體本就小、項目較多，雙語並列會大幅提升視覺密度；且 footer 對整體 i18n（含 hover、響應式斷點、社群圖示對齊）牽連較廣。<strong>留給設計師依整體設計語言判斷</strong>。
+        <span class="en-body" style="color:#003b5c; font-size:11px; margin-top:5px;"><strong>Footer:</strong> not part of this vote. Footer text is already small with many items; stacking bilingually significantly increases visual density. Footer also involves broader i18n concerns (hover states, responsive breakpoints, social icon alignment). <strong>Defer to the designer's overall design-language judgment.</strong></span>
+      </aside>
     </div>
   </details>
 
@@ -942,13 +971,12 @@ We believe embracing diversity sparks innovation, creativity, and resilience —
   <!-- RESPONSE PANEL -->
   <div class="response-panel">
     <div style="font-weight:700; font-size:16px; color:#003b5c; margin-bottom:6px;">你的回覆<span class="en-sub" style="color:#5c7a8c; font-weight:500;">Your Response</span></div>
-    <div class="progress-label" id="progress-label">已選 0 / 5 項 · Selected 0 / 5</div>
+    <div class="progress-label" id="progress-label">已選 0 / 4 項 · Selected 0 / 4</div>
     <div class="progress-bar" id="progress-bar">
       <div class="progress-dot" data-for="impact"></div>
       <div class="progress-dot" data-for="partners"></div>
       <div class="progress-dot" data-for="event_position"></div>
       <div class="progress-dot" data-for="nav_bilingual"></div>
-      <div class="progress-dot" data-for="footer_bilingual"></div>
     </div>
     <div class="response-preview" id="response-preview">
       <span class="empty">點選上方的選項後，回覆文字會自動出現在這裡。<br><span style="font-family:'Inter','Noto Sans TC',sans-serif; font-size:12px;">Click an option above and the response text will auto-generate here.</span></span>
@@ -970,8 +998,8 @@ We believe embracing diversity sparks innovation, creativity, and resilience —
 
 <script>
 const selections = {};
-// 本次投票:5 個新議題(前 6 項已 archive,不計入)。ⓐⓑⓒ 是 IA,ⓓ 拆成 nav+footer 兩個子題。
-const REQUIRED_KEYS = ['impact', 'partners', 'event_position', 'nav_bilingual', 'footer_bilingual'];
+// 本次投票:4 個議題(前 6 項已 archive,不計入)。ⓐⓑⓒ 是 IA,ⓓ 是 nav 雙語(footer 留給設計師)。
+const REQUIRED_KEYS = ['impact', 'partners', 'event_position', 'nav_bilingual'];
 
 const OPTION_NAMES = {
   impact: {
@@ -993,10 +1021,6 @@ const OPTION_NAMES = {
     A:'中英並列(推薦) · Bilingual (recommended)',
     B:'僅中文 · Chinese only'
   },
-  footer_bilingual: {
-    A:'中英並列 · Bilingual',
-    B:'僅中文 · Chinese only'
-  },
 };
 
 const KEY_LABELS = {
@@ -1004,7 +1028,6 @@ const KEY_LABELS = {
   partners:         { section:'ⓑ', label:'Partnering 位置 · Position' },
   event_position:   { section:'ⓒ', label:'Event Banner 位置 · Position' },
   nav_bilingual:    { section:'ⓓ', label:'Nav 雙語 · Bilingual nav' },
-  footer_bilingual: { section:'ⓓ', label:'Footer 雙語 · Bilingual footer' },
 };
 
 // Click + keyboard handlers for all selectable elements
@@ -1071,11 +1094,10 @@ function updateResponse() {
   const name = (key, val) => OPTION_NAMES[key]?.[val] ? `${val} — ${OPTION_NAMES[key][val]}` : val;
   let lines = [];
 
-  if (selections.impact)           lines.push(`ⓐ Our Impact 處理 · Treatment: ${name('impact', selections.impact)}`);
-  if (selections.partners)         lines.push(`ⓑ Partnering Organizations 位置 · Position: ${name('partners', selections.partners)}`);
-  if (selections.event_position)   lines.push(`ⓒ Event Banner 位置 · Position: ${name('event_position', selections.event_position)}`);
-  if (selections.nav_bilingual)    lines.push(`ⓓ Nav 雙語 · Bilingual nav: ${name('nav_bilingual', selections.nav_bilingual)}`);
-  if (selections.footer_bilingual) lines.push(`ⓓ Footer 雙語 · Bilingual footer: ${name('footer_bilingual', selections.footer_bilingual)}`);
+  if (selections.impact)         lines.push(`ⓐ Our Impact 處理 · Treatment: ${name('impact', selections.impact)}`);
+  if (selections.partners)       lines.push(`ⓑ Partnering Organizations 位置 · Position: ${name('partners', selections.partners)}`);
+  if (selections.event_position) lines.push(`ⓒ Event Banner 位置 · Position: ${name('event_position', selections.event_position)}`);
+  if (selections.nav_bilingual)  lines.push(`ⓓ Nav 雙語 · Bilingual nav: ${name('nav_bilingual', selections.nav_bilingual)}`);
 
   const comment = document.getElementById('comment-input').value.trim();
   if (comment) lines.push(`\n💬 ${comment}`);
