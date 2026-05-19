@@ -176,6 +176,33 @@
     .final-cards-grid { grid-template-columns:1fr; gap:6px; }
     .final-section-title { font-size:14px; }
     .footer-note { font-size:12px; padding:16px; }
+    .en-sub { font-size:11px !important; }
+    .en-body { font-size:12px !important; }
+  }
+
+  /* Bilingual labels — Chinese primary + English subtitle below */
+  .en-sub {
+    display: block;
+    font-family: 'Inter', 'Noto Sans TC', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    margin-top: 3px;
+    opacity: 0.75;
+  }
+  .en-body {
+    display: block;
+    font-family: 'Inter', 'Noto Sans TC', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #555;
+    margin-top: 6px;
+  }
+  .en-sub.inline {
+    display: inline;
+    margin-left: 8px;
+    margin-top: 0;
   }
 </style>
 </head>
@@ -183,18 +210,68 @@
 <div class="page">
 
   <div class="header">
-    <a href="../index.html" class="back-link">&#8592; 返回專案文件</a>
-    <h1>AIA 首頁文案選項</h1>
-    <p>請各位夥伴花 5 分鐘，按首頁的瀏覽順序，<strong>直接點選</strong>偏好的選項。<br>選完後底部會自動產生回覆文字，複製貼上傳給 Bertram 就好。</p>
+    <a href="../index.html" class="back-link">&#8592; 返回專案文件 / Back to Project Docs</a>
+    <h1>AIA 首頁文案選項<span class="en-sub" style="color:rgba(255,255,255,0.7);">Homepage Copy Voting</span></h1>
+    <p>請各位夥伴花 5 分鐘，按首頁的瀏覽順序，<strong>直接點選</strong>偏好的選項。<br>選完後底部會自動產生回覆文字，複製貼上傳給 Bertram 就好。
+      <span class="en-sub" style="color:rgba(255,255,255,0.65); margin-top:8px;">Spend 5 minutes scrolling through the homepage in order and <strong>click your preferred option</strong>. The response text auto-generates at the bottom — copy and send to Bertram.</span>
+    </p>
   </div>
 
   <div class="intro">
     這份文件按首頁從上到下的順序，列出每個區塊需要團隊決定的文案方向。每個選項都準備好了中英文草稿，<strong>直接點你喜歡的就好</strong>。如果都不滿意，底部有留言區可以說。
+    <span class="en-body">This document lists each homepage section that needs team direction, in top-down browsing order. Each option has a bilingual draft ready — <strong>just click what you like</strong>. If none feels right, use the comment box at the bottom.</span>
   </div>
 
-  <!-- FINAL SELECTION (collapsible, default open) -->
+  <!-- NEW FINAL SELECTION: 本次投票議題概要 (3 items) -->
   <details class="final-panel" open>
-    <summary class="final-label">🎯 團隊最終決定 · FINAL SELECTION</summary>
+    <summary class="final-label"><span aria-hidden="true">🎯 </span>本次投票議題概要 · 3 ITEMS<span class="en-sub" style="color:rgba(248,182,45,0.9); letter-spacing:1px; font-weight:600;">VOTE SUMMARY · 3 ITEMS</span></summary>
+    <div class="final-list">
+
+      <section class="final-section">
+        <h3 class="final-section-title"><span class="final-num">ⓐ</span> Our Impact 區段<span class="en-sub" style="color:#5c7a8c; font-weight:400;">Our Impact Section</span></h3>
+        <div class="final-sub">
+          <div class="final-sub-label">目前狀態 · PDF 位置 / Current state · PDF position</div>
+          <div class="final-text-zh">在 About 區之後 / What We Do 之前(首頁中段)。顯示「已舉辦 X 場活動 / X 個合作組織 / 觸及 X 位專業人士」三個數字版位。</div>
+          <div class="final-text-en">Located after About / before What We Do (middle of homepage). Shows three stat slots: "X events held / X partner organizations / X professionals reached".</div>
+        </div>
+        <aside aria-label="提案 concern" style="background:#FFF9E6; border-left:4px solid #F8B62D; padding:10px 14px; border-radius:6px; margin-top:8px; font-size:13px; color:#5d4400; line-height:1.6;">
+          <strong><span aria-hidden="true">⚠ </span>concern</strong>:協會 2024 才成立,三個數字版位填什麼都尷尬(小數字看起來慘 / 大數字會被質疑灌水 / 空著讓人懷疑)。請就下方 ⓐ 投票決定處理方向。
+          <span class="en-body" style="color:#5d4400; font-size:12px; margin-top:6px;">The association was founded in 2024 — any number is awkward (small numbers look weak / big numbers seem inflated / blank looks suspicious). Vote on direction at ⓐ below.</span>
+        </aside>
+      </section>
+
+      <section class="final-section">
+        <h3 class="final-section-title"><span class="final-num">ⓑ</span> Partnering Organizations 區段<span class="en-sub" style="color:#5c7a8c; font-weight:400;">Partnering Organizations Section</span></h3>
+        <div class="final-sub">
+          <div class="final-sub-label">目前狀態 · PDF 位置 / Current state · PDF position</div>
+          <div class="final-text-zh">在 What We Do(三張卡片)之後 / Events(近期活動)之前。顯示「自 2024 年以來,我們一直與以下單位合作」+ partner logos。</div>
+          <div class="final-text-en">Located after What We Do (three cards) / before Events. Shows "Since 2024, we've been collaborating with the following organizations" + partner logos.</div>
+        </div>
+        <aside aria-label="提案 concern" style="background:#FFF9E6; border-left:4px solid #F8B62D; padding:10px 14px; border-radius:6px; margin-top:8px; font-size:13px; color:#5d4400; line-height:1.6;">
+          <strong><span aria-hidden="true">⚠ </span>concern</strong>:Partnering 是訪客建立信任最直接的 signal,放更前面比放現在位置對信任建立更有效;也是 ADALS 招商可信度的關鍵 signal。請就下方 ⓑ 投票決定位置。
+          <span class="en-body" style="color:#5d4400; font-size:12px; margin-top:6px;">Partnering is the most direct trust signal for visitors; placing it earlier builds trust more effectively than the current position. Also key for ADALS sponsorship credibility. Vote on placement at ⓑ below.</span>
+        </aside>
+      </section>
+
+      <section class="final-section">
+        <h3 class="final-section-title"><span class="final-num">ⓒ</span> Event Banner 區段<span class="en-sub" style="color:#5c7a8c; font-weight:400;">Event Banner Section</span></h3>
+        <div class="final-sub">
+          <div class="final-sub-label">目前狀態 · PDF 位置 / Current state · PDF position</div>
+          <div class="final-text-zh">在最下面(原 ❻ Events 區)。ADALS 2026 跟一張 PAST event 並排顯示成兩張對等卡片。</div>
+          <div class="final-text-en">At the very bottom (original ❻ Events area). ADALS 2026 displayed side-by-side with a PAST event as two equivalent cards.</div>
+        </div>
+        <aside aria-label="提案 concern" style="background:#FFF9E6; border-left:4px solid #F8B62D; padding:10px 14px; border-radius:6px; margin-top:8px; font-size:13px; color:#5d4400; line-height:1.6;">
+          <strong><span aria-hidden="true">⚠ </span>concern</strong>:ADALS 是協會首場旗艦級高峰會,跟其他活動並排在最下面跟 onepager 對 ADALS 的 flagship 定位矛盾(對應 audit-r1 tracker D6 issue)。UPCOMING + PAST 並排也造成時態混淆。請就下方 ⓒ 投票決定時機 + 位置。
+          <span class="en-body" style="color:#5d4400; font-size:12px; margin-top:6px;">ADALS is the association's first flagship summit; side-by-side at the bottom with other events contradicts its flagship positioning in the onepager (audit-r1 tracker D6). UPCOMING + PAST in parallel also causes tense confusion. Vote on timing + placement at ⓒ below.</span>
+        </aside>
+      </section>
+
+    </div>
+  </details>
+
+  <!-- OLD FINAL SELECTION (前一輪 ❶-❻ 團隊最終決定,已封存) -->
+  <details class="final-panel">
+    <summary class="final-label"><span aria-hidden="true">📁 </span>已封存 · 前一輪 ❶-❻ 團隊最終決定<span class="en-sub" style="color:rgba(248,182,45,0.85); letter-spacing:1px; font-weight:600;">ARCHIVED · Previous Round ❶-❻ Final Decisions</span></summary>
     <div class="final-list">
 
       <section class="final-section">
@@ -281,10 +358,156 @@ APAC AIA was founded in 2024 in Taipei to change this.</div>
         <div class="final-sub">
           <div class="final-text-zh">ADALS 2026｜亞太數位包容與資訊無障礙領導力高峰會</div>
         </div>
+        <aside aria-label="團隊備註" style="background:#FFF9E6; border-left:4px solid #F8B62D; padding:10px 14px; border-radius:6px; margin-top:8px; font-size:13px; color:#5d4400; line-height:1.6;">
+          <strong><span aria-hidden="true">⚠ </span>位置待定</strong>:目前在最下面(❻)。是否等 6/15 上線(verify list 確認 fellowship / 場地 a11y spec / declaration / 政府 connection 後)再往上移?或考慮更早提升 ADALS spotlight(對應 audit-r1 tracker D6)。
+        </aside>
       </section>
 
     </div>
   </details>
+
+  <aside aria-label="本次投票範圍" style="background:#FFF9E6; border-left:4px solid #F8B62D; padding:12px 16px; border-radius:6px; margin:16px 0; font-size:13px; color:#5d4400; line-height:1.7;">
+    <strong><span aria-hidden="true">⚠ </span>本次投票範圍</strong>:❶-❻ 為前一輪已結案的投票紀錄(展開上方「已封存」面板查看)。本次需投票的是以下 ⓐ ⓑ ⓒ 三個新 IA 議題,請各選一個方向。
+    <span class="en-body" style="color:#5d4400; font-size:12px; margin-top:6px;"><strong>This vote covers:</strong> ❶-❻ are closed records from the previous round (expand the "Archived" panel above to view). This round votes on three new IA topics ⓐⓑⓒ below — please pick one direction for each.</span>
+  </aside>
+
+  <aside aria-label="字彙說明" style="background:#EEF7FB; border-left:4px solid #19abe4; padding:12px 16px; border-radius:6px; margin:16px 0; font-size:13px; color:#003b5c; line-height:1.7;">
+    <strong><span aria-hidden="true">💡 </span>字彙說明</strong>:<strong>hero / hero 區 / hero-area</strong> = 首頁最上方的大型視覺區域,訪客一進網站最先看到的整個全屏區塊(通常包含主標題、一段話介紹、主要按鈕、背景大圖)。本頁多處提到「Hero 之後」「hero-area level」都是指這個區域。
+    <span class="en-body" style="color:#003b5c; font-size:12px; margin-top:6px;"><strong>Glossary:</strong> <strong>hero / hero area</strong> = the large visual region at the top of the homepage — the full-width block visitors see first (typically containing main title, one-line intro, primary button, background image). Phrases like "after Hero" or "hero-area level" on this page refer to this region.</span>
+  </aside>
+
+  <!-- ⓐ OUR IMPACT — 新投票 -->
+  <details class="decision" open>
+    <summary class="decision-header">ⓐ Our Impact 區段 — 是否隱藏?<span class="en-sub" style="color:rgba(255,255,255,0.75); font-weight:500;">ⓐ Our Impact Section — Hide or keep?</span></summary>
+    <div class="decision-body">
+      <div class="decision-context">
+        首頁目前有「我們的影響」區段(已舉辦 X 場活動 / X 個合作組織 / 觸及 X 位專業人士)。協會 2024 才成立,填什麼數字都尷尬(小數字看起來慘 / 大數字會被質疑灌水 / 空著讓人懷疑)。<br><strong>請選一個處理方向。</strong>
+        <span class="en-body">Homepage currently has an "Our Impact" section (X events held / X partner organizations / X professionals reached). Founded in 2024, the association faces a dilemma — small numbers look weak, big numbers seem inflated, blank looks suspicious. <strong>Please pick one direction.</strong></span>
+      </div>
+
+      <div class="option" data-key="impact" data-value="A">
+        <h3><span class="option-num" style="background:#e3f2fd;color:#1565c0;">A</span> 整段移除<span class="en-sub" style="color:#555; font-weight:500;">A — Remove entirely</span></h3>
+        <div class="content-block">
+          <div class="content-block-label">說明 / Explanation</div>
+          <div class="content-zh">直接從首頁拿掉這個區塊。等 2027 之後協會累積到具體案例(具名合作對象、具體成果)再放回來。短期執行成本最低。</div>
+          <div class="content-en">Drop this section from the homepage. Restore it after 2027 when the association has accumulated concrete cases (named partners, specific outcomes). Lowest short-term execution cost.</div>
+        </div>
+      </div>
+
+      <div class="option" data-key="impact" data-value="B">
+        <h3><span class="option-num" style="background:#e8f5e9;color:#2e7d32;">B</span> 改寫為具名故事<span class="en-sub" style="color:#555; font-weight:500;">B — Rewrite as named stories</span></h3>
+        <div class="content-block">
+          <div class="content-block-label">說明 / Explanation</div>
+          <div class="content-zh">放棄數字版位,改成寫具體合作對象 / 具體成果故事(例:「跟 X 大學 a11y 中心合作完成 X 場 workshop」)。需 partner 名單 + 成果素材,短期 1-2 週準備時間。</div>
+          <div class="content-en">Drop the stat slots, replace with specific partner / outcome stories (e.g., "Co-hosted X workshops with X University's a11y center"). Requires partner list + outcome materials, 1-2 weeks lead time.</div>
+        </div>
+      </div>
+
+      <div class="option" data-key="impact" data-value="C">
+        <h3><span class="option-num" style="background:#f3e5f5;color:#6a1b9a;">C</span> 維持現狀(20+ 數字版位)<span class="en-sub" style="color:#555; font-weight:500;">C — Keep as-is (20+ stat slots)</span></h3>
+        <div class="content-block">
+          <div class="content-block-label">說明 / Explanation</div>
+          <div class="content-zh">保留現有結構,填具體數字。短期內可能 underwhelming,但不需重做設計。</div>
+          <div class="content-en">Keep the existing structure, fill in concrete numbers. May feel underwhelming short-term, but requires no design rework.</div>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <div class="flow-arrow">▼</div>
+
+  <!-- ⓑ PARTNERING ORGANIZATIONS — 新投票 -->
+  <details class="decision" open>
+    <summary class="decision-header">ⓑ Partnering Organizations 區段 — 是否上移?<span class="en-sub" style="color:rgba(255,255,255,0.75); font-weight:500;">ⓑ Partnering Organizations Section — Move up?</span></summary>
+    <div class="decision-body">
+      <div class="decision-context">
+        合作組織區段目前位置:「What We Do(三張卡片)之後 / Events 之前」。是否要上移到更高 prominence 位置?<br><strong>請選一個位置。</strong>
+        <span class="en-body">Current position of the Partnering Organizations section: after What We Do (three cards) / before Events. Should it move up to a higher-prominence position? <strong>Please pick one placement.</strong></span>
+      </div>
+
+      <div class="option" data-key="partners" data-value="A">
+        <h3><span class="option-num" style="background:#e3f2fd;color:#1565c0;">A</span> 上移到 About 之後 / 三張卡片之前<span class="en-sub" style="color:#555; font-weight:500;">A — Move up to: after About / before three cards</span></h3>
+        <div class="content-block">
+          <div class="content-block-label">說明 / Explanation</div>
+          <div class="content-zh">在自我介紹後立刻 social proof,「我們是這樣的組織」+「以下是 partner」直線連動。需要 partner logo 數量到位。</div>
+          <div class="content-en">Social proof immediately follows self-introduction: "this is who we are" + "these are our partners" form a direct narrative chain. Requires partner logos at sufficient volume.</div>
+        </div>
+      </div>
+
+      <div class="option" data-key="partners" data-value="B">
+        <h3><span class="option-num" style="background:#e8f5e9;color:#2e7d32;">B</span> 上移到 Hero 之後 / About 之前<span class="en-sub" style="color:#555; font-weight:500;">B — Move up to: after Hero / before About</span></h3>
+        <div class="content-block">
+          <div class="content-block-label">說明 / Explanation</div>
+          <div class="content-zh">最高 prominence,訪客一進就看到 trust signal。代價:擠壓 About 自我介紹流程。需要 partners 名單夠強。</div>
+          <div class="content-en">Highest prominence — visitors see the trust signal immediately on arrival. Trade-off: compresses the About self-introduction flow. Requires a sufficiently strong partner roster.</div>
+        </div>
+      </div>
+
+      <div class="option" data-key="partners" data-value="C">
+        <h3><span class="option-num" style="background:#f3e5f5;color:#6a1b9a;">C</span> 維持現狀(What We Do 之後 / Events 之前)<span class="en-sub" style="color:#555; font-weight:500;">C — Keep current position (after What We Do / before Events)</span></h3>
+        <div class="content-block">
+          <div class="content-block-label">說明 / Explanation</div>
+          <div class="content-zh">不動位置。如果 partner 名單仍 emerging,或想先讓訪客了解我們在做什麼再看 partners,維持現狀。</div>
+          <div class="content-en">Do not move. If the partner roster is still emerging, or if visitors should first understand what we do before seeing partners, keep as-is.</div>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <div class="flow-arrow">▼</div>
+
+  <!-- ⓒ EVENT BANNER 位置 — 新投票 -->
+  <details class="decision" open>
+    <summary class="decision-header">ⓒ Event Banner 位置 — 何時 / 怎麼往上移?<span class="en-sub" style="color:rgba(255,255,255,0.75); font-weight:500;">ⓒ Event Banner Position — When / how to move it up?</span></summary>
+    <div class="decision-body">
+      <div class="decision-context">
+        ADALS 2026 banner 目前在首頁最下方(原 ❻ 位置,跟其他活動並排在 Events 區)。但 ADALS 是協會首場旗艦級高峰會(對應 audit-r1 tracker D6),維持最下面跟其 brand positioning 不一致。<br><strong>請選一個處理時機 + 位置。</strong>
+        <span class="en-body">The ADALS 2026 banner currently sits at the very bottom of the homepage (original ❻ position, side-by-side with other events in the Events area). But ADALS is the association's first flagship summit (per audit-r1 tracker D6) — keeping it at the bottom conflicts with its brand positioning. <strong>Please pick one timing + placement.</strong></span>
+      </div>
+
+      <aside aria-label="提案背景" style="background:#FFF9E6; border-left:4px solid #F8B62D; padding:12px 16px; border-radius:6px; margin-bottom:14px; font-size:13px; color:#5d4400; line-height:1.7;">
+        <strong><span aria-hidden="true">⚠ </span>提案背景</strong>:6/15 是 verify list(fellowship / 場地 a11y spec / 會後 declaration / 政府 partner)預計確認的 milestone。位置 vs 內容深度是兩個不同問題 — 位置可以現在升級,內容深度等 verify 完再加 commitment line。
+        <span class="en-body" style="color:#5d4400; font-size:12px; margin-top:6px;"><strong>Context:</strong> June 15 is the milestone when the verify list (fellowship / venue a11y spec / post-event declaration / government partners) is expected to be confirmed. Position vs. content depth are two separate issues — position can be upgraded now, content depth waits until verification is done before adding a commitment line.</span>
+      </aside>
+
+      <div class="option" data-key="event_position" data-value="A">
+        <h3><span class="option-num" style="background:#e3f2fd;color:#1565c0;">A</span> 維持現狀,等 6/15 一次上去<span class="en-sub" style="color:#555; font-weight:500;">A — Keep as-is, upgrade all at once after June 15</span></h3>
+        <div class="content-block">
+          <div class="content-block-label">說明 / Explanation</div>
+          <div class="content-zh">不動位置,等 verify list 4 項確認後再一次升級。最小操作,但首頁主視覺帶著 known issue 約 1 個月,跟 onepager 旗艦定位矛盾。</div>
+          <div class="content-en">Do not move now. Wait until all 4 verify-list items are confirmed, then upgrade in one go. Minimal effort, but the homepage carries a known issue for about a month, conflicting with the onepager's flagship positioning.</div>
+        </div>
+      </div>
+
+      <div class="option" data-key="event_position" data-value="B">
+        <h3><span class="option-num" style="background:#e8f5e9;color:#2e7d32;">B</span> 兩階段:現在上移 + 6/15 後再升級(推薦)<span class="en-sub" style="color:#555; font-weight:500;">B — Two-phase: move up now + upgrade after June 15 (recommended)</span></h3>
+        <div class="content-block">
+          <div class="content-block-label">說明 / Explanation</div>
+          <div class="content-zh">現在(6/15 前)位置上移到 hero / About 之後 / 三張卡片之前,內容保持精簡(日期 + 地點 + 三軸)。6/15 後升級為 hero-area-level,內容加 commitment line(fellowship / 場地 spec / declaration / 政府 partner)。對 returning visitor 有「啊有進展」signal。</div>
+          <div class="content-en">Now (before June 15) move position up to: after Hero / after About / before three cards; keep content lean (date + venue + three axes). After June 15, upgrade to hero-area-level and add the commitment line (fellowship / venue spec / declaration / government partner). Returning visitors get an "ah, progress" signal.</div>
+        </div>
+      </div>
+
+      <div class="option" data-key="event_position" data-value="C">
+        <h3><span class="option-num" style="background:#f3e5f5;color:#6a1b9a;">C</span> 立刻升級為 hero-area level<span class="en-sub" style="color:#555; font-weight:500;">C — Upgrade to hero-area level immediately</span></h3>
+        <div class="content-block">
+          <div class="content-block-label">說明 / Explanation</div>
+          <div class="content-zh">最積極,現在直接給 ADALS hero-area-level prominence。內容仍精簡(等 verify 完再加 commitment)。風險:hero 區擠壓主品牌訊息,且還沒有 commitment line 顯得「prominence 不對等 substance」。</div>
+          <div class="content-en">Most aggressive — give ADALS hero-area-level prominence immediately. Content stays lean (commitment added after verification). Risk: the hero area compresses the main brand message, and without a commitment line the prominence may outstrip the substance.</div>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <div class="flow-arrow">▼</div>
+
+  <!-- ARCHIVE WRAPPER START: 包裝前 6 項投票 -->
+  <details style="margin:24px 0;">
+    <summary style="cursor:pointer; padding:14px 20px; background:#f0f0f0; border-radius:8px; font-weight:700; color:#666; list-style:none; display:flex; flex-direction:column; align-items:flex-start; gap:2px; min-height:44px;">
+      <span><span aria-hidden="true">📁 </span>已封存:❶-❻ 前一輪投票項目(僅供歷史參考,本次不投票)</span>
+      <span class="en-sub" style="color:#888; font-weight:500; margin-top:2px;">ARCHIVED: ❶-❻ previous voting items (reference only — not part of this round)</span>
+    </summary>
+    <div style="background:#fafafa; padding:12px 8px; border-radius:8px; margin-top:8px;">
 
   <!-- ❶ HERO -->
   <details class="decision">
@@ -671,100 +894,110 @@ We believe embracing diversity sparks innovation, creativity, and resilience —
     </div>
   </details>
 
+    </div>
+  </details>
+  <!-- ARCHIVE WRAPPER END -->
+
   <!-- RESPONSE PANEL -->
   <div class="response-panel">
-    <div style="font-weight:700; font-size:16px; color:#003b5c; margin-bottom:6px;">你的回覆</div>
-    <div class="progress-label" id="progress-label">已選 0 / 8 項</div>
+    <div style="font-weight:700; font-size:16px; color:#003b5c; margin-bottom:6px;">你的回覆<span class="en-sub" style="color:#5c7a8c; font-weight:500;">Your Response</span></div>
+    <div class="progress-label" id="progress-label">已選 0 / 3 項 · Selected 0 / 3</div>
     <div class="progress-bar" id="progress-bar">
-      <div class="progress-dot" data-for="tagline"></div>
-      <div class="progress-dot" data-for="pitch"></div>
-      <div class="progress-dot" data-for="cta"></div>
-      <div class="progress-dot" data-for="about"></div>
-      <div class="progress-dot" data-for="cards"></div>
-      <div class="progress-dot" data-for="cards_title"></div>
-      <div class="progress-dot" data-for="mission_yesno"></div>
-      <div class="progress-dot" data-for="joinus"></div>
+      <div class="progress-dot" data-for="impact"></div>
+      <div class="progress-dot" data-for="partners"></div>
+      <div class="progress-dot" data-for="event_position"></div>
     </div>
     <div class="response-preview" id="response-preview">
-      <span class="empty">點選上方的選項後，回覆文字會自動出現在這裡。</span>
+      <span class="empty">點選上方的選項後，回覆文字會自動出現在這裡。<br><span style="font-family:'Inter','Noto Sans TC',sans-serif; font-size:12px;">Click an option above and the response text will auto-generate here.</span></span>
     </div>
     <div style="margin-top:16px;">
-      <div style="font-size:13px; color:#666; margin-bottom:6px;">額外意見（選填）：</div>
-      <textarea id="comment-input" class="comment-input" placeholder="有什麼想法、建議、或覺得哪裡怪怪的，都可以寫在這裡。" oninput="updateResponse()"></textarea>
+      <div style="font-size:13px; color:#666; margin-bottom:6px;">額外意見（選填）：<span class="en-sub" style="color:#888; font-weight:400;">Additional comments (optional)</span></div>
+      <textarea id="comment-input" class="comment-input" placeholder="有什麼想法、建議、或覺得哪裡怪怪的，都可以寫在這裡。 / Any thoughts, suggestions, or things that feel off — write them here." oninput="updateResponse()"></textarea>
     </div>
     <div class="missing-hint" id="missing-hint"></div>
-    <button class="copy-btn disabled" id="copy-btn" onclick="copyResponse()">還有項目未選</button>
+    <button class="copy-btn disabled" id="copy-btn" onclick="copyResponse()">還有項目未選 · Items incomplete</button>
   </div>
 
   <div class="footer-note">
     AIA 網站重新設計 Phase 1 ｜ 文案選項 v2 ｜ 2026-04-21
+    <span class="en-sub" style="color:#bbb; font-size:11px;">AIA Website Redesign Phase 1 · Copy Options v2 · 2026-04-21</span>
   </div>
 
 </div>
 
 <script>
 const selections = {};
-const REQUIRED_KEYS = ['tagline','pitch','cta','about','cards','cards_title','mission_yesno','joinus'];
+// 本次投票:3 個新 IA 議題(前 6 項已 archive,不計入)
+const REQUIRED_KEYS = ['impact', 'partners', 'event_position'];
 
 const OPTION_NAMES = {
-  tagline:      { A:'維持原版', B:'更具行動感' },
-  pitch:        { A:'使命導向', B:'場域導向', C:'改寫 wireframe 原文' },
-  cta:          { A:'了解更多 / Learn More', B:'參與我們的活動 / Join an Event' },
-  about:        { A:'故事型', B:'結構型', C:'改寫 wireframe 原文' },
-  cards:        { A:'我們創造什麼連結', B:'AIA 解決什麼問題', C:'保留原版，優化語氣' },
-  cards_title:  { A:'我們在做的事 / What We Do', B:'我們的行動 / Our Impact' },
-  mission:      { A:'願景型', B:'使命型', C:'核心價值型' },
-  joinus:       { A:'使命號召型', B:'務實邀請型', C:'改寫 wireframe 原文' },
+  impact: {
+    A:'整段移除 · Remove entirely',
+    B:'改寫為具名故事 · Rewrite as named stories',
+    C:'維持現狀(20+ 數字版位) · Keep as-is (20+ stat slots)'
+  },
+  partners: {
+    A:'上移到 About 之後 / 三張卡片之前 · Move up: after About / before three cards',
+    B:'上移到 Hero 之後 / About 之前 · Move up: after Hero / before About',
+    C:'維持現狀 (What We Do 之後 / Events 之前) · Keep current position'
+  },
+  event_position: {
+    A:'維持現狀,等 6/15 一次上去 · Keep as-is, upgrade all at once after June 15',
+    B:'兩階段:現在上移 + 6/15 後再升級 · Two-phase: move up now + upgrade after June 15',
+    C:'立刻升級為 hero-area level · Upgrade to hero-area level immediately'
+  },
 };
 
 const KEY_LABELS = {
-  tagline: { section:'❶', label:'Tagline' },
-  pitch:   { section:'❶', label:'Pitch' },
-  cta:     { section:'❶', label:'CTA' },
-  about:   { section:'❷', label:'關於協會' },
-  cards:   { section:'❸', label:'卡片' },
-  cards_title: { section:'❸', label:'標題' },
-  mission_yesno: { section:'❹', label:'Mission/Vision' },
-  mission: { section:'❹', label:'Mission 版本' },
-  joinus:  { section:'❺', label:'加入我們' },
-  event:   { section:'❻', label:'活動' }
+  impact:         { section:'ⓐ', label:'Our Impact 處理 · Treatment' },
+  partners:       { section:'ⓑ', label:'Partnering 位置 · Position' },
+  event_position: { section:'ⓒ', label:'Event Banner 位置 · Position' },
 };
 
-// Click handlers for all selectable elements
+// Click + keyboard handlers for all selectable elements
+// (also a11y-retrofits archived ❶-❻ options so they're keyboard accessible if opened)
 document.querySelectorAll('[data-key]').forEach(el => {
-  el.addEventListener('click', () => {
+  // A11y retrofit: non-button clickable divs get role/tabindex/aria-pressed
+  if (el.tagName !== 'BUTTON' && el.tagName !== 'INPUT' && !el.hasAttribute('tabindex')) {
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('role', 'button');
+    el.setAttribute('aria-pressed', 'false');
+  }
+
+  const activate = () => {
     const key = el.dataset.key;
     const value = el.dataset.value;
 
-    // Deselect siblings
-    document.querySelectorAll(`[data-key="${key}"]`).forEach(sib => sib.classList.remove('selected'));
+    document.querySelectorAll(`[data-key="${key}"]`).forEach(sib => {
+      sib.classList.remove('selected');
+      if (sib.hasAttribute('aria-pressed')) sib.setAttribute('aria-pressed', 'false');
+    });
     el.classList.add('selected');
+    if (el.hasAttribute('aria-pressed')) el.setAttribute('aria-pressed', 'true');
     selections[key] = value;
-
-    // If mission_yesno is "不要", clear mission sub-selection
-    if (key === 'mission_yesno' && value === '不要') {
-      delete selections.mission;
-      document.querySelectorAll('[data-key="mission"]').forEach(sib => sib.classList.remove('selected'));
-    }
-
     updateResponse();
+  };
+
+  el.addEventListener('click', activate);
+  el.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      activate();
+    }
   });
 });
 
+// Stub:archived ❻ Event Banner input — keep so input doesn't error if user types
 function onEventInput(input) {
-  const val = input.value.trim();
-  if (val) {
+  if (input.value.trim()) {
     input.classList.add('filled');
-    selections.event = val;
   } else {
     input.classList.remove('filled');
-    delete selections.event;
   }
-  updateResponse();
 }
 
 function updateResponse() {
-  // Calculate completion
+  // Calculate completion (3 new IA questions only; archived ❶-❻ not counted)
   let done = 0;
   let missing = [];
   REQUIRED_KEYS.forEach(key => {
@@ -778,53 +1011,17 @@ function updateResponse() {
     }
   });
 
-  // Check if mission needs sub-selection
-  const needsMissionSub = selections.mission_yesno === '要' && !selections.mission;
-  if (needsMissionSub && !missing.includes('❹ Mission 版本')) {
-    missing.push('❹ Mission 版本');
-  }
-
   const total = REQUIRED_KEYS.length;
-  document.getElementById('progress-label').textContent = `已選 ${done} / ${total} 項`;
+  document.getElementById('progress-label').textContent = `已選 ${done} / ${total} 項 · Selected ${done} / ${total}`;
 
   // Build response text
   const name = (key, val) => OPTION_NAMES[key]?.[val] ? `${val} — ${OPTION_NAMES[key][val]}` : val;
   let lines = [];
 
-  // ❶ Hero
-  let heroParts = [];
-  if (selections.tagline) heroParts.push(`   Tagline: ${name('tagline', selections.tagline)}`);
-  if (selections.pitch)   heroParts.push(`   Pitch: ${name('pitch', selections.pitch)}`);
-  if (selections.cta)     heroParts.push(`   CTA: ${name('cta', selections.cta)}`);
-  if (heroParts.length > 0) lines.push(`❶ Hero 區\n${heroParts.join('\n')}`);
+  if (selections.impact)         lines.push(`ⓐ Our Impact 處理 · Treatment: ${name('impact', selections.impact)}`);
+  if (selections.partners)       lines.push(`ⓑ Partnering Organizations 位置 · Position: ${name('partners', selections.partners)}`);
+  if (selections.event_position) lines.push(`ⓒ Event Banner 位置 · Position: ${name('event_position', selections.event_position)}`);
 
-  // ❷ About
-  if (selections.about) lines.push(`❷ 關於協會: ${name('about', selections.about)}`);
-
-  // ❸ Cards
-  let cardsParts = [];
-  if (selections.cards)       cardsParts.push(`   卡片: ${name('cards', selections.cards)}`);
-  if (selections.cards_title) cardsParts.push(`   區塊標題: ${name('cards_title', selections.cards_title)}`);
-  if (cardsParts.length > 0) lines.push(`❸ 三張卡片\n${cardsParts.join('\n')}`);
-
-  // ❹ Mission
-  if (selections.mission_yesno === '不要') {
-    lines.push('❹ Mission / Vision: 不要，直接拿掉');
-  } else if (selections.mission_yesno === '要') {
-    if (selections.mission) {
-      lines.push(`❹ Mission / Vision: 要，${name('mission', selections.mission)}`);
-    } else {
-      lines.push('❹ Mission / Vision: 要，（版本未選）');
-    }
-  }
-
-  // ❺ Join Us
-  if (selections.joinus) lines.push(`❺ 加入我們: ${name('joinus', selections.joinus)}`);
-
-  // ❻ Event
-  if (selections.event) lines.push(`❻ Event Banner: ${selections.event}`);
-
-  // Comment
   const comment = document.getElementById('comment-input').value.trim();
   if (comment) lines.push(`\n💬 ${comment}`);
 
@@ -833,24 +1030,29 @@ function updateResponse() {
   const hint = document.getElementById('missing-hint');
 
   if (lines.length === 0) {
-    preview.innerHTML = '<span class="empty">點選上方的選項後，回覆文字會自動出現在這裡。</span>';
+    // Use DOM API instead of innerHTML to avoid XSS pattern flag
+    preview.textContent = '';
+    const empty = document.createElement('span');
+    empty.className = 'empty';
+    empty.appendChild(document.createTextNode('點選上方的選項後，回覆文字會自動出現在這裡。'));
+    empty.appendChild(document.createElement('br'));
+    const enLine = document.createElement('span');
+    enLine.style.cssText = "font-family:'Inter','Noto Sans TC',sans-serif; font-size:12px;";
+    enLine.textContent = 'Click an option above and the response text will auto-generate here.';
+    empty.appendChild(enLine);
+    preview.appendChild(empty);
   } else {
     preview.textContent = lines.join('\n');
   }
 
-  const allDone = missing.length === 0 && !needsMissionSub;
-  if (allDone) {
+  if (missing.length === 0) {
     btn.className = 'copy-btn ready';
-    btn.textContent = '複製回覆文字';
+    btn.textContent = '複製回覆文字 · Copy response';
     hint.textContent = '';
   } else {
     btn.className = 'copy-btn disabled';
-    btn.textContent = `還有 ${missing.length + (needsMissionSub ? 1 : 0)} 個項目未選`;
-    const allMissing = [...missing];
-    if (needsMissionSub && !allMissing.includes('❹ Mission 版本')) {
-      // already added above
-    }
-    hint.textContent = '未選：' + missing.join('、') + (needsMissionSub ? '、❹ Mission 版本' : '');
+    btn.textContent = `還有 ${missing.length} 個項目未選 · ${missing.length} item(s) remaining`;
+    hint.textContent = '未選 · Missing: ' + missing.join('、');
   }
 }
 
@@ -861,10 +1063,10 @@ function copyResponse() {
   const text = document.getElementById('response-preview').textContent;
   navigator.clipboard.writeText(text).then(() => {
     btn.className = 'copy-btn copied';
-    btn.textContent = '已複製 ✓';
+    btn.textContent = '已複製 ✓ · Copied';
     setTimeout(() => {
       btn.className = 'copy-btn ready';
-      btn.textContent = '複製回覆文字';
+      btn.textContent = '複製回覆文字 · Copy response';
     }, 2000);
   }).catch(() => {
     // Fallback
@@ -875,10 +1077,10 @@ function copyResponse() {
     document.execCommand('copy');
     document.body.removeChild(ta);
     btn.className = 'copy-btn copied';
-    btn.textContent = '已複製 ✓';
+    btn.textContent = '已複製 ✓ · Copied';
     setTimeout(() => {
       btn.className = 'copy-btn ready';
-      btn.textContent = '複製回覆文字';
+      btn.textContent = '複製回覆文字 · Copy response';
     }, 2000);
   });
 }
