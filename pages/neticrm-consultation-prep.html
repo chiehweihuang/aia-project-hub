@@ -273,12 +273,22 @@
     <h3>H. 計費 / 合約 / 試辦 <span class="priority must">MUST</span></h3>
     <ol>
       <li>微型 NT$12,960/年 + NT$8,000 開通費 + <strong>2 年合約免開通費</strong>,正確嗎?</li>
-      <li><strong>NPO 試辦條件</strong>是什麼?有試用期嗎?試用後自動續約還是手動?</li>
+      <li><strong>NPO 試辦條件</strong>是什麼?試用期多長?功能有無限制?試用後自動續約還是手動?</li>
       <li>中途升級(微型→小型)如何計費?是差價還是重算?能降級嗎?</li>
       <li>Contact 超過 3,000 上限會怎樣?<strong>自動升級</strong>還是<strong>停權</strong>?</li>
-      <li>有「ADALS 一次性活動方案」或政府 / 公益優惠嗎?</li>
+      <li>有沒有比「微型」<strong>更小的方案</strong>?微型是不是最低門檻?</li>
     </ol>
-    <p class="why">必問:錢的事不能模糊。</p>
+
+    <h4 style="margin-top:18px;">H-彈性. 暫時 / 活動型 / 月繳方案(AIA 評估重點)</h4>
+    <p style="font-size:14px;">AIA 現在是過渡期、ADALS 是季節性活動,所以想評估「不必一開始就綁整年」的彈性方案。以下這組要一起問:</p>
+    <ol>
+      <li>有沒有<strong>活動型 / 短期方案</strong>?例如只在 ADALS 報名期(約 3 個月)啟用,費用怎麼算?</li>
+      <li><strong>(最關鍵)若用短期方案、或中途停用 / 不續約:donor 與報名資料還能存取或匯出嗎?還是會被鎖 / 刪除?</strong></li>
+      <li>短期方案結束後,明年 ADALS 再啟用 — 要不要<strong>重新 setup</strong>?重新 setup 收費嗎?帳號能不能「休眠」保留設定?</li>
+      <li>年費能不能改<strong>月繳</strong>,分散現金流?</li>
+      <li>有沒有「非活動月份降規 / 暫停」的選項?</li>
+    </ol>
+    <p class="why">必問:H-彈性 Q2(停用後資料保留)決定「暫時方案」是真選項還是陷阱 — 若停用後資料被鎖、明年要重建,等於落入「省月費、爆重做工時」。判讀前提:<strong>AIA 要先自己確認「有沒有把握年復一年持續辦活動 + 收捐款」</strong>。有把握 → 連續性有價值,年費制合理;不確定(ADALS 可能是一次性試辦)→ 用力爭取活動型短期定價。</p>
   </div>
 
   <div class="q-block">
@@ -359,22 +369,28 @@
   </div>
 
   <div class="q-block recur">
-    <h3>R-C. Event Registration <span class="priority must">MUST</span></h3>
+    <h3>R-C. 「WordPress 報名 plugin + Recur」組合可行性(AIA 評估重點)<span class="priority must">MUST</span></h3>
+    <p style="font-size:14px;">這是 AIA 想評估的重點。Recur 本身沒有活動報名功能,但若能跟 WordPress 的活動報名 plugin 組合(報名交給 plugin、收款交給 Recur),仍可能服務 ADALS。<strong>AIA 與 Recur 創辦人有直接管道,以下問題能拿到權威答案,不必用猜的。</strong></p>
     <ol>
-      <li>Recur 是否支援<strong>活動報名</strong>(報名表單 + 收費 + 簽到 + 多票種)?</li>
-      <li>若不支援,有沒有 roadmap?或建議搭配什麼工具?</li>
+      <li>Recur 本身有沒有活動報名功能(報名表單 / 多票種 / 早鳥 / 報到)?若沒有,有沒有 roadmap?</li>
+      <li>若沒有 — Recur 能不能當 <strong>WordPress 活動報名 plugin 的金流</strong>?具體:有沒有 <strong>WooCommerce payment gateway plugin</strong>?(Event Tickets Plus 等票務 plugin 多半架在 WooCommerce 上)</li>
+      <li>Recur 能不能處理<strong>一次性付款</strong>(活動票券),不只訂閱式 recurring?</li>
+      <li>Recur 的 checkout 能不能<strong>嵌進 WordPress 報名流程</strong>(Web Component / API),讓「填報名表 → 付款」一條龍,不是跳兩個分開的頁面?</li>
+      <li><strong>(最關鍵)</strong>報名資料在 WordPress plugin、付款資料在 Recur,兩邊怎麼<strong>對應 / 對帳</strong>?Recur 有沒有 webhook 把付款結果回拋給 WordPress,自動標記「這筆報名已付款」?</li>
+      <li>收據由誰開?WordPress plugin、Recur、還是都不開、要 AIA 手動?</li>
+      <li>有沒有實際用 WordPress + Recur 跑活動售票的案例(台灣 NPO 尤佳)?</li>
     </ol>
-    <p class="why">必問:ADALS 2026 需要 event registration。Recur 若完全不做,就是 architectural blocker。</p>
+    <p class="why">必問:Q5(對帳)是這個組合的成敗關鍵。若 Q2-Q5 答案乾淨(有 WooCommerce gateway、能嵌入、webhook 自動對帳)→ WordPress plugin + Recur 是 netiCRM 之外的<strong>真實替代</strong>;若 Q5 要人工對帳 → 這條路落回「跨系統對帳的拼裝」,違反維護性原則。</p>
   </div>
 
   <div class="q-block recur">
-    <h3>R-D. 整合 / 嵌入 <span class="priority should">SHOULD</span></h3>
+    <h3>R-D. 其他整合 <span class="priority should">SHOULD</span></h3>
     <ol>
-      <li>能否嵌入 WordPress + Elementor 站?(iframe / Web Component / plugin?)</li>
-      <li><strong>Cal.com / Circle 是否有原生整合</strong>?(本頁標示「未經官方驗證」,需確認)</li>
-      <li>有沒有官方 WordPress plugin?Webhooks / Zapier / Make 之外的整合?</li>
+      <li><strong>Cal.com / Circle 是否有原生整合</strong>?(payment-stack-decision §2 標示「未經官方驗證」,需確認)</li>
+      <li>Webhooks / Zapier / Make 之外,還有哪些官方整合?</li>
+      <li>API 文件公開嗎?有 rate limit 嗎?</li>
     </ol>
-    <p class="why">該問:確認 payment-stack-decision §2 spec 表對 Recur 整合能力的描述是否正確。</p>
+    <p class="why">該問:確認 payment-stack-decision §2 spec 表對 Recur 整合能力的描述是否正確。WordPress 嵌入相關問題已併入上方 R-C。</p>
   </div>
 
   <div class="q-block recur">
@@ -398,7 +414,12 @@
   </div>
 
   <div class="note">
-    <strong>Recur 諮詢的判讀原則</strong>:R-A + R-B + R-C 共 11 題若回覆大致符合「payment-stack-decision 的推測」(沒有 NPO 抵稅收據、沒有 event、超額費率較高)→ 確認不採 Recur 為主 stack。只有當 R-A 出現意外的「有」,才需要把 Recur 拉回主 stack 候選重評。
+    <strong>Recur 諮詢的判讀原則</strong>:
+    <ul style="padding-left:22px; margin-top:6px;">
+      <li><strong>R-A(NPO 法規)</strong>若大致都是「沒有」→ 確認 Recur 不能單獨當 NPO 主 stack。若出現意外的「有」→ payment-stack-decision 主結論需重評。</li>
+      <li><strong>R-C(WordPress plugin + Recur 組合)</strong>是另一條評估線:就算 Recur 自己沒 event,只要 Q2-Q5 答案乾淨(有 WooCommerce gateway + 能嵌入 + webhook 自動對帳),這個組合就是 netiCRM 之外的真實選項;若 Q5 要人工對帳,則回到「不推薦的拼裝」。</li>
+      <li><strong>R-B(費率)</strong>用來驗證 §6 break-even 表的 4.9% 推算。</li>
+    </ul>
   </div>
 </section>
 

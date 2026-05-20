@@ -169,7 +169,7 @@
     <a href="#det-pricing">定價 / break-even</a>
     <a href="#det-implication">對 AIA 的影響</a>
     <a href="#det-recur-save">Recur 省錢情境</a>
-    <a href="#det-cheap">更省錢的方案</a>
+    <a href="#det-cheap">完整方案評估</a>
     <a href="#det-verdict">深入判斷</a>
     <a href="#det-factcheck">事實檢查紀錄</a>
     <a href="#archived">封存 v1.0</a>
@@ -187,7 +187,7 @@
 
   <div class="note tldr">
     <strong>一句話結論</strong>:現在就採 <strong>netiCRM 微型「最小配置」(NT$12,960/年)</strong>。這一筆預算同時解決兩件事 — <strong>現在</strong>:讓 ADALS 2026 能線上刷卡售票(海外與會者尤其需要);<strong>未來</strong>:AIA 變成社團法人那天,抵稅收據等合規功能在同一個工具裡直接開通,不換系統、不搬資料。
-    <p style="margin-top:8px;">Recur.tw <strong>不是 ADALS 的候選</strong> — 它沒有活動報名功能。Recur 只在 AIA 未來推付費課程 / 訂閱副業時,才可能作為 netiCRM 以外的補強。</p>
+    <p style="margin-top:8px;">Recur.tw <strong>本身沒有活動報名功能</strong>,單獨不能當 ADALS 的售票工具。但有一個組合值得評估:<strong>WordPress 報名 plugin + Recur 當金流</strong>(報名交給 plugin、收款交給 Recur)。這條路可不可行,取決於整合乾不乾淨、會不會變成跨系統對帳 — 是諮詢 Recur 的重點,問題清單見 <a href="neticrm-consultation-prep.html">諮詢準備頁</a> 的 R-C 區。</p>
   </div>
 
   <h3>先看清楚:AIA 現況怎麼影響這個決定</h3>
@@ -250,7 +250,7 @@
       </tbody>
     </table>
   </div>
-  <p style="font-size:13px; color:var(--muted);">「§11(4) 認定」(俗稱「11 條認定」)= 所得稅法 §11(4) 教育文化公益慈善機關或團體認定,是讓捐款人能拿收據報稅扣抵的必要資格。前兩列是「現在就做」,後三列是「條件成立才做」。各方案細節見下方「更省錢的方案」。</p>
+  <p style="font-size:13px; color:var(--muted);">「§11(4) 認定」(俗稱「11 條認定」)= 所得稅法 §11(4) 教育文化公益慈善機關或團體認定,是讓捐款人能拿收據報稅扣抵的必要資格。前兩列是「現在就做」,後三列是「條件成立才做」。各方案的完整覆蓋比較見下方「完整方案評估」。</p>
 
   <h3>下一步</h3>
   <div class="checklist-block">
@@ -570,90 +570,76 @@
     </div>
   </details>
 
-  <!-- 詳細 5:更省錢的方案 -->
+  <!-- 詳細 5:完整方案評估 -->
   <details class="major" id="det-cheap">
-    <summary>更省錢的簡單方案(5 方案) <span class="d-tag">維護成本低 · 單一廠商為主</span></summary>
+    <summary>完整方案評估 — 用 AIA 全部收款需求來比 <span class="d-tag">需求矩陣 / netiCRM vs Path B</span></summary>
     <div class="major-body">
 
       <div class="note tldr">
-        <strong>本區目的</strong>:列出比 netiCRM/Recur 更省錢的方案,搭配或不搭配主 stack 都可以。<strong>約束:不要複雜到沒有人能 maintain</strong>(排除多 plugin 拼裝、自寫程式、跨系統對帳)。「能 maintain」三判準:① 單一廠商有客服;② 後台執行小組能用不依賴工程師;③ 出問題有 escalation channel。
+        <strong>本區重點</strong>:其他區容易讓人以為各「省錢方案」是對等選項。其實多數方案只覆蓋 AIA 收款需求的<strong>某一塊</strong>(手工只做小活動、MyPay 只做捐款)。本區用 <strong>AIA 的全部收款需求</strong>做一張矩陣,一次看清楚每個方案到底覆蓋多少。
       </div>
 
-      <h3>方案 1:玉山銀行 + Google Form + ATM 轉帳 + 手工收據</h3>
-      <div class="path-card baseline">
-        <span class="path-label">OPTION 1 · BASELINE · 0 SaaS</span>
-        <table style="margin:8px 0;">
-          <tbody>
-            <tr><th class="label-col">廠商數</th><td>1(玉山銀行)+ Google(免費)</td></tr>
-            <tr><th class="label-col">適用情境</th><td>小型 workshop / 雙月談 / 月捐試辦 / 企業贊助</td></tr>
-            <tr><th class="label-col">規模上限</th><td>單場活動 ≤ 30-50 人;月捐 ≤ 50 位</td></tr>
-            <tr><th class="label-col">Maintainability</th><td><span class="check">✓</span> 極高 — 沒系統可壞,只有流程</td></tr>
-            <tr><th class="label-col">月固定成本</th><td>NT$0(銀行戶免費 + Google Form 免費)</td></tr>
-            <tr><th class="label-col">痛點</th><td>每張收據人工 15-20 分鐘;每月對帳 2-4 小時;不接受信用卡 / 超商代碼;ADALS 200 人規模不可行</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <h3>先講框架:ADALS 是觸發點,不是唯一變因</h3>
+      <p>選收款工具有<strong>兩個變因</strong>,只看一個會做出片面決定:</p>
+      <ul style="font-size:14.5px; line-height:1.85; padding-left:24px;">
+        <li><strong>變因一 — ADALS 2026(觸發點)</strong>:設下 deadline 與門檻 — 現在就要能線上刷卡售票。</li>
+        <li><strong>變因二 — AIA 的長期收款家</strong>:選的工具還要長期承接捐款、會員、月捐、跨年 CRM。只為 ADALS 選工具、辦完就丟,其他收款流又得各自重來。</li>
+      </ul>
+      <p>下面的矩陣同時用這兩個變因評估。</p>
 
-      <h3>方案 2:MyPay 公益捐款金流(透過 netiCRM 使用)</h3>
-      <div class="path-card alternative">
-        <span class="path-label">OPTION 2 · NPO 捐款金流</span>
-        <table style="margin:8px 0;">
-          <tbody>
-            <tr><th class="label-col">廠商數</th><td>1(MyPay 由<strong>高鉅科技</strong>營運,跟 netiCRM 母體網絡行動科技不同公司,但 netiCRM 已原生整合 MyPay 作為金流選項)</td></tr>
-            <tr><th class="label-col">適用情境</th><td>線上小額捐款(尤其月捐 / 紀念捐款)</td></tr>
-            <tr><th class="label-col">Maintainability</th><td><span class="check">✓</span> 高 — 透過 netiCRM 後台管理,單一 vendor 客服</td></tr>
-            <tr><th class="label-col">月固定成本</th><td>NT$0(無月費)</td></tr>
-            <tr><th class="label-col">變動成本(關鍵 — 看條件)</th><td><strong>NT$9/筆固定手續費</strong>:這是<strong>給 netiCRM 客戶 + 國內信用卡 + 單筆 ≥ NT$400 捐款</strong>的特殊費率(查 netiCRM <a href="https://neticrm.tw/resources/255" target="_blank" rel="noopener">金流費率比較頁</a>)。<strong>公開標準費率</strong>:MyPay 一般商戶 2.5%(<a href="https://www.mypay.com.tw/index.php/zh-tw/company-profile/fee-schedule" target="_blank" rel="noopener">MyPay 官方費用表</a>)。→ NT$9/筆只在「採 netiCRM + 大額捐款」場景成立。</td></tr>
-            <tr><th class="label-col">合規 / 抵稅收據</th><td>收據功能在 <strong>netiCRM</strong>(非 MyPay 自家);MyPay 只負責金流 → 需綁定 netiCRM 才有完整 NPO 流程</td></tr>
-            <tr><th class="label-col">痛點</th><td>抵稅收據前提:AIA 需取得「所得稅法 §11(4)」認定(過渡期前不適用);只做捐款不做 event;單筆 &lt; NT$400 用 NT$9/筆會反而貴</td></tr>
-          </tbody>
-        </table>
-        <p style="font-size:12.5px; color:var(--muted); margin-top:6px;">註:本欄修正自前版錯誤標示「MyPay 是智邦旗下」。MyPay 實際營運方為高鉅科技。</p>
-      </div>
-
-      <h3>方案 3:第三方公益勸募平台代收</h3>
-      <div class="path-card alternative">
-        <span class="path-label">OPTION 3 · 全外包</span>
-        <table style="margin:8px 0;">
-          <tbody>
-            <tr><th class="label-col">廠商數</th><td>1(平台:聯合勸募網 / 紅心字會 / 1111 公益網 等)</td></tr>
-            <tr><th class="label-col">適用情境</th><td>不想 host 系統 + 想全外包收款 + 出收據</td></tr>
-            <tr><th class="label-col">Maintainability</th><td><span class="check">✓</span> 最高 — 全外包,平台 maintain 一切</td></tr>
-            <tr><th class="label-col">月固定成本</th><td>NT$0(無月費)</td></tr>
-            <tr><th class="label-col">變動成本</th><td>平台抽 <strong>3-5%</strong> 後撥款給 AIA(各平台不同,須個別洽詢)</td></tr>
-            <tr><th class="label-col">痛點</th><td><strong>需勸募字號 + 平台審核</strong>(過渡期不適用);無品牌控制權;資料不在 AIA 手上</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h3>方案 4:netiCRM 微型「最小配置」(0 加購)</h3>
-      <div class="path-card primary">
-        <span class="path-label">OPTION 4 · 主推中的省錢版</span>
-        <table style="margin:8px 0;">
-          <tbody>
-            <tr><th class="label-col">廠商數</th><td>1(netiCRM)</td></tr>
-            <tr><th class="label-col">適用情境</th><td>需要 event + CRM + 基礎收據,但預算想壓到最低</td></tr>
-            <tr><th class="label-col">Maintainability</th><td><span class="check">✓</span> 高 — 單一廠商客服</td></tr>
-            <tr><th class="label-col">月固定成本</th><td>NT$1,080(NT$12,960/年;申請 2 年合約免開通費 NT$8,000)</td></tr>
-            <tr><th class="label-col">不買的加購</th><td>收據客製、雙語募款頁、電子發票串接、自訂域名 — 全部不買,接受標準 template</td></tr>
-            <tr><th class="label-col">痛點</th><td>收據用 netiCRM 標準格式(不能加 AIA LOGO);募款頁中文 only;若會計判定 ADALS 報名費需開電子發票 → 必須加 NT$16,800/年</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h3>方案 5:Recur.tw 單獨用</h3>
-      <p style="font-size:14px; color:var(--muted); padding-left:20px; border-left:3px solid var(--border);">
-        詳見上方「Recur 省錢情境」A / B。摘要:2.4% 起 + 0 月費 + 單一廠商;適合「捐款者不需抵稅」+「不需 event registration」的線上訂閱型收入。Maintainability 高,但 NPO compliance 不適用。
-      </p>
-
-      <h3>整合建議:依 AIA 階段挑搭配</h3>
+      <h3>覆蓋矩陣:每個方案覆蓋 AIA 多少收款需求</h3>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>AIA 階段</th><th>建議組合</th><th>月固定成本</th></tr></thead>
+          <thead>
+            <tr><th>AIA 收款需求</th><th>netiCRM 微型</th><th>Path B(WP+WooCommerce+套件+藍新)</th><th>手工(玉山+表單)</th><th>MyPay / 第三方勸募</th><th>Recur 單獨</th></tr>
+          </thead>
           <tbody>
-            <tr><th class="label-col">過渡期(現在 ~ 11 條認定前)</th><td>方案 1(0 SaaS baseline)<strong>或</strong>方案 4(netiCRM 微型最小);小活動走方案 1,ADALS 規模走方案 4</td><td>NT$0 ~ NT$1,080</td></tr>
-            <tr><th class="label-col">拿到 11 條認定 + 勸募字號後</th><td>方案 4(主)+ 方案 2 MyPay(月捐 / 小額);或方案 3 第三方平台(若不想自己 host)</td><td>NT$0 ~ NT$1,080</td></tr>
-            <tr><th class="label-col">推 creator economy 副業</th><td>方案 4(NPO 主業)+ Recur.tw(課程 / 訂閱副業)</td><td>NT$1,080(+ Recur 變動)</td></tr>
+            <tr><th class="label-col">ADALS 線上刷卡售票</th><td><span class="check">✓</span> 一站</td><td><span class="check">✓</span> 藍新 gateway</td><td><span class="x">✗</span> 只能轉帳</td><td><span class="x">✗</span> 無報名</td><td><span class="x">✗</span> 無報名</td></tr>
+            <tr><th class="label-col">小型活動報名(雙月談 / 工作坊)</th><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span> ≤50 人</td><td><span class="x">✗</span></td><td>△ 訂閱式</td></tr>
+            <tr><th class="label-col">企業贊助(線下 invoice + 匯款)</th><td><span class="check">✓</span> 記錄+收據</td><td>手動</td><td>手動</td><td><span class="x">✗</span></td><td>手動</td></tr>
+            <tr><th class="label-col">個人捐款 + 抵稅收據(認定後)</th><td><span class="check">✓</span></td><td><span class="x">✗</span> 收據需另接,合規風險</td><td>手工收據</td><td><span class="check">✓</span> 認定後</td><td><span class="x">✗</span></td></tr>
+            <tr><th class="label-col">會員管理 / 會費</th><td><span class="check">✓</span></td><td>需 Memberships plugin</td><td><span class="x">✗</span> Excel</td><td><span class="x">✗</span></td><td>△ 訂閱</td></tr>
+            <tr><th class="label-col">月捐 recurring</th><td><span class="check">✓</span></td><td>需 plugin</td><td><span class="x">✗</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span> 強項</td></tr>
+            <tr><th class="label-col">跨年 donor / 會員 CRM</th><td><span class="check">✓</span> 強</td><td><span class="x">✗</span> 資料散多 DB</td><td><span class="x">✗</span> Excel</td><td><span class="x">✗</span></td><td><span class="x">✗</span></td></tr>
+            <tr><th class="label-col">維護性(單一廠商 / 不靠工程師)</th><td><span class="check">✓</span> 1 廠商</td><td><span class="x">✗</span> 3-4 廠商</td><td><span class="check">✓</span> 極簡</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">
+        <strong>矩陣怎麼讀</strong>:只有 <strong>netiCRM 微型</strong>這一欄 8 列全 ✓(抵稅收據那列要 §11(4) 認定後)。Path B 能做 ADALS 售票,但 NPO 收據要自己接、資料散、多廠商維護。手工 / MyPay / 第三方 / Recur 各自只覆蓋 2-3 列 — 它們是<strong>補充某一塊的工具,不是整套解</strong>。
+      </div>
+
+      <h3>netiCRM 微型 vs Path B(唯二能服務 ADALS 的對手)</h3>
+      <p>矩陣裡只有 netiCRM 和 Path B 能做 ADALS 線上售票。「WordPress plugin + Recur」不在此列 — 因為 Recur 不是 WooCommerce gateway,接不進票務 plugin 的付款流(見頁尾「不推薦」說明 + 諮詢準備頁 R-C)。兩個能跑的對手細比:</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>維度</th><th>netiCRM 微型</th><th>Path B</th></tr></thead>
+          <tbody>
+            <tr><th class="label-col">組成</th><td>1 個 SaaS</td><td>WordPress + WooCommerce + Events Calendar Pro + Event Tickets Plus + 藍新 gateway plugin</td></tr>
+            <tr><th class="label-col">廠商數</th><td>1</td><td>4-5(各 plugin 廠商 + 藍新)</td></tr>
+            <tr><th class="label-col">ADALS 線上售票</th><td><span class="check">✓</span> 內建</td><td><span class="check">✓</span> 透過藍新 gateway</td></tr>
+            <tr><th class="label-col">NPO 抵稅收據</th><td><span class="check">✓</span> 內建(認定後)</td><td><span class="x">✗</span> 要自己接 / 手動,合規風險高</td></tr>
+            <tr><th class="label-col">跨年 donor CRM</th><td><span class="check">✓</span> 內建</td><td><span class="x">✗</span> 資料散在多個 plugin DB</td></tr>
+            <tr><th class="label-col">維護</th><td>單一廠商客服</td><td>plugin 各自更新、可能互相 break、無 NPO 客服</td></tr>
+            <tr><th class="label-col">年成本(粗估)</th><td><strong>NT$12,960 全包</strong></td><td>套件 ≈ NT$9,250/年 + 一次性 setup 估 NT$30-50K + 藍新 2.4%</td></tr>
+            <tr><th class="label-col">出事時</th><td>netiCRM 客服 escalation</td><td>自己 debug 或臨時找工程師</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note warn">
+        <strong>netiCRM vs Path B 結論</strong>:Path B 技術上能做 ADALS 售票,但 NPO 收據要自己接(合規風險)、donor 資料散在多個 plugin、4-5 個廠商各自維護、第一年含 setup 反而比 netiCRM 貴。<strong>Path B 沒有比較省,也沒有比較好。</strong>netiCRM 微型 NT$12,960 全包、單一廠商、NPO 專用,在「能服務 ADALS 的兩個選項」裡明顯勝出。
+      </div>
+
+      <h3>其餘方案:各自只覆蓋一塊,當補充不當主力</h3>
+      <p>下面四個方案對照矩陣可見都只覆蓋 2-3 列。它們是「<strong>某一塊的省錢補充</strong>」,不是 ADALS 的整套解:</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>方案</th><th>覆蓋哪一塊</th><th>成本</th><th>定位</th></tr></thead>
+          <tbody>
+            <tr><th class="label-col">手工(玉山 + Google Form + ATM)</th><td>小型活動報名 + 企業贊助記錄</td><td>NT$0 SaaS</td><td>雙月談 / ≤50 人工作坊可用;不能線上刷卡,ADALS 不可行。當 netiCRM 之外的小活動補充。</td></tr>
+            <tr><th class="label-col">MyPay(透過 netiCRM)</th><td>線上小額捐款</td><td>NT$9/筆(netiCRM 客戶 + 國內卡 + 單筆 ≥NT$400 條件;否則 MyPay 公開 2.5%。MyPay 由高鉅科技營運)</td><td>需綁 netiCRM 才有收據。認定後當 netiCRM 的第二金流。</td></tr>
+            <tr><th class="label-col">第三方公益勸募平台</th><td>捐款代收 + 出收據</td><td>平台抽 3-5%</td><td>需勸募字號 + 平台審核。認定後、若不想自己 host 的全外包選項。</td></tr>
+            <tr><th class="label-col">Recur 單獨</th><td>訂閱型收入</td><td>2.4% 起(分層,見 §6)</td><td>無 event registration、無 NPO 收據。只在 creator economy 副業才考慮(見「Recur 省錢情境」)。</td></tr>
           </tbody>
         </table>
       </div>
@@ -661,12 +647,12 @@
       <div class="note warn">
         <strong>❌ 不推薦的省錢方向(maintainability 失敗)</strong>:
         <ul style="padding-left:22px; margin-top:6px;">
-          <li>WordPress + 多 plugin 自組 — 多廠商各自維護、plugin 更新可能互相 break、無單一 escalation</li>
+          <li><strong>「WordPress 報名 plugin + Recur 當金流」</strong> — Recur 不是 WooCommerce payment gateway,接不進票務 plugin 的付款流;會變成「報名在 WordPress、付款在 Recur」兩個系統手動對帳。詳見諮詢準備頁 R-C。</li>
           <li>自寫程式接金流 — engineer 離職 = 系統死、合規責任自負、無 vendor 客服</li>
           <li>Stripe + 美國 LLC — 跨境會計複雜、雙系統對帳</li>
-          <li>多金流並用無中介 CRM — 對帳工時隨筆數線性成長</li>
+          <li>多金流並用、無中介 CRM — 對帳工時隨筆數線性成長</li>
         </ul>
-        <p style="margin-top:6px;">這些路徑短期看似省錢,但長期需要有人專職 maintain;AIA 沒有專職工程師,屬於「省 SaaS 費省到爆人力費」陷阱。</p>
+        <p style="margin-top:6px;"><strong>注意:Path B(WordPress + WooCommerce + 套件 + 藍新)不在此「不推薦」清單</strong> — 它是能運作的真實選項,只是上方比較顯示它不如 netiCRM 微型。「不推薦」這格指的是更糟的拼裝法(尤其 WordPress + Recur,因為 Recur 接不進票務 plugin)。</p>
       </div>
 
     </div>
@@ -679,7 +665,7 @@
 
       <div class="note ok">
         <strong>短期 + 中期(2026-2028):諮詢後採 netiCRM、不採 Recur 為主 stack。</strong>
-        <p style="margin-top:8px; font-size:13.5px;">本 verdict 的 scope:<strong>「主 stack」</strong>之選擇。「主 stack 用 netiCRM 還是 Recur」與「過渡期該用方案 1 baseline 還是方案 4 netiCRM 微型最小」是兩個獨立問題 — 後者見上方「更省錢的方案」階段建議表。Recur 在副業(creator economy)情境仍可作為 netiCRM 之外的補強。</p>
+        <p style="margin-top:8px; font-size:13.5px;">本 verdict 的 scope:<strong>「主 stack」</strong>之選擇。「主 stack 用 netiCRM 還是 Recur」與「過渡期該用手工 baseline 還是 netiCRM 微型最小」是兩個獨立問題 — 後者見上方 3 分鐘摘要的「分階段路徑」表,完整覆蓋比較見「完整方案評估」。Recur 在副業(creator economy)情境仍可作為 netiCRM 之外的補強。</p>
         <p style="margin-top:6px; font-size:13.5px;">本判斷成立於 Recur 諮詢回覆<strong>不</strong>顯示其已支援 Taiwan NPO 抵稅收據 + 公益勸募合規。若 Recur 已加上 NPO compliance 模組,本判斷需重評。</p>
       </div>
 
