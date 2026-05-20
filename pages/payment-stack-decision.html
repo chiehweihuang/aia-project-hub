@@ -23,36 +23,36 @@
     --bg:#f5f5f5; --card:#fff; --note-bg:#fff8e7; --note-border:#F8B62D;
     --error:#c62828; --success:#2e7d32; --warn-bg:#fff3e0;
   }
-  body { font-family:'Noto Sans TC','IBM Plex Sans',sans-serif; background:var(--bg); color:var(--text); line-height:1.78; font-size:15px; }
+  body { font-family:'Noto Sans TC','IBM Plex Sans',sans-serif; background:var(--bg); color:var(--text); line-height:1.78; font-size:16px; }
 
   .skip { position:absolute; left:-9999px; top:0; padding:8px 16px; background:#000; color:#fff; z-index:1000; }
   .skip:focus { left:8px; top:8px; }
 
   .page-header { background:#003b5c; color:#fff; padding:48px 24px 40px; }
   .page-header-inner { max-width:1100px; margin:0 auto; }
-  .back-link { display:inline-flex; align-items:center; gap:6px; color:rgba(255,255,255,.75); font-size:13px; text-decoration:none; padding:8px 0; min-height:44px; }
+  .back-link { display:inline-flex; align-items:center; gap:6px; color:rgba(255,255,255,.75); font-size:14px; text-decoration:none; padding:8px 0; min-height:44px; }
   .back-link:hover, .back-link:focus { color:#fff; }
   .page-header h1 { font-family:'Noto Serif TC',serif; font-size:32px; font-weight:700; letter-spacing:1px; margin:8px 0 8px; }
-  .page-header .subtitle { font-size:15px; opacity:.85; max-width:760px; line-height:1.7; }
+  .page-header .subtitle { font-size:16px; opacity:.85; max-width:760px; line-height:1.7; }
   .page-header .meta { margin-top:16px; font-size:12px; opacity:.6; letter-spacing:1px; font-family:'IBM Plex Mono',monospace; }
-  .audience-tag { display:inline-block; padding:4px 12px; background:rgba(248,182,45,.18); color:var(--gold); font-size:12px; font-weight:600; letter-spacing:1px; border-radius:4px; margin-top:14px; }
+  .audience-tag { display:inline-block; padding:4px 12px; background:rgba(248,182,45,.18); color:var(--gold); font-size:13px; font-weight:600; letter-spacing:1px; border-radius:4px; margin-top:14px; }
 
   .toc { position:sticky; top:0; background:#fff; border-bottom:1px solid var(--border); z-index:90; }
   .toc-inner { max-width:1100px; margin:0 auto; padding:0 24px; display:flex; gap:0; align-items:center; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:thin; }
-  .toc a { padding:14px 14px; font-size:12.5px; color:var(--muted); text-decoration:none; white-space:nowrap; flex-shrink:0; border-bottom:3px solid transparent; transition:color .15s, border-color .15s; }
+  .toc a { padding:14px 14px; font-size:13px; color:var(--muted); text-decoration:none; white-space:nowrap; flex-shrink:0; border-bottom:3px solid transparent; transition:color .15s, border-color .15s; }
   .toc a:hover, .toc a:focus { color:var(--primary); border-bottom-color:var(--secondary); }
 
   main { max-width:1100px; margin:0 auto; padding:48px 24px 80px; }
-  section { margin-bottom:64px; }
+  section { margin-bottom:48px; }
   section:last-child { margin-bottom:0; }
   .section-num { font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--secondary); font-weight:600; letter-spacing:2px; margin-bottom:6px; }
-  h2 { font-family:'Noto Serif TC',serif; font-size:24px; font-weight:700; color:var(--primary); margin-bottom:20px; padding-bottom:12px; border-bottom:2px solid var(--primary); }
-  h3 { font-size:17px; font-weight:700; color:var(--primary); margin:28px 0 12px; }
-  h4 { font-size:14px; font-weight:600; color:var(--primary); margin:16px 0 8px; }
+  h2 { font-family:'Noto Serif TC',serif; font-size:25px; font-weight:700; color:var(--primary); margin-bottom:20px; padding-bottom:12px; border-bottom:2px solid var(--primary); }
+  h3 { font-size:18px; font-weight:700; color:var(--primary); margin:26px 0 12px; }
+  h4 { font-size:15px; font-weight:600; color:var(--primary); margin:16px 0 8px; }
   p { margin-bottom:12px; }
   strong { color:var(--primary); }
 
-  .note { background:var(--note-bg); border-left:4px solid var(--note-border); padding:16px 20px; border-radius:0 8px 8px 0; margin:16px 0; font-size:13.5px; line-height:1.8; }
+  .note { background:var(--note-bg); border-left:4px solid var(--note-border); padding:16px 20px; border-radius:0 8px 8px 0; margin:16px 0; font-size:14.5px; line-height:1.8; }
   .note strong { color:var(--primary); }
   .note.warn { background:#fff5f5; border-left-color:var(--error); }
   .note.warn strong { color:var(--error); }
@@ -68,38 +68,55 @@
   .scenario-tool { display:inline-block; padding:3px 10px; background:rgba(0,59,92,.08); color:var(--primary); font-size:11px; font-weight:600; border-radius:4px; }
   @media (max-width:600px) { .scenario-grid { grid-template-columns:1fr; } }
 
-  table { width:100%; border-collapse:collapse; margin:14px 0; font-size:13px; }
+  table { width:100%; border-collapse:collapse; margin:14px 0; font-size:13.5px; }
   th, td { padding:10px 14px; text-align:left; vertical-align:top; }
-  thead th { background:var(--primary); color:#fff; font-weight:600; font-size:12px; letter-spacing:1px; }
+  thead th { background:var(--primary); color:#fff; font-weight:600; font-size:12.5px; letter-spacing:1px; }
   tbody tr { border-bottom:1px solid var(--border); }
   tbody tr:last-child { border-bottom:none; }
   tbody th { font-weight:600; color:var(--primary); background:transparent; text-align:left; padding:10px 14px; vertical-align:top; }
   tbody tr:nth-child(even) th, tbody tr:nth-child(even) td { background:#fafafa; }
   .label-col { white-space:nowrap; }
-  td .check { color:var(--success); font-weight:700; }
-  td .x { color:var(--error); font-weight:700; }
+  td .check, td .x { font-weight:700; }
+  td .check { color:var(--success); }
+  td .x { color:var(--error); }
   .table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; border-radius:8px; border:1px solid var(--border); margin:14px 0; }
   .table-wrap table { margin:0; min-width:560px; }
 
+  /* 3-min summary comparison table — slightly larger for scan-readability */
+  .cmp-table table { font-size:14.5px; }
+  .cmp-table .col-neti { background:rgba(46,125,50,.05); }
+  .cmp-table .col-recur { background:rgba(248,182,45,.06); }
+
   .compact-list { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:18px 22px; margin:16px 0; }
   .compact-list h4 { margin-top:0; }
-  .compact-list ul { padding-left:20px; font-size:13.5px; line-height:1.85; }
+  .compact-list ul { padding-left:20px; font-size:14px; line-height:1.85; }
   .compact-list li { margin-bottom:6px; }
 
   .checklist-block { background:#fff; border:1px solid var(--border); border-radius:10px; padding:22px 24px; margin:18px 0; }
   .checklist-block h4 { margin-top:0; }
-  .checklist-block ol { padding-left:24px; font-size:14px; line-height:1.85; }
+  .checklist-block ol { padding-left:24px; font-size:14.5px; line-height:1.85; }
   .checklist-block ol li { margin-bottom:10px; }
   .checklist-block .task-meta { display:inline-block; margin-left:8px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--muted); padding:2px 8px; background:#f5f5f5; border-radius:4px; }
   .checklist-block .task-owner { display:inline-block; margin-left:6px; padding:2px 8px; background:rgba(0,59,92,.08); color:var(--primary); font-size:11px; font-weight:600; border-radius:4px; }
 
   details.deep { background:#fafafa; border:1px solid var(--border); border-radius:8px; padding:0; margin:14px 0; }
-  details.deep > summary { cursor:pointer; padding:14px 18px; font-weight:600; color:var(--primary); font-size:14px; list-style:none; display:flex; align-items:center; gap:10px; user-select:none; }
+  details.deep > summary { cursor:pointer; padding:14px 18px; font-weight:600; color:var(--primary); font-size:14px; list-style:none; display:flex; align-items:center; gap:10px; user-select:none; min-height:44px; }
   details.deep > summary::-webkit-details-marker { display:none; }
   details.deep > summary::after { content:'⌄'; margin-left:auto; font-size:18px; line-height:1; transition:transform .2s; }
   details.deep[open] > summary::after { transform:rotate(180deg); }
   details.deep[open] > summary { border-bottom:1px solid var(--border); }
-  details.deep > .deep-body { padding:14px 18px 18px; font-size:13.5px; line-height:1.8; }
+  details.deep > .deep-body { padding:14px 18px 18px; font-size:14px; line-height:1.8; }
+
+  /* Major collapsible — top-level detail sections, collapsed by default */
+  details.major { background:#fff; border:1px solid var(--border); border-radius:10px; padding:0; margin:14px 0; }
+  details.major > summary { cursor:pointer; padding:18px 22px; font-weight:700; color:var(--primary); font-size:17px; list-style:none; display:flex; align-items:baseline; gap:10px; user-select:none; min-height:44px; }
+  details.major > summary::-webkit-details-marker { display:none; }
+  details.major > summary::after { content:'\25b8'; margin-left:auto; font-size:15px; line-height:1; align-self:center; color:var(--secondary); transition:transform .2s; }
+  details.major[open] > summary::after { transform:rotate(90deg); }
+  details.major[open] > summary { border-bottom:1px solid var(--border); background:#f8fbfd; border-radius:10px 10px 0 0; }
+  details.major > summary .d-tag { font-size:12px; font-weight:500; color:var(--muted); font-family:'IBM Plex Mono',monospace; letter-spacing:1px; }
+  details.major > .major-body { padding:6px 22px 24px; }
+  details.major > .major-body > h3:first-of-type { margin-top:14px; }
 
   .path-card { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:22px 24px; margin:14px 0; position:relative; }
   .path-card.primary { border-color:var(--success); background:#f3faf3; }
@@ -113,8 +130,8 @@
   .path-card.fallback .path-label { background:var(--secondary); color:#fff; }
   .path-card h3 { margin-top:0; }
 
-  .ref-link { display:inline-block; margin-top:18px; padding:10px 16px; background:#fff; border:1px solid var(--secondary); color:var(--secondary); text-decoration:none; border-radius:6px; font-size:13px; font-weight:600; }
-  .ref-link:hover { background:var(--secondary); color:#fff; }
+  .ref-link { display:inline-block; margin-top:18px; padding:10px 16px; background:#fff; border:1px solid var(--secondary); color:var(--secondary); text-decoration:none; border-radius:6px; font-size:14px; font-weight:600; }
+  .ref-link:hover, .ref-link:focus { background:var(--secondary); color:#fff; }
 
   .phone { font-family:'IBM Plex Mono',monospace; font-weight:600; color:var(--primary); }
 
@@ -122,10 +139,12 @@
     .page-header { padding:32px 20px 28px; }
     .page-header h1 { font-size:24px; }
     main { padding:32px 16px 60px; }
-    h2 { font-size:20px; }
-    h3 { font-size:15px; }
-    table { font-size:12px; }
+    h2 { font-size:21px; }
+    h3 { font-size:16px; }
+    table { font-size:12.5px; }
     th, td { padding:8px 10px; }
+    details.major > summary { font-size:15px; padding:16px 16px; }
+    details.major > .major-body { padding:6px 14px 18px; }
   }
 </style>
 </head>
@@ -137,624 +156,559 @@
   <div class="page-header-inner">
     <a href="../index.html" class="back-link">← 返回專案文件</a>
     <h1>金流基礎建設決策依據</h1>
-    <p class="subtitle">APAC AIA 收款 stack 完整選項比較與推薦理由 — 從 ADALS 2026 出發,涵蓋未來活動 / 會員 / 捐款的長期基礎建設選擇。</p>
-    <span class="audience-tag">受眾 · 祕書長 / 常務理事 / 理事長</span>
-    <div class="meta">VERSION 2.1 · 2026-05-19 · 兩家皆「待諮詢」狀態 · 主軸 netiCRM vs Recur.tw 比較 · v1.0 完整 stack 評估封存於頁尾</div>
+    <p class="subtitle">APAC AIA 收款 stack 選擇 — netiCRM vs Recur.tw。最上方是 3 分鐘決策摘要,下方詳細區段預設收合,需要再展開。</p>
+    <span class="audience-tag">受眾 · 理事長 / 祕書長 / 常務理事</span>
+    <div class="meta">VERSION 2.2 · 2026-05-19 · 重構為「3 分鐘摘要 + 收合詳細層」· 兩家皆待諮詢 · v1.0 完整評估封存於頁尾</div>
   </div>
 </header>
 
 <nav class="toc" aria-label="文件導覽">
   <div class="toc-inner">
-    <a href="#executive-summary">§0 一頁總結</a>
-    <a href="#netcrm-vs-recur">§1 netiCRM vs Recur.tw 結論</a>
-    <a href="#spec-compare">§2 規格比較</a>
-    <a href="#compliance">§3 NPO 法規 / Compliance</a>
-    <a href="#lifecycle">§4 Donor lifecycle</a>
-    <a href="#event-reg">§5 Event registration</a>
-    <a href="#pricing">§6 定價</a>
-    <a href="#aia-current">§7 對 AIA 的 implication</a>
-    <a href="#recur-cost-scenarios">§7.5 Recur 省錢情境</a>
-    <a href="#cheap-simple-options">§7.6 更省錢的簡單方案</a>
-    <a href="#verdict">§8 我的 honest 判斷</a>
-    <a href="#archived">§ 已封存 v1.0</a>
+    <a href="#summary">3 分鐘摘要</a>
+    <a href="#det-compare">完整頭對頭比較</a>
+    <a href="#det-pricing">定價 / break-even</a>
+    <a href="#det-implication">對 AIA 的影響</a>
+    <a href="#det-recur-save">Recur 省錢情境</a>
+    <a href="#det-cheap">更省錢的方案</a>
+    <a href="#det-verdict">深入判斷</a>
+    <a href="#det-factcheck">事實檢查紀錄</a>
+    <a href="#archived">封存 v1.0</a>
   </div>
 </nav>
 
 <main id="main">
 
 <!-- ═══════════════════════════════════════════════════════════
-     §0 Executive Summary — 一頁總結
+     3 分鐘決策摘要(常駐,不收合)
      ═══════════════════════════════════════════════════════════ -->
-<section id="executive-summary">
-  <div class="section-num">§0 EXECUTIVE SUMMARY</div>
-  <h2>一頁總結</h2>
+<section id="summary">
+  <div class="section-num">3-MINUTE SUMMARY</div>
+  <h2>3 分鐘讀完:netiCRM vs Recur.tw</h2>
 
   <div class="note tldr">
-    <strong>現況(2026-05-19)</strong>:netiCRM 與 Recur.tw <strong>兩家都尚未採用</strong>。本週將寄出 netiCRM 諮詢;<strong>Recur 部分,本頁論述基於現有公開產品定位,建議另外諮詢確認以驗證假設</strong>(非本週承諾)。
-    <p style="margin-top:10px;"><strong>建議方向(分階段)</strong>:</p>
-    <ul style="margin-top:6px; padding-left:22px;">
-      <li><strong>過渡期(現在 ~ 取得所得稅法 §11(4) 認定前)</strong>:用 §7.6 方案 1(玉山 + Google Form + 銀行匯款)<strong>或</strong>方案 4(netiCRM 微型「最小配置」NT$12,960/年)。小型活動走方案 1;ADALS 規模走方案 4。</li>
-      <li><strong>取得認定後</strong>:netiCRM 微型升級為完整配置,unlock 抵稅收據 + 公益勸募合規。可加 MyPay 為小額捐款的第二金流。</li>
-      <li><strong>創作者經濟副業(若有)</strong>:netiCRM 主 + Recur.tw 副業專用(課程 / 訂閱)。</li>
-      <li><strong>不採 Recur 為主 stack</strong>:依現有公開產品定位,Recur 看似不支援 Taiwan NPO 法規層(抵稅收據、公益勸募合規、統一編號)— <strong>建議另外諮詢確認</strong>;若 Recur 諮詢回覆顯示已支援,本判斷需重評。</li>
-    </ul>
+    <strong>一句話結論</strong>:收款主工具<strong>建議採 netiCRM、不採 Recur.tw</strong>。兩家目前都尚未採用 — netiCRM 本週寄出諮詢,Recur 建議另外諮詢確認(非本週承諾)。
+    <p style="margin-top:8px;">原因濃縮成一句:Recur 是<strong>給個人創作者</strong>(訂閱電子報 / 線上課程 / 付費社群)設計的工具,台灣公益團體每天要用的「抵稅收據、公益勸募合規、活動報名」它看起來都沒做;而且費率不是廣告寫的「全包 2.4%」,月收入超過 10 萬的部分會被收到 4.9%。</p>
   </div>
 
-  <h3>三條核心理由(白話版)</h3>
-  <ol style="font-size:14px; line-height:1.9; padding-left:24px;">
-    <li><strong>是工具當初設計的方向問題,不是品牌偏好問題</strong><br>
-    Recur 這個工具當初是<strong>設計給經營訂閱電子報、線上課程、付費社群的個人創作者</strong>用的,不是設計給公益團體用的。所以台灣公益團體每天會用到的三件事 — <strong>讓捐款人報稅扣抵的正式收據、符合公益勸募條例的欄位、企業捐款時自動帶統一編號</strong> — Recur 從設計之初就沒做這些。<br>
-    當 AIA 未來拿到<strong>所得稅法 §11(4) 認定</strong>(俗稱「11 條認定」,就是讓捐款人能拿著收據去報稅扣抵的必要資格),netiCRM 馬上就能用、能開抵稅收據;Recur 之後有沒有可能也補上這些功能,<strong>建議另外諮詢確認</strong>。</li>
+  <h3>濃縮頭對頭對照表</h3>
+  <div class="table-wrap cmp-table">
+    <table>
+      <thead>
+        <tr><th>決策維度</th><th>netiCRM</th><th>Recur.tw</th></tr>
+      </thead>
+      <tbody>
+        <tr><th class="label-col">這工具是設計給誰用</th><td class="col-neti">台灣 NPO / 公益團體(500+ 客戶)</td><td class="col-recur">個人創作者(訂閱 / 課程 / 社群)</td></tr>
+        <tr><th class="label-col">抵稅收據(捐款人報稅扣抵)</th><td class="col-neti"><span class="check">✓</span> 內建</td><td class="col-recur"><span class="x">✗</span> 看似沒有(待確認)</td></tr>
+        <tr><th class="label-col">公益勸募條例合規欄位</th><td class="col-neti"><span class="check">✓</span> 內建</td><td class="col-recur"><span class="x">✗</span> 看似沒有(待確認)</td></tr>
+        <tr><th class="label-col">企業捐款帶統一編號</th><td class="col-neti"><span class="check">✓</span> 內建</td><td class="col-recur"><span class="x">✗</span> 看似沒有(待確認)</td></tr>
+        <tr><th class="label-col">活動報名(ADALS 2026 必需)</th><td class="col-neti"><span class="check">✓</span> 完整</td><td class="col-recur"><span class="x">✗</span> 完全沒有</td></tr>
+        <tr><th class="label-col">跨年 donor / 會員 CRM</th><td class="col-neti"><span class="check">✓</span> 強</td><td class="col-recur"><span class="x">✗</span> 只做訂閱者</td></tr>
+        <tr><th class="label-col">月捐 recurring 訂閱</th><td class="col-neti"><span class="check">✓</span> 有</td><td class="col-recur"><span class="check">✓</span> 強項</td></tr>
+        <tr><th class="label-col">費率</th><td class="col-neti">年費 NT$12,960 起 + 金流約 2.4%</td><td class="col-recur">月收 ≤10 萬:2.4%;超過部分:<strong>4.9%</strong></td></tr>
+        <tr><th class="label-col">對 AIA 的角色</th><td class="col-neti"><strong>建議主收款工具</strong></td><td class="col-recur">主 stack 不建議;副業(課程)可考慮</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:13px; color:var(--muted);">「看似沒有(待確認)」= 依 Recur 公開資料推測,建議另外諮詢 Recur 確認。完整 4 張比較表(規格 / 合規 / donor lifecycle / event)見下方「完整頭對頭比較」。</p>
 
-    <li><strong>ADALS 2026 報名流程已經規劃用 netiCRM</strong><br>
-    ADALS 2026 的報名 + 收款頁面,我們已經規劃用 netiCRM 做。Recur <strong>完全沒做活動報名功能</strong>,如果改用 Recur,等於 ADALS 整個報名流程要從零再蓋一次 — 前面的規劃會白做。</li>
+  <h3>分階段建議</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>AIA 階段</th><th>建議做法</th><th>月固定成本</th></tr>
+      </thead>
+      <tbody>
+        <tr><th class="label-col">過渡期<br>(現在 ~ 取得認定前)</th><td>小型活動:玉山銀行 + Google Form + 銀行匯款(0 SaaS)。<br>ADALS 規模:netiCRM 微型「最小配置」(不買加購)。</td><td>NT$0 ~ NT$1,080</td></tr>
+        <tr><th class="label-col">取得「11 條認定」後<br>(所得稅法 §11(4))</th><td>netiCRM 升級完整配置,解鎖抵稅收據 + 公益勸募合規。小額捐款可加 MyPay 為第二金流。</td><td>約 NT$1,080 起</td></tr>
+        <tr><th class="label-col">若推創作者經濟副業<br>(付費課程 / 訂閱)</th><td>netiCRM 做 NPO 主業務 + Recur.tw 做課程 / 訂閱副業,兩者並用不互斥。</td><td>NT$1,080 + Recur 變動費</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:13px; color:var(--muted);">「11 條認定」= 所得稅法 §11(4) 教育文化公益慈善機關或團體認定,是讓捐款人能拿收據報稅扣抵的必要資格。各方案細節見下方「更省錢的方案」。</p>
 
-    <li><strong>手續費要算總帳,不是看廣告上的數字</strong><br>
-    Recur 在網頁寫「2.4% 全包」聽起來很便宜,但仔細看才知道:<strong>月收入超過 10 萬元的部分,Recur 還會多收 2.5% 平台費</strong>。加總起來這段被收 4.9%,反而比 netiCRM(年費 + 藍新 2.4%)還貴。對中大型 NPO(月收入超過 16 萬元),用 Recur 反而比 netiCRM 貴,差距會隨營收越大越拉開(實際試算見 §6 表格)。<br>
-    另外,Recur 看起來<strong>不能開可以報稅扣抵的收據</strong>,這對「有報稅習慣、會列舉扣除額」的捐款人來說會少一個捐款誘因。實際影響金額要看 AIA 捐款人結構;前版「捐款會掉 30-50%」是沒有實證來源的估計,這個數字已經撤回。</li>
-  </ol>
-
-  <h3>本週行動(2026-05-19 ~ 2026-05-25)</h3>
+  <h3>下一步</h3>
   <div class="checklist-block">
+    <h4>本週行動(2026-05-19 ~ 2026-05-25)</h4>
     <ol>
-      <li><strong>寄出 netiCRM 諮詢</strong> <span class="task-owner">執行小組</span> <span class="task-meta">本週</span><br>透過 <code>neticrm.tw</code> 聯絡表單。<strong>完整問題清單(11 大類約 80 題)+ 4 條整合路徑 + 省錢策略 + MVP 配置</strong>已整理於另一份文件 → <a href="neticrm-consultation-prep.html">netiCRM 諮詢準備頁</a>。重點問:NPO 試辦條件、首屆活動最適配置、6 月底前能否完成導入、報名頁雙語切換、能否嵌入 AIA 官網(WordPress + Elementor)、UI 客製範圍、國際卡費率、中英雙語建置加購 NT$10,500 涵蓋範圍。</li>
-      <li><strong>netiCRM 諮詢回覆後,內部 alignment 會議</strong> <span class="task-owner">理事長 + 祕書長 + 常務理事</span> <span class="task-meta">依 netiCRM 回覆時程</span><br>核對本頁推論;若需要可同步啟動 Recur 諮詢(見下方)。</li>
+      <li><strong>寄出 netiCRM 諮詢</strong> <span class="task-owner">執行小組</span> <span class="task-meta">本週</span><br>完整問題清單(11 大類約 80 題)+ 整合路徑 + 省錢策略已整理於 → <a href="neticrm-consultation-prep.html">netiCRM 諮詢準備頁</a>。</li>
+      <li><strong>netiCRM 回覆後,內部 alignment 會議</strong> <span class="task-owner">理事長 + 祕書長 + 常務理事</span> <span class="task-meta">依回覆時程</span></li>
     </ol>
   </div>
-
-  <h3>建議另外進行(非本週承諾)</h3>
   <div class="checklist-block" style="border-left:4px solid var(--secondary); background:#f8fbfd;">
+    <h4>建議另外進行(非本週承諾)</h4>
     <ol>
-      <li><strong>諮詢 Recur.tw 以驗證本頁假設</strong> <span class="task-owner">執行小組(時程彈性)</span> <span class="task-meta">建議另外排</span><br>本頁對 Recur 的論述基於現有公開產品定位,屬「依公開資訊推測」層級。若理事會希望雙重驗證,建議另外排一場諮詢。重點問:是否支援 Taiwan NPO 抵稅收據開立、是否有電子發票串接、統一編號 handling、是否能接 ADALS event registration 流程、超過 NT$100,000/月後的費率(本頁推算邊際 4.9%,需向 Recur 確認)。若回覆顯示 Recur 已加 NPO compliance 模組,本頁主結論需重新評估。</li>
+      <li><strong>諮詢 Recur.tw 以驗證本頁假設</strong> <span class="task-owner">執行小組(時程彈性)</span> <span class="task-meta">建議另外排</span><br>本頁對 Recur 的論述基於公開資訊推測。若理事會想雙重驗證,建議另排一場諮詢,確認抵稅收據、公益勸募合規、event registration、超過 NT$10 萬/月的費率。若 Recur 已補上 NPO compliance,本頁主結論需重評。</li>
     </ol>
   </div>
 
   <div class="note">
-    <strong>誰應該讀這頁</strong>:理事長 / 祕書長 / 常務理事 — 兩家諮詢前的決策依據與諮詢問題清單。
+    <strong>怎麼用這頁</strong>:有 3 分鐘 → 看完上面就夠做決定。要查證細節 → 展開下方任一收合區段。完整資料分 6 個主題收合,加上封存的 v1.0 完整評估。
   </div>
+</section>
 
-  <div class="note" style="background:#f8fbfd; border-left-color:var(--secondary);">
-    <strong>另見 §7.5 + §7.6(平衡視角)</strong>:
-    <ul style="padding-left:22px; margin-top:6px; font-size:13.5px; line-height:1.85;">
-      <li><strong>§7.5</strong>:列出 5 個 <strong>Recur 可能省錢的情境</strong>(creator economy 副業、過渡期、0 預算等),附前提條件。</li>
-      <li><strong>§7.6</strong>:列出 5 個 <strong>比 netiCRM/Recur 更省錢的簡單方案</strong>(玉山+表單 baseline、MyPay、第三方代收、netiCRM 微型最小配置、Recur 單獨),約束是「<strong>能 maintain</strong>」(單一廠商 + 不依賴工程師 + 有客服 escalation)。</li>
-    </ul>
-  </div>
+<!-- ═══════════════════════════════════════════════════════════
+     詳細參考層(預設收合)
+     ═══════════════════════════════════════════════════════════ -->
+<section id="details">
+  <div class="section-num">DETAIL · 詳細參考</div>
+  <h2>詳細參考(預設收合,點擊展開)</h2>
+  <p style="color:var(--muted); font-size:14px;">以下 6 區是支撐上方摘要的完整資料。預設收合讓頁面保持乾淨;需要查證某一塊時點該區標題展開即可。</p>
 
-  <details class="deep" style="margin-top:14px;">
-    <summary>v2.1 事實檢查紀錄 — 點擊展開(2026-05-19 多模型 4 次 review)</summary>
-    <div class="deep-body">
-      <p>本版透過 Claude Opus 4.7 ×2(內部一致性 + 跨區段邏輯)與 Codex 5.5 ×2(Taiwan NPO 法規 + 定價 / 規格)共 4 次平行事實檢查,主要校準如下:</p>
-      <ul style="padding-left:22px; line-height:1.85;">
-        <li><strong>MyPay 所有權更正</strong>:前版誤標「智邦旗下、netiCRM 同一母體」;實際為高鉅科技獨立公司,netiCRM 母體為網絡行動科技。<strong>NT$9/筆只是 netiCRM 客戶 + 國內信用卡 + 單筆 ≥ NT$400 的特殊費率</strong>,MyPay 公開標準為 2.5%。(§7.6 方案 2 已修正)</li>
-        <li><strong>Recur 非「全包 2.4%」</strong>:超過月營收 NT$100K 後加 2.5% 平台費,邊際達 4.9%。Break-even 約 NT$160K/月,以上 netiCRM 反而便宜。前版 break-even 表 NT$200K/500K 數據全錯,已重算。(§6 已修正)</li>
-        <li><strong>「11 條」reference 校準</strong>:正確 reference 為所得稅法 §11(4) 教育文化公益慈善機關或團體;前版誤稱「免稅適用標準 §11」(該標準只有 6 條)。抵稅收據基於 §17/§36;公益勸募字號屬獨立合規門檻(公益勸募條例 §7),非抵稅必要條件。(§0 / §7 / §7.6 已修正)</li>
-        <li><strong>「donor 不能抵稅 → 捐款少 30-50%」估計撤回</strong>:無實證來源,Taiwan 抵稅僅對 itemizer 適用 marginal tax rate × 捐款,不會直接掉 30-50%。改為「可能影響部分高所得 donor 意願,實際看 donor 結構」。(§0 / §6 / §8 已修正)</li>
-        <li><strong>「netiCRM 已 deep integrated ADALS」</strong>(殘留 v2.0 假設):前版錯,實際為「規劃導入」,本週諮詢中。(§5 / §7 已修正)</li>
-        <li><strong>Recur 整合 Cal.com / Circle</strong>:前版列為原生整合,實際 Recur 公開頁僅見 Discord + Webhooks / Zapier / Make。已加註「未經官方驗證,建議另外諮詢確認」。(§2 已修正)</li>
-        <li><strong>netiCRM「年度勸募申報報表」</strong>:前版稱「內建」,Codex 找不到公開文件證明有「一鍵產出申報表」功能。已改為「可篩選 / 匯出符合 申報資料的捐款明細,完整報表產出需向 netiCRM 確認」。(§3 已修正)</li>
-        <li><strong>§8 對特定個人之描述</strong>:reframe 為 role-based generic(「具科技 / SaaS 背景的決策者...」),避免對 stake owner 加個人特徵 modifier。</li>
-        <li><strong>封存區 v1.0 定價數據過時聲明</strong>:藍新 2.75% → 實 2.8%、Eventbrite 7.2-9.3% → 台灣實 4.99% Professional、綠界 NT$10K/年 + 2.88% → 實 NT$5K 建置 + NT$13K/年 + 分期 3-12%、PayPal 固定費依幣別非單一 USD$0.30。封存區未即時修改但加聲明。</li>
-      </ul>
-      <p style="font-size:12.5px; color:var(--muted); margin-top:10px;">事實檢查來源:Codex 引用所得稅法、公益勸募條例、netiCRM 官方文件、MyPay 官方費用表、Recur 官方文件、藍新 / 綠界 / Eventbrite / PayPal 官方費率頁。詳細 source 連結散見於各區段。</p>
+  <!-- 詳細 1:完整頭對頭比較(合併原 §2 規格 + §3 合規 + §4 lifecycle + §5 event) -->
+  <details class="major" id="det-compare">
+    <summary>完整頭對頭比較 <span class="d-tag">規格 / NPO 合規 / Donor lifecycle / Event</span></summary>
+    <div class="major-body">
+
+      <h3>A. 規格比較</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>維度</th><th>netiCRM</th><th>Recur.tw</th></tr></thead>
+          <tbody>
+            <tr><th class="label-col">公司 / 母體</th><td>網絡行動科技(Yo Group / 智邦生活館)</td><td>創作者經濟工具</td></tr>
+            <tr><th class="label-col">Target users</th><td>Taiwan NPO / NGO(500+ 客戶)</td><td>創作者 / 課程 / SaaS / 社群會員</td></tr>
+            <tr><th class="label-col">底層技術</th><td>CiviCRM(AGPL 開源)</td><td>自家專有平台</td></tr>
+            <tr><th class="label-col">託管 / 自架</th><td>託管(也有獨立主機方案)</td><td>託管 only</td></tr>
+            <tr><th class="label-col">資料所有權</th><td>開源 → 可 export(CiviCRM data model)</td><td>託管 — 須驗證 export 機制</td></tr>
+            <tr><th class="label-col">ISO 認證</th><td><span class="check">✓</span> ISO 27001:2022</td><td>未提</td></tr>
+            <tr><th class="label-col">UI 現代度</th><td>老派(CiviCRM 介面)</td><td>現代</td></tr>
+            <tr><th class="label-col">RWD 響應式</th><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+            <tr><th class="label-col">中英雙語</th><td>建置加購 NT$10,500</td><td>未提</td></tr>
+            <tr><th class="label-col">API / Webhooks</th><td>有(CiviCRM REST API)</td><td>有(Webhooks + API)</td></tr>
+            <tr><th class="label-col">第三方整合</th><td>WordPress(WP Civi 整合)為主</td><td>Discord(原生)+ Webhooks / Zapier / Make(通用);WordPress 透過 Web Components;<strong>Cal.com / Circle 原生整合未經官方驗證</strong>,建議另外諮詢確認</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>B. NPO 法規 / Compliance(關鍵差異)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Feature(Taiwan NPO 法規必備)</th><th>netiCRM</th><th>Recur.tw</th></tr></thead>
+          <tbody>
+            <tr><th class="label-col">抵稅收據開立(紙本 + 電子)</th><td><span class="check">✓</span> 內建</td><td><span class="x">✗</span> 未提及</td></tr>
+            <tr><th class="label-col">抵稅收據客製(LOGO / 章程)</th><td><span class="check">✓</span> 加購 $3,750–$21,250</td><td>—</td></tr>
+            <tr><th class="label-col">電子發票串接(統一發票)</th><td><span class="check">✓</span> 加購 $16,800</td><td><span class="x">✗</span> 未提及</td></tr>
+            <tr><th class="label-col">統一編號 handling(企業捐款者)</th><td><span class="check">✓</span> 內建</td><td><span class="x">✗</span> 未提及</td></tr>
+            <tr><th class="label-col">公益勸募合規欄位</th><td><span class="check">✓</span> 內建</td><td><span class="x">✗</span> 未提及</td></tr>
+            <tr><th class="label-col">年度勸募申報報表(內政部要求)</th><td>可篩選 / 匯出符合 申報資料的捐款明細(由勸募字號標記);<strong>是否有「一鍵產出申報表」需向 netiCRM 確認</strong></td><td><span class="x">✗</span> 未提及</td></tr>
+            <tr><th class="label-col">GDPR / 個資法 compliance</th><td><span class="check">✓</span> ISO 27001:2022</td><td>未認證</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note warn">
+        <strong>對台灣 NPO 來說,這一欄是決定性差異</strong>。Recur 從產品設計之初就沒處理過台灣 NPO 的法規面 — 這不是「品牌偏好」的問題,是工具<strong>底子上就沒做這塊</strong>。捐款人拿不到可以報稅扣抵的收據,個人捐款的吸引力會明顯下降(尤其年所得較高、會列舉扣除額的 donor)。
+      </div>
+
+      <h3>C. Donor / Member Lifecycle</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Feature</th><th>netiCRM</th><th>Recur.tw</th></tr></thead>
+          <tbody>
+            <tr><th class="label-col">Donor 聯絡人 CRM(個人 / 組織 / 家庭)</th><td><span class="check">✓</span> 強</td><td><span class="x">✗</span> 只做 subscriber</td></tr>
+            <tr><th class="label-col">不限自訂欄位 / 標籤 / 群組</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td></tr>
+            <tr><th class="label-col">線上募款頁無限建置</th><td><span class="check">✓</span></td><td>訂閱式為主</td></tr>
+            <tr><th class="label-col">定期定額 recurring</th><td><span class="check">✓</span></td><td><span class="check">✓</span> 強項</td></tr>
+            <tr><th class="label-col">感謝禮品管理</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td></tr>
+            <tr><th class="label-col">自動續費 / 智慧重試 / 催繳</th><td>有但 UX 普通</td><td><span class="check">✓</span> 強項(creator economy 強)</td></tr>
+            <tr><th class="label-col">顧客自助 portal(訂閱管理 / 帳單下載)</th><td>基本</td><td><span class="check">✓</span> 強</td></tr>
+            <tr><th class="label-col">Donor 分眾 segmentation</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td></tr>
+            <tr><th class="label-col">Campaign tracking</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td></tr>
+            <tr><th class="label-col">Mass email(每小時 400 封)</th><td><span class="check">✓</span> 內建</td><td><span class="x">✗</span></td></tr>
+            <tr><th class="label-col">電子報開信追蹤</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td></tr>
+            <tr><th class="label-col">MRR / ARR / churn dashboard</th><td><span class="x">✗</span></td><td><span class="check">✓</span>(SaaS 指標)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">
+        <strong>註</strong>:MRR / ARR 對 NPO 不是 primary metric(NPO 看 donor retention / lifetime value),所以 Recur dashboard 對 AIA 用處有限。
+      </div>
+
+      <h3>D. Event Registration</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Feature</th><th>netiCRM</th><th>Recur.tw</th></tr></thead>
+          <tbody>
+            <tr><th class="label-col">活動報名頁無限建置</th><td><span class="check">✓</span></td><td><span class="x">✗</span> 沒有</td></tr>
+            <tr><th class="label-col">報名 + 繳費整合</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td></tr>
+            <tr><th class="label-col">QR Code 簽到</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td></tr>
+            <tr><th class="label-col">優惠碼</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td></tr>
+            <tr><th class="label-col">報名表單客製</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td></tr>
+            <tr><th class="label-col">與 ADALS 2026 規劃整合</th><td><span class="check">✓</span> 規劃以 iframe 嵌入(尚未實際導入)</td><td><span class="x">✗</span> 須從零建</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note warn">
+        ADALS event registration <strong>規劃以 netiCRM iframe 作為主要入口</strong>(尚未實際導入,本週諮詢中)。<strong>Recur 完全不支援 event,改採 Recur = 從零重建 event 流程</strong>。這項是 architectural blocker。
+      </div>
+
     </div>
   </details>
-</section>
 
-<!-- ═══════════════════════════════════════════════════════════
-     §1 netiCRM vs Recur.tw — 結論
-     ═══════════════════════════════════════════════════════════ -->
-<section id="netcrm-vs-recur">
-  <div class="section-num">§1 VERDICT</div>
-  <h2>netiCRM vs Recur.tw 比較結論</h2>
+  <!-- 詳細 2:定價 -->
+  <details class="major" id="det-pricing">
+    <summary>定價與 break-even 試算 <span class="d-tag">netiCRM 年費 / Recur 分層費率</span></summary>
+    <div class="major-body">
 
-  <div class="note tldr">
-    <strong>結論(白話版)</strong>:短中期建議「<strong>諮詢後採 netiCRM、不採 Recur 為主要收款工具</strong>」。
-    <p style="margin-top:10px;">Recur 是<strong>給個人創作者用的工具</strong>(經營訂閱電子報、線上課程、付費社群的個人),不是給台灣的非營利組織或公益團體用的。對台灣 NPO 來說,日常會用到的三件事 Recur 看起來都沒做:</p>
-    <ol style="padding-left:24px; margin:6px 0; line-height:1.85;">
-      <li><strong>開正式收據讓捐款人可以報稅扣抵</strong>(donor 拿不到合規收據,就少了報稅誘因)</li>
-      <li><strong>符合內政部「公益勸募條例」的欄位與年度報表</strong>(法律要求,不能省)</li>
-      <li><strong>公司行號捐款時,自動把統一編號帶到收據上</strong>(企業贊助必備)</li>
-    </ol>
-    <p style="margin-top:6px;">這三點<strong>建議另外諮詢 Recur 確認</strong>(非本週承諾),目前看公開資訊推測是沒有。</p>
-    <p style="margin-top:10px;"><strong>費用方面也跟廣告的不一樣</strong>:Recur 不是「不管多少都打包 2.4%」那麼單純。月收入超過 NT$100,000 的部分,Recur 會再加收 2.5% 「平台費」,加上原本金流刷卡 2.4%,等於這段被收 <strong>4.9%</strong>。所以對中大型 NPO,Recur 反而會比 netiCRM 貴(試算見 §6)。</p>
-  </div>
+      <h3>netiCRM:年費制 + 加購</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>方案</th><th>聯絡人</th><th>年費</th><th>開通費</th></tr></thead>
+          <tbody>
+            <tr><th class="label-col">微型</th><td>3,000</td><td>$12,960(月 ≈ $1,080)</td><td>$8,000(申請 2 年免收)</td></tr>
+            <tr><th class="label-col">小型</th><td>10,000</td><td>$24,000(月 ≈ $2,000)</td><td>同上</td></tr>
+            <tr><th class="label-col">中小型</th><td>20,000</td><td>$48,000</td><td>同上</td></tr>
+            <tr><th class="label-col">中大型</th><td>50,000</td><td>$72,000</td><td>同上</td></tr>
+            <tr><th class="label-col">大型</th><td>100,000</td><td>$96,000</td><td>同上</td></tr>
+            <tr><th class="label-col">獨立主機+大型</th><td>無上限</td><td>另洽</td><td>另洽</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:13px; color:var(--muted);">金流手續費:<strong>不額外抽</strong>(用藍新 / 綠界 / LINE Pay 等 gateway,gateway 自家費率約 1.5-3.0%)</p>
 
-  <p>本頁主軸已調整為兩個工具的 head-to-head 比較。原 V1.0「完整 stack 評估」內容(§1-§11)已封存於頁尾,可隨時展開查閱。</p>
+      <h4>常用加購項目</h4>
+      <ul style="font-size:14px; line-height:1.9; padding-left:24px;">
+        <li>收據客製 $3,750–$21,250</li>
+        <li>中英雙語募款頁 $10,500</li>
+        <li>電子發票串接 $16,800</li>
+        <li>自訂域名 首年 $6,000 / 年費 $2,000</li>
+      </ul>
 
-  <div class="note">
-    <strong>誰應該讀這頁</strong>:理事長 / 祕書長 / 常務理事 — 評估 AIA 收款 stack 採用方向時的決策依據。<strong>兩家工具皆尚未採用;netiCRM 本週進行諮詢,Recur 建議另外諮詢確認(非本週承諾)。</strong>
-  </div>
-</section>
+      <h3>Recur.tw:分層費率(不是「全包 2.4%」)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>月營收區段</th><th>平台費</th><th>金流費(PAYUNi)</th><th>邊際成本</th></tr></thead>
+          <tbody>
+            <tr><th class="label-col">≤ NT$100,000</th><td><strong>$0</strong></td><td>2.4%</td><td><strong>2.4%</strong></td></tr>
+            <tr><th class="label-col">&gt; NT$100,000 的部份</th><td><strong>+ 2.5%</strong>(對超出 NT$100K 的部份)</td><td>2.4%</td><td><strong>4.9%</strong>(邊際)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:13px; color:var(--muted);">來源:<a href="https://docs.recur.tw/help/payments" target="_blank" rel="noopener">Recur 官方金流設定文件</a>。<strong>更正</strong>:前版誤標「全包 2.4%」,實際上 Recur 採分層 — 前 NT$100K/月 內 0 平台費,超過部份加收 2.5% 平台費,加上 PAYUNi 金流 2.4%,邊際達 <strong>4.9%</strong>。對中大型 NPO 月營收影響顯著。</p>
 
-<!-- ═══════════════════════════════════════════════════════════
-     §2 規格比較
-     ═══════════════════════════════════════════════════════════ -->
-<section id="spec-compare">
-  <div class="section-num">§2 SPEC</div>
-  <h2>頭對頭規格比較</h2>
+      <h3>Break-even 分析(假設 netiCRM 用藍新 gateway 2.5%,Recur 採分層費率)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>月營收</th><th>netiCRM 微型總成本</th><th>Recur 總成本(含分層)</th><th>誰便宜</th></tr></thead>
+          <tbody>
+            <tr><td>NT$10,000</td><td>$1,080 + $250 = $1,330</td><td>$240(2.4%)</td><td><strong>Recur</strong>(省 $1,090)</td></tr>
+            <tr><td>NT$50,000</td><td>$1,080 + $1,250 = $2,330</td><td>$1,200(2.4%)</td><td><strong>Recur</strong>(省 $1,130)</td></tr>
+            <tr><td>NT$100,000</td><td>$1,080 + $2,500 = $3,580</td><td>$2,400(2.4%)</td><td><strong>Recur</strong>(省 $1,180)</td></tr>
+            <tr><td>NT$200,000</td><td>$1,080 + $5,000 = $6,080</td><td>$2,400 + $4,900 = $7,300(超額 @ 4.9%)</td><td><strong>netiCRM</strong>(省 $1,220 — 反轉!)</td></tr>
+            <tr><td>NT$500,000</td><td>$1,080 + $12,500 = $13,580</td><td>$2,400 + $19,600 = $22,000</td><td><strong>netiCRM</strong>(省 $8,420 — 大幅反轉)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:13px; color:var(--muted);">說明:Recur 第一個 NT$100K 月營收 2.4%;超出部份加收 2.5% 平台費 + PAYUNi 2.4% = 邊際 4.9%。前版誤算為「全包 2.4%」,故 NT$200K 以上結論完全反轉。</p>
 
-  <table>
-    <thead>
-      <tr><th>維度</th><th>netiCRM</th><th>Recur.tw</th></tr>
-    </thead>
-    <tbody>
-      <tr><th class="label-col">公司 / 母體</th><td>網絡行動科技(Yo Group / 智邦生活館)</td><td>創作者經濟工具</td></tr>
-      <tr><th class="label-col">Target users</th><td>Taiwan NPO / NGO(500+ 客戶)</td><td>創作者 / 課程 / SaaS / 社群會員</td></tr>
-      <tr><th class="label-col">底層技術</th><td>CiviCRM(AGPL 開源)</td><td>自家專有平台</td></tr>
-      <tr><th class="label-col">託管 / 自架</th><td>託管(也有獨立主機方案)</td><td>託管 only</td></tr>
-      <tr><th class="label-col">資料所有權</th><td>開源 → 可 export(CiviCRM data model)</td><td>託管 — 須驗證 export 機制</td></tr>
-      <tr><th class="label-col">ISO 認證</th><td><span class="check">✓</span> ISO 27001:2022</td><td>未提</td></tr>
-      <tr><th class="label-col">UI 現代度</th><td>老派(CiviCRM 介面)</td><td>現代</td></tr>
-      <tr><th class="label-col">RWD 響應式</th><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-      <tr><th class="label-col">中英雙語</th><td>建置加購 NT$10,500</td><td>未提</td></tr>
-      <tr><th class="label-col">API / Webhooks</th><td>有(CiviCRM REST API)</td><td>有(Webhooks + API)</td></tr>
-      <tr><th class="label-col">第三方整合</th><td>WordPress(WP Civi 整合)為主</td><td>Discord(原生)+ Webhooks / Zapier / Make(通用);WordPress 透過 Web Components;<strong>Cal.com / Circle 原生整合未經官方驗證</strong>,建議另外諮詢確認</td></tr>
-    </tbody>
-  </table>
-</section>
+      <div class="note warn">
+        <strong>關鍵 takeaways(修正版)</strong>:
+        <ul style="padding-left:22px; margin-top:6px;">
+          <li><strong>Break-even 約落在 NT$160K/月</strong>:此營收量以下 Recur 省錢、以上 netiCRM 省錢(因 Recur 邊際 4.9% 大於藍新 2.5%)。</li>
+          <li><strong>NT$200K 以上 Recur 反而貴</strong>:跟前版「Recur 永遠便宜」相反。中大型 NPO 月營收常超此線。</li>
+          <li><strong>NPO 法規層差異仍在</strong>:Recur 不開抵稅收據,donor 抵稅優惠消失,可能影響部分高所得 donor 的捐款意願。前版「捐款少 30-50%」為未經實證之估計,本頁不再引用。</li>
+        </ul>
+      </div>
 
-<!-- ═══════════════════════════════════════════════════════════
-     §3 NPO 法規 / Compliance(關鍵)
-     ═══════════════════════════════════════════════════════════ -->
-<section id="compliance">
-  <div class="section-num">§3 COMPLIANCE</div>
-  <h2>NPO 法規 / Compliance 關鍵 features</h2>
+    </div>
+  </details>
 
-  <table>
-    <thead>
-      <tr><th>Feature(Taiwan NPO 法規必備)</th><th>netiCRM</th><th>Recur.tw</th></tr>
-    </thead>
-    <tbody>
-      <tr><th class="label-col">抵稅收據開立(紙本 + 電子)</th><td><span class="check">✓</span> 內建</td><td><span class="x">✗</span> 未提及</td></tr>
-      <tr><th class="label-col">抵稅收據客製(LOGO / 章程)</th><td><span class="check">✓</span> 加購 $3,750–$21,250</td><td>—</td></tr>
-      <tr><th class="label-col">電子發票串接(統一發票)</th><td><span class="check">✓</span> 加購 $16,800</td><td><span class="x">✗</span> 未提及</td></tr>
-      <tr><th class="label-col">統一編號 handling(企業捐款者)</th><td><span class="check">✓</span> 內建</td><td><span class="x">✗</span> 未提及</td></tr>
-      <tr><th class="label-col">公益勸募合規欄位</th><td><span class="check">✓</span> 內建</td><td><span class="x">✗</span> 未提及</td></tr>
-      <tr><th class="label-col">年度勸募申報報表(內政部要求)</th><td>可篩選 / 匯出符合 申報資料的捐款明細(由勸募字號標記);<strong>是否有「一鍵產出申報表」需向 netiCRM 確認</strong></td><td><span class="x">✗</span> 未提及</td></tr>
-      <tr><th class="label-col">GDPR / 個資法 compliance</th><td><span class="check">✓</span> ISO 27001:2022</td><td>未認證</td></tr>
-    </tbody>
-  </table>
+  <!-- 詳細 3:對 AIA 的影響 -->
+  <details class="major" id="det-implication">
+    <summary>對 AIA 現況的影響與升級路徑 <span class="d-tag">現況 / 短期 / 中長期</span></summary>
+    <div class="major-body">
 
-  <div class="note warn">
-    <strong>對台灣 NPO 來說,這一欄是決定性差異</strong>。Recur 從產品設計之初就沒處理過台灣 NPO 的法規面 — 這不是「品牌偏好」的問題,是工具<strong>底子上就沒做這塊</strong>。捐款人拿不到可以報稅扣抵的收據,個人捐款的吸引力會明顯下降(尤其年所得較高、會列舉扣除額的 donor)。
-  </div>
-</section>
+      <h3>AIA 現況(2026/5)</h3>
+      <p>人民團體 status,未取得所得稅法 §11(4) 教育文化公益慈善機關或團體認定(俗稱「11 條認定」)+ 未申請公益勸募字號;netiCRM 與 Recur 皆待諮詢。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>狀況</th><th>netiCRM</th><th>Recur.tw</th></tr></thead>
+          <tbody>
+            <tr><th class="label-col">抵稅收據</th><td>暫時不能開(沒認定);拿到認定後 unlock</td><td>暫時不能開(也沒功能);未來也 unlock 不了</td></tr>
+            <tr><th class="label-col">收捐款 ability</th><td>能(報名費 / sponsor)</td><td>能</td></tr>
+            <tr><th class="label-col">收 ADALS 報名費 / sponsor</th><td><span class="check">✓</span> 規劃導入(iframe)</td><td><span class="x">✗</span> 須從零建</td></tr>
+            <tr><th class="label-col">月開支(微型 plan)</th><td>$1,080 / 月</td><td>$0 月費 + 2.4% 手續費</td></tr>
+            <tr><th class="label-col">導入成本(現況)</th><td>諮詢後安裝(尚未採用)</td><td>諮詢後安裝 + event 流程從零建</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note ok">
+        <strong>結論:諮詢後採 netiCRM 為主</strong>。兩家皆待諮詢,但 netiCRM 的架構契合 NPO 法規層,且 ADALS event 規劃可直接搭上;Recur 缺 event registration 是 architectural blocker。
+      </div>
 
-<!-- ═══════════════════════════════════════════════════════════
-     §4 Donor / Member Lifecycle
-     ═══════════════════════════════════════════════════════════ -->
-<section id="lifecycle">
-  <div class="section-num">§4 LIFECYCLE</div>
-  <h2>Donor / Member Lifecycle features</h2>
+      <h3>短期升級路徑(2026-2027)</h3>
+      <ul style="font-size:14px; line-height:1.9; padding-left:24px;">
+        <li><strong>AIA 取得所得稅法 §11(4) 認定</strong>(俗稱「11 條認定」):netiCRM 直接 unlock 抵稅收據(donor 可依所得稅法 §17/§36 列舉扣除)。若 AIA 進一步向不特定公眾公開募款,還需依公益勸募條例 §7 申請<strong>公益勸募字號</strong>。兩者是獨立條件 — 抵稅收據只需 §11(4) 認定;勸募字號是公開募款的合規門檻。</li>
+        <li><strong>AIA 升級社團法人</strong>:netiCRM 持續適用</li>
+        <li><strong>想做月捐 program</strong>:netiCRM 內建有,先用看 UX 痛點。若 churn 嚴重 → 再評估 Recur 補位</li>
+      </ul>
 
-  <table>
-    <thead>
-      <tr><th>Feature</th><th>netiCRM</th><th>Recur.tw</th></tr>
-    </thead>
-    <tbody>
-      <tr><th class="label-col">Donor 聯絡人 CRM(個人 / 組織 / 家庭)</th><td><span class="check">✓</span> 強</td><td><span class="x">✗</span> 只做 subscriber</td></tr>
-      <tr><th class="label-col">不限自訂欄位 / 標籤 / 群組</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td></tr>
-      <tr><th class="label-col">線上募款頁無限建置</th><td><span class="check">✓</span></td><td>訂閱式為主</td></tr>
-      <tr><th class="label-col">定期定額 recurring</th><td><span class="check">✓</span></td><td><span class="check">✓</span> 強項</td></tr>
-      <tr><th class="label-col">感謝禮品管理</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td></tr>
-      <tr><th class="label-col">自動續費 / 智慧重試 / 催繳</th><td>有但 UX 普通</td><td><span class="check">✓</span> 強項(creator economy 強)</td></tr>
-      <tr><th class="label-col">顧客自助 portal(訂閱管理 / 帳單下載)</th><td>基本</td><td><span class="check">✓</span> 強</td></tr>
-      <tr><th class="label-col">Donor 分眾 segmentation</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td></tr>
-      <tr><th class="label-col">Campaign tracking</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td></tr>
-      <tr><th class="label-col">Mass email(每小時 400 封)</th><td><span class="check">✓</span> 內建</td><td><span class="x">✗</span></td></tr>
-      <tr><th class="label-col">電子報開信追蹤</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td></tr>
-      <tr><th class="label-col">MRR / ARR / churn dashboard</th><td><span class="x">✗</span></td><td><span class="check">✓</span>(SaaS 指標)</td></tr>
-    </tbody>
-  </table>
+      <h3>中長期可能變動(2027+)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>場景</th><th>建議</th></tr></thead>
+          <tbody>
+            <tr><th class="label-col">AIA 規模 grow(月捐 500+ 人)</th><td>netiCRM 中小型方案 ($48,000/年)= 月 $4,000,仍合理</td></tr>
+            <tr><th class="label-col">AIA 推付費課程 / 白皮書 / 訂閱會員</th><td>Recur 此情境 <strong>可能適合</strong>(creator economy stack)— 跟 netiCRM 並用</td></tr>
+            <tr><th class="label-col">AIA 接國際 grant(USAID / Ford / 私募基金)</th><td>netiCRM 報表系統可符合多數要求;Recur 不適合</td></tr>
+            <tr><th class="label-col">AIA 拓展東南亞 / 跨國</th><td>netiCRM 受限 Taiwan compliance focus,可能需評估國際 NPO CRM(Salesforce NPSP 等)</td></tr>
+            <tr><th class="label-col">AIA pivots to "for-profit social enterprise"</th><td>Recur 可能成 stack 一部分,但這 pivot 跟 AIA 性質不符,不太可能</td></tr>
+          </tbody>
+        </table>
+      </div>
 
-  <div class="note">
-    <strong>註</strong>:MRR / ARR 對 NPO 不是 primary metric(NPO 看 donor retention / lifetime value),
-    所以 Recur dashboard 對 AIA 用處有限。
-  </div>
-</section>
+    </div>
+  </details>
 
-<!-- ═══════════════════════════════════════════════════════════
-     §5 Event Registration
-     ═══════════════════════════════════════════════════════════ -->
-<section id="event-reg">
-  <div class="section-num">§5 EVENT</div>
-  <h2>Event Registration 比較</h2>
+  <!-- 詳細 4:Recur 省錢情境 -->
+  <details class="major" id="det-recur-save">
+    <summary>Recur 可能省錢的 5 種情境 <span class="d-tag">平衡視角 · 附前提條件</span></summary>
+    <div class="major-body">
 
-  <table>
-    <thead>
-      <tr><th>Feature</th><th>netiCRM</th><th>Recur.tw</th></tr>
-    </thead>
-    <tbody>
-      <tr><th class="label-col">活動報名頁無限建置</th><td><span class="check">✓</span></td><td><span class="x">✗</span> 沒有</td></tr>
-      <tr><th class="label-col">報名 + 繳費整合</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td></tr>
-      <tr><th class="label-col">QR Code 簽到</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td></tr>
-      <tr><th class="label-col">優惠碼</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td></tr>
-      <tr><th class="label-col">報名表單客製</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td></tr>
-      <tr><th class="label-col">與 ADALS 2026 規劃整合</th><td><span class="check">✓</span> 規劃以 iframe 嵌入(尚未實際導入)</td><td><span class="x">✗</span> 須從零建</td></tr>
-    </tbody>
-  </table>
+      <div class="note tldr">
+        <strong>本區目的</strong>:其他區段是「為什麼不採 Recur」的論述,本區反方向列出 <strong>Recur 在哪些情境下會為 AIA 省錢</strong>,讓決策依據完整。每個情境都附「前提條件」——前提不成立時,省錢就不成立。
+      </div>
 
-  <div class="note warn">
-    ADALS event registration <strong>規劃以 netiCRM iframe 作為主要入口</strong>(尚未實際導入,本週諮詢中)。
-    <strong>Recur 完全不支援 event,改採 Recur = 從零重建 event 流程</strong>。這項是 architectural blocker。
-  </div>
-</section>
+      <h3>情境 A:純小額月捐 program — 月營收必須 ≤ NT$160K(不需抵稅收據)</h3>
+      <div class="path-card alternative">
+        <span class="path-label">SCENARIO A · 月捐</span>
+        <p><strong>前提條件</strong>(全部成立才省錢):</p>
+        <ul style="padding-left:22px; font-size:14px; line-height:1.85;">
+          <li>AIA 推出小額月捐 program(NT$100-500/月)</li>
+          <li><strong>月營收 ≤ NT$160K/月</strong>(超過此線 Recur 邊際 4.9% &gt; 藍新 2.5%,反而比 netiCRM 貴)</li>
+          <li>目標捐款者<strong>不在意抵稅收據</strong>(例如:小額情感性支持、信仰群體、不報稅者)</li>
+          <li>單一付款方式即可(信用卡 recurring,不需 ATM / 超商代碼)</li>
+          <li>不需要 donor CRM 後續分眾 / 寄信 / campaign tracking</li>
+        </ul>
+        <p style="margin-top:8px;"><strong>實際省多少</strong>:NT$50K/月 Recur 省 NT$1,130/月;NT$100K/月 省 NT$1,180/月;<strong>NT$200K/月 反轉,netiCRM 省 NT$1,220/月</strong>。Recur 的省錢窗口是月捐規模 NT$160K 以下,且 donor 不在意抵稅。</p>
+      </div>
 
-<!-- ═══════════════════════════════════════════════════════════
-     §6 定價
-     ═══════════════════════════════════════════════════════════ -->
-<section id="pricing">
-  <div class="section-num">§6 PRICING</div>
-  <h2>定價(NT$,2026 年實際報價)</h2>
+      <h3>情境 B:Creator economy 副業產品線</h3>
+      <div class="path-card alternative">
+        <span class="path-label">SCENARIO B · 課程 / 訂閱</span>
+        <p><strong>前提條件</strong>:</p>
+        <ul style="padding-left:22px; font-size:14px; line-height:1.85;">
+          <li>AIA 推付費課程 / 付費白皮書 / 付費社群(Discord / Circle / Slack)</li>
+          <li>這些是<strong>商業性收入</strong>(不算捐款) → 不需 NPO 抵稅收據,只需開統一發票或一般收據</li>
+          <li>跟 NPO 主業務(捐款 / 會員 / event)<strong>會計獨立切分</strong>(避免混雜課稅)</li>
+        </ul>
+        <p style="margin-top:8px;"><strong>實際省多少</strong>:這條收入線本來就不適合放 netiCRM。Recur 接這塊 vs 自建 Stripe + WordPress + Memberships plugin 第一年 NT$30-50K + 年費 NT$10-20K。<strong>Recur 在此情境結構性勝出</strong>,且跟 netiCRM 並用不互斥。</p>
+      </div>
 
-  <h3>netiCRM:年費制 + 加購</h3>
-  <table>
-    <thead>
-      <tr><th>方案</th><th>聯絡人</th><th>年費</th><th>開通費</th></tr>
-    </thead>
-    <tbody>
-      <tr><th class="label-col">微型</th><td>3,000</td><td>$12,960(月 ≈ $1,080)</td><td>$8,000(申請 2 年免收)</td></tr>
-      <tr><th class="label-col">小型</th><td>10,000</td><td>$24,000(月 ≈ $2,000)</td><td>同上</td></tr>
-      <tr><th class="label-col">中小型</th><td>20,000</td><td>$48,000</td><td>同上</td></tr>
-      <tr><th class="label-col">中大型</th><td>50,000</td><td>$72,000</td><td>同上</td></tr>
-      <tr><th class="label-col">大型</th><td>100,000</td><td>$96,000</td><td>同上</td></tr>
-      <tr><th class="label-col">獨立主機+大型</th><td>無上限</td><td>另洽</td><td>另洽</td></tr>
-    </tbody>
-  </table>
-  <p style="font-size:13px; color:var(--muted);">金流手續費:<strong>不額外抽</strong>(用藍新 / 綠界 / LINE Pay 等 gateway,gateway 自家費率約 1.5-3.0%)</p>
+      <h3>情境 C:Pre-11 條認定階段過渡期(2026 全年可能適用)</h3>
+      <div class="path-card alternative">
+        <span class="path-label">SCENARIO C · 過渡期</span>
+        <p><strong>前提條件</strong>:</p>
+        <ul style="padding-left:22px; font-size:14px; line-height:1.85;">
+          <li>AIA 目前是人民團體 status,<strong>還沒拿 11 條認定 + 公益勸募字號</strong></li>
+          <li>意思:即使用 netiCRM,當下也<strong>還不能</strong>開抵稅收據(等認定批准才 unlock)</li>
+          <li>因此「Recur 沒抵稅收據」這個 deal-breaker 在這段過渡期暫時是 moot</li>
+          <li>過渡期預估 6-12 個月(申請 11 條認定 + 內政部審查時程)</li>
+        </ul>
+        <p style="margin-top:8px;"><strong>實際省多少</strong>:過渡期每月 NT$100K 營收下,Recur 比 netiCRM 微型 + 藍新省約 <strong>NT$1,180/月</strong>。<strong>但過渡期一過,netiCRM unlock 抵稅 → advantage 反轉,且當時切回 netiCRM 也要重建 stack</strong>。除非有信心 11 條認定永遠不會通過,否則這個 saving 是「短多長空」。</p>
+      </div>
 
-  <h4>常用加購項目</h4>
-  <ul style="font-size:13.5px; line-height:1.9; padding-left:24px;">
-    <li>收據客製 $3,750–$21,250</li>
-    <li>中英雙語募款頁 $10,500</li>
-    <li>電子發票串接 $16,800</li>
-    <li>自訂域名 首年 $6,000 / 年費 $2,000</li>
-  </ul>
+      <h3>情境 D:0 預算 bootstrapping 階段(極小規模試水溫)</h3>
+      <div class="path-card alternative">
+        <span class="path-label">SCENARIO D · 0 預算</span>
+        <p><strong>前提條件</strong>:</p>
+        <ul style="padding-left:22px; font-size:14px; line-height:1.85;">
+          <li>AIA 第一年完全沒預算編 SaaS 年費</li>
+          <li>月營收 &lt; NT$50,000(小型試辦活動 / 少量月捐)</li>
+          <li>能接受手工開收據(不用系統化)</li>
+          <li>未來 1-2 年內<strong>不打算規模化</strong></li>
+        </ul>
+        <p style="margin-top:8px;"><strong>實際省多少</strong>:0 固定成本是 Recur 強項。<strong>但 0 預算階段更該考慮純免費 stack(Google Form + 銀行匯款 + 手工收據)</strong>,連 Recur 2.4% 都省掉。Recur 在這情境只贏免費 stack 的「自動化便利度」,不贏「成本」。</p>
+      </div>
 
-  <h3>Recur.tw:分層費率(不是「全包 2.4%」)</h3>
-  <table>
-    <thead>
-      <tr><th>月營收區段</th><th>平台費</th><th>金流費(PAYUNi)</th><th>邊際成本</th></tr>
-    </thead>
-    <tbody>
-      <tr><th class="label-col">≤ NT$100,000</th><td><strong>$0</strong></td><td>2.4%</td><td><strong>2.4%</strong></td></tr>
-      <tr><th class="label-col">&gt; NT$100,000 的部份</th><td><strong>+ 2.5%</strong>(對超出 NT$100K 的部份)</td><td>2.4%</td><td><strong>4.9%</strong>(邊際)</td></tr>
-    </tbody>
-  </table>
-  <p style="font-size:13px; color:var(--muted);">來源:<a href="https://docs.recur.tw/help/payments" target="_blank" rel="noopener">Recur 官方金流設定文件</a>。<strong>更正</strong>:前版誤標「全包 2.4%」,實際上 Recur 採分層 — 前 NT$100K/月 內 0 平台費,超過部份加收 2.5% 平台費,加上 PAYUNi 金流 2.4%,邊際達 <strong>4.9%</strong>。對中大型 NPO 月營收影響顯著。</p>
+      <h3>情境 E:大規模國際付款(高頻、無 NPO 法規)</h3>
+      <div class="path-card alternative">
+        <span class="path-label">SCENARIO E · 國際付款</span>
+        <p><strong>前提條件</strong>:</p>
+        <ul style="padding-left:22px; font-size:14px; line-height:1.85;">
+          <li>AIA 接<strong>大量</strong>海外個人付費(訂閱、課程、會議票)</li>
+          <li>海外付款者不在意抵稅(本來也抵不了台灣稅)</li>
+          <li>需要訂閱式自動續費(non-event 收入)</li>
+        </ul>
+        <p style="margin-top:8px;"><strong>實際省多少</strong>:對海外付款者,Recur 的訂閱 dunning UX 比 netiCRM 強。但 Recur 是否真接得到海外卡 + 跨幣別,<strong>本頁未驗證,要問 Recur 客服</strong>。如果 Recur 海外收款不順,這情境直接 fallback 到 PayPal Business + Stripe 路徑。</p>
+      </div>
 
-  <h3>Break-even 分析(假設 netiCRM 用藍新 gateway 2.5%,Recur 採分層費率)</h3>
-  <table>
-    <thead>
-      <tr><th>月營收</th><th>netiCRM 微型總成本</th><th>Recur 總成本(含分層)</th><th>誰便宜</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>NT$10,000</td><td>$1,080 + $250 = $1,330</td><td>$240(2.4%)</td><td><strong>Recur</strong>(省 $1,090)</td></tr>
-      <tr><td>NT$50,000</td><td>$1,080 + $1,250 = $2,330</td><td>$1,200(2.4%)</td><td><strong>Recur</strong>(省 $1,130)</td></tr>
-      <tr><td>NT$100,000</td><td>$1,080 + $2,500 = $3,580</td><td>$2,400(2.4%)</td><td><strong>Recur</strong>(省 $1,180)</td></tr>
-      <tr><td>NT$200,000</td><td>$1,080 + $5,000 = $6,080</td><td>$2,400 + $4,900 = $7,300(超額 @ 4.9%)</td><td><strong>netiCRM</strong>(省 $1,220 — 反轉!)</td></tr>
-      <tr><td>NT$500,000</td><td>$1,080 + $12,500 = $13,580</td><td>$2,400 + $19,600 = $22,000</td><td><strong>netiCRM</strong>(省 $8,420 — 大幅反轉)</td></tr>
-    </tbody>
-  </table>
-  <p style="font-size:12.5px; color:var(--muted); margin-top:-4px;">說明:Recur 第一個 NT$100K 月營收 2.4%;超出部份加收 2.5% 平台費 + PAYUNi 2.4% = 邊際 4.9%。前版誤算為「全包 2.4%」,故 NT$200K 以上結論完全反轉。</p>
+      <div class="note warn">
+        <strong>整合判斷</strong>:
+        <ul style="padding-left:22px; margin-top:6px;">
+          <li><strong>情境 B(creator economy 副業)</strong>是 Recur 唯一「結構性勝出」的情境。可考慮 <strong>netiCRM(主)+ Recur(副)雙軌</strong>。</li>
+          <li><strong>情境 A / C / E</strong>是「條件性勝出」 — 前提條件全部成立才算省錢,任一條不成立就反轉。</li>
+          <li><strong>情境 D</strong>不是 Recur 強項 — 0 預算純手工在這情境更省。</li>
+          <li>所有情境共通的<strong>未驗證假設</strong>:Recur 是否真不能開 NPO 抵稅收據(可能本頁論述過於斷定,建議另外諮詢確認)。</li>
+        </ul>
+      </div>
 
-  <div class="note warn">
-    <strong>關鍵 takeaways(修正版)</strong>:
-    <ul style="padding-left:22px; margin-top:6px;">
-      <li><strong>Break-even 約落在 NT$160K/月</strong>:此營收量以下 Recur 省錢、以上 netiCRM 省錢(因 Recur 邊際 4.9% 大於藍新 2.5%)。</li>
-      <li><strong>NT$200K 以上 Recur 反而貴</strong>:跟前版「Recur 永遠便宜」相反。中大型 NPO 月營收常超此線。</li>
-      <li><strong>NPO 法規層差異仍在</strong>:Recur 不開抵稅收據,donor 抵稅優惠(itemizer 適用 marginal tax rate ×捐款額)消失,可能影響部分高所得 donor 的捐款意願。前版「捐款少 30-50%」為未經實證之估計,本頁不再引用。</li>
-    </ul>
-  </div>
-</section>
+    </div>
+  </details>
 
-<!-- ═══════════════════════════════════════════════════════════
-     §7 對 AIA 目前狀況的 implication
-     ═══════════════════════════════════════════════════════════ -->
-<section id="aia-current">
-  <div class="section-num">§7 IMPLICATION</div>
-  <h2>對 AIA 目前狀況的 implication</h2>
+  <!-- 詳細 5:更省錢的方案 -->
+  <details class="major" id="det-cheap">
+    <summary>更省錢的簡單方案(5 方案) <span class="d-tag">維護成本低 · 單一廠商為主</span></summary>
+    <div class="major-body">
 
-  <h3>AIA 現況(2026/5):人民團體 status,未取得所得稅法 §11(4) 教育文化公益慈善機關或團體認定(俗稱「11 條認定」)+ 未申請公益勸募字號;netiCRM 與 Recur 皆待諮詢</h3>
-  <table>
-    <thead>
-      <tr><th>狀況</th><th>netiCRM</th><th>Recur.tw</th></tr>
-    </thead>
-    <tbody>
-      <tr><th class="label-col">抵稅收據</th><td>暫時不能開(沒認定);拿到認定後 unlock</td><td>暫時不能開(也沒功能);未來也 unlock 不了</td></tr>
-      <tr><th class="label-col">收捐款 ability</th><td>能(報名費 / sponsor)</td><td>能</td></tr>
-      <tr><th class="label-col">收 ADALS 報名費 / sponsor</th><td><span class="check">✓</span> 規劃導入(iframe)</td><td><span class="x">✗</span> 須從零建</td></tr>
-      <tr><th class="label-col">月開支(微型 plan)</th><td>$1,080 / 月</td><td>$0 月費 + 2.4% 手續費</td></tr>
-      <tr><th class="label-col">導入成本(現況)</th><td>諮詢後安裝(尚未採用)</td><td>諮詢後安裝 + event 流程從零建</td></tr>
-    </tbody>
-  </table>
+      <div class="note tldr">
+        <strong>本區目的</strong>:列出比 netiCRM/Recur 更省錢的方案,搭配或不搭配主 stack 都可以。<strong>約束:不要複雜到沒有人能 maintain</strong>(排除多 plugin 拼裝、自寫程式、跨系統對帳)。「能 maintain」三判準:① 單一廠商有客服;② 後台執行小組能用不依賴工程師;③ 出問題有 escalation channel。
+      </div>
 
-  <div class="note ok">
-    <strong>結論:諮詢後採 netiCRM 為主</strong>。兩家皆待諮詢,但 netiCRM 的架構契合 NPO 法規層,且 ADALS event 規劃可直接搭上;Recur 缺 event registration 是 architectural blocker。
-  </div>
+      <h3>方案 1:玉山銀行 + Google Form + ATM 轉帳 + 手工收據</h3>
+      <div class="path-card baseline">
+        <span class="path-label">OPTION 1 · BASELINE · 0 SaaS</span>
+        <table style="margin:8px 0;">
+          <tbody>
+            <tr><th class="label-col">廠商數</th><td>1(玉山銀行)+ Google(免費)</td></tr>
+            <tr><th class="label-col">適用情境</th><td>小型 workshop / 雙月談 / 月捐試辦 / 企業贊助</td></tr>
+            <tr><th class="label-col">規模上限</th><td>單場活動 ≤ 30-50 人;月捐 ≤ 50 位</td></tr>
+            <tr><th class="label-col">Maintainability</th><td><span class="check">✓</span> 極高 — 沒系統可壞,只有流程</td></tr>
+            <tr><th class="label-col">月固定成本</th><td>NT$0(銀行戶免費 + Google Form 免費)</td></tr>
+            <tr><th class="label-col">痛點</th><td>每張收據人工 15-20 分鐘;每月對帳 2-4 小時;不接受信用卡 / 超商代碼;ADALS 200 人規模不可行</td></tr>
+          </tbody>
+        </table>
+      </div>
 
-  <h3>短期升級路徑(2026-2027)</h3>
-  <ul style="font-size:13.5px; line-height:1.9; padding-left:24px;">
-    <li><strong>AIA 取得所得稅法 §11(4) 認定</strong>(俗稱「11 條認定」):netiCRM 直接 unlock 抵稅收據(donor 可依所得稅法 §17/§36 列舉扣除)。若 AIA 進一步向不特定公眾公開募款,還需依公益勸募條例 §7 申請<strong>公益勸募字號</strong>。兩者是獨立條件 — 抵稅收據只需 §11(4) 認定;勸募字號是公開募款的合規門檻。</li>
-    <li><strong>AIA 升級社團法人</strong>:netiCRM 持續適用</li>
-    <li><strong>想做月捐 program</strong>:netiCRM 內建有,先用看 UX 痛點。若 churn 嚴重 → 再評估 Recur 補位</li>
-  </ul>
+      <h3>方案 2:MyPay 公益捐款金流(透過 netiCRM 使用)</h3>
+      <div class="path-card alternative">
+        <span class="path-label">OPTION 2 · NPO 捐款金流</span>
+        <table style="margin:8px 0;">
+          <tbody>
+            <tr><th class="label-col">廠商數</th><td>1(MyPay 由<strong>高鉅科技</strong>營運,跟 netiCRM 母體網絡行動科技不同公司,但 netiCRM 已原生整合 MyPay 作為金流選項)</td></tr>
+            <tr><th class="label-col">適用情境</th><td>線上小額捐款(尤其月捐 / 紀念捐款)</td></tr>
+            <tr><th class="label-col">Maintainability</th><td><span class="check">✓</span> 高 — 透過 netiCRM 後台管理,單一 vendor 客服</td></tr>
+            <tr><th class="label-col">月固定成本</th><td>NT$0(無月費)</td></tr>
+            <tr><th class="label-col">變動成本(關鍵 — 看條件)</th><td><strong>NT$9/筆固定手續費</strong>:這是<strong>給 netiCRM 客戶 + 國內信用卡 + 單筆 ≥ NT$400 捐款</strong>的特殊費率(查 netiCRM <a href="https://neticrm.tw/resources/255" target="_blank" rel="noopener">金流費率比較頁</a>)。<strong>公開標準費率</strong>:MyPay 一般商戶 2.5%(<a href="https://www.mypay.com.tw/index.php/zh-tw/company-profile/fee-schedule" target="_blank" rel="noopener">MyPay 官方費用表</a>)。→ NT$9/筆只在「採 netiCRM + 大額捐款」場景成立。</td></tr>
+            <tr><th class="label-col">合規 / 抵稅收據</th><td>收據功能在 <strong>netiCRM</strong>(非 MyPay 自家);MyPay 只負責金流 → 需綁定 netiCRM 才有完整 NPO 流程</td></tr>
+            <tr><th class="label-col">痛點</th><td>抵稅收據前提:AIA 需取得「所得稅法 §11(4)」認定(過渡期前不適用);只做捐款不做 event;單筆 &lt; NT$400 用 NT$9/筆會反而貴</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:12.5px; color:var(--muted); margin-top:6px;">註:本欄修正自前版錯誤標示「MyPay 是智邦旗下」。MyPay 實際營運方為高鉅科技。</p>
+      </div>
 
-  <h3>中長期可能變動(2027+)</h3>
-  <table>
-    <thead>
-      <tr><th>場景</th><th>建議</th></tr>
-    </thead>
-    <tbody>
-      <tr><th class="label-col">AIA 規模 grow(月捐 500+ 人)</th><td>netiCRM 中小型方案 ($48,000/年)= 月 $4,000,仍合理</td></tr>
-      <tr><th class="label-col">AIA 推付費課程 / 白皮書 / 訂閱會員</th><td>Recur 此情境 <strong>可能適合</strong>(creator economy stack)— 跟 netiCRM 並用</td></tr>
-      <tr><th class="label-col">AIA 接國際 grant(USAID / Ford / 私募基金)</th><td>netiCRM 報表系統可符合多數要求;Recur 不適合</td></tr>
-      <tr><th class="label-col">AIA 拓展東南亞 / 跨國</th><td>netiCRM 受限 Taiwan compliance focus,可能需評估國際 NPO CRM(Salesforce NPSP 等)</td></tr>
-      <tr><th class="label-col">AIA pivots to "for-profit social enterprise"</th><td>Recur 可能成 stack 一部分,但這 pivot 跟 AIA 性質不符,不太可能</td></tr>
-    </tbody>
-  </table>
-</section>
+      <h3>方案 3:第三方公益勸募平台代收</h3>
+      <div class="path-card alternative">
+        <span class="path-label">OPTION 3 · 全外包</span>
+        <table style="margin:8px 0;">
+          <tbody>
+            <tr><th class="label-col">廠商數</th><td>1(平台:聯合勸募網 / 紅心字會 / 1111 公益網 等)</td></tr>
+            <tr><th class="label-col">適用情境</th><td>不想 host 系統 + 想全外包收款 + 出收據</td></tr>
+            <tr><th class="label-col">Maintainability</th><td><span class="check">✓</span> 最高 — 全外包,平台 maintain 一切</td></tr>
+            <tr><th class="label-col">月固定成本</th><td>NT$0(無月費)</td></tr>
+            <tr><th class="label-col">變動成本</th><td>平台抽 <strong>3-5%</strong> 後撥款給 AIA(各平台不同,須個別洽詢)</td></tr>
+            <tr><th class="label-col">痛點</th><td><strong>需勸募字號 + 平台審核</strong>(過渡期不適用);無品牌控制權;資料不在 AIA 手上</td></tr>
+          </tbody>
+        </table>
+      </div>
 
-<!-- ═══════════════════════════════════════════════════════════
-     §7.5 Recur 可採用的情境(省錢角度)
-     ═══════════════════════════════════════════════════════════ -->
-<section id="recur-cost-scenarios">
-  <div class="section-num">§7.5 RECUR COST SCENARIOS</div>
-  <h2>APAC AIA 可以採用 Recur 的情境(省錢角度)</h2>
+      <h3>方案 4:netiCRM 微型「最小配置」(0 加購)</h3>
+      <div class="path-card primary">
+        <span class="path-label">OPTION 4 · 主推中的省錢版</span>
+        <table style="margin:8px 0;">
+          <tbody>
+            <tr><th class="label-col">廠商數</th><td>1(netiCRM)</td></tr>
+            <tr><th class="label-col">適用情境</th><td>需要 event + CRM + 基礎收據,但預算想壓到最低</td></tr>
+            <tr><th class="label-col">Maintainability</th><td><span class="check">✓</span> 高 — 單一廠商客服</td></tr>
+            <tr><th class="label-col">月固定成本</th><td>NT$1,080(NT$12,960/年;申請 2 年合約免開通費 NT$8,000)</td></tr>
+            <tr><th class="label-col">不買的加購</th><td>收據客製、雙語募款頁、電子發票串接、自訂域名 — 全部不買,接受標準 template</td></tr>
+            <tr><th class="label-col">痛點</th><td>收據用 netiCRM 標準格式(不能加 AIA LOGO);募款頁中文 only;若會計判定 ADALS 報名費需開電子發票 → 必須加 NT$16,800/年</td></tr>
+          </tbody>
+        </table>
+      </div>
 
-  <div class="note tldr">
-    <strong>本節目的</strong>:§1-§7 是「為什麼不採 Recur」的論述,本節反方向列出 <strong>Recur 在哪些情境下會為 AIA 省錢</strong>,讓決策依據完整(而非只看一面)。每個情境都附「前提條件」與「實際省多少」——前提不成立時,省錢就不成立。
-  </div>
+      <h3>方案 5:Recur.tw 單獨用</h3>
+      <p style="font-size:14px; color:var(--muted); padding-left:20px; border-left:3px solid var(--border);">
+        詳見上方「Recur 省錢情境」A / B。摘要:2.4% 起 + 0 月費 + 單一廠商;適合「捐款者不需抵稅」+「不需 event registration」的線上訂閱型收入。Maintainability 高,但 NPO compliance 不適用。
+      </p>
 
-  <h3>情境 A:純小額月捐 program — 月營收必須 ≤ NT$160K(不需抵稅收據)</h3>
-  <div class="path-card alternative">
-    <span class="path-label">SCENARIO A · 月捐</span>
-    <p><strong>前提條件</strong>(全部成立才省錢):</p>
-    <ul style="padding-left:22px; font-size:13.5px; line-height:1.85;">
-      <li>AIA 推出小額月捐 program(NT$100-500/月)</li>
-      <li><strong>月營收 ≤ NT$160K/月</strong>(超過此線 Recur 邊際 4.9% &gt; 藍新 2.5%,反而比 netiCRM 貴)</li>
-      <li>目標捐款者<strong>不在意抵稅收據</strong>(例如:小額情感性支持、信仰群體、不報稅者)</li>
-      <li>單一付款方式即可(信用卡 recurring,不需 ATM / 超商代碼)</li>
-      <li>不需要 donor CRM 後續分眾 / 寄信 / campaign tracking</li>
-    </ul>
-    <p style="margin-top:8px;"><strong>實際省多少(更正)</strong>:</p>
-    <ul style="padding-left:22px; font-size:13.5px; line-height:1.85;">
-      <li>NT$50K/月:Recur 比 netiCRM 省 NT$1,130/月(年 NT$13,560)</li>
-      <li>NT$100K/月:Recur 比 netiCRM 省 NT$1,180/月(年 NT$14,160)</li>
-      <li><strong>NT$200K/月:netiCRM 比 Recur 省 NT$1,220/月</strong>(反轉)</li>
-      <li><strong>NT$500K/月:netiCRM 比 Recur 省 NT$8,420/月</strong>(大幅反轉)</li>
-    </ul>
-    <p style="margin-top:8px;">前版誤標「NT$200K 月營收 Recur 省 NT$1,280」是基於「Recur 全包 2.4%」誤解,已於 §6 修正。Recur 的省錢窗口是月捐 program 規模 <strong>NT$160K 以下</strong>,且 donor 不在意抵稅。</p>
-  </div>
+      <h3>整合建議:依 AIA 階段挑搭配</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>AIA 階段</th><th>建議組合</th><th>月固定成本</th></tr></thead>
+          <tbody>
+            <tr><th class="label-col">過渡期(現在 ~ 11 條認定前)</th><td>方案 1(0 SaaS baseline)<strong>或</strong>方案 4(netiCRM 微型最小);小活動走方案 1,ADALS 規模走方案 4</td><td>NT$0 ~ NT$1,080</td></tr>
+            <tr><th class="label-col">拿到 11 條認定 + 勸募字號後</th><td>方案 4(主)+ 方案 2 MyPay(月捐 / 小額);或方案 3 第三方平台(若不想自己 host)</td><td>NT$0 ~ NT$1,080</td></tr>
+            <tr><th class="label-col">推 creator economy 副業</th><td>方案 4(NPO 主業)+ Recur.tw(課程 / 訂閱副業)</td><td>NT$1,080(+ Recur 變動)</td></tr>
+          </tbody>
+        </table>
+      </div>
 
-  <h3>情境 B:Creator economy 副業產品線</h3>
-  <div class="path-card alternative">
-    <span class="path-label">SCENARIO B · 課程 / 訂閱</span>
-    <p><strong>前提條件</strong>:</p>
-    <ul style="padding-left:22px; font-size:13.5px; line-height:1.85;">
-      <li>AIA 推付費課程 / 付費白皮書 / 付費社群(Discord / Circle / Slack)</li>
-      <li>這些是<strong>商業性收入</strong>(不算捐款) → 不需 NPO 抵稅收據,只需開統一發票或一般收據</li>
-      <li>跟 NPO 主業務(捐款 / 會員 / event)<strong>會計獨立切分</strong>(避免混雜課稅)</li>
-    </ul>
-    <p style="margin-top:8px;"><strong>實際省多少</strong>:這條收入線本來就不適合放 netiCRM(NPO compliance 對課程不必要)。Recur 接這塊 = 2.4% 全包,vs 自建 Stripe + WordPress + Memberships plugin 第一年 NT$30-50K + 年費 NT$10-20K。<strong>Recur 在此情境結構性勝出</strong>,且跟 netiCRM 並用不互斥。</p>
-  </div>
+      <div class="note warn">
+        <strong>❌ 不推薦的省錢方向(maintainability 失敗)</strong>:
+        <ul style="padding-left:22px; margin-top:6px;">
+          <li>WordPress + 多 plugin 自組 — 多廠商各自維護、plugin 更新可能互相 break、無單一 escalation</li>
+          <li>自寫程式接金流 — engineer 離職 = 系統死、合規責任自負、無 vendor 客服</li>
+          <li>Stripe + 美國 LLC — 跨境會計複雜、雙系統對帳</li>
+          <li>多金流並用無中介 CRM — 對帳工時隨筆數線性成長</li>
+        </ul>
+        <p style="margin-top:6px;">這些路徑短期看似省錢,但長期需要有人專職 maintain;AIA 沒有專職工程師,屬於「省 SaaS 費省到爆人力費」陷阱。</p>
+      </div>
 
-  <h3>情境 C:Pre-11 條認定階段過渡期(2026 全年可能適用)</h3>
-  <div class="path-card alternative">
-    <span class="path-label">SCENARIO C · 過渡期</span>
-    <p><strong>前提條件</strong>:</p>
-    <ul style="padding-left:22px; font-size:13.5px; line-height:1.85;">
-      <li>AIA 目前是人民團體 status,<strong>還沒拿 11 條認定 + 公益勸募字號</strong></li>
-      <li>意思:即使用 netiCRM,當下也<strong>還不能</strong>開抵稅收據(等認定批准才 unlock)</li>
-      <li>因此「Recur 沒抵稅收據」這個 deal-breaker 在這段過渡期暫時是 moot</li>
-      <li>過渡期預估 6-12 個月(申請 11 條認定 + 內政部審查時程)</li>
-    </ul>
-    <p style="margin-top:8px;"><strong>實際省多少</strong>:過渡期每月 NT$100K 營收下,Recur 比 netiCRM 微型 + 藍新省約 <strong>NT$1,180/月</strong>;一年累積約 NT$14,160。<strong>但過渡期一過,netiCRM unlock 抵稅 → 轉換率 advantage 反轉,且當時切回 netiCRM 也要重建 stack</strong>。除非有信心 11 條認定不會通過、AIA 永遠停在人民團體 status,否則這個 saving 是「短多長空」。</p>
-  </div>
+    </div>
+  </details>
 
-  <h3>情境 D:0 預算 bootstrapping 階段(極小規模試水溫)</h3>
-  <div class="path-card alternative">
-    <span class="path-label">SCENARIO D · 0 預算</span>
-    <p><strong>前提條件</strong>:</p>
-    <ul style="padding-left:22px; font-size:13.5px; line-height:1.85;">
-      <li>AIA 第一年完全沒預算編 SaaS 年費</li>
-      <li>月營收 &lt; NT$50,000(小型試辦活動 / 少量月捐)</li>
-      <li>能接受手工開收據(不用系統化)</li>
-      <li>未來 1-2 年內<strong>不打算規模化</strong></li>
-    </ul>
-    <p style="margin-top:8px;"><strong>實際省多少</strong>:0 固定成本是 Recur 強項。netiCRM 微型 NT$12,960/年 + 開通費 NT$8,000(可免)= 第一年最低 NT$12,960。Recur 第一年 0 月費,只付 2.4% 手續費。<strong>但 0 預算階段更該考慮 Path D 純免費 stack(Google Form + 銀行匯款 + 手工收據)</strong>,連 Recur 2.4% 都省掉。Recur 在這情境只贏 Path D 的「自動化便利度」,不贏「成本」。</p>
-  </div>
+  <!-- 詳細 6:深入判斷 -->
+  <details class="major" id="det-verdict">
+    <summary>深入判斷與決策框架 <span class="d-tag">verdict / 理由 / 框架觀察</span></summary>
+    <div class="major-body">
 
-  <h3>情境 E:大規模國際付款(高頻、無 NPO 法規)</h3>
-  <div class="path-card alternative">
-    <span class="path-label">SCENARIO E · 國際付款</span>
-    <p><strong>前提條件</strong>:</p>
-    <ul style="padding-left:22px; font-size:13.5px; line-height:1.85;">
-      <li>AIA 接<strong>大量</strong>海外個人付費(訂閱、課程、會議票)</li>
-      <li>海外付款者不在意抵稅(本來也抵不了台灣稅)</li>
-      <li>需要訂閱式自動續費(non-event 收入)</li>
-    </ul>
-    <p style="margin-top:8px;"><strong>實際省多少</strong>:對海外付款者,Recur 的訂閱 dunning UX 比 netiCRM 強,流失率可能低。但 Recur 是否真接得到海外卡 + 跨幣別 + tax/invoice issuance for foreign payers,<strong>本頁未驗證,要問 Recur 客服</strong>。如果 Recur 海外收款不順,這情境直接 falls back to PayPal Business + Stripe (via 美國 LLC) 路徑。</p>
-  </div>
+      <div class="note ok">
+        <strong>短期 + 中期(2026-2028):諮詢後採 netiCRM、不採 Recur 為主 stack。</strong>
+        <p style="margin-top:8px; font-size:13.5px;">本 verdict 的 scope:<strong>「主 stack」</strong>之選擇。「主 stack 用 netiCRM 還是 Recur」與「過渡期該用方案 1 baseline 還是方案 4 netiCRM 微型最小」是兩個獨立問題 — 後者見上方「更省錢的方案」階段建議表。Recur 在副業(creator economy)情境仍可作為 netiCRM 之外的補強。</p>
+        <p style="margin-top:6px; font-size:13.5px;">本判斷成立於 Recur 諮詢回覆<strong>不</strong>顯示其已支援 Taiwan NPO 抵稅收據 + 公益勸募合規。若 Recur 已加上 NPO compliance 模組,本判斷需重評。</p>
+      </div>
 
-  <div class="note warn">
-    <strong>整合判斷</strong>:
-    <ul style="padding-left:22px; margin-top:6px;">
-      <li><strong>情境 B(creator economy 副業)</strong>是 Recur 唯一「結構性勝出」的情境 — 課程 / 訂閱本來就不適合放 NPO CRM,而 Recur 是專做這塊的。可考慮 <strong>netiCRM(主)+ Recur(副)雙軌</strong>。</li>
-      <li><strong>情境 A / C / E</strong>是「條件性勝出」 — 前提條件全部成立才算省錢,任一條不成立就反轉。諮詢 Recur 時要把這些條件當問題列出來驗證。</li>
-      <li><strong>情境 D</strong>不是 Recur 強項 — Path D(0 預算純手工)在這情境更省。</li>
-      <li>所有情境共通的<strong>未驗證假設</strong>:Recur 是否真不能開 NPO 抵稅收據(可能本頁論述過於斷定,建議另外諮詢確認)。</li>
-    </ul>
-  </div>
-</section>
+      <h3>理由</h3>
+      <ul style="font-size:14px; line-height:1.9; padding-left:24px;">
+        <li>ADALS 2026 event 規劃以 netiCRM iframe 為入口,Recur 不支援 event registration = 改採 Recur 等於從零重建</li>
+        <li>AIA 取得所得稅法 §11(4) 認定後,netiCRM 解鎖完整 NPO compliance — Recur 依公開定位看似不在此 product 範圍</li>
+        <li>Recur 並非「全包 2.4%」— 月營收 &gt; NT$100K 後邊際 4.9%,中大型 NPO 反而貴</li>
+        <li>netiCRM 微型方案 NT$12,960/年 對小 NPO 是 trivial cost;最小配置可進一步壓低</li>
+      </ul>
 
-<!-- ═══════════════════════════════════════════════════════════
-     §7.6 更省錢的簡單方案(維護成本低)
-     ═══════════════════════════════════════════════════════════ -->
-<section id="cheap-simple-options">
-  <div class="section-num">§7.6 CHEAP &amp; MAINTAINABLE</div>
-  <h2>更省錢的簡單方案 — 維護成本低、單一廠商為主</h2>
+      <h3>只有兩個情境會讓 Recur 成有 ROI 的 add-on</h3>
+      <ol style="font-size:14px; line-height:1.9; padding-left:24px;">
+        <li><strong>AIA 推付費課程 / 白皮書訂閱 / 付費社群</strong> → Recur 可能 supplement netiCRM(creator 那一塊用 Recur,NPO compliance 仍 netiCRM)</li>
+        <li><strong>AIA 月捐 program churn 嚴重 + Recur 確認支援 NPO 收據開立</strong> → Recur 補 dunning UX</li>
+      </ol>
+      <p>兩個情境前提都成立才考慮 Recur,目前 AIA 都不在這 trajectory。</p>
 
-  <div class="note tldr">
-    <strong>本節目的</strong>:AIA 想探索比 netiCRM/Recur 更省錢的方案,搭配或不搭配主 stack 都可以。<strong>約束:不要複雜到沒有人能 maintain</strong>(排除多 plugin 拼裝、自寫程式、跨系統對帳)。
-    <p style="margin-top:8px;"><strong>「能 maintain」的三個判準</strong>:① 單一廠商 / 平台,有客服支援;② 後台 AIA 執行小組能用,不依賴工程師;③ 出問題時有 escalation channel(電話 / KB / 客服)。</p>
-  </div>
+      <h3>一個更深的觀察 — 決策框架差異</h3>
+      <p>具科技 / SaaS 產品背景的決策者,容易高估「UI 現代化」的權重、低估「法規合規」的權重。這 instinct 在 commercial product 是對的,但在 <strong>Taiwan NPO compliance 場域</strong>需要切換 frame:</p>
+      <ul style="font-size:14px; line-height:1.9; padding-left:24px;">
+        <li><strong>Commercial product</strong>:UX / API / 現代化 &gt; 法規合規(可以後補)</li>
+        <li><strong>NPO operations</strong>:法規合規 = donor trust = revenue。UX 老派可接受,合規不能省</li>
+      </ul>
+      <p>netiCRM UI 老派但合規完整;Recur UI 現代但 NPO 法規層待驗證。對 NPO operator,本頁建議優先合規而非美觀 — 但這個 trade-off 是 explicit 的,留給理事會權衡。</p>
 
-  <h3>方案 1:玉山銀行 + Google Form + ATM 轉帳 + 手工收據</h3>
-  <div class="path-card baseline">
-    <span class="path-label">OPTION 1 · BASELINE · 0 SaaS</span>
-    <table style="margin:8px 0;">
-      <tbody>
-        <tr><th class="label-col">廠商數</th><td>1(玉山銀行)+ Google(免費)</td></tr>
-        <tr><th class="label-col">適用情境</th><td>小型 workshop / 雙月談 / 月捐試辦 / 企業贊助</td></tr>
-        <tr><th class="label-col">規模上限</th><td>單場活動 ≤ 30-50 人;月捐 ≤ 50 位</td></tr>
-        <tr><th class="label-col">Maintainability</th><td><span class="check">✓</span> 極高 — 沒系統可壞,只有流程</td></tr>
-        <tr><th class="label-col">月固定成本</th><td>NT$0(銀行戶免費 + Google Form 免費)</td></tr>
-        <tr><th class="label-col">變動成本</th><td>銀行手續費 / SWIFT(若有國際匯款)</td></tr>
-        <tr><th class="label-col">痛點</th><td>每張收據人工 15-20 分鐘;每月對帳 2-4 小時;不接受信用卡 / 超商代碼;ADALS 200 人規模不可行</td></tr>
-      </tbody>
-    </table>
-  </div>
+    </div>
+  </details>
 
-  <h3>方案 2:MyPay 公益捐款金流(透過 netiCRM 使用)</h3>
-  <div class="path-card alternative">
-    <span class="path-label">OPTION 2 · NPO 捐款金流</span>
-    <table style="margin:8px 0;">
-      <tbody>
-        <tr><th class="label-col">廠商數</th><td>1(MyPay 由<strong>高鉅科技</strong>營運,跟 netiCRM 母體網絡行動科技不同公司,但 netiCRM 已原生整合 MyPay 作為金流選項)</td></tr>
-        <tr><th class="label-col">適用情境</th><td>線上小額捐款(尤其月捐 / 紀念捐款)</td></tr>
-        <tr><th class="label-col">規模上限</th><td>百到數千位 monthly donor</td></tr>
-        <tr><th class="label-col">Maintainability</th><td><span class="check">✓</span> 高 — 透過 netiCRM 後台管理,單一 vendor 客服(netiCRM)</td></tr>
-        <tr><th class="label-col">月固定成本</th><td>NT$0(無月費)</td></tr>
-        <tr><th class="label-col">變動成本(關鍵 — 看條件)</th><td>
-          <strong>NT$9/筆固定手續費</strong>:這是<strong>給 netiCRM 客戶 + 國內信用卡 + 單筆 ≥ NT$400 捐款</strong>的特殊費率(查 netiCRM <a href="https://neticrm.tw/resources/255" target="_blank" rel="noopener">金流費率比較頁</a>)。
-          <br><strong>公開標準費率</strong>:MyPay 一般商戶 2.5%(<a href="https://www.mypay.com.tw/index.php/zh-tw/company-profile/fee-schedule" target="_blank" rel="noopener">MyPay 官方費用表</a>,且明示「實際費率另詢」)。
-          <br>→ NT$9/筆對 AIA 只在「採 netiCRM + 大額捐款」場景成立;小額(&lt; NT$400)或不用 netiCRM 時不適用。
-        </td></tr>
-        <tr><th class="label-col">合規 / 抵稅收據</th><td>收據功能在<strong> netiCRM </strong>(非 MyPay 自家);MyPay 只負責金流,收據由 netiCRM 開立 → 需綁定 netiCRM 才有完整 NPO 流程</td></tr>
-        <tr><th class="label-col">痛點</th><td>抵稅收據前提:AIA 需取得「<strong>所得稅法 §11(4)</strong> 教育文化公益慈善機關或團體」認定(過渡期前不適用);公益勸募若公開向不特定大眾募款,還需另申請<strong>公益勸募字號</strong>(內政部);只做捐款不做 event registration;單筆 &lt; NT$400 用 NT$9/筆會反而貴</td></tr>
-      </tbody>
-    </table>
-    <p style="font-size:12.5px; color:var(--muted); margin-top:6px;">註:本欄修正自前版錯誤標示「MyPay 是智邦旗下」。MyPay 實際營運方為高鉅科技。智邦另有「智邦公益館」屬於不同平台。</p>
-  </div>
+  <!-- 事實檢查紀錄 -->
+  <details class="major" id="det-factcheck">
+    <summary>v2.1 事實檢查紀錄 <span class="d-tag">2026-05-19 多模型 4 次 review</span></summary>
+    <div class="major-body">
+      <p style="margin-top:14px;">本頁 v2.1 透過 Claude Opus 4.7 ×2(內部一致性 + 跨區段邏輯)與 Codex 5.5 ×2(Taiwan NPO 法規 + 定價 / 規格)共 4 次平行事實檢查,主要校準如下:</p>
+      <ul style="padding-left:22px; line-height:1.85; font-size:14px;">
+        <li><strong>MyPay 所有權更正</strong>:前版誤標「智邦旗下、netiCRM 同一母體」;實際為高鉅科技獨立公司,netiCRM 母體為網絡行動科技。NT$9/筆只是 netiCRM 客戶 + 國內信用卡 + 單筆 ≥ NT$400 的特殊費率,MyPay 公開標準為 2.5%。</li>
+        <li><strong>Recur 非「全包 2.4%」</strong>:超過月營收 NT$100K 後加 2.5% 平台費,邊際達 4.9%。Break-even 約 NT$160K/月,以上 netiCRM 反而便宜。前版 break-even 表 NT$200K/500K 數據全錯,已重算。</li>
+        <li><strong>「11 條」reference 校準</strong>:正確 reference 為所得稅法 §11(4);前版誤稱「免稅適用標準 §11」。抵稅收據基於 §17/§36;公益勸募字號屬獨立合規門檻(公益勸募條例 §7),非抵稅必要條件。</li>
+        <li><strong>「donor 不能抵稅 → 捐款少 30-50%」估計撤回</strong>:無實證來源,Taiwan 抵稅僅對 itemizer 適用 marginal tax rate × 捐款,不會直接掉 30-50%。</li>
+        <li><strong>「netiCRM 已 deep integrated ADALS」</strong>(殘留 v2.0 假設):前版錯,實際為「規劃導入」。</li>
+        <li><strong>Recur 整合 Cal.com / Circle</strong>:前版列為原生整合,實際 Recur 公開頁僅見 Discord + Webhooks / Zapier / Make。已加註「未經官方驗證」。</li>
+        <li><strong>netiCRM「年度勸募申報報表」</strong>:前版稱「內建」,Codex 找不到公開文件證明有「一鍵產出申報表」功能,已軟化措辭。</li>
+        <li><strong>對特定個人之描述</strong>:reframe 為 role-based generic,避免對 stake owner 加個人特徵 modifier。</li>
+        <li><strong>封存區 v1.0 定價數據過時聲明</strong>:藍新 2.75% → 實 2.8%、Eventbrite 7.2-9.3% → 台灣實 4.99%、綠界費率、PayPal 固定費依幣別 — 封存區未即時修改但加聲明。</li>
+      </ul>
+      <p style="font-size:12.5px; color:var(--muted); margin-top:10px;">事實檢查來源:Codex 引用所得稅法、公益勸募條例、netiCRM 官方文件、MyPay 官方費用表、Recur 官方文件、藍新 / 綠界 / Eventbrite / PayPal 官方費率頁。</p>
+    </div>
+  </details>
 
-  <h3>方案 3:第三方公益勸募平台代收</h3>
-  <div class="path-card alternative">
-    <span class="path-label">OPTION 3 · 全外包</span>
-    <table style="margin:8px 0;">
-      <tbody>
-        <tr><th class="label-col">廠商數</th><td>1(平台:聯合勸募網 / 紅心字會 / 1111 公益網 等)</td></tr>
-        <tr><th class="label-col">適用情境</th><td>不想 host 系統 + 想全外包收款 + 出收據</td></tr>
-        <tr><th class="label-col">規模上限</th><td>依平台,通常無上限</td></tr>
-        <tr><th class="label-col">Maintainability</th><td><span class="check">✓</span> 最高 — 全外包,平台 maintain 一切</td></tr>
-        <tr><th class="label-col">月固定成本</th><td>NT$0(無月費)</td></tr>
-        <tr><th class="label-col">變動成本</th><td>平台抽 <strong>3-5%</strong> 後撥款給 AIA(各平台不同,須個別洽詢)</td></tr>
-        <tr><th class="label-col">合規</th><td><span class="check">✓</span> 平台處理所有抵稅收據 + 報表</td></tr>
-        <tr><th class="label-col">痛點</th><td><strong>需勸募字號 + 平台審核</strong>(過渡期不適用);無品牌控制權(用平台 UI);資料不在 AIA 手上</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h3>方案 4:netiCRM 微型「最小配置」(0 加購)</h3>
-  <div class="path-card primary">
-    <span class="path-label">OPTION 4 · 主推中的省錢版</span>
-    <table style="margin:8px 0;">
-      <tbody>
-        <tr><th class="label-col">廠商數</th><td>1(netiCRM)</td></tr>
-        <tr><th class="label-col">適用情境</th><td>需要 event + CRM + 基礎收據,但預算想壓到最低</td></tr>
-        <tr><th class="label-col">規模上限</th><td>3,000 聯絡人(微型方案)</td></tr>
-        <tr><th class="label-col">Maintainability</th><td><span class="check">✓</span> 高 — 單一廠商客服</td></tr>
-        <tr><th class="label-col">月固定成本</th><td>NT$1,080(NT$12,960/年;申請 2 年合約免開通費 NT$8,000)</td></tr>
-        <tr><th class="label-col">變動成本</th><td>底層 gateway 約 2.4%(藍新)</td></tr>
-        <tr><th class="label-col">不買的加購</th><td>收據客製、雙語募款頁、電子發票串接、自訂域名 — 全部不買,接受標準 template</td></tr>
-        <tr><th class="label-col">痛點</th><td>收據用 netiCRM 標準格式(不能加 AIA LOGO);募款頁中文 only;若會計判定 ADALS 報名費需開電子發票 → 必須加 NT$16,800/年</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h3>方案 5:Recur.tw 單獨用</h3>
-  <p style="font-size:13.5px; color:var(--muted); padding-left:20px; border-left:3px solid var(--border);">
-    詳見 <a href="#recur-cost-scenarios">§7.5 情境 A / B</a>。摘要:2.4% 全包式 + 0 月費 + 單一廠商;適合「捐款者不需抵稅」+「不需 event registration」的線上訂閱型收入。Maintainability 高(單一廠商客服),但 NPO compliance 不適用。
-  </p>
-
-  <h3>整合建議:依 AIA 階段挑搭配</h3>
-  <table>
-    <thead>
-      <tr><th>AIA 階段</th><th>建議組合</th><th>月固定成本</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th class="label-col">過渡期(現在 ~ 11 條認定前)</th>
-        <td>方案 1(0 SaaS baseline)<strong>或</strong>方案 4(netiCRM 微型最小)<br>小活動走方案 1;ADALS 規模走方案 4</td>
-        <td>NT$0 ~ NT$1,080</td>
-      </tr>
-      <tr>
-        <th class="label-col">拿到 11 條認定 + 勸募字號後</th>
-        <td>方案 4(主)+ 方案 2 MyPay(月捐 / 小額)<br>或:方案 3 第三方平台(若 AIA 不想自己 host)</td>
-        <td>NT$0 ~ NT$1,080</td>
-      </tr>
-      <tr>
-        <th class="label-col">推 creator economy 副業(課程 / 訂閱)</th>
-        <td>方案 4(NPO 主業)+ Recur.tw(課程 / 訂閱副業)</td>
-        <td>NT$1,080(+ Recur 2.4% 變動)</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="note warn">
-    <strong>❌ 不推薦的省錢方向(maintainability 失敗)</strong>:
-    <ul style="padding-left:22px; margin-top:6px;">
-      <li>WordPress + 多 plugin 自組(Elementor + Events Calendar + Memberships + e-invoice)— 多廠商各自維護、plugin 更新可能互相 break、無單一 escalation</li>
-      <li>自寫程式接金流 — engineer 離職 = 系統死、合規責任自負、無 vendor 客服</li>
-      <li>Stripe + 美國 LLC — 跨境會計複雜、雙系統對帳、AIA 執行小組難 maintain</li>
-      <li>多金流並用(藍新 + PayPal + 綠界)無中介 CRM — 對帳工時隨筆數線性成長</li>
-    </ul>
-    <p style="margin-top:6px;">這些路徑短期看似省錢,但長期需要有人專職 maintain;AIA 沒有專職工程師 / 系統管理員,屬於「省 SaaS 費省到爆人力費」陷阱。</p>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════════
-     §8 我的 honest 判斷
-     ═══════════════════════════════════════════════════════════ -->
-<section id="verdict">
-  <div class="section-num">§8 HONEST VERDICT</div>
-  <h2>我的 honest 判斷</h2>
-
-  <div class="note ok">
-    <strong>短期 + 中期(2026-2028):諮詢後採 netiCRM、不採 Recur 為主 stack。</strong>
-    <p style="margin-top:8px; font-size:13px;">本 verdict 的 scope:<strong>「主 stack」</strong>之選擇。「主 stack 用 netiCRM 還是 Recur」與「過渡期該用方案 1 baseline 還是方案 4 netiCRM 微型最小」是兩個獨立問題 — 後者見 §7.6 階段建議表。Recur 在副業(creator economy)情境仍可作為 netiCRM 之外的補強(見 §7.5 情境 B)。</p>
-    <p style="margin-top:6px; font-size:13px;">本判斷成立於 Recur 諮詢回覆<strong>不</strong>顯示其已支援 Taiwan NPO 抵稅收據 + 公益勸募合規。若 Recur 已加上 NPO compliance 模組,本判斷需重評。</p>
-  </div>
-
-  <h3>理由</h3>
-  <ul style="font-size:13.5px; line-height:1.9; padding-left:24px;">
-    <li>ADALS 2026 event 規劃以 netiCRM iframe 為入口,Recur 不支援 event registration = 改採 Recur 等於從零重建</li>
-    <li>AIA 取得所得稅法 §11(4) 認定後,netiCRM 解鎖完整 NPO compliance — Recur 依公開定位看似不在此 product 範圍</li>
-    <li>Recur 並非「全包 2.4%」— 月營收 &gt; NT$100K 後邊際 4.9%,中大型 NPO 反而貴(見 §6 修正版 break-even)</li>
-    <li>netiCRM 微型方案 NT$12,960/年 對小 NPO 是 trivial cost;最小配置可進一步壓低(見 §7.6 方案 4)</li>
-  </ul>
-
-  <h3>只有兩個情境會讓 Recur 成有 ROI 的 add-on</h3>
-  <ol style="font-size:13.5px; line-height:1.9; padding-left:24px;">
-    <li><strong>AIA 推付費課程 / 白皮書訂閱 / 付費社群</strong>(creator economy stack 場景) → Recur 可能 supplement netiCRM(creator 那一塊用 Recur,NPO compliance 仍 netiCRM)</li>
-    <li><strong>AIA 月捐 program churn 嚴重 + Recur 確認支援 NPO 收據開立</strong> → Recur 補 dunning UX</li>
-  </ol>
-  <p>兩個情境前提都成立才考慮 Recur,目前 AIA 都不在這 trajectory。</p>
-
-  <h3>一個更深的觀察 — 決策框架差異</h3>
-  <p>具科技 / SaaS 產品背景的決策者,容易高估「UI 現代化」的權重、低估「法規合規」的權重。這 instinct 在 commercial product 是對的,但在 <strong>Taiwan NPO compliance 場域</strong>需要切換 frame:</p>
-  <ul style="font-size:13.5px; line-height:1.9; padding-left:24px;">
-    <li><strong>Commercial product</strong>:UX / API / 現代化 > 法規合規(可以後補)</li>
-    <li><strong>NPO operations</strong>:法規合規 = donor trust = revenue。UX 老派可接受,合規不能省</li>
-  </ul>
-  <p>netiCRM UI 老派但合規完整;Recur UI 現代但 NPO 法規層待驗證。對 NPO operator,本頁建議優先合規而非美觀 — 但這個 trade-off 是 explicit 的,留給理事會權衡。</p>
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════
      § 已封存:V1.0 完整 stack 評估
      ═══════════════════════════════════════════════════════════ -->
-<section id="archived" style="margin-top:80px; padding-top:32px; border-top:2px dashed var(--border);">
+<section id="archived" style="margin-top:64px; padding-top:32px; border-top:2px dashed var(--border);">
   <div class="section-num">§ ARCHIVED</div>
   <details>
     <summary style="cursor:pointer; padding:14px 20px; background:#f0f0f0; border-radius:8px; font-weight:700; color:#666; list-style:none; display:flex; align-items:center; gap:8px; min-height:44px;">
@@ -770,7 +724,7 @@
           <li>綠界特約賣家公開為 <strong>系統建置 NT$5,000 + 金流年費 NT$13,000 + 分期 3-12%</strong> — 來源 <a href="https://www.ecpay.com.tw/Business/payment_fees?type=s" target="_blank" rel="noopener">綠界官方費率</a></li>
           <li>PayPal 國際商業交易 <strong>4.40% + 固定費(因幣別不同;USD 為 0.30)</strong> — 來源 <a href="https://www.paypal.com/tw/business/paypal-business-fees" target="_blank" rel="noopener">PayPal 台灣商家費率</a></li>
         </ul>
-        <p style="margin-top:6px;">封存區內容未即時修改以保留歷史脈絡。實際諮詢請以官方來源為準,並參考 §0-§8 修正版主軸。</p>
+        <p style="margin-top:6px;">封存區內容未即時修改以保留歷史脈絡。實際諮詢請以官方來源為準,並參考上方 v2.2 修正版主軸。</p>
       </div>
 
 <!-- §1 為什麼這頁存在 ─────────────────────────────────────── -->
@@ -1447,9 +1401,9 @@
 
 </main>
 
-<footer style="background:#003b5c; color:rgba(255,255,255,.7); text-align:center; padding:24px; font-size:12px; letter-spacing:1px;">
-  APAC AIA 金流基礎建設決策依據 v2.1 · 2026-05-19<br>
-  netiCRM 與 Recur.tw 皆待諮詢 · 主軸:兩家比較 + 諮詢建議 · v1.0 完整 stack 評估已封存於頁尾
+<footer style="background:#003b5c; color:rgba(255,255,255,.7); text-align:center; padding:24px; font-size:13px; letter-spacing:1px;">
+  APAC AIA 金流基礎建設決策依據 v2.2 · 2026-05-19<br>
+  3 分鐘摘要 + 收合詳細層 · netiCRM 與 Recur.tw 皆待諮詢 · v1.0 完整評估封存於頁尾
 </footer>
 
 </body>
