@@ -282,15 +282,33 @@
 
   <!-- 詳細 1:完整頭對頭比較(合併原 §2 規格 + §3 合規 + §4 lifecycle + §5 event) -->
   <details class="major" id="det-compare">
-    <summary>完整頭對頭比較 <span class="d-tag">規格 / NPO 合規 / Donor lifecycle / Event</span></summary>
+    <summary>完整頭對頭比較 <span class="d-tag">中立側寫 / 規格 / NPO 合規 / Donor lifecycle / Event</span></summary>
     <div class="major-body">
+
+      <h3>各自是什麼(中立側寫)</h3>
+      <div class="note">
+        <strong>先說清楚:netiCRM 和 Recur 是不同品類的工具,不在同一條跑道上。</strong>下面 A-D 的頭對頭表是用「<strong>AIA 的收款需求</strong>」當尺來比,不是評斷哪個工具絕對比較好 — 一個工具對 AIA 不適用,不代表它不好。
+      </div>
+      <h4>netiCRM — 台灣 NPO 營運系統</h4>
+      <ul style="font-size:14px; line-height:1.85; padding-left:24px;">
+        <li><strong>是什麼</strong>:底層是 CiviCRM(開源)中文化 + 客服層的 SaaS。不只是 CRM — 把捐款、活動、會員、電子報、收據整合成一套 NPO 營運系統。</li>
+        <li><strong>強項</strong>:event 模組紮實(線上報名 + 收款 + 候補 + 多場次 + QR 簽到);抵稅收據工作流 + 國稅局上傳格式;跨年 supporter 資料一條龍。</li>
+        <li><strong>弱項 / 限制</strong>:定期定額的訂閱者「自助」體驗偏後台操作,不如現代訂閱平台;UI 老派;<strong>不單賣單一功能模組</strong>(整包年費,不能只租 event 模組);僅限立案 NPO,營利組織不能用。</li>
+      </ul>
+      <h4>Recur.tw — 台灣訂閱收費平台</h4>
+      <ul style="font-size:14px; line-height:1.85; padding-left:24px;">
+        <li><strong>是什麼</strong>:Teachify 創辦人做的訂閱收費平台。把訂閱生命週期自動化 — 自動續訂、智慧重試、升降級、顧客自助 portal、Discord 付費社群身分自動化、MRR / churn 分析。支援四種收費:訂閱、<strong>一次性購買</strong>、贊助打賞、點數。</li>
+        <li><strong>強項</strong>:訂閱者自助體驗、Discord 付費社群、0% 平台費(月營收 &lt; NT$10 萬)、MCP / AI agent 一等公民。對「賣訂閱 / 課程 / 付費社群」的創作者是好工具。</li>
+        <li><strong>弱項 / 限制(對 AIA 而言)</strong>:<strong>無 event registration</strong>(ADALS 用不到);本頁研究時 Recur 似乎仍在 <strong>alpha 封測階段</strong>(來自第三方報導,須向創辦人確認目前是否已正式開放);會員資料管理、電子發票仍標示 coming soon;無 NPO 抵稅收據;國際卡 / 多幣別支援未確認。</li>
+      </ul>
+      <p style="font-size:13px; color:var(--muted);">研究來源:recur.tw / docs.recur.tw / neticrm.tw 官方頁面 + 第三方報導,2026-05 由 Claude Opus 4.7 與 Codex 各自查證、交叉比對。</p>
 
       <h3>A. 規格比較</h3>
       <div class="table-wrap">
         <table>
           <thead><tr><th>維度</th><th>netiCRM</th><th>Recur.tw</th></tr></thead>
           <tbody>
-            <tr><th class="label-col">公司 / 母體</th><td>網絡行動科技(Yo Group / 智邦生活館)</td><td>創作者經濟工具</td></tr>
+            <tr><th class="label-col">公司 / 母體</th><td>網絡行動科技(Yo Group / 智邦生活館)</td><td>Recur(Teachify 創辦人團隊)</td></tr>
             <tr><th class="label-col">Target users</th><td>Taiwan NPO / NGO(500+ 客戶)</td><td>創作者 / 課程 / SaaS / 社群會員</td></tr>
             <tr><th class="label-col">底層技術</th><td>CiviCRM(AGPL 開源)</td><td>自家專有平台</td></tr>
             <tr><th class="label-col">託管 / 自架</th><td>託管(也有獨立主機方案)</td><td>託管 only</td></tr>
@@ -300,7 +318,7 @@
             <tr><th class="label-col">RWD 響應式</th><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
             <tr><th class="label-col">中英雙語</th><td>建置加購 NT$10,500</td><td>未提</td></tr>
             <tr><th class="label-col">API / Webhooks</th><td>有(CiviCRM REST API)</td><td>有(Webhooks + API)</td></tr>
-            <tr><th class="label-col">第三方整合</th><td>WordPress(WP Civi 整合)為主</td><td>Discord(原生)+ Webhooks / Zapier / Make(通用);WordPress 透過 Web Components;<strong>Cal.com / Circle 原生整合未經官方驗證</strong>,建議另外諮詢確認</td></tr>
+            <tr><th class="label-col">第三方整合</th><td>WordPress(WP Civi 整合)為主</td><td>Discord(原生,訂閱身分自動化)、Cal.com(原生,限制 booking 給訂閱者)、Webhooks / Zapier / Make;WordPress 整合是 webhook 同步會員 / 內容存取(<strong>非 WooCommerce 金流 gateway</strong>);Circle 整合待確認</td></tr>
           </tbody>
         </table>
       </div>
@@ -345,7 +363,7 @@
         </table>
       </div>
       <div class="note">
-        <strong>註</strong>:MRR / ARR 對 NPO 不是 primary metric(NPO 看 donor retention / lifetime value),所以 Recur dashboard 對 AIA 用處有限。
+        <strong>持平看這張表</strong>:這張表上 <strong>Recur 在「自動續費 / 智慧重試 / 催繳」「顧客自助 portal」兩列客觀勝出</strong> — 訂閱者自助體驗是 Recur 的本業強項,netiCRM 這塊偏後台、較陽春。<strong>若 AIA 未來真的要做「定期定額會員制 / 付費社群」,這就是 Recur 對 AIA 真正有價值的點。</strong>只是 AIA 現在的主需求是 ADALS 活動售票,還用不到這塊。另:MRR / ARR 是訂閱生意的指標,NPO 主要看 donor retention / lifetime value,所以 Recur 那個 dashboard 對 AIA 目前用處有限。
       </div>
 
       <h3>D. Event Registration</h3>
