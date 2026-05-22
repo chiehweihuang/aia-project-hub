@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<script>
+(function(){
+  var exp = localStorage.getItem('aia-auth');
+  if (!exp || Date.now() > +exp) {
+    localStorage.removeItem('aia-auth');
+    window.location.replace('../index.html');
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>捐款平台無障礙掃描報告 — netiCRM / 思遠 / 自建</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@300;400;500;700&family=IBM+Plex+Mono:wght@500&display=swap');
+  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+  :root {
+    --primary:#003b5c; --secondary:#19abe4; --gold:#F8B62D;
+    --text:#231815; --muted:#6b6b6b; --border:#e0e0e0;
+    --bg:#f5f5f5; --card:#fff; --note-bg:#fff8e7; --note-border:#F8B62D;
+    --error:#c62828; --success:#2e7d32; --warn:#e8820e;
+  }
+  body { font-family:'Noto Sans TC',sans-serif; background:var(--bg); color:var(--text); line-height:1.78; font-size:16px; }
+  .skip { position:absolute; left:-9999px; }
+  .skip:focus { left:8px; top:8px; background:#000; color:#fff; padding:8px 16px; z-index:1000; }
+  .page-header { background:#003b5c; color:#fff; padding:48px 24px 40px; }
+  .page-header-inner { max-width:1100px; margin:0 auto; }
+  .back-link { display:inline-flex; align-items:center; gap:6px; color:rgba(255,255,255,.75); font-size:14px; text-decoration:none; padding:8px 0; min-height:44px; }
+  .back-link:hover, .back-link:focus { color:#fff; }
+  .page-header h1 { font-family:'Noto Serif TC',serif; font-size:30px; font-weight:700; letter-spacing:1px; margin:8px 0 10px; }
+  .page-header .subtitle { font-size:16px; opacity:.88; max-width:780px; }
+  .page-header .meta { margin-top:16px; font-size:12px; opacity:.6; letter-spacing:1px; font-family:'IBM Plex Mono',monospace; }
+  main { max-width:1100px; margin:0 auto; padding:44px 24px 80px; }
+  section { margin-bottom:46px; }
+  .section-num { font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--secondary); font-weight:600; letter-spacing:2px; margin-bottom:6px; }
+  h2 { font-family:'Noto Serif TC',serif; font-size:24px; font-weight:700; color:var(--primary); margin-bottom:16px; padding-bottom:10px; border-bottom:2px solid var(--primary); }
+  h3 { font-size:18px; font-weight:700; color:var(--primary); margin:22px 0 10px; }
+  p { margin-bottom:12px; }
+  strong { color:var(--primary); }
+  .note { background:var(--note-bg); border-left:4px solid var(--note-border); padding:16px 20px; border-radius:0 8px 8px 0; margin:16px 0; font-size:14.5px; line-height:1.8; }
+  .note.warn { background:#fff5f5; border-left-color:var(--error); }
+  .note.warn strong { color:var(--error); }
+  .note.tldr { background:linear-gradient(135deg,rgba(248,182,45,.13),rgba(248,182,45,.04)); border-left-color:var(--gold); }
+  table { width:100%; border-collapse:collapse; margin:14px 0; font-size:14px; }
+  th, td { padding:10px 13px; text-align:left; vertical-align:top; }
+  thead th { background:var(--primary); color:#fff; font-weight:600; font-size:13px; }
+  tbody tr { border-bottom:1px solid var(--border); }
+  tbody th { font-weight:600; color:var(--primary); background:transparent; text-align:left; }
+  tbody tr:nth-child(even) th, tbody tr:nth-child(even) td { background:#fafafa; }
+  .table-wrap { overflow-x:auto; border-radius:8px; border:1px solid var(--border); margin:14px 0; }
+  .table-wrap table { margin:0; min-width:560px; }
+  .scorecard { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:20px 22px; margin:14px 0; display:flex; gap:22px; align-items:flex-start; }
+  .score-badge { flex-shrink:0; width:108px; text-align:center; }
+  .score-num { font-family:'IBM Plex Mono',monospace; font-size:40px; font-weight:700; line-height:1; }
+  .score-tool { font-size:11px; color:var(--muted); font-family:'IBM Plex Mono',monospace; letter-spacing:1px; margin-top:4px; }
+  .score-band { font-size:12px; font-weight:600; letter-spacing:1px; margin-top:6px; }
+  .s-green .score-num, .s-green .score-band { color:var(--success); }
+  .s-amber .score-num, .s-amber .score-band { color:var(--warn); }
+  .scorecard h3 { margin:0 0 4px; }
+  .scorecard .plat { font-size:13px; color:var(--muted); margin-bottom:8px; }
+  .scorecard ul { padding-left:20px; font-size:14px; line-height:1.75; }
+  .scorecard ul li { margin-bottom:3px; }
+  .pass-li { color:var(--success); }
+  .fail-li { color:var(--error); }
+  .ref-link { display:inline-block; margin-top:8px; padding:10px 16px; background:#fff; border:1px solid var(--secondary); color:var(--secondary); text-decoration:none; border-radius:6px; font-size:14px; font-weight:600; }
+  .ref-link:hover, .ref-link:focus { background:var(--secondary); color:#fff; }
+  @media (max-width:600px) {
+    .page-header h1 { font-size:23px; }
+    main { padding:32px 16px 60px; }
+    h2 { font-size:20px; }
+    .scorecard { flex-direction:column; gap:10px; }
+    .score-badge { width:auto; text-align:left; display:flex; align-items:baseline; gap:10px; }
+    .score-num { font-size:34px; }
+  }
+</style>
+</head>
+<body>
+<a href="#main" class="skip">跳至主要內容</a>
+
+<nav style="background:#003b5c; padding:12px 24px; display:flex; align-items:center; justify-content:flex-end; position:sticky; top:0; z-index:100;">
+  <a href="../index.html" style="color:#f8b62d; text-decoration:underline; text-underline-offset:3px; font-family:'Inter',sans-serif; font-size:13px; font-weight:600; letter-spacing:.5px; padding:6px 14px; border:2px solid transparent; border-radius:6px; transition:.2s;" onmouseover="this.style.borderColor='#f8b62d';this.style.background='rgba(248,182,45,.15)'" onmouseout="this.style.borderColor='transparent';this.style.background='none'">返回專案文件</a>
+</nav>
+
+<header class="page-header">
+  <div class="page-header-inner">
+    <h1>捐款平台無障礙掃描報告</h1>
+    <p class="subtitle">台灣 NPO 捐款 / CRM 平台的無障礙實測。netiCRM、思遠資訊、自建系統與老式 ASP 站的對照,作為 netiCRM 採用決策的實證附件。</p>
+    <div class="meta">VERSION 2.0 · 2026-05-22 · 分數工具 Lighthouse(Google / axe-core)· 平台辨識 Playwright · 標準 WCAG 2.2 AA</div>
+  </div>
+</header>
+
+<main id="main">
+
+<section>
+  <div class="section-num">SUMMARY</div>
+  <h2>一句話結論</h2>
+  <div class="note tldr">
+    在「捐款表單」這個 AIA 真正在意的東西上,獨立工具 <strong>Lighthouse 實測:netiCRM 84 分、思遠 65 分</strong>。netiCRM 領先。但這份報告要誠實說一件事:<strong>Lighthouse 的數字低估了思遠的問題</strong>。思遠那張捐款表單 38 個欄位有 37 個沒有標籤,Lighthouse 因為逐規則計分,只把它記成一條規則沒過。真正的決策依據是原始檢視:netiCRM 表單 1 個欄位無標籤,思遠近乎全部無標籤 — 對螢幕閱讀器使用者,前者填得了、後者填不了。
+  </div>
+</section>
+
+<section>
+  <div class="section-num">METHOD</div>
+  <h2>分數怎麼來的(請先讀這段)</h2>
+  <p><strong>對外引用分數採 Lighthouse。</strong>本報告四個頁面的無障礙分數,都用 Lighthouse 即時實測。Lighthouse 是 Google 的開源稽核工具,無障礙類別的底層引擎是 axe-core(Deque 開發),屬業界公認的標準工具。</p>
+  <p><strong>關於 Beacon。</strong>稽核初期另用 Beacon 做過一次人工加權稽核交叉檢查,但 <strong>Beacon 是 Chiehweihuang(Bertram)個人開發的無障礙專用工具</strong>(repo:chiehweihuang/beacon),不是獨立第三方工具。為避免「用自己的工具評自己參與的分析」的中立性問題,本報告不以 Beacon 分數對外引用,只用 Lighthouse。</p>
+  <div class="note">
+    <strong>Lighthouse 分數的已知限制,判讀時務必記得</strong>:① 它只涵蓋自動可偵測的項目(約 WCAG 的 30 至 40%);② 它逐「規則」計分、<strong>不計實例數</strong> — 一頁有 35 個對比失敗,跟只有 1 個,扣的分一樣;「37 個欄位無標籤」跟「1 個欄位無標籤」也都只算一條規則沒過。所以 Lighthouse 的數字不反映嚴重度與規模。**判讀時要看「失敗的規則清單」加上原始 DOM 檢視,不是只看那個數字。** 本報告每張卡都附這兩者。平台辨識另以 footer 落款、URL 規則完成,信心高。
+  </div>
+</section>
+
+<section>
+  <div class="section-num">SCORES</div>
+  <h2>四個頁面的 Lighthouse 實測</h2>
+
+  <div class="scorecard s-green">
+    <div class="score-badge"><div class="score-num">84</div><div class="score-tool">LIGHTHOUSE</div><div class="score-band">及格</div></div>
+    <div>
+      <h3>netiCRM 捐款表單</h3>
+      <div class="plat">17run.neticrm.tw · 台灣盲人環台為公益而跑協會 · netiCRM(CiviCRM fork,網絡行動科技)</div>
+      <ul>
+        <li class="fail-li">Lighthouse 失敗規則:色彩對比 ×6、缺 &lt;main&gt; 地標、1 個 select 無標籤。</li>
+        <li class="pass-li">原始檢視:37 個表單控制項只有 1 個無標籤(「鄉鎮市區」select,屬 netiCRM 平台元件)、3 組 fieldset 分組完整、欄位標籤黑字。失分集中、範圍窄。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="scorecard s-green">
+    <div class="score-badge"><div class="score-num">90</div><div class="score-tool">LIGHTHOUSE</div><div class="score-band">及格</div></div>
+    <div>
+      <h3>自架 CiviCRM 捐款表單</h3>
+      <div class="plat">suanlien.org.tw · 雙連視障關懷基金會 · Drupal + CiviCRM(自行維運)· 掛 A 等級無障礙標章</div>
+      <ul>
+        <li class="fail-li">Lighthouse 失敗規則:<strong>色彩對比 ×35</strong>、2 個 select 無標籤、td-has-header。</li>
+        <li class="fail-li">「90 分」要小心看:它有 35 個元素對比不足(含手測到的橘色欄位標籤 3.34:1),但因 Lighthouse 逐規則計分、其他規則多通過,仍給 90。這是 Lighthouse 分數限制的活例 — 90 分不代表「幾乎沒問題」。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="scorecard s-amber">
+    <div class="score-badge"><div class="score-num">66</div><div class="score-tool">LIGHTHOUSE</div><div class="score-band">略低於基準</div></div>
+    <div>
+      <h3>老式 ASP 內容頁</h3>
+      <div class="plat">batol.net · 無障礙全球資訊網(視障特教資源中心)· 傳統 ASP 自建站</div>
+      <ul>
+        <li class="fail-li">Lighthouse 失敗規則:target-size(觸控目標過小)、tabindex、accesskeys、list、缺 &lt;main&gt; 地標、色彩對比 ×2、link-in-text-block、aria-prohibited-attr。</li>
+        <li class="pass-li">原始檢視:19 張圖全部有 alt、內文對比 10.7:1。但完全沒有 viewport meta,行動裝置體驗破裂(頁尾自述「最佳觀賞 1024×768」)。「老派台灣無障礙」典型:為桌機螢幕閱讀器認真做,未為行動裝置現代化。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="scorecard s-amber">
+    <div class="score-badge"><div class="score-num">65</div><div class="score-tool">LIGHTHOUSE</div><div class="score-band">略低於基準</div></div>
+    <div>
+      <h3>思遠資訊捐款表單</h3>
+      <div class="plat">mukuang.uweb.org.tw · 慕光盲人重建中心 · 思遠資訊 Uweb 平台(專有閉源)</div>
+      <ul>
+        <li class="fail-li">Lighthouse 失敗規則:label、select-name、link-name ×6、button-name ×3、meta-viewport(鎖死縮放)、色彩對比 ×12、image-alt、aria-required-children、listitem ×2。</li>
+        <li class="fail-li"><strong>「65 分」嚴重低估實況。</strong>原始檢視:38 個表單控制項 <strong>37 個無程式標籤</strong>(第二個思遠頁弘道為 42/42),信用卡號、身分證字號、Email、同意條款全部無標籤。Lighthouse 把這當成一條 label 規則沒過,但對螢幕閱讀器使用者,那是整張捐款表單不可用。思遠正是愛盲基金會在用的系統。</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:13px; color:var(--muted);">對照:Lighthouse 排序 suanlien 90 &gt; netiCRM 84 &gt; batol 66 ≈ 思遠 65。但「思遠 65 ≈ batol 66」是 Lighthouse 計分方式造成的錯覺 — batol 是老內容頁,思遠是一張視障者填不了的捐款表單。數字不能單獨看。</p>
+</section>
+
+<section>
+  <div class="section-num">PLATFORMS</div>
+  <h2>平台辨識(9 站)</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>組織</th><th>平台 / 系統</th><th>技術底層</th><th>廠商</th><th>無障礙標示</th></tr></thead>
+      <tbody>
+        <tr><th class="label-col">盲人環台為公益而跑協會</th><td>netiCRM + Oen(並用)</td><td>CiviCRM fork;Oen 支付平台</td><td>網絡行動科技 + Oen</td><td>未見標章</td></tr>
+        <tr><th class="label-col">雙連視障關懷基金會</th><td>自架 CiviCRM</td><td>Drupal + CiviCRM</td><td>自行維運</td><td>A 等級</td></tr>
+        <tr><th class="label-col">弘道老人福利基金會</th><td>思遠捐款平台</td><td>思遠自有 PHP 平台</td><td>思遠資訊</td><td>未見標章</td></tr>
+        <tr><th class="label-col">愛盲基金會(TFB)</th><td>思遠 uGiving</td><td>思遠自有平台</td><td>思遠資訊</td><td>未見標章</td></tr>
+        <tr><th class="label-col">慕光盲人重建中心</th><td>思遠 Uweb</td><td>思遠自有平台</td><td>思遠資訊</td><td>未見標章</td></tr>
+        <tr><th class="label-col">伊甸基金會</th><td>自建系統</td><td>自建 PHP(detail.php)</td><td>自行開發</td><td>未見標章</td></tr>
+        <tr><th class="label-col">中華民國視障者家長協會</th><td>自建系統</td><td>自建</td><td>自行開發</td><td>A 等級</td></tr>
+        <tr><th class="label-col">無障礙全球資訊網</th><td>自建 ASP 站</td><td>傳統 ASP</td><td>自行維運</td><td>::: 區塊標記(老式)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:13px; color:var(--muted);">linkuswell.com 本身即思遠資訊的公司官網。台灣 NPO 捐款工具大致只有四條路線:開源 CRM(netiCRM)、專有捐款 SaaS(思遠 uGiving / Uweb)、支付平台(Oen)、自建。</p>
+</section>
+
+<section>
+  <div class="section-num">HEAD-TO-HEAD</div>
+  <h2>netiCRM vs 思遠資訊</h2>
+  <p>Recur 與 netiCRM 是不同品類;<strong>思遠資訊(Linkuswell)才是 netiCRM 真正的同類對手</strong>,同樣專做台灣 NPO、同樣有捐款與活動報名。2026-05-22 以 Codex 加網站實查、加兩個思遠捐款頁的實測完成研究。</p>
+  <p style="font-size:14.5px;"><strong>思遠基本資料</strong>:2001 年成立(約 24 年),台北,約 20 人,實收資本額 NT$1,500 萬。捐款系統(eoffering / uGiving / Uweb)、報名系統(ibooking)、iePay 金流為三個分開的產品模組。專有閉源,無開源版本。客戶含創世、陽光、富邦慈善、愛盲、弘道、慕光等。</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>面向</th><th>netiCRM</th><th>思遠資訊</th></tr></thead>
+      <tbody>
+        <tr><th class="label-col">捐款表單無障礙(Lighthouse)</th><td>84</td><td>65</td></tr>
+        <tr><th class="label-col">捐款表單原始檢視(無標籤欄位)</th><td>37 個控制項 1 個無標籤</td><td>慕光 37/38、弘道 42/42 無標籤</td></tr>
+        <tr><th class="label-col">活動報名</th><td>內建,報名 + 收款一條龍、QR 簽到</td><td>ibooking,多票種可;QR 簽到 / 早鳥未證實</td></tr>
+        <tr><th class="label-col">台灣 NPO 合規</th><td>內建</td><td>專做台灣捐款場景</td></tr>
+        <tr><th class="label-col">底層</th><td>開源(CiviCRM fork,AGPL)</td><td>專有閉源,無開源版本</td></tr>
+        <tr><th class="label-col">資料</th><td>可 export;有正式 DPA、台日資料中心</td><td>donor 資料可 Excel 匯出;無公開 DPA、終止條款未公開</td></tr>
+        <tr><th class="label-col">與廠商合作改善 a11y</th><td>可行(開源,可貢獻回上游)</td><td>不可行(閉源)</td></tr>
+        <tr><th class="label-col">定價</th><td>公開(微型 NT$12,960/年)</td><td>不公開(2020 一份提案約 NT$5 萬/2 年)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note warn">
+    Lighthouse 的 84 對 65 看起來只差 19 分,但那是因為 Lighthouse 不計實例數。<strong>以實際可用性而言,netiCRM 的捐款表單視障者填得了、思遠的填不了,這個差距是質的、不是 19 分。</strong>思遠的失敗規則橫跨 label、select-name、link-name、button-name、meta-viewport(鎖死縮放)等 8 類;netiCRM 只有對比、一個缺漏地標、一個 select 三類,範圍窄得多。
+  </div>
+  <div class="note">
+    <strong>決定性差異</strong>:netiCRM 開源、思遠閉源。AIA 設想的「與廠商合作改善無障礙、貢獻回上游」對開源的 netiCRM 走得通,對閉源的思遠走不通。仍待向思遠確認:報名與捐款是否整合、ibooking 有無 QR 簽到與早鳥、合約終止後的資料處理。
+  </div>
+</section>
+
+<section>
+  <div class="section-num">STANDARD</div>
+  <h2>標準現況:整個生態停在 A 級以下</h2>
+  <p>這一輪掃下來,<strong>沒有一個平台宣稱到 WCAG AA 或 2.2</strong>。最高只有「A 等級」(台灣規範的最低門檻),而且只有雙連和視障者家長協會掛了標章,其餘要嘛沒掛、要嘛只有字級調整鈕或老式 ::: 標記。</p>
+  <p>更值得停下來看的:被掃的組織裡有五個是視障 / 身障服務組織(愛盲、慕光、雙連、視障者家長協會、盲人環台協會)。連它們自己的捐款頁,都跑在「A 級或無標章」的工具上,其中思遠那張表單對視障者幾乎不可用。這不是某個組織的疏忽,是<strong>整個台灣 NPO 捐款工具的生態就停在這個水準</strong>。問題在平台層、在生態,不在單一組織。</p>
+</section>
+
+<section>
+  <div class="section-num">PROS &amp; CONS</div>
+  <h2>四種路線的優缺點</h2>
+  <h3>1. 開源 CRM(netiCRM)</h3>
+  <p style="font-size:14.5px;"><strong>優點</strong>:唯一「完整 CRM + 活動報名 + 台灣合規」一體;開源底層,資料可攜、合作改善 a11y 這條路走得通;這次實測四頁裡屬較高分(Lighthouse 84)。<strong>缺點</strong>:84 分不是「優秀」,仍有對比與地標缺漏;UI 老派;年費制;跨境 DPA 只寫到台灣 PDPA。</p>
+  <h3>2. 專有捐款 SaaS(思遠資訊)</h3>
+  <p style="font-size:14.5px;"><strong>優點</strong>:2001 年起的成熟產品,用戶基礎大(創世、陽光、富邦慈善、愛盲都用);有報名系統;代管。<strong>缺點</strong>:專有閉源,「與廠商合作改善 a11y」做不了;donor 資料可 Excel 匯出,但合約終止後的資料處理條款未公開,亦無公開 DPA;捐款與報名是分開模組;捐款表單近乎全部欄位無標籤(兩頁實測 37/38、42/42),對螢幕閱讀器使用者近乎不可用;定價不公開。</p>
+  <h3>3. 支付 / 捐款平台(Oen)</h3>
+  <p style="font-size:14.5px;"><strong>優點</strong>:UX 應較新,開募款頁快。<strong>缺點</strong>:是支付平台不是完整 CRM,無會員管理、活動報名、深度台灣合規。盲人環台協會「同時」掛 Oen 與 netiCRM,暗示 Oen 一套不夠用。</p>
+  <h3>4. 自建系統(伊甸、視障者家長協會)</h3>
+  <p style="font-size:14.5px;"><strong>優點</strong>:UX、品牌、a11y 全部自掌控,能自己修、能拿標章。<strong>缺點</strong>:建置與維運成本組織自扛,要有工程資源;自建不保證 a11y 好;只有伊甸這種規模養得起,正是「複雜到沒人能維護」的風險。</p>
+</section>
+
+<section>
+  <div class="section-num">VERDICT</div>
+  <h2>對 AIA 的建議</h2>
+  <div class="note tldr">
+    <strong>就無障礙這個軸,獨立工具與原始檢視都支持採 netiCRM。</strong> Lighthouse 84 對思遠 65;更要緊的是原始檢視 — netiCRM 捐款表單 1 個欄位無標籤,思遠近乎全部。加上開源讓「與廠商合作改善 a11y」走得通。要誠實標記:Lighthouse 的 19 分差距看起來不大,但那是工具不計實例數的結果;以實際可用性,兩者是「填得了」與「填不了」之別。netiCRM 84 分不是「優秀」,採用後 a11y 仍是一份待辦清單,但起點明顯比其他選項好。
+  </div>
+  <p style="font-size:13px; color:var(--muted);">範圍與信心:平台辨識信心高(footer 落款、URL 規則)。無障礙分數為 Lighthouse 四頁即時實測,屬自動可偵測基線,不等於完整人工 + 螢幕閱讀器測試;Lighthouse 不計實例數,判讀須併看失敗規則清單與原始檢視。思遠基本資料以 Codex 網站實查取得,部分項目(報名與捐款整合、QR 簽到、終止條款)仍標未證實。</p>
+  <p style="margin-top:18px;">
+    <a class="ref-link" href="payment-stack-decision.html">← 回 payment-stack-decision(主決策文件)</a>
+    <a class="ref-link" href="../index.html" style="margin-left:8px;">回專案文件首頁 ←</a>
+  </p>
+</section>
+
+</main>
+
+<footer style="background:#003b5c; color:rgba(255,255,255,.7); text-align:center; padding:24px; font-size:13px; letter-spacing:1px;">
+  APAC AIA · 捐款平台無障礙掃描報告 v2.0 · 2026-05-22<br>
+  Lighthouse(Google / axe-core)四頁實測 + Playwright 平台辨識 + Codex 廠商研究
+</footer>
+
+</body>
+</html>

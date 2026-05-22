@@ -37,7 +37,7 @@
   .page-header .meta { margin-top:16px; font-size:12px; opacity:.6; letter-spacing:1px; font-family:'IBM Plex Mono',monospace; }
   .audience-tag { display:inline-block; padding:4px 12px; background:rgba(248,182,45,.18); color:var(--gold); font-size:13px; font-weight:600; letter-spacing:1px; border-radius:4px; margin-top:14px; }
 
-  .toc { position:sticky; top:0; background:#fff; border-bottom:1px solid var(--border); z-index:90; }
+  .toc { position:sticky; top:56px; background:#fff; border-bottom:1px solid var(--border); z-index:90; }
   .toc-inner { max-width:1100px; margin:0 auto; padding:0 24px; display:flex; gap:0; align-items:center; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:thin; }
   .toc a { padding:14px 14px; font-size:13.5px; color:var(--muted); text-decoration:none; white-space:nowrap; flex-shrink:0; border-bottom:3px solid transparent; transition:color .15s, border-color .15s; }
   .toc a:hover, .toc a:focus { color:var(--primary); border-bottom-color:var(--secondary); }
@@ -133,9 +133,12 @@
 
 <a href="#main" class="skip">跳至主要內容</a>
 
+<nav style="background:#003b5c; padding:12px 24px; display:flex; align-items:center; justify-content:flex-end; position:sticky; top:0; z-index:100;">
+  <a href="../index.html" style="color:#f8b62d; text-decoration:underline; text-underline-offset:3px; font-family:'Inter',sans-serif; font-size:13px; font-weight:600; letter-spacing:.5px; padding:6px 14px; border:2px solid transparent; border-radius:6px; transition:.2s;" onmouseover="this.style.borderColor='#f8b62d';this.style.background='rgba(248,182,45,.15)'" onmouseout="this.style.borderColor='transparent';this.style.background='none'">返回專案文件</a>
+</nav>
+
 <header class="page-header">
   <div class="page-header-inner">
-    <a href="../index.html" class="back-link">← 返回專案文件</a>
     <h1>諮詢問題清單 — netiCRM + Recur.tw</h1>
     <p class="subtitle">開會直接用的問題清單。netiCRM 為主要諮詢對象;Recur.tw 為驗證性諮詢。背景說明(雙語加購、整合路徑、省錢策略)收在頁尾參考區。</p>
     <span class="audience-tag">受眾 · 執行小組(開會用)</span>
@@ -197,10 +200,10 @@
   </div>
 
   <div class="q-block">
-    <h3>B. 整合方式(iframe / API / WordPress)<span class="priority must">MUST</span></h3>
+    <h3>B. 整合方式(連結 / 自訂子域名 / API)<span class="priority must">MUST</span></h3>
     <ol>
-      <li>iframe 嵌入到 WordPress + Elementor 站的標準流程?是否支援<strong>自適應高度</strong>(避免內嵌捲軸)?</li>
-      <li>有沒有 JavaScript SDK / Web Component 替代 iframe?有沒有<strong>官方 WordPress plugin</strong>?</li>
+      <li>整合的標準做法是什麼?我們理解 netiCRM 不建議 iframe 嵌入、而是連結 / 轉址到 hosted 頁面,請確認。有沒有<strong>自訂子域名</strong>(donate.aia.org.tw)讓網址仍顯示 AIA?</li>
+      <li>除了連結 / 轉址,有沒有其他整合方式?(JavaScript SDK / Web Component / 官方 WordPress plugin)</li>
       <li>REST API 文件公開嗎?有 rate limit 嗎?(ADALS 開賣瞬間湧入)</li>
       <li>API 支援 <strong>webhook 通知</strong>嗎?(有人捐款 → notify Slack / Email)</li>
       <li>自訂子域名(donate.aia.org.tw)怎麼設?DNS 用 CNAME?SSL 誰申請?</li>
@@ -307,7 +310,7 @@
     <ol>
       <li>WP 站內顯示「捐款進度條」、「會員人數」要 plugin 還是手動 API?</li>
       <li>跟 GA4 / Google Tag Manager 整合追蹤?(donor conversion funnel)</li>
-      <li>iframe 跨域 cookie 對隱私權 / Cookie 政策(GDPR / 個資法)的影響?</li>
+      <li>donor 連到 netiCRM hosted 頁面後,隱私權 / Cookie 政策(個資法)橫跨 AIA 與 netiCRM 兩個網域,如何說明?</li>
     </ol>
     <p class="why">該問:AIA 主站建在 WP + Elementor,整合摩擦直接打 Christina 的工。</p>
   </div>
@@ -472,8 +475,8 @@
       <h3>4 條整合路徑(由便宜到完整)</h3>
       <div class="path-card primary">
         <span class="path-label">PATH 1 · 主推</span>
-        <h3>iframe 嵌入(最便宜、最快)</h3>
-        <p style="font-size:14px;">把 netiCRM 表單以 iframe 嵌進 WordPress 頁。0 加購、Christina 5 分鐘搞定、AIA 品牌外殼保留。視覺一致性中等,donor 地址列看到 aia.org.tw。<strong>第一年 / 過渡期主推</strong>。</p>
+        <h3>連結至 netiCRM hosted 頁面(最便宜、最快)</h3>
+        <p style="font-size:14px;">AIA 站放按鈕,連結到 netiCRM hosted 的捐款 / 報名頁。netiCRM 不建議 iframe 嵌入(付款頁放 iframe 有安全與信任問題),標準做法就是連結過去。0 加購、5 分鐘搞定。donor 會跳到 netiCRM 頁面;若在意網址,PATH 2 的自訂子域名可讓網址看起來仍是 AIA。<strong>第一年 / 過渡期主推</strong>。</p>
       </div>
       <div class="path-card alternative">
         <span class="path-label">PATH 2 · 替代</span>
@@ -491,7 +494,7 @@
         <p style="font-size:14px;">所有加購買滿,netiCRM 包辦。加購合計 NT$37,050-54,550。<strong>不缺預算 / 想最少自己折騰時</strong>。</p>
       </div>
       <div class="note tldr">
-        <strong>推薦演化</strong>:第一年 PATH 1(iframe,0 加購)→ 第二年海外比例高再加 PATH 2 → 第三年工程資源到位再考慮 PATH 3。<strong>不建議一開始就 PATH 4</strong>。
+        <strong>推薦演化</strong>:第一年 PATH 1(連結,0 加購)→ 第二年海外比例高再加 PATH 2 → 第三年工程資源到位再考慮 PATH 3。<strong>不建議一開始就 PATH 4</strong>。
       </div>
 
       <h3>netiCRM 對 AIA 的 7 項價值(vs 全自建)</h3>
@@ -517,7 +520,7 @@
       <h3>省錢策略(採 netiCRM 前提下,8 招)</h3>
       <ol style="font-size:14.5px; line-height:1.9; padding-left:24px;">
         <li><strong>申請 2 年合約免開通費</strong> — 省 NT$8,000。</li>
-        <li><strong>第一年走 iframe(PATH 1),0 加購</strong> — 第一年總成本只有 NT$12,960。</li>
+        <li><strong>第一年走連結模式(PATH 1),0 加購</strong> — 第一年總成本只有 NT$12,960。</li>
         <li><strong>雙語先用「兩份表單」試水</strong> — 諮詢能否複製表單改 label,可能省 NT$10,500。</li>
         <li><strong>延後買電子發票串接</strong> — 先讓會計師 / 國稅局判斷是否必開,省 NT$16,800/年。</li>
         <li><strong>用標準收據 template</strong> — 不買收據客製,省 NT$3,750-21,250。</li>
@@ -529,13 +532,13 @@
       <h3>建議:第一年 MVP 配置</h3>
       <div class="path-card primary">
         <span class="path-label">RECOMMENDED · 第一年 MVP</span>
-        <h3>微型 + 2 年合約 + iframe 嵌入 + 0 加購</h3>
+        <h3>微型 + 2 年合約 + 連結整合 + 0 加購</h3>
         <div class="table-wrap">
           <table>
             <tbody>
               <tr><th class="label-col">方案</th><td>netiCRM 微型(3,000 聯絡人)</td></tr>
               <tr><th class="label-col">合約期</th><td>2 年(免開通費 NT$8,000)</td></tr>
-              <tr><th class="label-col">整合方式</th><td>iframe 嵌入 WordPress(PATH 1)</td></tr>
+              <tr><th class="label-col">整合方式</th><td>連結至 netiCRM hosted 頁面(PATH 1)</td></tr>
               <tr><th class="label-col">加購</th><td>全部不買(雙語 / 域名 / 收據客製 / 電子發票)</td></tr>
               <tr><th class="label-col">第一年總成本</th><td><strong>NT$12,960</strong>(月均 NT$1,080)</td></tr>
               <tr><th class="label-col">第二年起</th><td>NT$12,960/年</td></tr>

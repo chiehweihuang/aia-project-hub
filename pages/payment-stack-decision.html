@@ -37,7 +37,7 @@
   .page-header .meta { margin-top:16px; font-size:12px; opacity:.6; letter-spacing:1px; font-family:'IBM Plex Mono',monospace; }
   .audience-tag { display:inline-block; padding:4px 12px; background:rgba(248,182,45,.18); color:var(--gold); font-size:13px; font-weight:600; letter-spacing:1px; border-radius:4px; margin-top:14px; }
 
-  .toc { position:sticky; top:0; background:#fff; border-bottom:1px solid var(--border); z-index:90; }
+  .toc { position:sticky; top:56px; background:#fff; border-bottom:1px solid var(--border); z-index:90; }
   .toc-inner { max-width:1100px; margin:0 auto; padding:0 24px; display:flex; gap:0; align-items:center; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:thin; }
   .toc a { padding:14px 14px; font-size:13px; color:var(--muted); text-decoration:none; white-space:nowrap; flex-shrink:0; border-bottom:3px solid transparent; transition:color .15s, border-color .15s; }
   .toc a:hover, .toc a:focus { color:var(--primary); border-bottom-color:var(--secondary); }
@@ -152,9 +152,12 @@
 
 <a href="#main" class="skip">跳至主要內容</a>
 
+<nav style="background:#003b5c; padding:12px 24px; display:flex; align-items:center; justify-content:flex-end; position:sticky; top:0; z-index:100;">
+  <a href="../index.html" style="color:#f8b62d; text-decoration:underline; text-underline-offset:3px; font-family:'Inter',sans-serif; font-size:13px; font-weight:600; letter-spacing:.5px; padding:6px 14px; border:2px solid transparent; border-radius:6px; transition:.2s;" onmouseover="this.style.borderColor='#f8b62d';this.style.background='rgba(248,182,45,.15)'" onmouseout="this.style.borderColor='transparent';this.style.background='none'">返回專案文件</a>
+</nav>
+
 <header class="page-header">
   <div class="page-header-inner">
-    <a href="../index.html" class="back-link">← 返回專案文件</a>
     <h1>金流基礎建設決策依據</h1>
     <p class="subtitle">APAC AIA 收款 stack 選擇 — netiCRM vs Recur.tw。最上方是 3 分鐘決策摘要,下方詳細區段預設收合,需要再展開。</p>
     <span class="audience-tag">受眾 · 理事長 / 祕書長 / 常務理事</span>
@@ -166,6 +169,7 @@
   <div class="toc-inner">
     <a href="#summary">3 分鐘摘要</a>
     <a href="#det-compare">完整頭對頭比較</a>
+    <a href="#det-siyuan">netiCRM vs 思遠</a>
     <a href="#det-pricing">定價 / break-even</a>
     <a href="#det-implication">對 AIA 的影響</a>
     <a href="#det-recur-save">Recur 省錢情境</a>
@@ -203,7 +207,7 @@
     <table>
       <thead><tr><th>AIA 的需求</th><th>netiCRM 微型「最小配置」怎麼滿足</th></tr></thead>
       <tbody>
-        <tr><th class="label-col">現階段要便宜</th><td>只買微型方案、簽 2 年約免開通費 NT$8,000、用 iframe 嵌進 AIA 官網、<strong>0 加購</strong>(雙語 / 收據客製 / 電子發票 / 自訂域名全部不買)。年成本 <strong>NT$12,960</strong>,月均 NT$1,080。</td></tr>
+        <tr><th class="label-col">現階段要便宜</th><td>只買微型方案、簽 2 年約免開通費 NT$8,000、以連結方式接上 netiCRM hosted 頁面、<strong>0 加購</strong>(雙語 / 收據客製 / 電子發票 / 自訂域名全部不買)。年成本 <strong>NT$12,960</strong>,月均 NT$1,080。</td></tr>
         <tr><th class="label-col">現在就要能用</th><td>ADALS 線上刷卡售票、報名表單、收據、報到 — 即開即用。海外與會者直接刷卡,不必做台灣 ATM 轉帳。</td></tr>
         <tr><th class="label-col">要有未來發展性</th><td>AIA 變社團法人 + 拿 §11(4) 認定後,抵稅收據 / 公益勸募合規在<strong>同一個 netiCRM</strong> 直接開通,<strong>0 遷移、0 重建</strong>。跨年 donor 資料一路累積不中斷。</td></tr>
       </tbody>
@@ -242,7 +246,7 @@
         <tr><th>階段 / 觸發條件</th><th>做法</th><th>新增成本</th></tr>
       </thead>
       <tbody>
-        <tr><th class="label-col">現在<br>(人民團體階段)</th><td><strong>採 netiCRM 微型「最小配置」</strong>,iframe 嵌入 AIA 官網。解決 ADALS 2026 線上刷卡售票。0 加購。</td><td>NT$12,960/年</td></tr>
+        <tr><th class="label-col">現在<br>(人民團體階段)</th><td><strong>採 netiCRM 微型「最小配置」</strong>,以連結 / 轉址接上 netiCRM hosted 頁面。解決 ADALS 2026 線上刷卡售票。0 加購。</td><td>NT$12,960/年</td></tr>
         <tr><th class="label-col">小型免費 / 低價活動</th><td>雙月談(免費 webinar)、≤30-50 人單一價工作坊 — 可繼續用 Google Form + 手動,不必每場都建 netiCRM event。</td><td>NT$0</td></tr>
         <tr><th class="label-col">AIA 變社團法人<br>+ 取得 §11(4) 認定</th><td>netiCRM 抵稅收據 / 公益勸募合規<strong>在同一個工具直接開通</strong>(不換系統、不搬資料)。視需要加購收據客製。小額捐款可加 MyPay 為第二金流。</td><td>0 ~ 收據客製 NT$3,750-21,250</td></tr>
         <tr><th class="label-col">海外與會者比例升高</th><td>加購中英雙語建置(讓海外 donor / 報名者有英文流程)。</td><td>NT$10,500(一次性)</td></tr>
@@ -287,7 +291,7 @@
 
       <h3>各自是什麼(中立側寫)</h3>
       <div class="note">
-        <strong>先說清楚:netiCRM 和 Recur 是不同品類的工具,不在同一條跑道上。</strong>下面 A-D 的頭對頭表是用「<strong>AIA 的收款需求</strong>」當尺來比,不是評斷哪個工具絕對比較好 — 一個工具對 AIA 不適用,不代表它不好。
+        <strong>先說清楚:netiCRM 和 Recur 是不同品類的工具,不在同一條跑道上。</strong>下面 A-D 的頭對頭表是用「<strong>AIA 的收款需求</strong>」當尺來比,不是評斷哪個工具絕對比較好,一個工具對 AIA 不適用不代表它不好。<br><strong>2026-05 補</strong>:A-D 表新增思遠資訊欄。思遠標「<strong>需諮詢</strong>」表示公開資料查不到該細項、需向思遠確認,與 Recur 標「✗」(工具底子上就沒做)性質不同。
       </div>
       <h4>netiCRM — 台灣 NPO 營運系統</h4>
       <ul style="font-size:14px; line-height:1.85; padding-left:24px;">
@@ -303,22 +307,30 @@
       </ul>
       <p style="font-size:13px; color:var(--muted);">研究來源:recur.tw / docs.recur.tw / neticrm.tw 官方頁面 + 第三方報導,2026-05 由 Claude Opus 4.7 與 Codex 各自查證、交叉比對。</p>
 
+      <h4>思遠資訊 — 台灣 NPO 專有捐款 SaaS</h4>
+      <ul style="font-size:14px; line-height:1.85; padding-left:24px;">
+        <li><strong>是什麼</strong>:2001 年成立的台灣公司(Linkuswell),約 20 人,專做 NPO 數位化。產品為捐款系統(uGiving / Uweb)、報名系統(ibooking)、iePay 金流,三者是分開的產品模組。專有閉源 SaaS。</li>
+        <li><strong>強項</strong>:台灣 NPO 捐款場景的成熟產品,用戶基礎大(創世、陽光、富邦慈善、愛盲、弘道、慕光等);捐款、報名、金流一家包辦、代管。</li>
+        <li><strong>弱項 / 限制(對 AIA 而言)</strong>:閉源,「與廠商合作改善無障礙」走不通;捐款表單實測無障礙差(兩個思遠頁近乎全部欄位無標籤);捐款與報名是分開模組;定價不公開;無公開 DPA。</li>
+      </ul>
+      <p style="font-size:13px; color:var(--muted);">思遠才是 netiCRM 真正的同類對手(Recur 是不同品類)。完整比較與實測見下方 <a href="#det-siyuan">netiCRM vs 思遠資訊</a> 區段,研究時間 2026-05-22。</p>
+
       <h3>A. 規格比較</h3>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>維度</th><th>netiCRM</th><th>Recur.tw</th></tr></thead>
+          <thead><tr><th>維度</th><th>netiCRM</th><th>Recur.tw</th><th>思遠資訊</th></tr></thead>
           <tbody>
-            <tr><th class="label-col">公司 / 母體</th><td>網絡行動科技(Yo Group / 智邦生活館)</td><td>Recur(Teachify 創辦人團隊)</td></tr>
-            <tr><th class="label-col">Target users</th><td>Taiwan NPO / NGO(500+ 客戶)</td><td>創作者 / 課程 / SaaS / 社群會員</td></tr>
-            <tr><th class="label-col">底層技術</th><td>CiviCRM(AGPL 開源)</td><td>自家專有平台</td></tr>
-            <tr><th class="label-col">託管 / 自架</th><td>託管(也有獨立主機方案)</td><td>託管 only</td></tr>
-            <tr><th class="label-col">資料所有權</th><td>開源 → 可 export(CiviCRM data model)</td><td>託管 — 須驗證 export 機制</td></tr>
-            <tr><th class="label-col">ISO 認證</th><td><span class="check">✓</span> ISO 27001:2022</td><td>未提</td></tr>
-            <tr><th class="label-col">UI 現代度</th><td>老派(CiviCRM 介面)</td><td>現代</td></tr>
-            <tr><th class="label-col">RWD 響應式</th><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-            <tr><th class="label-col">中英雙語</th><td>建置加購 NT$10,500</td><td>未提</td></tr>
-            <tr><th class="label-col">API / Webhooks</th><td>有(CiviCRM REST API)</td><td>有(Webhooks + API)</td></tr>
-            <tr><th class="label-col">第三方整合</th><td>WordPress(WP Civi 整合)為主</td><td>Discord(原生,訂閱身分自動化)、Cal.com(原生,限制 booking 給訂閱者)、Webhooks / Zapier / Make;WordPress 整合是 webhook 同步會員 / 內容存取(<strong>非 WooCommerce 金流 gateway</strong>);Circle 整合待確認</td></tr>
+            <tr><th class="label-col">公司 / 母體</th><td>網絡行動科技(Yo Group / 智邦生活館)</td><td>Recur(Teachify 創辦人團隊)</td><td>思遠資訊 / Linkuswell(2001 成立,約 20 人)</td></tr>
+            <tr><th class="label-col">Target users</th><td>Taiwan NPO / NGO(500+ 客戶)</td><td>創作者 / 課程 / SaaS / 社群會員</td><td>Taiwan NPO(用戶基礎大)</td></tr>
+            <tr><th class="label-col">底層技術</th><td>CiviCRM(AGPL 開源)</td><td>自家專有平台</td><td>自家專有平台(閉源)</td></tr>
+            <tr><th class="label-col">託管 / 自架</th><td>託管(也有獨立主機方案)</td><td>託管 only</td><td>託管 only</td></tr>
+            <tr><th class="label-col">資料所有權</th><td>開源,可 export(CiviCRM data model)</td><td>託管,須驗證 export 機制</td><td>donor 資料可 Excel 匯出;閉源,終止條款未公開</td></tr>
+            <tr><th class="label-col">ISO 認證</th><td><span class="check">✓</span> ISO 27001:2022</td><td>未提</td><td>需諮詢</td></tr>
+            <tr><th class="label-col">UI 現代度</th><td>老派(CiviCRM 介面)</td><td>現代</td><td>中等</td></tr>
+            <tr><th class="label-col">RWD 響應式</th><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span>(但 viewport 鎖死縮放)</td></tr>
+            <tr><th class="label-col">中英雙語</th><td>建置加購 NT$10,500</td><td>未提</td><td>需諮詢</td></tr>
+            <tr><th class="label-col">API / Webhooks</th><td>有(CiviCRM REST API)</td><td>有(Webhooks + API)</td><td>需諮詢</td></tr>
+            <tr><th class="label-col">第三方整合</th><td>WordPress(WP Civi 整合)為主</td><td>Discord(原生,訂閱身分自動化)、Cal.com(原生,限制 booking 給訂閱者)、Webhooks / Zapier / Make;WordPress 整合是 webhook 同步會員 / 內容存取(<strong>非 WooCommerce 金流 gateway</strong>);Circle 整合待確認</td><td>自有平台為主,整合資訊未公開</td></tr>
           </tbody>
         </table>
       </div>
@@ -326,39 +338,39 @@
       <h3>B. NPO 法規 / Compliance(關鍵差異)</h3>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>Feature(Taiwan NPO 法規必備)</th><th>netiCRM</th><th>Recur.tw</th></tr></thead>
+          <thead><tr><th>Feature(Taiwan NPO 法規必備)</th><th>netiCRM</th><th>Recur.tw</th><th>思遠資訊</th></tr></thead>
           <tbody>
-            <tr><th class="label-col">抵稅收據開立(紙本 + 電子)</th><td><span class="check">✓</span> 內建</td><td><span class="x">✗</span> 未提及</td></tr>
-            <tr><th class="label-col">抵稅收據客製(LOGO / 章程)</th><td><span class="check">✓</span> 加購 $3,750–$21,250</td><td>—</td></tr>
-            <tr><th class="label-col">電子發票串接(統一發票)</th><td><span class="check">✓</span> 加購 $16,800</td><td><span class="x">✗</span> 未提及</td></tr>
-            <tr><th class="label-col">統一編號 handling(企業捐款者)</th><td><span class="check">✓</span> 內建</td><td><span class="x">✗</span> 未提及</td></tr>
-            <tr><th class="label-col">公益勸募合規欄位</th><td><span class="check">✓</span> 內建</td><td><span class="x">✗</span> 未提及</td></tr>
-            <tr><th class="label-col">年度勸募申報報表(內政部要求)</th><td>可篩選 / 匯出符合 申報資料的捐款明細(由勸募字號標記);<strong>是否有「一鍵產出申報表」需向 netiCRM 確認</strong></td><td><span class="x">✗</span> 未提及</td></tr>
-            <tr><th class="label-col">GDPR / 個資法 compliance</th><td><span class="check">✓</span> ISO 27001:2022</td><td>未認證</td></tr>
+            <tr><th class="label-col">抵稅收據開立(紙本 + 電子)</th><td><span class="check">✓</span> 內建</td><td><span class="x">✗</span> 未提及</td><td><span class="check">✓</span> 內建</td></tr>
+            <tr><th class="label-col">抵稅收據客製(LOGO / 章程)</th><td><span class="check">✓</span> 加購 $3,750–$21,250</td><td>—</td><td>需諮詢</td></tr>
+            <tr><th class="label-col">電子發票串接(統一發票)</th><td><span class="check">✓</span> 加購 $16,800</td><td><span class="x">✗</span> 未提及</td><td>需諮詢</td></tr>
+            <tr><th class="label-col">統一編號 handling(企業捐款者)</th><td><span class="check">✓</span> 內建</td><td><span class="x">✗</span> 未提及</td><td>需諮詢</td></tr>
+            <tr><th class="label-col">公益勸募合規欄位</th><td><span class="check">✓</span> 內建</td><td><span class="x">✗</span> 未提及</td><td>需諮詢</td></tr>
+            <tr><th class="label-col">年度勸募申報報表(內政部要求)</th><td>可篩選 / 匯出符合 申報資料的捐款明細(由勸募字號標記);<strong>是否有「一鍵產出申報表」需向 netiCRM 確認</strong></td><td><span class="x">✗</span> 未提及</td><td>需諮詢</td></tr>
+            <tr><th class="label-col">台灣個資法(PDPA)資料處理協議</th><td><span class="check">✓</span> 有正式 DPA(對應台灣個資法);資料中心台灣 + 日本;外洩 24–72h 通報</td><td>未提</td><td>有隱私條款,未見公開 DPA</td></tr>
           </tbody>
         </table>
       </div>
       <div class="note warn">
-        <strong>對台灣 NPO 來說,這一欄是決定性差異</strong>。Recur 從產品設計之初就沒處理過台灣 NPO 的法規面 — 這不是「品牌偏好」的問題,是工具<strong>底子上就沒做這塊</strong>。捐款人拿不到可以報稅扣抵的收據,個人捐款的吸引力會明顯下降(尤其年所得較高、會列舉扣除額的 donor)。
+        <strong>對台灣 NPO 來說,這張表是決定性差異</strong>。Recur 從產品設計之初就沒處理過台灣 NPO 的法規面,這不是「品牌偏好」的問題,是工具<strong>底子上就沒做這塊</strong>;捐款人拿不到可以報稅扣抵的收據,個人捐款的吸引力會明顯下降。<strong>思遠則相反</strong> — 它專做台灣 NPO 捐款,法規這塊是它的本業,表中思遠多列標「需諮詢」是公開資料查不到細節、需向思遠確認,不是它沒做。<br>另:GDPR / 日本 APPI 等跨境法規不屬「台灣 NPO 法規必備」,netiCRM 文件也只寫到台灣個資法;若 AIA 有歐盟 / 日本資料主體,屬另一層的盡職調查,不在這張表內。
       </div>
 
       <h3>C. Donor / Member Lifecycle</h3>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>Feature</th><th>netiCRM</th><th>Recur.tw</th></tr></thead>
+          <thead><tr><th>Feature</th><th>netiCRM</th><th>Recur.tw</th><th>思遠資訊</th></tr></thead>
           <tbody>
-            <tr><th class="label-col">Donor 聯絡人 CRM(個人 / 組織 / 家庭)</th><td><span class="check">✓</span> 強</td><td><span class="x">✗</span> 只做 subscriber</td></tr>
-            <tr><th class="label-col">不限自訂欄位 / 標籤 / 群組</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td></tr>
-            <tr><th class="label-col">線上募款頁無限建置</th><td><span class="check">✓</span></td><td>訂閱式為主</td></tr>
-            <tr><th class="label-col">定期定額 recurring</th><td><span class="check">✓</span></td><td><span class="check">✓</span> 強項</td></tr>
-            <tr><th class="label-col">感謝禮品管理</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td></tr>
-            <tr><th class="label-col">自動續費 / 智慧重試 / 催繳</th><td>有但 UX 普通</td><td><span class="check">✓</span> 強項(creator economy 強)</td></tr>
-            <tr><th class="label-col">顧客自助 portal(訂閱管理 / 帳單下載)</th><td>基本</td><td><span class="check">✓</span> 強</td></tr>
-            <tr><th class="label-col">Donor 分眾 segmentation</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td></tr>
-            <tr><th class="label-col">Campaign tracking</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td></tr>
-            <tr><th class="label-col">Mass email(每小時 400 封)</th><td><span class="check">✓</span> 內建</td><td><span class="x">✗</span></td></tr>
-            <tr><th class="label-col">電子報開信追蹤</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td></tr>
-            <tr><th class="label-col">MRR / ARR / churn dashboard</th><td><span class="x">✗</span></td><td><span class="check">✓</span>(SaaS 指標)</td></tr>
+            <tr><th class="label-col">Donor 聯絡人 CRM(個人 / 組織 / 家庭)</th><td><span class="check">✓</span> 強</td><td><span class="x">✗</span> 只做 subscriber</td><td><span class="check">✓</span> 有捐款人 / 會員管理</td></tr>
+            <tr><th class="label-col">不限自訂欄位 / 標籤 / 群組</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td><td>需諮詢</td></tr>
+            <tr><th class="label-col">線上募款頁無限建置</th><td><span class="check">✓</span></td><td>訂閱式為主</td><td><span class="check">✓</span></td></tr>
+            <tr><th class="label-col">定期定額 recurring</th><td><span class="check">✓</span></td><td><span class="check">✓</span> 強項</td><td><span class="check">✓</span></td></tr>
+            <tr><th class="label-col">感謝禮品管理</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td><td>需諮詢(有義賣功能)</td></tr>
+            <tr><th class="label-col">自動續費 / 智慧重試 / 催繳</th><td>有但 UX 普通</td><td><span class="check">✓</span> 強項(creator economy 強)</td><td>需諮詢</td></tr>
+            <tr><th class="label-col">顧客自助 portal(訂閱管理 / 帳單下載)</th><td>基本</td><td><span class="check">✓</span> 強</td><td>部分(捐款紀錄查詢)</td></tr>
+            <tr><th class="label-col">Donor 分眾 segmentation</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td><td>需諮詢</td></tr>
+            <tr><th class="label-col">Campaign tracking</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td><td>需諮詢</td></tr>
+            <tr><th class="label-col">Mass email(每小時 400 封)</th><td><span class="check">✓</span> 內建</td><td><span class="x">✗</span></td><td>需諮詢</td></tr>
+            <tr><th class="label-col">電子報開信追蹤</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td><td>需諮詢</td></tr>
+            <tr><th class="label-col">MRR / ARR / churn dashboard</th><td><span class="x">✗</span></td><td><span class="check">✓</span>(SaaS 指標)</td><td><span class="x">✗</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -369,21 +381,59 @@
       <h3>D. Event Registration</h3>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>Feature</th><th>netiCRM</th><th>Recur.tw</th></tr></thead>
+          <thead><tr><th>Feature</th><th>netiCRM</th><th>Recur.tw</th><th>思遠資訊</th></tr></thead>
           <tbody>
-            <tr><th class="label-col">活動報名頁無限建置</th><td><span class="check">✓</span></td><td><span class="x">✗</span> 沒有</td></tr>
-            <tr><th class="label-col">報名 + 繳費整合</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td></tr>
-            <tr><th class="label-col">QR Code 簽到</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td></tr>
-            <tr><th class="label-col">優惠碼</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td></tr>
-            <tr><th class="label-col">報名表單客製</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td></tr>
-            <tr><th class="label-col">與 ADALS 2026 規劃整合</th><td><span class="check">✓</span> 規劃以 iframe 嵌入(尚未實際導入)</td><td><span class="x">✗</span> 須從零建</td></tr>
+            <tr><th class="label-col">活動報名頁無限建置</th><td><span class="check">✓</span></td><td><span class="x">✗</span> 沒有</td><td><span class="check">✓</span> ibooking 報名系統</td></tr>
+            <tr><th class="label-col">報名 + 繳費整合</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td><td><span class="check">✓</span> iePay 整合進報名流程</td></tr>
+            <tr><th class="label-col">QR Code 簽到</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td><td>需諮詢(有 QR 分享 / 印簽到名冊,掃碼簽到未證實)</td></tr>
+            <tr><th class="label-col">優惠碼</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td><td>需諮詢(有限時 / 限量 / 團報)</td></tr>
+            <tr><th class="label-col">報名表單客製</th><td><span class="check">✓</span></td><td><span class="x">✗</span></td><td><span class="check">✓</span></td></tr>
+            <tr><th class="label-col">與 ADALS 2026 規劃整合</th><td><span class="check">✓</span> 規劃以連結 / 轉址接 netiCRM hosted 頁面(尚未實際導入)</td><td><span class="x">✗</span> 須從零建</td><td><span class="x">✗</span> ibooking 為獨立模組,須另接</td></tr>
           </tbody>
         </table>
       </div>
       <div class="note warn">
-        ADALS event registration <strong>規劃以 netiCRM iframe 作為主要入口</strong>(尚未實際導入,本週諮詢中)。<strong>Recur 完全不支援 event,改採 Recur = 從零重建 event 流程</strong>。這項是 architectural blocker。
+        ADALS event registration <strong>規劃以連結 / 轉址至 netiCRM hosted 頁面作為主要入口</strong>(尚未實際導入,本週諮詢中)。netiCRM 不建議 iframe 嵌入 — 付款頁放在 iframe 有安全與信任問題,標準做法是連結到 netiCRM hosted 頁面(可搭自訂子域名)。<strong>Recur 完全不支援 event,改採 Recur = 從零重建 event 流程</strong>。這項是 architectural blocker。
       </div>
 
+    </div>
+  </details>
+
+  <!-- 詳細 1b:netiCRM vs 思遠資訊 -->
+  <details class="major" id="det-siyuan">
+    <summary>netiCRM vs 思遠資訊 <span class="d-tag">真正的同類對手 / 已研究 2026-05-22</span></summary>
+    <div class="major-body">
+      <p style="margin-top:14px;"><strong>Recur 與 netiCRM 是不同品類;思遠資訊(Linkuswell)才是 netiCRM 真正的同類對手</strong> — 同樣專做台灣 NPO、同樣有捐款與活動報名,用戶基礎同樣大。2026-05-22 以 Codex 加網站實查、加兩個思遠捐款頁的 Playwright 即時無障礙實測完成研究。</p>
+
+      <h3>思遠資訊(Linkuswell)基本資料</h3>
+      <ul style="font-size:14.5px; line-height:1.85; padding-left:24px;">
+        <li>2001 年 9 月成立(約 24 年),台北,實收資本額 NT$1,500 萬,約 20 人,專做 NPO 數位化。</li>
+        <li>產品:捐款系統(eoffering / uGiving / Uweb)、報名系統(ibooking)、iePay 金流 — <strong>三者是分開的產品模組</strong>;是否共用單一資料庫未公開確認。</li>
+        <li>專有閉源 SaaS / ASP,無開源版本。客戶含創世、陽光、富邦慈善、愛盲、弘道、慕光等,基礎大。</li>
+      </ul>
+
+      <h3>頭對頭</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>面向</th><th>netiCRM</th><th>思遠資訊</th></tr></thead>
+          <tbody>
+            <tr><th class="label-col">捐款表單無障礙(Lighthouse)</th><td><strong>84</strong></td><td><strong>65</strong></td></tr>
+            <tr><th class="label-col">活動報名</th><td><span class="check">✓</span> 內建,報名 + 收款一條龍、QR 簽到</td><td><span class="check">✓</span> ibooking,多票種可;QR 簽到 / 早鳥未證實</td></tr>
+            <tr><th class="label-col">台灣 NPO 合規</th><td><span class="check">✓</span> 內建</td><td><span class="check">✓</span> 專做台灣捐款場景</td></tr>
+            <tr><th class="label-col">底層</th><td>開源(CiviCRM fork,AGPL)</td><td>專有閉源,無開源版本</td></tr>
+            <tr><th class="label-col">資料</th><td>可 export;有正式 DPA、台日資料中心</td><td>donor 資料可 Excel 匯出;<strong>無公開 DPA</strong>、終止後資料條款未公開</td></tr>
+            <tr><th class="label-col">與廠商合作改善 a11y</th><td><span class="check">✓</span> 開源,可貢獻回上游</td><td><span class="x">✗</span> 閉源,基本不可行</td></tr>
+            <tr><th class="label-col">定價</th><td>公開(微型 NT$12,960/年)</td><td><strong>不公開</strong>(須洽業務;2020 一份提案約 NT$5 萬/2 年)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note warn">
+        <strong>分數出處與限制。</strong>表中 84 / 65 是 Lighthouse 實測(Google 的無障礙稽核,底層採 axe-core)。但 Lighthouse 逐「規則」計分、不計實例數,所以 65 這個數字<strong>低估了思遠的嚴重度</strong>:思遠捐款表單 38 個欄位有 37 個無標籤,Lighthouse 只記成一條「label」規則沒過。真正該看的是原始檢視:思遠平台兩個捐款頁(慕光 37/38、弘道 42/42)幾乎全部表單欄位無程式標籤、viewport 鎖死縮放、連結對比約 2.5:1,是平台層問題。螢幕閱讀器使用者基本上無法獨立在思遠捐款頁完成捐款,而思遠正是愛盲基金會在用的系統。netiCRM 的失分集中在對比與一個缺漏的地標,範圍窄得多。
+      </div>
+      <div class="note">
+        <strong>決定性差異</strong>:netiCRM 開源、思遠閉源。AIA 設想的「與廠商合作改善無障礙、貢獻回上游」對開源的 netiCRM 走得通,對閉源的思遠走不通。<strong>仍待向思遠確認</strong>:報名與捐款是否整合、ibooking 有無 QR 簽到與早鳥、合約終止後的資料處理。完整研究與 4 頁實測見 <a href="platform-a11y-scan.html">捐款平台無障礙掃描報告</a>。
+      </div>
     </div>
   </details>
 
@@ -468,7 +518,7 @@
           <tbody>
             <tr><th class="label-col">抵稅收據</th><td>暫時不能開(沒認定);拿到認定後 unlock</td><td>暫時不能開(也沒功能);未來也 unlock 不了</td></tr>
             <tr><th class="label-col">收捐款 ability</th><td>能(報名費 / sponsor)</td><td>能</td></tr>
-            <tr><th class="label-col">收 ADALS 報名費 / sponsor</th><td><span class="check">✓</span> 規劃導入(iframe)</td><td><span class="x">✗</span> 須從零建</td></tr>
+            <tr><th class="label-col">收 ADALS 報名費 / sponsor</th><td><span class="check">✓</span> 規劃導入(連結 / 轉址)</td><td><span class="x">✗</span> 須從零建</td></tr>
             <tr><th class="label-col">月開支(微型 plan)</th><td>$1,080 / 月</td><td>$0 月費 + 2.4% 手續費</td></tr>
             <tr><th class="label-col">導入成本(現況)</th><td>諮詢後安裝(尚未採用)</td><td>諮詢後安裝 + event 流程從零建</td></tr>
           </tbody>
@@ -689,7 +739,7 @@
 
       <h3>理由</h3>
       <ul style="font-size:14px; line-height:1.9; padding-left:24px;">
-        <li>ADALS 2026 event 規劃以 netiCRM iframe 為入口,Recur 不支援 event registration = 改採 Recur 等於從零重建</li>
+        <li>ADALS 2026 event 規劃以連結 / 轉址至 netiCRM hosted 頁面為入口(非 iframe 嵌入),Recur 不支援 event registration = 改採 Recur 等於從零重建</li>
         <li>AIA 取得所得稅法 §11(4) 認定後,netiCRM 解鎖完整 NPO compliance — Recur 依公開定位看似不在此 product 範圍</li>
         <li>Recur 並非「全包 2.4%」— 月營收 &gt; NT$100K 後邊際 4.9%,中大型 NPO 反而貴</li>
         <li>netiCRM 微型方案 NT$12,960/年 對小 NPO 是 trivial cost;最小配置可進一步壓低</li>
