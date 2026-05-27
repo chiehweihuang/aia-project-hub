@@ -87,7 +87,7 @@
   <div class="page-header-inner">
     <h1>捐款平台無障礙掃描報告</h1>
     <p class="subtitle">台灣 NPO 捐款 / CRM 平台的無障礙實測。netiCRM、思遠資訊、自建系統與老式 ASP 站的對照,作為 netiCRM 採用決策的實證附件。</p>
-    <div class="meta">VERSION 2.0 · 2026-05-22 · 分數工具 Lighthouse(Google / axe-core)· 平台辨識 Playwright · 標準 WCAG 2.2 AA</div>
+    <div class="meta">VERSION 3.0 · 2026-05-28 · Lighthouse 實測擴大至 8 個樣本(含 5 個 netiCRM)· 標準 WCAG 2.2 AA</div>
   </div>
 </header>
 
@@ -113,16 +113,18 @@
 
 <section>
   <div class="section-num">SCORES</div>
-  <h2>四個頁面的 Lighthouse 實測</h2>
+  <h2>Lighthouse 實測(8 個樣本,5 個 netiCRM + 3 個對照)</h2>
 
   <div class="scorecard s-green">
-    <div class="score-badge"><div class="score-num">84</div><div class="score-tool">LIGHTHOUSE</div><div class="score-band">及格</div></div>
+    <div class="score-badge"><div class="score-num">85</div><div class="score-tool">LIGHTHOUSE 平均</div><div class="score-band">及格</div></div>
     <div>
-      <h3>netiCRM 捐款表單</h3>
-      <div class="plat">17run.neticrm.tw · 台灣盲人環台為公益而跑協會 · netiCRM(CiviCRM fork,網絡行動科技)</div>
+      <h3>netiCRM 平台 — 5 站樣本</h3>
+      <div class="plat">17run · taiwanpb · littleredhood · rethinktw · shanfdn · 全部為 netiCRM 託管捐款表單 · 個別分數 84 / 87 / 84 / 84 / 88,範圍 84-88,平均 85</div>
       <ul>
-        <li class="fail-li">Lighthouse 失敗規則:色彩對比 ×6、缺 &lt;main&gt; 地標、1 個 select 無標籤。</li>
-        <li class="pass-li">原始檢視:37 個表單控制項只有 1 個無標籤(「鄉鎮市區」select,屬 netiCRM 平台元件)、3 組 fieldset 分組完整、欄位標籤黑字。失分集中、範圍窄。</li>
+        <li class="fail-li"><strong>100% 出現在每個樣本的結構缺陷</strong>:缺 &lt;main&gt; 地標、1 個 select 無標籤(twaddr-area「鄉鎮市區」元件)。這是 netiCRM 平台層的問題,不是任何個別 NPO 造成的。</li>
+        <li class="fail-li">色彩對比失敗 6-26 不等(per-tenant,各 org 自選品牌色造成差異);偶發 heading-order、link-name、frame-title(各 org 自塞內容造成)。</li>
+        <li class="pass-li">原始檢視(以 17run 為樣本):37 個表單控制項只有 1 個無標籤、3 組 fieldset 分組完整、欄位標籤黑字。</li>
+        <li class="pass-li">5 個樣本聚集緊密(84-88,標準差小),反映<strong>平台一致性高</strong> — AIA 採用不會踩到「壞客戶案例」。也因此,平台層的兩個結構缺陷一旦修好,5+ 個 NPO 同時受惠,是 partnership 提案最高 ROI 的具體標的。</li>
       </ul>
     </div>
   </div>
@@ -162,7 +164,7 @@
       </ul>
     </div>
   </div>
-  <p style="font-size:13px; color:var(--muted);">對照:Lighthouse 排序 suanlien 90 &gt; netiCRM 84 &gt; batol 66 ≈ 思遠 65。但「思遠 65 ≈ batol 66」是 Lighthouse 計分方式造成的錯覺 — batol 是老內容頁,思遠是一張視障者填不了的捐款表單。數字不能單獨看。</p>
+  <p style="font-size:13px; color:var(--muted);">對照:suanlien 90 &gt; netiCRM 平台 5 站平均 85(範圍 84-88)&gt; batol 66 ≈ 思遠 65。但「思遠 65 ≈ batol 66」是 Lighthouse 計分方式造成的錯覺 — batol 是老內容頁,思遠是一張視障者填不了的捐款表單。數字不能單獨看。</p>
 </section>
 
 <section>
@@ -195,7 +197,7 @@
     <table>
       <thead><tr><th>面向</th><th>netiCRM</th><th>思遠資訊</th></tr></thead>
       <tbody>
-        <tr><th class="label-col">捐款表單無障礙(Lighthouse)</th><td>84</td><td>65</td></tr>
+        <tr><th class="label-col">捐款表單無障礙(Lighthouse)</th><td>5 站平均 85(範圍 84-88)</td><td>65</td></tr>
         <tr><th class="label-col">捐款表單原始檢視(無標籤欄位)</th><td>37 個控制項 1 個無標籤</td><td>慕光 37/38、弘道 42/42 無標籤</td></tr>
         <tr><th class="label-col">活動報名</th><td>內建,報名 + 收款一條龍、QR 簽到</td><td>ibooking,多票種可;QR 簽到 / 早鳥未證實</td></tr>
         <tr><th class="label-col">台灣 NPO 合規</th><td>內建</td><td>專做台灣捐款場景</td></tr>
@@ -207,7 +209,7 @@
     </table>
   </div>
   <div class="note warn">
-    Lighthouse 的 84 對 65 看起來只差 19 分,但那是因為 Lighthouse 不計實例數。<strong>以實際可用性而言,netiCRM 的捐款表單視障者填得了、思遠的填不了,這個差距是質的、不是 19 分。</strong>思遠的失敗規則橫跨 label、select-name、link-name、button-name、meta-viewport(鎖死縮放)等 8 類;netiCRM 只有對比、一個缺漏地標、一個 select 三類,範圍窄得多。
+    Lighthouse 的 85 對 65 看起來只差 20 分,但那是因為 Lighthouse 不計實例數。<strong>以實際可用性而言,netiCRM 的捐款表單視障者填得了、思遠的填不了,這個差距是質的、不是 19 分。</strong>思遠的失敗規則橫跨 label、select-name、link-name、button-name、meta-viewport(鎖死縮放)等 8 類;netiCRM 只有對比、一個缺漏地標、一個 select 三類,範圍窄得多。
   </div>
   <div class="note">
     <strong>決定性差異</strong>:netiCRM 開源、思遠閉源。AIA 設想的「與廠商合作改善無障礙、貢獻回上游」對開源的 netiCRM 走得通,對閉源的思遠走不通。仍待向思遠確認:報名與捐款是否整合、ibooking 有無 QR 簽到與早鳥、合約終止後的資料處理。
@@ -225,7 +227,7 @@
   <div class="section-num">PROS &amp; CONS</div>
   <h2>四種路線的優缺點</h2>
   <h3>1. 開源 CRM(netiCRM)</h3>
-  <p style="font-size:14.5px;"><strong>優點</strong>:唯一「完整 CRM + 活動報名 + 台灣合規」一體;開源底層,資料可攜、合作改善 a11y 這條路走得通;這次實測四頁裡屬較高分(Lighthouse 84)。<strong>缺點</strong>:84 分不是「優秀」,仍有對比與地標缺漏;UI 老派;年費制;跨境 DPA 只寫到台灣 PDPA。</p>
+  <p style="font-size:14.5px;"><strong>優點</strong>:唯一「完整 CRM + 活動報名 + 台灣合規」一體;開源底層,資料可攜、合作改善 a11y 這條路走得通;5 個樣本平均 Lighthouse 85,範圍 84-88,平台一致性高。<strong>缺點</strong>:85 分不是「優秀」,仍有對比與地標缺漏;UI 老派;年費制;跨境 DPA 只寫到台灣 PDPA。</p>
   <h3>2. 專有捐款 SaaS(思遠資訊)</h3>
   <p style="font-size:14.5px;"><strong>優點</strong>:2001 年起的成熟產品,用戶基礎大(創世、陽光、富邦慈善、愛盲都用);有報名系統;代管。<strong>缺點</strong>:專有閉源,「與廠商合作改善 a11y」做不了;donor 資料可 Excel 匯出,但合約終止後的資料處理條款未公開,亦無公開 DPA;捐款與報名是分開模組;捐款表單近乎全部欄位無標籤(兩頁實測 37/38、42/42),對螢幕閱讀器使用者近乎不可用;定價不公開。</p>
   <h3>3. 支付 / 捐款平台(Oen)</h3>
@@ -250,7 +252,7 @@
 </main>
 
 <footer style="background:#003b5c; color:rgba(255,255,255,.7); text-align:center; padding:24px; font-size:13px; letter-spacing:1px;">
-  APAC AIA · 捐款平台無障礙掃描報告 v2.0 · 2026-05-22<br>
+  APAC AIA · 捐款平台無障礙掃描報告 v3.0 · 2026-05-28<br>
   Lighthouse(Google / axe-core)四頁實測 + Playwright 平台辨識 + Codex 廠商研究
 </footer>
 
