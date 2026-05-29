@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<script>
+(function(){
+  var exp = localStorage.getItem('aia-auth');
+  if (!exp || Date.now() > +exp) {
+    localStorage.removeItem('aia-auth');
+    window.location.replace('../index.html');
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AIA 首頁文案 — 最終版對照(對應 Wireframe)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700&family=Noto+Sans+TC:wght@400;500;700&family=Inter:wght@400;600&display=swap');
+
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+  :root{
+    --navy:#003B5C; --navy-deep:#002D46; --gold:#F8B62D; --sky:#19ABE4;
+    --ink:#231815; --muted:#5a5550; --bg:#F7F8F8; --card:#fff;
+    --border:#C3CBD4; --border-strong:#6B7785;
+    --added-bg:#FFF4D6; --del:#6b6b6b;
+    --surface:#ECEFF3;
+  }
+
+  html{ scroll-behavior:auto; }
+  @media (prefers-reduced-motion: no-preference){ html{ scroll-behavior:smooth; } }
+
+  body{
+    font-family:'Noto Sans TC','Inter',system-ui,sans-serif;
+    background:var(--bg); color:var(--ink);
+    line-height:1.7; font-size:16.5px;
+  }
+
+  .skip{ position:absolute; left:-9999px; top:0; background:var(--navy-deep); color:#fff;
+    padding:10px 18px; z-index:1000; border-radius:0 0 8px 0; }
+  .skip:focus{ left:0; }
+
+  a{ color:var(--navy); }
+  a:focus-visible, button:focus-visible, summary:focus-visible{
+    outline:3px solid var(--sky); outline-offset:2px; border-radius:3px; }
+
+  /* top bar */
+  .topbar{ background:var(--navy); padding:10px 24px; display:flex; justify-content:space-between;
+    align-items:center; position:sticky; top:0; z-index:100; gap:16px; flex-wrap:wrap; }
+  .topbar a{ color:#fff; text-decoration:underline; text-underline-offset:3px;
+    font-size:14px; min-height:44px; display:inline-flex; align-items:center; }
+  .topbar .doc-tag{ color:var(--sky); font-family:'Inter',monospace; font-size:12.5px;
+    letter-spacing:1px; }
+
+  header.page{ background:var(--navy); color:#fff; padding:40px 24px 44px; }
+  header.page .inner{ max-width:1080px; margin:0 auto; }
+  header.page h1{ font-family:'Noto Serif TC',serif; font-size:30px; font-weight:700;
+    line-height:1.4; margin-bottom:12px; }
+  header.page p.sub{ font-size:16px; opacity:.92; max-width:760px; line-height:1.8; }
+  header.page .meta{ margin-top:18px; font-family:'Inter',monospace; font-size:12.5px;
+    color:var(--sky); letter-spacing:.5px; }
+
+  /* sticky toc */
+  nav.toc{ background:#fff; border-bottom:1px solid var(--border); position:sticky; top:64px;
+    z-index:90; }
+  nav.toc .inner{ max-width:1080px; margin:0 auto; padding:0 16px; display:flex; gap:2px;
+    overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  nav.toc a{ padding:12px 13px; font-size:13.5px; color:var(--navy); text-decoration:none;
+    white-space:nowrap; border-bottom:3px solid transparent; min-height:44px;
+    display:inline-flex; align-items:center; }
+  nav.toc a:hover{ border-bottom-color:var(--sky); }
+
+  main{ max-width:1080px; margin:0 auto; padding:36px 20px 80px; }
+
+  section{ margin-bottom:40px; scroll-margin-top:120px; }
+
+  h2.sec{ font-family:'Noto Serif TC',serif; font-size:23px; color:var(--navy);
+    border-bottom:2px solid var(--navy); padding-bottom:10px; margin-bottom:8px;
+    display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  h3{ font-size:17px; color:var(--navy); margin:22px 0 8px; }
+  h4{ font-size:14.5px; color:var(--navy); margin:14px 0 6px; font-weight:700; }
+  p{ margin-bottom:10px; }
+
+  /* status chips: colour + label + border (never colour alone) */
+  .chip{ display:inline-block; font-size:12.5px; font-weight:700; padding:3px 11px;
+    border-radius:5px; border:2px solid; letter-spacing:.5px; vertical-align:middle; }
+  .chip.unchanged{ background:var(--surface); color:var(--ink); border-color:var(--border-strong); }
+  .chip.modified{ background:var(--gold); color:var(--ink); border-color:#b88600; }
+  .chip.replaced{ background:var(--navy); color:#fff; border-color:var(--navy-deep); }
+
+  .wf{ font-size:13.5px; color:var(--muted); margin:4px 0 14px; }
+  .wf strong{ color:var(--navy); }
+
+  .reason{ background:#fff8e7; border-left:4px solid var(--gold); padding:14px 18px;
+    border-radius:0 8px 8px 0; font-size:14.5px; line-height:1.8; margin:14px 0; }
+  .reason strong{ color:var(--navy); }
+  .reason ol,.reason ul{ padding-left:22px; margin-top:6px; }
+
+  /* original (old) block */
+  .orig{ background:#f4f4f4; border:1px dashed var(--border-strong); border-radius:8px;
+    padding:12px 16px; margin:12px 0; font-size:14px; }
+  .orig .lbl{ font-size:12px; font-weight:700; color:var(--del); letter-spacing:1px;
+    display:block; margin-bottom:6px; }
+  del{ color:var(--del); text-decoration:line-through; text-decoration-color:#c0392b; }
+  .orig.kept{ border-style:solid; border-color:var(--border); background:#fafafa; }
+  .orig.kept .lbl{ color:var(--navy); }
+
+  /* final / copy-ready block */
+  .final{ background:#fff; border:1px solid var(--border); border-left:5px solid var(--navy);
+    border-radius:0 8px 8px 0; padding:16px 20px; margin:12px 0; }
+  .final .lbl{ font-size:12px; font-weight:700; color:var(--navy); letter-spacing:1px;
+    display:block; margin-bottom:8px; }
+  .final p{ white-space:pre-line; line-height:1.85; margin-bottom:10px; font-size:15.5px; }
+  .final .en{ color:var(--muted); font-size:14px; }
+  ins{ background:var(--added-bg); text-decoration:none; padding:1px 3px; border-radius:3px;
+    box-shadow:inset 0 -2px 0 var(--gold); }
+  .anchor-line{ color:var(--navy); font-weight:500; }
+
+  /* cards */
+  .cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));
+    gap:16px; margin:14px 0; }
+  .vcard{ background:var(--card); border:1px solid var(--border); border-radius:10px;
+    padding:16px 18px; }
+  .vcard h4{ margin-top:0; font-size:15.5px; }
+  .vcard .en{ color:var(--muted); font-weight:400; font-size:13px; }
+  .vcard p{ font-size:14px; line-height:1.75; }
+  .vcard .anchor{ margin-top:8px; padding-top:8px; border-top:1px dashed var(--border);
+    font-size:13.5px; color:var(--navy); }
+
+  /* timeline */
+  .timeline{ list-style:none; padding:0; margin:14px 0; border-left:3px solid var(--navy);
+    margin-left:8px; }
+  .timeline li{ position:relative; padding:0 0 22px 24px; }
+  .timeline li::before{ content:''; position:absolute; left:-9px; top:4px; width:14px; height:14px;
+    border-radius:50%; background:var(--gold); border:3px solid var(--navy); }
+  .timeline .yr{ font-family:'Inter',monospace; font-weight:600; color:var(--navy);
+    font-size:14px; letter-spacing:.5px; }
+  .timeline .ti{ font-weight:700; color:var(--ink); font-size:15.5px; margin:2px 0 4px; }
+  .timeline .de{ font-size:14px; color:var(--muted); line-height:1.7; }
+  .timeline .up{ background:var(--navy); color:#fff; font-size:11px; font-weight:700;
+    padding:2px 8px; border-radius:4px; margin-left:8px; letter-spacing:.5px; }
+
+  /* tables */
+  .tw{ overflow-x:auto; border:1px solid var(--border); border-radius:8px; margin:14px 0; }
+  table{ width:100%; border-collapse:collapse; font-size:14px; min-width:520px; }
+  caption{ text-align:left; font-size:13px; color:var(--muted); padding:8px 4px; }
+  th,td{ padding:9px 13px; text-align:left; vertical-align:top; border-bottom:1px solid var(--border); }
+  thead th{ background:var(--navy); color:#fff; font-weight:600; font-size:13px; }
+  tbody th{ background:var(--surface); color:var(--navy); font-weight:600; }
+  tbody tr:last-child td, tbody tr:last-child th{ border-bottom:none; }
+
+  /* seo keyword tags */
+  .kw{ display:flex; flex-wrap:wrap; gap:6px; margin:8px 0 4px; }
+  .kw span{ background:var(--surface); color:var(--navy); font-size:12.5px; padding:3px 9px;
+    border-radius:12px; border:1px solid var(--border); }
+  details.kwbox{ margin:10px 0; }
+  details.kwbox > summary{ cursor:pointer; font-size:13.5px; color:var(--navy); font-weight:600;
+    padding:8px 0; min-height:44px; display:flex; align-items:center; }
+
+  .note{ background:#EEF7FB; border-left:4px solid var(--sky); padding:12px 16px;
+    border-radius:0 8px 8px 0; font-size:14px; line-height:1.75; margin:12px 0; }
+  .note.warn{ background:#fff5f5; border-left-color:#c0392b; }
+  .note.warn strong{ color:#c0392b; }
+
+  footer{ background:var(--navy); color:rgba(255,255,255,.8); text-align:center;
+    padding:24px; font-size:13px; margin-top:40px; }
+
+  @media (max-width:600px){
+    header.page h1{ font-size:23px; }
+    h2.sec{ font-size:19px; }
+    main{ padding:28px 14px 60px; }
+    nav.toc{ top:60px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{ animation-duration:.01ms!important; transition-duration:.01ms!important; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip">跳至主要內容</a>
+
+<div class="topbar">
+  <a href="../index.html">← 返回專案文件</a>
+  <span class="doc-tag">HOMEPAGE COPY · FINAL · 對應 WIREFRAME</span>
+</div>
+
+<header class="page">
+  <div class="inner">
+    <h1>AIA 首頁文案 — 最終版對照</h1>
+    <p class="sub">結構 1:1 對應 wireframe(PDF)。每段標示狀態(未變更 / 修改 / 整段替換)、修改原因、原版對照、最終可複製文字、SEO 關鍵字。給網頁設計師 Christina 審閱與複製用。</p>
+    <p class="meta">FINAL COPY · 2026-05-29 · 修改方向參考 Christina 5/28 sync 建議(內容擴充 + SEO)</p>
+  </div>
+</header>
+
+<nav class="toc" aria-label="章節導覽">
+  <div class="inner">
+    <a href="#purpose">調整目的</a>
+    <a href="#overview">結構速覽</a>
+    <a href="#s1">❶ Hero</a>
+    <a href="#s2">❷ About</a>
+    <a href="#s3">❸ 大事記</a>
+    <a href="#s4">❹ What We Do</a>
+    <a href="#s5">❺ 議題</a>
+    <a href="#s6">❻ Events</a>
+    <a href="#s7">❼ Join Us</a>
+    <a href="#s8">❽ Footer</a>
+    <a href="#seo">SEO 總清單</a>
+    <a href="#notes">備註</a>
+  </div>
+</nav>
+
+<main id="main" tabindex="-1">
+
+  <!-- 目的 -->
+  <section id="purpose">
+    <h2 class="sec">文案調整的目的</h2>
+    <p>本次修改方向<strong>主要參考網頁設計師 Christina 於 2026-05-28 同步會議的專業建議</strong>:</p>
+    <ol style="padding-left:22px;">
+      <li>首頁內容應擴充字數、提高 SEO 關鍵字密度(Christina 以內容豐富網站為參考,建議達其 20–30% 字數規模)。</li>
+      <li>強化具名實績、提高訪客信任感(以具名國際領袖、合作組織、實際數字取代抽象敘述)。</li>
+    </ol>
+    <p>在保留 wireframe 原始結構的前提下,從兩個方向增強:<strong>增加 impact / 信任感</strong>(具名領袖、機構、實際數字)+ <strong>自然融入 SEO 關鍵字</strong>(約 60+ 個,集中於 ❷ About、❹ What We Do、❺ Areas of Focus 三個主戰場,無 stuffing)。</p>
+    <div class="note">
+      <strong>怎麼用這頁</strong>:每段的「<strong>最終文字</strong>」(左側深藍邊框區塊)是 Christina 可直接複製的部分。狀態 chip、修改原因、SEO 清單僅供參考,不需複製。
+    </div>
+  </section>
+
+  <!-- 速覽 -->
+  <section id="overview">
+    <h2 class="sec">結構速覽</h2>
+    <div class="tw" tabindex="0">
+      <table>
+        <caption>八個 section 對應 wireframe 與變更狀態</caption>
+        <thead><tr><th scope="col">Section</th><th scope="col">Wireframe 對應</th><th scope="col">狀態</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">❶ Hero</th><td>首頁最頂</td><td><span class="chip unchanged">未變更</span></td></tr>
+          <tr><th scope="row">❷ About + 三大價值卡</th><td>About + 右側卡</td><td><span class="chip modified">修改</span> 加 WHO 數據 + 國際領袖名</td></tr>
+          <tr><th scope="row">❸ Our Milestones 大事記</th><td>取代 Our Impact</td><td><span class="chip replaced">整段替換</span> 5 節點 timeline</td></tr>
+          <tr><th scope="row">❹ What We Do</th><td>三張卡片含圖</td><td><span class="chip modified">修改</span> 每卡加實績錨點</td></tr>
+          <tr><th scope="row">❺ Areas of Focus 議題</th><td>取代 Partnering Organizations</td><td><span class="chip replaced">整段替換</span> 4 議題卡 · SEO 主戰場</td></tr>
+          <tr><th scope="row">❻ Events</th><td>既有</td><td><span class="chip unchanged">未變更</span></td></tr>
+          <tr><th scope="row">❼ Join Us</th><td>既有</td><td><span class="chip modified">修改</span> 改寫文案</td></tr>
+          <tr><th scope="row">❽ Footer</th><td>既有</td><td><span class="chip unchanged">未變更</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13.5px;color:var(--muted);"><strong>狀態定義</strong>:未變更 = 既有版本完全保留;修改 = 附加 impact + SEO,結構不變、原文保留;整段替換 = wireframe 結構保留,但內容與 framing 重新設計。</p>
+  </section>
+
+  <!-- ❶ Hero -->
+  <section id="s1">
+    <h2 class="sec">❶ Hero 區 <span class="chip unchanged">未變更</span></h2>
+    <p class="wf"><strong>對應 wireframe</strong>:首頁最頂的 Hero 區 · 既有版本保留</p>
+    <div class="final">
+      <span class="lbl">最終文字(可複製)</span>
+      <p><strong>Tagline</strong>
+多元共融 ｜ 以人為本 ｜ 科技創新</p>
+      <p class="en">Diversity &amp; Inclusion ｜ Human-Centered ｜ Tech Innovation</p>
+      <p><strong>Elevator Pitch</strong>
+亞太包容創新協會致力推動多元共融與以人為本的科技創新文化,透過教育、培訓和國際合作,建立促進包容性的生態系統。</p>
+      <p class="en">APAC AIA fosters a culture of diversity, inclusion, and human-centered innovation. Through education, training, and global collaboration, we build ecosystems that champion inclusivity for all.</p>
+      <p><strong>CTA 按鈕</strong>:參與我們的活動 / Join an Event</p>
+    </div>
+  </section>
+
+  <!-- ❷ About -->
+  <section id="s2">
+    <h2 class="sec">❷ About 關於亞太包容創新協會 <span class="chip modified">修改</span></h2>
+    <p class="wf"><strong>對應 wireframe</strong>:About 段 + 右側三大價值卡片</p>
+    <div class="reason">
+      <strong>修改原因</strong>:原版只有 problem statement + 成立年份,缺 grounding。①第一段擴大 problem 規模(WHO 15% / 12 億 + 高齡 + 暫時/情境障礙 persona spectrum)— 把「障礙是少數人」翻成「障礙是流動的、人人會經歷」;②第三段加實績(首場論壇 + 3 位具名國際領袖 + IAAP)。三大價值卡原文保留,各追加 1 行錨點帶入關鍵字。
+    </div>
+
+    <h3>左側 About 段落</h3>
+    <div class="orig kept">
+      <span class="lbl">原版(完整保留,新版只在前後加句,未刪任何字)</span>
+      許多人因身體狀況(身心障礙)、年齡或數位落差,長期被排除在數位世界之外。<br>推動數位共融與無障礙的知識與資源,往往散落於不同領域與國家,難以整合……亞太包容創新協會於 2024 年在台灣成立,致力改變這個現狀。
+    </div>
+    <div class="final">
+      <span class="lbl">最終文字(可複製;<ins>高亮</ins>為新增)</span>
+      <p><ins>全球約 15% 人口、超過 12 億人為身心障礙者(WHO 數據)。再加上,全球 65 歲以上長者已達 10%,台灣已於 2025 年邁入超高齡社會(65+ 突破 20%)。每個人也可能因暫時性傷病(如骨折)或情境限制(如抱嬰兒、強光下、嘈雜環境),暫時失去某項使用能力 —「障礙」其實是流動的,幾乎人人都會經歷。</ins>
+
+許多人因身體狀況、年齡或數位落差,長期被排除在數位世界之外。推動數位共融與無障礙的知識與資源,往往散落於不同領域與國家,難以整合。這導致設計師不了解真實使用者需求,企業有意推動無障礙卻不知從何著手,而身心障礙者與弱勢族群的聲音,也難以傳達至決策者耳中。
+
+亞太包容創新協會於 2024 年在台灣成立,致力改變這個現狀。<ins>我們已舉辦台灣首場「資訊無障礙與數位共融領導力論壇」、邀請 Frances West(前 IBM 首席無障礙長)、Dr. Christopher Lee(IAAP &amp; G3ict 副總裁)、Makoto Ueki(Japan WAIC 前主席、WCAG 3 貢獻者)等 10+ 位國際領袖至台灣交流,並成為 IAAP 國際無障礙專業人士協會台灣合作夥伴。</ins></p>
+    </div>
+
+    <h3>右側三大價值卡(原文保留,各加 1 行「▸」錨點)</h3>
+    <div class="cards">
+      <div class="vcard">
+        <h4>多元共融 <span class="en">Diversity &amp; Inclusion</span></h4>
+        <p>我們相信,真正的共融不是配額或政策,而是讓每一個人的需求都被看見、被聽見,並真實反映在產品與服務的設計之中。</p>
+        <p class="anchor">▸ <ins>呼應聯合國身心障礙者權利公約(CRPD)與通用設計七大原則。</ins></p>
+      </div>
+      <div class="vcard">
+        <h4>以人為本 <span class="en">Human-Centered</span></h4>
+        <p>科技的價值,在於它能為人解決什麼問題。我們把真實使用者的經驗放在設計決策的核心,尤其是那些最常被忽略的聲音。</p>
+        <p class="anchor">▸ <ins>方法:包容性設計(Inclusive Design)、無障礙使用者研究、社群跨界對話。</ins></p>
+      </div>
+      <div class="vcard">
+        <h4>科技創新 <span class="en">Tech Innovation</span></h4>
+        <p>創新不應該只服務多數人。我們推動以無障礙為基礎的科技發展,讓數位創新成為縮短差距、而非擴大落差的力量。</p>
+        <p class="anchor">▸ <ins>從 WCAG 2.2 AA 合規、AI 無障礙應用到高齡科技(AgeTech),協助組織把無障礙從成本中心轉為創新動能。</ins></p>
+      </div>
+    </div>
+
+    <details class="kwbox">
+      <summary>SEO 關鍵字(本段)</summary>
+      <div class="kw">
+        <span>WHO</span><span>身心障礙者</span><span>數位共融</span><span>無障礙</span><span>超高齡社會</span><span>65 歲以上</span><span>aging society</span><span>暫時性障礙</span><span>情境限制</span><span>persona spectrum</span><span>Frances West</span><span>IBM</span><span>Dr. Christopher Lee</span><span>IAAP</span><span>G3ict</span><span>Makoto Ueki</span><span>WAIC</span><span>WCAG 3</span><span>CRPD</span><span>通用設計</span><span>Inclusive Design</span><span>WCAG 2.2 AA</span><span>AI 無障礙</span><span>AgeTech</span>
+      </div>
+    </details>
+  </section>
+
+  <!-- ❸ Milestones -->
+  <section id="s3">
+    <h2 class="sec">❸ Our Milestones 協會大事記 <span class="chip replaced">整段替換</span></h2>
+    <p class="wf"><strong>對應 wireframe</strong>:取代原本的「Our Impact / 我們的影響」(3 個 stat slot)</p>
+    <div class="reason">
+      <strong>修改原因</strong>:協會 2024 才成立,填任何數字都尷尬(小看起來慘 / 大被質疑灌水 / 空白讓人懷疑);且「活動數量」量的是 activity 不是 impact。改成「<strong>大事記</strong>」timeline:誠實講「足跡」、跨 2024–2026 展現 momentum、每節點都有具名 + 機構 + 數字。
+    </div>
+    <div class="orig">
+      <span class="lbl">原版(已被取代)</span>
+      <del>Our Impact / 我們的影響 — 20+ 已舉辦 X 場活動 · 20+ X 個合作組織 · 20+ 觸及 X 位專業人士(stat slot placeholder)</del>
+    </div>
+    <div class="final">
+      <span class="lbl">最終文字(可複製)· 區段標題:Our Milestones / 協會大事記</span>
+      <ol class="timeline">
+        <li><span class="yr">2024 / Apr</span><div class="ti">協會成立 + 首場旗艦論壇</div><div class="de">亞太包容創新協會於台北成立,同月舉辦台灣首場「資訊無障礙與數位共融領導力論壇」,邀請 Frances West(前 IBM 首席無障礙長)等 6 位國際領袖,衛福部健保署副署長龐一鳴、國政基金會董事長朱立倫致詞。</div></li>
+        <li><span class="yr">2024 / Nov</span><div class="ti">高齡共融國際 Webinar</div><div class="de">「打造高齡友善世界,享受樂齡生活」6 小時線上 webinar,邀請 8 位國際高齡科技與包容專家:Troy Otillo(Aira CEO)、Makoto Ueki(Japan WCAG 3 貢獻者)、Frances West、Dominic Carter 等。</div></li>
+        <li><span class="yr">2025 / Sep</span><div class="ti">IAAP 台灣合作夥伴</div><div class="de">成為國際無障礙專業人士協會(IAAP)台灣合作夥伴,推動 CPACC 國際無障礙專業認證在台普及。Claire 同月受邀 M-Enabling Summit 2025 國際講者。</div></li>
+        <li><span class="yr">2026 / May</span><div class="ti">GAAD 跨組織共同主辦</div><div class="de">與 Raven Accessibility、La French Tech Taiwan 共同舉辦 GAAD 全球無障礙體認日數位無障礙交流活動(Taiwan Tech Arena),擴大產業跨界對話。</div></li>
+        <li><span class="yr">2026 / Sep</span><div class="ti">ADALS 2026 旗艦高峰會 <span class="up">即將舉辦</span></div><div class="de">亞太資訊無障礙與數位共融領導力高峰會(09-17 至 09-18 @ 台北),延續首場論壇規模,聚焦亞太區域 AI、高齡、無障礙三軸對話。</div></li>
+      </ol>
+    </div>
+    <div class="note"><strong>設計提示</strong>:每節點 = 年月(大字)+ 標題 + 描述。最後 ADALS 節點視覺加「即將」tag,引導到下方 Events 區;點節點可跳對應 Past Events 內頁(若 phase 2 有)。</div>
+    <details class="kwbox">
+      <summary>SEO 關鍵字(本段)</summary>
+      <div class="kw"><span>台灣首場</span><span>資訊無障礙</span><span>數位共融</span><span>Frances West</span><span>IBM</span><span>Troy Otillo</span><span>Aira</span><span>Makoto Ueki</span><span>WCAG 3</span><span>Dr. Christopher Lee</span><span>IAAP</span><span>G3ict</span><span>CPACC</span><span>M-Enabling Summit</span><span>GAAD</span><span>Raven Accessibility</span><span>La French Tech Taiwan</span><span>ADALS</span></div>
+    </details>
+  </section>
+
+  <!-- ❹ What We Do -->
+  <section id="s4">
+    <h2 class="sec">❹ What We Do 我們創造什麼連結 <span class="chip modified">修改</span></h2>
+    <p class="wf"><strong>對應 wireframe</strong>:三張卡片含圖(跨界對話 / 國際接軌 / 從理念到落地)</p>
+    <div class="reason">
+      <strong>修改原因</strong>:原版三卡只有 vision-level 描述,沒有「我們真的做了 X」的 grounding。原文保留,每卡末尾<strong>追加 1 段「▸」實績錨點</strong>,把抽象動詞變成具名 + 數字 + 機構的可驗證事件。
+    </div>
+    <h3>三張卡片(原文保留,各加「▸」實績錨點)</h3>
+    <div class="cards">
+      <div class="vcard">
+        <h4>跨界對話 <span class="en">Cross-Sector Dialogue</span></h4>
+        <p>設計師與企業團隊,往往缺乏與身心障礙使用者直接對話的管道。我們創造連結,讓產品決策者能聽見真實的無障礙需求,將使用者的聲音帶入設計流程與企業政策。</p>
+        <p class="anchor">▸ <ins>已促成 18 個「銀光社會力」結盟夥伴 + 16 個縣市政府代表聯合宣誓推動高齡友善居住政策,與衛福部健保署、國家政策研究基金會等公部門與 NPO 對話。</ins></p>
+      </div>
+      <div class="vcard">
+        <h4>國際接軌 <span class="en">Global Standards</span></h4>
+        <p>WCAG、歐盟 EAA、美國 ADA — 全球無障礙法規正在快速演進。我們與國際組織合作、引進講者,將這些標準本地化,協助亞太設計師與企業將國際規範落地實踐。</p>
+        <p class="anchor">▸ <ins>已邀請 Frances West(前 IBM CAO)、Jonathan Hassell(前 BBC)、Neil Milliken(ATOS)、Christopher Lee(IAAP / G3ict)、Makoto Ueki(Japan WCAG 3 貢獻者)等 10+ 位國際無障礙領袖至台灣交流;成為 IAAP 台灣合作夥伴。</ins></p>
+      </div>
+      <div class="vcard">
+        <h4>從理念到落地 <span class="en">Idea to Action</span></h4>
+        <p>透過高峰會、工作坊與培訓課程,我們將無障礙與共融設計化為具體行動,協助設計師與企業團隊真正落地執行。</p>
+        <p class="anchor">▸ <ins>2024 年起舉辦 10 場專業活動,含台灣首場領導力論壇(2024-04)、「打造高齡友善世界」8 國際專家 webinar(2024-11)、CPACC 國際認證在台推廣;GAAD 2026 與 Raven Accessibility、La French Tech Taiwan 共同主辦。</ins></p>
+      </div>
+    </div>
+    <div class="note warn"><strong>待理事長確認</strong>:國際接軌卡的 5 人具名 list 暫未調整。Bertram 想確認「列具體名字 vs 以機構為主(來自 IBM、IAAP、G3ict、WAIC 等機構的講者)」哪個較好 — 列名一旦關係生變難收回。決議後需同步 ❷ About 段。</div>
+    <details class="kwbox">
+      <summary>SEO 關鍵字(本段)</summary>
+      <div class="kw"><span>身心障礙</span><span>無障礙</span><span>WCAG</span><span>歐盟 EAA</span><span>美國 ADA</span><span>全球無障礙法規</span><span>Frances West</span><span>Jonathan Hassell</span><span>BBC</span><span>Neil Milliken</span><span>ATOS</span><span>Christopher Lee</span><span>IAAP</span><span>G3ict</span><span>Makoto Ueki</span><span>CPACC</span><span>Raven Accessibility</span><span>銀光社會力</span><span>高齡友善居住</span><span>衛福部</span></div>
+    </details>
+  </section>
+
+  <!-- ❺ Areas of Focus -->
+  <section id="s5">
+    <h2 class="sec">❺ Areas of Focus 我們關注的議題 <span class="chip replaced">整段替換</span></h2>
+    <p class="wf"><strong>對應 wireframe</strong>:取代原本「Partnering Organizations / 合作單位」(3 個 LOGO 框)· <strong>SEO 主戰場</strong></p>
+    <div class="reason">
+      <strong>修改原因</strong>:原版 Logo Wall 有兩個問題 — ①正式合作夥伴名單仍 emerging,Logo 不夠多會顯弱;②Logo 對 SEO 沒幫助。改成「議題卡」:填補「我們做什麼」的具體性,且是全頁 SEO 關鍵字密度最高的一段(25+ 高轉換詞)。
+    </div>
+    <div class="orig">
+      <span class="lbl">原版(已被取代)</span>
+      <del>Partnering Organizations / 合作單位 — 自 2024 年以來,我們一直與以下單位合作 · [LOGO][LOGO][LOGO] placeholder</del>
+    </div>
+    <h3>四個議題卡(取代原 Logo Wall)</h3>
+    <div class="final">
+      <span class="lbl">最終文字(可複製)· 區段標題:Areas of Focus / 我們關注的議題</span>
+      <div class="cards">
+        <div class="vcard">
+          <h4>數位無障礙 <span class="en">Digital Accessibility</span></h4>
+          <p>WCAG 2.2、ARIA、無障礙網頁設計、輔助科技 — 讓網站與 App 對全球 1/4(超過 12 億)身心障礙使用者真正可用。</p>
+        </div>
+        <div class="vcard">
+          <h4>包容性設計 <span class="en">Inclusive Design</span></h4>
+          <p>通用設計七原則、跨年齡與能力的設計思維、聯合國身心障礙者權利公約(CRPD)— 把多樣性放進設計流程,不只是事後補救。</p>
+        </div>
+        <div class="vcard">
+          <h4>國際標準對接 <span class="en">International Standards</span></h4>
+          <p>歐盟無障礙法案 EAA、美國 ADA、台灣《網站無障礙規範》110.07、IAAP CPACC 國際認證 — 協助組織理解全球法規並在地落地。</p>
+        </div>
+        <div class="vcard">
+          <h4>高齡共融科技 <span class="en">AgeTech &amp; Aging-Friendly</span></h4>
+          <p>超高齡社會、銀髮科技、aging in place、跨世代設計 — 為人口結構轉變做好科技準備。</p>
+        </div>
+      </div>
+    </div>
+    <details class="kwbox">
+      <summary>SEO 關鍵字(本段最重)</summary>
+      <div class="kw"><span>WCAG 2.2</span><span>ARIA</span><span>無障礙網頁設計</span><span>輔助科技</span><span>Digital Accessibility</span><span>Inclusive Design</span><span>包容性設計</span><span>通用設計</span><span>Universal Design</span><span>CRPD</span><span>EAA</span><span>歐盟無障礙法案</span><span>美國 ADA</span><span>110.07</span><span>IAAP</span><span>CPACC</span><span>AgeTech</span><span>高齡科技</span><span>超高齡社會</span><span>銀髮科技</span><span>aging in place</span><span>跨世代設計</span></div>
+    </details>
+  </section>
+
+  <!-- ❻ Events -->
+  <section id="s6">
+    <h2 class="sec">❻ Events 近期活動 <span class="chip unchanged">未變更</span></h2>
+    <p class="wf"><strong>對應 wireframe</strong>:既有結構(ADALS 2026 + Digital Accessibility Event)</p>
+    <div class="final">
+      <span class="lbl">最終文字(既有,維持)</span>
+      <p><strong>ADALS 2026</strong> [UPCOMING]
+Shaping Inclusive Futures for Asia-Pacific 2026
+亞太資訊無障礙與數位共融領導力論壇 / APAC Digital Inclusion and Accessibility Leadership Summit 2026
+9/17~18 @ TAIPEI · AI · Ageing · Accessibility  〔CTA:報名 / Register〕</p>
+      <p><strong>Digital Accessibility Event</strong> [PAST] 〔CTA:閱讀部落格文章 / Read Blog〕</p>
+    </div>
+  </section>
+
+  <!-- ❼ Join Us -->
+  <section id="s7">
+    <h2 class="sec">❼ Join Us 加入我們的行列 <span class="chip modified">修改</span></h2>
+    <p class="wf"><strong>對應 wireframe</strong>:既有 JOIN US 區</p>
+    <div class="reason">
+      <strong>修改原因</strong>:原版「小而靈活」過度謙虛 — 讀者會 register 為「一個小組織」,credibility 打折;「靈活」是 filler。改用<strong>網絡 framing</strong>(連結國際領袖、台灣產業政府、在地社群),點出實績又保留邀請空間。
+    </div>
+    <div class="orig">
+      <span class="lbl">原版(已被取代)</span>
+      <del>我們是一個小而靈活的團隊,正在尋找志同道合的夥伴。無論是專業技能、國際經驗、還是對無障礙議題的熱情,我們都歡迎你帶著你擅長的事加入。</del>
+    </div>
+    <div class="final">
+      <span class="lbl">最終文字(可複製)</span>
+      <p>亞太包容創新協會自 2024 年成立以來,持續連結國際無障礙領袖、台灣產業與政府、以及在地專業社群。我們仍在持續成長,並期待更多夥伴加入這場推動數位共融的長期旅程 — 無論你能帶來專業技能、國際經驗、議題熱情,或對在地推動的承諾,都歡迎成為協會的一份子。</p>
+      <p style="font-size:14px;color:var(--muted);">〔CTA:了解志工機會〕</p>
+    </div>
+  </section>
+
+  <!-- ❽ Footer -->
+  <section id="s8">
+    <h2 class="sec">❽ Footer 頁尾 <span class="chip unchanged">未變更</span></h2>
+    <p class="wf"><strong>對應 wireframe</strong>:訂閱電子報 + 社群媒體 + 網站頁面 nav · 既有設計保留</p>
+  </section>
+
+  <!-- SEO 總清單 -->
+  <section id="seo">
+    <h2 class="sec">全頁 SEO 關鍵字總清單</h2>
+    <p style="font-size:14px;color:var(--muted);">全頁約 60+ 關鍵字,自然融入、無 stuffing。主戰場集中於 ❷ About + ❹ What We Do + ❺ Areas of Focus;大事記、Events、Join Us 維持簡潔。</p>
+    <div class="tw" tabindex="0">
+      <table>
+        <caption>SEO 關鍵字分類</caption>
+        <thead><tr><th scope="col">類別</th><th scope="col">關鍵字</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">核心無障礙</th><td>無障礙、可近用性、Web Accessibility、a11y、數位無障礙、Digital Accessibility</td></tr>
+          <tr><th scope="row">規範 / 標準</th><td>WCAG、WCAG 2.2、WCAG 2.2 AA、ARIA、CRPD、聯合國身心障礙者權利公約、EAA、歐盟無障礙法案、美國 ADA、台灣《網站無障礙規範》110.07</td></tr>
+          <tr><th scope="row">方法 / 學派</th><td>Inclusive Design、包容性設計、Universal Design、通用設計、無障礙使用者研究</td></tr>
+          <tr><th scope="row">族群</th><td>身心障礙者、Persons with Disabilities、弱勢族群、銀髮族、65 歲以上、長者、超高齡社會、aging society、跨年齡</td></tr>
+          <tr><th scope="row">障礙類型</th><td>永久性障礙、暫時性障礙、情境式障礙、persona spectrum、Microsoft Inclusive Design Toolkit</td></tr>
+          <tr><th scope="row">議題 / 應用</th><td>AgeTech、高齡科技、aging in place、AI 無障礙、跨世代設計</td></tr>
+          <tr><th scope="row">國際機構</th><td>IAAP、CPACC、IBM、BBC、ATOS、G3ict、L'Oréal、Hassell Inclusion、FrancesWest&amp;Co、Aira、Equal Entry、Reframe.Work</td></tr>
+          <tr><th scope="row">講者具名</th><td>Frances West、Jonathan Hassell、Neil Milliken、Christopher Lee、Makoto Ueki、Troy Otillo、Stela Lupushor、Thomas Logan、Eva Leihener-Stefan</td></tr>
+          <tr><th scope="row">台灣合作</th><td>Raven Accessibility、La French Tech Taiwan、銀光社會力、國家政策研究基金會、衛福部健保署、16 縣市政府、GOGOLife、銀光未來創新協會</td></tr>
+          <tr><th scope="row">AIA 旗艦</th><td>亞太包容創新協會、APAC AIA、ADALS、ADALS 2026、亞太資訊無障礙與數位共融領導力高峰會</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 備註 -->
+  <section id="notes">
+    <h2 class="sec">給 Christina / Bertram 的備註</h2>
+
+    <h3>視覺素材來源(Bertram 提供)</h3>
+    <div class="tw" tabindex="0">
+      <table>
+        <caption>各區所需素材與來源</caption>
+        <thead><tr><th scope="col">素材</th><th scope="col">來源</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">活動照片</th><td>已有素材在 <code>aia-homepage-content/</code> 各活動資料夾(2024-04 論壇 press 照、2024-11 webinar 講者照、2024-07 GOGOLife banner 等)</td></tr>
+          <tr><th scope="row">講者頭像</th><td>各活動「講者資料」資料夾</td></tr>
+          <tr><th scope="row">Timeline / 議題卡 icon</th><td>Christina 設計</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>校對重點</h3>
+    <div class="tw" tabindex="0">
+      <table>
+        <caption>校對分工</caption>
+        <thead><tr><th scope="col">項目</th><th scope="col">由誰</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">國際領袖頭銜 / 機構名拼字</th><td>Bertram</td></tr>
+          <tr><th scope="row">衛福部副署長 / 朱立倫 致詞細節</th><td>Bertram</td></tr>
+          <tr><th scope="row">活動日期、人數</th><td>Bertram</td></tr>
+          <tr><th scope="row">中英文翻譯一致性</th><td>Christina</td></tr>
+          <tr><th scope="row">視覺呈現 / SEO 排版</th><td>Christina</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <strong>數據引用建議</strong>:WHO 15% / 12 億 可加註腳 — Source: World Health Organization, World Report on Disability。
+    </div>
+    <div class="note warn">
+      <strong>不確定的具名實績</strong>:若對某項有疑慮(例:衛福部副署長龐一鳴是否屬實 / IAAP 台灣合作夥伴是否正式契約),用「[待校對]」標起,sync 時釐清。
+    </div>
+
+    <div class="note">
+      <strong>關於這頁本身</strong>:本頁已併入專案文件中心(aia-project-hub),從首頁「文案決策」進入。上一輪的「首頁文案選項 — 團隊投票」頁已封存至 <code>pages/archive/</code>,本頁為全新再版後的最終版對照。
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  APAC AIA · 首頁文案最終版對照 · 2026-05-29 · 內部審閱用<br>
+  本對照頁本身依 AIA 品牌 + WCAG 2.2 AA 設計(深海藍/暖陽金/雲白、Noto Serif TC、狀態三重標示、44px 觸控目標、reduced-motion)
+</footer>
+
+</body>
+</html>
