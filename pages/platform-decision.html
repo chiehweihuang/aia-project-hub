@@ -96,7 +96,7 @@
     <p class="section-num" style="color:#bcd6e6;">PLATFORM DECISION</p>
     <h1>網站平台決策：兩條路，還有第三條路嗎</h1>
     <p class="subtitle">協會官網的收款與會員主系統要怎麼做？我們用 AI 多輪分析，把「netiCRM 嵌合」和「自己拼 WordPress」兩條路頭對頭比，並查了有沒有第三條路。這頁把結論放最上面、一張表看完；想深入的細節（成本拆解、無障礙、免費自組真相、六軸、來源）都收在下方可展開的區塊裡。</p>
-    <div class="meta">DECISION · 2026-06-04 · Claude + codex 多輪分析（六軸研究、100-agent 全面檢查、64-agent 雙模型複查、15-agent Oen 深挖）· 參考定位，最終由理事會決定</div>
+    <div class="meta">DECISION · 2026-06-04 · Claude + codex 多輪多模型分析（六軸研究、全面檢查、雙模型複查、第三條路 Oen 深挖、無障礙實測）· 參考定位，最終由理事會決定</div>
     <span class="audience-tag">受眾 · 理事長 / 祕書長 / 常務理事</span>
   </div>
 </header>
@@ -127,7 +127,7 @@
       <p>我們也認真找了第三條路：用 24 個類別徹底搜尋「既不是 netiCRM、也不是自組」的平台，唯一架構上獨立的是台灣本土 SaaS「Oen 應援科技」，是真正的第三選項，並對它做了單一廠商深挖（再加 codex 第二個模型與無障礙實測）。深挖後費率已釐清（NPO 2.3% 起、票券 3.5%，無致命傷）、公司資料更新（A 輪已於 2025-06 完成），但對 AIA 最關鍵的「海外發卡行刷卡」仍是文件空白、只能直接向 Oen 確認；無障礙實測則顯示 Oen 自家頁面 63 分、低於 netiCRM。<strong>ADALS 2026 這場時間壓力下，先用已驗證的 netiCRM、不把旗艦活動賭在海外刷卡未證實的選項上。Oen 作為協會長期主系統的把握度，因供應商風險與會員功能缺口，目前低於 netiCRM；至多在 ADALS 當「國內票務並聯、海外另開備援通道」。</strong></p>
       <p style="margin-bottom:0;">這是參考建議、非定論，最終由理事會決定；什麼情況該改走路線 B，見下方「翻盤條件」。</p>
     </div>
-    <p>怎麼得到這個結論：先做六軸研究（功能、成本、無障礙、維運、資料主權、擴充性），再用約 100 個 AI agent 做全面檢查、用 64 個 agent 加上 codex 第二個模型做雙模型複查，把每個會影響決策的數字都回到一手來源查證。下面每一段的細節都可以點開。</p>
+    <p>怎麼得到這個結論：先做六軸研究（功能、成本、無障礙、維運、資料主權、擴充性），再經過多輪、跨兩個 AI 模型家族（Claude 與 codex）的全面檢查、對抗翻案與雙模型複查，並輔以真實無障礙實測，把每個會影響決策的數字都回到一手來源核對。下面每一段的細節都可以點開。</p>
   </section>
 
   <section id="routes" aria-labelledby="h-routes">
@@ -222,7 +222,7 @@
             <tbody>
               <tr><th scope="row">微型方案授權費（3,000 聯絡人）</th><td>NT$25,920（12,960 × 2）</td><td>必花</td></tr>
               <tr><th scope="row">開通費</th><td>NT$0（簽 2 年約免；不簽 NT$8,000）</td><td>必花</td></tr>
-              <tr><th scope="row">雙語頁（中英，海外與會者報名、付費、收英文確認與收據）</th><td>NT$10,500（一次性）</td><td>必花（ADALS 有海外來賓）</td></tr>
+              <tr><th scope="row">雙語加購（中英；同一筆涵蓋募款頁與活動報名/購票頁、不限數量，海外與會者可英文報名、付費、收英文確認與收據）</th><td>NT$10,500（一次性）</td><td>必花（ADALS 有海外來賓，廠商來信確認）</td></tr>
               <tr><th scope="row">維運工時（行政操作、非工程，2 年）</th><td>約 NT$3,600 至 11,200</td><td>必花</td></tr>
               <tr><th scope="row">自訂域名（把報名/捐款頁網址換成自己的，見下方說明）</th><td>約 NT$8,000</td><td>選配（短期可省）</td></tr>
               <tr><th scope="row">收據客製</th><td>約 NT$3,750 起</td><td>選配</td></tr>
@@ -365,15 +365,15 @@
     <details class="major deeper">
       <summary>AI 分析方法與算力（這份結論怎麼來的）</summary>
       <div class="major-body">
-        <p>本決策由多輪 AI 分析撐起，跨兩個模型家族（Claude 與 codex/GPT）交叉驗證，加上真實 Lighthouse 量測，不是單一意見：</p>
+        <p>本決策由多輪 AI 分析撐起，跨兩個模型家族（Claude 與 codex/GPT）交叉驗證，加上真實無障礙量測，不是單一意見：</p>
         <ul>
           <li><strong>六軸研究 + 對抗核查：</strong>每軸對兩路線都研究，關鍵數字派獨立 agent 反駁查核。</li>
-          <li><strong>100-agent 全面檢查：</strong>對「建議路線 A」做壓力測試、事實第三輪交叉、對抗式翻案、覆蓋完整性。</li>
-          <li><strong>64-agent 雙模型深度複查：</strong>找其他免費方案與更好組合、再查事實，codex 第二個模型做跨模型對照（14 項全數執行），擋下若干看似乾淨卻站不住的數字。</li>
-          <li><strong>15-agent Oen 單一廠商深挖：</strong>對第三條路 Oen 做 9 面向盡職調查、codex 跨模型交叉 5 條載重主張、加 axe-core 實測無障礙，釐清費率與公司資料、把海外刷卡定位為唯一未證實的關卡。</li>
-          <li><strong>真實量測：</strong>5 頁 Lighthouse 無障礙實測。</li>
+          <li><strong>全面檢查：</strong>對「建議路線 A」做壓力測試、事實多輪交叉、對抗式翻案、覆蓋完整性。</li>
+          <li><strong>免費方案雙模型深度複查：</strong>找其他免費組合與更好方案、再查事實，codex 第二個模型做跨模型對照，擋下若干看似乾淨卻站不住的數字。</li>
+          <li><strong>第三條路徹底搜索 + Oen 盡職調查：</strong>用 24 個類別找「既非 netiCRM、也非自組」的第三種架構，再對唯一倖存者 Oen 做單一廠商深挖（含 codex 跨模型交叉與無障礙實測）。</li>
+          <li><strong>真實量測：</strong>Lighthouse 與 axe-core 無障礙實測。</li>
         </ul>
-        <p style="font-size:.9rem; color:var(--muted);">所有會變動項（金流費率、外掛定價、法規進度）為 2026-06 查證，採用前再確認。</p>
+        <p style="font-size:.9rem; color:var(--muted);">累計數輪、動用數百個 AI agent，跨 Claude 與 codex 兩個模型家族。所有會變動項（金流費率、外掛定價、法規進度）為 2026-06 查證，採用前再確認。</p>
       </div>
     </details>
   </section>
