@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>免費自組方案完整比較 — 十套 WordPress 外掛大軍 + 免費 SaaS vs netiCRM | APAC AIA</title>
+<script>
+(function(){
+  var exp = localStorage.getItem('aia-auth');
+  if (!exp || Date.now() > +exp) {
+    localStorage.removeItem('aia-auth');
+    window.location.replace('../index.html');
+  }
+})();
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@300;400;500;700&family=IBM+Plex+Mono:wght@500&display=swap');
+  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+  :root {
+    --primary:#003B5C;        /* Navy — brand primary; text/links/headings/borders on light */
+    --secondary:#19ABE4;      /* Sky — decoration only; never text on white */
+    --accent-dark:#003B5C;    /* alias to Navy (brand: functional accent text = Navy) */
+    --gold:#F8B62D;           /* Gold — CTA/background fills only, never text on white */
+    --text:#231815;           /* Near Black */
+    --muted:#3D3835;          /* brand muted, ~14:1 on Off-White */
+    --border:#B7C0CB;         /* brand navy-tinted gridline */
+    --surface2:#DDE3EA;       /* brand table column-head surface */
+    --bg:#F7F8F8; --card:#fff; --note-bg:#fff8e7; --note-border:#F8B62D;
+    --error:#c62828;
+  }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Inter','Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; background:var(--bg); color:var(--text); line-height:1.95; letter-spacing:.02em; word-spacing:.04em; font-size:16.5px; }
+
+  /* Focus visibility (WCAG 2.4.7 / 2.4.11) */
+  a:focus-visible, summary:focus-visible, .table-wrap:focus-visible {
+    outline:3px solid var(--primary); outline-offset:2px; border-radius:2px;
+  }
+  .page-header a:focus-visible { outline-color:#fff; }
+
+  .skip { position:absolute; left:-9999px; top:0; padding:10px 16px; background:#000; color:#fff; z-index:1000; text-decoration:none; }
+  .skip:focus { left:8px; top:8px; }
+
+  .page-header { background:var(--primary); color:#fff; padding:48px 24px 40px; }
+  .page-header-inner { max-width:1080px; margin:0 auto; }
+  .back-link { display:inline-flex; align-items:center; gap:6px; color:#dbeaf3; font-size:14px; text-decoration:none; padding:10px 0; min-height:44px; }
+  .back-link:hover, .back-link:focus { color:#fff; text-decoration:underline; }
+  .page-header h1 { font-family:'Noto Serif TC','Inter',Georgia,serif; font-size:clamp(1.6rem,1.3rem+1.2vw,2.1rem); font-weight:700; letter-spacing:.5px; margin:6px 0 10px; line-height:1.35; }
+  .page-header .subtitle { font-size:16px; color:#eaf4fa; max-width:780px; line-height:1.75; }
+  .page-header .meta { margin-top:16px; font-size:12px; color:#bcd6e6; letter-spacing:.5px; font-family:'IBM Plex Mono',monospace; }
+  .audience-tag { display:inline-block; padding:5px 13px; background:rgba(248,182,45,.22); color:#ffe7af; font-size:13px; font-weight:600; letter-spacing:.5px; border-radius:4px; margin-top:14px; }
+
+  .toc { position:sticky; top:0; background:#fff; border-bottom:1px solid var(--border); z-index:90; }
+  .toc-inner { max-width:1080px; margin:0 auto; padding:0 24px; display:flex; gap:0; align-items:center; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:thin; }
+  .toc a { padding:14px 14px; font-size:14px; color:#4a4a4a; text-decoration:none; white-space:nowrap; flex-shrink:0; border-bottom:3px solid transparent; min-height:44px; display:flex; align-items:center; }
+  .toc a:hover, .toc a:focus { color:var(--primary); border-bottom-color:var(--secondary); }
+
+  main { max-width:1080px; margin:0 auto; padding:44px 24px 80px; }
+  section { margin-bottom:4em; }
+  section:last-child { margin-bottom:0; }
+  .section-num { font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--accent-dark); font-weight:600; letter-spacing:1.5px; margin-bottom:6px; }
+  h2 { font-family:'Noto Serif TC','Inter',Georgia,serif; font-size:clamp(1.3rem,1.15rem+.7vw,1.6rem); font-weight:700; line-height:1.5; color:var(--primary); margin-bottom:24px; padding-bottom:14px; border-bottom:2px solid var(--primary); }
+  h3 { font-size:1.12rem; font-weight:700; line-height:1.65; color:var(--primary); margin:1.9em 0 .7em; }
+  h4 { font-size:1rem; font-weight:600; color:var(--primary); margin:16px 0 6px; }
+  p { margin-bottom:1.5em; max-width:42em; }
+  li { max-width:42em; }
+  strong { color:var(--primary); font-weight:700; }
+  .lead p { font-size:1.06rem; line-height:2.05; margin-bottom:1.7em; }
+
+  .note { background:var(--note-bg); border-left:4px solid var(--note-border); padding:20px 24px; border-radius:0 8px 8px 0; margin:1.8em 0; font-size:.97rem; line-height:1.95; }
+  .note.warn { background:#fff5f5; border-left-color:var(--error); }
+  .note.warn strong { color:var(--error); }
+
+  .reco { background:#ECEFF3; border:1px solid var(--primary); border-left:6px solid var(--primary); border-radius:8px; padding:24px 26px; margin:8px 0 26px; line-height:1.95; }
+  .reco .reco-label { display:inline-block; padding:4px 13px; font-size:12px; font-weight:700; letter-spacing:1px; border-radius:4px; background:var(--primary); color:#fff; margin-bottom:12px; }
+  .reco p:last-child { margin-bottom:0; }
+
+  ol, ul { margin:0 0 14px; padding-left:24px; }
+  ol li, ul li { margin-bottom:.85em; line-height:1.9; }
+  ol.conditions { counter-reset:cond; list-style:none; padding-left:0; }
+  ol.conditions > li { position:relative; padding:18px 20px 18px 60px; margin-bottom:16px; background:#fff; border:1px solid var(--border); border-radius:8px; line-height:1.9; }
+  ol.conditions > li::before { counter-increment:cond; content:counter(cond); position:absolute; left:16px; top:14px; width:28px; height:28px; background:var(--primary); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px; }
+
+  .table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; border-radius:8px; border:1px solid var(--border); margin:16px 0; }
+  table { width:100%; border-collapse:collapse; font-size:.95rem; min-width:640px; }
+  caption { text-align:left; font-size:.9rem; color:var(--muted); padding:10px 14px; caption-side:top; }
+  thead th { background:var(--primary); color:#fff; font-weight:600; font-size:.92rem; letter-spacing:.5px; padding:15px 17px; text-align:left; vertical-align:top; line-height:1.6; }
+  tbody th { font-weight:700; color:var(--primary); background:var(--surface2); text-align:left; padding:16px 17px; vertical-align:top; width:18%; min-width:140px; line-height:1.8; }
+  tbody td { padding:16px 17px; text-align:left; vertical-align:top; line-height:1.9; }
+  tbody tr { border-top:1px solid var(--border); }
+  .col-wide { min-width:280px; }
+  .stacks-table { min-width:960px; table-layout:fixed; }
+  .stacks-table col.c-idx { width:42px; }
+  .stacks-table col.c-plan { width:27%; }
+  .stacks-table col.c-cover { width:11%; }
+  .stacks-table col.c-limit { width:23%; }
+  .stacks-table col.c-build { width:11%; }
+  .stacks-table col.c-maint { width:13%; }
+  .stacks-table th[scope="row"] { width:auto; min-width:0; text-align:center; padding:16px 8px; }
+  .stacks-table td { word-break:break-word; }
+  .tool { display:inline-block; font-weight:700; color:var(--primary); background:rgba(25,171,228,.16); padding:1px 7px; border-radius:4px; margin:1px 0; }
+  .tool-list { font-size:.9rem; word-break:break-word; }
+  .tool-list a { color:var(--accent-dark); }
+  .tool-list a:hover { color:var(--primary); }
+
+  footer { max-width:1080px; margin:0 auto; padding:24px; color:var(--muted); font-size:13px; border-top:1px solid var(--border); }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration:.01ms !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }
+  }
+  @media (max-width:600px) {
+    .page-header { padding:32px 18px 26px; }
+    main { padding:30px 16px 60px; }
+    .toc-inner, footer { padding-left:16px; padding-right:16px; }
+    ol.conditions > li { padding-left:50px; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main-content">跳至主要內容</a>
+
+<header class="page-header">
+  <div class="page-header-inner">
+    <a class="back-link" href="index.html">← 返回專案文件</a>
+    <p class="section-num" style="color:#bcd6e6;">FREE-STACK ANALYSIS</p>
+    <h1>免費自組方案完整比較</h1>
+    <p class="subtitle">十套「完全免費（無授權費）」的 WordPress 外掛大軍加免費 SaaS 組合，能不能兜出跟 netiCRM 一樣的功能？逐套列出涵蓋範圍、硬限制與所需人工，並把人工以業界行情換算成現金。這是「網站平台兩路線評估」裡路線 B「免費大軍」這條路的成本底細。</p>
+    <div class="meta">RESEARCH · 2026-06-04 · 50 codex agents（GPT-5.x + live web）· 工時為概估區間 · 參考定位，最終由理事會決定</div>
+    <span class="audience-tag">受眾 · 理事長 / 祕書長 / 常務理事</span>
+  </div>
+</header>
+
+<nav class="toc" aria-label="頁內導覽">
+  <div class="toc-inner">
+    <a href="#conclusion">一句話結論</a>
+    <a href="#payment">台灣金流現況</a>
+    <a href="#stacks">十套免費組合</a>
+    <a href="#labor">人工攤開</a>
+    <a href="#thirdpath">第三條路</a>
+    <a href="#verdict">結論與判斷</a>
+    <a href="#method">方法與限制</a>
+  </div>
+</nav>
+
+<main id="main-content" tabindex="-1">
+
+  <section id="conclusion" class="lead" aria-labelledby="h-conclusion">
+    <p class="section-num">00 / CONCLUSION</p>
+    <h2 id="h-conclusion">一句話結論</h2>
+    <div class="reco">
+      <span class="reco-label">一句話</span>
+      <p><strong>「完全免費（無授權費）」的方案兜得出來，但沒有一個是「免費方案」。</strong>每一塊都要人工建置加每月維護。把人工以業界行情入帳，一個能用的完整站第一年人工約數十萬元，而 netiCRM 第一年約 NT$12,960（人工近零）。量級差距明確（自組遠高於 netiCRM），但確切倍數依維護複雜度與時薪職類而定，不宜釘死單一數字。</p>
+      <p>差額全部是人力，不是軟體。唯一能讓自組划算的條件，是<strong>有人願意免費、或以遠低於市場價做這些建置與每月維護的工</strong>。</p>
+    </div>
+    <p>「免費」指的是沒有軟體授權或訂閱費。金流交易手續費照樣有（netiCRM 也一樣），抵稅收據一律手動。下面三節依序回答：台灣金流為什麼讓多數免費方案在台灣等於沒有金流、十套組合各自缺什麼、以及把人工攤開後實際要多少錢。</p>
+  </section>
+
+  <section id="payment" aria-labelledby="h-payment">
+    <p class="section-num">01 / PAYMENT</p>
+    <h2 id="h-payment">台灣金流現況：為什麼多數免費方案在台灣沒有金流</h2>
+    <p>不是費率問題，是台灣根本開不了戶、不能做境內收款。三大國際金流對台灣 ADALS 售票都不能當收款後端：</p>
+
+    <div class="table-wrap" role="region" aria-label="三大國際金流在台灣的可用性，可左右捲動" tabindex="0">
+      <table>
+        <caption>三大國際金流為什麼不能當台灣 ADALS 售票後端（2026-06 查證）</caption>
+        <thead>
+          <tr>
+            <th scope="col">服務</th>
+            <th scope="col">能當台灣售票後端</th>
+            <th scope="col" class="col-wide">根本原因</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">PayPal</th>
+            <td>不可用，只能收海外</td>
+            <td>官方寫明「僅支援傳送跨國付款至台灣境外註冊的 PayPal 帳戶」，台灣付款人付不了台灣收款人。費率 4.40% 加固定費。只能當海外與會者的輔助通道。</td>
+          </tr>
+          <tr>
+            <th scope="row">Stripe</th>
+            <td>不可用，開不了戶</td>
+            <td>開戶國家清單沒有台灣，台灣法人只能用到測試模式，不能開正式收款。要繞外國法人或代收商，收款主體就不是 AIA。</td>
+          </tr>
+          <tr>
+            <th scope="row">Square</th>
+            <td>不可用，台灣沒服務</td>
+            <td>只在美、加、英、澳、日、愛爾蘭、法、西營運，台灣不在清單，根本註冊不了。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>真正能用的是台灣本地金流，但只有藍新是零固定費起步，其餘都有年費或設定費：</p>
+
+    <div class="table-wrap" role="region" aria-label="台灣本地金流比較，可左右捲動" tabindex="0">
+      <table>
+        <caption>台灣本地金流（唯一可行的收款後端）</caption>
+        <thead>
+          <tr>
+            <th scope="col">金流</th>
+            <th scope="col">固定費</th>
+            <th scope="col">國內卡費率</th>
+            <th scope="col">定期定額</th>
+            <th scope="col" class="col-wide">備註</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">藍新 NewebPay</th>
+            <td>無年費 / 設定費</td>
+            <td>2.8%（ATM 1%、超商 28 元）</td>
+            <td>信用卡，最多 99 期</td>
+            <td>有捐款平台與國稅局上傳格式；有免費 WooCommerce 外掛（但不含定期定額）。最接近「免費起步」。</td>
+          </tr>
+          <tr>
+            <th scope="row">綠界 ECPay</th>
+            <td>設定 5,000 加服務費 13,000/年起</td>
+            <td>1.85 至 2.75%</td>
+            <td>特約功能</td>
+            <td>有免費 WooCommerce 外掛、公益收據、國稅局申報檔、電子發票首年免費。</td>
+          </tr>
+          <tr>
+            <th scope="row">TapPay</th>
+            <td>開辦 5,000 加年費 11,000</td>
+            <td>2.75%</td>
+            <td>Direct Pay 記憶卡號</td>
+            <td>付款方式最多；上線需 2 至 4 週。</td>
+          </tr>
+          <tr>
+            <th scope="row">LINE Pay</th>
+            <td>無設定費</td>
+            <td>3%</td>
+            <td>無</td>
+            <td>有非營利 / 票券類別；按鈕或轉址流。</td>
+          </tr>
+          <tr>
+            <th scope="row">街口 JKOPay</th>
+            <td>無月租</td>
+            <td>2.5% 加 10 元/筆</td>
+            <td>無</td>
+            <td>純金流。</td>
+          </tr>
+          <tr>
+            <th scope="row">銀行直連（玉山 / 台新 / 中信）</th>
+            <td>依合約</td>
+            <td>洽談</td>
+            <td>無</td>
+            <td>玉山列非營利可申請；只做授權與撥款，不含網站、票務、收據。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <p><strong>兩個要點。</strong>只有藍新是零固定費起步（其餘都有年費或設定費）；而所有金流都不負責抵稅收據，收據永遠是 NGO 自己的事。這也是為什麼多數只接 Stripe 或 PayPal 的免費外掛，在台灣等於沒有金流，最後都被迫回到「WooCommerce 加藍新或綠界」。</p>
+    </div>
+  </section>
+
+  <section id="stacks" aria-labelledby="h-stacks">
+    <p class="section-num">02 / STACKS</p>
+    <h2 id="h-stacks">十套「完全免費（無授權費）」組合</h2>
+    <p>「免費」指無軟體授權或訂閱費；金流交易手續費仍有（netiCRM 也一樣），抵稅收據一律手動。<strong>人工是重點欄</strong>。方案由淺到深疊加，第 10 套是「全部兜起來」的完整站。</p>
+
+    <div class="table-wrap" role="region" aria-label="十套免費組合的涵蓋、限制與人工，可左右捲動" tabindex="0">
+      <table class="stacks-table">
+        <caption>十套免費組合：涵蓋功能、硬限制、建置工時、每月維護</caption>
+        <colgroup>
+          <col class="c-idx"><col class="c-plan"><col class="c-cover"><col class="c-limit"><col class="c-build"><col class="c-maint">
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col" class="col-wide">方案（怎麼兜）</th>
+            <th scope="col">涵蓋</th>
+            <th scope="col" class="col-wide">硬限制</th>
+            <th scope="col">建置工時</th>
+            <th scope="col">每月維護</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>純手動：<span class="tool">Google Forms</span> 加銀行轉帳 加 <span class="tool">Google Sheets</span> 加人工收據</td>
+            <td>報名、免費 / 轉帳</td>
+            <td>無線上刷卡、無 QR、全人工核帳</td>
+            <td>6 至 12 hr</td>
+            <td>活動期每日，加 2 至 6 hr 收據</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td><span class="tool">WooCommerce</span> 加<span class="tool">藍新免費外掛</span>（票當商品）</td>
+            <td>線上刷卡 / ATM / 超商售票</td>
+            <td>無原生報名欄位或 QR（要手動或開發）、藍新免費版無定期定額、收據手動</td>
+            <td>16 至 40 hr</td>
+            <td>4 至 10 hr</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td><span class="tool">Event Tickets</span>（免費）加 <span class="tool">PayPal</span></td>
+            <td>票券、QR（Plus 才有）</td>
+            <td>免費版可接 PayPal/Stripe/Square，但 Stripe 台灣不可、Square 台灣無、PayPal 只海外能付，故台灣本地實質無金流；Stripe/Square 另收 TEC 2% 佣金（PayPal 無）</td>
+            <td>6 至 12 hr</td>
+            <td>1 至 3 hr，加每場</td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td><span class="tool">GiveWP</span>（免費）捐款，加 Offline / <span class="tool">PayPal</span></td>
+            <td>捐款表單</td>
+            <td>台灣本地只能離線匯款人工、Stripe 無台灣、收據手動</td>
+            <td>20 至 35 hr</td>
+            <td>4 至 8 hr</td>
+          </tr>
+          <tr>
+            <th scope="row">5</th>
+            <td><span class="tool">Forminator</span>（免費）報名加付款表單</td>
+            <td>報名、收費</td>
+            <td>只接 Stripe / PayPal（無台灣本地金流）、非票務系統</td>
+            <td>8 至 16 hr</td>
+            <td>2 至 6 hr</td>
+          </tr>
+          <tr>
+            <th scope="row">6</th>
+            <td>加 CRM 後台：<span class="tool">Airtable</span> 免費 / <span class="tool">NocoDB</span> 自託管 / <span class="tool">FluentCRM</span> 免費</td>
+            <td>donor、member 名冊</td>
+            <td>Airtable 1,000 筆死線；自託管要 DevOps；同步免費層有上限</td>
+            <td>加 8 至 20 hr</td>
+            <td>加 2 至 6 hr</td>
+          </tr>
+          <tr>
+            <th scope="row">7</th>
+            <td>加電子報：<span class="tool">MailPoet</span> 免費（500 以下）/ <span class="tool">Brevo</span> 免費（300/日）</td>
+            <td>群發 email</td>
+            <td>訂閱數 / 發送量上限、要設 DNS 與 DKIM</td>
+            <td>加 4 至 8 hr</td>
+            <td>加 1 至 3 hr</td>
+          </tr>
+          <tr>
+            <th scope="row">8</th>
+            <td>加會員制：<span class="tool">PMPro</span> 免費 / <span class="tool">Ultimate Member</span> 免費，加 <span class="tool">WooCommerce</span> 對<span class="tool">藍新</span>橋接</td>
+            <td>會員分級收費</td>
+            <td>本地金流需橋接、收據手動、最小可行版就要 30 至 60 hr</td>
+            <td>加 30 至 60 hr</td>
+            <td>加 6 至 15 hr</td>
+          </tr>
+          <tr>
+            <th scope="row">9</th>
+            <td>加台灣合規：<span class="tool">財政部扣除額電子化系統</span>（免費官方），加<span class="tool">綠界電子發票免費外掛</span>（新戶首年 0 元/20,000 張，須 +NT$3,600 設定費，優惠至 2026/6/30）</td>
+            <td>抵稅收據上傳、電子發票</td>
+            <td>Windows 軟體、限自然人（企業統編不適用）、每年 2/1 至 2/28 上傳</td>
+            <td>加 1 至 2 人日</td>
+            <td>加 1 至 3 hr，加年度上傳</td>
+          </tr>
+          <tr>
+            <th scope="row">10</th>
+            <td><strong>「全部兜起來」完整版</strong>（第 2、6、7、8、9 套疊起來）</td>
+            <td>一個 NGO 該有的完整站</td>
+            <td><strong>跨系統對帳地獄、每個外掛各自的無障礙與更新風險、key-person 單點風險、抵稅收據半自動</strong></td>
+            <td><strong>100 至 200 加 hr</strong></td>
+            <td><strong>20 至 40 加 hr</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <details class="major">
+      <summary>研究來源：各方案使用的工具（官方頁面）</summary>
+      <div class="major-body tool-list">
+        <ul>
+          <li><span class="tool">Google Forms / Sheets</span>：<a href="https://support.google.com/docs/answer/2839588">support.google.com（表單）</a>、<a href="https://support.google.com/nonprofits/answer/2858465">Google for Nonprofits</a></li>
+          <li><span class="tool">WooCommerce</span>：<a href="https://wordpress.org/plugins/woocommerce/">wordpress.org/plugins/woocommerce</a></li>
+          <li><span class="tool">藍新 NewebPay（WooCommerce 外掛）</span>：<a href="https://wordpress.org/plugins/newebpay-payment/">wordpress.org/plugins/newebpay-payment</a></li>
+          <li><span class="tool">Event Tickets</span>：<a href="https://wordpress.org/plugins/event-tickets/">wordpress.org/plugins/event-tickets</a></li>
+          <li><span class="tool">PayPal（台灣商務費率）</span>：<a href="https://www.paypal.com/tw/business/paypal-business-fees">paypal.com/tw/business</a></li>
+          <li><span class="tool">GiveWP</span>：<a href="https://wordpress.org/plugins/give/">wordpress.org/plugins/give</a></li>
+          <li><span class="tool">Forminator</span>：<a href="https://wordpress.org/plugins/forminator/">wordpress.org/plugins/forminator</a></li>
+          <li><span class="tool">Airtable</span>：<a href="https://support.airtable.com/docs/en/airtable-plans">support.airtable.com（方案）</a></li>
+          <li><span class="tool">NocoDB</span>：<a href="https://nocodb.com/pricing">nocodb.com/pricing</a></li>
+          <li><span class="tool">FluentCRM</span>：<a href="https://wordpress.org/plugins/fluent-crm/">wordpress.org/plugins/fluent-crm</a></li>
+          <li><span class="tool">MailPoet</span>：<a href="https://kb.mailpoet.com/article/349-mailpoet-plans-and-limits-explained">kb.mailpoet.com（方案上限）</a></li>
+          <li><span class="tool">Brevo</span>：<a href="https://help.brevo.com/hc/en-us/articles/208589409-About-Brevo-s-pricing-plans">help.brevo.com（方案）</a></li>
+          <li><span class="tool">Paid Memberships Pro（PMPro）</span>：<a href="https://www.paidmembershipspro.com/pricing/">paidmembershipspro.com/pricing</a></li>
+          <li><span class="tool">Ultimate Member</span>：<a href="https://wordpress.org/plugins/ultimate-member/">wordpress.org/plugins/ultimate-member</a></li>
+          <li><span class="tool">財政部扣除額電子資料交換系統</span>：<a href="https://www.ntbna.gov.tw/multiplehtml/1fb9082240594fa185f85ce06e1529a3">ntbna.gov.tw（扣除額電子化）</a></li>
+          <li><span class="tool">綠界 ECPay 電子發票外掛</span>：<a href="https://tw.wordpress.org/plugins/ecpay-ecommerce-for-woocommerce/">tw.wordpress.org（ECPay 外掛）</a></li>
+        </ul>
+        <p style="font-size:.85rem; color:var(--muted); margin-top:10px;">本表為 50 項免費方案研究的節選；每項工具的費率、上限與限制均查自上列官方頁面（2026-06 查證，屬會變動項，採用前再確認）。</p>
+      </div>
+    </details>
+
+    <h3>跨五十項的共通鐵律（每一項都中）</h3>
+    <ol class="conditions">
+      <li>免費的是「授權費」，不是金流費、不是人工。</li>
+      <li>多數免費外掛的金流只接 Stripe 或 PayPal，在台灣等於沒有金流，被迫回 WooCommerce 加藍新或綠界。</li>
+      <li>抵稅收據沒有任何免費工具自動完成，永遠是 NGO 人工加財政部 Windows 軟體上傳。</li>
+      <li>自託管選項（NocoDB / Baserow / n8n）免授權費，但換成要你養伺服器、當兼職 DevOps。</li>
+    </ol>
+  </section>
+
+  <section id="labor" aria-labelledby="h-labor">
+    <p class="section-num">03 / LABOR</p>
+    <h2 id="h-labor">把人工攤開：自組數十萬 vs netiCRM 年費</h2>
+    <p>以第 10 套（真正能用的完整站）計算。台灣有經驗接案者時薪分職類（2026 行情，經 codex 雙模型查核）：工程師約 NT$1,000 至 2,000、設計師約 NT$800 至 1,500。維護工時須分「恆常」與「活動前後高峰」兩段，不能用單一月均值：</p>
+
+    <div class="table-wrap" role="region" aria-label="自組完整站第一年人工成本，可左右捲動" tabindex="0">
+      <table>
+        <caption>自組完整站第一年的人工成本（區間，依整合複雜度與時薪職類而定；2026-06 codex 雙模型校正）</caption>
+        <thead>
+          <tr>
+            <th scope="col">項目</th>
+            <th scope="col">工時</th>
+            <th scope="col">以時薪換算</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">建置（一次性）</th>
+            <td>100 至 200 hr</td>
+            <td>NT$10 萬至 40 萬</td>
+          </tr>
+          <tr>
+            <th scope="row">維護（恆常）</th>
+            <td>約 4 至 10 hr/月（純資訊站偏低；含金流、會員、客製、跨系統對帳偏高）</td>
+            <td>NT$5 萬至 24 萬/年</td>
+          </tr>
+          <tr>
+            <th scope="row">維護（活動前後高峰）</th>
+            <td>每次約 20 至 40 hr（每年 1 至 2 場）</td>
+            <td>NT$2 萬至 16 萬</td>
+          </tr>
+          <tr>
+            <th scope="row">第一年合計</th>
+            <td>約 170 至 400 hr</td>
+            <td><strong>約 NT$17 萬至 80 萬（中段約 30 至 45 萬）</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <p><strong>對照。</strong>netiCRM 微型方案第一年約 NT$12,960（英文活動報名頁已含於方案；簽 2 年免開通費 NT$8,000；若另加雙語募款頁約 NT$23,460），建置與維運人工近零（廠商全代管）。自組第一年人工約數十萬，量級遠高於 netiCRM，差額幾乎全是人力。</p>
+      <p style="margin-top:10px; font-size:.92rem;"><strong>校正（2026-06，Claude 加 codex 雙模型）：</strong>原稿「30 倍以上、每月維護 30 hr、第一年 NT$46 萬」三項經查核修正。維護恆常實為 4 至 10 hr/月（20 至 40 hr 是活動高峰、非常態）、時薪須分職類、netiCRM 第一年基準應為 NT$12,960 起。原「30 倍」偏高、初估「8 至 15 倍」也無法精確坐實（codex 指基準被低估），故改以區間呈現；唯「自組人工遠高於 netiCRM」的方向經雙模型確認不變。</p>
+    </div>
+  </section>
+
+  <section id="thirdpath" aria-labelledby="h-thirdpath">
+    <p class="section-num">04 / THIRD PATH</p>
+    <h2 id="h-thirdpath">第三條路：不一定要在「免費自組」和「netiCRM」之間二選一</h2>
+    <p>第三輪 Claude 加 codex 雙模型複查補上兩條原稿沒涵蓋、對 ADALS 可能更實際的路。</p>
+
+    <h3>A. 台灣本地票務 SaaS（純票務場景可能比 netiCRM 便宜）</h3>
+    <p>跳出「免費軟體」框架。台灣本土票務平台按交易抽成、零自架人工，純票務 150 張、均價 NT$500 估算下，平台費可能低於 netiCRM 年費（NT$12,960）：</p>
+    <div class="table-wrap" role="region" aria-label="台灣票務 SaaS 估算，可左右捲動" tabindex="0">
+      <table>
+        <caption>台灣票務 SaaS（純票務，150 張 × 均價 NT$500 估算；2026-06 codex 查核）</caption>
+        <thead>
+          <tr>
+            <th scope="col">平台</th>
+            <th scope="col">費率</th>
+            <th scope="col">150 張估算</th>
+            <th scope="col" class="col-wide">海外刷卡 / 來源</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">ACCUPASS 活動通</th>
+            <td>付費票 5% 加 NT$10/張（400 人以下免費票零費）</td>
+            <td>約 NT$5,250</td>
+            <td>支援 VISA/Master/JCB/銀聯含海外。<a href="https://accupass.uservoice.com/knowledgebase/articles/1120435">來源</a></td>
+          </tr>
+          <tr>
+            <th scope="row">KKTIX</th>
+            <td>約 6%，每場 NT$800 起</td>
+            <td>約 NT$4,500</td>
+            <td>海外可用信用卡或 PayPal。<a href="https://kktix.com/pricing">來源</a></td>
+          </tr>
+          <tr>
+            <th scope="row">BeClass</th>
+            <td>平台 0 費，串綠界（約 2.75%）</td>
+            <td>約 NT$2,100（純金流費）</td>
+            <td>綠界海外卡須確認；UI 陽春、無 CRM 整合</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>破口：這些是純票務、不是 CRM，沒有跨活動聯絡人庫與捐款收據整合；無障礙未公開聲明，數位無障礙協會用未公開合規的平台有形象風險。只在「單次活動、純票務、不需 CRM 或抵稅收據」前提下成立。</p>
+
+    <h3>B. 自託管開源（把現金換成志工工時）</h3>
+    <ul>
+      <li><strong>Pretix 自託管</strong>：是少數有外部 WCAG 2.1/2.2 AA 無障礙審計依據的開源票務平台（僅前台、後台未審計），對數位無障礙協會的形象一致性有價值；但無台灣本地金流現成外掛，需自寫綠界/藍新外掛。<a href="https://docs.pretix.eu/trust/accessibility/">來源</a></li>
+      <li><strong>自架 netiCRM</strong>（NETivism 的 CiviCRM 台灣 fork，AGPL）：零授權費且原生支援台灣金流（藍新、綠界、LINE Pay、TapPay），但需 Drupal 與 LAMP 維運能力、官方無自架支援文件，實務上要長期技術人力。<a href="https://github.com/NETivism/netiCRM">來源</a></li>
+      <li><strong>免費台灣金流關鍵元件 <span class="tool">RY Tools for WooCommerce</span></strong>：免費、整合綠界與藍新、2026 仍活躍維護，是自架 WordPress 接台灣金流最成熟的免費路徑；綠界海外信用卡須為特約賣家才可在後台開啟。<a href="https://wordpress.org/plugins/ry-woocommerce-tools/">來源</a></li>
+    </ul>
+    <p>這條路同樣把成本從「現金」換成「志工工時」，所以回到下一節的高風險依賴：要有長期技術志工才成立。</p>
+  </section>
+
+  <section id="verdict" aria-labelledby="h-verdict">
+    <p class="section-num">05 / VERDICT</p>
+    <h2 id="h-verdict">結論與判斷</h2>
+    <p><strong>免費軟體不等於免費方案。</strong>自組 WordPress 在台灣划算的唯一條件，是有人願意免費、或以遠低於市場價（等於 netiCRM 年費除以年工時，約 NT$36/hr，低到不現實）做建置與每月維護。</p>
+
+    <div class="reco">
+      <span class="reco-label">判斷依據</span>
+      <p><strong>若有長期免費志工工程師</strong>，自組才有意義（省的是現金，花的是那位志工的時間）。但這個前提是<strong>高風險依賴</strong>：志工留任率偏低、技術志工常見「建置完成即離開」，人一走，金流、對帳、外掛更新、無障礙維護就斷（經 codex 雙模型查核確認）。</p>
+      <p><strong>沒有</strong>，以業界行情，自組第一年人力成本就遠超 netiCRM 數年的費用，且無障礙、對帳、合規、key-person 風險全要自己扛。</p>
+      <p>所以給理事會的問題不是「能不能免費兜出來」（能），是「<strong>誰要長期免費維護這個多系統拼裝站，而且人走了誰接</strong>」。</p>
+    </div>
+  </section>
+
+  <section id="method" aria-labelledby="h-method">
+    <p class="section-num">06 / METHOD</p>
+    <h2 id="h-method">方法與限制</h2>
+    <ul>
+      <li>50 個 codex agent（GPT-5.x 加 live web），每項要求列出「需要的人工」。</li>
+      <li>本頁數字經 2026-06 第二輪「Claude 加 codex 雙模型」深度複查校正（維護工時拆恆常與高峰、時薪分職類、netiCRM 基準、倍數改區間），並補上第三條路；codex 14 項跨模型查核全數執行。</li>
+      <li>工時為概估區間，實際依站況、是否雙語、是否要 QR 報到、捐款量而變；這裡取保守中位。</li>
+      <li>金流可用性（Stripe 與 Square 無台灣、PayPal 只跨境）為 2026-06 查證，屬會變動項，簽約前再確認。</li>
+      <li>本頁是「<a href="platform-two-routes.html">網站平台兩路線評估</a>」的補充，把路線 B「免費大軍」這條路的人工真相攤開。</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  APAC AIA · 免費自組方案完整比較 · 2026-06-04 · 研究方法：50 codex agents（GPT-5.x 加 live web）· 本頁為理事會參考文件，最終決策由理事會作成。
+</footer>
+
+</body>
+</html>
