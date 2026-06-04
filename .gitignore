@@ -4,3 +4,8 @@ verify_*.py
 *-verify.png
 verify-*.png
 form-part2-*.png
+
+# Superseded by platform-decision.html — kept local, removed from remote 2026-06-04
+pages/platform-two-routes.html
+pages/platform-two-routes-plain.html
+pages/free-stack-comparison.html
