@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>說明影片分鏡預覽：三條路徑（買 / 組 / 寫）｜ADALS</title>
+<style>
+  :root {
+    --bg: #ffffff; --surface: #f6f7f9; --surface-2: #eef1f5;
+    --text: #1a1a2e; --muted: #41475a; --accent: #0b4fd6; --border: #c8cdd8;
+    --crit: #b00020; --hl: #ffe69b;
+    --p1: #0a6b2e; --p2: #0b4fd6; --p3: #6a2c91;
+    --capbar: #14142a;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--surface); color: var(--text);
+    font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+    font-size: 17px; line-height: 1.7; }
+  .skip-link { position: absolute; left: -9999px; top: 0; background: var(--accent); color: #fff; padding: .6rem 1rem; z-index: 100; }
+  .skip-link:focus { left: 0; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  header.site { background: var(--bg); border-bottom: 2px solid var(--border); padding: 1.6rem 1.25rem; }
+  .wrap { max-width: 1020px; margin: 0 auto; }
+  h1 { font-size: 1.7rem; margin: 0 0 .4rem; line-height: 1.3; }
+  .sub { color: var(--muted); margin: 0; font-size: .98rem; }
+  main { padding: 1.2rem 1.25rem 3rem; }
+  .spec { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: .8rem 1rem; margin: 1rem 0 1.6rem; font-size: .95rem; max-width: 70ch; }
+  .spec strong.crit { color: var(--crit); }
+  mark { background: var(--hl); color: inherit; padding: 0 .15em; font-weight: 600; }
+
+  .scene { margin: 2rem 0; }
+  .scene h2 { font-size: 1.05rem; margin: 0 0 .5rem; color: var(--muted); font-weight: 600; border: 0; }
+  .frame {
+    aspect-ratio: 16 / 9; width: 100%; max-width: 960px;
+    background: var(--bg); border: 1px solid var(--border); border-radius: 10px;
+    display: flex; flex-direction: column; overflow: hidden;
+    box-shadow: 0 2px 10px rgba(20,20,42,.07);
+  }
+  .stage { flex: 1; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.1rem; padding: 1.2rem 2rem; text-align: center; }
+  .capbar { background: var(--capbar); color: #ffffff; padding: .75rem 1.4rem; font-size: 1.14rem; font-weight: 600; text-align: center; line-height: 1.5; flex-shrink: 0; }
+  .frame p { margin: 0; }
+  .fine { font-size: 1.02rem; color: var(--muted); font-weight: 600; }
+  .popup { background: var(--bg); border: 2px solid var(--accent); border-radius: 14px; padding: 1.3rem 2rem; box-shadow: 0 14px 40px rgba(20,20,42,.28); max-width: 84%; display: grid; gap: .6rem; justify-items: center; }
+  .popup .tagline { font-size: .9rem; font-weight: 800; color: var(--accent); letter-spacing: .25em; text-indent: .25em; }
+  @media (prefers-reduced-motion: no-preference) {
+    .play .pop { opacity: 0; transform: scale(.86); animation: popin .5s cubic-bezier(.2, .9, .3, 1.25) forwards; animation-delay: .4s; }
+    @keyframes popin { to { opacity: 1; transform: scale(1); } }
+  }
+  .kicker { font-size: .95rem; letter-spacing: .35em; text-indent: .35em; color: var(--muted); text-transform: uppercase; }
+  .big { font-size: 2.5rem; font-weight: 800; line-height: 1.25; }
+  .mid { font-size: 1.35rem; font-weight: 600; }
+  .chips { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  .chip { padding: .5rem 1.5rem; border-radius: 999px; font-size: 1.3rem; font-weight: 700; color: #fff; }
+  .chip.c1 { background: var(--p1); } .chip.c2 { background: var(--p2); } .chip.c3 { background: var(--p3); }
+  .pathnum { font-size: 3.6rem; font-weight: 800; line-height: 1; }
+  .pathnum.n1 { color: var(--p1); } .pathnum.n2 { color: var(--p2); } .pathnum.n3 { color: var(--p3); }
+  .bullets { list-style: none; padding: 0; margin: 0; font-size: 1.3rem; font-weight: 600; display: grid; gap: .45rem; }
+  .crit { color: var(--crit); font-weight: 800; }
+  .mini { border-collapse: collapse; font-size: 1.25rem; }
+  .mini th, .mini td { border: 2px solid var(--border); padding: .55rem 1.3rem; }
+  .mini thead th { background: var(--surface-2); }
+  .mini.compact { font-size: 1.02rem; }
+  .mini.compact th, .mini.compact td { padding: .4rem .7rem; }
+  .mini.dense { font-size: .95rem; }
+  .mini.dense th, .mini.dense td { padding: .3rem .5rem; }
+  .scorewrap { display: flex; gap: 2.6rem; align-items: flex-end; }
+  .scorecol { display: flex; flex-direction: column; align-items: center; gap: .4rem; font-weight: 700; }
+  .scorebar { width: 110px; border-radius: 8px 8px 0 0; }
+  .scoreval { font-size: 2rem; font-weight: 800; }
+  .tl { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; justify-content: center; font-size: 1.15rem; font-weight: 600; }
+  .tl .step { background: var(--surface-2); border: 2px solid var(--border); border-radius: 10px; padding: .55rem .95rem; }
+  .tl .step.now { background: var(--hl); border-color: var(--warn, #8a6d00); }
+  .tl .arrow { font-weight: 800; color: var(--muted); }
+  .replay { margin: .45rem 0 0; font: inherit; font-size: .9rem; padding: .35rem .95rem; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); cursor: pointer; color: var(--text); }
+  .replay:hover { background: var(--surface-2); }
+  .board { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; width: min(96%, 850px); }
+  .board .colhead { color: #fff; font-weight: 800; font-size: 1.15rem; text-align: center; padding: .4rem 0; border-radius: 8px; }
+  .board .rowlab { grid-column: 1 / -1; text-align: left; font-size: .9rem; color: var(--muted); font-weight: 700; margin-top: .15rem; }
+  .board .cell { background: var(--surface); border: 2px solid var(--border); border-radius: 8px; text-align: center; padding: .38rem .3rem; font-weight: 600; font-size: .95rem; line-height: 1.35; }
+  .board .key { background: var(--hl); border-color: #b08c1a; }
+  @media (prefers-reduced-motion: no-preference) {
+    .play .a-col { opacity: 0; transform: translateY(14px); animation: rise .45s ease-out forwards; }
+    .play .a-row { opacity: 0; transform: translateX(-14px); animation: slide .45s ease-out forwards; }
+    .play .grow { transform-origin: bottom; transform: scaleY(0); animation: growup .8s ease-out forwards; animation-delay: .3s; }
+    @keyframes rise { to { opacity: 1; transform: none; } }
+    @keyframes slide { to { opacity: 1; transform: none; } }
+    @keyframes growup { to { transform: scaleY(1); } }
+  }
+  footer.site { border-top: 2px solid var(--border); padding: 1.2rem 1.25rem; color: var(--muted); font-size: .9rem; background: var(--bg); }
+  @media (max-width: 640px) {
+    .big { font-size: 1.7rem; } .pathnum { font-size: 3rem; }
+    .bullets, .capbar { font-size: 1rem; } .mini { font-size: 1rem; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">跳至主要內容</a>
+<nav aria-label="頁面導覽" style="background:#003b5c; padding:12px 24px; display:flex; align-items:center; justify-content:flex-end; position:sticky; top:0; z-index:100;">
+  <a href="../index.html" style="color:#f8b62d; text-decoration:underline; text-underline-offset:3px; font-family:'Inter',sans-serif; font-size:13px; font-weight:600; letter-spacing:.5px; padding:6px 14px; border:2px solid transparent; border-radius:6px;" onmouseover="this.style.borderColor='#f8b62d';this.style.background='rgba(248,182,45,.15)'" onmouseout="this.style.borderColor='transparent';this.style.background='none'">返回專案文件</a>
+</nav>
+
+<header class="site">
+  <div class="wrap">
+    <h1>說明影片分鏡預覽：三條路徑（買 / 組 / 寫）</h1>
+    <p class="sub">每格 = 影片一個場景（16:9）。黑色橫條 = 內嵌字幕，女聲（曉臻）逐句唸字幕。</p>
+  </div>
+</header>
+
+<main id="main" class="wrap" tabindex="-1">
+
+  <div class="spec">
+    規格：1920×1080、約 120 秒、14 場景。<mark>場景時長以每句語音實際長度為準</mark>；秒數為預估。轉場用淡入淡出。確認視覺後，同一套版面餵給 HyperFrames 轉 MP4，再以 ffmpeg 合入語音。
+  </div>
+
+  <section class="scene" aria-labelledby="s1">
+    <h2 id="s1">場景 1｜開場（約 6 秒）</h2>
+    <div class="frame">
+      <div class="stage">
+        <p class="kicker">亞太包容創新協會 ADALS</p>
+        <p class="big">售票與金流：三條路</p>
+        <div class="chips">
+          <span class="chip c1">買</span>
+          <span class="chip c2">組</span>
+          <span class="chip c3">寫</span>
+        </div>
+      </div>
+      <p class="capbar">協會要賣票、收捐款、收會費，有三條路可以走。</p>
+    </div>
+  </section>
+
+  <section class="scene" aria-labelledby="s2">
+    <h2 id="s2">場景 2｜路徑 1：買（約 9 秒）</h2>
+    <div class="frame">
+      <div class="stage">
+        <p class="pathnum n1">1 買</p>
+        <ul class="bullets">
+          <li>netiCRM 一站全包</li>
+          <li>不用工程師</li>
+          <li><span class="crit">較高機率趕得上 6/30 開通</span></li>
+        </ul>
+        <p class="fine">2 年約 25,920・雙語 +10,500・電子發票 +16,800（選配、一次性）・刷卡手續費 2.2%（公益優惠費率）</p>
+      </div>
+      <p class="capbar">第一條，買：直接用 netiCRM，一站全包、不用工程師，是把握較高、趕得上六月底開通的路。</p>
+    </div>
+  </section>
+
+  <section class="scene" aria-labelledby="s3">
+    <h2 id="s3">場景 3｜路徑 2：組（約 9 秒）</h2>
+    <div class="frame">
+      <div class="stage" style="gap:.6rem;">
+        <p class="pathnum n2">2 組</p>
+        <ul class="bullets">
+          <li>WordPress ＋ 付費外掛</li>
+          <li>版面與無障礙自己控制</li>
+          <li><span class="crit">定期定額外掛每年付費</span></li>
+        </ul>
+        <table class="mini dense">
+          <tbody>
+            <tr><th scope="row">訂閱管理外掛</th><td>WooCommerce Subscriptions，US$279/年（約 NT$8,800）</td></tr>
+            <tr><th scope="row">定期扣款外掛</th><td>綠界版約 NT$4,788/年（按月計費 399）、藍新版要寫信問價</td></tr>
+            <tr><th scope="row">為什麼要買</th><td>免費外掛只能單次付款；自動扣款（年扣會費、月捐）就靠這兩個</td></tr>
+            <tr><th scope="row">電子發票（選配）</th><td>綠界官方外掛免費；服務設定費 3,600 未稅＋年費（新戶有 0 元方案）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="capbar">第二條，組：WordPress 加付費外掛，版面與無障礙自己控制；會費要自動續扣，得買訂閱外掛和扣款外掛，每年付費。</p>
+    </div>
+  </section>
+
+  <section class="scene" aria-labelledby="s4">
+    <h2 id="s4">場景 4｜路徑 3：寫（約 9 秒）</h2>
+    <div class="frame">
+      <div class="stage">
+        <p class="pathnum n3">3 寫</p>
+        <ul class="bullets">
+          <li>WordPress ＋ 金流程式自己寫</li>
+          <li>省下外掛年費</li>
+          <li><span class="crit">換成寫程式與長期照顧的責任</span></li>
+        </ul>
+        <p class="fine">一次性付款用免費外掛就好・只有自動扣款與發票要自己寫・AI 可幫忙寫大半</p>
+      </div>
+      <p class="capbar">第三條，寫：同樣 WordPress，定期定額改自己串接藍新，省下年費、換成工程與維護責任。</p>
+    </div>
+  </section>
+
+  <section class="scene" aria-labelledby="s5">
+    <h2 id="s5">場景 5｜快速對比（動畫，約 9 秒）</h2>
+    <button type="button" class="replay">重播動畫</button>
+    <div class="frame animate">
+      <div class="stage" style="gap:.7rem;">
+        <div class="board">
+          <p class="colhead a-col" style="background:var(--p1);animation-delay:.1s;margin:0;">買</p>
+          <p class="colhead a-col" style="background:var(--p2);animation-delay:.25s;margin:0;">組</p>
+          <p class="colhead a-col" style="background:var(--p3);animation-delay:.4s;margin:0;">寫</p>
+          <p class="rowlab a-row" style="animation-delay:1s;margin:0;">會員定期定額（關鍵分歧）</p>
+          <p class="cell key a-row" style="animation-delay:1.15s;margin:0;">內建</p>
+          <p class="cell a-row" style="animation-delay:1.3s;margin:0;"><span class="crit">付費外掛</span>（已查證）</p>
+          <p class="cell a-row" style="animation-delay:1.45s;margin:0;">自己寫（尚未研究做法）</p>
+          <p class="rowlab a-row" style="animation-delay:2.4s;margin:0;">上線速度</p>
+          <p class="cell key a-row" style="animation-delay:2.55s;margin:0;"><span class="crit">較高機率趕上 6/30</span></p>
+          <p class="cell a-row" style="animation-delay:2.7s;margin:0;">數週</p>
+          <p class="cell a-row" style="animation-delay:2.85s;margin:0;">不趕活動，慢慢研究</p>
+          <p class="rowlab a-row" style="animation-delay:3.8s;margin:0;">經常性年費</p>
+          <p class="cell a-row" style="animation-delay:3.95s;margin:0;">12,960</p>
+          <p class="cell a-row" style="animation-delay:4.1s;margin:0;">外掛年費約 13,600</p>
+          <p class="cell a-row" style="animation-delay:4.25s;margin:0;">0（但要自己花時間顧）</p>
+        </div>
+        <p class="fine">老實說：組的做法已查證但還沒架設測試過；寫連做法都還沒研究；買的內建是現役功能</p>
+      </div>
+      <p class="capbar">把三條路並排比：定期定額，買是內建、組要付費、寫要自己寫；上線速度，買的把握較高，組也可能趕得上。</p>
+    </div>
+  </section>
+
+  <section class="scene" aria-labelledby="s6">
+    <h2 id="s6">場景 6｜價格與人力總表（約 12 秒）</h2>
+    <div class="frame">
+      <div class="stage">
+        <p class="mid">三條路：第一年、第二年各花多少</p>
+        <table class="mini compact">
+          <thead><tr><th scope="col">項目</th><th scope="col">買</th><th scope="col">組</th><th scope="col">寫</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">第一年現金</th><td>NT$36,420</td><td>約 NT$13,600</td><td>趨近 0</td></tr>
+            <tr><th scope="row">第二年現金</th><td><mark>NT$0</mark></td><td>約 NT$13,600</td><td>趨近 0</td></tr>
+            <tr><th scope="row">人力（第一年合計）</th><td>約 3 至 5 天（行政；壞了廠商修）</td><td>約 20 至 40 天（架站＋全年顧站）</td><td>約 30 至 60 天（寫程式＋全年照顧）</td></tr>
+          </tbody>
+        </table>
+        <p class="fine">主機與網域協會已在付（官網沿用、三條路共同），不另計・扣款外掛只有組要買（綠界版；藍新版無現成品）；寫＝自己寫不買外掛・電子發票 +16,800 另計</p>
+      </div>
+      <p class="capbar">錢的部分：買，第一年三萬六、第二年零；組，每年一萬多；寫，幾乎零。但時間成本剛好反過來。</p>
+    </div>
+  </section>
+
+  <section class="scene" aria-labelledby="s6b">
+    <h2 id="s6b">場景 6B｜先不做自動扣款的省錢版（約 10 秒）</h2>
+    <div class="frame">
+      <div class="stage" style="gap:.8rem;">
+        <p class="mid">會費先手動繳：「組」的外掛費歸零</p>
+        <table class="mini compact">
+          <thead><tr><th scope="col">項目</th><th scope="col">買</th><th scope="col">組（免費版）</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">第一年現金</th><td>NT$36,420</td><td><mark>0</mark></td></tr>
+            <tr><th scope="row">第二年現金</th><td>NT$0（已預繳）</td><td><mark>0</mark></td></tr>
+            <tr><th scope="row">人力（第一年）</th><td>約 3 至 5 天</td><td><span class="crit">約 20 至 40 天＋開賣待命</span></td></tr>
+            <tr><th scope="row">收據與發票</th><td>收據自動開</td><td><span class="crit">人工開</span></td></tr>
+          </tbody>
+        </table>
+        <p class="fine">會費依章程年繳：自動扣款每人每年只省一次點擊；全自動的真正用途是月捐（netiCRM 內建）</p>
+      </div>
+      <p class="capbar">也有省錢版：先不做自動扣款，「組」的外掛費直接歸零。但人力和開賣待命還是要有人扛，收據改人工開。錢省下來，時間付出去。</p>
+    </div>
+  </section>
+
+  <section class="scene" aria-labelledby="s7">
+    <h2 id="s7">場景 7｜無障礙分數（動畫，約 11 秒）</h2>
+    <button type="button" class="replay">重播動畫</button>
+    <div class="frame animate">
+      <div class="stage">
+        <p class="mid">無障礙分數（Lighthouse 實測）</p>
+        <div class="scorewrap">
+          <div class="scorecol">
+            <span class="scoreval">87–92</span>
+            <div class="scorebar grow" style="height:90px;background:var(--p1);"></div>
+            <span>netiCRM</span>
+          </div>
+          <div class="scorecol">
+            <span class="scoreval">94</span>
+            <div class="scorebar grow" style="height:94px;background:var(--p2);animation-delay:.55s;"></div>
+            <span>自己架的結帳頁（範例實測）</span>
+          </div>
+        </div>
+        <p class="fine">Google Lighthouse・2026-06 實測・差距僅數分・94 為現成範例的結帳頁；自建越多，要自己處理的問題也越多</p>
+      </div>
+      <p class="capbar">無障礙分數：netiCRM 八十七到九十二；自己架的結帳頁，範例實測九十四。差距不大，而且自建越多、要自己顧的問題也越多。</p>
+    </div>
+  </section>
+
+  <section class="scene" aria-labelledby="s8">
+    <h2 id="s8">場景 8｜分數的邊界（約 9 秒）</h2>
+    <div class="frame">
+      <div class="stage">
+        <p class="big"><span class="crit">分數 ≠ 無障礙</span></p>
+        <ul class="bullets">
+          <li>自動測試只涵蓋約三到四成檢測項目</li>
+          <li>螢幕報讀器與真實使用體驗，工具測不到</li>
+          <li><span class="crit">上線前要人工實測</span>；建議找身障使用者走流程</li>
+        </ul>
+      </div>
+      <p class="capbar">但要強調：分數只反映自動測試；螢幕報讀器與真實使用者的體驗，工具測不到，上線前要人工實測。</p>
+    </div>
+  </section>
+
+  <section class="scene" aria-labelledby="s9">
+    <h2 id="s9">場景 9｜為什麼不自己做一個？（約 11 秒）</h2>
+    <div class="frame">
+      <div class="stage">
+        <p class="mid">為什麼不自己兜一個更無障礙的？</p>
+        <table class="mini">
+          <thead><tr><th scope="col">自己做的售票頁（WooCommerce）</th><th scope="col">netiCRM 售票頁</th></tr></thead>
+          <tbody><tr><td>94（範例實測）</td><td>87 到 92</td></tr></tbody>
+        </table>
+        <p class="mid"><span class="crit">刷卡那一步：兩種做法最後都跳到同一個藍新付款頁</span></p>
+        <p class="fine">兩種做法都串藍新金流：自己做＝WooCommerce 售票頁（範例 94）→ 藍新付款；買＝netiCRM 售票頁（92）→ 藍新付款</p>
+      </div>
+      <p class="capbar">有人問：為什麼不自己做？因為刷卡那一步，自己做也一樣會跳到藍新付款頁；真正的差距只在售票頁，九十二比九十四。</p>
+    </div>
+  </section>
+
+  <section class="scene" aria-labelledby="s10">
+    <h2 id="s10">場景 10｜那現成平台呢？（約 12 秒）</h2>
+    <div class="frame">
+      <div class="stage" style="gap:.7rem;">
+        <p class="mid">也有人問：用現成售票平台就好？</p>
+        <table class="mini dense" style="margin:0;">
+          <thead><tr><th scope="col">項目</th><th scope="col">ACCUPASS</th><th scope="col">Eventbrite</th><th scope="col">netiCRM</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">無障礙分數</th><td><span class="crit">79</span>（語言標錯、鎖縮放）</td><td>100</td><td>87 到 92</td></tr>
+            <tr><th scope="row">台灣付費金流</th><td>可</td><td><span class="crit">收不到台灣的錢</span></td><td>可（藍新 2.2%）</td></tr>
+            <tr><th scope="row">涵蓋需求</th><td><span class="crit">只有售票</span></td><td>只有售票（免費場可用）</td><td><mark>售票＋捐款＋會員</mark></td></tr>
+            <tr><th scope="row">能否推動改善</th><td>大平台，難</td><td>大平台，難</td><td>專注 NPO 的廠商，<mark>已在對話中</mark></td></tr>
+          </tbody>
+        </table>
+        <p class="fine">分數為 2026-06 實測・Eventbrite 受 PayPal 禁令・ACCUPASS 問題在平台層，無法自行修</p>
+      </div>
+      <p class="capbar">那用現成平台就好？Eventbrite 一百分，但收不到台灣的錢；ACCUPASS 七十九分、只做售票。捐款和會員，還是只有一站全包的選項做得到。</p>
+    </div>
+  </section>
+
+  <section class="scene" aria-labelledby="s11">
+    <h2 id="s11">場景 11｜彈出提醒：步數迷思（動畫，約 10 秒）</h2>
+    <button type="button" class="replay">重播動畫</button>
+    <div class="frame animate">
+      <div class="stage" style="background:var(--surface-2);">
+        <div class="popup pop">
+          <p class="tagline">無障礙專業提醒</p>
+          <p class="big" style="font-size:2rem;">步數少 ≠ 更無障礙</p>
+          <ul class="bullets" style="font-size:1.12rem;">
+            <li><mark>分步驟＋清楚進度＋不重複輸入</mark>＝可輕鬆使用的結帳</li>
+            <li>一頁塞滿票種、個資、付款＝<span class="crit">認知負荷過高</span></li>
+          </ul>
+          <p class="fine">重點不是幾步，是每一步乾不乾淨</p>
+        </div>
+      </div>
+      <p class="capbar">補充提醒：步驟少不等於更無障礙；分步驟、進度清楚、不重複輸入，才是可輕鬆使用的結帳模式。</p>
+    </div>
+  </section>
+
+  <section class="scene" aria-labelledby="s12">
+    <h2 id="s12">場景 12｜各自做最擅長的（約 11 秒）</h2>
+    <div class="frame">
+      <div class="stage">
+        <ul class="bullets">
+          <li>官網・活動頁 → <mark>設計師打造（目標 94 以上）</mark></li>
+          <li>報名・金流 → netiCRM（收據・定期定額・<span class="crit">有人負責修</span>）</li>
+          <li>稽核清單 → 推動廠商改善，惠及全台用它的協會</li>
+        </ul>
+        <p class="fine">netiCRM 報名頁的排版由協會自行調整（30 天導入陪伴會帶著做）・官網到報名的動線仍由設計師主導</p>
+        <p class="fine">前提：協會現為精簡編制（無專職人力），系統建置與維運不強押、也不佔用過多志工與理事會的個人時間，付出才可持續</p>
+      </div>
+      <p class="capbar">以協會目前的精簡編制，分工是：官網與活動頁由設計師做到最無障礙；報名與金流交給有人負責修的系統；再推動廠商改善，惠及更多協會。</p>
+    </div>
+  </section>
+
+  <section class="scene" aria-labelledby="s13">
+    <h2 id="s13">場景 13｜時間軸（約 8 秒）</h2>
+    <div class="frame">
+      <div class="stage">
+        <div class="tl">
+          <span class="step now">6/30 netiCRM 上線</span>
+          <span class="arrow" aria-hidden="true">→</span>
+          <span class="step">9 月活動</span>
+          <span class="arrow" aria-hidden="true">→</span>
+          <span class="step">看實際成果</span>
+          <span class="arrow" aria-hidden="true">→</span>
+          <span class="step">再決定要不要換</span>
+        </div>
+        <p class="fine">可先在測試環境試做、完全不影響正式運作・10 月看實際成果再檢討</p>
+      </div>
+      <p class="capbar">建議走法：六月底先用 netiCRM 上線；九月活動辦完，看實際成果再決定要不要換系統。</p>
+    </div>
+  </section>
+
+  <section class="scene" aria-labelledby="s14">
+    <h2 id="s14">場景 14｜收尾（約 5 秒）</h2>
+    <div class="frame">
+      <div class="stage">
+        <p class="fine"><mark>前提：維持目標在六月底開始售票</mark></p>
+        <p class="big">先求有，再求自主。</p>
+        <p class="mid" style="color:var(--muted);">完整比較見參考頁</p>
+        <p class="fine">上線前人工實測（特別是螢幕閱讀器）確保真實可用；盡力符合無障礙，分數當參考、90 分以上不當主要目標</p>
+      </div>
+      <p class="capbar">如果維持目標在六月底開始售票：三條路不是三選一，是先求有、再求自主。</p>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  (function () {
+    var frames = document.querySelectorAll('.frame.animate');
+    frames.forEach(function (f) { f.classList.add('play'); });
+    document.querySelectorAll('.replay').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var frame = btn.closest('section').querySelector('.frame');
+        frame.classList.remove('play');
+        void frame.offsetWidth;
+        frame.classList.add('play');
+      });
+    });
+  })();
+</script>
+
+<footer class="site">
+  <div class="wrap">
+    <p>分鏡預覽。視覺確認後以 HyperFrames 轉 1920×1080 MP4，語音用 Edge TTS 女聲（曉臻）逐句生成、字幕與場景時長對齊語音。</p>
+  </div>
+</footer>
+
+</body>
+</html>

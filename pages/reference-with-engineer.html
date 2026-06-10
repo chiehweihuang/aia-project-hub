@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>售票與金流方案參考頁（有常駐工程師版）｜無障礙實測對照</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f6f7f9;
+    --surface-2: #eef1f5;
+    --text: #1a1a2e;
+    --muted: #41475a;
+    --accent: #0b4fd6;
+    --border: #c8cdd8;
+    --can: #0a6b2e;
+    --can-bg: #eef7f0;
+    --miss: #8a3310;
+    --miss-bg: #fbf1ea;
+    --warn: #8a6d00;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+  }
+  .skip-link { position: absolute; left: -9999px; top: 0; background: var(--accent); color: #fff; padding: .6rem 1rem; z-index: 100; border-radius: 0 0 8px 0; }
+  .skip-link:focus { left: 0; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  header.site { background: var(--surface); border-bottom: 2px solid var(--border); padding: 2rem 1.25rem; }
+  .wrap { max-width: 1040px; margin: 0 auto; }
+  h1 { font-size: 1.9rem; line-height: 1.3; margin: 0 0 .5rem; }
+  .sub { color: var(--muted); margin: 0; font-size: 1rem; }
+  main { padding: 1.5rem 1.25rem 3rem; }
+  section { margin: 2.5rem 0; }
+  h2 { font-size: 1.45rem; border-bottom: 2px solid var(--border); padding-bottom: .35rem; margin-top: 2.5rem; }
+  h3 { font-size: 1.2rem; margin: 1.5rem 0 .5rem; }
+  p { max-width: 70ch; }
+  a { color: var(--accent); text-decoration: underline; }
+  a:hover { text-decoration: none; }
+  .note { background: var(--surface); border-left: 4px solid var(--accent); padding: .9rem 1.1rem; border-radius: 0 8px 8px 0; max-width: 80ch; }
+  .note.warn { border-left-color: var(--warn); }
+  .note.good { border-left-color: var(--can); }
+  .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 8px; margin: 1rem 0; }
+  table { border-collapse: collapse; width: 100%; min-width: 640px; }
+  caption { text-align: left; font-weight: 700; padding: .6rem .8rem; background: var(--surface-2); }
+  th, td { padding: .6rem .8rem; text-align: left; border-bottom: 1px solid var(--border); vertical-align: top; font-size: .98rem; }
+  thead th { background: var(--surface); border-bottom: 2px solid var(--border); }
+  tbody th { font-weight: 600; }
+  tr:last-child td, tr:last-child th { border-bottom: none; }
+  .cards { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); }
+  .card { border: 1px solid var(--border); border-radius: 10px; padding: 1.1rem 1.2rem; background: var(--bg); }
+  .card h3 { margin-top: 0; }
+  .badge { display: inline-block; font-size: .85rem; font-weight: 700; padding: .15rem .55rem; border-radius: 999px; background: var(--surface-2); color: var(--muted); margin-left: .35rem; }
+  .can h4, .miss h4 { font-size: 1rem; margin: .9rem 0 .35rem; }
+  .can h4 { color: var(--can); }
+  .miss h4 { color: var(--miss); }
+  .can ul { border-left: 3px solid var(--can); background: var(--can-bg); }
+  .miss ul { border-left: 3px solid var(--miss); background: var(--miss-bg); }
+  .can ul, .miss ul { margin: 0; padding: .6rem 1rem .6rem 1.6rem; border-radius: 0 6px 6px 0; }
+  .can li, .miss li { margin: .25rem 0; font-size: .96rem; }
+  ul.refs li { margin: .35rem 0; word-break: break-word; }
+  footer.site { border-top: 2px solid var(--border); padding: 1.5rem 1.25rem; color: var(--muted); font-size: .9rem; background: var(--surface); }
+  .meta-list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; color: var(--muted); font-size: .92rem; }
+  @media (max-width: 480px) { body { font-size: 16px; } h1 { font-size: 1.55rem; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">跳至主要內容</a>
+<nav aria-label="頁面導覽" style="background:#003b5c; padding:12px 24px; display:flex; align-items:center; justify-content:space-between; gap:12px; position:sticky; top:0; z-index:100;">
+  <a href="platform-decision.html" style="color:#f8b62d; text-decoration:underline; text-underline-offset:3px; font-family:'Inter',sans-serif; font-size:13px; font-weight:600; letter-spacing:.5px; padding:6px 14px; border:2px solid transparent; border-radius:6px;" onmouseover="this.style.borderColor='#f8b62d';this.style.background='rgba(248,182,45,.15)'" onmouseout="this.style.borderColor='transparent';this.style.background='none'">← 三條路徑頭對頭比較</a>
+  <a href="../index.html" style="color:#f8b62d; text-decoration:underline; text-underline-offset:3px; font-family:'Inter',sans-serif; font-size:13px; font-weight:600; letter-spacing:.5px; padding:6px 14px; border:2px solid transparent; border-radius:6px;" onmouseover="this.style.borderColor='#f8b62d';this.style.background='rgba(248,182,45,.15)'" onmouseout="this.style.borderColor='transparent';this.style.background='none'">返回專案文件</a>
+</nav>
+
+<header class="site">
+  <div class="wrap">
+    <h1>售票與金流方案參考頁</h1>
+    <p class="sub">有常駐工程師版｜亞太包容創新協會（ADALS）</p>
+    <ul class="meta-list">
+      <li>實測日期：2026-06-09</li>
+      <li>標準：WCAG 2.2 AA</li>
+      <li>主要基準：Google Lighthouse</li>
+      <li>前提：本會有可長期維護的開發人力</li>
+    </ul>
+    <nav aria-label="版本切換" style="margin-top:1rem;padding:.6rem .9rem;background:var(--surface-2);border-radius:8px;font-size:.95rem;">
+      目前閱讀：<strong>有常駐工程師版</strong>　·　另有 <a href="reference-no-engineer.html">現況版（無工程師）</a>，那版只含免工程的現成系統。
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap" tabindex="-1">
+
+  <section aria-labelledby="diff-h">
+    <h2 id="diff-h">有工程師之後，什麼改變了</h2>
+    <p>現況版的核心限制是：沒有開發人力，所以只能用現成系統，而現成系統的結帳頁無障礙由廠商決定、本會改不了，只能挑分數較好的再回報廠商。</p>
+    <p>有一位能長期維護的工程師之後，這個天花板被掀開：本會可以<strong>自建結帳頁，把無障礙的主導權完全拿回來</strong>。金流商縮小成「只負責收款的嵌入元件或幕後 API」，無障礙不再外包出去。決策重點也從「要忍受哪家廠商的無障礙缺陷」變成「把它一次做對」。</p>
+    <p class="note good">可達成的證據：自建頁能做到 Lighthouse 無障礙 100。你正在看的這份參考頁就是自建的 HTML，實測 Lighthouse 無障礙 100、axe 0 違規。換句話說，自建路線的無障礙上限等同 Eventbrite（各方案最高分），而且全部在本會自己掌握。</p>
+  </section>
+
+  <section aria-labelledby="still-h">
+    <h2 id="still-h">仍然不變的限制</h2>
+    <p>有工程師能解掉「無障礙不可控」與「整合複雜」，但有些限制跟有沒有工程師無關，依舊成立：</p>
+    <ul>
+      <li><strong>Eventbrite 一樣收不到台灣付費款</strong>（PayPal 國內禁令），它的角色仍只能是免費活動或國際曝光前台。</li>
+      <li><strong>Stripe 仍需外國實體</strong>才能在台灣本地收款；差別是有工程師時，Stripe 的串接與訂閱管理變得可行，若本會願意承擔美國公司的設立與法稅，它的訂閱能力是各方案最強。</li>
+      <li><strong>信用卡輸入仍由金流商處理</strong>，但用嵌入式元件（TapPay Fields、Stripe Elements）可把它嵌進自家頁面、只剩卡號 iframe 屬廠商，周邊全由本會控制，遠優於現成系統的整頁導轉。</li>
+      <li><strong>電子發票與捐贈收據</strong>仍要串接財政部認可的服務（綠界、ezPay 等），但工程師可把它接進自建流程，自動開立。</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="opt-h">
+    <h2 id="opt-h">有工程師時的可行方案：能做什麼、缺少什麼</h2>
+    <div class="cards">
+
+      <article class="card" aria-labelledby="o-self">
+        <h3 id="o-self">自建無障礙結帳頁 + TapPay Fields + 綠界/藍新幕後取號<span class="badge">a11y 可達 100</span></h3>
+        <p>自建結帳頁，信用卡與會員定期定額走 TapPay Fields（嵌入、不跳轉），超商與 ATM 走綠界或藍新的幕後取號 API，電子發票走綠界或 ezPay。這是《無障礙購票流程設計指南》的藍圖。</p>
+        <div class="can"><h4>能做到</h4><ul>
+          <li>無障礙完全自控，可達 100（本頁即證明）</li>
+          <li>售票、捐款、會員定期定額長在同一條自有台灣金流上</li>
+          <li>TapPay Fields 嵌入不跳轉、撥款 T+3、token 做訂閱會員</li>
+          <li>超商與 ATM 用幕後取號，繳費說明頁自繪、也無障礙</li>
+          <li>電子發票自動開立</li>
+        </ul></div>
+        <div class="miss"><h4>缺少 / 成本</h4><ul>
+          <li>需開發與長期維護（這正是本方案的前提）</li>
+          <li>TapPay 卡號 iframe 內部 a11y 無公開文件，須自行用 axe 與報讀器實測</li>
+          <li>TapPay 與定期定額費率需洽談</li>
+          <li>初期開發時間較長</li>
+        </ul></div>
+      </article>
+
+      <article class="card" aria-labelledby="o-stripe">
+        <h3 id="o-stripe">自建 + Stripe Elements（需外國實體）<span class="badge">訂閱最強</span></h3>
+        <p>用 Stripe 的嵌入式元件做結帳，搭配 Stripe Billing 管理會員訂閱。需先設美國公司。</p>
+        <div class="can"><h4>能做到</h4><ul>
+          <li>業界最強的訂閱與會員扣款管理、客戶自助入口</li>
+          <li>Stripe Elements 無障礙基線佳，工程師可補足周邊</li>
+          <li>國際收款順暢</li>
+        </ul></div>
+        <div class="miss"><h4>缺少 / 成本</h4><ul>
+          <li>台灣需另設美國公司（法稅與維運負擔）</li>
+          <li>費率疊加約 5.4%</li>
+          <li>無台灣電子發票，需另接；撥款須中轉</li>
+          <li>無台灣本地付款（超商、ATM）</li>
+        </ul></div>
+      </article>
+
+      <article class="card" aria-labelledby="o-woo">
+        <h3 id="o-woo">客製化 WordPress + WooCommerce（工程師維護）<span class="badge">a11y 94+</span></h3>
+        <p>與現況版的 WooCommerce 同底，但由工程師客製主題與維護，維運風險大幅降低。</p>
+        <div class="can"><h4>能做到</h4><ul>
+          <li>開源生態、外掛多，售票、捐款、會員皆可</li>
+          <li>無障礙自控（客製無障礙佈景主題，可超過 94）</li>
+          <li>本地付款外掛齊全；工程師維護更新與安全</li>
+        </ul></div>
+        <div class="miss"><h4>缺少 / 成本</h4><ul>
+          <li>仍需組訂閱與電子發票外掛（部分付費）</li>
+          <li>信用卡輸入仍跳轉金流頁，除非改用 TapPay Fields 客製</li>
+          <li>WordPress 站的長期維護成本（有工程師則可承擔）</li>
+        </ul></div>
+      </article>
+
+      <article class="card" aria-labelledby="o-saas">
+        <h3 id="o-saas">現成 SaaS（netiCRM 等，仍可用）<span class="badge">過渡/對照</span></h3>
+        <p>有工程師不代表一定要自建。現成系統仍是快速起步或過渡的選擇。</p>
+        <div class="can"><h4>能做到</h4><ul>
+          <li>最快上線、零開發（netiCRM 一站包售票/捐款/會員）</li>
+          <li>適合在自建系統完成前先運作</li>
+        </ul></div>
+        <div class="miss"><h4>缺少</h4><ul>
+          <li>無障礙仍受制於廠商（改不了，只能回報）</li>
+          <li>有工程師時，通常會為了拿回 a11y 主導權而轉向自建</li>
+        </ul></div>
+      </article>
+
+    </div>
+  </section>
+
+  <section aria-labelledby="arch-h">
+    <h2 id="arch-h">建議的技術架構（藍圖）</h2>
+    <p>若採自建路線，最大化無障礙的組合是：</p>
+    <div class="note">
+      <strong>自建無障礙結帳頁</strong>（票種、報名表單、錯誤、即時朗讀、鍵盤流程、座位倒數 = 全自控）<br>
+      ├ 信用卡 / 定期定額會員 → <strong>TapPay Fields</strong>（嵌入、不跳轉、撥款 T+3）<br>
+      ├ 超商 / ATM（無卡者）→ <strong>綠界或藍新幕後取號 API</strong>（繳費說明頁自繪）<br>
+      └ 電子發票 / 捐贈收據 → <strong>綠界或 ezPay</strong>（財政部認可）
+    </div>
+    <p>完整的頁面層無障礙規格（語意結構、表單、彈窗、倒數計時 2.2.1、搶票驗證 3.3.8、狀態朗讀 4.1.3 等）見工程藍圖文件 <code>accessible-ticketing-flow.md</code>。那份文件正是為「有工程師」情境而寫。</p>
+  </section>
+
+  <section aria-labelledby="cmp-h">
+    <h2 id="cmp-h">兩個情境差在哪</h2>
+    <div class="table-wrap" role="region" aria-label="有無工程師情境對照" tabindex="0">
+      <table>
+        <caption>同一件事，兩種人力前提下的差異</caption>
+        <thead>
+          <tr><th scope="col">面向</th><th scope="col">現況（無工程師）</th><th scope="col">有常駐工程師</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">無障礙可控性</th><td>低，受制於廠商頁面</td><td>高，自建頁可達 100</td></tr>
+          <tr><th scope="row">主要路線</th><td>netiCRM 或現成平台</td><td>自建頁 + TapPay Fields + 幕後取號</td></tr>
+          <tr><th scope="row">售票/捐款/會員一體</th><td>靠 netiCRM 一站</td><td>自建在同一條自有金流</td></tr>
+          <tr><th scope="row">本地付款（超商/ATM）</th><td>有（平台內建）</td><td>有（幕後取號自繪頁）</td></tr>
+          <tr><th scope="row">起步速度</th><td>快（設定即可）</td><td>慢（需開發）</td></tr>
+          <tr><th scope="row">長期維護</th><td>廠商負責</td><td>本會工程師負責</td></tr>
+          <tr><th scope="row">無障礙倡議價值</th><td>挑最好的 + 推廠商改</td><td>自己做出標竿、可對外示範</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="limit-h">
+    <h2 id="limit-h">限制（待補）</h2>
+    <ul>
+      <li><strong>嵌入元件的卡欄位 a11y 需自測：</strong>TapPay Fields 與 Stripe Elements 的 iframe 內部無公開無障礙文件，上線前須用 axe 與螢幕報讀器實測那幾個欄位。</li>
+      <li><strong>精確費率待洽詢：</strong>TapPay 與定期定額費率多為非公開，需洽談。</li>
+      <li><strong>Stripe 路線需評估外國實體：</strong>法稅、撥款中轉、無台灣發票等成本要先算清楚。</li>
+      <li><strong>開發與維護承諾：</strong>自建是一個牽涉金流的系統，需要工程師長期在位，這是此情境的根本前提。</li>
+      <li><strong>真人測試：</strong>自動化只覆蓋約三到四成 WCAG，上線前仍應找身障使用者實走、用螢幕報讀器驗證。</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="ref-h">
+    <h2 id="ref-h">參考連結</h2>
+    <h3>工程藍圖與嵌入元件</h3>
+    <ul class="refs">
+      <li>頁面層無障礙規格藍圖：<code>accessible-ticketing-flow.md</code>（同資料夾）</li>
+      <li><a href="https://github.com/TapPay/tappay-web-example">TapPay Fields 範例與文件</a>（嵌入式刷卡欄位）</li>
+      <li><a href="https://docs.tappaysdk.com/tutorial/zh/advanced.html">TapPay 定期定額（card token）</a></li>
+      <li><a href="https://docs.stripe.com/payments/payment-element">Stripe Payment Element 文件</a>／<a href="https://docs.stripe.com/billing/subscriptions/overview">Stripe Billing 訂閱</a></li>
+      <li><a href="https://developers.ecpay.com.tw/?p=2868">綠界信用卡定期定額 API</a></li>
+    </ul>
+    <h3>金流可行性依據</h3>
+    <ul class="refs">
+      <li><a href="https://www.taipeitimes.com/News/biz/archives/2015/09/11/2003627405">PayPal 停止台灣國內交易（Taipei Times, 2015）</a></li>
+      <li><a href="https://stripe.com/global">Stripe 全球支援國家（不含台灣）</a></li>
+      <li><a href="https://www.tappaysdk.com/taiwan-zhtw/help/pricing">TapPay 費率</a>／<a href="https://www.ecpay.com.tw/Business/payment_fees">綠界費率</a>／<a href="https://www.newebpay.com/website/Page/content/service_fare">藍新費率</a></li>
+    </ul>
+    <h3>稽核方法</h3>
+    <ul class="refs">
+      <li>無障礙引擎：axe-core 4.10（Lighthouse 與 Beacon 共用）；標準：WCAG 2.2 AA</li>
+      <li>各平台實測網址與分數見 <a href="reference-no-engineer.html">現況版</a> 的實測對照表</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>亞太包容創新協會（ADALS）內部參考文件。無障礙分數屬方向性參考，會隨測試環境波動。本頁與現況版皆以 WCAG 2.2 AA 標準製作，並經實測（Lighthouse 無障礙 100），作為無障礙實作的示範。</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>售票與金流方案參考頁（現況版：無常駐工程師）｜無障礙實測對照</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f6f7f9;
+    --surface-2: #eef1f5;
+    --text: #1a1a2e;
+    --muted: #41475a;
+    --accent: #0b4fd6;
+    --border: #c8cdd8;
+    --can: #0a6b2e;
+    --can-bg: #eef7f0;
+    --miss: #8a3310;
+    --miss-bg: #fbf1ea;
+    --warn: #8a6d00;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+  }
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--accent);
+    color: #fff;
+    padding: .6rem 1rem;
+    z-index: 100;
+    border-radius: 0 0 8px 0;
+  }
+  .skip-link:focus { left: 0; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  header.site {
+    background: var(--surface);
+    border-bottom: 2px solid var(--border);
+    padding: 2rem 1.25rem;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; }
+  h1 { font-size: 1.9rem; line-height: 1.3; margin: 0 0 .5rem; }
+  .sub { color: var(--muted); margin: 0; font-size: 1rem; }
+  main { padding: 1.5rem 1.25rem 3rem; }
+  section { margin: 2.5rem 0; }
+  h2 {
+    font-size: 1.45rem;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: .35rem;
+    margin-top: 2.5rem;
+  }
+  h3 { font-size: 1.2rem; margin: 1.5rem 0 .5rem; }
+  p { max-width: 70ch; }
+  a { color: var(--accent); text-decoration: underline; }
+  a:hover { text-decoration: none; }
+  .note {
+    background: var(--surface);
+    border-left: 4px solid var(--accent);
+    padding: .9rem 1.1rem;
+    border-radius: 0 8px 8px 0;
+    max-width: 80ch;
+  }
+  .note.warn { border-left-color: var(--warn); }
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin: 1rem 0;
+  }
+  table { border-collapse: collapse; width: 100%; min-width: 640px; }
+  caption { text-align: left; font-weight: 700; padding: .6rem .8rem; background: var(--surface-2); }
+  th, td { padding: .6rem .8rem; text-align: left; border-bottom: 1px solid var(--border); vertical-align: top; font-size: .98rem; }
+  thead th { background: var(--surface); border-bottom: 2px solid var(--border); }
+  tbody th { font-weight: 600; }
+  tr:last-child td, tr:last-child th { border-bottom: none; }
+  .score { font-variant-numeric: tabular-nums; font-weight: 700; }
+  .cards { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); }
+  .card { border: 1px solid var(--border); border-radius: 10px; padding: 1.1rem 1.2rem; background: var(--bg); }
+  .card h3 { margin-top: 0; }
+  .badge { display: inline-block; font-size: .85rem; font-weight: 700; padding: .15rem .55rem; border-radius: 999px; background: var(--surface-2); color: var(--muted); margin-left: .35rem; }
+  .can h4, .miss h4 { font-size: 1rem; margin: .9rem 0 .35rem; }
+  .can h4 { color: var(--can); }
+  .miss h4 { color: var(--miss); }
+  .can ul { border-left: 3px solid var(--can); background: var(--can-bg); }
+  .miss ul { border-left: 3px solid var(--miss); background: var(--miss-bg); }
+  .can ul, .miss ul { margin: 0; padding: .6rem 1rem .6rem 1.6rem; border-radius: 0 6px 6px 0; }
+  .can li, .miss li { margin: .25rem 0; font-size: .96rem; }
+  ul.refs { columns: 1; }
+  ul.refs li { margin: .35rem 0; word-break: break-word; }
+  footer.site { border-top: 2px solid var(--border); padding: 1.5rem 1.25rem; color: var(--muted); font-size: .9rem; background: var(--surface); }
+  .meta-list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; color: var(--muted); font-size: .92rem; }
+  @media (max-width: 480px) { body { font-size: 16px; } h1 { font-size: 1.55rem; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">跳至主要內容</a>
+<nav aria-label="頁面導覽" style="background:#003b5c; padding:12px 24px; display:flex; align-items:center; justify-content:space-between; gap:12px; position:sticky; top:0; z-index:100;">
+  <a href="platform-decision.html" style="color:#f8b62d; text-decoration:underline; text-underline-offset:3px; font-family:'Inter',sans-serif; font-size:13px; font-weight:600; letter-spacing:.5px; padding:6px 14px; border:2px solid transparent; border-radius:6px;" onmouseover="this.style.borderColor='#f8b62d';this.style.background='rgba(248,182,45,.15)'" onmouseout="this.style.borderColor='transparent';this.style.background='none'">← 三條路徑頭對頭比較</a>
+  <a href="../index.html" style="color:#f8b62d; text-decoration:underline; text-underline-offset:3px; font-family:'Inter',sans-serif; font-size:13px; font-weight:600; letter-spacing:.5px; padding:6px 14px; border:2px solid transparent; border-radius:6px;" onmouseover="this.style.borderColor='#f8b62d';this.style.background='rgba(248,182,45,.15)'" onmouseout="this.style.borderColor='transparent';this.style.background='none'">返回專案文件</a>
+</nav>
+
+<header class="site">
+  <div class="wrap">
+    <h1>售票與金流方案參考頁</h1>
+    <p class="sub">現況版：無常駐工程師｜亞太包容創新協會（ADALS）</p>
+    <ul class="meta-list">
+      <li>實測日期：2026-06-09</li>
+      <li>標準：WCAG 2.2 AA</li>
+      <li>主要基準：Google Lighthouse</li>
+      <li>前提：本會目前無自有工程人力</li>
+    </ul>
+    <nav aria-label="版本切換" style="margin-top:1rem;padding:.6rem .9rem;background:var(--surface-2);border-radius:8px;font-size:.95rem;">
+      目前閱讀：<strong>現況版（無工程師）</strong>　·　另有 <a href="reference-with-engineer.html">有常駐工程師版</a>，比較「若有開發人力可多做什麼」。
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap" tabindex="-1">
+
+  <section aria-labelledby="intro-h">
+    <h2 id="intro-h">這頁在回答什麼</h2>
+    <p>本會要為付費活動找售票方式，並在之後加上捐款與會員定期定額。這頁把各種現成方案並列，標出每個方案<strong>能做到什麼</strong>、<strong>缺少什麼</strong>，以及它們的無障礙實測分數，供設計團隊與理監事共同判斷。本頁不預設結論，讓事實與評估準則說話。</p>
+    <p class="note">無障礙分數以 <strong>Google Lighthouse</strong> 為主要基準。每個分數都附實測網址，任何人可自行重跑核對。下一節說明這份報告用的兩個工具。</p>
+  </section>
+
+  <section aria-labelledby="tools-h">
+    <h2 id="tools-h">這份報告用的兩個工具：Lighthouse 與 Beacon</h2>
+    <p><strong>Google Lighthouse（主要基準）</strong>：Google 內建在 Chrome 的開源稽核工具，業界廣泛採用、公信力高。它的無障礙評分引擎是開源的 axe-core，產出 0 到 100 分。本報告對外以它為準。</p>
+    <p><strong>Beacon（個人工具，提供分類細節）</strong>：由 Bertram 個人開發的無障礙檢測工具（非本會資產）。它的瀏覽器稽核層用的是與 Lighthouse 相同的引擎（axe-core），所以抓到的問題基本一致；差別在於 Beacon 額外把結果拆成十個分類（對比、鍵盤、螢幕報讀器、表單、媒體、動態、觸控、認知、響應式、AEO），標出每項的 WCAG 嚴重度，並附法規對照與修法建議。因為是個人工具、公信力不及 Google，本報告把 Beacon 放在輔助欄、只用來看分類細節，分數仍以 Lighthouse 為準。</p>
+    <p class="note">兩者底層是同一個引擎（axe-core），所以兩欄分數方向一致、可互相佐證。分數的差距來自計分公式不同（Beacon 多了分類權重與嚴重度扣分），不是偵測能力的差異。</p>
+  </section>
+
+  <section aria-labelledby="hard-h">
+    <h2 id="hard-h">先確認的三個硬限制</h2>
+    <ul>
+      <li><strong>Eventbrite 在台灣收不到付費款。</strong>它的金流走 PayPal，而 PayPal 自 2015 年起被台灣法規禁止處理國內交易（台灣賣家收台灣買家的票錢屬國內交易）。Eventbrite 對本會只能用於免費活動或國際曝光。</li>
+      <li><strong>Stripe 對本會不適用。</strong>台灣登記法人無法在 Stripe 開本地收款帳戶，唯一路徑是另設美國公司，費率疊加約 5.4%，且開不了台灣電子發票、捐款收據對台灣捐款人無抵稅效力。</li>
+      <li><strong>台灣本地金流（綠界、藍新、TapPay）收得到錢，但無障礙多半不可控。</strong>它們預設把使用者導轉到金流商自己的頁面，那頁的無障礙由金流商決定，使用單位改不了，三家都沒有公開無障礙聲明。</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="score-h">
+    <h2 id="score-h">無障礙實測對照（以 Lighthouse 為主）</h2>
+    <p>分數越高越好，滿分 100。頁面名稱可點，連到實際測試的網址。</p>
+    <div class="table-wrap" role="region" aria-label="無障礙實測分數對照表" tabindex="0">
+      <table>
+        <caption>2026-06-09 實測（分數會隨環境波動，屬方向性參考）</caption>
+        <thead>
+          <tr>
+            <th scope="col">平台 / 頁面</th>
+            <th scope="col">Lighthouse 無障礙</th>
+            <th scope="col">Beacon 綜合（輔）</th>
+            <th scope="col">語言宣告</th>
+            <th scope="col">允許縮放</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><a href="https://www.eventbrite.com/e/digital-accessibility-101-build-better-products-for-everyone-tickets-1985260014144">Eventbrite 活動頁</a></th>
+            <td class="score">100</td><td>95</td><td>正確</td><td>是</td>
+          </tr>
+          <tr>
+            <th scope="row"><a href="https://demo.checkoutwc.com/checkout/">WooCommerce 結帳頁（範例 demo）</a></th>
+            <td class="score">94</td><td>90</td><td>隨佈景主題</td><td>是</td>
+          </tr>
+          <tr>
+            <th scope="row"><a href="https://sted.neticrm.tw/civicrm/event/register?reset=1&amp;id=291">netiCRM 活動報名表單</a></th>
+            <td class="score">92</td><td>90</td><td>正確（zh-Hant）</td><td>是</td>
+          </tr>
+          <tr>
+            <th scope="row"><a href="https://ocf.neticrm.tw/civicrm/contribute/transact?reset=1&amp;id=56">netiCRM 捐款表單</a></th>
+            <td class="score">87</td><td>83</td><td>正確（zh-Hant）</td><td>是</td>
+          </tr>
+          <tr>
+            <th scope="row"><a href="https://www.accupass.com/organizer/detail/2405210828291690441118">ACCUPASS 主辦頁</a></th>
+            <td class="score">82</td><td>80</td><td>錯（en 配中文）</td><td>否</td>
+          </tr>
+          <tr>
+            <th scope="row"><a href="https://www.accupass.com/event/2601021032277013214980">ACCUPASS 付費活動頁</a></th>
+            <td class="score">79</td><td>74</td><td>錯（en 配中文）</td><td>否（鎖縮放）</td>
+          </tr>
+          <tr>
+            <th scope="row"><a href="https://kktix.com">KKTIX 首頁</a></th>
+            <td class="score">未取得</td><td>63</td><td>部分</td><td>是</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note warn">誠實標註：KKTIX 的 Lighthouse 因 Cloudflare 機器人挑戰未能取得，僅有 Beacon 與 axe 資料（6 類違規）。WooCommerce 以 Lighthouse snapshot 模式取得，分數隨設計團隊所選佈景主題而變。ACCUPASS 與 KKTIX 登入後的選票與填資料步驟需帳號，本次未測，那一層才是表單無障礙最密集處。「最佳實務」分數與無障礙無關，故未列入此表。</p>
+  </section>
+
+  <section aria-labelledby="opt-h">
+    <h2 id="opt-h">每個選項能做什麼、缺少什麼</h2>
+    <p>以下逐一列出。所有方案皆以「本會無工程人力」為前提評估。</p>
+    <div class="cards">
+
+      <article class="card" aria-labelledby="o-neticrm">
+        <h3 id="o-neticrm">netiCRM<span class="badge">無障礙 87–92</span></h3>
+        <p>專為台灣 NPO 設計的雲端託管系統，後台設定即可，已內建串接綠界、藍新、TapPay。</p>
+        <div class="can"><h4>能做到</h4><ul>
+          <li>售票、捐款、會員定期定額，一個系統全包</li>
+          <li>自動開立捐贈收據、自動對帳</li>
+          <li>完全免工程（廠商託管，行政人員可設定）</li>
+          <li>語言宣告正確、允許縮放</li>
+          <li>活動報名表單欄位皆有標籤、用 radio、可設定不含驗證碼</li>
+        </ul></div>
+        <div class="miss"><h4>缺少</h4><ul>
+          <li>無法自行修改無障礙（缺地標、對比不足，只能回報廠商）</li>
+          <li>捐款表單那張帶 reCAPTCHA（驗證障礙風險，需確認版本）</li>
+          <li>活動功能較陽春，頁面外觀客製有限</li>
+          <li>精確方案費率需向廠商洽詢</li>
+        </ul></div>
+      </article>
+
+      <article class="card" aria-labelledby="o-woo">
+        <h3 id="o-woo">WordPress + WooCommerce + 金流外掛<span class="badge">無障礙 94（範例）</span></h3>
+        <p>用網站系統加購物車外掛，裝綠界或藍新官方外掛。是後台設定、不是寫程式，會用 WordPress 的設計團隊可自行佈建。</p>
+        <div class="can"><h4>能做到</h4><ul>
+          <li>售票、捐款、會員（搭配外掛）</li>
+          <li>無障礙自主可控：自選無障礙佈景主題，版面結構自己掌握</li>
+          <li>本地付款齊全（信用卡、ATM、超商）</li>
+          <li>結帳表單欄位完整有標籤、允許縮放（實測 22 欄全標籤）</li>
+        </ul></div>
+        <div class="miss"><h4>缺少</h4><ul>
+          <li>要長期自行維護一個 WordPress 站（更新、安全、備份），這是最大負擔</li>
+          <li>會員定期定額需組多個外掛：WooCommerce Subscriptions（付費）加金流定期定額專業版（部分付費）</li>
+          <li>電子發票、捐贈收據要另裝外掛</li>
+          <li>信用卡輸入仍跳轉金流商頁面，那段不可控</li>
+          <li>初期佈建工較多</li>
+        </ul></div>
+      </article>
+
+      <article class="card" aria-labelledby="o-native">
+        <h3 id="o-native">原生售票平台（ACCUPASS / KKTIX）<span class="badge">無障礙 79–82</span></h3>
+        <p>台灣現成售票平台，免工程、原生台灣金流。</p>
+        <div class="can"><h4>能做到</h4><ul>
+          <li>售票，原生支援信用卡、ATM、超商代碼繳費（本地付款最齊）</li>
+          <li>現成的活動探索人流、報到 App</li>
+          <li>完全免工程（開帳號即可），活動功能成熟</li>
+        </ul></div>
+        <div class="miss"><h4>缺少</h4><ul>
+          <li>不做捐款、不做會員定期定額</li>
+          <li>無障礙較弱且不可控（ACCUPASS 語言標錯、鎖死縮放；KKTIX 六類違規）</li>
+          <li>無障礙缺口無法自行修，只能回報平台</li>
+        </ul></div>
+      </article>
+
+      <article class="card" aria-labelledby="o-eb">
+        <h3 id="o-eb">Eventbrite（免費 / 曝光前台）<span class="badge">無障礙 100</span></h3>
+        <p>無障礙最佳、免工程，但收不到台灣付費款。</p>
+        <div class="can"><h4>能做到</h4><ul>
+          <li>免費活動報名（零金流問題）</li>
+          <li>國際曝光、活動探索、SEO</li>
+          <li>報名介面無障礙開箱即用（各方案最佳）</li>
+        </ul></div>
+        <div class="miss"><h4>缺少</h4><ul>
+          <li>台灣付費收款（PayPal 國內禁令，付費需改走台灣收款連結、分兩步）</li>
+          <li>捐款、會員定期定額</li>
+          <li>本地付款（超商、ATM）、電子發票、捐贈收據</li>
+        </ul></div>
+      </article>
+
+      <article class="card" aria-labelledby="o-link">
+        <h3 id="o-link">金流收款連結（綠界 / 藍新）<span class="badge">最低門檻</span></h3>
+        <p>後台點一點產生付款網址與 QR code，免串接、免設定費。</p>
+        <div class="can"><h4>能做到</h4><ul>
+          <li>最低門檻收一筆錢（報名費、捐款）</li>
+          <li>完全免工程</li>
+          <li>本地付款（信用卡、ATM、超商）</li>
+        </ul></div>
+        <div class="miss"><h4>缺少</h4><ul>
+          <li>不是售票系統（無票種、名額、報名者資料、電子票、報到）</li>
+          <li>結帳頁無障礙不可控（導轉）</li>
+          <li>會員管理能力弱</li>
+        </ul></div>
+      </article>
+
+      <article class="card" aria-labelledby="o-stripe">
+        <h3 id="o-stripe">Stripe<span class="badge">本會排除</span></h3>
+        <p>訂閱與無障礙在國際上是強項，但台灣落地困難。</p>
+        <div class="can"><h4>能做到（理論上）</h4><ul>
+          <li>業界最強的訂閱與會員扣款管理</li>
+          <li>結帳元件無障礙水準佳</li>
+        </ul></div>
+        <div class="miss"><h4>缺少 / 排除原因</h4><ul>
+          <li>台灣登記法人無法本地申請，需另設美國公司</li>
+          <li>費率疊加約 5.4%</li>
+          <li>無台灣電子發票，捐款收據對台灣捐款人無抵稅效力</li>
+          <li>撥款須經美國銀行中轉</li>
+        </ul></div>
+      </article>
+
+    </div>
+  </section>
+
+  <section aria-labelledby="matrix-h">
+    <h2 id="matrix-h">評估準則矩陣</h2>
+    <p>準則的權重請依本會情況調整。本表並列事實，不下結論。</p>
+    <div class="table-wrap" role="region" aria-label="方案評估準則矩陣" tabindex="0">
+      <table>
+        <caption>四個可行方案對照（Eventbrite 列為免費/曝光輔助）</caption>
+        <thead>
+          <tr>
+            <th scope="col">準則</th>
+            <th scope="col">netiCRM</th>
+            <th scope="col">WooCommerce</th>
+            <th scope="col">ACCUPASS / KKTIX</th>
+            <th scope="col">收款連結</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">免工程佈建</th><td>是（後台設定）</td><td>部分（需會 WordPress）</td><td>是（開帳號）</td><td>是</td></tr>
+          <tr><th scope="row">Lighthouse 無障礙</th><td>87–92</td><td>94（範例，隨主題）</td><td>79–82 / 較低</td><td>不可控（導轉）</td></tr>
+          <tr><th scope="row">無障礙可自行改善</th><td>否（回報廠商）</td><td>是（版面自控）</td><td>否（回報平台）</td><td>否</td></tr>
+          <tr><th scope="row">售票</th><td>是</td><td>是</td><td>是</td><td>勉強（單筆）</td></tr>
+          <tr><th scope="row">捐款</th><td>是</td><td>是（需外掛）</td><td>否</td><td>是（單筆）</td></tr>
+          <tr><th scope="row">會員定期定額</th><td>是</td><td>是（需付費外掛）</td><td>否</td><td>否</td></tr>
+          <tr><th scope="row">捐贈收據 / 電子發票</th><td>內建</td><td>需外掛</td><td>不適用</td><td>視金流</td></tr>
+          <tr><th scope="row">維護負擔</th><td>低（廠商託管）</td><td>中（自管網站）</td><td>低</td><td>低</td></tr>
+          <tr><th scope="row">既有人流 / 曝光</th><td>無</td><td>無</td><td>有</td><td>無</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="limit-h">
+    <h2 id="limit-h">本研究的限制（待補）</h2>
+    <ul>
+      <li><strong>登入後結帳步驟未測：</strong>ACCUPASS、KKTIX 真正的選票與填資料需帳號，未涵蓋，而那是表單無障礙最密集處。</li>
+      <li><strong>精確費率待洽詢：</strong>netiCRM 方案費、TapPay 與定期定額費率多為非公開，需向廠商確認。</li>
+      <li><strong>捐贈收據法源待確認：</strong>各家收據能否抵稅，需向廠商與稅務顧問雙重確認。</li>
+      <li><strong>真人測試未做：</strong>本頁全為自動化測試，上線前應找身障使用者實走流程，並用螢幕報讀器（NVDA / VoiceOver）驗證。</li>
+      <li><strong>本會自身條件待補：</strong>立案類型、公益勸募核可、活動量級等，會影響最終選擇。</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="ref-h">
+    <h2 id="ref-h">參考連結</h2>
+
+    <h3>實測網址（可自行重跑 Lighthouse 核對）</h3>
+    <ul class="refs">
+      <li>Eventbrite 活動頁：<a href="https://www.eventbrite.com/e/digital-accessibility-101-build-better-products-for-everyone-tickets-1985260014144">eventbrite.com/e/…1985260014144</a></li>
+      <li>WooCommerce 結帳 demo（需先加商品到購物車）：<a href="https://demo.checkoutwc.com/checkout/">demo.checkoutwc.com/checkout</a></li>
+      <li>netiCRM 活動報名表單：<a href="https://sted.neticrm.tw/civicrm/event/register?reset=1&amp;id=291">sted.neticrm.tw/civicrm/event/register</a></li>
+      <li>netiCRM 捐款表單：<a href="https://ocf.neticrm.tw/civicrm/contribute/transact?reset=1&amp;id=56">ocf.neticrm.tw/civicrm/contribute/transact</a></li>
+      <li>ACCUPASS 主辦頁：<a href="https://www.accupass.com/organizer/detail/2405210828291690441118">accupass.com/organizer/detail/…</a></li>
+      <li>ACCUPASS 付費活動頁：<a href="https://www.accupass.com/event/2601021032277013214980">accupass.com/event/…</a></li>
+      <li>KKTIX 首頁：<a href="https://kktix.com">kktix.com</a></li>
+    </ul>
+
+    <h3>金流可行性依據</h3>
+    <ul class="refs">
+      <li><a href="https://www.taipeitimes.com/News/biz/archives/2015/09/11/2003627405">PayPal 停止台灣國內交易（Taipei Times, 2015）</a></li>
+      <li><a href="https://www.eventbrite.com/help/en-us/articles/313895/get-paid-with-paypal/">Eventbrite 以 PayPal 收款（國家限制）</a></li>
+      <li><a href="https://www.paypal.com/tw/webapps/mpp/withdrawal-process?locale.x=en_TW">PayPal 台灣提領流程</a> ／ <a href="https://www.esunbank.com/en/business/e-commerce/cross-border/paypal">玉山 Global Pass</a></li>
+      <li><a href="https://stripe.com/global">Stripe 全球支援國家（不含台灣）</a></li>
+    </ul>
+
+    <h3>金流商與系統</h3>
+    <ul class="refs">
+      <li><a href="https://www.ecpay.com.tw/Business/payment_fees">綠界費率</a>／<a href="https://support.ecpay.com.tw/31491/">綠界捐款平台</a>／<a href="https://support.ecpay.com.tw/4823/">綠界收款連結</a>／<a href="https://developers.ecpay.com.tw/?p=2868">綠界定期定額 API</a></li>
+      <li><a href="https://www.newebpay.com/website/Page/content/service_fare">藍新費率</a>／<a href="https://donation.newebpay.com/">藍新捐款平台</a>／<a href="https://www.newebpay.com/website/Page/content/service_paymenttools">藍新快速收款連結</a></li>
+      <li><a href="https://www.tappaysdk.com/taiwan-zhtw/help/pricing">TapPay 費率</a>／<a href="https://github.com/TapPay/tappay-web-example">TapPay Fields 範例</a></li>
+      <li><a href="https://neticrm.tw/features">netiCRM 功能</a>／<a href="https://neticrm.tw/pricing">netiCRM 價格</a>／<a href="https://neticrm.tw/resources/255">netiCRM 捐款金流比較</a></li>
+      <li><a href="https://cloudwp.pro/market/plugins/premium-plugins/ecpay-subscriptions-pro/">綠界信用卡定期定額專業版 for WooCommerce</a>／<a href="https://ucheng.io/woocommerce-x-%E8%97%8D%E6%96%B0%E5%AE%9A%E6%9C%9F%E5%AE%9A%E9%A1%8D%E5%A4%96%E6%8E%9B/">藍新定期定額 for WooCommerce</a></li>
+    </ul>
+
+    <h3>稽核方法</h3>
+    <ul class="refs">
+      <li>無障礙引擎：axe-core 4.10（Lighthouse 與 Beacon 共用）</li>
+      <li>標準：WCAG 2.2 AA</li>
+      <li>方法：真實瀏覽器注入 axe + Google Lighthouse（桌機）+ 320px 重排測試；詳細報告見同資料夾 a11y-report-*.html</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>亞太包容創新協會（ADALS）內部參考文件。無障礙分數屬方向性參考，會隨測試環境波動。本頁刻意以 WCAG 2.2 AA 標準製作，作為無障礙實作的示範。</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,387 +1,470 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>網站平台決策：兩條路，還有第三條路嗎 | APAC AIA</title>
-<script>
-(function(){
-  var exp = localStorage.getItem('aia-auth');
-  if (!exp || Date.now() > +exp) {
-    localStorage.removeItem('aia-auth');
-    window.location.replace('../index.html');
-  }
-})();
-</script>
+<title>三條路徑頭對頭比較：買 / 組 / 寫｜ADALS 售票與金流</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@300;400;500;700&family=IBM+Plex+Mono:wght@500&display=swap');
-  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
   :root {
-    --primary:#003B5C; --secondary:#19ABE4; --accent-dark:#003B5C; --gold:#F8B62D;
-    --text:#231815; --muted:#3D3835; --border:#B7C0CB; --surface2:#DDE3EA;
-    --bg:#F7F8F8; --card:#fff; --note-bg:#fff8e7; --note-border:#F8B62D; --error:#c62828;
-    --ok:#0a7c3e;
+    --bg: #ffffff; --surface: #f6f7f9; --surface-2: #eef1f5;
+    --text: #1a1a2e; --muted: #41475a; --accent: #0b4fd6; --border: #c8cdd8;
+    --can: #0a6b2e; --can-bg: #eef7f0; --miss: #8a3310; --miss-bg: #fbf1ea; --warn: #8a6d00;
+    --crit: #b00020; --hl: #ffe69b;
   }
-  html { scroll-behavior:smooth; }
-  body { font-family:'Inter','Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; background:var(--bg); color:var(--text); line-height:1.95; letter-spacing:.02em; word-spacing:.04em; font-size:16.5px; }
-  a:focus-visible, summary:focus-visible, .table-wrap:focus-visible { outline:3px solid var(--primary); outline-offset:2px; border-radius:2px; }
-  .page-header a:focus-visible { outline-color:#fff; }
-  .skip { position:absolute; left:-9999px; top:0; padding:10px 16px; background:#000; color:#fff; z-index:1000; text-decoration:none; }
-  .skip:focus { left:8px; top:8px; }
-  .page-header { background:var(--primary); color:#fff; padding:48px 24px 40px; }
-  .page-header-inner { max-width:1080px; margin:0 auto; }
-  .back-link { display:inline-flex; align-items:center; gap:6px; color:#dbeaf3; font-size:14px; text-decoration:none; padding:10px 0; min-height:44px; }
-  .back-link:hover, .back-link:focus { color:#fff; text-decoration:underline; }
-  .page-header h1 { font-family:'Noto Serif TC','Inter',Georgia,serif; font-size:clamp(1.6rem,1.3rem+1.2vw,2.1rem); font-weight:700; letter-spacing:.5px; margin:6px 0 10px; line-height:1.35; }
-  .page-header .subtitle { font-size:16px; color:#eaf4fa; max-width:820px; line-height:1.75; }
-  .page-header .meta { margin-top:16px; font-size:12px; color:#bcd6e6; letter-spacing:.5px; font-family:'IBM Plex Mono',monospace; }
-  .audience-tag { display:inline-block; padding:5px 13px; background:rgba(248,182,45,.22); color:#ffe7af; font-size:13px; font-weight:600; letter-spacing:.5px; border-radius:4px; margin-top:14px; }
-  .toc { position:sticky; top:0; background:#fff; border-bottom:1px solid var(--border); z-index:90; }
-  .toc-inner { max-width:1080px; margin:0 auto; padding:0 24px; display:flex; gap:0; align-items:center; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:thin; }
-  .toc a { padding:14px 14px; font-size:14px; color:#4a4a4a; text-decoration:none; white-space:nowrap; flex-shrink:0; border-bottom:3px solid transparent; min-height:44px; display:flex; align-items:center; }
-  .toc a:hover, .toc a:focus { color:var(--primary); border-bottom-color:var(--secondary); }
-  main { max-width:1080px; margin:0 auto; padding:44px 24px 80px; }
-  section { margin-bottom:3.4em; }
-  section:last-child { margin-bottom:0; }
-  .section-num { font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--accent-dark); font-weight:600; letter-spacing:1.5px; margin-bottom:6px; }
-  h2 { font-family:'Noto Serif TC','Inter',Georgia,serif; font-size:clamp(1.3rem,1.15rem+.7vw,1.6rem); font-weight:700; line-height:1.5; color:var(--primary); margin-bottom:22px; padding-bottom:14px; border-bottom:2px solid var(--primary); }
-  h3 { font-size:1.12rem; font-weight:700; line-height:1.65; color:var(--primary); margin:1.6em 0 .6em; }
-  h4 { font-size:1rem; font-weight:600; color:var(--primary); margin:14px 0 6px; }
-  p { margin-bottom:1.4em; max-width:44em; }
-  li { max-width:44em; }
-  strong { color:var(--primary); font-weight:700; }
-  .lead p { font-size:1.06rem; line-height:2.05; margin-bottom:1.5em; }
-  .note { background:var(--note-bg); border-left:4px solid var(--note-border); padding:18px 22px; border-radius:0 8px 8px 0; margin:1.6em 0; font-size:.97rem; line-height:1.9; }
-  .note.warn { background:#fff5f5; border-left-color:var(--error); }
-  .note.warn strong { color:var(--error); }
-  .reco { background:#ECEFF3; border:1px solid var(--primary); border-left:6px solid var(--primary); border-radius:8px; padding:24px 26px; margin:8px 0 22px; line-height:1.95; }
-  .reco .reco-label { display:inline-block; padding:4px 13px; font-size:12px; font-weight:700; letter-spacing:1px; border-radius:4px; background:var(--primary); color:#fff; margin-bottom:12px; }
-  .reco p:last-child { margin-bottom:0; }
-  ol, ul { margin:0 0 14px; padding-left:24px; }
-  ol li, ul li { margin-bottom:.7em; line-height:1.85; }
-  ol.conditions { counter-reset:cond; list-style:none; padding-left:0; }
-  ol.conditions > li { position:relative; padding:16px 18px 16px 56px; margin-bottom:14px; background:#fff; border:1px solid var(--border); border-radius:8px; line-height:1.85; }
-  ol.conditions > li::before { counter-increment:cond; content:counter(cond); position:absolute; left:14px; top:12px; width:28px; height:28px; background:var(--primary); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px; }
-  .table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; border-radius:8px; border:1px solid var(--border); margin:16px 0; }
-  table { width:100%; border-collapse:collapse; font-size:.95rem; min-width:640px; }
-  caption { text-align:left; font-size:.9rem; color:var(--muted); padding:10px 14px; caption-side:top; }
-  thead th { background:var(--primary); color:#fff; font-weight:600; font-size:.92rem; letter-spacing:.5px; padding:14px 16px; text-align:left; vertical-align:top; line-height:1.55; }
-  tbody th { font-weight:700; color:var(--primary); background:var(--surface2); text-align:left; padding:15px 16px; vertical-align:top; width:16%; min-width:120px; line-height:1.75; }
-  tbody td { padding:15px 16px; text-align:left; vertical-align:top; line-height:1.85; }
-  tbody tr { border-top:1px solid var(--border); }
-  .master td.rec { background:rgba(10,124,62,.07); }
-  .col-wide { min-width:240px; }
-  details.major { background:#fff; border:1px solid var(--border); border-radius:10px; padding:0; margin:12px 0; }
-  details.major > summary { cursor:pointer; padding:17px 22px; font-weight:700; color:var(--primary); font-size:1.05rem; list-style:none; display:flex; align-items:center; gap:10px; min-height:44px; }
-  details.major > summary::-webkit-details-marker { display:none; }
-  details.major > summary::after { content:'\25b8'; margin-left:auto; font-size:14px; color:var(--accent-dark); transition:transform .2s; }
-  details.major[open] > summary::after { transform:rotate(90deg); }
-  details.major[open] > summary { border-bottom:1px solid var(--border); background:#f6fafc; border-radius:10px 10px 0 0; }
-  details.major > .major-body { padding:14px 24px 26px; }
-  details.major > .major-body > h3:first-child, details.major > .major-body > h4:first-child { margin-top:8px; }
-  .src-list { font-size:.9rem; word-break:break-word; }
-  .src-list a { color:var(--accent-dark); }
-  .deeper > summary { background:#eef2f6; }
-  footer { max-width:1080px; margin:0 auto; padding:24px; color:var(--muted); font-size:13px; border-top:1px solid var(--border); }
-  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration:.01ms !important; transition-duration:.01ms !important; scroll-behavior:auto !important; } }
-  @media (max-width:600px) { .page-header { padding:32px 18px 26px; } main { padding:30px 16px 60px; } .toc-inner, footer { padding-left:16px; padding-right:16px; } ol.conditions > li { padding-left:48px; } }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+    font-size: 17px; line-height: 1.7; }
+  .skip-link { position: absolute; left: -9999px; top: 0; background: var(--accent); color: #fff; padding: .6rem 1rem; z-index: 100; border-radius: 0 0 8px 0; }
+  .skip-link:focus { left: 0; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  header.site { background: var(--surface); border-bottom: 2px solid var(--border); padding: 1.8rem 1.25rem; }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  h1 { font-size: 1.85rem; line-height: 1.3; margin: 0 0 .4rem; }
+  .sub { color: var(--muted); margin: 0; font-size: 1rem; }
+  main { padding: 1.2rem 1.25rem 3rem; }
+  section { margin: 2.2rem 0; }
+  h2 { font-size: 1.4rem; border-bottom: 2px solid var(--border); padding-bottom: .3rem; margin-top: 2.2rem; }
+  h3 { font-size: 1.12rem; margin: 1.2rem 0 .4rem; }
+  p { max-width: 76ch; margin: .5rem 0; }
+  a { color: var(--accent); text-decoration: underline; }
+  a:hover { text-decoration: none; }
+  .crit { color: var(--crit); font-weight: 700; }
+  mark { background: var(--hl); color: inherit; padding: 0 .15em; font-weight: 600; }
+  .note { background: var(--surface); border-left: 4px solid var(--accent); padding: .7rem 1rem; border-radius: 0 8px 8px 0; max-width: 84ch; font-size: .96rem; }
+  .note.warn { border-left-color: var(--warn); }
+  .note.good { border-left-color: var(--can); }
+  .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 8px; margin: .8rem 0; }
+  table { border-collapse: collapse; width: 100%; min-width: 700px; }
+  caption { text-align: left; font-weight: 700; padding: .55rem .8rem; background: var(--surface-2); }
+  th, td { padding: .5rem .75rem; text-align: left; border: 1px solid var(--border); vertical-align: top; font-size: .95rem; }
+  thead th { background: var(--surface); border-bottom: 2px solid var(--border); }
+  tbody th { font-weight: 600; white-space: nowrap; }
+  .cmp-table { table-layout: fixed; min-width: 860px; }
+  .cmp-table .col-label { width: 168px; }
+  .cmp-table .col-path { width: calc((100% - 168px) / 3); }
+  .cmp-table tbody th { white-space: normal; }
+  .fee-table { table-layout: fixed; min-width: 760px; }
+  .fee-table .col-name { width: 220px; }
+  .fee-table .col-half { width: calc((100% - 220px) / 2); }
+  .fee-table tbody th { white-space: normal; }
+  .narrow { min-width: 540px; }
+  ol.tight, ul.tight { margin: .4rem 0; padding-left: 1.5rem; }
+  ol.tight li, ul.tight li { margin: .25rem 0; }
+  ul.refs li { margin: .3rem 0; }
+  footer.site { border-top: 2px solid var(--border); padding: 1.3rem 1.25rem; color: var(--muted); font-size: .9rem; background: var(--surface); }
+  .meta-list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .35rem 1.3rem; color: var(--muted); font-size: .92rem; }
+  @media (max-width: 480px) { body { font-size: 16px; } h1 { font-size: 1.5rem; } }
 </style>
 </head>
 <body>
-<a class="skip" href="#main-content">跳至主要內容</a>
+<a class="skip-link" href="#main">跳至主要內容</a>
+<nav aria-label="頁面導覽" style="background:#003b5c; padding:12px 24px; display:flex; align-items:center; justify-content:flex-end; position:sticky; top:0; z-index:100;">
+  <a href="../index.html" style="color:#f8b62d; text-decoration:underline; text-underline-offset:3px; font-family:'Inter',sans-serif; font-size:13px; font-weight:600; letter-spacing:.5px; padding:6px 14px; border:2px solid transparent; border-radius:6px;" onmouseover="this.style.borderColor='#f8b62d';this.style.background='rgba(248,182,45,.15)'" onmouseout="this.style.borderColor='transparent';this.style.background='none'">返回專案文件</a>
+</nav>
 
-<header class="page-header">
-  <div class="page-header-inner">
-    <a class="back-link" href="index.html">← 返回專案文件</a>
-    <p class="section-num" style="color:#bcd6e6;">PLATFORM DECISION</p>
-    <h1>網站平台決策：兩條路，還有第三條路嗎</h1>
-    <p class="subtitle">協會官網的收款與會員主系統要怎麼做？我們用 AI 多輪分析，把「netiCRM 嵌合」和「自己拼 WordPress」兩條路頭對頭比，並查了有沒有第三條路。這頁把結論放最上面、一張表看完；想深入的細節（成本拆解、無障礙、免費自組真相、六軸、來源）都收在下方可展開的區塊裡。</p>
-    <div class="meta">DECISION · 2026-06-04 · Claude + codex 多輪多模型分析（六軸研究、全面檢查、雙模型複查、第三條路 Oen 深挖、無障礙實測）· 參考定位，營運執行事項、理事會知會</div>
-    <span class="audience-tag">受眾 · 理事長 / 祕書長 / 常務理事</span>
+<header class="site">
+  <div class="wrap">
+    <h1>三條路徑頭對頭比較：買 / 組 / 寫</h1>
+    <p class="sub">ADALS 售票 + 捐款 + 會員金流｜同一需求，三種做法</p>
+    <ul class="meta-list">
+      <li>日期：2026-06-11</li>
+      <li>標準：WCAG 2.2 AA</li>
+      <li>無障礙基準：Google Lighthouse</li>
+      <li>金流主選：藍新</li>
+      <li>性質：個人研究整理（見文末聲明）</li>
+    </ul>
+    <nav aria-label="相關頁面" style="margin-top:.9rem;padding:.55rem .9rem;background:var(--surface-2);border-radius:8px;font-size:.95rem;">
+      延伸：<a href="reference-no-engineer.html">現況版（無工程師）</a>　·　<a href="reference-with-engineer.html">有常駐工程師版</a>
+    </nav>
   </div>
 </header>
 
-<nav class="toc" aria-label="頁內導覽">
-  <div class="toc-inner">
-    <a href="#conclusion">結論</a>
-    <a href="#routes">三條路</a>
-    <a href="#matrix">一張對照表</a>
-    <a href="#why">為什麼建議 A</a>
-    <a href="#cost">成本</a>
-    <a href="#a11y">無障礙</a>
-    <a href="#third">第三條路</a>
-    <a href="#flip">什麼情況改走 B</a>
-    <a href="#ask">簽約前要問</a>
-    <a href="#deep">想更深入</a>
-  </div>
-</nav>
+<main id="main" class="wrap" tabindex="-1">
 
-<main id="main-content" tabindex="-1">
-
-  <section id="conclusion" class="lead" aria-labelledby="h-conclusion">
-    <p class="section-num">00 / CONCLUSION</p>
-    <h2 id="h-conclusion">結論</h2>
-    <div class="reco">
-      <span class="reco-label">建議</span>
-      <p><strong>以路線 A（netiCRM）作為協會的收款與會員主系統。</strong>把活動報名、捐款、收據、會員、電子報交給它，再接到我們自己的官網上。對一個人力有限、近期要趕 ADALS 2026（9/17–18，早鳥 6/22）、又需要 CRM 加台灣可抵稅收據的協會，netiCRM 在確定性、時間風險、現金流可預測上明顯勝出。</p>
-      <p>我們也認真找了第三條路：用 24 個類別徹底搜尋「既不是 netiCRM、也不是自組」的平台，唯一架構上獨立的是台灣本土 SaaS「Oen 應援科技」，是真正的第三選項，並對它做了單一廠商深挖（再加 codex 第二個模型與無障礙實測）。深挖後費率已釐清（NPO 2.3% 起、票券 3.5%，無致命傷）、公司資料更新（A 輪已於 2025-06 完成），但對 AIA 最關鍵的「海外發卡行刷卡」仍是文件空白、只能直接向 Oen 確認；無障礙實測則顯示 Oen 自家頁面 63 分、低於 netiCRM。<strong>ADALS 2026 這場時間壓力下，先用已驗證的 netiCRM、不把旗艦活動賭在海外刷卡未證實的選項上。Oen 作為協會長期主系統的把握度，因供應商風險與會員功能缺口，目前低於 netiCRM；至多在 ADALS 當「國內票務並聯、海外另開備援通道」。</strong></p>
-      <p style="margin-bottom:0;">這是參考建議、非定論；網頁與金流屬營運執行、理事會知會即可；什麼情況該改走路線 B，見下方「翻盤條件」。</p>
-    </div>
-    <p>怎麼得到這個結論：先做六軸研究（功能、成本、無障礙、維運、資料主權、擴充性），再經過多輪、跨兩個 AI 模型家族（Claude 與 codex）的全面檢查、對抗翻案與雙模型複查，並輔以真實無障礙實測，把每個會影響決策的數字都回到一手來源核對。下面每一段的細節都可以點開。</p>
-  </section>
-
-  <section id="routes" aria-labelledby="h-routes">
-    <p class="section-num">01 / ROUTES</p>
-    <h2 id="h-routes">三條路，一句話</h2>
-    <ul>
-      <li><strong>路線 A：netiCRM 嵌合（建議）。</strong>netiCRM 是台灣的開源 NPO 系統（CiviCRM 的台灣中文化版，廠商代管），活動報名、捐款、收據、CRM、電子報、台灣合規六樣開箱就有，嵌進我們的 WordPress 官網。微型方案 NT$12,960/年，人工近零。</li>
-      <li><strong>路線 B：自己拼 WordPress。</strong>用 WooCommerce 加一堆外掛加雲端服務自己兜，前台完全可控，但要自己接、自己對帳、自己維護、台灣合規自己補。</li>
-      <li><strong>第三條路：Oen（真候選，已深挖）。</strong>用 24 個類別徹底搜尋，唯一架構獨立的是台灣本土 SaaS「Oen」；深挖後費率與公司資料已釐清，唯獨海外發卡行刷卡仍是文件空白、只能向 Oen 確認，無障礙實測也低於 netiCRM（詳見下方第三條路一節）。</li>
+  <nav aria-labelledby="toc-h">
+    <h2 id="toc-h">目錄與讀法</h2>
+    <p>趕時間：看<a href="#axis-h">三個關鍵分水嶺</a>和<a href="#cmp-h">頭對頭比較表</a>就有全貌；要深入某條路，直接跳對應章節。</p>
+    <ul class="tight">
+      <li><a href="#intro-h">三條路徑與變體</a>（名詞定義）</li>
+      <li><a href="#axis-h">三個關鍵分水嶺</a>（最短摘要）</li>
+      <li><a href="#cmp-h">頭對頭比較表</a>（主表，逐面向對照）</li>
+      <li><a href="#only-h">netiCRM 有、另外兩條路沒有的</a></li>
+      <li><a href="#time-h">上線與開發時間估算</a></li>
+      <li><a href="#p1-h">路徑 1：買</a>／<a href="#p2-h">路徑 2：組</a>／<a href="#p3-h">路徑 3：寫</a>（各路細節與變體）</li>
+      <li><a href="#timeline-h">時間軸：三條路怎麼搭</a></li>
+      <li><a href="#fee-h">金流費用與外掛價格明細</a>（附錄）</li>
+      <li><a href="#limit-h">共同待確認</a>・<a href="#ref-h">延伸與來源</a>・<a href="#disclaimer-h">本文性質聲明</a></li>
     </ul>
+  </nav>
+
+  <section aria-labelledby="intro-h">
+    <h2 id="intro-h">三條路徑與變體</h2>
+    <div class="table-wrap" role="region" aria-label="三條路徑定義" tabindex="0">
+      <table class="narrow">
+        <caption>三條主線</caption>
+        <thead><tr><th scope="col">路徑</th><th scope="col">做法</th><th scope="col">工程需求</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">1 買</th><td>netiCRM 雲端全包，不組外掛、不養站</td><td>無</td></tr>
+          <tr><th scope="row">2 組</th><td>WordPress ＋ 付費外掛（定期定額、發票）</td><td><mark>不需寫碼</mark>：熟外掛者可建置；<strong class="crit">維運不可預設由 pro-bono 志工承擔</strong></td></tr>
+          <tr><th scope="row">3 寫</th><td>WordPress ＋ 免費外掛；<mark>只在定期定額、發票自寫藍新 API</mark>（有限度自建）</td><td>需寫碼，<strong class="crit">超出 no-code 合約範圍</strong>（AI 輔助可壓低門檻）</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-wrap" role="region" aria-label="變體說明" tabindex="0">
+      <table class="narrow">
+        <caption>變體（掛在主線下，不是第四、五條路）</caption>
+        <thead><tr><th scope="col">變體</th><th scope="col">缺什麼，所以不獨立成路</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">純免費精簡版（路徑 2）</th><td><strong class="crit">沒有會員定期定額</strong>，三需求剩二。過渡用</td></tr>
+          <tr><th scope="row">全自建前端</th><td>無障礙可達 100，但上線最慢。遠期選項，見<a href="reference-with-engineer.html">有工程師版</a></td></tr>
+          <tr><th scope="row">Eventbrite 前台</th><td><strong class="crit">收不到台灣付費款</strong>（PayPal 國內禁令）。只能當宣傳／免費報名</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note warn">人力前提：<strong class="crit">志工（pro-bono）可承擔建置，不應預設承擔金流系統的長期維運與待命</strong>。建議按爆炸半徑分工：金流放在付費、可咎責的地方（如路徑 1 廠商託管）；形象官網與活動資訊頁交給志工設計師，頁面連結導到金流系統收款。</p>
   </section>
 
-  <section id="matrix" aria-labelledby="h-matrix">
-    <p class="section-num">02 / AT A GLANCE</p>
-    <h2 id="h-matrix">一張對照表</h2>
-    <div class="table-wrap" role="region" aria-label="三條路對照表，可左右捲動" tabindex="0">
-      <table class="master">
-        <caption>同一件事，三條路各自的情況（路線 A 為建議）</caption>
+  <section aria-labelledby="axis-h">
+    <h2 id="axis-h">三個關鍵分水嶺</h2>
+    <div class="table-wrap" role="region" aria-label="分水嶺對照" tabindex="0">
+      <table class="cmp-table">
+        <caption>真正拉開三條路的三件事</caption>
+        <colgroup>
+          <col class="col-label">
+          <col class="col-path">
+          <col class="col-path">
+          <col class="col-path">
+        </colgroup>
+        <thead><tr><th scope="col">分水嶺</th><th scope="col">買</th><th scope="col">組</th><th scope="col">寫</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">無障礙主導權</th><td>受廠商（87 到 92）</td><td>版面自控（範例實測 94，做不好會更低）</td><td>版面自控（範例實測 94，做不好會更低）</td></tr>
+          <tr><th scope="row">會員定期定額</th><td><mark>內建</mark></td><td><strong class="crit">付費外掛組合</strong>：會費與定期捐款要自動扣，須買訂閱管理＋扣款外掛（約 13,600/年）；電子發票若走 ezPay，外掛另要 2,490/年</td><td>自寫 API（年費換工時）</td></tr>
+          <tr><th scope="row">時程</th><td><strong class="crit">較高機率趕上 6/30</strong></td><td>數週，可能趕得上</td><td>不趕活動，慢慢研究</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">結帳導轉到藍新頁面那一步，三條路都不可控；全自建前端（可達 100）是遠期選項。</p>
+  </section>
+
+  <section aria-labelledby="cmp-h">
+    <h2 id="cmp-h">頭對頭比較表</h2>
+    <div class="table-wrap" role="region" aria-label="三條路徑構件對照表" tabindex="0">
+      <table class="cmp-table">
+        <caption>同一需求（售票 + 捐款 + 會員）三種做法</caption>
+        <colgroup>
+          <col class="col-label">
+          <col class="col-path">
+          <col class="col-path">
+          <col class="col-path">
+        </colgroup>
         <thead>
           <tr>
-            <th scope="col">你關心的事</th>
-            <th scope="col">A：netiCRM（建議）</th>
-            <th scope="col">B：自己拼</th>
-            <th scope="col" class="col-wide">第三條路：Oen（真候選，已深挖）</th>
+            <th scope="col">面向</th>
+            <th scope="col">路徑 1：買（netiCRM）</th>
+            <th scope="col">路徑 2：組（付費外掛）</th>
+            <th scope="col">路徑 3：寫（自寫藍新串接）</th>
           </tr>
         </thead>
         <tbody>
+          <tr><th scope="row">一句話</th><td>買現成全包</td><td>平台上組付費外掛</td><td>平台照組，金流自己寫</td></tr>
+          <tr><th scope="row">金流</th><td>藍新（收款帳號申請由 netiCRM 代辦，<mark>NPO 2.2%</mark>）</td><td>藍新外掛（RY Tools 免費版）</td><td>單次：免費外掛；定期定額：自寫藍新 API</td></tr>
+          <tr><th scope="row">購票流程步數</th><td>3 步：活動頁 → 報名頁（票種＋資料同一頁）→ 藍新付款頁</td><td>預設 4 步（含購物車）；免費設定可壓到 3 步；壓到 2 步需 One Page Checkout 類<strong class="crit">付費外掛</strong></td><td>同路徑 2；「免跳轉刷卡」（卡號在自家頁面輸入、不跳藍新頁）的現成外掛<strong class="crit">已停售</strong>：藍新要求此做法須有 PCI DSS 資安認證（卡號流經自家網站即適用的國際標準，小型組織難以取得；因創科技 2026 公告停售）。實務以導轉藍新付款頁為準</td></tr>
+          <tr><th scope="row">捐款</th><td><mark>內建</mark>（單次＋定期月捐，收據自動開）</td><td>單次：免費外掛（捐款金額設為商品）；定期月捐：同會員定期定額那一列</td><td>單次：免費外掛；定期月捐：自寫 API</td></tr>
+          <tr><th scope="row">會員定期定額（含定期捐款）</th><td><mark>內建</mark></td><td>Subscriptions <strong class="crit">US$279/年（約 NT$8,800）</strong> ＋ 扣款外掛（<strong class="crit">藍新版無產品化外掛，2026-06 雙重查證</strong>；綠界版約 NT$4,788/年，按月計費 399）</td><td>自寫 API（webhook 自接、會員狀態自管）</td></tr>
+          <tr><th scope="row">電子發票/收據</th><td>一般收據免費、自動開；電子發票 +16,800（一次性，串 ezPay：<mark>藍新體系的發票服務</mark>）</td><td>綠界官方發票外掛免費＋發票服務年費（見路徑 2 收費站）；<strong class="crit">抵稅收據不自動開</strong></td><td>自寫 ezPay API 或加購外掛</td></tr>
+          <tr><th scope="row">雙語</th><td>+10,500（含報名頁）</td><td>多語外掛自設，例如：TranslatePress 免費版含一個額外語言（恰可中英、能翻結帳頁）、Polylang（免費但 WooCommerce 整合需付費版）、WPML（純付費）。<strong class="crit">避開 GTranslate 類機翻小工具（lang 標記錯誤，報讀器誤唸）</strong></td><td>同路徑 2</td></tr>
+          <tr><th scope="row">電子報</th><td><mark>內建</mark>（與支持者名單同庫，可依捐款／報名紀錄分眾；寄送量上限列入詢問清單）</td><td>例如 Benchmark Email 免費層（<mark>原生中文</mark>，500 聯絡人／月 3,500 封，台北中文客服）；名單與 WooCommerce 訂單人工同步。備案例如 MailPoet（WordPress 外掛，買家自動入列，繁中翻譯覆蓋度未查證）</td><td>同路徑 2</td></tr>
+          <tr><th scope="row">無障礙分數（僅機器測試）</th><td>87 到 92</td><td>範例實測 94；隨 theme 與施工品質，<strong class="crit">做不好會更低</strong></td><td>範例實測 94；隨 theme 與施工品質，<strong class="crit">做不好會更低</strong></td></tr>
+          <tr><th scope="row">無障礙可自行修</th><td><strong class="crit">否</strong>（回報廠商；來信僅詢問本會對無障礙現階段環境的看法，無承諾與時程）</td><td>是（版面；結帳導轉除外）</td><td>是（版面；結帳導轉除外）</td></tr>
+          <tr><th scope="row">合約綁定</th><td>2 年約預繳 25,920；<mark>30 天鑑賞期零費用</mark>；中途終止扣回 8,000（<strong class="crit">未使用年費退費待確認</strong>）</td><td>無合約，外掛逐年續訂</td><td>無合約</td></tr>
+          <tr><th scope="row">維護負擔</th><td>低（<mark>廠商收費＝可咎責</mark>）</td><td>中（自養 WordPress；<strong class="crit">需可咎責的維運安排，志工建置≠志工維運</strong>）</td><td>中高（串接自己養）</td></tr>
+          <tr><th scope="row">上線速度</th><td><strong class="crit">較高機率趕得上 6/30</strong></td><td>數週，可能趕得上</td><td>可先在測試環境試做（不動真錢）；正式上線<strong class="crit">不能為了趕活動硬上</strong></td></tr>
+          <tr><th scope="row">第一年現金</th><td><strong class="crit">約 36,420</strong>（2 年約 25,920 預繳＋雙語 10,500）；電子發票選配（netiCRM 模組，一次性）再 +16,800</td><td>約 13,600（訂閱管理約 8,800＋綠界扣款約 4,788；藍新版無現成外掛，可能只能客製或自行開發）；<mark>不做會費自動扣款與定期捐款則 0</mark>；電子發票選配（綠界發票服務）：設定費約 3,780 含稅（新戶年費 0 元方案）</td><td>外掛 0，成本在工時（第一年約 30 至 60 個工作天）；電子發票選配：向綠界或 ezPay 申請的「服務」費照付</td></tr>
+          <tr><th scope="row">第二年現金</th><td><mark>0（已預繳）</mark></td><td>約 13,600；不做會費自動扣款與定期捐款則 0；綠界發票服務選配約 3,780/年（含稅）</td><td>外掛 0；工時與待命持續</td></tr>
+          <tr><th scope="row">經常性成本（之後每年）</th><td>年化約 12,960（2 年約預繳，現金流如上；約滿續約價屆時確認）</td><td>約 13,600/年＋綠界發票服務選配約 3,780/年（含稅）・主機已在付，不另計</td><td>外掛現金 0，但<strong class="crit">不是免費：年費換成工時與待命</strong>・綠界或 ezPay 的發票「服務」年費照付（自寫只省外掛費）・主機已在付，不另計</td></tr>
+          <tr><th scope="row">無障礙測試與維護（人力）</th><td>一次性：上線前人工實測（三條路都要，含報讀器走流程）；經常性：頁面本體由廠商維護，內容改版後抽查</td><td>一次性：上線前人工實測；經常性：<strong class="crit">theme 與外掛每次更新後的回歸檢查</strong>（自家頁面自己顧）</td><td>同「組」，再加自寫程式每次改動後的測試</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">netiCRM 為廠商實際報價；路徑 2、3 的工時不放精確金額。路徑 3 的本質：<mark>用工程工時替代外掛年費</mark>。<strong class="crit">誠實標註：路徑 2 的定期定額做法已查證（免費做不到，只有付費外掛一條路），但未架設測試；路徑 3 尚未研究做法</strong>；路徑 1 的內建為現役功能。另：路徑 2 <mark>若短期不做會費自動扣款，付費外掛暫時都不用買</mark>，免費地板即可跑售票與單次捐款（見路徑 2 的「變體：不做自動扣款」）。</p>
+    <p class="note warn">無障礙分數<strong class="crit">僅為 Lighthouse 機器自動測試，完全不足以代表實際可用性</strong>：機器抓不到螢幕閱讀器動線、鍵盤操作流暢度與真實使用體驗。上線前要人工實測，建議找身障使用者走流程。<mark>分數到了高分區（例如 90 以上）再往上追，邊際效益極低</mark>：<a href="https://www.deque.com/blog/automated-testing-study-identifies-57-percent-of-digital-accessibility-issues/">Deque 2021 年逾兩千件稽核的實測</a>顯示自動化測試約抓到 57% 的問題量，其餘只有人工搆得到；甚至有人示範過 <a href="https://www.matuzo.at/blog/building-the-most-inaccessible-site-possible-with-a-perfect-lighthouse-score/">Lighthouse 100 分但完全不可用的網站</a>（Matuzović）。同樣時間花在人工實測上效益更高。</p>
+    <p class="note warn"><strong class="crit">步數少 ≠ 更無障礙</strong>：分步驟＋清楚進度＋不重複輸入是公認可輕鬆使用的結帳模式；一頁塞滿票種、個資、付款反而推高認知負荷。要比的是每一步乾不乾淨，不是步數。三條路的刷卡步驟都導轉藍新頁面，該步無障礙相同。</p>
+  </section>
+
+  <section aria-labelledby="only-h">
+    <h2 id="only-h">netiCRM 有、另外兩條路沒有的</h2>
+    <div class="table-wrap" role="region" aria-label="netiCRM 獨有功能對照" tabindex="0">
+      <table class="narrow">
+        <caption>逐項列：這些在組／寫要自己補</caption>
+        <thead><tr><th scope="col">功能</th><th scope="col">netiCRM</th><th scope="col">組／寫要怎麼補</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">藍新定期定額（會費＋月捐）</th><td><mark>內建現役</mark>（開源原始碼可查，含自動扣款、取消、測試）</td><td><strong class="crit">無產品化外掛（2026-06 雙重查證）</strong>：半自動續費、改用綠界扣款引擎、客製或自寫</td></tr>
+          <tr><th scope="row">捐款抵稅收據</th><td><mark>自動開</mark>：電子收據 PDF 自動寄、自動編號、年度批次</td><td>人工開</td></tr>
+          <tr><th scope="row">公益費率</th><td>藍新 2.2%（廠商代談）</td><td>自行進件自談，約 2.8% 起</td></tr>
+          <tr><th scope="row">進件與導入</th><td>藍新進件代辦＋30 天導入陪伴</td><td>自行進件、自行架站</td></tr>
+          <tr><th scope="row">支持者資料庫（CRM）</th><td>捐款史、會籍狀態、報表內建</td><td>WooCommerce 是訂單系統不是 CRM，要另裝外掛或人工表格</td></tr>
+          <tr><th scope="row">出事可咎責</th><td>付費廠商修、合約有責任歸屬</td><td>志工＋協會治理</td></tr>
+          <tr><th scope="row">雙語報名頁</th><td>+10,500，有報價</td><td>多語外掛自設（人力）</td></tr>
+          <tr><th scope="row">電子發票</th><td>+16,800 一次性安裝導入（串 ezPay）；服務方案費可能另計</td><td>外掛＋發票服務自己組</td></tr>
+          <tr><th scope="row">免寫程式之外，還免維運</th><td>主機、更新、資安、修復全在廠商端；協會只用後台</td><td>組的建置也多半免寫程式，但金流設定需技術判斷（金鑰、回傳網址、測試切正式），且<strong class="crit">全年維運在自己：更新、衝突排查、壞了自己修</strong>；寫要工程</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">組與寫的彈性是真實優勢：版面與無障礙自己控制（範例實測 94）、無合約綁定、外掛生態自由。上表是彈性的代價清單：沒有藍新定期定額現成品、需要工程或技術志工、需要人力維護、要自建得先花時間研究。<strong class="crit">若目標維持 6/30 開賣早鳥票，完整自建排不進這個時間</strong>（售票單項的極限情境見路徑 2 的「活動優先的切角」）。</p>
+    <p class="note">替代一站式選項持續盤點：TinyBook（預約制 SaaS）確實支援藍新定期定額，但定位是課程與場地預約系統，無活動售票模型、無捐款收據，年費 17,760 起、高於 netiCRM，不適配本會三需求。</p>
+  </section>
+
+  <section aria-labelledby="time-h">
+    <h2 id="time-h">上線與開發時間估算</h2>
+    <div class="table-wrap" role="region" aria-label="三條路徑時間估算表" tabindex="0">
+      <table>
+        <caption>從「今天啟動」到「可正式收費」（估算非承諾；假設：兼職投入、路徑 3 採 AI 輔助開發）</caption>
+        <thead>
+          <tr><th scope="col">階段</th><th scope="col">1 買（netiCRM）</th><th scope="col">2 組（付費外掛）</th><th scope="col">3 寫（自寫串接）</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">開發／佈建工作量</th><td><mark>0</mark>（設定由 30 天導入陪伴帶）</td><td>約 10 至 20 個工作天（主機、theme、外掛設定、頁面建置）</td><td>約 15 至 30 個工作天（AI 可寫大半串接，人負責審查、整合、對帳邏輯）</td></tr>
+          <tr><th scope="row">金流申請</th><td>藍新進件 5 至 10 個工作天（<mark>netiCRM 代辦</mark>，NPO 2.2%）</td><td>藍新進件 5 至 10 個工作天（自辦）</td><td>自辦；<strong class="crit">定期定額開通條件需先向藍新確認</strong></td></tr>
+          <tr><th scope="row">測試</th><td>導入期內完成（含建頁）</td><td>約 1 週（含正式環境小額實測）</td><td>2 至 4 週（測試環境＋正式實測＋退費對帳演練）</td></tr>
+          <tr><th scope="row">行事曆時間（啟動到可收費）</th><td><mark>約 3 至 4 週</mark></td><td>約 4 至 6 週</td><td>約 6 至 10 週</td></tr>
+          <tr><th scope="row">最快上線（本週啟動）</th><td><mark>6/30</mark></td><td>約 7 月中下旬</td><td>約 8 月以後；<strong class="crit">不建議讓首次上線承載 9 月活動</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note warn">兩段壓不掉的等待：<strong class="crit">藍新進件審核 5 至 10 個工作天</strong>（三條路都有）與<strong class="crit">正式環境實測必須等帳號核下後</strong>。全職投入可壓縮開發天數，壓不掉這兩段。</p>
+    <p class="note">全年人力粗估（建置＋整年照顧，兼職投入計；不含三條路共同的活動營運）：<mark>買約 3 至 5 個工作天</mark>（壞了廠商修）；組第一年約 20 至 40 個工作天（架站＋全年顧站）；寫第一年約 30 至 60 個工作天（開發＋全年照顧與待命）。上表的「開發／佈建工作量」僅為建置期，全年負擔以本段為準。</p>
+  </section>
+
+  <section aria-labelledby="p1-h">
+    <h2 id="p1-h">路徑 1：買（netiCRM）</h2>
+    <div class="table-wrap" role="region" aria-label="netiCRM 報價" tabindex="0">
+      <table class="narrow">
+        <caption>報價（廠商 2026-06 來信）</caption>
+        <thead><tr><th scope="col">項目</th><th scope="col">金額</th><th scope="col">備註</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">2 年約年費</th><td>25,920（預繳）</td><td>開通費 8,000 因 2 年約免除</td></tr>
+          <tr><th scope="row">雙語加購</th><td>+10,500（一次性）</td><td>含報名/購票頁；<mark>9 月活動有海外報名，幾乎必選</mark></td></tr>
+          <tr><th scope="row">電子發票</th><td>+16,800（選配，<mark>一次性</mark>安裝導入費，串 ezPay）</td><td>開一般收據則不用；ezPay 發票服務方案費可能另計（簽約前確認）</td></tr>
+          <tr><th scope="row">小計</th><td><strong class="crit">36,420</strong>（基本＋雙語）</td><td>加發票 53,220（不含 ezPay 服務方案費）</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-wrap" role="region" aria-label="netiCRM 合約條款" tabindex="0">
+      <table class="narrow">
+        <caption>合約與退出（鎖其實很輕）</caption>
+        <thead><tr><th scope="col">條款</th><th scope="col">內容</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">鑑賞期</th><td><mark>30 天內停用零費用</mark>（約 7 月底前反悔不花錢）</td></tr>
+          <tr><th scope="row">中途終止</th><td>唯一罰則＝扣回 8,000 開通費，無其他違約金</td></tr>
+          <tr><th scope="row">條款的洞</th><td><strong class="crit">未使用年費退不退沒寫，簽約前白紙黑字確認</strong></td></tr>
+          <tr><th scope="row">退出試算</th><td>滿一年離開，額外成本 8,000（退）至約 20,960（不退）。只有「一年內就放棄」才真的痛</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-wrap" role="region" aria-label="netiCRM 上線時程" tabindex="0">
+      <table class="narrow">
+        <caption>時程（以 6/30 開通為目標）</caption>
+        <thead><tr><th scope="col">步驟</th><th scope="col">時點</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">填表開站＋備法人文件</th><td><strong class="crit">本週</strong></td></tr>
+          <tr><th scope="row">藍新進件（netiCRM 代送）</th><td>審核 5 到 10 個工作天</td></tr>
+          <tr><th scope="row">導入陪伴建報名頁</th><td>30 天（複雜欄位要更早啟動）</td></tr>
+          <tr><th scope="row">開通收費</th><td><mark>6/30</mark></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3>簽約前五問</h3>
+    <ol class="tight">
+      <li><strong class="crit">未使用年費是否按比例退還？</strong></li>
+      <li>有無 1 年約、價差？（2 年約只比單年多約 4,960，除非一年內離開，反而划算）</li>
+      <li>一次預繳兩年，還是可分年付？</li>
+      <li><strong class="crit">本會為內政部立案之社會團體、未辦法人登記</strong>：代辦藍新進件是否可行、所需文件清單？捐款收據開立與捐款人申報抵稅在此狀態下是否皆可正常運作？</li>
+      <li>電子發票模組 16,800 為一次性安裝導入費（官網資源頁載明）：<strong class="crit">ezPay 發票服務本身的方案費（設定費、年費）是否另計</strong>？由本會直接向 ezPay 繳，還是含在報價內？</li>
+    </ol>
+    <p class="note">無障礙實測：捐款表單 87、報名表單 92。缺 main 地標與部分對比；捐款表單有 reCAPTCHA（可設定）。<strong class="crit">改善只能靠廠商，無承諾與時程</strong>，若此點影響決策，簽約時把修正項與重測談成書面。</p>
+  </section>
+
+  <section aria-labelledby="p2-h">
+    <h2 id="p2-h">路徑 2：組（WooCommerce ＋ 付費外掛）</h2>
+    <div class="table-wrap" role="region" aria-label="路徑 2 免費與付費拆解" tabindex="0">
+      <table class="narrow">
+        <caption>免費地板 vs 收費站</caption>
+        <thead><tr><th scope="col">層</th><th scope="col">項目</th><th scope="col">費用</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">免費地板</th><td>WP＋Woo＋accessibility-ready theme＋Elementor 免費版＋表單外掛＋Equalize＋Ally＋RY Tools（單次收款）</td><td><mark>0</mark></td></tr>
+          <tr><th scope="row">收費站</th><td>WooCommerce Subscriptions（定期定額管理）</td><td><strong class="crit">US$279/年（約 NT$8,800，匯率 31.5 試算）</strong></td></tr>
+          <tr><th scope="row">收費站</th><td>金流定期定額外掛（接上藍新自動扣款）</td><td><strong class="crit">藍新版無產品化外掛（2026-06 雙重查證，可能只能客製或自行開發）</strong>；綠界版 cloudwp 約 NT$4,788/年（按月計費 399）</td></tr>
+          <tr><th scope="row">選配</th><td>電子發票外掛＋發票服務（兩筆分開的錢；售票是否須開發票依協會稅籍登記狀態而定，法人不適用免用統一發票門檻，先向會計師或國稅局確認）</td><td>綠界路線：官方外掛<mark>免費</mark>，發票服務設定費 3,600（未稅）＋年費（新戶 0 元方案申請至 2026/6/30，之後 5,000 張/年 3,600 未稅）；ezPay（藍新體系）路線：wpbrewer 外掛 <strong class="crit">2,490/年</strong>＋服務設定費 3,000、基本型 6,000/年</td></tr>
+          <tr><th scope="row">底費</th><td>主機＋網域（官網沿用，三條路共同）</td><td><mark>協會已在付，不另計</mark>；組／寫若需升級規格另計</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note"><strong>收錢的就是兩個外掛，各管一半</strong>：<strong class="crit">WooCommerce Subscriptions</strong> 管「訂閱狀態」（誰訂了、何時續扣（年扣或月扣）、退會停扣），<strong class="crit">金流定期扣款外掛</strong> 負責真的拿信用卡授權去扣款（Subscriptions 本身不認識台灣金流）。其餘全部免費：WordPress、WooCommerce、綠界與藍新的官方收款外掛（單次付款，售票與單次捐款用這個就夠）。</p>
+    <p class="note"><strong>為什麼是 WooCommerce</strong>：綠界與藍新的官方 WordPress 外掛都只做給 WooCommerce 這套購物車，定期定額的橋接外掛也全部建立在 WooCommerce＋Subscriptions 之上。在 WordPress 上不用 WooCommerce，就沒有現成的台灣金流外掛可裝，等於退回路徑 3 自己寫串接。</p>
+    <p class="note warn"><strong class="crit">查證（2026-06）：定期定額在 WordPress 上沒有免費做法</strong>：藍新官方免費外掛不支援定期定額；綠界官方外掛文件矛盾，且就算能發起授權，WooCommerce 後台看不到第二期起的扣款、會員無法自行取消、停扣只能登入綠界廠商後台。免費訂閱外掛的自動扣款只接 Stripe／PayPal 等國際金流（台灣商家用不了）。要自動扣款是三選一：買（netiCRM 內建）、組（綠界軌付費外掛組合；<strong class="crit">藍新軌無產品化外掛</strong>）、寫（自寫藍新 API）。另：路徑 2 的<strong class="crit">捐款抵稅收據不會自動開</strong>，需人工；netiCRM 則自動開。</p>
+
+    <h3 id="p2-free-h">變體：不做自動扣款，「組」的外掛費歸零</h3>
+    <p>會費改成每年寄提醒信、會員手動刷一次（單次付款，免費外掛就能做），兩個付費外掛都不用買。現金歸零，代價轉移到人力與行政：</p>
+    <div class="table-wrap" role="region" aria-label="免費版組與買的差異" tabindex="0">
+      <table class="narrow">
+        <caption>組（免費版）vs 買：錢以外的差異</caption>
+        <thead><tr><th scope="col">差異</th><th scope="col">買</th><th scope="col">組（免費版）</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">人力（第一年）</th><td>約 3 至 5 天，壞了廠商修</td><td>約 20 至 40 天，架站＋全年顧站</td></tr>
+          <tr><th scope="row">上線速度</th><td><strong class="crit">較高機率趕得上 6/30</strong></td><td>數週，可能趕得上</td></tr>
+          <tr><th scope="row">捐款抵稅收據</th><td>自動開</td><td><strong class="crit">人工開</strong></td></tr>
+          <tr><th scope="row">會費行政</th><td>自動扣款，不用追繳</td><td>每年人工追繳＋對名單，漏繳要人盯</td></tr>
+          <tr><th scope="row">出事誰扛</th><td>付費廠商，可咎責</td><td><strong class="crit">志工＋協會治理</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="note">會費依章程為<mark>年繳</mark>（常年會費）：全自動扣款與半自動續費（系統寄通知、會員自行刷卡）的差別，是<mark>每位會員每年省一次點擊</mark>。為此購買約 13,600/年的外掛組合，效益偏低。全自動扣款真正的用途是<mark>月捐</mark>，而月捐為 netiCRM 內建。</p>
+
+    <h3 id="p2-event-first-h">如果目標是 6/30 前開賣（活動優先的切角）</h3>
+    <p>金流申請時間兩條路打平：向藍新申請收款帳號（業界稱「進件」）要審核約 5 到 10 個工作天，<strong>協會自己送件、或請 netiCRM 代辦，這段等待都省不掉</strong>。官網已是 WordPress，<mark>售票單項自建可能更快開賣</mark>，換來的是其他需求延後、人工與不確定性留在協會內：</p>
+    <ul>
+      <li>開賣期間要有人待命：刷卡失敗、重複扣款、退費都是即時要處理的事</li>
+      <li>每場活動人工對帳；發票與收據人工開</li>
+      <li>退費與刷卡爭議流程是協會第一次跑，問題只有真實流量才暴露</li>
+      <li>費率自談約 2.8% 起；與公益 2.2% 的差額在小票量下是百元級</li>
+      <li>捐款收據自動化、會員管理、月捐全部延後</li>
+    </ul>
+    <p class="note">收斂：<strong>要同時收自動會費，選 netiCRM；不需要，可以自建，但書如上。</strong>協會目前會員數少，自動會費的需求權重（目前）很低，這個分歧現階段不是決定性因素。</p>
+  </section>
+
+  <section aria-labelledby="p3-h">
+    <h2 id="p3-h">路徑 3：寫（自寫藍新串接）</h2>
+    <p>自寫範圍只有兩塊：<mark>藍新定期定額 API</mark>（建立委託、webhook、會員狀態、退費對帳）與可選的 ezPay 發票 API。其餘照路徑 2 的免費地板。</p>
+    <div class="table-wrap" role="region" aria-label="AI 輔助分工" tabindex="0">
+      <table class="narrow">
+        <caption>AI 輔助（Claude Code 等）：能做 vs 仍需人</caption>
+        <thead><tr><th scope="col">AI 可承擔（約八九成）</th><th scope="col">仍需人類（operator 角色）</th></tr></thead>
+        <tbody>
           <tr>
-            <th scope="row">功能夠不夠</th>
-            <td class="rec">六樣開箱、台灣合規原生</td>
-            <td>工具齊但要自接、合規自建</td>
-            <td>Oen 一站式（報名/收款/捐款/收據、原生電子報）；會員 AMS 較淺，年費到期提醒、分級等文件空白</td>
-          </tr>
-          <tr>
-            <th scope="row">2 年要花多少</th>
-            <td class="rec">必花約 4 萬、全做 5 至 7 萬（現金支出、好編預算）</td>
-            <td>幾乎全是人工：第一年約 18 至 25 萬（市場費率機會成本、非現金，有技術志工吸收則現金大降），2 年更高且抓不準</td>
-            <td>NPO 月費 1,000 起 + 開通 3,000 + 手續費 2.3% 起；單次活動走票券 3.5% 抽成（零月費零開通）最省</td>
-          </tr>
-          <tr>
-            <th scope="row">身障者能不能用<br>（我們的招牌）</th>
-            <td class="rec">實測 81 至 86，問題看得到、可跟廠商一起改（非可承諾達標）</td>
-            <td>自家可改，但每次外掛更新都要重測、承諾不起</td>
-            <td>實測首頁 63 分（19 處對比不足 + 1 個 Level A），低於 netiCRM 的 81 至 86，又是黑盒改不了（三者最差）</td>
-          </tr>
-          <tr>
-            <th scope="row">好不好顧</th>
-            <td class="rec">廠商全代管、人工近零</td>
-            <td>多系統對帳、外掛各自更新、key-person 風險</td>
-            <td>Oen 廠商代管，但為 6 年新創（25 人、A 輪 2025 已完成、客戶往商業偏移、條款無 SLA），穩定性低於 netiCRM</td>
-          </tr>
-          <tr>
-            <th scope="row">結論</th>
-            <td class="rec">建議：確定能用、趕得上、要 CRM 加收據</td>
-            <td>只有要前台彈性、且願養維運紀律才走</td>
-            <td>海外刷卡未證實是最後關卡；長期把握度低於 netiCRM。ADALS 先用 netiCRM，Oen 至多國內票務並聯</td>
+            <td>加密驗章、API 串接、webhook、訂單與會員狀態邏輯、測試環境端對端測試、打包 WordPress 外掛、API 改版跟進、交叉審查</td>
+            <td><strong class="crit">持有金鑰與主機權限</strong>；<strong class="crit">接告警、事故響應</strong>（活動當晚壞掉要有人處理）；<strong class="crit">退費對帳的責任歸屬</strong></td>
           </tr>
         </tbody>
       </table>
     </div>
-    <p style="font-size:.9rem; color:var(--muted);">金流（藍新、綠界等怎麼選、4 種收款情境）是另一個獨立決策，細節見 <a href="payment-stack-decision.html">金流基礎建設決策依據</a>。</p>
+    <p class="note">門檻從「會寫金流的工程師」降為<mark>「會操作 AI 工具＋管主機＋接告警的人」</mark>。治理問題（理監事層級）：金流押在單一志工身上的 bus factor、出事權責怎麼切。</p>
+    <p class="note warn">AI 工具本身不是免費：Claude Code 這類 AI 開發助手要扛得住金流串接的開發與維護用量，<strong class="crit">訂閱至少約每月 US$100 至 200（約 NT$3,200 至 6,300）</strong>。若由協會負擔，這是寫路徑的實質經常性成本（年約 NT$38,000 至 76,000）；若志工自掏腰包，則是隱性補貼，依「墊付須決議留紀錄」原則處理。</p>
+    <p class="note">藍新單次交易已有現成 AI 整合套件（<a href="https://github.com/paid-tw/skills">paid-tw/skills</a>，MIT，含驗章與錯誤處理）；<strong class="crit">定期定額委託不在其中</strong>，仍需照藍新官方文件自寫。</p>
+    <div class="table-wrap" role="region" aria-label="路徑 3 時程瓶頸" tabindex="0">
+      <table class="narrow">
+        <caption>為什麼不能、也不該趕 6/30</caption>
+        <thead><tr><th scope="col">步驟</th><th scope="col">時間</th><th scope="col">AI 可壓縮</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">寫程式＋測試環境試跑</th><td>幾天</td><td>能</td></tr>
+          <tr><th scope="row">藍新進件審核</th><td><strong class="crit">5 到 10 個工作天</strong>（自行進件、費率自談）</td><td>不能</td></tr>
+          <tr><th scope="row">定期定額開通條件</th><td>未知，需問藍新</td><td>不能</td></tr>
+          <tr><th scope="row">正式環境實測</th><td><strong class="crit">帳號核下後才能開始</strong>（真卡、webhook、退費、對帳）</td><td>不能</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note warn"><strong class="crit">金流系統的第一次上線，不要排在被活動日期追著跑的時候</strong>。對帳異常、webhook 漏接只有真實流量才暴露，別讓 9 月報名者當測試者。但<mark>測試環境（不動真錢的模擬環境）不需進件、零風險</mark>，隨時可先做原型驗證「operator＋AI」假設。</p>
   </section>
 
-  <section id="why" aria-labelledby="h-why">
-    <p class="section-num">03 / WHY A</p>
-    <h2 id="h-why">為什麼建議 A（六個面向的精華）</h2>
-    <details class="major" open>
-      <summary>展開六個面向的判斷</summary>
-      <div class="major-body">
-        <ul>
-          <li><strong>功能：</strong>六大功能在單一系統內原生整合，台灣合規層（國稅局上傳格式、電子發票）內建。自己拼的根本問題不是缺工具，是缺整合，每個接縫都是後續的資料一致性與維護風險。</li>
-          <li><strong>成本：</strong>netiCRM 2 年必花約 4 萬、可預算（現金）；自己拼第一年人工約 18 至 25 萬（機會成本、非現金），dev 工時最難抓。詳見下方「成本」。</li>
-          <li><strong>無障礙（重點）：</strong>兩條路技術上都可能達標，但性質不同。netiCRM 是一套系統、可跟廠商一起改、可承諾；自己拼是 N 個外掛各自更新、各自會退步，給不出「持續達標」的承諾。對招牌就是無障礙的協會，這點關鍵。詳見下方「無障礙」。</li>
-          <li><strong>維運：</strong>netiCRM 廠商全代管、組織端每年約 50 至 100 小時行政操作；自己拼要跨系統對帳、外掛安全更新、且知識集中在建置者身上（建完即走的 key-person 風險）。</li>
-          <li><strong>資料主權與合規：</strong>netiCRM 資料落台日境內、有資安認證、台灣合規原生；自己拼的雲端服務多在美國、台灣合規完全要自建。</li>
-          <li><strong>將來能不能長大：</strong>台灣本地深耕（會員變多、法人化開抵稅收據）對 netiCRM 是平滑升級；想做線上課程或收外國人跨國款項則是 netiCRM 做不到的（屬另接的商業模組，見「翻盤條件」）。</li>
-        </ul>
-      </div>
-    </details>
+  <section aria-labelledby="timeline-h">
+    <h2 id="timeline-h">時間軸：三條路怎麼搭（不是三選一）</h2>
+    <div class="table-wrap" role="region" aria-label="建議時間軸" tabindex="0">
+      <table class="narrow">
+        <caption>主線＋平行線＋決策點</caption>
+        <thead><tr><th scope="col">時點</th><th scope="col">動作</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">本週</th><td><strong class="crit">netiCRM 填表＋備立案與稅籍文件</strong>（立案核准函、扣繳統編、協會名義帳戶；本會為立案社會團體、未辦法人登記，文件清單以 netiCRM 回覆為準，簽約前五問見路徑 1）</td></tr>
+          <tr><th scope="row">6 月中</th><td>藍新進件審核中，並行建報名頁</td></tr>
+          <tr><th scope="row">6/30</th><td><mark>開通收費</mark>，9 月活動跑 netiCRM</td></tr>
+          <tr><th scope="row">任意空檔</th><td>測試環境原型（選修、零風險）驗證路徑 3</td></tr>
+          <tr><th scope="row">9/17 至 18</th><td>活動</td></tr>
+          <tr><th scope="row">10 月</th><td>用實際數據（交易量、退費、行政負擔）檢討本頁</td></tr>
+          <tr><th scope="row">2027 中／2028 中</th><td>遷移決策：中途終止（額外 8,000 至 20,960）或約滿（0）</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note good">三條路不互斥：<mark>先走路徑 1 準時上線，路徑 3 不趕時間慢慢驗證</mark>，同一條藍新軌讓日後遷移變動最小。</p>
   </section>
 
-  <section id="cost" aria-labelledby="h-cost">
-    <p class="section-num">04 / COST</p>
-    <h2 id="h-cost">成本怎麼算</h2>
-    <details class="major">
-      <summary>netiCRM 2 年費用拆解（必花 vs 選配）</summary>
-      <div class="major-body">
-        <div class="table-wrap" role="region" aria-label="netiCRM 兩年費用拆解，可左右捲動" tabindex="0">
-          <table>
-            <caption>netiCRM 2 年費用拆解（不含電子發票串接）</caption>
-            <thead><tr><th scope="col">項目</th><th scope="col">2 年費用</th><th scope="col">要不要花</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">微型方案授權費（3,000 聯絡人）</th><td>NT$25,920（12,960 × 2）</td><td>必花</td></tr>
-              <tr><th scope="row">開通費</th><td>NT$0（簽 2 年約免；不簽 NT$8,000）</td><td>必花</td></tr>
-              <tr><th scope="row">雙語加購（中英；同一筆涵蓋募款頁與活動報名/購票頁、不限數量，海外與會者可英文報名、付費、收英文確認與收據）</th><td>NT$10,500（一次性）</td><td>必花（ADALS 有海外來賓，廠商來信確認）</td></tr>
-              <tr><th scope="row">維運工時（行政操作、非工程，2 年）</th><td>約 NT$3,600 至 11,200</td><td>必花</td></tr>
-              <tr><th scope="row">自訂域名（把報名/捐款頁網址換成自己的，見下方說明）</th><td>約 NT$8,000</td><td>選配（短期可省）</td></tr>
-              <tr><th scope="row">收據客製</th><td>約 NT$3,750 起</td><td>選配</td></tr>
-              <tr><th scope="row">主機</th><td>NT$0（雲端代管已含）</td><td>免</td></tr>
-              <tr><th scope="row">必花小計</th><td><strong>約 NT$40,000 至 48,000</strong></td><td>一定要的</td></tr>
-              <tr><th scope="row">全做合計（含選配）</th><td><strong>約 NT$52,000 至 76,000</strong></td><td>選配做越多越高</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p style="font-size:.9rem;"><strong>自訂域名是什麼：</strong>把 netiCRM 替你託管的報名/捐款頁網址，從預設的「你的協會名.neticrm.tw」換成自己的（例如 donate.aia.org.tw）。只是換個門牌、功能一樣，短期可先用預設子網域、之後再加，所以列選配。真正非花不可的底盤約 4 萬上下。</p>
-      </div>
-    </details>
-    <details class="major">
-      <summary>自己拼為什麼「抓不準、而且其實更貴」</summary>
-      <div class="major-body">
-        <p>自己拼的最大變數是「請人建置與維護的工錢」。一個能用的完整自組站，第一年人工依複雜度與時薪職類約落在 NT$18 至 25 萬（建置一次性約 100 至 150 小時，含台灣金流串接、電子發票與無障礙處理，維護常態約每月 4 至 8 小時，活動前後才衝到每次 20 至 40 小時；時薪分職類，工程師接案約 NT$1,000 至 2,000、設計師約 NT$800 至 1,500），而 netiCRM 第一年約 NT$1.3 至 2.3 萬、人工近零。要點是這 18 至 25 萬是以市場費率估算的機會成本、不是非付不可的現金；若有長期技術志工吸收工時，現金支出可遠低於此，代價是承擔志工流失的風險。方向很明確（自組人工遠高於 netiCRM），但確切倍數依維護複雜度與時薪而定，不宜釘死單一數字。</p>
-        <div class="note"><p>完整的免費自組真相（十套免費組合、台灣金流的現實、人工怎麼估）見下方「想更深入」。</p></div>
-      </div>
-    </details>
+  <section aria-labelledby="fee-h">
+    <h2 id="fee-h">金流費用、免費額度與使用上限</h2>
+    <div class="table-wrap" role="region" aria-label="藍新與綠界金流對照" tabindex="0">
+      <table class="narrow">
+        <caption>金流商對照：藍新（主選，三條路共用）vs 綠界（供參考）</caption>
+        <thead><tr><th scope="col">項目</th><th scope="col">藍新 NewebPay（主選）</th><th scope="col">綠界 ECPay（參考）</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">設定費 / 月費 / 年費</th><td><mark>全免</mark></td><td>免開店費；特約方案另有設定費 5,000＋年費 13,000 起</td></tr>
+          <tr><th scope="row">信用卡費率</th><td>NPO 經 netiCRM 約 <mark>2.2%</mark>；一般約 2.8%</td><td>一般 2.75%；特約 1.85%（須搭配上列特約設定費與年費）</td></tr>
+          <tr><th scope="row">ATM / 超商</th><td>約 1%（上限約 15）／約 NT$28/筆（依實際合約）</td><td>超商約 31/筆</td></tr>
+          <tr><th scope="row">提領 / 撥款</th><td>NT$10/筆，每月前 5 次免費</td><td>撥款 T+10</td></tr>
+          <tr><th scope="row">電子發票服務</th><td>體系內 ezPay：設定費 3,000＋方案年費（基本型 6,000/年）</td><td>設定費 3,600 未稅＋年費（新戶 0 元方案至 2026/6/30，2 萬張/年）</td></tr>
+          <tr><th scope="row">每月交易額度上限</th><td>個人 20 萬；<strong class="crit">企業 60 萬/月（本會適用，可申請調高）</strong></td><td>未查</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note warn"><strong class="crit">9 月活動若短期收款可能逼近 60 萬/月，要事先向藍新申請調高</strong>，別等活動中被卡。</p>
+
+    <h3>外掛年費（路徑 2 買、路徑 3 自寫取代）</h3>
+    <div class="table-wrap" role="region" aria-label="WooCommerce 外掛年費" tabindex="0">
+      <table class="fee-table">
+        <caption>WordPress / WooCommerce 外掛費用</caption>
+        <colgroup>
+          <col class="col-name">
+          <col class="col-half">
+          <col class="col-half">
+        </colgroup>
+        <thead><tr><th scope="col">外掛</th><th scope="col">用途</th><th scope="col">費用</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">RY Tools</th><td>藍新/綠界基本金流（單次）</td><td><mark>免費版可用</mark></td></tr>
+          <tr><th scope="row">WooCommerce Subscriptions</th><td>定期定額管理</td><td><strong class="crit">US$279/年（約 NT$8,800，匯率 31.5 試算）</strong></td></tr>
+          <tr><th scope="row">金流定期定額外掛（cloudwp 等第三方）</th><td>Subscriptions 只管訂閱紀錄；實際照排程向藍新扣款靠這個外掛，<mark>兩個都要裝</mark></td><td><strong class="crit">藍新版無產品化外掛</strong>（2026-06 雙重查證：wpbrewer 定期定額分類僅列 PAYUNi 與 TapPay，藍新官方外掛原始碼僅有分期、無定期定額）；綠界版 cloudwp 市集訂閱 <mark>約 NT$4,788/年（按月計費 NT$399）</mark></td></tr>
+          <tr><th scope="row">電子發票外掛（選配）</th><td>開電子發票；<mark>外掛和發票「服務」是兩筆分開的錢</mark>，服務向綠界或 ezPay 申請</td><td>綠界：官方外掛<mark>免費</mark>，服務設定費 3,600 未稅＋年費（新戶 0 元方案申請至 2026/6/30，之後 5,000 張/年 3,600 未稅）；ezPay：無官方外掛，wpbrewer <strong class="crit">2,490/年</strong>＋服務設定費 3,000、基本型 6,000/年；社群免費外掛 WOOMP 兩家都支援（維護狀態須評估）</td></tr>
+          <tr><th scope="row">Elementor</th><td>視覺化編輯</td><td>免費版即可；Pro（約 US$59/年）為選配，條件是「全站模板都要拖拉編輯、不碰程式碼」；<mark>若由 no-code 設計師主導建置，此條件成立，Pro 合理</mark></td></tr>
+          <tr><th scope="row">無障礙 theme</th><td><mark>全站地標、skip link、鍵盤、焦點的地板（每頁繼承）</mark></td><td>免費（accessibility-ready 人工審查標籤：GeneratePress／Astra／Kadence）</td></tr>
+          <tr><th scope="row">Equalize Checker</th><td>編輯器內 WCAG 檢查（45 項以上）</td><td><mark>免費版不限掃描</mark></td></tr>
+          <tr><th scope="row">Ally（Elementor 自家）</th><td>浮動小工具（overlay 類）＋聲明產生器</td><td>免費；掃描與 AI 修復付費。檢查以 Equalize 為準</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note warn">a11y 外掛分兩種：<mark>檢查型（Equalize）值得裝</mark>；<strong class="crit">overlay 補丁型（accessiBe、UserWay、Ally 小工具）不能取代把頁面做對</strong>，輔助科技使用者實測評價差，美國有安裝後仍被告的案例。theme 層壞了檢查外掛救不了，所以免費的 accessibility-ready theme 是整個堆疊裡最沒有理由拒絕的一塊。</p>
+
   </section>
 
-  <section id="a11y" aria-labelledby="h-a11y">
-    <p class="section-num">05 / ACCESSIBILITY</p>
-    <h2 id="h-a11y">無障礙（我們的招牌）</h2>
-    <details class="major" open>
-      <summary>實測分數 + 為什麼自己拼「承諾不起」</summary>
-      <div class="major-body">
-        <div class="table-wrap" role="region" aria-label="各平台無障礙實測分數，可左右捲動" tabindex="0">
-          <table>
-            <caption>真實頁面無障礙實測（Lighthouse 或 axe-core；分數 100 不等於無障礙，只代表機器可測項全過）</caption>
-            <thead><tr><th scope="col">平台</th><th scope="col">分數</th><th scope="col" class="col-wide">說明</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">Eventbrite</th><td>100</td><td>公開活動報名頁</td></tr>
-              <tr><th scope="row">Stripe 刷卡頁</th><td>91</td><td>官方 demo</td></tr>
-              <tr><th scope="row">netiCRM 捐款表單</th><td>81 至 86</td><td>三個真實客戶的捐款頁；失分集中於色彩對比、缺地標、下拉選單命名，具體可修</td></tr>
-              <tr><th scope="row">Oen 應援科技首頁</th><td>約 63</td><td>axe-core 實測：19 處色彩對比不足、2 個社群連結無名稱（Level A）、地標結構零亂、無 skip link；零 WCAG 承諾且黑盒不可改。註：僅測到首頁，結帳表單頁未公開無法測</td></tr>
-              <tr><th scope="row">Square</th><td>無法測</td><td>無公開頁面；官方對商家自建站不保證無障礙</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p>netiCRM 是一套系統、只要測一套，而且可以把改善推給廠商一起做（廠商已軟性開門）。範圍管得住、講得出承諾，改一次還能惠及其他 300 家以上用 netiCRM 的 NPO。自己拼是 N 個獨立外掛各自更新、各自會退步，給不出「本站持續達 AA」的承諾。對一般組織做 80 分網站沒人罵，<strong>無障礙協會做 80 分網站是頭條級矛盾</strong> — 自己拼是把一個「承諾不起」的責任扛回自己身上。</p>
-      </div>
-    </details>
+  <section aria-labelledby="limit-h">
+    <h2 id="limit-h">共同待確認</h2>
+    <ul class="tight">
+      <li><strong class="crit">本會立案類型與公益勸募核可</strong>（金流進件、抵稅收據都要）。</li>
+      <li>netiCRM 簽約前五問（見路徑 1）。</li>
+      <li>結帳導轉藍新頁那步的無障礙不可控；<mark>任何路徑上線前用螢幕報讀器走完整付款流程</mark>。</li>
+      <li>路徑 3 動工前先向藍新確認定期定額 API 開通條件。</li>
+      <li>「同頁完成購票」的內嵌式選項待查（不限 netiCRM）：netiCRM 是否提供可內嵌元件，未確認；綠界「站內付 2.0」需洽業務開通，WordPress 外掛支援待查；TapPay 內嵌欄位天生不跳轉（另有設定費 5,000＋年費 11,000），WordPress 外掛待查；藍新嵌入式因 PCI 要求、現成外掛已停售。共同原則：<strong class="crit">內嵌內容的無障礙由提供方控制，採用前需實測</strong>（內嵌不等於不無障礙，但要驗證）。</li>
+      <li>定期定額扣款外掛已查（2026-06，雙重查證）：綠界版 cloudwp 訂閱約 NT$4,788/年（按月計費 399）；<strong class="crit">藍新版無產品化外掛</strong>（wpbrewer 自家定期定額分類僅列 PAYUNi 與 TapPay；藍新官方外掛只有單次與分期），走藍新要自動扣款可能只能客製開發或自行開發（向 wpbrewer 確認中）。另：藍新「免跳轉刷卡」現成外掛已因 PCI DSS 要求停售。</li>
+    </ul>
   </section>
 
-  <section id="third" aria-labelledby="h-third">
-    <p class="section-num">06 / THIRD PATH</p>
-    <h2 id="h-third">第三條路：不一定要二選一</h2>
-    <details class="major">
-      <summary>我們查過有沒有第三條路 — 用 24 個類別徹底搜尋，找到真候選 Oen，並已做單一廠商深挖（剩海外刷卡一道未證實）</summary>
-      <div class="major-body">
-        <p>不只比 A 和 B，還派 AI 從 24 個類別（商業一站式套件 Zoho/Salesforce/Glue Up、付款代收 MoR、國際捐款與活動平台、台灣本土 SaaS、亞洲平台、自託管開源等）徹底找「既不是 netiCRM、也不是自組」的真正第三種架構，並用同一道硬門檻篩：<strong>要同時能收國外卡 + 台灣本地金流、能開發票（手動也算）</strong>。</p>
-        <h4>結果：唯一架構獨立的是 Oen 應援科技（台灣本土 SaaS），已做單一廠商深挖，僅海外刷卡一道未證實</h4>
-        <div class="table-wrap" role="region" aria-label="Oen 對三道門檻的查證，可左右捲動" tabindex="0">
-          <table>
-            <caption>Oen 應援科技：架構上是真的第三條路，深挖後僅海外刷卡未證實</caption>
-            <thead><tr><th scope="col">面向</th><th scope="col" class="col-wide">Oen（2026-06 深挖）</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">台灣金流</th><td>過 — 信用卡/ATM/全家超商三通；惟底層轉接藍新（NewebPay），Oen 為經濟部第三方支付登記、非金管會電支執照</td></tr>
-              <tr><th scope="row">費率</th><td>已釐清 — NPO 月費 1,000 起 + 手續費 2.3% 起 + 開通 3,000；票券模式 3.5% 抽成（零月費零開通）。2.3% 與 6% 是不同方案而非矛盾</td></tr>
-              <tr><th scope="row">發票/抵稅收據</th><td>過 — 支援國稅局電子化（限個人綜所稅），惟須先申請、正式上傳僅每年 2 月；ADALS 售票走統一發票</td></tr>
-              <tr><th scope="row">國外信用卡</th><td><strong>未證實（最後關卡）</strong> — 有 CyberSource 加 3DS 行銷宣稱，但刷卡失敗 FAQ 全是台灣本地情境、查無任何境外發卡行成功案例；codex 同意「架構具備不等於一定過卡」</td></tr>
-              <tr><th scope="row">無障礙</th><td><strong>實測首頁 63 分</strong>（19 處對比不足 + 1 個 Level A 違規），低於 netiCRM 的 81 至 86，且是黑盒、你改不了</td></tr>
-              <tr><th scope="row">會員 AMS</th><td>較淺 — 名單/標籤/分眾/電子報有，但年費到期提醒、會籍分級、自訂欄位、CRM API 文件空白；帳號主鍵為手機號（海外號碼存疑）</td></tr>
-              <tr><th scope="row">公司穩定度</th><td>6 年新創、25 人、A 輪 2025 完成、備戰 2027 創新板、客戶往商業娛樂偏移、條款無 SLA 無資料備份義務，低於 netiCRM 的 15 年 NPO 深耕</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p><strong>深挖後 Oen 只剩一道真關卡：海外發卡行刷卡。</strong>費率、台灣金流底層、公司資料、無障礙都已查清：費率無致命傷、a11y 實測 63 分（低於 netiCRM）、公司為 6 年新創（供應商風險高於 netiCRM）、會員 AMS 較淺。唯獨「海外與會者能不能直刷外卡」是文件徹底空白、連 codex 也只能說「架構具備不等於一定過卡」，只能直接電詢 Oen 補實。它仍不是「確定不行」，但在海外卡補上、且願接受供應商與會員功能取捨前，把握度低於 netiCRM。</p>
-        <p><strong>還只能直接向 Oen 確認的（電詢 02-2627-8830 或 info@oen.tw）：</strong>① 海外發卡行刷卡是否真的可行（取書面確認或測試帳號）② 資料可攜與退出機制（會員資料能否完整匯出、終止前通知期）③ 伺服器位置與跨境個資 ④ 會員 AMS 深度（到期提醒、分級、CRM API）⑤ 中英雙語報名頁能否產生。其中海外卡是 ADALS 報名流程要不要為海外與會者另開備援通道的關鍵。</p>
-        <div class="note"><p><strong>一個結構性發現：</strong>幾乎所有國際一站式平台（Glue Up、Zoho、Salesforce、Donorbox、Eventbrite）都死在同一個地方 — 台灣本地金流（Stripe 不開放台灣法人、PayPal 2017 起禁台灣境內）。所以能在台灣同時收本地與海外款的，幾乎只剩台灣本土廠商，這正是 netiCRM 的護城河。</p></div>
-      </div>
-    </details>
+  <section aria-labelledby="ref-h">
+    <h2 id="ref-h">延伸與來源</h2>
+    <ul class="refs">
+      <li>各平台無障礙實測與網址：<a href="reference-no-engineer.html">現況版</a>；全自建藍圖：<a href="reference-with-engineer.html">有工程師版</a>、<code>accessible-ticketing-flow.md</code></li>
+      <li>金流軌對照：<code>taiwan-payment-rails-and-accessible-checkout.md</code></li>
+      <li><a href="https://woocommerce.com/products/woocommerce-subscriptions/">WooCommerce Subscriptions（US$279/年，約 NT$8,800）</a>／<a href="https://ry-plugin.com/ry-woocommerce-tools">RY Tools</a>／<a href="https://cloudwp.pro/market/">cloudwp 外掛市集</a></li>
+      <li>netiCRM 報價、合約、藍新 NPO 2.2%：廠商 2026-06 來信。</li>
+    </ul>
   </section>
 
-  <section id="flip" aria-labelledby="h-flip">
-    <p class="section-num">07 / WHEN TO SWITCH</p>
-    <h2 id="h-flip">什麼情況才改走 B（翻盤條件）</h2>
-    <details class="major">
-      <summary>任一條成立，就值得重新評估</summary>
-      <div class="major-body">
-        <ol class="conditions">
-          <li><strong>協會找得到長期、穩定的技術人手</strong>（願簽長約的外包，或長駐的志工工程師）。沒有人長期顧，路線 B 不建議。<br><span style="font-size:.9rem; color:var(--muted);">註：仰賴免費技術志工是高風險前提 — 志工留任率偏低、技術志工常見「建置完成即離開」，人一走金流、對帳、外掛更新、無障礙維護就斷。</span></li>
-          <li><strong>理事會把「對外能宣稱自家報名頁達到無障礙標準」當最高優先</strong>，且願每月編預算請人測；同時 netiCRM 又談不出合作改善的承諾。</li>
-          <li><strong>協會未來三年確定要做付費線上課程，或要收外國人的跨國款項。</strong>付費課程其實是另接的商業模組、與公益帳務本就分開，不算選型因素；真正受限的是跨國多幣別收款（netiCRM 只能用台幣計價）。但要先確認這真的是需求，不是「以防萬一」。</li>
-          <li><strong>聯絡人 2 年內確定遠超 3,000、升級後成本逼近自己拼。</strong></li>
-        </ol>
-      </div>
-    </details>
-  </section>
-
-  <section id="ask" aria-labelledby="h-ask">
-    <p class="section-num">08 / BEFORE SIGNING</p>
-    <h2 id="h-ask">簽約前還要問 netiCRM 的</h2>
-    <details class="major">
-      <summary>其實只剩兩條（其餘已由廠商來信拍板）</summary>
-      <div class="major-body">
-        <ul>
-          <li>海外與會者刷外卡，費率是不是也跟國內卡一樣 2.2%、還是外卡另計？（藍新已支援海外卡，要確認的是費率，因為外卡通常比國內卡貴。）</li>
-          <li>願不願意把我們的報名/捐款頁，當成一起改到無障礙達標的合作範例？</li>
-        </ul>
-        <p style="font-size:.9rem; color:var(--muted);">其餘像「英文頁加購含不含報名頁」「合約條款」「升級怎麼算」「退費機制」等，廠商 5/29 來信已書面確認。另有稅務定性、PCI-DSS 邊界、舊站轉址、報名頁無障礙實測等，是問會計師或自己查、不是問 netiCRM。</p>
-      </div>
-    </details>
-  </section>
-
-  <section id="deep" aria-labelledby="h-deep">
-    <p class="section-num">09 / GO DEEPER</p>
-    <h2 id="h-deep">想更深入</h2>
-
-    <details class="major deeper">
-      <summary>免費自組的人工真相（十套組合 + 為什麼免費軟體不等於免費方案）</summary>
-      <div class="major-body">
-        <p><strong>「完全免費（無授權費）」的方案兜得出來，但沒有一個是「免費方案」。</strong>每一塊都要人工建置加每月維護。台灣金流的現實讓多數免費外掛在台灣等於沒金流：PayPal 只能跨境、Stripe 台灣開不了 live 帳戶、Square 台灣無服務，多數免費外掛金流只接 Stripe/PayPal，只有藍新零固定費起步。</p>
-        <div class="table-wrap" role="region" aria-label="免費組合層層疊加，可左右捲動" tabindex="0">
-          <table>
-            <caption>免費自組大致長這樣（越往下越完整、人工越重）</caption>
-            <thead><tr><th scope="col">想做到</th><th scope="col" class="col-wide">大致怎麼兜（免費）</th><th scope="col">硬限制</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">線上售票</th><td>WooCommerce 加藍新免費外掛</td><td>無原生報名欄位/QR、收據手動</td></tr>
-              <tr><th scope="row">捐款</th><td>GiveWP 免費版</td><td>台灣本地只能離線匯款人工、收據手動</td></tr>
-              <tr><th scope="row">CRM 名冊</th><td>Airtable 免費 / NocoDB 自託管</td><td>Airtable 1,000 筆上限；自託管要當 DevOps</td></tr>
-              <tr><th scope="row">電子報</th><td>MailPoet 免費（500 以下）/ Brevo（300/日）</td><td>訂閱數/發送量上限、要設 DNS</td></tr>
-              <tr><th scope="row">台灣合規</th><td>財政部扣除額電子化系統 + 綠界電子發票外掛</td><td>限自然人、每年人工上傳</td></tr>
-              <tr><th scope="row">全部兜起來</th><td>以上疊加</td><td>跨系統對帳、每個外掛各自的無障礙/更新風險、key-person 風險</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p>鐵律：免費的是「授權費」，不是金流費、不是人工；抵稅收據沒有任何免費工具自動完成；自託管省授權費，但換成要你養伺服器。把人工以業界價入帳，完整免費站第一年人工約 NT$18 至 25 萬（市場費率機會成本、非現金支出），方向是 netiCRM 年費的數倍以上，但確切倍數依複雜度與時薪而定、不宜釘死，差額幾乎全是人力。唯一划算條件：有長期免費技術志工。</p>
-      </div>
-    </details>
-
-    <details class="major deeper">
-      <summary>六軸詳述（功能、成本、無障礙、維運、資料主權、擴充性）</summary>
-      <div class="major-body src-list">
-        <p>完整的六軸逐項詳述、每軸的對抗核查、待確認清單與全部一手來源 URL，保留在內部研究底稿（含 netiCRM 官方定價、各外掛定價、個資法狀態、金流費率等）。理事會決策層級看上方各節即可；需要逐條來源時可向專案索取。</p>
-      </div>
-    </details>
-
-    <details class="major deeper">
-      <summary>AI 分析方法與算力（這份結論怎麼來的）</summary>
-      <div class="major-body">
-        <p>本決策由多輪 AI 分析撐起，跨兩個模型家族（Claude 與 codex/GPT）交叉驗證，加上真實無障礙量測，不是單一意見：</p>
-        <ul>
-          <li><strong>六軸研究 + 對抗核查：</strong>每軸對兩路線都研究，關鍵數字派獨立 agent 反駁查核。</li>
-          <li><strong>全面檢查：</strong>對「建議路線 A」做壓力測試、事實多輪交叉、對抗式翻案、覆蓋完整性。</li>
-          <li><strong>免費方案雙模型深度複查：</strong>找其他免費組合與更好方案、再查事實，codex 第二個模型做跨模型對照，擋下若干看似乾淨卻站不住的數字。</li>
-          <li><strong>第三條路徹底搜索 + Oen 盡職調查：</strong>用 24 個類別找「既非 netiCRM、也非自組」的第三種架構，再對唯一倖存者 Oen 做單一廠商深挖（含 codex 跨模型交叉與無障礙實測）。</li>
-          <li><strong>真實量測：</strong>Lighthouse 與 axe-core 無障礙實測。</li>
-        </ul>
-        <p style="font-size:.9rem; color:var(--muted);">累計數輪、動用數百個 AI agent，跨 Claude 與 codex 兩個模型家族。所有會變動項（金流費率、外掛定價、法規進度）為 2026-06 查證，採用前再確認。</p>
-      </div>
-    </details>
+  <section aria-labelledby="disclaimer-h">
+    <h2 id="disclaimer-h">本文性質聲明</h2>
+    <p class="note warn">本頁<strong class="crit">只是個人研究結果，無實務經驗支撐</strong>：所有數字與做法來自公開資料查證、廠商來信與小規模實測，整理者並未實際營運過任何一條路徑。<strong>如果團隊有更好的方向，請直接建議</strong>，本頁依新事實隨時修訂。</p>
   </section>
 
 </main>
 
-<footer>
-  APAC AIA · 網站平台決策 · 2026-06-04 · Claude + codex 多輪分析 + Lighthouse 實測 · 本頁為決策參考文件；網站與金流屬營運執行、理事會知會。金流深入見「金流基礎建設決策依據」。
+<footer class="site">
+  <div class="wrap">
+    <p>亞太包容創新協會（ADALS）內部決策參考。分數屬方向性參考。本頁以 WCAG 2.2 AA 製作並經實測。</p>
+  </div>
 </footer>
 
 </body>
