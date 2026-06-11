@@ -3,6 +3,10 @@
 <head>
 <script>
 (function(){
+  // Skip the gate redirect when this page is embedded as an iframe inside index.html.
+  // The parent already enforces the password gate; redirecting here would load the whole
+  // index.html (with its own gate) INSIDE the iframe — the "nested login" bug.
+  if (window.self !== window.top) return;
   var exp = localStorage.getItem('aia-auth');
   if (!exp || Date.now() > +exp) {
     localStorage.removeItem('aia-auth');
