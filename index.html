@@ -368,6 +368,32 @@
     transform: translateY(-2px);
     box-shadow: 0 4px 16px rgba(0,59,92,.12), 0 0 0 3px var(--sky);
   }
+  .download-card.featured {
+    border: 2px solid var(--sky);
+    border-left: 8px solid var(--sky);
+    background: linear-gradient(90deg, rgba(25,171,228,.10), var(--card) 44%);
+    box-shadow: 0 6px 20px rgba(0,59,92,.12);
+  }
+  .download-card.reference {
+    opacity: .82;
+    background: rgba(255,255,255,.74);
+  }
+  .download-badge {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: var(--sky);
+    color: #003b5c;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    vertical-align: middle;
+  }
+  .download-badge.reference {
+    background: #edf2f7;
+    color: var(--muted);
+  }
   .download-icon { font-size: 32px; flex-shrink: 0; }
   .download-info h4 {
     font-family: 'Noto Sans TC', sans-serif;
@@ -752,13 +778,13 @@
 
   <h3 style="font-size:14px; color:var(--muted); margin-bottom:12px; letter-spacing:1px; font-family:'Inter',sans-serif;">設計稿 / Wireframes（目前 review 重點）</h3>
   <div class="download-grid" style="margin-bottom:28px;">
-    <a class="download-card" href="https://drive.google.com/file/d/17FpBP37RpCo7X_orgv0rtvcJT81P5_TL/view?usp=drive_link" target="_blank" rel="noopener">
+    <a class="download-card featured" href="https://drive.google.com/file/d/1t2L2y5TJikP4tnAEHx-ikFrKOwDAg2Xd/view?usp=drive_link" target="_blank" rel="noopener">
       <div class="download-icon">&#128444;</div>
-      <div class="download-info"><h4>Wireframe（R1）</h4><p>Christina 提供 &mdash; 首頁 + 活動頁版面結構</p></div>
+      <div class="download-info"><h4>Wireframe（R2）<span class="download-badge">目前 review 版本</span></h4><p>Christina 提供 &mdash; 首頁 + 活動頁版面結構更新版</p></div>
     </a>
-    <a class="download-card" href="https://drive.google.com/file/d/1t2L2y5TJikP4tnAEHx-ikFrKOwDAg2Xd/view?usp=drive_link" target="_blank" rel="noopener">
+    <a class="download-card reference" href="https://drive.google.com/file/d/17FpBP37RpCo7X_orgv0rtvcJT81P5_TL/view?usp=drive_link" target="_blank" rel="noopener">
       <div class="download-icon">&#128444;</div>
-      <div class="download-info"><h4>Wireframe（R2）</h4><p>Christina 提供 &mdash; 首頁 + 活動頁版面結構更新版</p></div>
+      <div class="download-info"><h4>Wireframe（R1）<span class="download-badge reference">參考版本</span></h4><p>保留作為前一版 reference，方便對照大事記時間軸與版面差異</p></div>
     </a>
   </div>
 
