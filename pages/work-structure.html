@@ -237,7 +237,7 @@
 <body>
 
 <nav class="topnav">
-  <h1>AIA 網站重新設計 2026（Elementor + Ally）</h1>
+  <h1>AIA 網站重新設計 2026（Elementor + A11y）</h1>
   <button class="active" onclick="showSection('roles')">👥 角色架構</button>
   <button onclick="showSection('flow')">🔄 工作流程</button>
   <button onclick="showSection('wcag-new')">🆕 WCAG 2.2 更新</button>
@@ -250,19 +250,19 @@
   <div class="mou-alert">
     <h3>Phase 1 專案規範</h3>
     <p><strong>頁面範圍：</strong>Home（現有頁面重新設計）+ Events（新頁面）— 共 2 頁</p>
-    <p><strong>建置平台：</strong>Elementor Page Builder + Ally 無障礙外掛（No-code，不含客製化程式開發）</p>
+    <p><strong>建置平台：</strong>Elementor Page Builder + A11y 外掛（Equalize + Ally，No-code，不含客製化程式開發）</p>
     <p><strong>合規目標：</strong>WCAG 2.2 AA + RWD + 中文為主</p>
   </div>
 
   <div class="card">
     <h2>團隊角色與職責架構</h2>
-    <p style="margin-bottom:8px;">Critical Path: Christina 是關鍵路徑 — 所有頁面設計與 Elementor 建置都經過她。Bertram 負責專案管理與無障礙測試，Becky (TBC) 協助測試。Schneider (TBC) 與 Claire (TBC) 提供素材與內容。</p>
-    <p style="margin-bottom:8px; font-size:13px;"><span class="tag tag-elementor">No-Code 專案</span> 本專案採用 Elementor Page Builder 進行頁面建置，所有功能以現成外掛工具實現，不含客製化程式碼開發。</p>
+    <p style="margin-bottom:8px;">Critical Path: Christina 是關鍵路徑 — 所有頁面設計與 Elementor 建置都經過她。Bertram 負責專案管理；Solomon 主導無障礙測試，Becky 協助測試。Schneider 與 Claire 提供素材與內容。</p>
+    <p style="margin-bottom:8px; font-size:13px;"><span class="tag tag-elementor">No-Code 專案</span> 本專案採用 Elementor Page Builder 進行頁面建置，並搭配 A11y 外掛（Equalize + Ally）處理檢查與輔助功能；所有功能以現成外掛工具實現，不含客製化程式碼開發。</p>
     <div class="legend">
       <div class="legend-item"><div class="legend-dot" style="background:var(--christina)"></div> Christina</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--schneider)"></div> Schneider</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--claire)"></div> Claire</div>
-      <div class="legend-item"><div class="legend-dot" style="background:var(--becky)"></div> Becky</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--becky)"></div> Solomon / Becky</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--bertram)"></div> Bertram</div>
     </div>
   </div>
@@ -276,21 +276,22 @@
         <li>網站 UI/UX 設計（概念設計 2 方向 → 設計稿 → 定稿）</li>
         <li>Elementor 頁面建置（版面配置、Widget 組合、樣式設定）</li>
         <li>RWD 響應式設計（Elementor 的 Desktop / Tablet / Mobile 設定）</li>
-        <li>整合 Schneider (TBC) 素材、Claire (TBC) 文案</li>
-        <li>Ally 無障礙外掛設定與管理</li>
+        <li>整合 Schneider 素材、Claire 文案</li>
+        <li>A11y 外掛（Equalize + Ally）設定與管理</li>
       </ul>
       <h3>Shift-Left A11y 責任</h3>
       <ul>
         <li><span class="tag tag-a11y">設計階段</span> 色彩對比 4.5:1 / 3:1、Focus 狀態設計</li>
         <li><span class="tag tag-a11y">建置階段</span> Elementor Widget 的無障礙設定（alt text、標題層級、連結標示）</li>
-        <li><span class="tag tag-a11y">Ally 外掛</span> 啟用 Skip to Content、AI alt text 建議、無障礙掃描</li>
+        <li><span class="tag tag-a11y">Equalize 外掛</span> 執行 WordPress / Elementor 頁面的無障礙檢查與問題掃描</li>
+        <li><span class="tag tag-a11y">Ally 外掛</span> 啟用 Skip to Content、AI alt text 建議與訪客端輔助功能</li>
         <li><span class="tag tag-a11y">交付標準</span> 頁面建好後通知團隊，由測試者進行 axe/Lighthouse 掃描及手動測試</li>
       </ul>
-      <div class="limitation-note">Elementor 對語意化 HTML 的控制有限（如地標結構、ARIA 屬性），部分無障礙問題可能需透過 Ally 外掛或 WordPress 主題層級處理。如遇平台限制無法解決的問題，應記錄為已知限制並回報。</div>
+      <div class="limitation-note">Elementor 對語意化 HTML 的控制有限（如地標結構、ARIA 屬性），部分無障礙問題可能需透過 Equalize / Ally 外掛或 WordPress 主題層級處理。如遇平台限制無法解決的問題，應記錄為已知限制並回報。</div>
     </div>
 
     <div class="role-card schneider">
-      <div class="name">Schneider (TBC)</div>
+      <div class="name">Schneider</div>
       <div class="title">品牌/素材設計師 <span class="tag tag-support">素材供給</span></div>
       <h3>核心職責</h3>
       <ul>
@@ -308,7 +309,7 @@
     </div>
 
     <div class="role-card claire">
-      <div class="name">Claire (TBC)</div>
+      <div class="name">Claire</div>
       <div class="title">內容創作者 <span class="tag tag-support">W3C Invited Expert</span></div>
       <h3>核心職責</h3>
       <ul>
@@ -327,12 +328,13 @@
     </div>
 
     <div class="role-card becky">
-      <div class="name">Becky (TBC)</div>
-      <div class="title">無障礙測試 <span class="tag tag-support">有架站經驗</span></div>
-      <h3>無障礙測試（主要角色）</h3>
+      <div class="name">Solomon / Becky</div>
+      <div class="title">無障礙測試 <span class="tag tag-support">Solomon 主導，Becky 協助</span></div>
+      <h3>無障礙測試（Solomon 主要負責）</h3>
       <ul>
-        <li>測試工具選型與方法研究（Elementor 環境下的測試方法）</li>
-        <li>自動化掃描：Lighthouse / axe DevTools / Ally 掃描結果分析</li>
+        <li>Solomon 主導測試方法、結果判讀與 WCAG 2.2 AA 最終驗證</li>
+        <li>Becky 協助工具操作、截圖回報與迴歸測試</li>
+        <li>自動化掃描：Equalize / axe DevTools / Lighthouse 掃描結果分析</li>
         <li>手動測試：鍵盤導覽、螢幕閱讀器、視覺檢查</li>
         <li>問題記錄、截圖回報、修正建議（區分「Elementor 可修」vs「平台限制」）</li>
         <li>迴歸測試：修正後重新驗證</li>
@@ -341,7 +343,7 @@
 
     <div class="role-card bertram">
       <div class="name">Bertram</div>
-      <div class="title">專案經理 + 無障礙測試 <span class="tag tag-critical">PM</span></div>
+      <div class="title">專案經理 <span class="tag tag-critical">PM</span></div>
       <h3>專案管理（主要角色）</h3>
       <ul>
         <li>專案時程規劃、里程碑設定、進度追蹤</li>
@@ -350,12 +352,6 @@
         <li>制定每階段交付標準與驗收條件</li>
         <li>對外溝通與成果報告</li>
         <li>範圍控管與修訂次數追蹤</li>
-      </ul>
-      <h3>無障礙測試</h3>
-      <ul>
-        <li>無障礙規範研讀、測試方法論整理</li>
-        <li>手動 + 自動化無障礙測試執行</li>
-        <li>最終合規驗證 — WCAG 2.2 測試流程 30 項全部 Pass + Lighthouse ≥ 90</li>
       </ul>
     </div>
   </div>
@@ -379,8 +375,8 @@
         <div class="phase-body">
           <div class="task task-schneider" style="opacity:.6; text-decoration:line-through;"><div class="owner">Schneider</div>Logo SVG（7版）+ 色碼 + 字體 ✓</div>
           <div class="task task-bertram" style="opacity:.6; text-decoration:line-through;"><div class="owner">Bertram</div>Brand Style Guide + 對比度驗收 ✓</div>
-          <div class="task task-claire"><div class="owner">Claire (TBC)</div>內容盤點 + 文案初稿<br>根據 Wireframe 撰寫中</div>
-          <div class="task task-becky"><div class="owner">Becky (TBC)</div>測試工具安裝<br>axe/Lighthouse/CCA/VoiceOver</div>
+          <div class="task task-claire"><div class="owner">Claire</div>內容盤點 + 文案初稿<br>根據 Wireframe 撰寫中</div>
+          <div class="task task-becky"><div class="owner">Becky</div>測試工具安裝<br>axe/Lighthouse/CCA/VoiceOver</div>
         </div>
       </div>
       <div class="flow-arrow">&#8595;</div>
@@ -400,8 +396,8 @@
         <div class="phase-header">首頁建置 + 測試</div>
         <div class="phase-body">
           <div class="task task-christina"><div class="owner">Christina</div>首頁 Elementor 建置<br>Staging URL 上線</div>
-          <div class="task task-becky"><div class="owner">測試者</div>axe + Lighthouse 掃描<br>✅ Lighthouse ≥ 90</div>
-          <div class="task task-bertram"><div class="owner">Bertram</div>WCAG 2.2 測試（30 項）<br>Export 報告 + 開 Issue</div>
+          <div class="task task-becky"><div class="owner">Solomon / Becky</div>Equalize + axe + Lighthouse 掃描<br>✅ Lighthouse ≥ 90</div>
+          <div class="task task-becky"><div class="owner">Solomon 主導</div>WCAG 2.2 測試（30 項）<br>Becky 協助 Export 報告 + 開 Issue</div>
           <div class="task task-christina"><div class="owner">Christina</div>修正 Issues<br>迴歸測試確認</div>
         </div>
       </div>
@@ -411,8 +407,8 @@
         <div class="phase-header">活動頁建置 + 測試</div>
         <div class="phase-body">
           <div class="task task-christina"><div class="owner">Christina</div>活動頁 Elementor 建置<br>Staging URL 更新</div>
-          <div class="task task-becky"><div class="owner">測試者</div>axe + Lighthouse 掃描<br>✅ Lighthouse ≥ 90</div>
-          <div class="task task-bertram"><div class="owner">Bertram</div>WCAG 2.2 測試（30 項）<br>Export 報告 + 開 Issue</div>
+          <div class="task task-becky"><div class="owner">Solomon / Becky</div>Equalize + axe + Lighthouse 掃描<br>✅ Lighthouse ≥ 90</div>
+          <div class="task task-becky"><div class="owner">Solomon 主導</div>WCAG 2.2 測試（30 項）<br>Becky 協助 Export 報告 + 開 Issue</div>
           <div class="task task-christina"><div class="owner">Christina</div>修正 Issues<br>迴歸測試確認</div>
         </div>
       </div>
@@ -421,7 +417,7 @@
       <div class="flow-phase" style="flex:1; min-width:220px;">
         <div class="phase-header" style="background:#e53e3e;">上線 + Phase 2 規劃</div>
         <div class="phase-body">
-          <div class="task task-claire"><div class="owner">Claire (TBC)</div>最終內容校對</div>
+          <div class="task task-claire"><div class="owner">Claire</div>最終內容校對</div>
           <div class="task task-bertram"><div class="owner">Bertram</div>最終驗收<br>全項 Pass → 上線</div>
           <div class="task task-christina"><div class="owner">Christina</div>Staging → 正式環境部署</div>
           <div class="task task-bertram" style="background:#ebf8ff; border-left-color:#4299e1;"><div class="owner">▶ Phase 2 討論</div>確認下一批頁面範圍<br>About / Team / Join Us / Blog / Contact</div>
@@ -548,7 +544,7 @@
 <div id="testing" class="section">
   <div class="card">
     <h2>WCAG 2.2 無障礙測試參考指南 — Elementor 版</h2>
-    <p>以下為 Elementor + Ally 環境下的無障礙參考說明。<strong>實際測試請使用 <a href="testing-flow.html" style="color:var(--secondary);">WCAG 2.2 測試流程（30 項）</a></strong>。每一項包含：<strong>白話說明</strong>（讓所有人都看懂這項在檢查什麼）和<strong>技術細節</strong>（讓建置人員知道怎麼在 Elementor 中設定和測試）。</p>
+    <p>以下為 Elementor + A11y 環境下的無障礙參考說明。<strong>實際測試請使用 <a href="testing-flow.html" style="color:var(--secondary);">WCAG 2.2 測試流程（30 項）</a></strong>。每一項包含：<strong>白話說明</strong>（讓所有人都看懂這項在檢查什麼）和<strong>技術細節</strong>（讓建置人員知道怎麼在 Elementor 中設定和測試）。</p>
     <p style="margin-top:12px;"><span class="tag tag-xp" style="padding:3px 10px;">🔴 跨專案經驗</span> 團隊在 2024 年另一個無障礙評測專案中發現的高頻問題區域，列為本專案重點關注。</p>
     <p style="margin-top:4px;"><span class="tag tag-highrisk" style="padding:3px 10px;">🟡 常見高風險</span> 根據全球 WCAG 測試數據，最容易失敗的項目，或在 Elementor 環境下特別需要注意的項目。</p>
     <p style="margin-top:8px;"><strong>重點關注項目：</strong>
@@ -566,9 +562,9 @@
     </p>
     <div class="legend" style="margin-top:12px;">
       <div class="legend-item"><div class="legend-dot" style="background:var(--christina)"></div> Christina 建置</div>
-      <div class="legend-item"><div class="legend-dot" style="background:var(--schneider)"></div> Schneider (TBC) 素材</div>
-      <div class="legend-item"><div class="legend-dot" style="background:var(--claire)"></div> Claire (TBC) 內容</div>
-      <div class="legend-item"><div class="legend-dot" style="background:var(--becky)"></div> Becky (TBC) 測試</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--schneider)"></div> Schneider 素材</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--claire)"></div> Claire 內容</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--becky)"></div> Becky 測試</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--bertram)"></div> Bertram 驗證</div>
     </div>
   </div>
@@ -605,9 +601,9 @@
       </div>
       <div class="sub-section">
         <h4>負責人</h4>
-        <span class="who-tag who-claire">Claire (TBC)撰寫標題</span>
+        <span class="who-tag who-claire">Claire 撰寫標題</span>
         <span class="who-tag who-christina">Christina 設定至 WordPress</span>
-        <span class="who-tag who-becky">Becky (TBC)驗證</span>
+        <span class="who-tag who-becky">Becky 驗證</span>
       </div>
     </div>
   </div>
@@ -646,14 +642,14 @@
       </div>
       <div class="sub-section">
         <h4>工具</h4>
-        <span class="tool-tag">Ally 掃描</span> <span class="tool-tag">axe DevTools</span> <span class="tool-tag">WAVE</span> <span class="tool-tag">VoiceOver/NVDA</span>
+        <span class="tool-tag">Equalize 掃描</span> <span class="tool-tag">axe DevTools</span> <span class="tool-tag">WAVE</span> <span class="tool-tag">VoiceOver/NVDA</span>
       </div>
       <div class="sub-section">
         <h4>負責人</h4>
-        <span class="who-tag who-schneider">Schneider (TBC)提供 alt 建議</span>
-        <span class="who-tag who-claire">Claire (TBC)撰寫 alt text</span>
+        <span class="who-tag who-schneider">Schneider 提供 alt 建議</span>
+        <span class="who-tag who-claire">Claire 撰寫 alt text</span>
         <span class="who-tag who-christina">Christina 填入 Elementor</span>
-        <span class="who-tag who-becky">Becky (TBC)用螢幕閱讀器驗證</span>
+        <span class="who-tag who-becky">Becky 用螢幕閱讀器驗證</span>
       </div>
     </div>
   </div>
@@ -691,8 +687,8 @@
       <div class="sub-section">
         <h4>負責人</h4>
         <span class="who-tag who-christina">Christina 設定 Widget 屬性</span>
-        <span class="who-tag who-claire">Claire (TBC)審查 alt 語意</span>
-        <span class="who-tag who-becky">Becky (TBC)螢幕閱讀器測試</span>
+        <span class="who-tag who-claire">Claire 審查 alt 語意</span>
+        <span class="who-tag who-becky">Becky 螢幕閱讀器測試</span>
       </div>
     </div>
   </div>
@@ -735,9 +731,9 @@
       </div>
       <div class="sub-section">
         <h4>負責人</h4>
-        <span class="who-tag who-claire">Claire (TBC)規劃標題層級</span>
+        <span class="who-tag who-claire">Claire 規劃標題層級</span>
         <span class="who-tag who-christina">Christina 在 Elementor 中設定正確層級</span>
-        <span class="who-tag who-becky">Becky (TBC)HeadingsMap 檢查</span>
+        <span class="who-tag who-becky">Becky HeadingsMap 檢查</span>
       </div>
     </div>
   </div>
@@ -765,7 +761,7 @@
           <li>用 Landmark 瀏覽器擴充檢查頁面地標是否完整</li>
           <li>螢幕閱讀器可用地標跳轉功能快速導覽</li>
         </ul>
-        <div class="ally-note">Ally 外掛設定中可啟用「Skip to Content」連結。在 Ally → Settings → Usability Features 中開啟。</div>
+        <div class="ally-note">A11y 外掛（Equalize + Ally）設定中可啟用「Skip to Content」連結。在 Ally → Settings → Usability Features 中開啟。</div>
         <div class="limitation-note">地標結構主要由 WordPress 主題決定，不是由 Elementor Widget 控制。如果主題未正確輸出地標，可能需要選擇更好的主題，或請 Christina 在 Elementor Theme Builder 中建立自訂 Header/Footer Template 來改善。</div>
       </div>
       <div class="sub-section">
@@ -775,7 +771,7 @@
       <div class="sub-section">
         <h4>負責人</h4>
         <span class="who-tag who-christina">Christina 確認主題結構 + Ally 設定</span>
-        <span class="who-tag who-becky">Becky (TBC)鍵盤 + 螢幕閱讀器測試</span>
+        <span class="who-tag who-becky">Becky 鍵盤 + 螢幕閱讀器測試</span>
       </div>
     </div>
   </div>
@@ -812,7 +808,7 @@
       </div>
       <div class="sub-section">
         <h4>負責人</h4>
-        <span class="who-tag who-claire">Claire (TBC)標記多語言區段</span>
+        <span class="who-tag who-claire">Claire 標記多語言區段</span>
         <span class="who-tag who-christina">Christina 設定 WordPress 語言 + 區段標記</span>
       </div>
     </div>
@@ -850,9 +846,9 @@
       </div>
       <div class="sub-section">
         <h4>負責人</h4>
-        <span class="who-tag who-schneider">Schneider (TBC)確保品牌色通過</span>
+        <span class="who-tag who-schneider">Schneider 確保品牌色通過</span>
         <span class="who-tag who-christina">Christina 在 Elementor 中設定</span>
-        <span class="who-tag who-becky">Becky (TBC)自動掃描回報</span>
+        <span class="who-tag who-becky">Becky 自動掃描回報</span>
       </div>
     </div>
   </div>
@@ -889,9 +885,9 @@
       </div>
       <div class="sub-section">
         <h4>負責人</h4>
-        <span class="who-tag who-schneider">Schneider (TBC)色彩專業把關</span>
+        <span class="who-tag who-schneider">Schneider 色彩專業把關</span>
         <span class="who-tag who-christina">Christina 在 Elementor 中調整</span>
-        <span class="who-tag who-becky">Becky (TBC)自動掃描回報</span>
+        <span class="who-tag who-becky">Becky 自動掃描回報</span>
       </div>
     </div>
   </div>
@@ -928,9 +924,9 @@
       </div>
       <div class="sub-section">
         <h4>負責人</h4>
-        <span class="who-tag who-claire">Claire (TBC)撰寫描述性連結文字</span>
+        <span class="who-tag who-claire">Claire 撰寫描述性連結文字</span>
         <span class="who-tag who-christina">Christina 在 Elementor 中設定</span>
-        <span class="who-tag who-becky">Becky (TBC)螢幕閱讀器驗證</span>
+        <span class="who-tag who-becky">Becky 螢幕閱讀器驗證</span>
       </div>
     </div>
   </div>
@@ -962,7 +958,7 @@
           <li>用鍵盤 Tab 能完整操作表單（填寫、選擇、送出）</li>
         </ul>
         <div class="elementor-note">Form Widget → Form Fields → 每個欄位設定 Label、Placeholder、Required。注意不要勾選「Hide Label」除非有其他方式標示欄位用途。</div>
-        <div class="limitation-note">Elementor Form Widget 的無障礙支援並非完美。特別注意：錯誤訊息的關聯、群組欄位的結構，可能需要額外用 Ally 掃描來確認。</div>
+        <div class="limitation-note">Elementor Form Widget 的無障礙支援並非完美。特別注意：錯誤訊息的關聯、群組欄位的結構，可能需要額外用 Equalize 掃描來確認。</div>
       </div>
       <div class="sub-section">
         <h4>工具</h4>
@@ -971,7 +967,7 @@
       <div class="sub-section">
         <h4>負責人</h4>
         <span class="who-tag who-christina">Christina 設定 Form Widget</span>
-        <span class="who-tag who-becky">Becky (TBC)鍵盤 + 螢幕閱讀器測試</span>
+        <span class="who-tag who-becky">Becky 鍵盤 + 螢幕閱讀器測試</span>
       </div>
     </div>
   </div>
@@ -1008,7 +1004,7 @@
       <div class="sub-section">
         <h4>負責人</h4>
         <span class="who-tag who-christina">Christina 建置表格</span>
-        <span class="who-tag who-becky">Becky (TBC)螢幕閱讀器測試</span>
+        <span class="who-tag who-becky">Becky 螢幕閱讀器測試</span>
       </div>
     </div>
   </div>
@@ -1049,7 +1045,7 @@
       <div class="sub-section">
         <h4>負責人</h4>
         <span class="who-tag who-christina">Christina 確認 Widget 鍵盤支援</span>
-        <span class="who-tag who-becky">Becky (TBC)全站 Tab 測試</span>
+        <span class="who-tag who-becky">Becky 全站 Tab 測試</span>
         <span class="who-tag who-bertram">Bertram 驗證 Focus Not Obscured</span>
       </div>
     </div>
@@ -1088,7 +1084,7 @@
       <div class="sub-section">
         <h4>負責人</h4>
         <span class="who-tag who-christina">Christina 確認 focus 樣式</span>
-        <span class="who-tag who-becky">Becky (TBC)Tab 遍歷測試</span>
+        <span class="who-tag who-becky">Becky Tab 遍歷測試</span>
       </div>
     </div>
   </div>
@@ -1125,7 +1121,7 @@
       <div class="sub-section">
         <h4>負責人</h4>
         <span class="who-tag who-christina">Christina 使用正確的 Widget</span>
-        <span class="who-tag who-becky">Becky (TBC)驗證</span>
+        <span class="who-tag who-becky">Becky 驗證</span>
       </div>
     </div>
   </div>
@@ -1164,7 +1160,7 @@
       <div class="sub-section">
         <h4>負責人</h4>
         <span class="who-tag who-christina">Christina RWD 設定</span>
-        <span class="who-tag who-becky">Becky (TBC)縮放測試</span>
+        <span class="who-tag who-becky">Becky 縮放測試</span>
       </div>
     </div>
   </div>
@@ -1200,7 +1196,7 @@
       </div>
       <div class="sub-section">
         <h4>負責人</h4>
-        <span class="who-tag who-schneider">Schneider (TBC)設計時確認</span>
+        <span class="who-tag who-schneider">Schneider 設計時確認</span>
         <span class="who-tag who-christina">Christina 在 Elementor 中確認</span>
       </div>
     </div>
@@ -1238,7 +1234,7 @@
       <div class="sub-section">
         <h4>負責人</h4>
         <span class="who-tag who-christina">Christina 設定錯誤訊息</span>
-        <span class="who-tag who-becky">Becky (TBC)表單測試</span>
+        <span class="who-tag who-becky">Becky 表單測試</span>
       </div>
     </div>
   </div>
@@ -1276,8 +1272,8 @@
       <div class="sub-section">
         <h4>負責人</h4>
         <span class="who-tag who-christina">Christina Template 一致性</span>
-        <span class="who-tag who-claire">Claire (TBC)命名一致性</span>
-        <span class="who-tag who-becky">Becky (TBC)跨頁面驗證</span>
+        <span class="who-tag who-claire">Claire 命名一致性</span>
+        <span class="who-tag who-becky">Becky 跨頁面驗證</span>
       </div>
     </div>
   </div>
@@ -1311,7 +1307,7 @@
       </div>
       <div class="sub-section">
         <h4>負責人</h4>
-        <span class="who-tag who-claire">Claire (TBC)字幕/文字稿</span>
+        <span class="who-tag who-claire">Claire 字幕/文字稿</span>
         <span class="who-tag who-christina">Christina Video Widget 設定</span>
       </div>
     </div>
@@ -1341,16 +1337,16 @@
           <li>如有自訂屬性需求，可在 Widget → Advanced → Attributes 中加入</li>
           <li>Ally 外掛的 AI 掃描可偵測部分 ARIA 問題</li>
         </ul>
-        <div class="limitation-note">Elementor 的某些 Widget（特別是 Accordion）已知存在無障礙問題（鍵盤操作不佳、ARIA 屬性不完整）。如果 axe 掃描報告這些問題，需要評估：是否有替代 Widget 可用、是否能透過 Ally 或主題層級修正、或記錄為已知平台限制。</div>
+        <div class="limitation-note">Elementor 的某些 Widget（特別是 Accordion）已知存在無障礙問題（鍵盤操作不佳、ARIA 屬性不完整）。如果 axe 掃描報告這些問題，需要評估：是否有替代 Widget 可用、是否能透過 Equalize / Ally 或主題層級修正、或記錄為已知平台限制。</div>
       </div>
       <div class="sub-section">
         <h4>工具</h4>
-        <span class="tool-tag">axe DevTools</span> <span class="tool-tag">Ally 掃描</span> <span class="tool-tag">Chrome Accessibility Tree</span> <span class="tool-tag">VoiceOver</span>
+        <span class="tool-tag">axe DevTools</span> <span class="tool-tag">Equalize 掃描</span> <span class="tool-tag">Chrome Accessibility Tree</span> <span class="tool-tag">VoiceOver</span>
       </div>
       <div class="sub-section">
         <h4>負責人</h4>
         <span class="who-tag who-christina">Christina Widget 選擇與設定</span>
-        <span class="who-tag who-becky">Becky (TBC)axe 掃描回報</span>
+        <span class="who-tag who-becky">Becky axe 掃描回報</span>
         <span class="who-tag who-bertram">Bertram 平台限制評估</span>
       </div>
     </div>
@@ -1384,7 +1380,7 @@
       <div class="sub-section">
         <h4>負責人</h4>
         <span class="who-tag who-christina">Christina 啟用 Ally 設定</span>
-        <span class="who-tag who-becky">Becky (TBC)Tab 測試驗證</span>
+        <span class="who-tag who-becky">Becky Tab 測試驗證</span>
       </div>
     </div>
   </div>
@@ -1416,9 +1412,9 @@
       </div>
       <div class="sub-section">
         <h4>負責人</h4>
-        <span class="who-tag who-schneider">Schneider (TBC)標記圖片類型（資訊性 vs 裝飾性）</span>
+        <span class="who-tag who-schneider">Schneider 標記圖片類型（資訊性 vs 裝飾性）</span>
         <span class="who-tag who-christina">Christina 在 Elementor 中設定</span>
-        <span class="who-tag who-becky">Becky (TBC)螢幕閱讀器驗證</span>
+        <span class="who-tag who-becky">Becky 螢幕閱讀器驗證</span>
       </div>
     </div>
   </div>
@@ -1457,7 +1453,7 @@
       <div class="sub-section">
         <h4>負責人</h4>
         <span class="who-tag who-christina">Christina 設計 + 設定 Widget</span>
-        <span class="who-tag who-becky">Becky (TBC)量測驗證</span>
+        <span class="who-tag who-becky">Becky 量測驗證</span>
       </div>
     </div>
   </div>
@@ -1491,7 +1487,7 @@
       <div class="sub-section">
         <h4>負責人</h4>
         <span class="who-tag who-christina">Christina 確認 Widget 設定</span>
-        <span class="who-tag who-becky">Becky (TBC)鍵盤測試</span>
+        <span class="who-tag who-becky">Becky 鍵盤測試</span>
       </div>
     </div>
   </div>
@@ -1544,7 +1540,7 @@
       <tr style="background:#fff;">
         <td style="padding:8px 12px; border-bottom:1px solid #e2e8f0;"><strong>🚪 門檻（Baseline）</strong></td>
         <td style="padding:8px 12px; border-bottom:1px solid #e2e8f0;">自動掃描零錯誤</td>
-        <td style="padding:8px 12px; border-bottom:1px solid #e2e8f0;">Lighthouse、axe DevTools、Ally 外掛掃描 — 全部通過，無未解決錯誤</td>
+        <td style="padding:8px 12px; border-bottom:1px solid #e2e8f0;">Lighthouse、axe DevTools、Equalize 外掛掃描 — 全部通過，無未解決錯誤</td>
       </tr>
       <tr style="background:#f7fafc;">
         <td style="padding:8px 12px; border-bottom:1px solid #e2e8f0;"><strong>🎯 目標（Target）</strong></td>
@@ -1595,7 +1591,7 @@
         <th style="padding:8px 12px; text-align:left;">測試內容</th>
       </tr>
       <tr style="background:#fff;">
-        <td style="padding:8px 12px; border-bottom:1px solid #e2e8f0;"><strong>Becky + Bertram</strong></td>
+        <td style="padding:8px 12px; border-bottom:1px solid #e2e8f0;"><strong>Solomon + Becky</strong></td>
         <td style="padding:8px 12px; border-bottom:1px solid #e2e8f0;">執行層</td>
         <td style="padding:8px 12px; border-bottom:1px solid #e2e8f0;">完整測試流程：自動掃描 + 手動鍵盤 + 螢幕閱讀器全流程（含行動端 TalkBack / VoiceOver）。記錄問題、截圖、產出測試報告。</td>
       </tr>
@@ -1617,7 +1613,7 @@
     </div>
 
     <div class="limitation-note" style="margin-top:8px;">
-      <strong>WCAG 2.2 新增項目的測試注意：</strong>Ally 外掛的自動掃描主要覆蓋 WCAG 2.1。WCAG 2.2 新增的 4 項 AA 標準（Focus Not Obscured 2.4.11、Dragging Movements 2.5.7、Target Size 2.5.8、Accessible Authentication 3.3.8）幾乎完全依賴手動測試。這 4 項必須由 Becky + Bertram 手動逐一檢查。
+      <strong>WCAG 2.2 新增項目的測試注意：</strong>Equalize 外掛的自動掃描主要覆蓋 WCAG 2.1。WCAG 2.2 新增的 4 項 AA 標準（Focus Not Obscured 2.4.11、Dragging Movements 2.5.7、Target Size 2.5.8、Accessible Authentication 3.3.8）幾乎完全依賴手動測試。這 4 項必須由 Solomon 主導、Becky 協助逐一檢查。
     </div>
   </div>
 
@@ -1627,7 +1623,7 @@
 <div id="platforms" class="section">
   <div class="card">
     <h2>技術架構與工具建議</h2>
-    <p>本專案採用 Elementor + Ally。以下列出建置與測試中需要的工具，以及團隊協作平台建議。</p>
+    <p>本專案採用 Elementor + A11y。以下列出建置與測試中需要的工具，以及團隊協作平台建議。</p>
   </div>
 
   <div class="card" style="border-left-color: #805ad5;">
@@ -1680,7 +1676,7 @@
       <div class="platform-card">
         <h3>自動化掃描</h3>
         <ul>
-          <li><strong>Ally 掃描</strong> — 整合在 WordPress 後台，最方便</li>
+          <li><strong>Equalize 掃描</strong> — 整合在 WordPress 後台，最方便</li>
           <li><strong>axe DevTools</strong> — Chrome 擴充，最全面的 WCAG 檢查</li>
           <li><strong>Lighthouse</strong> — Chrome 內建，快速概覽</li>
           <li><strong>WAVE</strong> — 視覺化顯示問題位置</li>
