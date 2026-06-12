@@ -26,6 +26,12 @@
   main { padding: 1.2rem 1.25rem 3rem; }
   .spec { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: .8rem 1rem; margin: 1rem 0 1.6rem; font-size: .95rem; max-width: 70ch; }
   .spec strong.crit { color: var(--crit); }
+  .context-note { background: #fff8e7; border-left: 5px solid #f8b62d; border-radius: 0 8px 8px 0; padding: 1rem 1.2rem; margin: 1rem 0 1rem; color: #003b5c; }
+  .context-note p { margin: 0; }
+  .video-panel { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; margin: 1rem 0 1.6rem; box-shadow: 0 2px 10px rgba(20,20,42,.07); }
+  .video-panel h2 { font-size: 1.15rem; margin: 0 0 .65rem; }
+  .video-panel video { display: block; width: 100%; max-width: 960px; border-radius: 8px; background: #000; }
+  .video-panel .video-help { margin: .65rem 0 0; color: var(--muted); font-size: .94rem; }
   mark { background: var(--hl); color: inherit; padding: 0 .15em; font-weight: 600; }
 
   .scene { margin: 2rem 0; }
@@ -108,8 +114,21 @@
 
 <main id="main" class="wrap" tabindex="-1">
 
+  <div class="context-note">
+    <p>這支影片是內部決策說明草稿，用來比較三條報名／金流路徑，不是視覺設計指定稿。若提供給設計端參考，重點是請協助判斷第二條路在 6 月底前是否來得及實作與測試。</p>
+  </div>
+
+  <section class="video-panel" aria-labelledby="video-title">
+    <h2 id="video-title">說明影片草稿</h2>
+    <video controls preload="metadata">
+      <source src="../assets/videos/cash-flow-explainer-v2.mp4" type="video/mp4">
+      您的瀏覽器不支援影片播放。下方保留完整文字分鏡，可直接閱讀。
+    </video>
+    <p class="video-help">影片已內嵌字幕；下方保留逐場景文字分鏡，方便不看影片也能快速確認內容。</p>
+  </section>
+
   <div class="spec">
-    規格：1920×1080、約 120 秒、14 場景。<mark>場景時長以每句語音實際長度為準</mark>；秒數為預估。轉場用淡入淡出。確認視覺後，同一套版面餵給 HyperFrames 轉 MP4，再以 ffmpeg 合入語音。
+    規格：1920×1080、約 120 秒、15 場景。<mark>場景時長以每句語音實際長度為準</mark>；秒數為預估。轉場用淡入淡出。確認視覺後，同一套版面餵給 HyperFrames 轉 MP4，再以 ffmpeg 合入語音。
   </div>
 
   <section class="scene" aria-labelledby="s1">
@@ -140,7 +159,7 @@
         </ul>
         <p class="fine">2 年約 25,920・雙語 +10,500・電子發票 +16,800（選配、一次性）・刷卡手續費 2.2%（公益優惠費率）</p>
       </div>
-      <p class="capbar">第一條，買：直接用 netiCRM，一站全包、不用工程師，是把握較高、趕得上六月底開通的路。</p>
+      <p class="capbar">第一條，買：直接用 netiCRM，一站全包、不用工程師、時程把握較高。</p>
     </div>
   </section>
 
@@ -177,7 +196,7 @@
           <li>省下外掛年費</li>
           <li><span class="crit">換成寫程式與長期照顧的責任</span></li>
         </ul>
-        <p class="fine">一次性付款用免費外掛就好・只有自動扣款與發票要自己寫・AI 可幫忙寫大半</p>
+        <p class="fine">一次性付款用免費外掛就好・自動扣款與發票要自己寫・AI 能分擔大半程式，但要有人訂閱 AI（每月約 3,000 到 6,000）並花時間操作，這個人也要有補償，不是免費</p>
       </div>
       <p class="capbar">第三條，寫：同樣 WordPress，定期定額改自己串接藍新，省下年費、換成工程與維護責任。</p>
     </div>
@@ -226,7 +245,7 @@
         </table>
         <p class="fine">主機與網域協會已在付（官網沿用、三條路共同），不另計・扣款外掛只有組要買（綠界版；藍新版無現成品）；寫＝自己寫不買外掛・電子發票 +16,800 另計</p>
       </div>
-      <p class="capbar">錢的部分：買，第一年三萬六、第二年零；組，每年一萬多；寫，幾乎零。但時間成本剛好反過來。</p>
+      <p class="capbar">錢的部分：買，第一年 3.6 萬、第二年 0；組，每年 1 萬多；寫，幾乎 0。但時間成本剛好反過來。</p>
     </div>
   </section>
 
@@ -255,7 +274,7 @@
     <button type="button" class="replay">重播動畫</button>
     <div class="frame animate">
       <div class="stage">
-        <p class="mid">無障礙分數（Lighthouse 實測）</p>
+        <p class="mid">無障礙（Lighthouse 機器分數，僅參考）</p>
         <div class="scorewrap">
           <div class="scorecol">
             <span class="scoreval">87–92</span>
@@ -263,14 +282,14 @@
             <span>netiCRM</span>
           </div>
           <div class="scorecol">
-            <span class="scoreval">94</span>
-            <div class="scorebar grow" style="height:94px;background:var(--p2);animation-delay:.55s;"></div>
-            <span>自己架的結帳頁（範例實測）</span>
+            <span class="scoreval">看施工</span>
+            <div class="scorebar grow" style="height:90px;background:var(--p2);animation-delay:.55s;"></div>
+            <span>自建（自己控制）</span>
           </div>
         </div>
-        <p class="fine">Google Lighthouse・2026-06 實測・差距僅數分・94 為現成範例的結帳頁；自建越多，要自己處理的問題也越多</p>
+        <p class="fine">netiCRM 目前 87-92、改善靠廠商・自建的無障礙自己控制，但看實際施工、要自己顧・機器分數細節見參考頁</p>
       </div>
-      <p class="capbar">無障礙分數：netiCRM 八十七到九十二；自己架的結帳頁，範例實測九十四。差距不大，而且自建越多、要自己顧的問題也越多。</p>
+      <p class="capbar">無障礙差距不大：netiCRM 目前 87-92、改善靠廠商；自建可以自己控制，但看實際施工、也要自己顧。刷卡那步兩種都會跳藍新、改不了。</p>
     </div>
   </section>
 
@@ -280,7 +299,7 @@
       <div class="stage">
         <p class="big"><span class="crit">分數 ≠ 無障礙</span></p>
         <ul class="bullets">
-          <li>自動測試只涵蓋約三到四成檢測項目</li>
+          <li>自動測試只涵蓋約 3 到 4 成檢測項目</li>
           <li>螢幕報讀器與真實使用體驗，工具測不到</li>
           <li><span class="crit">上線前要人工實測</span>；建議找身障使用者走流程</li>
         </ul>
@@ -290,18 +309,18 @@
   </section>
 
   <section class="scene" aria-labelledby="s9">
-    <h2 id="s9">場景 9｜為什麼不自己做一個？（約 11 秒）</h2>
+    <h2 id="s9">場景 9｜自己做行不行？（約 11 秒）</h2>
     <div class="frame">
       <div class="stage">
-        <p class="mid">為什麼不自己兜一個更無障礙的？</p>
+        <p class="mid">自己兜一個更無障礙的，可行嗎？</p>
         <table class="mini">
           <thead><tr><th scope="col">自己做的售票頁（WooCommerce）</th><th scope="col">netiCRM 售票頁</th></tr></thead>
-          <tbody><tr><td>94（範例實測）</td><td>87 到 92</td></tr></tbody>
+          <tbody><tr><td>版面無障礙自己控制（看施工，不保證）</td><td>受廠商，目前 87-92</td></tr></tbody>
         </table>
         <p class="mid"><span class="crit">刷卡那一步：兩種做法最後都跳到同一個藍新付款頁</span></p>
-        <p class="fine">兩種做法都串藍新金流：自己做＝WooCommerce 售票頁（範例 94）→ 藍新付款；買＝netiCRM 售票頁（92）→ 藍新付款</p>
+        <p class="fine">兩種做法都串藍新金流：自己做＝WooCommerce 售票頁 → 藍新付款；買＝netiCRM 售票頁 → 藍新付款。售票頁無障礙：自己做可控、買的受廠商</p>
       </div>
-      <p class="capbar">有人問：為什麼不自己做？因為刷卡那一步，自己做也一樣會跳到藍新付款頁；真正的差距只在售票頁，九十二比九十四。</p>
+      <p class="capbar">自己做可以，售票頁的無障礙自己控制、做得好甚至能比現成的更好；但分數看實際施工、不保證，而且刷卡那一步兩種都會跳藍新、改不了。自己做就是自己建、自己長期維護。</p>
     </div>
   </section>
 
@@ -313,7 +332,7 @@
         <table class="mini dense" style="margin:0;">
           <thead><tr><th scope="col">項目</th><th scope="col">ACCUPASS</th><th scope="col">Eventbrite</th><th scope="col">netiCRM</th></tr></thead>
           <tbody>
-            <tr><th scope="row">無障礙分數</th><td><span class="crit">79</span>（語言標錯、鎖縮放）</td><td>100</td><td>87 到 92</td></tr>
+            <tr><th scope="row">無障礙分數</th><td><span class="crit">79</span>（語言標錯、鎖縮放）</td><td>100</td><td>87-92</td></tr>
             <tr><th scope="row">台灣付費金流</th><td>可</td><td><span class="crit">收不到台灣的錢</span></td><td>可（藍新 2.2%）</td></tr>
             <tr><th scope="row">涵蓋需求</th><td><span class="crit">只有售票</span></td><td>只有售票（免費場可用）</td><td><mark>售票＋捐款＋會員</mark></td></tr>
             <tr><th scope="row">能否推動改善</th><td>大平台，難</td><td>大平台，難</td><td>專注 NPO 的廠商，<mark>已在對話中</mark></td></tr>
@@ -321,7 +340,7 @@
         </table>
         <p class="fine">分數為 2026-06 實測・Eventbrite 受 PayPal 禁令・ACCUPASS 問題在平台層，無法自行修</p>
       </div>
-      <p class="capbar">那用現成平台就好？Eventbrite 一百分，但收不到台灣的錢；ACCUPASS 七十九分、只做售票。捐款和會員，還是只有一站全包的選項做得到。</p>
+      <p class="capbar">那用現成平台就好？Eventbrite 100 分，但收不到台灣的錢；ACCUPASS 79 分、只做售票。捐款和會員，還是只有一站全包的選項做得到。</p>
     </div>
   </section>
 
@@ -349,14 +368,14 @@
     <div class="frame">
       <div class="stage">
         <ul class="bullets">
-          <li>官網・活動頁 → <mark>設計師打造（目標 94 以上）</mark></li>
-          <li>報名・金流 → netiCRM（收據・定期定額・<span class="crit">有人負責修</span>）</li>
-          <li>稽核清單 → 推動廠商改善，惠及全台用它的協會</li>
+          <li>官網・活動頁 → <mark>設計師打造（自己控制無障礙）</mark></li>
+          <li>報名・金流 → <mark>選定的系統</mark>（買或自建都要<span class="crit">有人負責維護</span>）</li>
+          <li>稽核清單 → 持續檢查、上線前人工實測</li>
         </ul>
-        <p class="fine">netiCRM 報名頁的排版由協會自行調整（30 天導入陪伴會帶著做）・官網到報名的動線仍由設計師主導</p>
+        <p class="fine">報名頁排版由協會自行調整（買的話有 30 天導入陪伴帶著做）・官網到報名的動線由設計師主導</p>
         <p class="fine">前提：協會現為精簡編制（無專職人力），系統建置與維運不強押、也不佔用過多志工與理事會的個人時間，付出才可持續</p>
       </div>
-      <p class="capbar">以協會目前的精簡編制，分工是：官網與活動頁由設計師做到最無障礙；報名與金流交給有人負責修的系統；再推動廠商改善，惠及更多協會。</p>
+      <p class="capbar">以協會目前的精簡編制，分工是：官網與活動頁由設計師做到最無障礙；報名與金流交給選定、且有人負責維護的系統；上線前人工實測、持續推動可及性。</p>
     </div>
   </section>
 
@@ -365,17 +384,19 @@
     <div class="frame">
       <div class="stage">
         <div class="tl">
-          <span class="step now">6/30 netiCRM 上線</span>
+          <span class="step">選定方案</span>
+          <span class="arrow" aria-hidden="true">→</span>
+          <span class="step now">6/30 上線收費</span>
           <span class="arrow" aria-hidden="true">→</span>
           <span class="step">9 月活動</span>
           <span class="arrow" aria-hidden="true">→</span>
-          <span class="step">看實際成果</span>
+          <span class="step">試運行、看實際成果</span>
           <span class="arrow" aria-hidden="true">→</span>
-          <span class="step">再決定要不要換</span>
+          <span class="step">有需要才考慮換</span>
         </div>
-        <p class="fine">可先在測試環境試做、完全不影響正式運作・10 月看實際成果再檢討</p>
+        <p class="fine">10 月活動後依實際運作檢討；三條路都走同一條台灣金流（可能是藍新），日後要換、變動最小</p>
       </div>
-      <p class="capbar">建議走法：六月底先用 netiCRM 上線；九月活動辦完，看實際成果再決定要不要換系統。</p>
+      <p class="capbar">節奏：選定方案後先上線售票收費，試運行到 9 月活動辦完、看實際運作好不好用，真的有需要再考慮換系統。三條路都適用。</p>
     </div>
   </section>
 
@@ -383,12 +404,12 @@
     <h2 id="s14">場景 14｜收尾（約 5 秒）</h2>
     <div class="frame">
       <div class="stage">
-        <p class="fine"><mark>前提：維持目標在六月底開始售票</mark></p>
-        <p class="big">先求有，再求自主。</p>
-        <p class="mid" style="color:var(--muted);">完整比較見參考頁</p>
-        <p class="fine">上線前人工實測（特別是螢幕閱讀器）確保真實可用；盡力符合無障礙，分數當參考、90 分以上不當主要目標</p>
+        <p class="fine"><mark>前提：維持目標在 6 月底開始售票</mark></p>
+        <p class="big">選哪條，看我們想承擔什麼。</p>
+        <p class="mid" style="color:var(--muted);">完整比較見參考頁・此為個人研究整理，團隊有更好方向請直接提</p>
+        <p class="fine">上線前人工實測（特別是螢幕閱讀器）確保真實可用。標準是國際無障礙規範（WCAG AA）＋真實好用，Lighthouse 分數（90-100）只是地板、不是目標</p>
       </div>
-      <p class="capbar">如果維持目標在六月底開始售票：三條路不是三選一，是先求有、再求自主。</p>
+      <p class="capbar">三條路各有取捨：要趕時程、要自動會費，買最穩；有長期顧站人力、想自控版面，組或寫可行。依協會的時程、人力、維運責任決定。</p>
     </div>
   </section>
 
