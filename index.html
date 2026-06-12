@@ -419,14 +419,14 @@
 
 <header>
 <nav class="topnav" aria-label="專案導覽">
-  <h1><a href="#main-content" style="color:#fff; text-decoration:none;" onclick="document.querySelectorAll('.section').forEach(s=>s.classList.remove('visible'));document.getElementById('checklist').classList.add('visible');document.querySelectorAll('.topnav button').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.topnav button')[0].classList.add('active');window.scrollTo(0,0);return false;">AIA 網站重新設計</a></h1>
+  <h1><a href="#main-content" style="color:#fff; text-decoration:none;" onclick="showSection('downloads', document.querySelector('.topnav button[onclick*=downloads]'));window.scrollTo(0,0);return false;">AIA 網站重新設計</a></h1>
   <div class="nav-btns">
-    <button class="active" onclick="showSection('checklist',this)">Checklist</button>
+    <button onclick="showSection('checklist',this)">Checklist</button>
     <button onclick="showSection('overview',this)">專案總覽</button>
     <button onclick="showSection('specs',this)">專案規範</button>
     <button onclick="showSection('assets',this)">素材清單</button>
     <button onclick="showSection('structure',this)">工作架構</button>
-    <button onclick="showSection('downloads',this)">專案文件</button>
+    <button class="active" onclick="showSection('downloads',this)">專案文件</button>
     <button class="wcag-btn" onclick="window.open('pages/testing-flow.html','_blank')">WCAG 測試</button>
     <button id="theme-btn" class="util-btn" onclick="toggleTheme()" style="margin-left:auto;" aria-label="切換深色模式">Dark</button>
     <button id="publish-btn" class="util-btn" onclick="publishState()" style="display:none; background:#0a7c3e; color:#fff;">發布變更</button>
@@ -727,12 +727,12 @@
 </div>
 
 <!-- ====== TAB 5: CHECKLIST (iframe) ====== -->
-<div id="checklist" class="section visible">
+<div id="checklist" class="section">
   <iframe class="iframe-wrap" src="pages/checklist.html"></iframe>
 </div>
 
 <!-- ====== TAB 6: LINKS ====== -->
-<div id="downloads" class="section">
+<div id="downloads" class="section visible">
   <div class="section-heading">
     <h2>專案文件</h2>
     <div class="section-en">Project Documents</div>
