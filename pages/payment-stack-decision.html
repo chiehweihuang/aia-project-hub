@@ -198,7 +198,7 @@
   <div class="note">
     AIA 目前是<strong>人民團體,還不是社團法人</strong>,也還沒拿到所得稅法 §11(4) 認定。意思是:<strong>AIA 現在開不了抵稅收據</strong> — 這跟用哪個軟體無關,是法律身分的問題。
     <p style="margin-top:8px;">所以一個常見的誤解要先澄清:<strong>「選 netiCRM 是因為它有抵稅收據功能」這個理由,現階段其實還不成立</strong> — 那個功能現在是 dormant(在,但用不到)。同理,公益勸募合規、企業捐款統一編號,現在也都用不到(企業捐款本來就走手動 invoice + 銀行匯款,不需要系統,見下方「對 AIA 的影響」區)。</p>
-    <p style="margin-top:8px;"><strong>現階段真正需要 netiCRM 的理由只有一個</strong>:ADALS 2026(150-200 人、多票種、有海外與會者)需要線上刷卡售票。而能做「線上售票 + 單一可維護系統」的,現實上的底線就是 netiCRM 這一類工具(KKTix / Accupass 可及性已排除,Eventbrite 費率與台灣 payout 已排除;表單工具 + 金流連結的拼裝法違反「不跨系統對帳」原則)。</p>
+    <p style="margin-top:8px;"><strong>現階段真正需要 netiCRM 的理由只有一個</strong>:ADALS 2026(150-200 人、多票種、有海外與會者)需要線上刷卡售票。而能做「線上售票 + 單一可維護系統」的,現實上的底線就是 netiCRM 這一類工具(KKTIX / ACCUPASS 只處理售票,Eventbrite 的台灣收款、台灣收據 / 發票與 CRM 銜接仍需額外處理;表單工具 + 金流連結的拼裝法違反「不跨系統對帳」原則)。</p>
   </div>
 
   <h3>為什麼「最小配置 netiCRM」就是兩全其美</h3>
@@ -698,6 +698,16 @@
         <strong>netiCRM vs Path B 結論</strong>:Path B 技術上能做 ADALS 售票,但 NPO 收據要自己接(合規風險)、donor 資料散在多個 plugin、4-5 個廠商各自維護、第一年含 setup 反而比 netiCRM 貴。<strong>Path B 沒有比較省,也沒有比較好。</strong>netiCRM 微型 NT$12,960 全包、單一廠商、NPO 專用,在「能服務 ADALS 的兩個選項」裡明顯勝出。
       </div>
 
+      <div class="note warn">
+        <strong>把「人工費」標出來(2026-06-04 補)</strong>:Path B 的「省」是省授權費,不是省成本。免費 plugin 當然有,但<strong>每一個都要人建置 + 每月維護</strong>,而且免費版功能受限、成長會卡:多數免費票務/捐款 plugin 的金流只接 Stripe/PayPal,而 <strong>Stripe 台灣開不了戶、PayPal 只能跨境、Square 台灣沒服務</strong>,等於被迫回 WooCommerce + 藍新自己兜。把這些工以業界行情(台灣有經驗設計師約 NT$800–2,000/hr)入帳:
+        <ul style="margin:8px 0 0; padding-left:20px;">
+          <li>完整站建置:約 100–200 小時 = NT$10–20 萬(一次性)</li>
+          <li>每月維護(跨系統對帳、外掛更新、補開收據、a11y 不退步):約 20–40 小時/月 ≈ NT$36 萬/年</li>
+          <li><strong>第一年人力約 NT$46 萬起</strong>,對照 netiCRM 微型 NT$12,960/年(人工近零、廠商全代管)</li>
+        </ul>
+        <p style="margin:8px 0 0;"><strong>判斷</strong>:除非有志工願意免費、或有設計師願意把這每月 20–40 小時的維護降到「等於 netiCRM 年費」的價(換算約 NT$36/hr,低到不現實),否則以業界行情,自組 WordPress 沒有划算的理由。命題不是「能不能免費兜出來」(能),是「<strong>誰要長期免費做這每月 20–40 小時</strong>」。完整盤點:10 個免費方案 + 台灣金流(研究 2026-06-04,50-agent 查證)。</p>
+      </div>
+
       <h3>其餘方案:各自只覆蓋一塊,當補充不當主力</h3>
       <p>下面四個方案對照矩陣可見都只覆蓋 2-3 列。它們是「<strong>某一塊的省錢補充</strong>」,不是 ADALS 的整套解:</p>
       <div class="table-wrap">
@@ -1121,7 +1131,7 @@
   <h3>三層結構性整合(Eventbrite 處理不了的)</h3>
   <ol style="padding-left:24px; line-height:1.95; font-size:14px;">
     <li><strong>台灣稅務無縫對接</strong> — netiCRM 內建符合台灣稅法的收據格式(統編、捐款扣抵編號、社團法人格式),NPO 法人會計直接可用。Eventbrite 給的是美式收據,要另外手動補開台灣格式收據 — 雙重工時 + 合規風險。</li>
-    <li><strong>海外付款者整合</strong> — netiCRM 內建國際卡(底層藍新)讓海外與會者用本地信用卡付款;若需要 PayPal UX,可另加 PayPal Business 作為 alternative checkout。後台統一進 NPO 帳戶並產生對應收據。Eventbrite 的 Taiwan organizer payout 不在 Pro 支援名單。</li>
+    <li><strong>海外付款者整合</strong> — netiCRM 內建國際卡(底層藍新)讓海外與會者用本地信用卡付款;若需要 PayPal UX,可另加 PayPal Business 作為 alternative checkout。後台統一進 NPO 帳戶並產生對應收據。<del>Eventbrite 的 Taiwan organizer payout 不在 Pro 支援名單。</del>Eventbrite <a href="https://www.eventbrite.com/help/en-us/articles/755615/how-much-does-it-cost-for-organizers-to-use-eventbrite/" target="_blank" rel="noopener">官方費率頁</a>列 Taiwan R.O.C 於 legacy packages,Professional 服務費約 4.99%/張;但若台灣主辦帳號實際收款走 <a href="https://www.eventbrite.com/help/en-us/articles/313895/how-to-use-paypal-for-payment-processing-and-payout/" target="_blank" rel="noopener">PayPal</a>,款項、退款與付款支援會拆到 PayPal,台灣收據/發票與 CRM 仍要人工補。因此 Eventbrite 不適合作為主收款系統。</li>
     <li><strong>會員資料跨年度持續使用</strong> — 會員年費、贊助履約追蹤、捐款歷程、自動寄信、會員資格自動審查 — 這些 NPO 標準工作流程 netiCRM 內建,Eventbrite 沒有(它是售票平台,活動結束資料就斷了)。</li>
   </ol>
 
@@ -1443,7 +1453,7 @@
   <div class="note warn">
     <ul style="padding-left:22px; line-height:1.85;">
       <li><strong>不要用 KKTix / Accupass</strong> — 可及性已被內部評估為不可接受</li>
-      <li><strong>不要用 Eventbrite</strong> — 跨境費率累計 6–8%、贊助處理不適合、版型限制論述呈現、台灣 organizer payout 不在 Pro 支援名單</li>
+      <li><strong><del>不要用 Eventbrite</del>不要把 Eventbrite 當主方案</strong> — <del>跨境費率累計 6–8%、贊助處理不適合、版型限制論述呈現、台灣 organizer payout 不在 Pro 支援名單</del>若要評估 Eventbrite,上線前必須實測台灣主辦帳號的付費活動建立、EPP/PayPal 收款方式、外國卡或 PayPal 成功付款、退款、名單匯出、QR/check-in 與無障礙流程</li>
       <li><strong>不要用 Typeform 收款</strong> — 可及性差、超出表單範圍</li>
       <li><strong>不要假設 Stripe 可開</strong> — 至 2026/04 仍不行</li>
       <li><strong>不要假設 Wise Business 可開</strong> — 台灣協會明確不在支援名單</li>

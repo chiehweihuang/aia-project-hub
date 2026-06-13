@@ -139,7 +139,7 @@
         </colgroup>
         <thead><tr><th scope="col">分水嶺</th><th scope="col">買</th><th scope="col">組</th><th scope="col">寫</th></tr></thead>
         <tbody>
-          <tr><th scope="row">無障礙主導權</th><td>受廠商（87 到 92）</td><td>版面自控（範例實測 94，做不好會更低）</td><td>版面自控（範例實測 94，做不好會更低）</td></tr>
+          <tr><th scope="row">無障礙主導權</th><td>受廠商（87 到 92）</td><td>版面自控（範例實測 94，僅作參考，做不好會更低）</td><td>版面自控（範例實測 94，僅作參考，做不好會更低）</td></tr>
           <tr><th scope="row">會員定期定額</th><td><mark>內建</mark></td><td><strong class="crit">付費外掛組合</strong>：會費與定期捐款要自動扣，須買訂閱管理＋扣款外掛（約 13,600/年）；電子發票若走 ezPay，外掛另要 2,490/年</td><td>自寫 API（年費換工時）</td></tr>
           <tr><th scope="row">時程</th><td><strong class="crit">較高機率趕上 6/30</strong></td><td>數週，可能趕得上</td><td>不趕活動，慢慢研究</td></tr>
         </tbody>
@@ -176,7 +176,7 @@
           <tr><th scope="row">電子發票/收據</th><td>一般收據免費、自動開；電子發票 +16,800（一次性，串 ezPay：<mark>藍新體系的發票服務</mark>）</td><td>綠界官方發票外掛免費＋發票服務年費（見路徑 2 收費站）；<strong class="crit">抵稅收據不自動開</strong></td><td>自寫 ezPay API 或加購外掛</td></tr>
           <tr><th scope="row">雙語</th><td>+10,500（含報名頁）</td><td>多語外掛自設，例如：TranslatePress 免費版含一個額外語言（恰可中英、能翻結帳頁）、Polylang（免費但 WooCommerce 整合需付費版）、WPML（純付費）。<strong class="crit">避開 GTranslate 類機翻小工具（lang 標記錯誤，報讀器誤唸）</strong></td><td>同路徑 2</td></tr>
           <tr><th scope="row">電子報</th><td><mark>內建</mark>（與支持者名單同庫，可依捐款／報名紀錄分眾；寄送量上限列入詢問清單）</td><td>例如 Benchmark Email 免費層（<mark>原生中文</mark>，500 聯絡人／月 3,500 封，台北中文客服）；名單與 WooCommerce 訂單人工同步。備案例如 MailPoet（WordPress 外掛，買家自動入列，繁中翻譯覆蓋度未查證）</td><td>同路徑 2</td></tr>
-          <tr><th scope="row">無障礙分數（僅機器測試）</th><td>87 到 92</td><td>範例實測 94；隨 theme 與施工品質，<strong class="crit">做不好會更低</strong></td><td>範例實測 94；隨 theme 與施工品質，<strong class="crit">做不好會更低</strong></td></tr>
+          <tr><th scope="row">無障礙分數（僅機器測試）</th><td>87 到 92</td><td>範例 94（空白示範頁，參考價值有限，見下方說明）；隨 theme 與施工品質，<strong class="crit">做不好會更低</strong></td><td>範例 94（空白示範頁，參考價值有限，見下方說明）；隨 theme 與施工品質，<strong class="crit">做不好會更低</strong></td></tr>
           <tr><th scope="row">無障礙可自行修</th><td><strong class="crit">否</strong>（回報廠商；來信僅詢問本會對無障礙現階段環境的看法，無承諾與時程）</td><td>是（版面；結帳導轉除外）</td><td>是（版面；結帳導轉除外）</td></tr>
           <tr><th scope="row">合約綁定</th><td>2 年約預繳 25,920；<mark>30 天鑑賞期零費用</mark>；中途終止扣回 8,000（<strong class="crit">未使用年費退費待確認</strong>）</td><td>無合約，外掛逐年續訂</td><td>無合約</td></tr>
           <tr><th scope="row">維護負擔</th><td>低（<mark>廠商收費＝可咎責</mark>）</td><td>中（自養 WordPress；<strong class="crit">需可咎責的維運安排，志工建置≠志工維運</strong>）</td><td>中高（串接自己養）</td></tr>
@@ -189,7 +189,7 @@
       </table>
     </div>
     <p class="note">netiCRM 為廠商實際報價；路徑 2、3 的工時不放精確金額。路徑 3 的本質：<mark>用工程工時替代外掛年費</mark>。<strong class="crit">誠實標註：路徑 2 的定期定額做法已查證（免費做不到，只有付費外掛一條路），但未架設測試；路徑 3 尚未研究做法</strong>；路徑 1 的內建為現役功能。另：路徑 2 <mark>若短期不做會費自動扣款，付費外掛暫時都不用買</mark>，免費地板即可跑售票與單次捐款（見路徑 2 的「變體：不做自動扣款」）。</p>
-    <p class="note warn">無障礙分數<strong class="crit">僅為 Lighthouse 機器自動測試，完全不足以代表實際可用性</strong>：機器抓不到螢幕閱讀器動線、鍵盤操作流暢度與真實使用體驗。上線前要人工實測，建議找身障使用者走流程。<mark>分數到了高分區（例如 90 以上）再往上追，邊際效益極低</mark>：<a href="https://www.deque.com/blog/automated-testing-study-identifies-57-percent-of-digital-accessibility-issues/">Deque 2021 年逾兩千件稽核的實測</a>顯示自動化測試約抓到 57% 的問題量，其餘只有人工搆得到；甚至有人示範過 <a href="https://www.matuzo.at/blog/building-the-most-inaccessible-site-possible-with-a-perfect-lighthouse-score/">Lighthouse 100 分但完全不可用的網站</a>（Matuzović）。同樣時間花在人工實測上效益更高。</p>
+    <p class="note warn">無障礙分數<strong class="crit">僅為 Lighthouse 機器自動測試，完全不足以代表實際可用性</strong>：機器抓不到螢幕閱讀器動線、鍵盤操作流暢度與真實使用體驗。上線前要人工實測，建議找身障使用者走流程。<mark>分數到了高分區（例如 90 以上）再往上追，邊際效益極低</mark>：<a href="https://www.deque.com/blog/automated-testing-study-identifies-57-percent-of-digital-accessibility-issues/">Deque 2021 年逾兩千件稽核的實測</a>顯示自動化測試約抓到 57% 的問題量，其餘只有人工搆得到；甚至有人示範過 <a href="https://www.matuzo.at/blog/building-the-most-inaccessible-site-possible-with-a-perfect-lighthouse-score/">Lighthouse 100 分但完全不可用的網站</a>（Matuzović）。同樣時間花在人工實測上效益更高。<strong class="crit">關於那個「範例 94」</strong>：它來自一個<mark>幾乎空白的 WooCommerce 示範頁</mark>，空頁面在 Lighthouse 上本來就容易拿高分；一旦放上實際票種、表單、圖文內容，分數會往下掉。所以這個 94 參考價值有限，只能說明「自建有機會做到不差」，<strong class="crit">不代表協會自建一定拿到 94</strong>，也不代表 94 分是通過門檻或驗收條件。netiCRM 的 87 到 92 則是現役產品實測、改善要靠廠商，兩者性質不同、不宜直接相減比高下。</p>
     <p class="note warn"><strong class="crit">步數少 ≠ 更無障礙</strong>：分步驟＋清楚進度＋不重複輸入是公認可輕鬆使用的結帳模式；一頁塞滿票種、個資、付款反而推高認知負荷。要比的是每一步乾不乾淨，不是步數。三條路的刷卡步驟都導轉藍新頁面，該步無障礙相同。</p>
   </section>
 
@@ -212,7 +212,7 @@
         </tbody>
       </table>
     </div>
-    <p class="note">組與寫的彈性是真實優勢：版面與無障礙自己控制（範例實測 94）、無合約綁定、外掛生態自由。上表是彈性的代價清單：沒有藍新定期定額現成品、需要工程或技術志工、需要人力維護、要自建得先花時間研究。<strong class="crit">若目標維持 6/30 開賣早鳥票，完整自建排不進這個時間</strong>（售票單項的極限情境見路徑 2 的「活動優先的切角」）。</p>
+    <p class="note">組與寫的彈性是真實優勢：版面與無障礙自己控制（範例實測 94，僅作參考，不作驗收條件）、無合約綁定、外掛生態自由。上表是彈性的代價清單：沒有藍新定期定額現成品、需要工程或技術志工、需要人力維護、要自建得先花時間研究。<strong class="crit">若目標維持 6/30 開賣早鳥票，完整自建排不進這個時間</strong>（售票單項的極限情境見路徑 2 的「活動優先的切角」）。</p>
     <p class="note">替代一站式選項持續盤點：TinyBook（預約制 SaaS）確實支援藍新定期定額，但定位是課程與場地預約系統，無活動售票模型、無捐款收據，年費 17,760 起、高於 netiCRM，不適配本會三需求。</p>
   </section>
 
