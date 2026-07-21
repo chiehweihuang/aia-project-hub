@@ -492,7 +492,7 @@
 
   <div class="mou-alert">
     <h2>Phase 1：首頁 + 活動頁</h2>
-    <p>Elementor + A11y（Equalize + Ally / No-code） | WCAG 2.2 AA | RWD | 中文為主</p>
+    <p>Kadence Blocks（基於 WordPress Gutenberg 區塊編輯器）+ Accessibility Checker by Kadence | WCAG 2.2 AA | RWD | 中文為主</p>
     <p style="margin-top:8px; font-size:14px;"><strong>目前進度：</strong>Christina 已提供 Wireframe，團隊正在整理內容填入。品牌規範、色碼、字型、Favicon 均已完成。</p>
   </div>
 
@@ -513,7 +513,7 @@
   <div class="card archived">
     <span class="phase-badge phase-done">已完成</span>
     <h2>W0：全員並行準備</h2>
-    <p style="font-size:13px;">以下任務已完成或由 Bertram 代為處理。</p>
+    <p style="font-size:13px;">以下為初期已完成事項與目前各角色分工；完成紀錄不代表後續持續承接。</p>
   </div>
 
   <!-- Schneider -->
@@ -528,10 +528,11 @@
 
   <!-- Claire -->
   <div class="card" style="border-left-color: var(--claire);">
-    <h2 style="color:var(--claire);">Claire &mdash; 內容創作者</h2>
+    <h2 style="color:var(--claire);">Claire &mdash; Content Owner</h2>
     <ul>
       <li><strong>內容盤點 + 標題層級規劃</strong> &mdash; 根據 Wireframe 整理資訊架構</li>
-      <li><strong>文案初稿</strong> &mdash; 首頁 + 活動頁，中英雙語，每頁 300-600 字</li>
+      <li><strong>主要文案撰寫與補齊</strong> &mdash; 首頁 + 活動頁，中英雙語，每頁 300-600 字</li>
+      <li><strong>內容校對與定稿</strong> &mdash; 確認事實、語氣、中英文一致性與交付版本</li>
       <li>連結文字要有描述性（避免「了解更多」「按此」）</li>
     </ul>
   </div>
@@ -557,10 +558,7 @@
       <li class="done"><strong>網站架構圖 Sitemap</strong> &mdash; Phase 1-3 頁面架構 + URL 結構<span class="done-date">2026-04-16</span></li>
       <li class="done"><strong>專案 Hub 品牌化</strong> &mdash; 全站套用 Brand Style Guide<span class="done-date">2026-04-16</span></li>
       <li class="done"><strong>WCAG 無障礙審核</strong> &mdash; 對比度修正 + aria-label 補齊<span class="done-date">2026-04-16</span></li>
-      <li><strong>從 Shared Drive 下載圖片</strong> &mdash; 整理到 Web_Assets 資料夾 + 壓縮</li>
-      <li><strong>團隊照片選擇</strong> &mdash; 每人 2 版選 1 版</li>
-      <li><strong>社群媒體帳號 URL 清單</strong> &mdash; Facebook / LINE / YouTube / LinkedIn</li>
-      <li><strong>文案協助</strong> &mdash; 與 Claire 共同撰寫首頁 + 活動頁文案</li>
+      <li><strong>專案管理</strong> &mdash; 管理範圍、時程、進度、依賴、風險、決策紀錄、驗收與上線準備</li>
     </ul>
   </div>
 
@@ -571,7 +569,7 @@
       <li class="done">Wireframe 提供給團隊<span class="done-date">已交付</span></li>
       <li><strong>等待團隊回饋</strong> &mdash; 根據內容填入結果調整設計</li>
       <li>Mockup 完稿（團隊回饋後）</li>
-      <li>Elementor 頁面建置 + A11y 外掛（Equalize + Ally）設定</li>
+      <li>Kadence Blocks 頁面建置 + Accessibility Checker by Kadence 設定</li>
       <li>根據測試結果修正</li>
     </ul>
   </div>
@@ -579,6 +577,7 @@
   <!-- 團隊共同 -->
   <div class="card">
     <h2>待決定事項</h2>
+    <p><strong>活動內容：</strong>由 Content Owner 統整；活動定位、議程、講者、錄影／直播承諾與活動資料由活動負責單位提供及確認。</p>
     <ul>
       <li><strong>是否放置影片？</strong> &mdash; 會影響首頁版面規劃</li>
     </ul>
@@ -598,7 +597,7 @@
     <h3>1. 快速確認</h3>
     <ul>
       <li>WCAG 版本統一為 <strong>2.2 AA</strong></li>
-      <li>第三方費用清單 &mdash; Elementor 免費版還是 Pro？A11y 外掛（Equalize + Ally）授權費？字體授權？</li>
+      <li>第三方費用清單 &mdash; Kadence Blocks 免費版還是 Pro？Accessibility Checker by Kadence 授權費？字體授權？</li>
       <li>Phase 2+ 頁面範圍 &mdash; 關於我們、團隊、加入我們、新聞/Blog、聯絡我們（跟章程一致？）</li>
     </ul>
 
@@ -625,7 +624,7 @@
         <tr><td>首頁修正後</td><td>迴歸測試（只測之前 Fail 的項目）</td><td>30 min</td></tr>
         <tr><td>活動頁建好</td><td>axe + Lighthouse + WCAG 2.2 完整測試（30 項）</td><td>60-90 min</td></tr>
         <tr><td>活動頁修正後</td><td>迴歸測試</td><td>30 min</td></tr>
-        <tr><td>全部 Pass</td><td>最終驗收 &rarr; 上線 &rarr; Phase 2 討論</td><td>&mdash;</td></tr>
+        <tr><td>全部 Pass</td><td>Bertram 統籌驗收、各 owner 確認結果、團隊授權 &rarr; 上線 &rarr; Phase 2 討論</td><td>&mdash;</td></tr>
       </tbody>
     </table>
     <p style="font-size:13px; color:var(--muted); margin-top:8px;">一頁一頁來：建好 &rarr; 測 &rarr; 修 &rarr; 下一頁。不等全部做完才測。</p>
@@ -658,7 +657,7 @@
       <div class="progress-info"><span class="prog-text">0/7</span><div class="mini-bar"><div class="mini-fill" style="width:0%"></div></div></div>
     </div>
     <div class="checklist-body open">
-      <div class="check-item" data-key="mou-1"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">網站性質：Brochure Website（基礎形象型）</div><div class="check-detail">採 Page Builder（Elementor + A11y：Equalize + Ally）現成平台解決方案，不含客製化程式開發。</div></div></div>
+      <div class="check-item" data-key="mou-1"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">網站性質：Brochure Website（基礎形象型）</div><div class="check-detail">採 Kadence Blocks（基於 WordPress Gutenberg 區塊編輯器）與 Accessibility Checker by Kadence，不含客製化程式開發。</div></div></div>
       <div class="check-item" data-key="mou-2"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">Phase 1 頁面範圍：首頁（Home）+ 活動頁（Events）</div><div class="check-detail">首頁：現有首頁審閱（Audit）與完整重新設計。活動頁：全新頁面設計。</div></div></div>
       <div class="check-item" data-key="mou-3"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">無障礙設計：WCAG 2.2 AA 標準</div><div class="check-detail">確保頁面符合 WCAG 2.2 AA，並提供合規確認文件。</div></div></div>
       <div class="check-item" data-key="mou-4"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">響應式設計：桌機、平板、手機</div><div class="check-detail">相容主流裝置。</div></div></div>
@@ -675,7 +674,7 @@
       <div class="progress-info"><span class="prog-text">0/6</span><div class="mini-bar"><div class="mini-fill" style="width:0%"></div></div></div>
     </div>
     <div class="checklist-body">
-      <div class="check-item" data-key="mou-r1"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">Christina：視覺設計、頁面建置、無障礙實作、內部 QA</div><div class="check-detail">頁面建置 = 使用網頁建置工具（Elementor + A11y：Equalize + Ally），No custom coding。</div><span class="check-owner owner-christina">Christina</span></div></div>
+      <div class="check-item" data-key="mou-r1"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">Christina：視覺設計、頁面建置、無障礙實作、內部 QA</div><div class="check-detail">頁面建置 = 使用 Kadence Blocks（基於 WordPress Gutenberg 區塊編輯器）與 Accessibility Checker by Kadence，No custom coding。</div><span class="check-owner owner-christina">Christina</span></div></div>
       <div class="check-item" data-key="mou-r2"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">Christina：範疇控管、定期回報進度</div><div class="check-detail">每階段里程碑交付成果供團隊審閱，以書面記錄設計決策。</div><span class="check-owner owner-christina">Christina</span></div></div>
       <div class="check-item" data-key="mou-r3"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">AIA 團隊：提供文案、翻譯、圖像素材、品牌資產</div><div class="check-detail">含 Logo 向量原始檔。</div><span class="check-owner owner-team">AIA 團隊</span></div></div>
       <div class="check-item" data-key="mou-r4"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">AIA 團隊：提供網域、DNS、主機存取憑證</div><div class="check-detail">設計師需要存取權限才能進行建置與部署。</div><span class="check-owner owner-team">AIA 團隊</span></div></div>
@@ -705,7 +704,7 @@
     <div class="checklist-body">
       <div class="check-item" data-key="mou-t1"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">A-1：首頁（Home）審閱與重新設計</div><div class="check-detail">Christina 執行，團隊審閱。</div></div></div>
       <div class="check-item" data-key="mou-t2"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">A-2：活動頁（Events）頁面設計</div><div class="check-detail">Christina 執行，團隊審閱。</div></div></div>
-      <div class="check-item" data-key="mou-t3"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">A-3：無障礙驗證 WCAG 2.2 AA</div><div class="check-detail">Solomon 主導、Becky 協助；Christina QA，Bertram UAT。</div></div></div>
+      <div class="check-item" data-key="mou-t3"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">A-3：無障礙驗證 WCAG 2.2 AA</div><div class="check-detail">Solomon 主導、Becky 協助；Christina 修正建置問題，Bertram 統籌驗收流程。</div></div></div>
       <div class="check-item" data-key="mou-t4"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div><div class="check-content"><div class="check-title">A-4：正式上線（Launch）</div><div class="check-detail">團隊授權，Christina 部署。</div></div></div>
     </div>
   </div>

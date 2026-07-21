@@ -141,7 +141,7 @@
     border:2px solid var(--border); border-radius:6px; background:#fff; transition:border-color .15s;
   }
   .field input:focus, .field select:focus, .field textarea:focus {
-    outline:none; border-color:var(--secondary); box-shadow:0 0 0 3px rgba(25,171,228,.15);
+    outline:2px solid var(--secondary); outline-offset:2px; border-color:var(--secondary); box-shadow:0 0 0 3px rgba(25,171,228,.15);
   }
   .field textarea { resize:vertical; min-height:80px; }
   .field .hint { font-size:12px; color:var(--muted); }
@@ -325,7 +325,7 @@
     <li><strong>Part 2 參考範例</strong>(下半部): 以 ADALS 2026(最複雜活動類型)為示例,呈現一個可能的設計方向。實際 UI / 排版 / 視覺由設計師決定。簡單活動可 scale down。</li>
   </ul>
   <div class="note">
-    <strong>Scope 提醒:</strong>本範本聚焦在 <strong>Christina 在 Elementor + Ally 內可建置的 UI 層</strong>(報名表單視覺、票種卡片、確認頁、狀態示範)。金流整合層(NewebPay API、PayPal SDK、tax-compliant receipt)由 netiCRM 平台處理或工程獨立介入,不在此範本 scope。金流選項的完整比較 → <a href="payment-stack-decision.html">金流基礎建設決策依據</a>。
+    <strong>Scope 提醒:</strong>本範本聚焦在 <strong>Christina 以 Kadence Blocks（基於 WordPress Gutenberg 區塊編輯器）可建置的 UI 層</strong>(報名表單視覺、票種卡片、確認頁、狀態示範)。金流整合層(NewebPay API、PayPal SDK、tax-compliant receipt)由 netiCRM 平台處理或工程獨立介入；活動定位、議程、講者、錄影 / 直播承諾與活動資料由 Content Owner 或活動負責單位提供及確認。以上都不在本範本 scope。金流選項的完整比較 → <a href="payment-stack-decision.html">金流基礎建設決策依據</a>。
   </div>
 </section>
 
@@ -454,7 +454,7 @@
     <div class="event-ladder-body">
 
       <h3 style="margin-top:0;">五種活動類型 — UI 設計工作量比較</h3>
-      <p style="font-size:13px; color:var(--muted);">本表聚焦 Christina 在 Elementor 上的設計工作量。金流 / 平台選擇詳見 <a href="payment-stack-decision.html#event-stacks">金流頁 §8</a>。</p>
+      <p style="font-size:13px; color:var(--muted);">本表聚焦 Christina 以 Kadence Blocks 建置的設計工作量。金流 / 平台選擇詳見 <a href="payment-stack-decision.html#event-stacks">金流頁 §8</a>。</p>
       <div class="event-compare-wrap">
         <table class="event-compare">
           <thead>
@@ -852,7 +852,7 @@
       <h4 style="margin-top:14px;">贊助洽詢表單(見 §6)</h4>
       <p style="font-size:14px;">收集足夠資訊讓祕書長 / 總務後續人工處理 invoice。表單送出後,顯示「2 個工作日內回覆」訊息 + 寄出確認 email。</p>
       <p style="font-size:13px; color:var(--muted); margin-top:14px; padding-top:14px; border-top:1px solid var(--border);">
-        <strong>這條分流沒有金流整合</strong> — 表單由 Elementor Pro Forms 或 Fillout / Cognito 嵌入即可。Invoice 與匯款由祕書長 / 總務線下處理。
+        <strong>這條分流沒有金流整合</strong> — 表單由既定 WordPress 表單區塊或 Fillout / Cognito 嵌入即可。Invoice 與匯款由祕書長 / 總務線下處理。
       </p>
       <div style="margin-top:14px;"><a href="#sponsor" class="btn btn-secondary">前往贊助洽詢示範 ↓</a></div>
     </div>
@@ -949,7 +949,7 @@
   <div class="section-num"><span style="color:#8B5E0E;">PART 2 · </span>§7 STATES</div>
   <h2>狀態示範 <span class="section-tag-adals">參考範例(四種狀態必有,樣式自決)</span></h2>
 
-  <p>Elementor 預設只處理「正常」狀態。但實際使用時，使用者會遇到很多<strong>非正常</strong>狀態。每個狀態都需要明確的視覺與文字提示。</p>
+  <p>頁面建置不能只呈現「正常」狀態。實際使用時，使用者會遇到很多<strong>非正常</strong>狀態；每個狀態都需要明確的視覺與文字提示。</p>
 
   <div class="state-grid">
     <div class="state-box">
@@ -1022,7 +1022,7 @@
 
   <h3>Scope 拆分：Christina vs. 平台 / 工程</h3>
   <div class="checklist">
-    <h4>Christina 的職責（Elementor + Ally 內，無需寫 code）</h4>
+    <h4>Christina 的職責（Kadence Blocks 內，無需寫 code）</h4>
     <ul>
       <li>Hero / About / Programme / Audience / Sponsorship / Venue 等視覺頁面</li>
       <li>票種選擇 UI（若採自建路徑）或 netiCRM 嵌入位置（若採 netiCRM）</li>
@@ -1032,7 +1032,7 @@
       <li>WCAG 2.2 AA 視覺合規（對比度、focus ring、觸控目標 ≥ 44×44）</li>
       <li>中英雙語切換的視覺與互動</li>
     </ul>
-    <h4 style="margin-top:18px;">平台 / 工程的職責（Christina 不碰，超出 Elementor 範圍）</h4>
+    <h4 style="margin-top:18px;">平台 / 工程的職責（Christina 不碰，超出 Kadence Blocks 範圍）</h4>
     <ul>
       <li class="dont">藍新（NewebPay）/ PayPal / 其他金流的 API 串接</li>
       <li class="dont">付款 callback、簽章驗證、訂單 idempotency、refund 處理</li>
@@ -1055,7 +1055,7 @@
     <ul>
       <li><strong>Fillout</strong>（fillout.com）— 有 WCAG 公開承諾，可嵌入 iframe，logic branching 支援良好</li>
       <li><strong>Cognito Forms</strong>（cognitoforms.com）— 有 a11y 聲明，付費版可串金流</li>
-      <li>若 Christina 想用 Elementor 原生表單：用 <strong>Elementor Pro Forms</strong> + <strong>Ally 外掛</strong> 補強，不要用 Contact Form 7（a11y 不及格）</li>
+      <li>若使用 WordPress 表單區塊：先以 <strong>Accessibility Checker by Kadence</strong> 檢查，再由 Solomon / Becky 完成鍵盤與螢幕閱讀器實測；不要把外掛掃描當成合規保證</li>
     </ul>
     <h4 style="margin-top:18px;">不要用</h4>
     <ul>

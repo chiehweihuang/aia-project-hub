@@ -16,7 +16,7 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AIA 網站重新設計 — 角色/工作架構 & WCAG 2.2 測試指南（Elementor 版）</title>
+<title>AIA 網站重新設計 — 角色/工作架構 & WCAG 2.2 測試指南（Kadence Blocks 版）</title>
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
@@ -75,7 +75,7 @@
   .tag-critical { background:#fed7d7; color:#9c1a1a; }
   .tag-support { background:#bee3f8; color:#2b6cb0; }
   .tag-a11y { background:#c6f6d5; color:#276749; }
-  .tag-elementor { background:#e9d8fd; color:#553c9a; }
+  .tag-builder { background:#e9d8fd; color:#553c9a; }
   .tag-mou { background:#fefcbf; color:#7a4600; }
   .tag-xp { background:#fed7d7; color:#9c1a1a; font-size:11px; }
   .tag-highrisk { background:#fefcbf; color:#7a4600; font-size:11px; }
@@ -140,11 +140,11 @@
   .who-becky { background:#ebf8ff; color:#2b6cb0; }
   .who-bertram { background:#fff5f5; color:#c53030; }
 
-  /* ELEMENTOR-SPECIFIC */
-  .elementor-note { background:#f5f0ff; border:1px solid #d6bcfa; border-radius:8px; padding:12px 16px; margin:8px 0; font-size:13px; }
-  .elementor-note::before { content:'🔧 Elementor '; font-weight:700; color:#6b46c1; }
-  .ally-note { background:#f0fff4; border:1px solid #9ae6b4; border-radius:8px; padding:12px 16px; margin:8px 0; font-size:13px; }
-  .ally-note::before { content:'🛡️ Ally Plugin '; font-weight:700; color:#276749; }
+  /* BUILDER-SPECIFIC */
+  .builder-note { background:#f5f0ff; border:1px solid #d6bcfa; border-radius:8px; padding:12px 16px; margin:8px 0; font-size:13px; }
+  .builder-note::before { content:'🔧 Kadence Blocks '; font-weight:700; color:#6b46c1; }
+  .checker-note { background:#f0fff4; border:1px solid #9ae6b4; border-radius:8px; padding:12px 16px; margin:8px 0; font-size:13px; }
+  .checker-note::before { content:'🛡️ Accessibility Checker '; font-weight:700; color:#276749; }
   .limitation-note { background:#fff5f5; border:1px solid #feb2b2; border-radius:8px; padding:12px 16px; margin:8px 0; font-size:13px; }
   .limitation-note::before { content:'⚠️ 平台限制 '; font-weight:700; color:#c53030; }
 
@@ -193,8 +193,8 @@
   [data-theme="dark"] .test-item { background:#14304a; }
   [data-theme="dark"] .test-header:hover { background:#1e4060; }
   [data-theme="dark"] .test-body { color:#e8ecef; }
-  [data-theme="dark"] .elementor-note { background:#1a1530; border-color:#7b61c1; }
-  [data-theme="dark"] .ally-note { background:#1a3a20; border-color:#34c77b; }
+  [data-theme="dark"] .builder-note { background:#1a1530; border-color:#7b61c1; }
+  [data-theme="dark"] .checker-note { background:#1a3a20; border-color:#34c77b; }
   [data-theme="dark"] .limitation-note { background:#2a1515; border-color:#e87c73; }
   [data-theme="dark"] .platform-card { background:#14304a; }
   [data-theme="dark"] .flow-phase .phase-body { background:#14304a; border-color:#2a5070; }
@@ -221,7 +221,7 @@
   [data-theme="dark"] .tag-critical { background:rgba(156,26,26,.2); color:#ff9a8f; }
   [data-theme="dark"] .tag-support { background:rgba(25,171,228,.15); color:#63c5f1; }
   [data-theme="dark"] .tag-a11y { background:rgba(10,124,62,.15); color:#5ed09a; }
-  [data-theme="dark"] .tag-elementor { background:rgba(123,97,193,.15); color:#b49aee; }
+  [data-theme="dark"] .tag-builder { background:rgba(123,97,193,.15); color:#b49aee; }
   [data-theme="dark"] .tag-mou { background:rgba(248,182,45,.1); color:#f8b62d; }
   [data-theme="dark"] .tag-xp { background:rgba(156,26,26,.2); color:#ff9a8f; }
   [data-theme="dark"] .tag-highrisk { background:rgba(248,182,45,.1); color:#f8b62d; }
@@ -237,7 +237,7 @@
 <body>
 
 <nav class="topnav">
-  <h1>AIA 網站重新設計 2026（Elementor + A11y）</h1>
+  <h1>AIA 網站重新設計 2026（Kadence Blocks + A11y）</h1>
   <button class="active" onclick="showSection('roles')">👥 角色架構</button>
   <button onclick="showSection('flow')">🔄 工作流程</button>
   <button onclick="showSection('wcag-new')">🆕 WCAG 2.2 更新</button>
@@ -250,14 +250,14 @@
   <div class="mou-alert">
     <h3>Phase 1 專案規範</h3>
     <p><strong>頁面範圍：</strong>Home（現有頁面重新設計）+ Events（新頁面）— 共 2 頁</p>
-    <p><strong>建置平台：</strong>Elementor Page Builder + A11y 外掛（Equalize + Ally，No-code，不含客製化程式開發）</p>
+    <p><strong>建置平台：</strong>Kadence Blocks（基於 WordPress Gutenberg 區塊編輯器）+ Accessibility Checker by Kadence（No-code，不含客製化程式開發）</p>
     <p><strong>合規目標：</strong>WCAG 2.2 AA + RWD + 中文為主</p>
   </div>
 
   <div class="card">
     <h2>團隊角色與職責架構</h2>
-    <p style="margin-bottom:8px;">Critical Path: Christina 是關鍵路徑 — 所有頁面設計與 Elementor 建置都經過她。Bertram 負責專案管理；Solomon 主導無障礙測試，Becky 協助測試。Schneider 與 Claire 提供素材與內容。</p>
-    <p style="margin-bottom:8px; font-size:13px;"><span class="tag tag-elementor">No-Code 專案</span> 本專案採用 Elementor Page Builder 進行頁面建置，並搭配 A11y 外掛（Equalize + Ally）處理檢查與輔助功能；所有功能以現成外掛工具實現，不含客製化程式碼開發。</p>
+    <p style="margin-bottom:8px;">Critical Path: Christina 負責設計與建置；Claire 是 Content Owner，活動內容由 Claire 或活動負責單位提供；Solomon 主導無障礙測試，Becky 協助測試；Bertram 負責專案管理。</p>
+    <p style="margin-bottom:8px; font-size:13px;"><span class="tag tag-builder">No-Code 專案</span> 本專案採用 Kadence Blocks（基於 WordPress Gutenberg 區塊編輯器）建置，並搭配 Accessibility Checker by Kadence；所有功能以 WordPress 原生能力與既定外掛實現，不含客製化程式碼開發。</p>
     <div class="legend">
       <div class="legend-item"><div class="legend-dot" style="background:var(--christina)"></div> Christina</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--schneider)"></div> Schneider</div>
@@ -270,24 +270,23 @@
   <div class="role-grid">
     <div class="role-card christina">
       <div class="name">Christina</div>
-      <div class="title">網站設計師 + 頁面建置者 <span class="tag tag-critical">Critical Path</span> <span class="tag tag-elementor">Elementor</span></div>
+      <div class="title">設計與建置 Owner <span class="tag tag-critical">Critical Path</span> <span class="tag tag-builder">Kadence Blocks</span></div>
       <h3>核心職責</h3>
       <ul>
         <li>網站 UI/UX 設計（概念設計 2 方向 → 設計稿 → 定稿）</li>
-        <li>Elementor 頁面建置（版面配置、Widget 組合、樣式設定）</li>
-        <li>RWD 響應式設計（Elementor 的 Desktop / Tablet / Mobile 設定）</li>
+        <li>Kadence Blocks 頁面建置（版面配置、區塊組合、樣式設定）</li>
+        <li>RWD 響應式設計（Desktop / Tablet / Mobile 設定）</li>
         <li>整合 Schneider 素材、Claire 文案</li>
-        <li>A11y 外掛（Equalize + Ally）設定與管理</li>
+        <li>Accessibility Checker by Kadence 設定與掃描</li>
       </ul>
       <h3>Shift-Left A11y 責任</h3>
       <ul>
         <li><span class="tag tag-a11y">設計階段</span> 色彩對比 4.5:1 / 3:1、Focus 狀態設計</li>
-        <li><span class="tag tag-a11y">建置階段</span> Elementor Widget 的無障礙設定（alt text、標題層級、連結標示）</li>
-        <li><span class="tag tag-a11y">Equalize 外掛</span> 執行 WordPress / Elementor 頁面的無障礙檢查與問題掃描</li>
-        <li><span class="tag tag-a11y">Ally 外掛</span> 啟用 Skip to Content、AI alt text 建議與訪客端輔助功能</li>
+        <li><span class="tag tag-a11y">建置階段</span> Kadence Blocks 的無障礙設定（alt text、標題層級、連結標示）</li>
+        <li><span class="tag tag-a11y">Accessibility Checker</span> 執行 WordPress 編輯器內的無障礙檢查並修正來源內容</li>
         <li><span class="tag tag-a11y">交付標準</span> 頁面建好後通知團隊，由測試者進行 axe/Lighthouse 掃描及手動測試</li>
       </ul>
-      <div class="limitation-note">Elementor 對語意化 HTML 的控制有限（如地標結構、ARIA 屬性），部分無障礙問題可能需透過 Equalize / Ally 外掛或 WordPress 主題層級處理。如遇平台限制無法解決的問題，應記錄為已知限制並回報。</div>
+      <div class="limitation-note">Kadence Blocks 與 Accessibility Checker by Kadence 不能取代人工測試。地標、鍵盤操作、螢幕閱讀器輸出與第三方嵌入流程仍需實測；無法修正的限制應記錄並回報。</div>
     </div>
 
     <div class="role-card schneider">
@@ -310,19 +309,19 @@
 
     <div class="role-card claire">
       <div class="name">Claire</div>
-      <div class="title">內容創作者 <span class="tag tag-support">W3C Invited Expert</span></div>
+      <div class="title">Content Owner <span class="tag tag-support">主要內容責任</span></div>
       <h3>核心職責</h3>
       <ul>
-        <li>網站文案撰寫（中文為主，含英文內容）</li>
+        <li>首頁與活動頁主要文案撰寫及補齊（中文為主，含英文內容）</li>
         <li>頁面結構規劃（標題層級 H1→H2→H3）</li>
         <li>連結文字撰寫</li>
-        <li>內容校對（每頁 300-600 字，上限 800 字）</li>
+        <li>內容校對、事實確認與定稿（每頁 300-600 字，上限 800 字）</li>
       </ul>
       <h3>Shift-Left A11y 責任</h3>
       <ul>
         <li><span class="tag tag-a11y">標題</span> 確保標題層級正確（不跳級），提供 Christina 明確的標題層級指示</li>
         <li><span class="tag tag-a11y">連結</span> 連結文字具描述性（避免「點此」「更多」）</li>
-        <li><span class="tag tag-a11y">語言</span> 標記需要切換語言的段落（告知 Christina 在 Elementor 中設定 lang 屬性）</li>
+        <li><span class="tag tag-a11y">語言</span> 標記需要切換語言的段落（告知 Christina 在 WordPress 編輯器中設定 lang 屬性）</li>
         <li><span class="tag tag-a11y">簡明</span> 使用清晰、直接的語言</li>
       </ul>
     </div>
@@ -334,9 +333,9 @@
       <ul>
         <li>Solomon 主導測試方法、結果判讀與 WCAG 2.2 AA 最終驗證</li>
         <li>Becky 協助工具操作、截圖回報與迴歸測試</li>
-        <li>自動化掃描：Equalize / axe DevTools / Lighthouse 掃描結果分析</li>
+        <li>自動化掃描：Accessibility Checker by Kadence / axe DevTools / Lighthouse 結果分析</li>
         <li>手動測試：鍵盤導覽、螢幕閱讀器、視覺檢查</li>
-        <li>問題記錄、截圖回報、修正建議（區分「Elementor 可修」vs「平台限制」）</li>
+        <li>問題記錄、截圖回報、修正建議（區分「建置可修」vs「平台限制」）</li>
         <li>迴歸測試：修正後重新驗證</li>
       </ul>
     </div>
@@ -344,14 +343,17 @@
     <div class="role-card bertram">
       <div class="name">Bertram</div>
       <div class="title">專案經理 <span class="tag tag-critical">PM</span></div>
-      <h3>專案管理（主要角色）</h3>
+      <h3>專案管理</h3>
       <ul>
-        <li>專案時程規劃、里程碑設定、進度追蹤</li>
-        <li>資源協調與優先序決策</li>
-        <li>跨角色溝通、任務分派、風險管理</li>
-        <li>制定每階段交付標準與驗收條件</li>
-        <li>對外溝通與成果報告</li>
-        <li>範圍控管與修訂次數追蹤</li>
+        <li>管理專案範圍、時程、里程碑、進度與依賴關係</li>
+        <li>追蹤風險、決策與待確認事項，確保每項交付物有明確 owner</li>
+        <li>統籌跨角色 review、驗收與上線準備</li>
+      </ul>
+      <h3>已完成</h3>
+      <ul>
+        <li>Brand Style Guide、字型與色碼決策紀錄</li>
+        <li>對比度驗證、Favicon、Sitemap</li>
+        <li>專案 Hub 初期建置與無障礙修正</li>
       </ul>
     </div>
   </div>
@@ -366,7 +368,7 @@
   <div class="card">
     <h2>Phase 1 工作流程（5 階段）</h2>
     <p>首頁 + 活動頁，共 2 頁。素材準備階段已確保色碼/字體通過 WCAG，Christina 拿到的素材已合規。</p>
-    <p style="margin-top:8px; font-size:13px;">溝通方式：Christina 以 <strong>Loom 影片</strong>說明進度（非同步），定期與 Bertram（point person）同步。Staging URL 由 Christina 提供（hosting subdomain）。</p>
+    <p style="margin-top:8px; font-size:13px;">溝通方式：Christina 以 <strong>Loom 影片</strong>說明設計與建置進度（非同步），與 Content Owner 或活動負責單位對齊內容，並向 Bertram 同步里程碑、依賴與風險。Staging URL 由 Christina 提供（hosting subdomain）；Bertram 負責專案管理。</p>
   </div>
   <div class="flow-container">
     <div class="flow">
@@ -395,8 +397,8 @@
       <div class="flow-phase phase-3">
         <div class="phase-header">首頁建置 + 測試</div>
         <div class="phase-body">
-          <div class="task task-christina"><div class="owner">Christina</div>首頁 Elementor 建置<br>Staging URL 上線</div>
-          <div class="task task-becky"><div class="owner">Solomon / Becky</div>Equalize + axe + Lighthouse 掃描<br>✅ Lighthouse ≥ 90</div>
+          <div class="task task-christina"><div class="owner">Christina</div>首頁 Kadence Blocks 建置<br>Staging URL 上線</div>
+          <div class="task task-becky"><div class="owner">Solomon / Becky</div>Accessibility Checker + axe + Lighthouse 掃描<br>✅ Lighthouse ≥ 90</div>
           <div class="task task-becky"><div class="owner">Solomon 主導</div>WCAG 2.2 測試（30 項）<br>Becky 協助 Export 報告 + 開 Issue</div>
           <div class="task task-christina"><div class="owner">Christina</div>修正 Issues<br>迴歸測試確認</div>
         </div>
@@ -406,8 +408,8 @@
       <div class="flow-phase phase-4">
         <div class="phase-header">活動頁建置 + 測試</div>
         <div class="phase-body">
-          <div class="task task-christina"><div class="owner">Christina</div>活動頁 Elementor 建置<br>Staging URL 更新</div>
-          <div class="task task-becky"><div class="owner">Solomon / Becky</div>Equalize + axe + Lighthouse 掃描<br>✅ Lighthouse ≥ 90</div>
+          <div class="task task-christina"><div class="owner">Christina</div>活動頁 Kadence Blocks 建置<br>Staging URL 更新</div>
+          <div class="task task-becky"><div class="owner">Solomon / Becky</div>Accessibility Checker + axe + Lighthouse 掃描<br>✅ Lighthouse ≥ 90</div>
           <div class="task task-becky"><div class="owner">Solomon 主導</div>WCAG 2.2 測試（30 項）<br>Becky 協助 Export 報告 + 開 Issue</div>
           <div class="task task-christina"><div class="owner">Christina</div>修正 Issues<br>迴歸測試確認</div>
         </div>
@@ -418,9 +420,9 @@
         <div class="phase-header" style="background:#e53e3e;">上線 + Phase 2 規劃</div>
         <div class="phase-body">
           <div class="task task-claire"><div class="owner">Claire</div>最終內容校對</div>
-          <div class="task task-bertram"><div class="owner">Bertram</div>最終驗收<br>全項 Pass → 上線</div>
+          <div class="task task-becky"><div class="owner">Solomon / Becky</div>測試結果確認<br>未解決風險列入交付紀錄</div>
           <div class="task task-christina"><div class="owner">Christina</div>Staging → 正式環境部署</div>
-          <div class="task task-bertram" style="background:#ebf8ff; border-left-color:#4299e1;"><div class="owner">▶ Phase 2 討論</div>確認下一批頁面範圍<br>About / Team / Join Us / Blog / Contact</div>
+          <div class="task task-bertram" style="background:#ebf8ff; border-left-color:#4299e1;"><div class="owner">Bertram 統籌</div>各 owner 確認 + 團隊授權上線<br>確認 Phase 2 owner 與頁面範圍</div>
         </div>
       </div>
     </div>
@@ -442,7 +444,7 @@
         <th style="width:80px;">等級</th>
         <th style="width:200px;">名稱</th>
         <th>說明</th>
-        <th style="width:220px;">Elementor 環境下的測試方法</th>
+        <th style="width:220px;">Kadence Blocks 環境下的測試方法</th>
       </tr>
     </thead>
     <tbody>
@@ -451,42 +453,42 @@
         <td><span class="level-a">A</span></td>
         <td>Parsing 解析</td>
         <td>原要求 HTML 無解析錯誤。因現代瀏覽器已自動修正 HTML 錯誤，此項不再有意義，WCAG 2.2 中已移除。</td>
-        <td>不需測試。Elementor 產出的 HTML 由平台控制。</td>
+        <td>確認頁面宣告與 WordPress 輸出一致；不要假設建置工具會自動符合。</td>
       </tr>
       <tr style="background:#f0fff4;">
         <td><span class="sc-num">2.4.11</span> <span class="new-tag">NEW</span></td>
         <td><span class="level-aa">AA</span></td>
         <td>Focus Not Obscured (Minimum)<br>焦點不被遮擋（最低）</td>
         <td>當元件獲得鍵盤焦點時，該元件不能被其他內容（如 sticky header、cookie banner、浮動選單）<strong>完全</strong>遮擋。至少要部分可見。</td>
-        <td>Tab 遍歷所有互動元素，特別注意 Elementor 的 Sticky Header 設定。如有 Cookie 同意橫幅外掛，檢查是否遮擋焦點。</td>
+        <td>Tab 遍歷所有互動元素，特別注意 sticky header 與固定區塊。如有 Cookie 同意橫幅，檢查是否遮擋焦點。</td>
       </tr>
       <tr style="background:#f0fff4;">
         <td><span class="sc-num">2.5.7</span> <span class="new-tag">NEW</span></td>
         <td><span class="level-aa">AA</span></td>
         <td>Dragging Movements<br>拖曳動作</td>
         <td>所有使用拖曳操作的功能，必須提供不需拖曳的替代方式。除非拖曳是功能必要的。</td>
-        <td>檢查 Elementor 使用的 Carousel/Slider Widget 是否有前/後按鈕替代拖曳滑動。如無拖曳功能則自動通過。</td>
+        <td>檢查 Kadence Blocks 使用的輪播／滑動區塊是否有前／後按鈕替代拖曳。如無拖曳功能則標記不適用。</td>
       </tr>
       <tr style="background:#f0fff4;">
         <td><span class="sc-num">2.5.8</span> <span class="new-tag">NEW</span></td>
         <td><span class="level-aa">AA</span></td>
         <td>Target Size (Minimum)<br>目標大小（最低）</td>
         <td>所有指標輸入目標至少 24×24 CSS 像素，或與相鄰目標之間有足夠間距。例外：行內連結、使用者代理控制項。</td>
-        <td>用瀏覽器 DevTools 量測 Elementor 按鈕、Icon、Nav Link 的實際大小。在 Elementor 的 Advanced 設定中調整 padding 確保尺寸。</td>
+        <td>用瀏覽器 DevTools 量測按鈕、圖示連結與導覽連結的實際大小；在區塊設定中調整 padding。</td>
       </tr>
       <tr style="background:#f0fff4;">
         <td><span class="sc-num">3.2.6</span> <span class="new-tag">NEW</span></td>
         <td><span class="level-a">A</span></td>
         <td>Consistent Help<br>一致的幫助</td>
         <td>若網站提供幫助機制（聯絡方式、FAQ、聊天機器人），這些機制在不同頁面必須出現在相對一致的位置。</td>
-        <td>在 Home 和 Events 頁面之間比對幫助功能的位置是否一致。Elementor 使用 Template 可確保 Header/Footer 一致。</td>
+        <td>在 Home 和 Events 頁面之間比對幫助功能的位置，並以共用 Header／Footer 樣板維持一致。</td>
       </tr>
       <tr style="background:#f0fff4;">
         <td><span class="sc-num">3.3.7</span> <span class="new-tag">NEW</span></td>
         <td><span class="level-a">A</span></td>
         <td>Redundant Entry<br>重複輸入</td>
         <td>使用者在同一流程中先前已輸入的資料，要嘛自動填入、要嘛提供選擇。不要求使用者重複輸入相同資訊。</td>
-        <td>走完所有 Elementor Form Widget 的流程，檢查是否有要求重複輸入。Phase 1 範圍內表單可能較少。</td>
+        <td>走完所有表單流程，檢查是否要求重複輸入。Phase 1 範圍內表單可能較少。</td>
       </tr>
       <tr style="background:#f0fff4;">
         <td><span class="sc-num">3.3.8</span> <span class="new-tag">NEW</span></td>
@@ -507,7 +509,7 @@
         <td><span class="level-aaa">AAA</span></td>
         <td>Focus Appearance<br>焦點外觀</td>
         <td>焦點指示器必須有足夠的面積和對比度。</td>
-        <td>Elementor 對 focus 樣式的控制有限。需檢查主題 CSS 是否提供足夠的 focus indicator。</td>
+        <td>檢查 Kadence Theme／Blocks 的設定與實際輸出是否提供足夠的 focus indicator。</td>
       </tr>
       <tr style="background:#fffff0;">
         <td><span class="sc-num">3.3.9</span> <span class="new-tag">NEW</span></td>
@@ -523,15 +525,15 @@
     <h2>對 AIA 專案的具體影響</h2>
     <h3>必須滿足（AA 等級，共 4 條新增）：</h3>
     <ul style="padding-left:20px;">
-      <li><strong>2.4.11 Focus Not Obscured</strong> — 如果用 Elementor 設了 sticky header 或安裝了 cookie 同意橫幅，確保不會遮住鍵盤焦點</li>
+      <li><strong>2.4.11 Focus Not Obscured</strong> — 如果設了 sticky header 或 cookie 同意橫幅，確保不會遮住鍵盤焦點</li>
       <li><strong>2.5.7 Dragging Movements</strong> — 若用 Carousel/Slider Widget，需確保有上一張/下一張按鈕</li>
-      <li><strong>2.5.8 Target Size</strong> — Elementor 按鈕和連結的 padding 要足夠，確保至少 24×24px</li>
+      <li><strong>2.5.8 Target Size</strong> — 按鈕和連結的 padding 要足夠，確保至少 24×24px</li>
       <li><strong>3.3.8 Accessible Authentication</strong> — Phase 1 可能不適用（看是否有會員功能）</li>
     </ul>
     <h3>建議也達成（A 等級，共 2 條新增）：</h3>
     <ul style="padding-left:20px;">
-      <li><strong>3.2.6 Consistent Help</strong> — 用 Elementor Template 確保 Header/Footer 一致即可</li>
-      <li><strong>3.3.7 Redundant Entry</strong> — Elementor Form Widget 不重複要求相同資訊</li>
+      <li><strong>3.2.6 Consistent Help</strong> — 用共用 Header／Footer 樣板維持一致</li>
+      <li><strong>3.3.7 Redundant Entry</strong> — 表單不重複要求相同資訊</li>
     </ul>
     <h3>可選擇挑戰（AAA 等級）：</h3>
     <ul style="padding-left:20px;">
@@ -543,10 +545,10 @@
 <!-- ====== SECTION 4: TESTING GUIDE (25 Items) ====== -->
 <div id="testing" class="section">
   <div class="card">
-    <h2>WCAG 2.2 無障礙測試參考指南 — Elementor 版</h2>
-    <p>以下為 Elementor + A11y 環境下的無障礙參考說明。<strong>實際測試請使用 <a href="testing-flow.html" style="color:var(--secondary);">WCAG 2.2 測試流程（30 項）</a></strong>。每一項包含：<strong>白話說明</strong>（讓所有人都看懂這項在檢查什麼）和<strong>技術細節</strong>（讓建置人員知道怎麼在 Elementor 中設定和測試）。</p>
+    <h2>WCAG 2.2 無障礙測試參考指南 — Kadence Blocks 版</h2>
+    <p>以下為 Kadence Blocks + Accessibility Checker by Kadence 環境下的無障礙參考說明。<strong>實際測試請使用 <a href="testing-flow.html" style="color:var(--secondary);">WCAG 2.2 測試流程（30 項）</a></strong>。每一項包含白話說明與建置／測試重點；外掛結果不能取代鍵盤與螢幕閱讀器人工測試。</p>
     <p style="margin-top:12px;"><span class="tag tag-xp" style="padding:3px 10px;">🔴 跨專案經驗</span> 團隊在 2024 年另一個無障礙評測專案中發現的高頻問題區域，列為本專案重點關注。</p>
-    <p style="margin-top:4px;"><span class="tag tag-highrisk" style="padding:3px 10px;">🟡 常見高風險</span> 根據全球 WCAG 測試數據，最容易失敗的項目，或在 Elementor 環境下特別需要注意的項目。</p>
+    <p style="margin-top:4px;"><span class="tag tag-highrisk" style="padding:3px 10px;">🟡 常見高風險</span> 自動檢查不易完整判斷，或在區塊式建置中需要特別實測的項目。</p>
     <p style="margin-top:8px;"><strong>重點關注項目：</strong>
       <span style="background:#fed7d7; padding:2px 8px; border-radius:4px; font-size:13px;">Informative Images 🔴🟡</span>
       <span style="background:#fed7d7; padding:2px 8px; border-radius:4px; font-size:13px;">Functional Images 🔴🟡</span>
@@ -565,7 +567,7 @@
       <div class="legend-item"><div class="legend-dot" style="background:var(--schneider)"></div> Schneider 素材</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--claire)"></div> Claire 內容</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--becky)"></div> Becky 測試</div>
-      <div class="legend-item"><div class="legend-dot" style="background:var(--bertram)"></div> Bertram 驗證</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--bertram)"></div> Bertram 專案管理</div>
     </div>
   </div>
 
@@ -593,7 +595,7 @@
           <li>建議格式：「頁面名稱 — APAC AIA」或「APAC AIA | 頁面名稱」</li>
           <li>螢幕閱讀器測試：開啟頁面時是否朗讀出有意義的標題</li>
         </ul>
-        <div class="elementor-note">頁面標題在 WordPress 的「頁面 → 編輯」中設定，不是在 Elementor 編輯器裡。Elementor 的 Site Settings 可設定全站標題格式。</div>
+        <div class="builder-note">頁面標題在 WordPress 的「頁面 → 編輯」中設定；全站標題格式由 WordPress／Kadence Theme 的全域樣式管理。</div>
       </div>
       <div class="sub-section">
         <h4>工具</h4>
@@ -630,25 +632,25 @@
       <div class="sub-section">
         <h4>🔍 測試步驟</h4>
         <ul>
-          <li>在 Elementor Image Widget 的設定中檢查每張圖片是否有填寫 Alt Text</li>
+          <li>在 WordPress 圖片區塊或媒體庫中檢查每張圖片是否有填寫 Alt Text</li>
           <li><strong>資訊性圖片</strong>：alt 必須描述圖片傳達的資訊（如「KOOP 贊助商標誌」）</li>
-          <li><strong>裝飾性圖片</strong>：alt 留空（Elementor 的 Image Widget 可留空 alt 欄位）</li>
+          <li><strong>裝飾性圖片</strong>：alt 留空，避免螢幕閱讀器朗讀無意義資訊</li>
           <li>確認沒有使用檔名作為 alt（如「IMG_0234.jpg」）</li>
-          <li>WordPress 媒體庫：上傳圖片時就填好 alt text（會自動帶入 Elementor）</li>
+          <li>WordPress 媒體庫：上傳圖片時就填好 alt text，插入圖片後再確認實際輸出</li>
           <li>用螢幕閱讀器聽聽看每張圖片唸出什麼</li>
         </ul>
-        <div class="ally-note">Ally 外掛的 AI 功能可以建議 alt text，但最終仍需人工審核。Ally Assistant 可以掃描全站缺少 alt text 的圖片。</div>
-        <div class="elementor-note">Image Widget → Content → Image → Alt Text 欄位。或在 WordPress 媒體庫 → 編輯圖片 → 替代文字欄位填寫。</div>
+        <div class="checker-note">Accessibility Checker by Kadence 可指出缺少替代文字等可機器判定問題；替代文字是否有意義仍需 Content Owner 與測試 owner 人工審核。</div>
+        <div class="builder-note">在 WordPress 圖片區塊或媒體庫的替代文字欄位填寫，並在前台確認輸出。</div>
       </div>
       <div class="sub-section">
         <h4>工具</h4>
-        <span class="tool-tag">Equalize 掃描</span> <span class="tool-tag">axe DevTools</span> <span class="tool-tag">WAVE</span> <span class="tool-tag">VoiceOver/NVDA</span>
+        <span class="tool-tag">Accessibility Checker</span> <span class="tool-tag">axe DevTools</span> <span class="tool-tag">WAVE</span> <span class="tool-tag">VoiceOver/NVDA</span>
       </div>
       <div class="sub-section">
         <h4>負責人</h4>
         <span class="who-tag who-schneider">Schneider 提供 alt 建議</span>
         <span class="who-tag who-claire">Claire 撰寫 alt text</span>
-        <span class="who-tag who-christina">Christina 填入 Elementor</span>
+        <span class="who-tag who-christina">Christina 填入 WordPress</span>
         <span class="who-tag who-becky">Becky 用螢幕閱讀器驗證</span>
       </div>
     </div>
@@ -673,12 +675,12 @@
         <h4>🔍 測試步驟</h4>
         <ul>
           <li>找出所有可點擊的圖片和 Icon（Logo 連結、社群媒體圖示、Icon Button）</li>
-          <li>在 Elementor 中確認這些圖片的 alt 描述的是<strong>動作/目的地</strong>（如「返回首頁」而非「箭頭圖示」）</li>
-          <li>Icon Widget / Icon Box Widget：檢查是否有設定 ARIA Label 或 Title</li>
-          <li>Social Icons Widget：Elementor 通常會自動處理，但需確認螢幕閱讀器朗讀內容</li>
+          <li>在 WordPress 中確認這些圖片的 alt 描述的是<strong>動作/目的地</strong>（如「返回首頁」而非「箭頭圖示」）</li>
+          <li>圖示／圖示資訊區塊：檢查是否有可理解的 accessible name</li>
+          <li>社群圖示連結需以螢幕閱讀器確認朗讀內容</li>
           <li>圖片連結若旁邊已有文字連結，圖片的 alt 可留空（避免重複朗讀）</li>
         </ul>
-        <div class="elementor-note">Icon Widget → Advanced → Attributes 可加入自訂屬性。但 Elementor 的 Icon Widget 本身對 ARIA 支援有限，需用螢幕閱讀器實際驗證。</div>
+        <div class="builder-note">優先使用有文字名稱的原生連結；若只顯示圖示，需在區塊設定中提供可存取名稱，並以螢幕閱讀器實測。</div>
       </div>
       <div class="sub-section">
         <h4>工具</h4>
@@ -686,7 +688,7 @@
       </div>
       <div class="sub-section">
         <h4>負責人</h4>
-        <span class="who-tag who-christina">Christina 設定 Widget 屬性</span>
+        <span class="who-tag who-christina">Christina 設定區塊屬性</span>
         <span class="who-tag who-claire">Claire 審查 alt 語意</span>
         <span class="who-tag who-becky">Becky 螢幕閱讀器測試</span>
       </div>
@@ -710,20 +712,20 @@
       </div>
       <div class="sub-section">
         <h4>🔴 跨專案經驗</h4>
-        <p style="color:#e53e3e;">在另一個評測專案中發現：標題層級跳級（H1 直接跳到 H3），或者只是為了讓文字看起來大/小而選錯標題層級。在 Elementor 中特別容易發生，因為 Heading Widget 的層級選擇和字體大小設定是分開的，容易混淆。</p>
+        <p style="color:#e53e3e;">常見問題是標題層級跳級（H1 直接跳到 H3），或只為了視覺大小而選錯標題層級。標題語意與字體樣式應分開設定。</p>
       </div>
       <div class="sub-section">
         <h4>🔍 測試步驟</h4>
         <ul>
-          <li>在 Elementor 中每個 Heading Widget 都可選擇 H1-H6 層級</li>
+          <li>在 WordPress／Kadence 標題區塊中選擇正確的 H1-H6 層級</li>
           <li><strong>關鍵：</strong>選擇層級要根據「結構邏輯」而非「視覺大小」</li>
           <li>每個頁面只有一個 H1</li>
           <li>層級不跳級：H1 → H2 → H3（不能 H1 → H3）</li>
-          <li>如果想要小字的視覺效果，用 Elementor 的 Style 設定調字體大小，不要改標題層級</li>
+          <li>如果想要小字的視覺效果，用區塊樣式調字體大小，不要改標題層級</li>
           <li>使用 HeadingsMap 擴充功能檢查完整的標題結構樹</li>
           <li>螢幕閱讀器測試：用「H」鍵快速跳轉標題是否合理</li>
         </ul>
-        <div class="elementor-note">Heading Widget → Content → Title → HTML Tag 下拉選單選擇 H1-H6。文字大小在 Style 分頁調整，與標題層級無關。</div>
+        <div class="builder-note">標題區塊的層級控制語意，Typography 控制視覺；兩者不要混用。</div>
       </div>
       <div class="sub-section">
         <h4>工具</h4>
@@ -732,7 +734,7 @@
       <div class="sub-section">
         <h4>負責人</h4>
         <span class="who-tag who-claire">Claire 規劃標題層級</span>
-        <span class="who-tag who-christina">Christina 在 Elementor 中設定正確層級</span>
+        <span class="who-tag who-christina">Christina 設定正確層級</span>
         <span class="who-tag who-becky">Becky HeadingsMap 檢查</span>
       </div>
     </div>
@@ -757,12 +759,12 @@
         <h4>🔍 測試步驟</h4>
         <ul>
           <li>確認 WordPress 主題有輸出正確的地標結構（header, nav, main, footer）</li>
-          <li>確認有 Skip to Main Content 連結（Ally 外掛可啟用此功能）</li>
+          <li>確認主題輸出可用的 Skip to Main Content 連結</li>
           <li>用 Landmark 瀏覽器擴充檢查頁面地標是否完整</li>
           <li>螢幕閱讀器可用地標跳轉功能快速導覽</li>
         </ul>
-        <div class="ally-note">A11y 外掛（Equalize + Ally）設定中可啟用「Skip to Content」連結。在 Ally → Settings → Usability Features 中開啟。</div>
-        <div class="limitation-note">地標結構主要由 WordPress 主題決定，不是由 Elementor Widget 控制。如果主題未正確輸出地標，可能需要選擇更好的主題，或請 Christina 在 Elementor Theme Builder 中建立自訂 Header/Footer Template 來改善。</div>
+        <div class="checker-note">Accessibility Checker by Kadence 可協助指出部分結構問題，但 Skip Link 與地標仍由主題／樣板實際輸出決定。</div>
+        <div class="limitation-note">地標結構主要由 WordPress 主題與樣板決定，不是檢查外掛自動補上。若輸出不正確，需調整 Kadence Theme／樣板設定或記錄限制。</div>
       </div>
       <div class="sub-section">
         <h4>工具</h4>
@@ -770,7 +772,7 @@
       </div>
       <div class="sub-section">
         <h4>負責人</h4>
-        <span class="who-tag who-christina">Christina 確認主題結構 + Ally 設定</span>
+        <span class="who-tag who-christina">Christina 確認主題結構</span>
         <span class="who-tag who-becky">Becky 鍵盤 + 螢幕閱讀器測試</span>
       </div>
     </div>
@@ -796,11 +798,10 @@
         <ul>
           <li>在 WordPress 後台 → 設定 → 一般 → 網站語言 確認設為中文</li>
           <li>檢查網頁原始碼最上方的 lang 屬性是否為 zh-Hant 或 zh-TW</li>
-          <li>頁面中的英文段落：在 Elementor Text Editor Widget 中用 HTML 模式加入 lang="en" 標記</li>
+          <li>頁面中的英文段落：在 WordPress 區塊的 HTML／進階屬性中加入 lang="en" 標記</li>
           <li>螢幕閱讀器是否以正確語言朗讀內容</li>
         </ul>
-        <div class="elementor-note">主要語言由 WordPress 設定控制。區段語言標記需在 Elementor Text Editor 的「文字」（HTML）模式下手動加入，這是少數需要碰原始碼的地方。</div>
-        <div class="ally-note">Ally 外掛的 Usability Widget 提供語言切換功能，讓訪客可調整語言顯示。</div>
+        <div class="builder-note">主要語言由 WordPress 設定控制；區段語言需在區塊的 HTML／進階屬性中明確標記，並檢查前台輸出。</div>
       </div>
       <div class="sub-section">
         <h4>工具</h4>
@@ -833,12 +834,12 @@
         <h4>🔍 測試步驟</h4>
         <ul>
           <li>使用 Colour Contrast Analyser (CCA) 滴管工具測試所有文字</li>
-          <li>在 Elementor Site Settings → Global Colors 設定時就先驗證品牌色的對比度</li>
+          <li>在 Kadence／WordPress 全域色彩設定時先驗證品牌色對比度</li>
           <li>特別注意：圖片上的文字（Banner）需確保對比度或使用半透明背景遮罩</li>
           <li>hover 和 focus 狀態的文字也需通過對比度</li>
-          <li>Elementor 的 Section/Container 背景色 + 文字色的組合都要檢查</li>
+          <li>每個區塊／容器的背景色與文字色組合都要檢查</li>
         </ul>
-        <div class="elementor-note">在 Elementor Site Settings → Global Colors 設定品牌色系時，先用 CCA 確認每組前景/背景色組合都通過。在設計階段就把關，比事後修改容易得多。</div>
+        <div class="builder-note">在 Kadence／WordPress 全域色彩中設定品牌色前，先用 CCA 確認每組前景／背景色組合。</div>
       </div>
       <div class="sub-section">
         <h4>工具</h4>
@@ -847,7 +848,7 @@
       <div class="sub-section">
         <h4>負責人</h4>
         <span class="who-tag who-schneider">Schneider 確保品牌色通過</span>
-        <span class="who-tag who-christina">Christina 在 Elementor 中設定</span>
+        <span class="who-tag who-christina">Christina 設定</span>
         <span class="who-tag who-becky">Becky 自動掃描回報</span>
       </div>
     </div>
@@ -871,13 +872,12 @@
       <div class="sub-section">
         <h4>🔍 測試步驟</h4>
         <ul>
-          <li>用 CCA 測試 Elementor Button Widget 邊框/背景與周圍背景的對比度</li>
-          <li>Elementor Form Widget 的 input 邊框與背景的對比度</li>
+          <li>用 CCA 測試按鈕邊框／背景與周圍背景的對比度</li>
+          <li>表單欄位邊框與背景的對比度</li>
           <li>Icon Widget 與背景的對比度（各狀態：normal, hover）</li>
           <li>Focus indicator 的對比度</li>
-          <li>Ally Widget 本身的對比度也需確認</li>
         </ul>
-        <div class="elementor-note">在 Elementor Button Widget → Style 中，確保按鈕的 Normal 和 Hover 狀態都通過對比度。Form Widget → Style → Field 中確認 input 邊框色。</div>
+        <div class="builder-note">在按鈕與表單區塊設定中，確認 Normal、Hover、Focus 狀態及欄位邊框都達到對比要求。</div>
       </div>
       <div class="sub-section">
         <h4>工具</h4>
@@ -886,7 +886,7 @@
       <div class="sub-section">
         <h4>負責人</h4>
         <span class="who-tag who-schneider">Schneider 色彩專業把關</span>
-        <span class="who-tag who-christina">Christina 在 Elementor 中調整</span>
+        <span class="who-tag who-christina">Christina 調整</span>
         <span class="who-tag who-becky">Becky 自動掃描回報</span>
       </div>
     </div>
@@ -912,11 +912,11 @@
         <ul>
           <li>所有 Button Widget / 文字連結的文字在上下文中可理解其目的</li>
           <li>避免「按此」「更多」「了解更多」— 改為「查看 2026 高峰會議程」「閱讀無障礙政策」</li>
-          <li>連結不能僅靠顏色區分：需有底線或其他視覺提示（在 Elementor Typography 設定中加底線）</li>
-          <li>新窗口開啟的連結需提示使用者（Elementor Link 設定中可選「Open in new window」，但需在連結文字中註明）</li>
+          <li>連結不能僅靠顏色區分：需有底線或其他視覺提示</li>
+          <li>新窗口開啟的連結需在連結文字中提示使用者</li>
           <li>螢幕閱讀器「Links」清單中，連結文字是否可單獨理解</li>
         </ul>
-        <div class="elementor-note">Button Widget → Content → Link 設定連結目標。Text Editor Widget 中的連結在視覺模式下直接插入。如需加入 ARIA label，可在 Advanced → Attributes 中設定。</div>
+        <div class="builder-note">在按鈕／文字區塊中設定連結目標；可見文字已足夠時不要額外覆蓋 aria-label。</div>
       </div>
       <div class="sub-section">
         <h4>工具</h4>
@@ -925,7 +925,7 @@
       <div class="sub-section">
         <h4>負責人</h4>
         <span class="who-tag who-claire">Claire 撰寫描述性連結文字</span>
-        <span class="who-tag who-christina">Christina 在 Elementor 中設定</span>
+        <span class="who-tag who-christina">Christina 設定</span>
         <span class="who-tag who-becky">Becky 螢幕閱讀器驗證</span>
       </div>
     </div>
@@ -950,15 +950,15 @@
       <div class="sub-section">
         <h4>🔍 測試步驟</h4>
         <ul>
-          <li>Elementor Form Widget 的每個欄位都要填寫 Label</li>
+          <li>每個表單欄位都要有可見 Label</li>
           <li>必填欄位在 Form Widget 設定中勾選 Required</li>
-          <li>Placeholder 不能替代 Label（Elementor 允許隱藏 Label 只顯示 Placeholder，這對無障礙不利）</li>
+          <li>Placeholder 不能替代 Label，也不要為了視覺簡潔隱藏欄位名稱</li>
           <li>錯誤訊息是否清楚指出哪個欄位有問題</li>
           <li>🆕 多步驟表單不重複要求相同資訊</li>
           <li>用鍵盤 Tab 能完整操作表單（填寫、選擇、送出）</li>
         </ul>
-        <div class="elementor-note">Form Widget → Form Fields → 每個欄位設定 Label、Placeholder、Required。注意不要勾選「Hide Label」除非有其他方式標示欄位用途。</div>
-        <div class="limitation-note">Elementor Form Widget 的無障礙支援並非完美。特別注意：錯誤訊息的關聯、群組欄位的結構，可能需要額外用 Equalize 掃描來確認。</div>
+        <div class="builder-note">在表單區塊中設定 Label、說明與 Required；提交後需明確指出錯誤欄位。</div>
+        <div class="limitation-note">表單區塊仍需實測錯誤訊息關聯、群組欄位結構、鍵盤操作與送出後焦點位置；Accessibility Checker 結果不能取代完整流程測試。</div>
       </div>
       <div class="sub-section">
         <h4>工具</h4>
@@ -966,7 +966,7 @@
       </div>
       <div class="sub-section">
         <h4>負責人</h4>
-        <span class="who-tag who-christina">Christina 設定 Form Widget</span>
+        <span class="who-tag who-christina">Christina 設定表單區塊</span>
         <span class="who-tag who-becky">Becky 鍵盤 + 螢幕閱讀器測試</span>
       </div>
     </div>
@@ -991,11 +991,11 @@
         <h4>🔍 測試步驟</h4>
         <ul>
           <li>如果 Events 頁面有活動時間表，確認使用正確的表格結構</li>
-          <li>在 Elementor Text Editor Widget 中用「表格」功能插入表格（而非用多個 Column 模擬表格）</li>
+          <li>使用原生 Table 區塊或正確 HTML 表格，不用多個 Columns 模擬</li>
           <li>螢幕閱讀器測試：在表格中導覽時是否朗讀表頭</li>
           <li>Phase 1 範圍（Home + Events）如無表格，此項可略過</li>
         </ul>
-        <div class="limitation-note">Elementor 沒有原生的 Table Widget（免費版）。如需表格，建議在 Text Editor Widget 中用 HTML 表格，或使用第三方 Table 外掛。確保輸出的表格有正確的表頭結構。</div>
+        <div class="limitation-note">WordPress 原生 Table 區塊可處理簡單表格；複雜表格仍需確認 caption、表頭與 scope 的實際輸出。</div>
       </div>
       <div class="sub-section">
         <h4>工具</h4>
@@ -1030,13 +1030,13 @@
         <ul>
           <li>從頁面頂部開始按 Tab，驗證所有互動元素都可到達</li>
           <li>Tab 順序符合視覺順序（左到右、上到下）</li>
-          <li>Elementor Nav Menu Widget 的下拉選單能否用鍵盤展開和關閉</li>
+          <li>導覽選單的下拉項目能否用鍵盤展開和關閉</li>
           <li>如有 Popup / Modal，焦點是否正確移入和移出</li>
           <li>Accordion / Toggle Widget 能否用 Enter 鍵展開/收合</li>
-          <li>🆕 Tab 時焦點不會被 Elementor Sticky Header 遮擋</li>
+          <li>🆕 Tab 時焦點不會被 Sticky Header 遮擋</li>
           <li>Carousel / Slider Widget 能否用鍵盤操作</li>
         </ul>
-        <div class="limitation-note">Elementor 某些 Widget（如 Accordion）已知有鍵盤操作問題。Tab 測試時要特別注意這些 Widget，如發現無法用鍵盤操作，記錄為平台限制並尋找替代方案。</div>
+        <div class="limitation-note">Accordion、Tabs、Navigation、Carousel 等互動區塊必須逐項鍵盤測試；無法操作時改用更簡單的原生區塊或記錄平台限制。</div>
       </div>
       <div class="sub-section">
         <h4>工具</h4>
@@ -1044,9 +1044,9 @@
       </div>
       <div class="sub-section">
         <h4>負責人</h4>
-        <span class="who-tag who-christina">Christina 確認 Widget 鍵盤支援</span>
+        <span class="who-tag who-christina">Christina 確認區塊鍵盤支援</span>
         <span class="who-tag who-becky">Becky 全站 Tab 測試</span>
-        <span class="who-tag who-bertram">Bertram 驗證 Focus Not Obscured</span>
+        <span class="who-tag who-becky">Solomon / Becky 驗證 Focus Not Obscured</span>
       </div>
     </div>
   </div>
@@ -1071,11 +1071,11 @@
         <h4>🔍 測試步驟</h4>
         <ul>
           <li>Tab 遍歷所有元素，確認每個都有可見的 focus 指示器（方框、底線、色彩變化）</li>
-          <li>確認主題或 Elementor 設定沒有移除預設焦點樣式</li>
+          <li>確認主題或區塊設定沒有移除預設焦點樣式</li>
           <li>Focus indicator 不能被其他元素遮擋（WCAG 2.2 新要求）</li>
           <li>在不同背景色的 Section 上測試 focus 可見性</li>
         </ul>
-        <div class="limitation-note">Elementor 對 focus 樣式的控制有限。Focus 樣式主要由 WordPress 主題的 CSS 決定。如果預設 focus 不夠明顯，可能需要在主題的 Custom CSS 中加入 focus 樣式（這是 no-code 的邊界情況，與 Christina 討論處理方式）。</div>
+        <div class="limitation-note">Focus 樣式主要由 WordPress 主題與區塊 CSS 決定。若預設 focus 不夠明顯，先調整 Kadence 全域樣式；仍無法修正時記錄為已知限制。</div>
       </div>
       <div class="sub-section">
         <h4>工具</h4>
@@ -1107,12 +1107,12 @@
       <div class="sub-section">
         <h4>🔍 測試步驟</h4>
         <ul>
-          <li>在 Elementor Text Editor Widget 中使用工具列的列表按鈕建立列表（不要手打符號模擬列表）</li>
-          <li>Icon List Widget 會產出正確的列表結構，可放心使用</li>
-          <li>導覽選單使用 Elementor Nav Menu Widget（會自動產出列表結構）</li>
+          <li>使用 WordPress List 區塊建立列表（不要手打符號模擬列表）</li>
+          <li>圖示列表區塊也要確認前台輸出正確的 ul／ol 結構</li>
+          <li>導覽選單使用原生 Navigation／Kadence 導覽區塊並檢查輸出結構</li>
           <li>螢幕閱讀器朗讀「列表，X 個項目」</li>
         </ul>
-        <div class="elementor-note">Text Editor Widget 的工具列有 bullet list 和 numbered list 按鈕，使用它們就會產出正確的語意結構。不要用 Shift+Enter 換行加上手打「•」來模擬列表。</div>
+        <div class="builder-note">使用 List 區塊產出正確的 ul／ol 結構，不要用換行與「•」模擬。</div>
       </div>
       <div class="sub-section">
         <h4>工具</h4>
@@ -1120,7 +1120,7 @@
       </div>
       <div class="sub-section">
         <h4>負責人</h4>
-        <span class="who-tag who-christina">Christina 使用正確的 Widget</span>
+        <span class="who-tag who-christina">Christina 使用正確的區塊</span>
         <span class="who-tag who-becky">Becky 驗證</span>
       </div>
     </div>
@@ -1147,15 +1147,14 @@
           <li>Ctrl/Cmd + 放大至 200%：所有文字可見、不重疊、不被截斷</li>
           <li>在 1280px 寬度放大 400%（等效 320px）：不出現水平捲軸</li>
           <li>使用 Text Spacing Bookmarklet 測試字距調整後內容不重疊</li>
-          <li>Elementor 的 Desktop / Tablet / Mobile 響應式設定是否正確</li>
-          <li>確認 Elementor 字型設定使用相對單位而非固定 px</li>
+          <li>Kadence Blocks 的 Desktop / Tablet / Mobile 響應式設定是否正確</li>
+          <li>確認字型設定使用相對單位而非固定 px</li>
         </ul>
-        <div class="elementor-note">Elementor 的 Responsive Mode（底部切換 Desktop/Tablet/Mobile）可針對不同斷點調整字體大小和版面。確保在 Mobile 模式下所有內容都正常顯示。</div>
-        <div class="ally-note">Ally Widget 提供文字大小調整功能，讓訪客自行放大文字。</div>
+        <div class="builder-note">Kadence Blocks 可針對不同斷點調整字體與版面；仍需在 320px 寬度與 200% zoom 下實測。</div>
       </div>
       <div class="sub-section">
         <h4>工具</h4>
-        <span class="tool-tag">瀏覽器縮放</span> <span class="tool-tag">Text Spacing Bookmarklet</span> <span class="tool-tag">Elementor 響應式預覽</span>
+        <span class="tool-tag">瀏覽器縮放</span> <span class="tool-tag">Text Spacing Bookmarklet</span> <span class="tool-tag">Kadence 響應式預覽</span>
       </div>
       <div class="sub-section">
         <h4>負責人</h4>
@@ -1188,7 +1187,7 @@
           <li>表單必填不能只用紅色星號：需有文字說明</li>
           <li>使用灰階模式檢查：資訊是否仍可辨識</li>
         </ul>
-        <div class="ally-note">Ally Widget 提供灰階模式和高對比模式，讓訪客自行調整。但設計階段就需確保不依賴顏色傳達資訊。</div>
+        <div class="checker-note">Accessibility Checker by Kadence 可提醒部分色彩問題，但不能替代實際對比量測；資訊本身也不能只靠顏色傳達。</div>
       </div>
       <div class="sub-section">
         <h4>工具</h4>
@@ -1197,7 +1196,7 @@
       <div class="sub-section">
         <h4>負責人</h4>
         <span class="who-tag who-schneider">Schneider 設計時確認</span>
-        <span class="who-tag who-christina">Christina 在 Elementor 中確認</span>
+        <span class="who-tag who-christina">Christina 確認</span>
       </div>
     </div>
   </div>
@@ -1220,12 +1219,12 @@
       <div class="sub-section">
         <h4>🔍 測試步驟</h4>
         <ul>
-          <li>送出空白必填表單：Elementor Form 的錯誤訊息是否明確指出哪個欄位有誤</li>
+          <li>送出空白必填表單：錯誤訊息是否明確指出哪個欄位有誤</li>
           <li>輸入格式錯誤（如 email 格式）：是否提供修正建議</li>
           <li>錯誤訊息不能只靠顏色傳達</li>
           <li>焦點是否移至第一個錯誤欄位</li>
         </ul>
-        <div class="elementor-note">Elementor Form Widget 有內建的驗證訊息。在 Form Widget → Additional Options → Custom Messages 中可自訂錯誤提示文字。</div>
+        <div class="builder-note">使用表單區塊可設定的驗證訊息；若區塊能力不足，改用能正確關聯錯誤訊息的既有表單方案。</div>
       </div>
       <div class="sub-section">
         <h4>工具</h4>
@@ -1263,7 +1262,7 @@
           <li>🆕 聯絡/幫助功能在所有頁面的相對位置一致</li>
           <li>Footer 連結在所有頁面一致</li>
         </ul>
-        <div class="elementor-note">使用 Elementor Theme Builder 建立 Header 和 Footer Template，自動套用到所有頁面，是確保一致性最可靠的方式。Nav Menu Widget 從 WordPress 選單管理員讀取選單，所有頁面共用同一份選單。</div>
+        <div class="builder-note">使用 Kadence／WordPress 共用 Header 與 Footer 樣板，並讓所有頁面讀取同一份導覽設定。</div>
       </div>
       <div class="sub-section">
         <h4>工具</h4>
@@ -1296,19 +1295,18 @@
       <div class="sub-section">
         <h4>🔍 測試步驟</h4>
         <ul>
-          <li>Elementor Video Widget 嵌入的 YouTube 影片有同步字幕（在 YouTube 端設定）</li>
+          <li>WordPress／Kadence 影片區塊嵌入的 YouTube 影片有同步字幕（在 YouTube 端設定）</li>
           <li>影片播放器可鍵盤操作（YouTube 嵌入播放器本身支援鍵盤）</li>
           <li>音訊內容有文字稿</li>
-          <li>Elementor Video Widget 的 Autoplay 設定：如果啟用，需確保可暫停或靜音</li>
+          <li>不要自動播放；若有動態內容，需提供暫停控制</li>
           <li>閃爍內容不超過每秒 3 次</li>
         </ul>
-        <div class="elementor-note">Video Widget → Content 可設定 Autoplay、Mute、Loop。建議不要啟用 Autoplay；如果使用背景影片，確保有暫停按鈕。</div>
-        <div class="ally-note">Ally Widget 提供「暫停動畫」功能，可讓訪客停止頁面動態內容。</div>
+        <div class="builder-note">使用影片區塊時不要啟用 Autoplay；背景影片或持續動畫必須提供可操作的暫停按鈕。</div>
       </div>
       <div class="sub-section">
         <h4>負責人</h4>
         <span class="who-tag who-claire">Claire 字幕/文字稿</span>
-        <span class="who-tag who-christina">Christina Video Widget 設定</span>
+        <span class="who-tag who-christina">Christina 影片區塊設定</span>
       </div>
     </div>
   </div>
@@ -1316,13 +1314,13 @@
   <!-- Item 20: ARIA & Widget Accessibility -->
   <div class="test-item" style="border-left:4px solid #d69e2e;">
     <div class="test-header" onclick="toggleTest(this)">
-      <div><span class="item-num">20</span> Widget Accessibility Widget 無障礙支援 <span class="tag tag-highrisk">🟡 常見高風險</span></div>
+      <div><span class="item-num">20</span> Block Accessibility 區塊無障礙支援 <span class="tag tag-highrisk">🟡 常見高風險</span></div>
       <span class="chevron">▶</span>
     </div>
     <div class="test-body">
       <div class="sub-section" style="background:#fffff0; padding:12px; border-radius:8px;">
         <h4>💡 白話說明</h4>
-        <p>Elementor 的各種 Widget（手風琴、分頁、輪播等）在背後產出的程式碼需要有正確的「標記」，螢幕閱讀器才知道「這是一個可以展開/收合的區塊」「這是分頁標籤的第二個」。在 no-code 環境下，這些標記由 Elementor 自動產出，但不一定都正確。</p>
+        <p>Kadence Blocks 的互動區塊（手風琴、分頁、輪播等）必須輸出正確的語意、角色與狀態，螢幕閱讀器才能理解。No-code 建置仍需以鍵盤與螢幕閱讀器驗證實際輸出。</p>
       </div>
       <div class="sub-section">
         <h4>📋 技術規範</h4>
@@ -1331,23 +1329,22 @@
       <div class="sub-section">
         <h4>🔍 測試步驟</h4>
         <ul>
-          <li>用 axe DevTools 掃描所有使用 Elementor Widget 建置的頁面</li>
-          <li>特別檢查：Accordion Widget、Tabs Widget、Toggle Widget 的無障礙支援</li>
-          <li>用螢幕閱讀器測試這些 Widget 是否正確朗讀角色和狀態</li>
-          <li>如有自訂屬性需求，可在 Widget → Advanced → Attributes 中加入</li>
-          <li>Ally 外掛的 AI 掃描可偵測部分 ARIA 問題</li>
+          <li>用 axe DevTools 掃描所有使用 Kadence Blocks 建置的頁面</li>
+          <li>特別檢查 Accordion、Tabs、Toggle、Navigation 與 Carousel 區塊</li>
+          <li>用螢幕閱讀器測試區塊是否正確朗讀角色和狀態</li>
+          <li>優先使用區塊的原生語意；只有必要時才加入自訂 ARIA</li>
+          <li>Accessibility Checker by Kadence 可偵測部分可機器判定問題</li>
         </ul>
-        <div class="limitation-note">Elementor 的某些 Widget（特別是 Accordion）已知存在無障礙問題（鍵盤操作不佳、ARIA 屬性不完整）。如果 axe 掃描報告這些問題，需要評估：是否有替代 Widget 可用、是否能透過 Equalize / Ally 或主題層級修正、或記錄為已知平台限制。</div>
+        <div class="limitation-note">若互動區塊出現鍵盤或 ARIA 問題，先改用更簡單的原生區塊；其次調整 Kadence／主題設定；仍無法修正時記錄為平台限制。</div>
       </div>
       <div class="sub-section">
         <h4>工具</h4>
-        <span class="tool-tag">axe DevTools</span> <span class="tool-tag">Equalize 掃描</span> <span class="tool-tag">Chrome Accessibility Tree</span> <span class="tool-tag">VoiceOver</span>
+        <span class="tool-tag">axe DevTools</span> <span class="tool-tag">Accessibility Checker</span> <span class="tool-tag">Chrome Accessibility Tree</span> <span class="tool-tag">VoiceOver</span>
       </div>
       <div class="sub-section">
         <h4>負責人</h4>
-        <span class="who-tag who-christina">Christina Widget 選擇與設定</span>
+        <span class="who-tag who-christina">Christina 區塊選擇與設定</span>
         <span class="who-tag who-becky">Becky axe 掃描回報</span>
-        <span class="who-tag who-bertram">Bertram 平台限制評估</span>
       </div>
     </div>
   </div>
@@ -1370,16 +1367,16 @@
       <div class="sub-section">
         <h4>🔍 測試步驟</h4>
         <ul>
-          <li>確認 Ally 外掛的「Skip to Content」功能已啟用</li>
+          <li>確認 Kadence Theme／共用樣板已輸出 Skip to Content</li>
           <li>測試：按 Tab，第一個元素是否為 Skip to Content 連結</li>
           <li>點擊後焦點是否跳至主要內容區域</li>
           <li>連結在 focus 時是否可見</li>
         </ul>
-        <div class="ally-note">Ally 外掛內建 Skip to Content 功能。在 Ally → Settings → Usability Features 中啟用「Skip to content link」。這是最簡單的實作方式，不需要手動編寫任何程式碼。</div>
+        <div class="checker-note">Accessibility Checker by Kadence 只能協助發現問題；Skip Link 必須由 Kadence Theme／樣板實際輸出並以鍵盤驗證。</div>
       </div>
       <div class="sub-section">
         <h4>負責人</h4>
-        <span class="who-tag who-christina">Christina 啟用 Ally 設定</span>
+        <span class="who-tag who-christina">Christina 確認主題設定</span>
         <span class="who-tag who-becky">Becky Tab 測試驗證</span>
       </div>
     </div>
@@ -1403,17 +1400,17 @@
       <div class="sub-section">
         <h4>🔍 測試步驟</h4>
         <ul>
-          <li>裝飾性圖片：在 Elementor Image Widget 的 Alt Text 欄位留空</li>
-          <li>使用 Elementor Section/Container 的背景圖片功能放裝飾圖（背景圖預設不會被螢幕閱讀器讀取）</li>
+          <li>裝飾性圖片：在圖片區塊的 Alt Text 欄位留空</li>
+          <li>純裝飾圖可用區塊背景圖片，並確認不會被螢幕閱讀器朗讀</li>
           <li>螢幕閱讀器不應朗讀裝飾性圖片</li>
           <li>區分：如果移除圖片後失去資訊 → 它是資訊性圖片，不是裝飾性</li>
         </ul>
-        <div class="elementor-note">Image Widget 的 Alt Text 留空 = 告訴螢幕閱讀器這張圖不重要。背景圖（Section → Style → Background → Image）本身就不會被讀取。</div>
+        <div class="builder-note">裝飾性圖片使用空 alt；背景圖仍要確認沒有承載只存在於圖片中的資訊。</div>
       </div>
       <div class="sub-section">
         <h4>負責人</h4>
         <span class="who-tag who-schneider">Schneider 標記圖片類型（資訊性 vs 裝飾性）</span>
-        <span class="who-tag who-christina">Christina 在 Elementor 中設定</span>
+        <span class="who-tag who-christina">Christina 設定</span>
         <span class="who-tag who-becky">Becky 螢幕閱讀器驗證</span>
       </div>
     </div>
@@ -1437,14 +1434,14 @@
       <div class="sub-section">
         <h4>🔍 測試步驟</h4>
         <ul>
-          <li>用瀏覽器 DevTools 量測 Elementor Button Widget 的實際點擊區域</li>
-          <li>Elementor Button Widget → Style → Padding 可控制按鈕大小，確保至少 24×24px</li>
-          <li>Nav Menu Widget 的選單項目間距需足夠</li>
-          <li>Icon Widget / Social Icons Widget 的大小需足夠</li>
-          <li>特別注意 Mobile 模式下的觸控目標（在 Elementor Responsive Mode 中檢查）</li>
+          <li>用瀏覽器 DevTools 量測按鈕與連結的實際點擊區域</li>
+          <li>用區塊 padding 確保目標至少 24×24px</li>
+          <li>導覽選單項目間距需足夠</li>
+          <li>圖示與社群圖示連結的目標需足夠</li>
+          <li>特別注意 Mobile 模式下的觸控目標</li>
           <li>建議：做到 44×44px 更好</li>
         </ul>
-        <div class="elementor-note">Button Widget → Style → Padding 增加內距可有效增大點擊區域。Icon Widget → Style → Size 可調整 Icon 大小。在 Mobile 響應式設定中可另外調整。</div>
+        <div class="builder-note">增加按鈕／圖示連結的 padding 可擴大點擊區域；桌面與 Mobile 都要實測。</div>
       </div>
       <div class="sub-section">
         <h4>工具</h4>
@@ -1452,7 +1449,7 @@
       </div>
       <div class="sub-section">
         <h4>負責人</h4>
-        <span class="who-tag who-christina">Christina 設計 + 設定 Widget</span>
+        <span class="who-tag who-christina">Christina 設計 + 設定區塊</span>
         <span class="who-tag who-becky">Becky 量測驗證</span>
       </div>
     </div>
@@ -1476,17 +1473,17 @@
       <div class="sub-section">
         <h4>🔍 測試步驟</h4>
         <ul>
-          <li>檢查是否使用 Carousel / Image Carousel / Slides Widget</li>
-          <li>這些 Widget 是否有顯示箭頭按鈕（上一個/下一個）和分頁點</li>
-          <li>在 Elementor Carousel Widget → Content → Navigation 確認啟用 Arrows 和 Dots</li>
+          <li>檢查是否使用 Carousel／Gallery／Slider 區塊</li>
+          <li>這些區塊是否有可理解的上一個／下一個按鈕和位置指示</li>
+          <li>確認輪播設定已啟用可操作的導覽控制</li>
           <li>嘗試只用鍵盤完成輪播操作</li>
           <li>如果沒有拖曳功能，此項自動通過</li>
         </ul>
-        <div class="elementor-note">Carousel Widget → Content → Additional Options → Navigation 設定中，確保 Arrows 和 Pagination 都設為「Show」。</div>
+        <div class="builder-note">輪播區塊需顯示前後控制並支援鍵盤；無法達成時改用靜態內容。</div>
       </div>
       <div class="sub-section">
         <h4>負責人</h4>
-        <span class="who-tag who-christina">Christina 確認 Widget 設定</span>
+        <span class="who-tag who-christina">Christina 確認區塊設定</span>
         <span class="who-tag who-becky">Becky 鍵盤測試</span>
       </div>
     </div>
@@ -1512,15 +1509,15 @@
         <ul>
           <li>Phase 1（Home + Events）如無會員登入功能，此項不適用</li>
           <li>如有表單含 CAPTCHA：確認使用無障礙友善的方案（如 hCaptcha、reCAPTCHA v3 隱形版）</li>
-          <li>Elementor Form Widget 若整合 reCAPTCHA：在設定中選擇 v3（不需使用者操作）</li>
+          <li>若表單整合 CAPTCHA，確認有不依賴視覺或精細操作的替代方式</li>
           <li>確認密碼欄位支援 paste（不阻擋密碼管理器）</li>
         </ul>
-        <div class="elementor-note">Elementor Form Widget → Content → 可新增 reCAPTCHA 欄位。在 Elementor → Settings → Integrations 中設定 reCAPTCHA 金鑰。建議使用 v3（隱形驗證），避免使用需要使用者手動操作的 v2 勾選框。</div>
+        <div class="builder-note">避免圖片／拼圖型 CAPTCHA；選用方案前以鍵盤與螢幕閱讀器走完驗證流程。</div>
       </div>
       <div class="sub-section">
         <h4>負責人</h4>
         <span class="who-tag who-christina">Christina 設定表單驗證</span>
-        <span class="who-tag who-bertram">Bertram 驗證</span>
+        <span class="who-tag who-becky">Solomon / Becky 驗證</span>
       </div>
     </div>
   </div>
@@ -1528,7 +1525,7 @@
   <!-- UAT Verification Standards -->
   <div class="card" style="border:2px solid var(--primary); background:#f7fafc;">
     <h2>✅ UAT 驗收標準（最終合規驗證）</h2>
-    <p>UAT（User Acceptance Testing）= 交付前的最終品質關卡。在本專案中，由 Bertram（PM）做最終確認：承諾的 WCAG 2.2 AA 是否達到可交付程度。</p>
+    <p>UAT（User Acceptance Testing）是交付前的最終品質關卡。Bertram 以 PM 身分統籌驗收流程與上線準備；Solomon 主導、Becky 協助確認無障礙測試結果；Christina 修正建置問題；Content Owner 或活動負責單位確認內容；團隊依未解決風險共同決定是否上線。</p>
 
     <h3 style="margin-top:16px;">🎯 通過標準（兩層）</h3>
     <table style="width:100%; border-collapse:collapse; margin-top:8px;">
@@ -1540,7 +1537,7 @@
       <tr style="background:#fff;">
         <td style="padding:8px 12px; border-bottom:1px solid #e2e8f0;"><strong>🚪 門檻（Baseline）</strong></td>
         <td style="padding:8px 12px; border-bottom:1px solid #e2e8f0;">自動掃描零錯誤</td>
-        <td style="padding:8px 12px; border-bottom:1px solid #e2e8f0;">Lighthouse、axe DevTools、Equalize 外掛掃描 — 全部通過，無未解決錯誤</td>
+        <td style="padding:8px 12px; border-bottom:1px solid #e2e8f0;">Lighthouse、axe DevTools、Accessibility Checker by Kadence — 無未處理的機器可檢查錯誤</td>
       </tr>
       <tr style="background:#f7fafc;">
         <td style="padding:8px 12px; border-bottom:1px solid #e2e8f0;"><strong>🎯 目標（Target）</strong></td>
@@ -1603,17 +1600,17 @@
       <tr style="background:#fff;">
         <td style="padding:8px 12px; border-bottom:1px solid #e2e8f0;"><strong>Christina</strong></td>
         <td style="padding:8px 12px; border-bottom:1px solid #e2e8f0;">回饋接收層</td>
-        <td style="padding:8px 12px; border-bottom:1px solid #e2e8f0;">不需要自己執行測試，但需要理解測試結果與回饋：哪些 Elementor Widget 設定造成了問題？怎麼在建置階段預防？逐步建立 Elementor 無障礙建置的直覺。</td>
+        <td style="padding:8px 12px; border-bottom:1px solid #e2e8f0;">理解測試結果與回饋：哪些區塊設定造成問題，怎麼在建置階段預防，並逐步建立 Kadence Blocks 無障礙建置的直覺。</td>
       </tr>
     </table>
 
-    <div class="elementor-note" style="margin-top:16px;">
+    <div class="builder-note" style="margin-top:16px;">
       <strong>為什麼行動端螢幕閱讀器是「必測」？</strong><br>
-      AIA 的受眾中有大量行動裝置使用者。Elementor 的 RWD 輸出在不同螢幕閱讀器上的表現可能不一致，特別是行動端的觸控手勢導覽（滑動切換元素）與桌面端的鍵盤導覽邏輯不同，必須實際測試才能發現問題。
+      AIA 的受眾中有大量行動裝置使用者。Kadence Blocks 的 RWD 輸出在不同裝置與螢幕閱讀器上的表現仍需實測，特別是行動端觸控手勢與桌面端鍵盤導覽的差異。
     </div>
 
     <div class="limitation-note" style="margin-top:8px;">
-      <strong>WCAG 2.2 新增項目的測試注意：</strong>Equalize 外掛的自動掃描主要覆蓋 WCAG 2.1。WCAG 2.2 新增的 4 項 AA 標準（Focus Not Obscured 2.4.11、Dragging Movements 2.5.7、Target Size 2.5.8、Accessible Authentication 3.3.8）幾乎完全依賴手動測試。這 4 項必須由 Solomon 主導、Becky 協助逐一檢查。
+      <strong>WCAG 2.2 新增項目的測試注意：</strong>Accessibility Checker by Kadence 等自動工具無法完整判斷 Focus Not Obscured 2.4.11、Dragging Movements 2.5.7、Target Size 2.5.8、Accessible Authentication 3.3.8；這 4 項必須由 Solomon 主導、Becky 協助逐一手動檢查。
     </div>
   </div>
 
@@ -1623,48 +1620,44 @@
 <div id="platforms" class="section">
   <div class="card">
     <h2>技術架構與工具建議</h2>
-    <p>本專案採用 Elementor + A11y。以下列出建置與測試中需要的工具，以及團隊協作平台建議。</p>
+    <p>本專案採用 Kadence Blocks（基於 WordPress Gutenberg 區塊編輯器）+ Accessibility Checker by Kadence。以下列出建置與測試工具。</p>
   </div>
 
   <div class="card" style="border-left-color: #805ad5;">
     <h2>🔧 建置工具組（已確定）</h2>
     <div class="platform-grid" style="margin-top:12px;">
       <div class="platform-card recommend" style="border-color:#805ad5;">
-        <h3>Elementor Page Builder</h3>
+        <h3>Kadence Blocks</h3>
         <div class="price">專案指定建置工具</div>
         <h4>用途</h4>
         <ul class="pros">
           <li>所有頁面的版面配置與視覺設計</li>
-          <li>Widget 組合建置（Button、Image、Text、Form 等）</li>
+          <li>在 Gutenberg 編輯器中組合 Button、Image、Text、Form 等區塊</li>
           <li>RWD 響應式設計（Desktop/Tablet/Mobile 切換）</li>
-          <li>Theme Builder 建立全站 Header/Footer Template</li>
-          <li>Global Colors / Global Fonts 管理品牌一致性</li>
+          <li>與 Kadence Theme／WordPress 樣板共同管理 Header／Footer</li>
+          <li>Global Colors／Typography 管理品牌一致性</li>
         </ul>
         <h4 style="margin-top:8px;">無障礙注意事項</h4>
         <ul class="cons">
-          <li>某些 Widget（Accordion、Tabs）的鍵盤支援不完整</li>
-          <li>對語意化 HTML 結構的控制有限</li>
-          <li>Focus 樣式主要依賴主題 CSS</li>
-          <li>ARIA 屬性需透過 Advanced → Attributes 手動設定</li>
+          <li>互動區塊仍需逐項鍵盤與螢幕閱讀器測試</li>
+          <li>Focus 樣式與地標結構會同時受主題、樣板與區塊輸出影響</li>
+          <li>優先使用原生語意，避免不必要的自訂 ARIA</li>
         </ul>
       </div>
       <div class="platform-card recommend" style="border-color:#38a169;">
-        <h3>Ally by Elementor</h3>
-        <div class="price">Elementor 官方無障礙外掛（Free + Pro）</div>
+        <h3>Accessibility Checker by Kadence</h3>
+        <div class="price">WordPress 編輯器內無障礙檢查工具</div>
         <h4>無障礙功能</h4>
         <ul class="pros">
-          <li>AI 無障礙掃描：偵測 180+ 種常見問題</li>
-          <li>Usability Widget：訪客可調整字體大小、對比度、灰階、閱讀遮罩等</li>
-          <li>Skip to Content 連結（一鍵啟用）</li>
-          <li>AI alt text 建議 + ARIA label 建議</li>
-          <li>Accessibility Statement 自動產生</li>
-          <li>暫停動畫功能</li>
+          <li>在內容編輯流程中指出可機器判定的無障礙問題</li>
+          <li>提供問題說明，協助從來源內容與區塊設定修正</li>
+          <li>與 Kadence Blocks／WordPress 編輯流程整合</li>
         </ul>
         <h4 style="margin-top:8px;">注意事項</h4>
         <ul class="cons">
-          <li>無法保證 100% WCAG 合規（需搭配人工測試）</li>
-          <li>Overlay Widget 是輔助工具，不能替代源頭修正</li>
-          <li>掃描覆蓋率以 WCAG 2.1 為主，部分 2.2 新準則可能未覆蓋</li>
+          <li>不能保證 WCAG 2.2 AA 合規，也不能取代人工測試</li>
+          <li>無法判斷文字是否清楚、替代文字是否有意義或整體操作是否可用</li>
+          <li>鍵盤、螢幕閱讀器、reflow、zoom 與第三方嵌入流程仍需實測</li>
         </ul>
       </div>
     </div>
@@ -1676,7 +1669,7 @@
       <div class="platform-card">
         <h3>自動化掃描</h3>
         <ul>
-          <li><strong>Equalize 掃描</strong> — 整合在 WordPress 後台，最方便</li>
+          <li><strong>Accessibility Checker by Kadence</strong> — WordPress 編輯流程內檢查</li>
           <li><strong>axe DevTools</strong> — Chrome 擴充，最全面的 WCAG 檢查</li>
           <li><strong>Lighthouse</strong> — Chrome 內建，快速概覽</li>
           <li><strong>WAVE</strong> — 視覺化顯示問題位置</li>
