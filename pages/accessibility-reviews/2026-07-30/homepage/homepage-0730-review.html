@@ -193,7 +193,7 @@
   <section aria-labelledby="summary-title">
     <h2 id="summary-title">先看結論</h2>
     <div class="summary">
-      <p><strong>首頁有 2 組 P0，屬於本次上線必要條件：</strong>看起來可操作但實際無法使用的入口，以及頁尾空白社群連結。嚴重 RWD 另外列為上線決策項目：原則上應先修正；若仍決定先上線，需要由相關人員在 LINE 明確確認接受目前風險，並留下修正負責人與期限。</p>
+      <p><strong>首頁有 4 組 P0，屬於本次上線必要條件：</strong>補上頁面 title、將網站主要語言設定為繁體中文、修正看起來可操作但實際無法使用的入口，以及處理頁尾空白社群連結。嚴重 RWD 另外列為上線決策項目：原則上應先修正；若仍決定先上線，需要由相關人員在 LINE 明確確認接受目前風險，並留下修正負責人與期限。</p>
       <p>首頁會用來展示協會資訊、宣傳活動並承接購票入口，因此目前確認的 RWD 修正應先放到 staging 驗證；確認不同寬度沒有斷版後，再與本次上線內容一起套到正式站。這次只做 live 網頁的只讀檢查，沒有修改正式網站或 staging。</p>
       <p class="note"><strong>Lighthouse 分數不代表網站已經無障礙：</strong>90／94 只表示頁面在本次 Google Lighthouse 自動檢查涵蓋的規則中得到相應分數，不代表已符合 WCAG，也不代表沒有其他問題。完整判斷仍需合併人工檢查、鍵盤操作、各種裝置寬度與後續螢幕閱讀器測試。</p>
       <div class="metrics">
@@ -223,6 +223,21 @@
         <p>Facebook、X、Instagram 目前都有空的 <code>href</code>，鍵盤可以停在上面，但啟用後不會到達正確社群頁面。</p>
         <p><strong>WordPress：</strong>Facebook 改為 <a href="https://www.facebook.com/apacaia/">https://www.facebook.com/apacaia/</a>；X 與 Instagram 尚未建立，先隱藏連結與圖示，建立並確認網址後再顯示。</p>
         <p class="accept"><strong>完成標準：</strong>頁面沒有空白網址；所有仍顯示的社群入口都能到達正確頁面。</p>
+      </article>
+
+      <article class="finding">
+        <span class="label">P0 · 頁面名稱</span>
+        <h3>補上瀏覽器與螢幕閱讀器會讀到的頁面標題</h3>
+        <p>目前 <code>&lt;title&gt;</code> 是空的。分頁標籤、書籤和螢幕閱讀器的頁面清單都無法辨識這是哪一頁。</p>
+        <p><strong>WordPress：</strong>補上首頁 SEO title，例如「亞太包容創新協會｜APAC AIA」。</p>
+        <p class="accept"><strong>完成標準：</strong>瀏覽器分頁不再空白；Lighthouse 的 Document title 通過。</p>
+      </article>
+
+      <article class="finding">
+        <span class="label">P0 · 頁面語言</span>
+        <h3>將目前這個中文網站標示為繁體中文</h3>
+        <p>頁面最外層的 <code>&lt;html&gt;</code> 目前是 <code>lang="en-US"</code>，但網站目前主要可見內容是繁體中文。網站主要語言應設定為繁體中文，輸出 <code>lang="zh-TW"</code>；完整英文段落再個別標示 <code>lang="en"</code>。</p>
+        <p class="accept"><strong>完成標準：</strong>頁面最外層的 <code>&lt;html&gt;</code> 顯示 <code>lang="zh-TW"</code>；完整英文段落顯示 <code>lang="en"</code>。</p>
       </article>
     </div>
   </section>
@@ -263,22 +278,9 @@
     <h2 id="prelaunch-p1-title">P1｜優先改善；未完成不阻擋本次上線</h2>
     <div class="findings">
       <article class="finding p1">
-        <span class="label p1">P1 · 頁面名稱</span>
-        <h3>補上瀏覽器與螢幕閱讀器會讀到的頁面標題</h3>
-        <p>目前 <code>&lt;title&gt;</code> 是空的。分頁標籤、書籤和螢幕閱讀器的頁面清單都無法辨識這是哪一頁。</p>
-        <p><strong>WordPress：</strong>補上首頁 SEO title，例如「亞太包容創新協會｜APAC AIA」。</p>
-        <p class="accept"><strong>完成標準：</strong>瀏覽器分頁不再空白；Lighthouse 的 Document title 通過。</p>
-      </article>
-      <article class="finding p1">
-        <span class="label p1">P1 · 頁面語言</span>
-        <h3>將目前這個中文首頁標示為繁體中文</h3>
-        <p>頁面最外層的 <code>&lt;html&gt;</code> 目前是 <code>lang="en-US"</code>，但首頁主要可見內容是繁體中文。這一頁應標示 <code>lang="zh-TW"</code>，完整英文段落再個別標示 <code>lang="en"</code>。</p>
-        <p class="accept"><strong>完成標準：</strong>頁面最外層的 <code>&lt;html&gt;</code> 顯示 <code>lang="zh-TW"</code>；完整英文段落顯示 <code>lang="en"</code>。</p>
-      </article>
-      <article class="finding p1">
         <span class="label p1">P1 · 文字對比</span>
         <h3>加深桌面導覽的兩個連結</h3>
-        <p>「論壇活動 Event」與「聯繫 Contact」量測為 4.16:1；目前 17px 一般字重需達 4.5:1。把文字顏色稍微加深即可，不必改黃色導覽背景。</p>
+        <p>「論壇活動 Event」與「聯繫 Contact」量測為 4.16:1；目前 17px 一般字重需達 4.5:1。對低視力、對比敏感度較低，以及部分年長使用者而言，文字與黃色背景太接近時會比較難辨識。把文字顏色稍微加深即可，不必改黃色導覽背景。</p>
         <p class="accept"><strong>完成標準：</strong>一般狀態、hover 與 focus 狀態的文字對比都至少 4.5:1。</p>
       </article>
       <article class="finding p1">
@@ -404,15 +406,15 @@
         <p><a href="homepage-heading-audit.html"><strong>開啟首頁 Heading 逐項檢查與修改對照</strong></a></p>
       </article>
       <article class="finding p1">
-        <span class="label p1">P1 · 視覺一致性</span>
+        <span class="label p1">視覺整理 · 非無障礙缺失</span>
         <h3>整理平板與桌面的圖片高度及留白</h3>
-        <p>768px 的圖片與文字卡高度差距，以及桌面第二組圖片約 42px 的高度差，主要影響版面一致性。內容仍可閱讀，因此不單獨阻擋上線。</p>
+        <p>768px 的圖片與文字卡高度差距，以及桌面第二組圖片約 42px 的高度差，主要影響版面整齊程度。就目前證據而言，內容仍可閱讀、閱讀順序也沒有改變，因此這不是針對某一種身心障礙的無障礙缺失，也不列入無障礙必修。</p>
         <p class="accept"><strong>完成標準：</strong>平板圖文排列自然；桌面圖片與相鄰文字卡等高，沒有圖片下方的空洞。</p>
       </article>
       <article class="finding p1">
-        <span class="label p1">P1 · 網址</span>
-        <h3>媒體庫與背景圖網址統一為 HTTPS</h3>
-        <p>本次找到 19 個圖片 <code>src</code> 與 3 個背景圖仍寫成 <code>http://</code>。瀏覽器目前會自動升級，但內容庫應改成 HTTPS，避免搬站或安全政策改變時載入失敗。</p>
+        <span class="label p1">正式站技術確認 · 非無障礙缺失</span>
+        <h3>正式站確認圖片是否正常使用 HTTPS</h3>
+        <p>本次在測試站找到 19 個圖片 <code>src</code> 與 3 個背景圖寫成 <code>http://</code>，瀏覽器目前會自動升級。這可能只是測試站尚未完成正式網址設定，因此不列入 LINE 的上線必修清單。正式站上線時確認圖片可正常載入；只有正式站仍出現 mixed content 或圖片載入失敗時，再修正內容庫網址。</p>
       </article>
     </div>
   </section>
