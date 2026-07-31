@@ -1,0 +1,33 @@
+[
+  {
+    "testEngine": {
+      "name": "axe-core",
+      "version": "4.11.4"
+    },
+    "testRunner": {
+      "name": "axe"
+    },
+    "testEnvironment": {
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36",
+      "windowWidth": 758,
+      "windowHeight": 426,
+      "orientationAngle": 0,
+      "orientationType": "landscape-primary"
+    },
+    "timestamp": "2026-07-30T19:05:01.314Z",
+    "url": "https://aia.tinyoakstudio.com/%e8%81%af%e7%b9%ab/",
+    "toolOptions": {
+      "runOnly": {
+        "type": "tag",
+        "values": [
+          "wcag2a wcag2aa wcag22aa"
+        ]
+      },
+      "reporter": "v1"
+    },
+    "inapplicable": [],
+    "passes": [],
+    "incomplete": [],
+    "violations": []
+  }
+]

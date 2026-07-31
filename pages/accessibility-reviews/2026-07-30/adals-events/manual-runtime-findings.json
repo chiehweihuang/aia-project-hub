@@ -1,0 +1,81 @@
+{
+  "findings": [
+    {
+      "key": "registration-cta-not-interactive",
+      "category": "keyboard",
+      "severity": "critical",
+      "check": "fail",
+      "wcag": "WCAG 2.2: 2.1.1 Keyboard; 4.1.2 Name, Role, Value",
+      "title": "All visible registration CTAs are non-interactive spans",
+      "location": "Hero and all four ticket cards",
+      "source": "manual-browser-runtime",
+      "fix": "Give each CTA a real destination and render it as a native link or button."
+    },
+    {
+      "key": "page-language-mismatch",
+      "category": "screenreader",
+      "severity": "warning",
+      "check": "fail",
+      "wcag": "WCAG 2.2: 3.1.1 Language of Page",
+      "title": "The Chinese-majority page declares lang=en-US",
+      "location": "html[lang=en-US]",
+      "source": "manual-browser-runtime",
+      "fix": "Use zh-Hant as the page language and mark English passages with lang=en."
+    },
+    {
+      "key": "heading-outline-missing-h1",
+      "category": "screenreader",
+      "severity": "warning",
+      "check": "fail",
+      "wcag": "WCAG 2.2: 1.3.1 Info and Relationships; 2.4.6 Headings and Labels",
+      "title": "The page has no H1 and section/item headings share the same H2 level",
+      "location": "Main article heading outline",
+      "source": "manual-browser-runtime",
+      "fix": "Use one H1 for the event, H2 for sections, H3 for speakers and schedule items, then H4 only for subordinate ticket details."
+    },
+    {
+      "key": "duplicate-disclosure-names",
+      "category": "screenreader",
+      "severity": "warning",
+      "check": "fail",
+      "wcag": "WCAG 2.2: 2.4.6 Headings and Labels",
+      "title": "Three speaker disclosures have the identical name READ ENGLISH BIO",
+      "location": "Speaker cards",
+      "source": "manual-browser-runtime",
+      "fix": "Include the speaker name in each disclosure label."
+    },
+    {
+      "key": "placeholder-and-empty-links",
+      "category": "keyboard",
+      "severity": "warning",
+      "check": "fail",
+      "wcag": "WCAG 2.2: 2.4.4 Link Purpose; 3.2.4 Consistent Identification",
+      "title": "The Makoto Ueki link is a # placeholder and all three social links have empty href values",
+      "location": "Makoto Ueki card and footer social links",
+      "source": "manual-browser-runtime",
+      "fix": "Add the intended destinations or remove the links until destinations exist."
+    },
+    {
+      "key": "responsive-text-columns-too-narrow",
+      "category": "responsive",
+      "severity": "critical",
+      "check": "fail",
+      "wcag": "WCAG 2.2: 1.4.10 Reflow",
+      "title": "Schedule and ticket text columns collapse below readable width",
+      "location": "320px schedule text about 128px; 768px ticket list text about 39px",
+      "source": "manual-browser-runtime",
+      "fix": "Stack the schedule columns on narrow screens and change ticket cards to minmax(20rem, 1fr) with fewer columns as space shrinks."
+    },
+    {
+      "key": "mixed-content-assets",
+      "category": "agent",
+      "severity": "warning",
+      "check": "fail",
+      "wcag": "Transport and browser best practice",
+      "title": "Seven page assets are authored with HTTP URLs and rely on browser upgrade",
+      "location": "Hero, speaker images, icons and Values background",
+      "source": "lighthouse-13.3.0",
+      "fix": "Replace the stored asset URLs with HTTPS URLs."
+    }
+  ]
+}

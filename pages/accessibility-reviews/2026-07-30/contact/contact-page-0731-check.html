@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AIA 聯繫頁無障礙與響應式版面檢查｜2026-07-31</title>
+  <link rel="stylesheet" href="../../review-nav.css">
+  <style>
+    :root {
+      --ink:#082943;
+      --muted:#496173;
+      --paper:#f7f9fb;
+      --card:#fff;
+      --line:#cbd8e1;
+      --navy:#06334d;
+      --gold:#e9bc43;
+      --p0:#a62b26;
+      --p0-bg:#fff1ef;
+      --p1:#795600;
+      --p1-bg:#fff7dc;
+      --pass:#17643b;
+      --pass-bg:#edf8f1;
+      --shadow:0 10px 28px rgba(8,41,67,.09);
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0;
+      color:var(--ink);
+      background:var(--paper);
+      font-family:Arial, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei",
+        "Noto Sans JP", "Yu Gothic", sans-serif;
+      font-size:17px;
+      line-height:1.7;
+      overflow-wrap:anywhere;
+    }
+    a { color:#07598b; text-underline-offset:.18em; }
+    a:focus-visible { outline:3px solid #be6b00; outline-offset:3px; }
+    .skip {
+      position:absolute;
+      left:12px;
+      top:-80px;
+      z-index:10;
+      padding:10px 14px;
+      color:#000;
+      background:#fff;
+    }
+    .skip:focus { top:12px; }
+    header {
+      color:#fff;
+      background:linear-gradient(125deg, var(--navy), #0b5273);
+      border-bottom:10px solid var(--gold);
+    }
+    .hero, main, footer > div {
+      width:min(1120px, calc(100% - 48px));
+      margin-inline:auto;
+    }
+    .hero { padding:64px 0 58px; }
+    .eyebrow {
+      margin:0 0 8px;
+      color:#ffe29a;
+      font-weight:700;
+      letter-spacing:.08em;
+    }
+    h1,h2,h3 { line-height:1.25; text-wrap:balance; }
+    h1 {
+      max-width:18ch;
+      margin:.1em 0 .35em;
+      font-size:clamp(2rem, 5vw, 4.1rem);
+    }
+    .deck {
+      max-width:62ch;
+      margin:0;
+      font-size:clamp(1.05rem, 2vw, 1.3rem);
+    }
+    main { padding:40px 0 72px; }
+    section { margin:0 0 42px; scroll-margin-top:24px; }
+    h2 { margin:0 0 18px; font-size:clamp(1.55rem, 3vw, 2.25rem); }
+    h3 { margin:.15em 0 .45em; font-size:1.18rem; }
+    p { max-width:70ch; }
+    .summary, .finding, .pass, .evidence, .implementation, .method {
+      min-width:0;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:16px;
+      box-shadow:var(--shadow);
+    }
+    .summary { padding:26px; }
+    .summary strong { color:#7b1d18; }
+    .metrics {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+      gap:16px;
+      margin-top:20px;
+    }
+    .metric { padding:18px; border-radius:12px; background:#eef5f9; }
+    .metric b { display:block; font-size:1.65rem; line-height:1.1; }
+    .metric span { color:var(--muted); }
+    .findings, .passes {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+      gap:18px;
+    }
+    .finding, .pass { padding:22px; border-top:7px solid var(--p0); }
+    .finding { display:flex; flex-direction:column; }
+    .finding.p1 { border-top-color:var(--gold); }
+    .pass { border-top-color:var(--pass); }
+    .label {
+      display:inline-block;
+      margin:0 0 10px;
+      padding:3px 9px;
+      border-radius:999px;
+      color:var(--p0);
+      background:var(--p0-bg);
+      font-size:.82rem;
+      font-weight:700;
+    }
+    .label.p1 { color:var(--p1); background:var(--p1-bg); }
+    .accept {
+      margin-top:auto;
+      padding-top:13px;
+      border-top:1px dashed var(--line);
+      color:#243f52;
+      font-size:.94rem;
+    }
+    .evidence { padding:20px; margin-bottom:18px; }
+    .evidence-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+      gap:18px;
+    }
+    figure { min-width:0; margin:0; }
+    figure img {
+      display:block;
+      width:100%;
+      height:auto;
+      max-height:680px;
+      object-fit:contain;
+      object-position:top;
+      border:1px solid var(--line);
+      border-radius:10px;
+      background:#fff;
+    }
+    figcaption { margin-top:8px; color:var(--muted); font-size:.92rem; }
+    code, pre {
+      font-family:"Cascadia Mono", Consolas, "Noto Sans TC", "Microsoft JhengHei",
+        "Noto Sans JP", "Yu Gothic", monospace;
+    }
+    code { padding:.08em .3em; border-radius:4px; background:#eaf2f7; }
+    pre {
+      margin:16px 0 0;
+      padding:18px;
+      color:#ecf7ff;
+      background:#062b40;
+      border-radius:12px;
+      white-space:pre-wrap;
+      overflow-wrap:anywhere;
+    }
+    pre code { padding:0; color:inherit; background:transparent; }
+    .implementation, .method { padding:24px; }
+    ol,ul { padding-left:1.4em; }
+    li + li { margin-top:.5em; }
+    .note { padding:15px 18px; border-left:5px solid var(--gold); background:#fff8df; }
+    footer { color:#dcebf3; background:#062b40; }
+    footer > div { padding:28px 0; }
+    @media (max-width:600px) {
+      body { font-size:16px; }
+      .hero, main, footer > div { width:min(100% - 28px, 1120px); }
+      .hero { padding:42px 0 38px; }
+      main { padding-top:28px; }
+      .summary, .finding, .pass, .evidence, .implementation, .method { padding:18px; }
+    }
+    @media print {
+      body {
+        font-family:Arial, "Microsoft JhengHei", "Noto Sans TC", "PingFang TC",
+          "Noto Sans JP", "Yu Gothic", sans-serif;
+        font-size:10.5pt;
+        background:#fff;
+      }
+      code, pre {
+        font-family:Consolas, "Microsoft JhengHei", "Noto Sans TC",
+          "Noto Sans JP", "Yu Gothic", monospace;
+      }
+      header { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+      .hero, main, footer > div { width:100%; }
+      .hero { padding:32px 28px; }
+      main { padding:24px 28px; }
+      .summary, .finding, .pass, .evidence, .implementation, .method {
+        box-shadow:none;
+        break-inside:avoid;
+      }
+      a { color:inherit; }
+      pre { font-size:8pt; }
+    }
+  </style>
+</head>
+<body>
+<a class="skip" href="#main">跳到主要內容</a>
+<nav class="aia-review-nav" aria-label="測試報告導覽">
+  <div class="aia-review-nav__inner">
+    <span class="aia-review-nav__label">AIA 無障礙測試結果</span>
+    <a class="aia-review-nav__hub" href="https://chiehweihuang.github.io/aia-project-hub/#downloads">← 回到專案 Hub</a>
+    <a href="../../index.html">測試總覽</a>
+    <a href="../homepage/homepage-0730-review.html">首頁</a>
+    <a href="../adals-events/event-page-0730-check.html">活動頁</a>
+    <a href="contact-page-0731-check.html" aria-current="page">聯繫頁</a>
+    <span class="aia-review-nav__break" aria-hidden="true"></span>
+    <a href="../adals-events/speaker-responsive-comparison.html">講者／票券比較</a>
+    <a href="../homepage/homepage-heading-audit.html">首頁 Heading</a>
+    <a href="../adals-events/01-HEADING-STRUCTURE.html">活動 Heading</a>
+    <a href="contact-heading-audit.html">聯繫 Heading</a>
+    <a class="aia-review-nav__history" href="../../2026-07-03/index.html">7/3 歷史測試</a>
+  </div>
+</nav>
+<header>
+  <div class="hero">
+    <p class="eyebrow">AIA WEBSITE REVIEW · 2026-07-31</p>
+    <h1>聯繫頁無障礙與響應式版面檢查</h1>
+    <p class="deck">給設計與 WordPress 製作人員的修正說明。首頁、ADALS 活動頁與聯繫頁分開記錄；本頁只談聯繫頁。</p>
+  </div>
+</header>
+
+<main id="main">
+  <section aria-labelledby="summary-title">
+    <h2 id="summary-title">先看結論</h2>
+    <div class="summary">
+      <p><strong>聯繫頁有 2 項 P0：</strong>「主題」被設定成 Email 欄位，可能阻擋一般表單內容送出；頁面沒有 H1，螢幕閱讀器的標題導覽也缺少代表本頁主題的最高層標題。兩項都列為上線前修正。</p>
+      <p>版面本身在七種寬度都沒有水平捲軸，320px 表單已改成單欄，768px 以上的欄位寬度也足夠。其餘調整集中在鍵盤 focus、文字對比、頁面語言與社群連結。</p>
+      <p class="note"><strong>測試範圍：</strong>本次檢查了 HTML、accessibility tree 與 Tab 鍵盤操作，沒有執行 NVDA、JAWS 或 VoiceOver 實機走查。缺少 H1 代表標題導覽目前不能判定為通過；修正 heading 後，仍需重新進行完整的螢幕閱讀器操作測試。表單標籤關聯等程式結構檢查則另外記錄，不等同於已完成螢幕閱讀器測試。</p>
+      <div class="metrics">
+        <div class="metric"><b>96 / 96</b><span>Lighthouse accessibility：desktop / mobile</span></div>
+        <div class="metric"><b>0</b><span>七種寬度的水平捲軸</span></div>
+        <div class="metric"><b>5 個</b><span>表單欄位的 HTML 標籤關聯完整；尚待 NVDA 實測</span></div>
+        <div class="metric"><b>3 個</b><span>社群圖示尚未連到對應的社群頁面</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="priority-title">
+    <h2 id="priority-title">修正項目</h2>
+    <div class="findings">
+      <article class="finding">
+        <span class="label">P0 · 表單欄位</span>
+        <h3>將「主題」從 Email Field 改成 Text Field</h3>
+        <p>目前「主題*」的實際 HTML 是 <code>&lt;input type="email"&gt;</code>。這不是顯示文字問題，而是欄位型別錯誤；輸入一般主題可能無法送出。</p>
+        <p><strong>WordPress：</strong>編輯聯繫頁，選取 Kadence Advanced Form 裡的「主題」欄位，將欄位型別改為 Text Field。若目前區塊不能直接切換型別，就刪除這個 Email Field，在同一位置新增 Text Field，標籤仍用「主題」，並設為必填。</p>
+        <p>同一輪替「名字」加入 <code>autocomplete="name"</code>，「Email」加入 <code>autocomplete="email"</code>；若目前 Kadence 欄位面板沒有這個設定，先完成欄位型別修正，再於 staging 確認可用的擴充屬性方式。</p>
+        <p class="accept"><strong>完成標準：</strong>「活動合作詢問」可以通過瀏覽器欄位驗證；空白主題仍會顯示必填提示；名字與 Email 可由瀏覽器或輔助技術辨識輸入目的。</p>
+      </article>
+
+      <article class="finding">
+        <span class="label">P0 · 頁面結構</span>
+        <h3>將「聯繫我們」改為 H1，頁面標示為繁體中文</h3>
+        <p>目前全頁只有兩個 H2：「聯繫我們」與「社群媒體 SOCIALS」，沒有 H1。螢幕閱讀器使用者開啟標題清單時，看不到代表本頁主題的最高層標題。頁面根節點是 <code>lang="en-US"</code>，但這一頁主要可見內容是繁體中文。</p>
+        <p><strong>WordPress：</strong>將「聯繫我們」的 Heading Level 從 H2 改為 H1；視覺位置仍可保留在表單左側，不必移動版面。「社群媒體 SOCIALS」保留 H2。到「設定 → 一般 → 網站語言」確認為繁體中文，使輸出為 <code>zh-TW</code> 或 <code>zh-Hant</code>。完整英文段落才另外標示 <code>lang="en"</code>。</p>
+        <p class="accept"><strong>完成標準：</strong>頁面只有一個 H1「聯繫我們」；它在 DOM 閱讀順序中位於表單之前；後續主要區段為 H2；HTML 根節點反映頁面主要顯示語言。</p>
+        <p><a href="contact-heading-audit.html"><strong>開啟聯繫頁 Heading 逐項檢查與修改對照</strong></a></p>
+      </article>
+
+      <article class="finding p1">
+        <span class="label p1">P1 · 鍵盤 focus</span>
+        <h3>讓目前正在填寫的欄位清楚可見</h3>
+        <p>按 Tab 進入名字、Email、訊息類別、主題與訊息欄位時，computed style 顯示 <code>outline: none 0px</code>。送出按鈕已有可見輪廓，但五個輸入欄位只有原本的陰影，難以判斷鍵盤目前停在哪裡。</p>
+        <p><strong>WordPress：</strong>在 Kadence 表單區塊的 Input Fields 設定中調整 Focus Colors，讓 focus 狀態有明顯邊框。若內建設定不足，可在 staging 加入：</p>
+        <pre><code>.kb-advanced-form input:focus-visible,
+.kb-advanced-form select:focus-visible,
+.kb-advanced-form textarea:focus-visible {
+  outline: 3px solid #ffbf47;
+  outline-offset: 3px;
+}</code></pre>
+        <p class="accept"><strong>完成標準：</strong>只用 Tab 與 Shift+Tab 走過表單時，每一步都能立即看出目前欄位；輪廓不被卡片或欄位邊界截掉。</p>
+      </article>
+
+      <article class="finding p1">
+        <span class="label p1">P1 · 文字對比</span>
+        <h3>加深送出按鈕、必填星號與桌面導覽文字</h3>
+        <p>本次量測有三組一般文字未達 4.5:1：</p>
+        <ul>
+          <li>送出按鈕白字／橘底：約 3.55:1。</li>
+          <li>紅色必填星號／深藍底：約 2.08:1。</li>
+          <li>桌面導覽灰字／黃色底：約 4.16:1。</li>
+        </ul>
+        <p>可保留原本色系：送出按鈕橘底加深到接近 <code>#b83b22</code>；必填星號改為淺紅 <code>#ffb4ab</code>；黃色導覽上的文字改成較深的藍灰或深藍。</p>
+        <p class="accept"><strong>完成標準：</strong>一般文字與背景至少 4.5:1；重新跑 Lighthouse desktop／mobile，不再出現 Color contrast 失敗。</p>
+      </article>
+
+      <article class="finding p1">
+        <span class="label p1">P1 · 社群連結</span>
+        <h3>Facebook 補正確網址；X 與 Instagram 先不顯示</h3>
+        <p>三個圖示目前都是空的 <code>href</code>。鍵盤可以停在上面，但啟用後只會重新載入目前頁面，使用者無法到達社群帳號。</p>
+        <p><strong>WordPress：</strong>Facebook 設為 <a href="https://www.facebook.com/apacaia/">https://www.facebook.com/apacaia/</a>。X 與 Instagram 帳號尚未建立，先隱藏圖示與連結；帳號建立並確認網址後再顯示。</p>
+        <p class="accept"><strong>完成標準：</strong>Facebook 可用 Tab 聚焦並開啟正確頁面；頁面上沒有空網址或尚不存在的社群入口。</p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="evidence-title">
+    <h2 id="evidence-title">響應式畫面</h2>
+    <div class="evidence-grid">
+      <figure class="evidence">
+        <a href="designer-evidence/contact-form-320.png"><img src="designer-evidence/contact-form-320.png" alt="320px 寬度的聯繫表單，欄位上下排列"></a>
+        <figcaption><strong>320px：</strong>表單約 270px 寬，五個欄位都是單欄；沒有水平溢出。</figcaption>
+      </figure>
+      <figure class="evidence">
+        <a href="designer-evidence/contact-form-768.png"><img src="designer-evidence/contact-form-768.png" alt="768px 寬度的聯繫表單"></a>
+        <figcaption><strong>768px：</strong>表單約 457px 寬；短欄位可並排，主題與訊息保留整列寬度。</figcaption>
+      </figure>
+      <figure class="evidence">
+        <a href="designer-evidence/contact-form-1440.png"><img src="designer-evidence/contact-form-1440.png" alt="1440px 寬度的聯繫表單"></a>
+        <figcaption><strong>1440px：</strong>表單最大寬度約 745px，行寬穩定，沒有因螢幕變寬而過度拉長。</figcaption>
+      </figure>
+      <figure class="evidence">
+        <a href="designer-evidence/contact-footer-1440.png"><img src="designer-evidence/contact-footer-1440.png" alt="聯繫頁社群媒體區的 Facebook、X、Instagram 圖示"></a>
+        <figcaption><strong>社群區：</strong>三個圖示目前都有可聚焦連結外觀，但網址為空。</figcaption>
+      </figure>
+    </div>
+    <p class="note">套用 WCAG 文字間距測試值後，320／768／1024／1280／1440／1742／1920px 仍沒有水平捲軸。聯繫頁目前不需要另外調整欄數；修正重點是表單可用性與語意。</p>
+  </section>
+
+  <section aria-labelledby="passes-title">
+    <h2 id="passes-title">程式結構與版面檢查已通過</h2>
+    <div class="passes">
+      <article class="pass"><h3>HTML 表單標籤已正確關聯</h3><p>名字、Email、訊息類別、主題、訊息五個欄位都有可見 label，且與實際控制項關聯。這是 DOM 結構檢查結果，不代表已完成 NVDA 操作測試。</p></article>
+      <article class="pass"><h3>必填狀態已使用原生屬性</h3><p>五個欄位都有 <code>required</code>，不是只靠紅色星號表示。</p></article>
+      <article class="pass"><h3>欄位控制項使用原生 HTML</h3><p>文字框、Email、select、textarea 與 submit button 都可由鍵盤到達。</p></article>
+      <article class="pass"><h3>七種寬度沒有水平捲軸</h3><p>一般狀態與文字間距測試後均為 <code>scrollWidth = clientWidth</code>。</p></article>
+      <article class="pass"><h3>Skip link 與主要區域存在</h3><p>Skip link 可跳到主要內容；320px 測試時，目標沒有被固定頁首遮住。</p></article>
+      <article class="pass"><h3>圖片替代文字配置合理</h3><p>頁首標誌有可辨識名稱；頁尾裝飾性短標誌使用空 alt。</p></article>
+    </div>
+  </section>
+
+  <section aria-labelledby="development-title">
+    <h2 id="development-title">網站開發與 staging 複查</h2>
+    <div class="implementation">
+      <h3>背景圖網址改為 HTTPS</h3>
+      <p>瀏覽器記錄到一個 mixed-content 警告：頁面以 HTTPS 開啟，但背景圖來源仍寫成 <code>http://</code>。目前 Chrome 會自動升級成 HTTPS，所以畫面仍能顯示；建議在媒體或區塊背景設定中直接改成 HTTPS。這是網站維護項目，不列為本頁的無障礙失敗。</p>
+
+      <h3>在 staging 實際送出表單</h3>
+      <p>本次沒有送出表單，避免從正式站寄出測試訊息。因此修正後需要在 staging 完成：</p>
+      <ol>
+        <li>用一般文字主題成功送出。</li>
+        <li>缺少必填欄位時，用鍵盤確認焦點位置，再用 NVDA 確認錯誤訊息是否與對應欄位一起被讀出。</li>
+        <li>用 NVDA 確認送出後的成功訊息是否會自動宣告。</li>
+        <li>確認通知信實際送達指定信箱，且不會把表單內容暴露在網址或錯誤畫面。</li>
+      </ol>
+      <p>欄位型別與 Focus Colors 的編輯位置可對照 <a href="https://www.kadencewp.com/help-center/docs/non-knowledgebase/advanced-form-block/">Kadence Form (Adv) Block 官方說明</a>。</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="method-title">
+    <h2 id="method-title">測試方式與範圍</h2>
+    <div class="method">
+      <p>以 2026-07-31 的 live rendered DOM 為準，進行 Lighthouse desktop／mobile、axe 自動掃描、heading／表單結構檢查、Tab 鍵盤走查、computed style 與色彩對比量測、WCAG 文字間距覆寫，以及七種寬度截圖。</p>
+      <ul>
+        <li><a href="contact-live-audit.json">七種寬度、表單結構、focus 與文字間距量測</a></li>
+        <li><a href="lighthouse-desktop.json">Lighthouse desktop 原始報告</a></li>
+        <li><a href="lighthouse-mobile.json">Lighthouse mobile 原始報告</a></li>
+        <li><a href="axe-results.json">axe 自動掃描原始結果</a></li>
+        <li><a href="contact-1440-accessibility-tree.md">1440px accessibility tree snapshot</a></li>
+        <li><a href="console-warnings-errors.txt">Console warning／error 記錄</a></li>
+      </ul>
+      <p class="note"><strong>自動掃描的限制：</strong>axe 本次回報 0 violations，但沒有抓到「主題欄位型別錯誤」、輸入欄位 focus 不清楚、H1 缺少等人工檢查項目。0 violations 只代表已執行規則未找到錯誤，不代表整頁已無障礙。</p>
+      <p class="note"><strong>尚未涵蓋：</strong>正式寄信流程、成功／錯誤訊息的 live announcement、NVDA／JAWS／VoiceOver 實機操作、真實手機觸控與身心障礙使用者測試。heading 修正後，這些需在 staging 與實際裝置重新驗證。</p>
+    </div>
+  </section>
+</main>
+
+<footer><div>AIA contact accessibility &amp; responsive review · 2026-07-31</div></footer>
+</body>
+</html>

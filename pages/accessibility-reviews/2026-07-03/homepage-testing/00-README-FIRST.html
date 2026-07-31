@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>APAC AIA 網站 - 首頁無障礙測試　檔案說明（2026-07-03）</title>
+<link rel="stylesheet" href="../../review-nav.css">
+<style>
+:root{
+  --bg:#F7F8F8; --surface:#ECEFF3; --text:#231815; --muted:#3D3835;
+  --accent:#003B5C; --accent-deep:#002D46; --border:#B7C0CB; --border-strong:#6B7785;
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%; text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:'Inter','Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+  font-size:17px; line-height:1.75; overflow-wrap:break-word;
+}
+main{max-width:880px; margin:0 auto; padding:2rem 1.25rem 4rem}
+h1{font-family:'Noto Serif TC','Inter',Georgia,serif; color:var(--accent); font-size:1.6rem; line-height:1.4; margin:0 0 .4rem}
+h2{font-family:'Noto Serif TC','Inter',Georgia,serif; color:var(--accent); font-size:1.2rem; margin:2.2rem 0 .8rem; border-bottom:2px solid var(--border); padding-bottom:.35rem}
+p{margin:.6rem 0}
+.meta{color:var(--muted); margin:0 0 1rem}
+.intro{background:var(--surface); border-left:4px solid var(--accent); padding:.9rem 1.1rem; margin:1rem 0 0}
+.tbl-wrap{overflow-x:auto; margin:1rem 0}
+table{border-collapse:collapse; width:100%; min-width:560px}
+caption{text-align:left; font-weight:700; color:var(--accent); padding:.3rem 0}
+th,td{border:1px solid var(--border); padding:.6rem .7rem; text-align:left; vertical-align:top}
+th{background:var(--surface); color:var(--accent); white-space:nowrap}
+td.file{font-weight:700}
+.fn{font-family:ui-monospace,'Cascadia Code',Consolas,'Noto Sans TC',monospace}
+.readguide{padding-left:1.4rem}
+.readguide li{margin:.55rem 0}
+.note{background:var(--surface); border:1px solid var(--border-strong); border-radius:4px; padding:.8rem 1rem; margin:1.2rem 0}
+.note p:first-child{margin-top:0}
+.note p:last-child{margin-bottom:0}
+@media (max-width:640px){ body{font-size:16px} main{padding:1.5rem 1rem 3rem} }
+</style>
+</head>
+<body>
+<a class="aia-review-skip" href="#main">跳到主要內容</a>
+<nav class="aia-review-nav" aria-label="測試報告導覽">
+  <div class="aia-review-nav__inner">
+    <span class="aia-review-nav__label">AIA 無障礙測試結果</span>
+    <a href="../../../../index.html#downloads">專案 Hub</a>
+    <a href="../../index.html">測試總覽</a>
+    <a href="../../2026-07-30/homepage/homepage-0730-review.html">首頁 7/30</a>
+    <a href="../../2026-07-30/adals-events/event-page-0730-check.html">活動頁</a>
+    <a href="../../2026-07-30/adals-events/speaker-responsive-comparison.html">講者／票券比較</a>
+    <a href="../../2026-07-30/contact/contact-page-0731-check.html">聯繫頁</a>
+    <a href="../index.html">7/3 測試總覽</a>
+    <a href="00-README-FIRST.html" aria-current="page">7/3 從這裡開始</a>
+  </div>
+</nav>
+<main id="main">
+<h1>APAC AIA 網站 - 首頁無障礙測試　檔案說明</h1>
+<p class="meta">測試日期：2026-07-03　|　範圍：首頁</p>
+
+<p class="intro">這個資料夾放的是首頁無障礙測試的成果檔案：問題修正做法、圖片替代文字、照片原圖、以及測試工具的原始報告。以下先說明「怎麼讀」，再逐一列出每個檔案。</p>
+
+<h2>如何閱讀這一整包</h2>
+<ol class="readguide">
+<li><strong>先看這一頁</strong>：知道有哪些檔、各是什麼。</li>
+<li><strong>主檔是 <span class="fn">02-accessibility-report.html</span></strong>：逐項的修正做法，是這一包的核心。每一項的「問題」和「誰會被卡住」是白話說明，灰底的程式碼片段是技術細節、可以跳過；每項可勾「完成」追蹤進度。</li>
+<li><strong>圖片</strong>：內容照片的替代文字在 <span class="fn">image-alt-text.xlsx</span>，原圖在 <span class="fn">source-images/</span>（壓縮過的 WebP 版在 <span class="fn">source-images-webp/</span>、已編號 01–09，是否改用再麻煩請 Christina 評估）。等測試站（staging）架設好、可以登入後，替代文字這一項 Bertram 會協助逐張填上。</li>
+<li><strong>要更多細節或佐證時</strong>：完整發現清單在 <span class="fn">01-finding-list-quick-reference.html</span>、標題結構在 <span class="fn">03-heading-structure.html</span>；Beacon、Lighthouse 等測試工具的原始報告在 <span class="fn">reference/</span> 備查。</li>
+</ol>
+
+<h2>檔案清單</h2>
+<div class="tbl-wrap">
+<table class="file-table">
+<caption>本資料夾檔案一覽</caption>
+<thead>
+<tr><th scope="col">檔案</th><th scope="col">內容</th></tr>
+</thead>
+<tbody>
+<tr>
+<td class="file"><span class="fn">01-finding-list-quick-reference.html</span></td>
+<td>所有發現的完整清單與 WCAG 對照，逐條可查。</td>
+</tr>
+<tr>
+<td class="file"><span class="fn">02-accessibility-report.html</span></td>
+<td>主要交付物。逐項問題的修正做法，含截圖與 Kadence 操作步驟；每項可勾「完成」追蹤進度。</td>
+</tr>
+<tr>
+<td class="file"><span class="fn">03-heading-structure.html</span></td>
+<td>首頁標題層級（H1–H6）的前後對照與調整建議。</td>
+</tr>
+<tr>
+<td class="file"><span class="fn">image-alt-text.xlsx</span></td>
+<td>9 張內容照片的替代文字，已依實際圖片寫好，含縮圖、頁面位置、中文與英文。</td>
+</tr>
+<tr>
+<td class="file"><span class="fn">source-images/</span></td>
+<td>9 張內容照片的原圖，檔名對應 WordPress 媒體庫；壓縮版在 <span class="fn">source-images-webp/</span>（已編號 01–09、整批省 93%，是否改用請 Christina 評估）。</td>
+</tr>
+<tr>
+<td class="file"><span class="fn">reference/</span></td>
+<td>測試工具的原始報告（皆為 PDF）：Beacon 無障礙稽核、Lighthouse（桌面／手機）、HeadingsMap 標題結構實證，佐證備查。</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="note">
+<p>「source-images/」裡的檔名（如 <code>compagnons-…png</code>）是原始上傳檔名，對照 <span class="fn">image-alt-text.xlsx</span> 裡的縮圖就能認出是哪一張；要在 WordPress 更新替代文字時，用這個檔名在媒體庫找到對應圖片。</p>
+</div>
+</main>
+</body>
+</html>

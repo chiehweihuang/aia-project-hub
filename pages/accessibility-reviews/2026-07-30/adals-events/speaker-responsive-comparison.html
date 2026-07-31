@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ADALS 活動頁講者與票券響應式調整比較｜2026-07-31</title>
+  <link rel="stylesheet" href="../../review-nav.css">
+  <style>
+    :root {
+      --ink:#082943;
+      --muted:#496173;
+      --paper:#f7f9fb;
+      --card:#fff;
+      --line:#cbd8e1;
+      --navy:#06334d;
+      --gold:#e9bc43;
+      --blue:#dff1ff;
+      --before:#fff3e5;
+      --after:#edf8f1;
+      --shadow:0 10px 28px rgba(8,41,67,.09);
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0;
+      color:var(--ink);
+      background:var(--paper);
+      font-family:Arial, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei",
+        "Noto Sans JP", "Yu Gothic", sans-serif;
+      font-size:17px;
+      line-height:1.7;
+      overflow-wrap:anywhere;
+    }
+    a { color:#07598b; text-underline-offset:.18em; }
+    a:focus-visible { outline:3px solid #be6b00; outline-offset:3px; }
+    .skip {
+      position:absolute;
+      left:12px;
+      top:-80px;
+      z-index:10;
+      padding:10px 14px;
+      color:#000;
+      background:#fff;
+    }
+    .skip:focus { top:12px; }
+    header {
+      color:#fff;
+      background:linear-gradient(125deg, var(--navy), #0b5273);
+      border-bottom:10px solid var(--gold);
+    }
+    .hero, main, footer > div {
+      width:min(1120px, calc(100% - 48px));
+      margin-inline:auto;
+    }
+    .hero { padding:64px 0 58px; }
+    .eyebrow {
+      margin:0 0 8px;
+      color:#ffe29a;
+      font-weight:700;
+      letter-spacing:.08em;
+    }
+    h1,h2,h3 { line-height:1.25; text-wrap:balance; }
+    h1 {
+      max-width:20ch;
+      margin:.1em 0 .35em;
+      font-size:clamp(2rem, 5vw, 4.1rem);
+    }
+    .deck {
+      max-width:62ch;
+      margin:0;
+      font-size:clamp(1.05rem, 2vw, 1.3rem);
+    }
+    main { padding:40px 0 72px; }
+    section { margin:0 0 42px; scroll-margin-top:24px; }
+    h2 { margin:0 0 18px; font-size:clamp(1.55rem, 3vw, 2.25rem); }
+    h3 { margin:.15em 0 .45em; font-size:1.18rem; }
+    p { max-width:70ch; }
+    .summary, .decision, .width-card, .evidence, .implementation, .method {
+      min-width:0;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:16px;
+      box-shadow:var(--shadow);
+    }
+    .summary, .implementation, .method { padding:26px; }
+    .metrics, .decision-grid, .width-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+      gap:16px;
+    }
+    .metrics { margin-top:20px; }
+    .metric {
+      min-width:0;
+      padding:18px;
+      border-radius:12px;
+      background:#eef5f9;
+    }
+    .metric b { display:block; font-size:1.65rem; line-height:1.1; }
+    .metric span { color:var(--muted); }
+    .decision, .width-card { padding:20px; }
+    .decision { border-top:7px solid var(--gold); }
+    .decision strong { display:block; margin-bottom:.25rem; font-size:1.15rem; }
+    .width-card h3 { margin-bottom:.75rem; }
+    .width-card dl {
+      display:grid;
+      grid-template-columns:minmax(7rem, auto) minmax(0, 1fr);
+      gap:.35rem .8rem;
+      margin:0;
+    }
+    .width-card dt { font-weight:700; }
+    .width-card dd { min-width:0; margin:0; }
+    .evidence { padding:20px; margin-bottom:18px; }
+    .pair {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+      gap:18px;
+      align-items:start;
+    }
+    figure { min-width:0; margin:0; }
+    figure img {
+      display:block;
+      width:100%;
+      height:auto;
+      max-height:760px;
+      object-fit:contain;
+      object-position:top;
+      border:1px solid var(--line);
+      border-radius:10px;
+      background:#fff;
+    }
+    figcaption { margin-top:8px; color:var(--muted); font-size:.94rem; }
+    .before, .after {
+      display:inline-block;
+      margin-bottom:8px;
+      padding:3px 9px;
+      border-radius:999px;
+      font-size:.82rem;
+      font-weight:700;
+    }
+    .before { color:#7d3e00; background:var(--before); }
+    .after { color:#17643b; background:var(--after); }
+    .note {
+      padding:15px 18px;
+      border-left:5px solid var(--gold);
+      background:#fff8df;
+    }
+    code, pre {
+      font-family:"Cascadia Mono", Consolas, "Noto Sans TC", "Microsoft JhengHei",
+        "Noto Sans JP", "Yu Gothic", monospace;
+    }
+    code { padding:.08em .3em; border-radius:4px; background:#eaf2f7; }
+    pre {
+      margin:16px 0 0;
+      padding:18px;
+      color:#ecf7ff;
+      background:#062b40;
+      border-radius:12px;
+      white-space:pre-wrap;
+      overflow-wrap:anywhere;
+    }
+    pre code { padding:0; color:inherit; background:transparent; }
+    ol,ul { padding-left:1.4em; }
+    li + li { margin-top:.5em; }
+    footer { color:#dcebf3; background:#062b40; }
+    footer > div { padding:28px 0; }
+    @media (max-width:600px) {
+      body { font-size:16px; }
+      .hero, main, footer > div { width:min(100% - 28px, 1120px); }
+      .hero { padding:42px 0 38px; }
+      main { padding-top:28px; }
+      .summary, .implementation, .method, .decision, .width-card, .evidence { padding:18px; }
+      .width-card dl { grid-template-columns:minmax(0, 1fr); }
+      .width-card dd { margin-bottom:.45rem; }
+    }
+    @media print {
+      body { font-size:10.5pt; background:#fff; }
+      header { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+      .hero, main, footer > div { width:100%; }
+      .hero { padding:32px 28px; }
+      main { padding:24px 28px; }
+      .summary, .decision, .width-card, .evidence, .implementation, .method {
+        box-shadow:none;
+        break-inside:avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+<a class="skip" href="#main">跳到主要內容</a>
+<nav class="aia-review-nav" aria-label="測試報告導覽">
+  <div class="aia-review-nav__inner">
+    <span class="aia-review-nav__label">AIA 無障礙測試結果</span>
+    <a class="aia-review-nav__hub" href="https://chiehweihuang.github.io/aia-project-hub/#downloads">← 回到專案 Hub</a>
+    <a href="../../index.html">測試總覽</a>
+    <a href="../homepage/homepage-0730-review.html">首頁</a>
+    <a href="event-page-0730-check.html">活動頁</a>
+    <a href="../contact/contact-page-0731-check.html">聯繫頁</a>
+    <span class="aia-review-nav__break" aria-hidden="true"></span>
+    <a href="speaker-responsive-comparison.html" aria-current="page">講者／票券比較</a>
+    <a href="../homepage/homepage-heading-audit.html">首頁 Heading</a>
+    <a href="01-HEADING-STRUCTURE.html">活動 Heading</a>
+    <a href="../contact/contact-heading-audit.html">聯繫 Heading</a>
+    <a class="aia-review-nav__history" href="../../2026-07-03/index.html">7/3 歷史測試</a>
+  </div>
+</nav>
+<header>
+  <div class="hero">
+    <p class="eyebrow">AIA WEBSITE REVIEW · 2026-07-31</p>
+    <h1>活動頁講者與票券響應式調整比較</h1>
+    <p class="deck">給設計與 WordPress 製作人員的畫面比較與設定依據。本頁只談 ADALS 活動頁的講者卡與票券卡。</p>
+  </div>
+</header>
+
+<main id="main">
+  <section aria-labelledby="summary-title">
+    <h2 id="summary-title">先看採用方式</h2>
+    <div class="summary">
+      <p>左側是 2026-07-31 正式站原始畫面；右側是在本機瀏覽器暫時加入響應式 CSS 後的結果。這些預覽沒有修改 WordPress、正式站或 staging。</p>
+      <p>本頁採用 Kadence Blocks 原生的三段 responsive 設定：Mobile 小於 768px、Tablet 768–1024px、Desktop 大於 1024px。講者在 Tablet 使用兩欄，目前三位講者會排成 2+1；票券在 Tablet 使用兩欄、Desktop 使用四欄。沒有另外建立平板專用 Row Layout，也不依賴自訂 CSS breakpoint。</p>
+      <div class="metrics">
+        <div class="metric"><b>7</b><span>完成比較的視窗寬度</span></div>
+        <div class="metric"><b>3 段</b><span>Kadence 原生 Mobile／Tablet／Desktop 設定</span></div>
+        <div class="metric"><b>0</b><span>修改後七種寬度的水平捲軸</span></div>
+        <div class="metric"><b>28 組</b><span>講者與票券的原始／修改後截圖</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="rules-title">
+    <h2 id="rules-title">欄數與對齊規則</h2>
+    <div class="decision-grid">
+      <article class="decision">
+        <strong>講者卡</strong>
+        <p>Mobile 一欄，Custom Content Max Width 設為 520px並置中；Tablet 兩欄，最大內容寬度 976px；Desktop 三欄。Mobile Row Layout 左右 padding 保留 24px。Tablet 目前呈現 2+1，增加講者後會依兩欄繼續換行。</p>
+      </article>
+      <article class="decision">
+        <strong>票券卡</strong>
+        <p>Mobile 一欄；Tablet 兩欄；Desktop 四欄。Desktop Custom Content Max Width 設為 1648px，欄距與卡片內距各 16px；Tablet 欄距與內距各 24px。票種名稱、價格與報名區在同一列對齊。</p>
+      </article>
+      <article class="decision">
+        <strong>文字與顏色</strong>
+        <p>票券的「包含／Includes」目前為 18px 一般字重，灰字對白底約 4.02:1；修改後加深為 <code>#4a5568</code>，約 7.53:1。其餘色彩與整體視覺不變。</p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="data-title">
+    <h2 id="data-title">各寬度採用數據</h2>
+    <div class="width-grid">
+      <article class="width-card">
+        <h3>320px</h3>
+        <dl>
+          <dt>講者</dt><dd>1 欄；正文約 128 → 221px</dd>
+          <dt>票券</dt><dd>1 欄；正文約 222 → 222px</dd>
+          <dt>判斷</dt><dd>票券原本已是一欄，修改重點是等高規則與按鈕位置；講者則移除重複左右留白。</dd>
+        </dl>
+      </article>
+      <article class="width-card">
+        <h3>768px</h3>
+        <dl>
+          <dt>講者</dt><dd>3 → 2 欄；卡片約 348px，正文約 85 → 297px</dd>
+          <dt>票券</dt><dd>4 → 2 欄；正文約 58 → 295px</dd>
+          <dt>判斷</dt><dd>三位講者排成 2+1，照片大小較平衡，也能直接延伸到更多講者；票券減為兩欄，避免中英文被擠成窄直條。</dd>
+        </dl>
+      </article>
+      <article class="width-card">
+        <h3>1024px</h3>
+        <dl>
+          <dt>講者</dt><dd>3 → 2 欄；卡片約 476px，正文約 171 → 425px</dd>
+          <dt>票券</dt><dd>4 → 2 欄；正文約 122 → 400px</dd>
+          <dt>判斷</dt><dd>1024px 仍屬 Kadence Tablet 區間，因此講者維持兩欄 2+1；票券維持兩欄、兩列的完整矩陣。</dd>
+        </dl>
+      </article>
+      <article class="width-card">
+        <h3>1280px</h3>
+        <dl>
+          <dt>講者</dt><dd>3 欄；正文約 245 → 316px</dd>
+          <dt>票券</dt><dd>4 欄；正文約 186 → 246px</dd>
+          <dt>判斷</dt><dd>進入 Desktop 後使用四欄；縮小欄距與內距，保留同一排並增加文字空間。</dd>
+        </dl>
+      </article>
+      <article class="width-card">
+        <h3>1440px</h3>
+        <dl>
+          <dt>講者</dt><dd>3 欄；正文約 245 → 317px</dd>
+          <dt>票券</dt><dd>4 欄；正文約 189 → 286px</dd>
+          <dt>判斷</dt><dd>四張同排；較小欄距與內距讓英文說明不再像原始畫面那麼窄。</dd>
+        </dl>
+      </article>
+      <article class="width-card">
+        <h3>1742px（非斷點）</h3>
+        <dl>
+          <dt>講者</dt><dd>3 欄；正文約 246 → 317px</dd>
+          <dt>票券</dt><dd>4 欄；正文約 189 → 350px</dd>
+          <dt>判斷</dt><dd>票券區最大寬度放大到 1648px，四欄才有足夠內容寬度。</dd>
+        </dl>
+      </article>
+      <article class="width-card">
+        <h3>1920px</h3>
+        <dl>
+          <dt>講者</dt><dd>3 欄；正文約 246 → 317px</dd>
+          <dt>票券</dt><dd>4 欄；正文約 189 → 350px</dd>
+          <dt>判斷</dt><dd>沿用 1742px 的四欄規則；內容區不再無限制變寬。</dd>
+        </dl>
+      </article>
+    </div>
+    <p class="note"><strong>數字怎麼看：</strong>「正文寬度」是瀏覽器量到實際放文字的欄寬，不是整張卡片的寬度。數字變大，代表文字不會再被橘色間距與卡片內距壓成窄直條。</p>
+    <p class="note"><strong>Mobile 區間補測：</strong>375px 時卡片 327px，左右各 24px；600px 時卡片達到 520px 上限，左右各 40px；767px 時卡片仍為 520px，左右約 124px。三個寬度都沒有水平捲軸。截圖：<a href="designer-evidence/speaker-responsive-375-proposed.png">375px</a>、<a href="designer-evidence/speaker-responsive-600-proposed.png">600px</a>、<a href="designer-evidence/speaker-responsive-767-proposed.png">767px</a>。</p>
+  </section>
+
+  <section aria-labelledby="speaker-title">
+    <h2 id="speaker-title">講者區：原始與修改後</h2>
+    <p>修改後的卡片內容由文字量決定高度；同一列卡片底部對齊，英文 bio 與外部連結不會因前文長短而上下錯位。</p>
+
+    <article class="evidence">
+      <h3>320px</h3>
+      <div class="pair">
+        <figure><span class="before">原始</span><a href="designer-evidence/speaker-responsive-320-before.png"><img src="designer-evidence/speaker-responsive-320-before.png" alt="320px 原始講者區"></a><figcaption>正文約 128px，左右留白使文字頻繁換行。</figcaption></figure>
+        <figure><span class="after">修改後</span><a href="designer-evidence/speaker-responsive-320-proposed.png"><img src="designer-evidence/speaker-responsive-320-proposed.png" alt="320px 修改後講者區"></a><figcaption>一欄，正文約 221px，卡片左右內距 24px。</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="evidence">
+      <h3>768px</h3>
+      <div class="pair">
+        <figure><span class="before">原始</span><a href="designer-evidence/speaker-responsive-768-before.png"><img src="designer-evidence/speaker-responsive-768-before.png" alt="768px 原始講者區"></a><figcaption>三欄，正文約 85px。</figcaption></figure>
+        <figure><span class="after">修改後</span><a href="designer-evidence/speaker-responsive-768-proposed.png"><img src="designer-evidence/speaker-responsive-768-proposed.png" alt="768px 修改後講者區"></a><figcaption>Tablet 兩欄，卡片約 348px、正文約 297px；三位講者排成 2+1。</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="evidence">
+      <h3>1024px</h3>
+      <div class="pair">
+        <figure><span class="before">原始</span><a href="designer-evidence/speaker-responsive-1024-before.png"><img src="designer-evidence/speaker-responsive-1024-before.png" alt="1024px 原始講者區"></a><figcaption>三欄，正文約 171px。</figcaption></figure>
+        <figure><span class="after">修改後</span><a href="designer-evidence/speaker-responsive-1024-proposed.png"><img src="designer-evidence/speaker-responsive-1024-proposed.png" alt="1024px 修改後講者區"></a><figcaption>Tablet 兩欄，卡片約 476px、正文約 425px；第三張接續到第二列。</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="evidence">
+      <h3>1280px</h3>
+      <div class="pair">
+        <figure><span class="before">原始</span><a href="designer-evidence/speaker-responsive-1280-before.png"><img src="designer-evidence/speaker-responsive-1280-before.png" alt="1280px 原始講者區"></a><figcaption>三欄，卡片內距較大，正文約 245px。</figcaption></figure>
+        <figure><span class="after">修改後</span><a href="designer-evidence/speaker-responsive-1280-proposed.png"><img src="designer-evidence/speaker-responsive-1280-proposed.png" alt="1280px 修改後講者區"></a><figcaption>三欄，正文約 316px；底部操作區對齊。</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="evidence">
+      <h3>1440px</h3>
+      <div class="pair">
+        <figure><span class="before">原始</span><a href="designer-evidence/speaker-responsive-1440-before.png"><img src="designer-evidence/speaker-responsive-1440-before.png" alt="1440px 原始講者區"></a><figcaption>三欄，正文約 245px。</figcaption></figure>
+        <figure><span class="after">修改後</span><a href="designer-evidence/speaker-responsive-1440-proposed.png"><img src="designer-evidence/speaker-responsive-1440-proposed.png" alt="1440px 修改後講者區"></a><figcaption>三欄，正文約 317px。</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="evidence">
+      <h3>1742px（非斷點）</h3>
+      <div class="pair">
+        <figure><span class="before">原始</span><a href="designer-evidence/speaker-responsive-1742-before.png"><img src="designer-evidence/speaker-responsive-1742-before.png" alt="1742px 原始講者區"></a><figcaption>三欄，正文約 246px。</figcaption></figure>
+        <figure><span class="after">修改後</span><a href="designer-evidence/speaker-responsive-1742-proposed.png"><img src="designer-evidence/speaker-responsive-1742-proposed.png" alt="1742px 修改後講者區"></a><figcaption>三欄，正文約 317px；非斷點寬度未出現斷版。</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="evidence">
+      <h3>1920px</h3>
+      <div class="pair">
+        <figure><span class="before">原始</span><a href="designer-evidence/speaker-responsive-1920-before.png"><img src="designer-evidence/speaker-responsive-1920-before.png" alt="1920px 原始講者區"></a><figcaption>三欄，正文約 246px。</figcaption></figure>
+        <figure><span class="after">修改後</span><a href="designer-evidence/speaker-responsive-1920-proposed.png"><img src="designer-evidence/speaker-responsive-1920-proposed.png" alt="1920px 修改後講者區"></a><figcaption>三欄，正文約 317px；卡片寬度保持穩定。</figcaption></figure>
+      </div>
+    </article>
+  </section>
+
+  <section aria-labelledby="ticket-title">
+    <h2 id="ticket-title">票券區：原始與修改後</h2>
+    <p>票券卡除了欄數，也要處理同列對齊。修改後讓卡片本身等高、報名區推到底部，並替票種標題保留一致高度，因此價格與按鈕會落在同一水平線。</p>
+
+    <article class="evidence">
+      <h3>320px</h3>
+      <div class="pair">
+        <figure><span class="before">原始</span><a href="designer-evidence/ticket-responsive-320-before.png"><img src="designer-evidence/ticket-responsive-320-before.png" alt="320px 原始票券區"></a><figcaption>已是一欄；主要問題是卡片內部對齊規則尚未統一。</figcaption></figure>
+        <figure><span class="after">修改後</span><a href="designer-evidence/ticket-responsive-320-proposed.png"><img src="designer-evidence/ticket-responsive-320-proposed.png" alt="320px 修改後票券區"></a><figcaption>維持一欄與 24px 內距，內容高度由文字決定。</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="evidence">
+      <h3>768px</h3>
+      <div class="pair">
+        <figure><span class="before">原始</span><a href="designer-evidence/ticket-responsive-768-before.png"><img src="designer-evidence/ticket-responsive-768-before.png" alt="768px 原始票券區"></a><figcaption>四欄，正文約 58px，英文被拆成非常短的行。</figcaption></figure>
+        <figure><span class="after">修改後</span><a href="designer-evidence/ticket-responsive-768-proposed.png"><img src="designer-evidence/ticket-responsive-768-proposed.png" alt="768px 修改後票券區"></a><figcaption>Tablet 兩欄，正文約 295px；每列的價格與按鈕對齊。</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="evidence">
+      <h3>1024px</h3>
+      <div class="pair">
+        <figure><span class="before">原始</span><a href="designer-evidence/ticket-responsive-1024-before.png"><img src="designer-evidence/ticket-responsive-1024-before.png" alt="1024px 原始票券區"></a><figcaption>四欄，正文約 122px。</figcaption></figure>
+        <figure><span class="after">修改後</span><a href="designer-evidence/ticket-responsive-1024-proposed.png"><img src="designer-evidence/ticket-responsive-1024-proposed.png" alt="1024px 修改後票券區"></a><figcaption>Tablet 2×2 排列，正文約 400px。</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="evidence">
+      <h3>1280px</h3>
+      <div class="pair">
+        <figure><span class="before">原始</span><a href="designer-evidence/ticket-responsive-1280-before.png"><img src="designer-evidence/ticket-responsive-1280-before.png" alt="1280px 原始票券區"></a><figcaption>四欄，正文約 186px；第四張按鈕較高。</figcaption></figure>
+        <figure><span class="after">修改後</span><a href="designer-evidence/ticket-responsive-1280-proposed.png"><img src="designer-evidence/ticket-responsive-1280-proposed.png" alt="1280px 修改後票券區"></a><figcaption>Desktop 四欄，正文約 246px；欄距與內距縮小後仍可完整閱讀。</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="evidence">
+      <h3>1440px</h3>
+      <div class="pair">
+        <figure><span class="before">原始</span><a href="designer-evidence/ticket-responsive-1440-before.png"><img src="designer-evidence/ticket-responsive-1440-before.png" alt="1440px 原始票券區"></a><figcaption>四欄，正文約 189px。</figcaption></figure>
+        <figure><span class="after">修改後</span><a href="designer-evidence/ticket-responsive-1440-proposed.png"><img src="designer-evidence/ticket-responsive-1440-proposed.png" alt="1440px 修改後票券區"></a><figcaption>Desktop 四欄，正文約 286px。</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="evidence">
+      <h3>1742px（非斷點）</h3>
+      <div class="pair">
+        <figure><span class="before">原始</span><a href="designer-evidence/ticket-responsive-1742-before.png"><img src="designer-evidence/ticket-responsive-1742-before.png" alt="1742px 原始票券區"></a><figcaption>內容區仍限制在約 1200px，正文約 189px。</figcaption></figure>
+        <figure><span class="after">修改後</span><a href="designer-evidence/ticket-responsive-1742-proposed.png"><img src="designer-evidence/ticket-responsive-1742-proposed.png" alt="1742px 修改後票券區"></a><figcaption>Desktop 四欄，票券區最大寬度 1648px，正文約 350px。</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="evidence">
+      <h3>1920px</h3>
+      <div class="pair">
+        <figure><span class="before">原始</span><a href="designer-evidence/ticket-responsive-1920-before.png"><img src="designer-evidence/ticket-responsive-1920-before.png" alt="1920px 原始票券區"></a><figcaption>四欄，正文約 189px；外側留白很大。</figcaption></figure>
+        <figure><span class="after">修改後</span><a href="designer-evidence/ticket-responsive-1920-proposed.png"><img src="designer-evidence/ticket-responsive-1920-proposed.png" alt="1920px 修改後票券區"></a><figcaption>Desktop 四欄，正文約 350px；價格與四個報名區落在同一水平線。</figcaption></figure>
+      </div>
+    </article>
+  </section>
+
+  <section aria-labelledby="content-title">
+    <h2 id="content-title">票券內容一併修正</h2>
+    <div class="decision-grid">
+      <article class="decision">
+        <strong>中英文小標一致</strong>
+        <p>第二至第四張卡的英文清單前仍顯示中文「包含」，建議與第一張一致改成「Includes:」。</p>
+      </article>
+      <article class="decision">
+        <strong>線上票文字一致</strong>
+        <p>「僅提供線上活動 access」建議改成完整中文，例如「僅提供線上活動參與」；「提供3個月」的數字前後空格也與其他卡一致。</p>
+      </article>
+      <article class="decision">
+        <strong>報名連結已知待補</strong>
+        <p>目前四個「報名｜Register」沒有連結，所以無法使用 Tab 選取。此項已知，待 Accupass 網址確認後，再改成真正的連結並複查鍵盤操作。</p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="implementation-title">
+    <h2 id="implementation-title">只使用 Kadence Blocks 的設定方式</h2>
+    <div class="implementation">
+      <p class="note"><strong>這一版不使用額外 CSS。</strong>所有欄數、最大寬度、間距、內距、等高與內容分組，都由目前頁面已有的 Row Layout、Column／Section、Advanced Heading 與 Advanced Button 完成。</p>
+
+      <h3>講者 Row Layout</h3>
+      <ol>
+        <li>在清單檢視選取包住三張講者卡的 Row Layout。</li>
+        <li>Layout 的 responsive 欄數設為：Desktop 3、Tablet 2、Mobile 1。</li>
+        <li>Custom Content Max Width 設為：Desktop 1200px、Tablet 976px、Mobile 520px。</li>
+        <li>Column and Row Gutters 設為 24px，並開啟 Inner Column Height 100%（來源：Kadence Row Layout 官方說明）。</li>
+        <li>Mobile 的 Row Layout 左右 padding 設為 24px；不要設為 0。</li>
+        <li>三張文字內容 Section 的左右 padding 設為 24px。</li>
+      </ol>
+      <p>若要讓三張桌面卡的 English bio 與外部連結在同一水平線：在每張文字內容 Section 內，將「姓名與介紹」放進第一個內層 Section，將「English bio 與 LinkedIn」放進第二個內層 Section；父層 Section 的 Direction 設為 Vertical、Justify Content 設為 Space Between、Flex Grow 設為 1。這仍是同一張 Kadence 卡片，只是整理既有內容的內層分組。</p>
+      <p><strong>未來增加講者時：</strong>沿用同一欄數規則即可。四位會排成 Tablet 2+2／Desktop 3+1；五位是 Tablet 2+2+1／Desktop 3+2；六位是 Tablet 2+2+2／Desktop 3+3。新增實際講者卡即可，不先放空白卡片。</p>
+
+      <h3>票券 Row Layout</h3>
+      <ol>
+        <li>選取包住四張票券的 Row Layout，responsive 欄數設為：Desktop 4、Tablet 2、Mobile 1。</li>
+        <li>Custom Content Max Width 設為：Desktop 1648px、Tablet 976px；Mobile 維持自動寬度。</li>
+        <li>Column and Row Gutters 設為：Desktop 16px、Tablet 24px、Mobile 24px。</li>
+        <li>四張票券 Column／Section 的左右 padding 設為：Desktop 16px、Tablet 24px、Mobile 24px，並開啟 Inner Column Height 100%（來源：Kadence Row Layout 官方說明）。</li>
+        <li>把每張雙語票種名稱放進一個內層 Section；四個名稱區使用相同的 responsive Minimum Height，先以 Desktop 96px、Tablet 88px、Mobile 自動高度測試，使價格起點一致。</li>
+        <li>把「票種名稱到英文說明」放進第一個內層 Section，Advanced Button 保留為第二個子項目；父層票券 Section 設為 Vertical、Justify Content 設為 Space Between。按鈕便會貼齊卡片底部。</li>
+        <li>「包含／Includes」的 Advanced Heading 文字顏色改為 <code>#4a5568</code>。</li>
+      </ol>
+      <p>相關控制項可對照 <a href="https://www.kadencewp.com/help-center/docs/kadence-blocks/row-layout-block-2/">Kadence Row Layout 官方說明</a>與 <a href="https://www.kadencewp.com/help-center/docs/kadence-blocks/how-to-use-flexbox-layouts-with-section-blocks/">Section Flexbox 官方說明</a>。</p>
+      <p class="note"><strong>Kadence 原生 breakpoint：</strong>Mobile 小於 768px、Tablet 768–1024px、Desktop 大於 1024px。Row Layout 的三段設定會讓講者在整個 Tablet 區間維持兩欄，三位講者因此呈現 2+1。</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="method-title">
+    <h2 id="method-title">測試方式與原始資料</h2>
+    <div class="method">
+      <p>以 2026-07-31 的 live rendered DOM 為準，逐一量測 320／768／1024／1280／1440／1742／1920px，並另外補測 375／600／767px 的 Mobile 區間。每個主要寬度先截原始畫面，再暫時注入與上述 Kadence block 設定相同的 computed styles、重新量測與截圖。測試用注入只用來預覽尚未儲存的區塊設定，不是交付給 WordPress 的 CSS。</p>
+      <ul>
+        <li><a href="designer-evidence/speaker-responsive-proposal.json">講者區完整 DOM 量測</a></li>
+        <li><a href="designer-evidence/ticket-responsive-proposal.json">票券區完整 DOM 量測</a></li>
+        <li><a href="preview-speaker-responsive.mjs">講者區預覽與量測程式</a></li>
+        <li><a href="preview-ticket-responsive.mjs">票券區預覽與量測程式</a></li>
+      </ul>
+      <p class="note"><strong>尚未完成的最後一步：</strong>上述 Kadence block 設定儲存到 staging 後，再重跑同樣七種寬度，並檢查內容分組、人物照片、等高卡片與實際 Accupass 連結的鍵盤 focus。</p>
+    </div>
+  </section>
+</main>
+
+<footer><div>ADALS speaker and ticket responsive comparison · 2026-07-31</div></footer>
+</body>
+</html>

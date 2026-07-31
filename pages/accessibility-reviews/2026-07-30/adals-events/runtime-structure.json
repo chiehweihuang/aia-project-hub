@@ -1,0 +1,427 @@
+{
+  "controls": [
+    {
+      "aria": null,
+      "disabled": false,
+      "role": "banner",
+      "tabindex": null,
+      "tag": "HEADER",
+      "text": "協會主頁 Home 論壇活動 Event 聯繫 Contact"
+    },
+    {
+      "aria": "Primary",
+      "disabled": false,
+      "role": "navigation",
+      "tabindex": null,
+      "tag": "NAV",
+      "text": "協會主頁 Home 論壇活動 Event 聯繫 Contact"
+    },
+    {
+      "aria": "Open menu",
+      "disabled": false,
+      "role": null,
+      "tabindex": null,
+      "tag": "BUTTON",
+      "text": "Toggle Menu"
+    },
+    {
+      "aria": null,
+      "disabled": false,
+      "role": "main",
+      "tabindex": null,
+      "tag": "MAIN",
+      "text": "APAC Digital Inclusion and Accessibility Leadership Summit 2026亞太資訊無障礙與數位共融領導力論壇 Shaping Inclusive Futures For Asia Paci"
+    },
+    {
+      "aria": null,
+      "disabled": false,
+      "role": "contentinfo",
+      "tabindex": null,
+      "tag": "FOOTER",
+      "text": "社群媒體 SOCIALS 亞太包容創新協會 1130012493號 © 2026 apac-aia.org | All Rights Reserved"
+    },
+    {
+      "aria": "Close menu",
+      "disabled": false,
+      "role": null,
+      "tabindex": null,
+      "tag": "BUTTON",
+      "text": ""
+    },
+    {
+      "aria": "Primary Mobile",
+      "disabled": false,
+      "role": "navigation",
+      "tabindex": null,
+      "tag": "NAV",
+      "text": "協會主頁 Home 論壇活動 Event 聯繫 Contact"
+    },
+    {
+      "aria": null,
+      "disabled": false,
+      "role": "status",
+      "tabindex": null,
+      "tag": "DIV",
+      "text": ""
+    },
+    {
+      "aria": null,
+      "disabled": false,
+      "role": "alert",
+      "tabindex": null,
+      "tag": "DIV",
+      "text": ""
+    }
+  ],
+  "document": {
+    "scrollHeight": 7968,
+    "scrollWidth": 1496
+  },
+  "fonts": [
+    "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen-Sans, Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
+    "\"Open Sans\""
+  ],
+  "headings": [
+    {
+      "level": 2,
+      "text": "2026亞太資訊無障礙與數位共融領導力論壇"
+    },
+    {
+      "level": 3,
+      "text": "Shaping Inclusive Futures For Asia Pacific"
+    },
+    {
+      "level": 2,
+      "text": "關於本次論壇"
+    },
+    {
+      "level": 2,
+      "text": "講者"
+    },
+    {
+      "level": 2,
+      "text": "王馥明 Frances West"
+    },
+    {
+      "level": 2,
+      "text": "植木真 | Makoto Ueki"
+    },
+    {
+      "level": 2,
+      "text": "張凱萍 Claire Chang"
+    },
+    {
+      "level": 2,
+      "text": "活動時程表"
+    },
+    {
+      "level": 2,
+      "text": "報到、展區開放、 早茶交流"
+    },
+    {
+      "level": 2,
+      "text": "開幕（長官致詞）"
+    },
+    {
+      "level": 2,
+      "text": "主軸破題（理事長）"
+    },
+    {
+      "level": 2,
+      "text": "Keynote 1：AI × 無障礙（國際講者）"
+    },
+    {
+      "level": 2,
+      "text": "Keynote 2：高齡 × 無障礙（日方視角）"
+    },
+    {
+      "level": 2,
+      "text": "茶歇／展區交流"
+    },
+    {
+      "level": 2,
+      "text": "高峰對談：亞太區域觀點（3–4 位與談）"
+    },
+    {
+      "level": 2,
+      "text": "午餐／展區"
+    },
+    {
+      "level": 2,
+      "text": "平行分軌（至多一條）＋主軸軌"
+    },
+    {
+      "level": 2,
+      "text": "企業實踐案例（本地／國際）"
+    },
+    {
+      "level": 2,
+      "text": "茶歇"
+    },
+    {
+      "level": 2,
+      "text": "白皮書發表／政策對話"
+    },
+    {
+      "level": 2,
+      "text": "閉幕與區域展望（理事長或副理事長）"
+    },
+    {
+      "level": 2,
+      "text": "交流茶會／輕食"
+    },
+    {
+      "level": 2,
+      "text": "售票方案 TICKETS"
+    },
+    {
+      "level": 3,
+      "text": "早鳥優惠 EARLY BIRD"
+    },
+    {
+      "level": 4,
+      "text": "包含"
+    },
+    {
+      "level": 4,
+      "text": "Includes:"
+    },
+    {
+      "level": 3,
+      "text": "一般入場 GEN. ADMISSION"
+    },
+    {
+      "level": 4,
+      "text": "包含"
+    },
+    {
+      "level": 4,
+      "text": "包含"
+    },
+    {
+      "level": 3,
+      "text": "學生 / 非營利組織 STUDENT / NGO"
+    },
+    {
+      "level": 4,
+      "text": "包含"
+    },
+    {
+      "level": 4,
+      "text": "包含"
+    },
+    {
+      "level": 3,
+      "text": "純線上參與 ONLINE ONLY"
+    },
+    {
+      "level": 4,
+      "text": "包含"
+    },
+    {
+      "level": 4,
+      "text": "包含"
+    },
+    {
+      "level": 2,
+      "text": "2026亞太資訊無障礙與數位共融領導力論壇"
+    },
+    {
+      "level": 3,
+      "text": "Shaping Inclusive Futures For Asia Pacific"
+    },
+    {
+      "level": 2,
+      "text": "社群媒體 SOCIALS"
+    }
+  ],
+  "images": [
+    {
+      "alt": "亞太包容創新協會 ⾸⾴",
+      "display": "block",
+      "height": 120,
+      "src": "https://aia.tinyoakstudio.com/wp-content/uploads/2026/06/cropped-aia-logo.png",
+      "width": 1106
+    },
+    {
+      "alt": "亞太包容創新協會 ⾸⾴",
+      "display": "block",
+      "height": 120,
+      "src": "https://aia.tinyoakstudio.com/wp-content/uploads/2026/06/cropped-aia-logo.png",
+      "width": 1106
+    },
+    {
+      "alt": "",
+      "display": "block",
+      "height": 200,
+      "src": "https://aia.tinyoakstudio.com/wp-content/uploads/2026/07/Location-Icon.png",
+      "width": 143
+    },
+    {
+      "alt": "",
+      "display": "block",
+      "height": 200,
+      "src": "https://aia.tinyoakstudio.com/wp-content/uploads/2026/07/Calendar-Icon.png",
+      "width": 180
+    },
+    {
+      "alt": "",
+      "display": "block",
+      "height": 200,
+      "src": "https://aia.tinyoakstudio.com/wp-content/uploads/2026/07/Location-Icon.png",
+      "width": 143
+    },
+    {
+      "alt": "",
+      "display": "block",
+      "height": 200,
+      "src": "https://aia.tinyoakstudio.com/wp-content/uploads/2026/07/Calendar-Icon.png",
+      "width": 180
+    },
+    {
+      "alt": "",
+      "display": "block",
+      "height": 0,
+      "src": "http://aia.tinyoakstudio.com/wp-content/uploads/2026/06/aia-logo-short.png",
+      "width": 0
+    }
+  ],
+  "lang": "en-US",
+  "links": [
+    {
+      "aria": null,
+      "href": "#main",
+      "target": null,
+      "text": "Skip to content"
+    },
+    {
+      "aria": null,
+      "href": "https://aia.tinyoakstudio.com/",
+      "target": null,
+      "text": ""
+    },
+    {
+      "aria": null,
+      "href": "https://aia.tinyoakstudio.com/",
+      "target": null,
+      "text": "協會主頁 Home"
+    },
+    {
+      "aria": null,
+      "href": "https://aia.tinyoakstudio.com/adals%e6%b4%bb%e5%8b%95/",
+      "target": null,
+      "text": "論壇活動 Event"
+    },
+    {
+      "aria": null,
+      "href": "https://aia.tinyoakstudio.com/%e8%81%af%e7%b9%ab/",
+      "target": null,
+      "text": "聯繫 Contact"
+    },
+    {
+      "aria": null,
+      "href": "https://aia.tinyoakstudio.com/",
+      "target": null,
+      "text": ""
+    },
+    {
+      "aria": null,
+      "href": "https://www.linkedin.com/in/frances-west-0b81924/",
+      "target": "_blank",
+      "text": "LinkedIn →"
+    },
+    {
+      "aria": null,
+      "href": "#",
+      "target": null,
+      "text": "Text link →"
+    },
+    {
+      "aria": null,
+      "href": "https://www.linkedin.com/in/claire-chang-6aa54921/",
+      "target": "_blank",
+      "text": "LinkedIn →"
+    },
+    {
+      "aria": "Facebook",
+      "href": "",
+      "target": "_self",
+      "text": ""
+    },
+    {
+      "aria": "X",
+      "href": "",
+      "target": "_self",
+      "text": ""
+    },
+    {
+      "aria": "Instagram",
+      "href": "",
+      "target": "_self",
+      "text": ""
+    },
+    {
+      "aria": null,
+      "href": "https://aia.tinyoakstudio.com/",
+      "target": null,
+      "text": "協會主頁 Home"
+    },
+    {
+      "aria": null,
+      "href": "https://aia.tinyoakstudio.com/adals%e6%b4%bb%e5%8b%95/",
+      "target": null,
+      "text": "論壇活動 Event"
+    },
+    {
+      "aria": null,
+      "href": "https://aia.tinyoakstudio.com/%e8%81%af%e7%b9%ab/",
+      "target": null,
+      "text": "聯繫 Contact"
+    }
+  ],
+  "media": [],
+  "meta": [
+    {
+      "content": "width=device-width, initial-scale=1, minimum-scale=1",
+      "href": null,
+      "name": "viewport",
+      "property": null,
+      "rel": null,
+      "tag": "META",
+      "text": null
+    },
+    {
+      "content": "max-image-preview:large",
+      "href": null,
+      "name": "robots",
+      "property": null,
+      "rel": null,
+      "tag": "META",
+      "text": null
+    },
+    {
+      "content": "WordPress 7.0.2",
+      "href": null,
+      "name": "generator",
+      "property": null,
+      "rel": null,
+      "tag": "META",
+      "text": null
+    },
+    {
+      "content": null,
+      "href": "https://aia.tinyoakstudio.com/adals%e6%b4%bb%e5%8b%95/",
+      "name": null,
+      "property": null,
+      "rel": "canonical",
+      "tag": "LINK",
+      "text": null
+    }
+  ],
+  "title": "論壇活動",
+  "url": "https://aia.tinyoakstudio.com/adals%e6%b4%bb%e5%8b%95/",
+  "viewport": {
+    "height": 940,
+    "width": 1496
+  }
+}

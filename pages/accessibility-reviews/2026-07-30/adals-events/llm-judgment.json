@@ -1,0 +1,18 @@
+[
+  {
+    "observation": "The schedule overlaps: closing is listed as 16:30-16:45 while the networking reception starts at 16:40.",
+    "category": "cognitive",
+    "note": "Content consistency review; confirm the intended start time before publishing."
+  },
+  {
+    "observation": "The title '論壇活動' does not identify ADALS 2026 or distinguish this event page from other forum pages.",
+    "criterion": "2.4.2",
+    "category": "cognitive",
+    "note": "Use a descriptive title such as 'ADALS 2026 亞太資訊無障礙與數位共融領導力論壇'."
+  },
+  {
+    "observation": "The page only declares Open Sans or generic system sans stacks; it does not explicitly name Traditional Chinese and Japanese sans fallbacks.",
+    "category": "cognitive",
+    "note": "No prohibited MingLiU or serif fallback string was found, but the CJK fallback remains browser-dependent."
+  }
+]

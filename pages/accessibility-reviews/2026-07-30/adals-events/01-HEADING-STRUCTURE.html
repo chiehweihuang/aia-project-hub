@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ADALS 活動頁 Heading 結構建議｜2026-07-30</title>
+<link rel="stylesheet" href="../../review-nav.css">
+<style>
+:root{--navy:#003b5c;--ink:#172033;--muted:#596579;--line:#cbd5df;--surface:#fff;--soft:#eef6fa;--good:#eaf7ef}
+*{box-sizing:border-box}
+html{background:#eef2f5}
+body{max-width:72rem;min-width:0;margin:0 auto;padding:2rem;color:var(--ink);background:#fff;font-family:Arial,"Microsoft JhengHei","PingFang TC","Noto Sans TC","Yu Gothic","Noto Sans JP",sans-serif;font-size:1rem;line-height:1.65;overflow-wrap:anywhere}
+h1,h2,h3{color:var(--navy);line-height:1.3}
+h1{font-size:2rem;border-bottom:.3rem solid #19abe4;padding-bottom:.45rem}
+h2{margin-top:2.2rem;font-size:1.55rem}
+h3{font-size:1.2rem}
+a{color:var(--navy)}
+.meta,.note,.summary{padding:1rem;border-left:.3rem solid var(--navy);background:var(--soft)}
+.summary{border-color:#198754;background:var(--good)}
+code,pre{font-family:Consolas,"Noto Sans Mono CJK TC","Microsoft JhengHei",monospace}
+pre{margin:1rem 0;padding:1rem;background:#f6f8fa;border:1px solid var(--line);white-space:pre-wrap;overflow-wrap:anywhere}
+table{width:100%;table-layout:fixed;border-collapse:collapse;margin:1rem 0}
+th,td{padding:.65rem;border:1px solid var(--line);vertical-align:top;overflow-wrap:anywhere}
+th{color:var(--navy);background:var(--soft);text-align:left}
+.inventory th:nth-child(1),.inventory td:nth-child(1){width:3rem}
+.inventory th:nth-child(3),.inventory td:nth-child(3),.inventory th:nth-child(4),.inventory td:nth-child(4){width:6rem}
+li{margin:.35rem 0}
+@media(max-width:46rem){
+ body{padding:1rem}
+ table,thead,tbody,tr,th,td{display:block;width:100%!important}
+ thead{position:absolute;width:1px!important;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+ tr{margin:0 0 1rem;border:1px solid var(--line);border-radius:.6rem;background:#fff}
+ td{border:0;border-bottom:1px solid #e5eaf0}
+ td:last-child{border-bottom:0}
+ td::before{display:block;margin-bottom:.2rem;color:var(--navy);font-weight:700;content:attr(data-label)}
+}
+@media print{
+ html{background:#fff}
+ body{max-width:none;padding:0;font-size:10.5pt}
+ h1{font-size:21pt}h2{font-size:16pt}h3{font-size:13pt}
+ h2,h3{break-after:avoid-page}
+ tr,pre,.meta,.note,.summary{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<a class="aia-review-skip" href="#main">跳到主要內容</a>
+<nav class="aia-review-nav" aria-label="測試報告導覽">
+  <div class="aia-review-nav__inner">
+    <span class="aia-review-nav__label">AIA 無障礙測試結果</span>
+    <a class="aia-review-nav__hub" href="https://chiehweihuang.github.io/aia-project-hub/#downloads">← 回到專案 Hub</a>
+    <a href="../../index.html">測試總覽</a>
+    <a href="../homepage/homepage-0730-review.html">首頁</a>
+    <a href="event-page-0730-check.html">活動頁</a>
+    <a href="../contact/contact-page-0731-check.html">聯繫頁</a>
+    <span class="aia-review-nav__break" aria-hidden="true"></span>
+    <a href="speaker-responsive-comparison.html">講者／票券比較</a>
+    <a href="../homepage/homepage-heading-audit.html">首頁 Heading</a>
+    <a href="01-HEADING-STRUCTURE.html" aria-current="page">活動 Heading</a>
+    <a href="../contact/contact-heading-audit.html">聯繫 Heading</a>
+    <a class="aia-review-nav__history" href="../../2026-07-03/index.html">7/3 歷史測試</a>
+  </div>
+</nav>
+<main id="main">
+<h1>ADALS 活動頁 Heading 結構建議</h1>
+<p class="meta">日期：2026-07-30<br>範圍：ADALS 活動頁 live rendered DOM<br>目的：逐項說明目前 38 個 heading，提供可直接在 WordPress／Kadence 執行的修改對照。</p>
+
+<h2>先說結論</h2>
+<div class="summary">
+<p><strong>目前：</strong>H1 × 0、H2 × 24、H3 × 6、H4 × 8，共 38 個 heading。</p>
+<p><strong>建議完成後：</strong>H1 × 1、H2 × 5、H3 × 21、H4 × 0。</p>
+</div>
+<ul>
+<li>活動正式名稱：唯一 H1。</li>
+<li>關於本次論壇、講者、活動時程表、售票方案、社群媒體：H2。</li>
+<li>三位講者姓名、14 個時程項目、4 種票券名稱：H3。</li>
+<li>英文標語、「包含／Includes」、頁尾重複活動名稱與標語：一般文字，不進入 heading 導覽。</li>
+<li><code>READ ENGLISH BIO</code>：維持展開控制，不是 heading；另依主報告補上講者姓名作為可辨識名稱。</li>
+</ul>
+
+<h2>判斷原則</h2>
+<p>Heading 是頁面大綱，不是控制字體大小的工具。</p>
+<ul>
+<li>一頁使用一個 H1，代表此頁主題。</li>
+<li>主要內容區塊使用 H2。</li>
+<li>區塊內的人物、活動項目與票券卡片使用 H3。</li>
+<li>說明文字、口號、重複宣傳文字與「包含／Includes」不需要成為 heading。</li>
+<li>修改 HTML Tag 不代表需要改字級、顏色、留白或排版；現有視覺樣式可以保留。</li>
+<li>不依字體大小選 H1–H6，而依內容的父子關係選擇。</li>
+</ul>
+
+<h2>目前的完整 heading map</h2>
+<pre>H2  2026亞太資訊無障礙與數位共融領導力論壇
+  H3  Shaping Inclusive Futures For Asia Pacific
+H2  關於本次論壇
+H2  講者
+H2  王馥明 Frances West
+H2  植木真 | Makoto Ueki
+H2  張凱萍 Claire Chang
+H2  活動時程表
+H2  報到、展區開放、早茶交流
+H2  開幕（長官致詞）
+H2  主軸破題（理事長）
+H2  Keynote 1：AI × 無障礙（國際講者）
+H2  Keynote 2：高齡 × 無障礙（日方視角）
+H2  茶歇／展區交流
+H2  高峰對談：亞太區域觀點（3–4 位與談）
+H2  午餐／展區
+H2  平行分軌（至多一條）＋主軸軌
+H2  企業實踐案例（本地／國際）
+H2  茶歇
+H2  白皮書發表／政策對話
+H2  閉幕與區域展望（理事長或副理事長）
+H2  交流茶會／輕食
+H2  售票方案 TickeTS
+  H3  早鳥優惠 Early Bird
+    H4  包含
+    H4  Includes:
+  H3  一般入場 Gen. Admission
+    H4  包含
+    H4  包含
+  H3  學生 / 非營利組織 STUDENT / NGO
+    H4  包含
+    H4  包含
+  H3  純線上參與 ONLINE ONLY
+    H4  包含
+    H4  包含
+H2  2026亞太資訊無障礙與數位共融領導力論壇
+  H3  Shaping Inclusive Futures For Asia Pacific
+H2  社群媒體 SOCIALS</pre>
+
+<h2>各區塊判斷與修改方式</h2>
+<table>
+<thead><tr><th>位置</th><th>目前狀況</th><th>Heading 導覽呈現</th><th>建議</th></tr></thead>
+<tbody>
+<tr><td data-label="位置">頁首活動名稱</td><td data-label="目前狀況">H2，頁面沒有 H1</td><td data-label="Heading 導覽呈現">無法從 heading 清單直接辨識此頁的唯一主題</td><td data-label="建議">改為全頁唯一 H1；外觀維持原設計</td></tr>
+<tr><td data-label="位置">英文標語</td><td data-label="目前狀況">H3</td><td data-label="Heading 導覽呈現">會被當成活動名稱底下的子標題</td><td data-label="建議">改為一般文字並標示 <code>lang="en"</code></td></tr>
+<tr><td data-label="位置">主要區塊</td><td data-label="目前狀況">五個主要區塊皆為 H2</td><td data-label="Heading 導覽呈現">適合作為頁面主要區塊</td><td data-label="建議">保留 H2</td></tr>
+<tr><td data-label="位置">三位講者姓名</td><td data-label="目前狀況">與「講者」區塊同為 H2</td><td data-label="Heading 導覽呈現">區塊名稱和人物姓名被視為同一層</td><td data-label="建議">三位姓名改為 H3</td></tr>
+<tr><td data-label="位置">14 個時程項目</td><td data-label="目前狀況">與「活動時程表」同為 H2</td><td data-label="Heading 導覽呈現">區塊名稱和每筆時程被視為同一層</td><td data-label="建議">14 個時程項目改為 H3</td></tr>
+<tr><td data-label="位置">四種票券名稱</td><td data-label="目前狀況">已使用 H3</td><td data-label="Heading 導覽呈現">正確表達「售票方案」底下的四個子項目</td><td data-label="建議">保留 H3</td></tr>
+<tr><td data-label="位置">八個「包含／Includes」</td><td data-label="目前狀況">使用 H4</td><td data-label="Heading 導覽呈現">每張票券出現兩個重複低階標題，但它們只是內容標籤</td><td data-label="建議">改為一般文字；需要強調時用粗體樣式</td></tr>
+<tr><td data-label="位置">頁尾重複活動名稱與標語</td><td data-label="目前狀況">再次使用 H2、H3</td><td data-label="Heading 導覽呈現">heading 清單後段再次出現同一組活動名稱</td><td data-label="建議">改為一般文字，視覺可維持原樣</td></tr>
+<tr><td data-label="位置"><code>READ ENGLISH BIO</code></td><td data-label="目前狀況"><code>summary</code> 展開控制</td><td data-label="Heading 導覽呈現">它是互動控制，不屬於 heading 大綱</td><td data-label="建議">維持非 heading；可辨識名稱加入講者姓名</td></tr>
+</tbody>
+</table>
+
+<h2>38 個 heading 逐項修改對照</h2>
+<table class="inventory">
+<thead><tr><th>#</th><th>畫面文字</th><th>目前</th><th>建議</th><th>動作</th></tr></thead>
+<tbody>
+<tr><td data-label="#">1</td><td data-label="畫面文字">2026亞太資訊無障礙與數位共融領導力論壇（頁首）</td><td data-label="目前">H2</td><td data-label="建議">H1</td><td data-label="動作">改 HTML Tag，保留樣式</td></tr>
+<tr><td data-label="#">2</td><td data-label="畫面文字">Shaping Inclusive Futures For Asia Pacific（頁首）</td><td data-label="目前">H3</td><td data-label="建議">一般文字</td><td data-label="動作">改 Paragraph／Advanced Text，標示 <code>lang="en"</code></td></tr>
+<tr><td data-label="#">3</td><td data-label="畫面文字">關於本次論壇</td><td data-label="目前">H2</td><td data-label="建議">H2</td><td data-label="動作">不需修改</td></tr>
+<tr><td data-label="#">4</td><td data-label="畫面文字">講者</td><td data-label="目前">H2</td><td data-label="建議">H2</td><td data-label="動作">不需修改</td></tr>
+<tr><td data-label="#">5</td><td data-label="畫面文字">王馥明 Frances West</td><td data-label="目前">H2</td><td data-label="建議">H3</td><td data-label="動作">改 HTML Tag，保留樣式</td></tr>
+<tr><td data-label="#">6</td><td data-label="畫面文字">植木真 | Makoto Ueki</td><td data-label="目前">H2</td><td data-label="建議">H3</td><td data-label="動作">改 HTML Tag，保留樣式</td></tr>
+<tr><td data-label="#">7</td><td data-label="畫面文字">張凱萍 Claire Chang</td><td data-label="目前">H2</td><td data-label="建議">H3</td><td data-label="動作">改 HTML Tag，保留樣式</td></tr>
+<tr><td data-label="#">8</td><td data-label="畫面文字">活動時程表</td><td data-label="目前">H2</td><td data-label="建議">H2</td><td data-label="動作">不需修改</td></tr>
+<tr><td data-label="#">9</td><td data-label="畫面文字">報到、展區開放、早茶交流</td><td data-label="目前">H2</td><td data-label="建議">H3</td><td data-label="動作">改 HTML Tag，保留樣式</td></tr>
+<tr><td data-label="#">10</td><td data-label="畫面文字">開幕（長官致詞）</td><td data-label="目前">H2</td><td data-label="建議">H3</td><td data-label="動作">改 HTML Tag，保留樣式</td></tr>
+<tr><td data-label="#">11</td><td data-label="畫面文字">主軸破題（理事長）</td><td data-label="目前">H2</td><td data-label="建議">H3</td><td data-label="動作">改 HTML Tag，保留樣式</td></tr>
+<tr><td data-label="#">12</td><td data-label="畫面文字">Keynote 1：AI × 無障礙（國際講者）</td><td data-label="目前">H2</td><td data-label="建議">H3</td><td data-label="動作">改 HTML Tag，保留樣式</td></tr>
+<tr><td data-label="#">13</td><td data-label="畫面文字">Keynote 2：高齡 × 無障礙（日方視角）</td><td data-label="目前">H2</td><td data-label="建議">H3</td><td data-label="動作">改 HTML Tag，保留樣式</td></tr>
+<tr><td data-label="#">14</td><td data-label="畫面文字">茶歇／展區交流</td><td data-label="目前">H2</td><td data-label="建議">H3</td><td data-label="動作">改 HTML Tag，保留樣式</td></tr>
+<tr><td data-label="#">15</td><td data-label="畫面文字">高峰對談：亞太區域觀點（3–4 位與談）</td><td data-label="目前">H2</td><td data-label="建議">H3</td><td data-label="動作">改 HTML Tag，保留樣式</td></tr>
+<tr><td data-label="#">16</td><td data-label="畫面文字">午餐／展區</td><td data-label="目前">H2</td><td data-label="建議">H3</td><td data-label="動作">改 HTML Tag，保留樣式</td></tr>
+<tr><td data-label="#">17</td><td data-label="畫面文字">平行分軌（至多一條）＋主軸軌</td><td data-label="目前">H2</td><td data-label="建議">H3</td><td data-label="動作">改 HTML Tag，保留樣式</td></tr>
+<tr><td data-label="#">18</td><td data-label="畫面文字">企業實踐案例（本地／國際）</td><td data-label="目前">H2</td><td data-label="建議">H3</td><td data-label="動作">改 HTML Tag，保留樣式</td></tr>
+<tr><td data-label="#">19</td><td data-label="畫面文字">茶歇</td><td data-label="目前">H2</td><td data-label="建議">H3</td><td data-label="動作">改 HTML Tag，保留樣式</td></tr>
+<tr><td data-label="#">20</td><td data-label="畫面文字">白皮書發表／政策對話</td><td data-label="目前">H2</td><td data-label="建議">H3</td><td data-label="動作">改 HTML Tag，保留樣式</td></tr>
+<tr><td data-label="#">21</td><td data-label="畫面文字">閉幕與區域展望（理事長或副理事長）</td><td data-label="目前">H2</td><td data-label="建議">H3</td><td data-label="動作">改 HTML Tag，保留樣式</td></tr>
+<tr><td data-label="#">22</td><td data-label="畫面文字">交流茶會／輕食</td><td data-label="目前">H2</td><td data-label="建議">H3</td><td data-label="動作">改 HTML Tag，保留樣式</td></tr>
+<tr><td data-label="#">23</td><td data-label="畫面文字">售票方案 TickeTS</td><td data-label="目前">H2</td><td data-label="建議">H2</td><td data-label="動作">不需修改；英文大小寫可由內容團隊另行確認</td></tr>
+<tr><td data-label="#">24</td><td data-label="畫面文字">早鳥優惠 Early Bird</td><td data-label="目前">H3</td><td data-label="建議">H3</td><td data-label="動作">不需修改</td></tr>
+<tr><td data-label="#">25</td><td data-label="畫面文字">包含（早鳥優惠）</td><td data-label="目前">H4</td><td data-label="建議">一般文字</td><td data-label="動作">改 Paragraph／Advanced Text，可保留粗體</td></tr>
+<tr><td data-label="#">26</td><td data-label="畫面文字">Includes:（早鳥優惠）</td><td data-label="目前">H4</td><td data-label="建議">一般文字</td><td data-label="動作">改 Paragraph／Advanced Text，標示 <code>lang="en"</code></td></tr>
+<tr><td data-label="#">27</td><td data-label="畫面文字">一般入場 Gen. Admission</td><td data-label="目前">H3</td><td data-label="建議">H3</td><td data-label="動作">不需修改</td></tr>
+<tr><td data-label="#">28</td><td data-label="畫面文字">包含（一般入場，中文）</td><td data-label="目前">H4</td><td data-label="建議">一般文字</td><td data-label="動作">改 Paragraph／Advanced Text，可保留粗體</td></tr>
+<tr><td data-label="#">29</td><td data-label="畫面文字">包含（一般入場，英文區）</td><td data-label="目前">H4</td><td data-label="建議">一般文字</td><td data-label="動作">改 Paragraph／Advanced Text；若原意是英文標籤，內容文字另行確認</td></tr>
+<tr><td data-label="#">30</td><td data-label="畫面文字">學生 / 非營利組織 STUDENT / NGO</td><td data-label="目前">H3</td><td data-label="建議">H3</td><td data-label="動作">不需修改</td></tr>
+<tr><td data-label="#">31</td><td data-label="畫面文字">包含（學生／非營利組織，中文）</td><td data-label="目前">H4</td><td data-label="建議">一般文字</td><td data-label="動作">改 Paragraph／Advanced Text，可保留粗體</td></tr>
+<tr><td data-label="#">32</td><td data-label="畫面文字">包含（學生／非營利組織，英文區）</td><td data-label="目前">H4</td><td data-label="建議">一般文字</td><td data-label="動作">改 Paragraph／Advanced Text；若原意是英文標籤，內容文字另行確認</td></tr>
+<tr><td data-label="#">33</td><td data-label="畫面文字">純線上參與 ONLINE ONLY</td><td data-label="目前">H3</td><td data-label="建議">H3</td><td data-label="動作">不需修改</td></tr>
+<tr><td data-label="#">34</td><td data-label="畫面文字">包含（純線上參與，中文）</td><td data-label="目前">H4</td><td data-label="建議">一般文字</td><td data-label="動作">改 Paragraph／Advanced Text，可保留粗體</td></tr>
+<tr><td data-label="#">35</td><td data-label="畫面文字">包含（純線上參與，英文區）</td><td data-label="目前">H4</td><td data-label="建議">一般文字</td><td data-label="動作">改 Paragraph／Advanced Text；若原意是英文標籤，內容文字另行確認</td></tr>
+<tr><td data-label="#">36</td><td data-label="畫面文字">2026亞太資訊無障礙與數位共融領導力論壇（頁尾重複）</td><td data-label="目前">H2</td><td data-label="建議">一般文字</td><td data-label="動作">改 Paragraph／Advanced Text，保留樣式</td></tr>
+<tr><td data-label="#">37</td><td data-label="畫面文字">Shaping Inclusive Futures For Asia Pacific（頁尾）</td><td data-label="目前">H3</td><td data-label="建議">一般文字</td><td data-label="動作">改 Paragraph／Advanced Text，標示 <code>lang="en"</code></td></tr>
+<tr><td data-label="#">38</td><td data-label="畫面文字">社群媒體 SOCIALS</td><td data-label="目前">H2</td><td data-label="建議">H2</td><td data-label="動作">作為獨立 footer 區塊時保留 H2</td></tr>
+</tbody>
+</table>
+
+<h2>建議的完整 heading map</h2>
+<pre>H1  2026亞太資訊無障礙與數位共融領導力論壇
+    一般文字  Shaping Inclusive Futures For Asia Pacific
+H2  關於本次論壇
+H2  講者
+  H3  王馥明 Frances West
+  H3  植木真 | Makoto Ueki
+  H3  張凱萍 Claire Chang
+H2  活動時程表
+  H3  報到、展區開放、早茶交流
+  H3  開幕（長官致詞）
+  H3  主軸破題（理事長）
+  H3  Keynote 1：AI × 無障礙（國際講者）
+  H3  Keynote 2：高齡 × 無障礙（日方視角）
+  H3  茶歇／展區交流
+  H3  高峰對談：亞太區域觀點（3–4 位與談）
+  H3  午餐／展區
+  H3  平行分軌（至多一條）＋主軸軌
+  H3  企業實踐案例（本地／國際）
+  H3  茶歇
+  H3  白皮書發表／政策對話
+  H3  閉幕與區域展望（理事長或副理事長）
+  H3  交流茶會／輕食
+H2  售票方案 TickeTS
+  H3  早鳥優惠 Early Bird
+      一般文字  包含／Includes
+  H3  一般入場 Gen. Admission
+      一般文字  包含／Includes
+  H3  學生 / 非營利組織 STUDENT / NGO
+      一般文字  包含／Includes
+  H3  純線上參與 ONLINE ONLY
+      一般文字  包含／Includes
+    一般文字  頁尾重複活動名稱與英文標語
+H2  社群媒體 SOCIALS</pre>
+
+<h2>WordPress／Kadence 實作步驟</h2>
+<ol>
+<li>進入「頁面 → 全部頁面 → 論壇活動 → 編輯」。</li>
+<li>打開左上角「清單檢視」，依本文件的 38 項對照尋找對應文字。</li>
+<li>選取 Kadence Advanced Heading 時，在右側區塊設定尋找 <code>HTML Tag</code>／<code>Heading Tag</code>，只更改 H1、H2、H3。</li>
+<li>使用 WordPress 核心 Heading block 時，從區塊工具列更改 heading level。</li>
+<li>需要改成一般文字的英文標語、「包含／Includes」與頁尾重複標題：若現有區塊可把 HTML Tag 設為 <code>p</code> 或 <code>div</code>，直接改 tag；若只支援 H1–H6，改用 Paragraph／Kadence Advanced Text，再套用原本字級、顏色與間距。</li>
+<li>不要以 H1–H6 控制視覺大小。先確定語意層級，再以 typography 設定維持原設計。</li>
+<li><code>READ ENGLISH BIO</code> 保持 <code>details/summary</code> 展開控制，不要改成 heading。</li>
+<li>儲存草稿後先預覽，確認 heading tag 調整後既有版面樣式維持一致。</li>
+</ol>
+
+<h2>複查清單</h2>
+<ul>
+<li>DOM 中 H1 正好 1 個，文字為活動正式名稱。</li>
+<li>H2 正好 5 個：關於本次論壇、講者、活動時程表、售票方案、社群媒體。</li>
+<li>H3 正好 21 個：3 位講者、14 個時程項目、4 種票券。</li>
+<li>H4 為 0；「包含／Includes」仍看得到，但不出現在 heading 清單。</li>
+<li>頁尾重複活動名稱與英文標語仍看得到，但不出現在 heading 清單。</li>
+<li><code>READ ENGLISH BIO</code> 可展開，但不出現在 heading 清單；每個控制名稱可辨識講者。</li>
+<li>heading 層級依序為 H1 → H2 → H3，沒有從 H1 直接跳到 H3/H4。</li>
+<li>更改 tag 後，桌面與手機的字級、顏色、間距和原設計一致。</li>
+<li>以瀏覽器 Accessibility Tree 或螢幕閱讀器 heading list 複查完整順序。</li>
+</ul>
+
+<p class="note"><strong>對應標準：</strong>WCAG 2.2 1.3.1 Info and Relationships、2.4.6 Headings and Labels。這份文件處理 heading 語意；顏色、間距與卡片視覺不因 tag 變更而要求重做。</p>
+</main>
+</body>
+</html>

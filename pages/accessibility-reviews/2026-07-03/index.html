@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>aia.tinyoakstudio.com 無障礙測試報告索引（2026-07-03）</title>
+<link rel="stylesheet" href="../review-nav.css">
+<style>
+:root{
+  --bg:#F7F8F8; --surface:#ECEFF3; --text:#231815; --muted:#3D3835;
+  --accent:#003B5C; --accent-deep:#002D46; --cta:#F8B62D; --cta-text:#231815;
+  --border:#B7C0CB;
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%; text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:'Inter','Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+  font-size:17px; line-height:1.75; overflow-wrap:break-word;
+}
+main{max-width:960px; margin:0 auto; padding:2rem 1.25rem 4rem}
+h1,h2{font-family:'Noto Serif TC','Inter',Georgia,serif; color:var(--accent); line-height:1.4}
+h1{font-size:1.7rem; margin:0 0 .25rem; overflow-wrap:anywhere}
+h2{font-size:1.25rem; margin:2.5rem 0 .75rem; border-bottom:2px solid var(--border); padding-bottom:.4rem}
+a{color:var(--accent)}
+a:focus-visible{outline:3px solid var(--accent); outline-offset:2px}
+.meta{color:var(--muted); margin:0 0 1.5rem}
+table{border-collapse:collapse; width:100%; margin:.5rem 0}
+caption{text-align:left; font-weight:600; padding-bottom:.4rem; color:var(--accent)}
+th,td{border:1px solid var(--border); padding:.5rem .7rem; text-align:left; vertical-align:top}
+th{background:var(--surface)}
+.score{font-variant-numeric:tabular-nums; font-weight:700}
+.sev-critical{font-weight:700; color:#8B1A00}
+.sev-warning{font-weight:600}
+ul{padding-left:1.4rem}
+li{margin:.3rem 0}
+.note{background:var(--surface); border-left:4px solid var(--accent); padding:.75rem 1rem; margin:1rem 0}
+code,pre{font-family:ui-monospace,'Cascadia Code',Consolas,'Noto Sans TC','Microsoft JhengHei',monospace}
+code{background:var(--surface); padding:.1em .35em; border-radius:3px; font-size:.92em; overflow-wrap:anywhere}
+.tablewrap{overflow-x:auto; -webkit-overflow-scrolling:touch}
+td a{overflow-wrap:anywhere}
+@media (max-width:640px){ body{font-size:16px} main{padding:1.5rem 1rem 3rem} }
+</style>
+</head>
+<body>
+<a class="aia-review-skip" href="#main">跳到主要內容</a>
+<nav class="aia-review-nav" aria-label="測試報告導覽">
+  <div class="aia-review-nav__inner">
+    <span class="aia-review-nav__label">AIA 無障礙測試結果</span>
+    <a href="../../../index.html#downloads">專案 Hub</a>
+    <a href="../index.html">測試總覽</a>
+    <a href="../2026-07-30/homepage/homepage-0730-review.html">首頁 7/30</a>
+    <a href="../2026-07-30/adals-events/event-page-0730-check.html">活動頁</a>
+    <a href="../2026-07-30/adals-events/speaker-responsive-comparison.html">講者／票券比較</a>
+    <a href="../2026-07-30/contact/contact-page-0731-check.html">聯繫頁</a>
+    <a href="index.html" aria-current="page">7/3 歷史測試</a>
+  </div>
+</nav>
+<main id="main">
+<h1>aia.tinyoakstudio.com 無障礙測試報告索引</h1>
+<p class="meta">測試日期：2026-07-03　|　範圍：首頁（密碼保護測試站，WordPress ＋ Kadence 佈景）　|　標準：WCAG 2.2 AA</p>
+
+<h2>報告檔案</h2>
+<div class="tablewrap">
+<table>
+<caption>三份主報告與佐證產物</caption>
+<thead><tr><th scope="col">檔案</th><th scope="col">內容</th></tr></thead>
+<tbody>
+<tr><td><a href="fix-guide.html">fix-guide.html</a></td><td>開發者修正指南：逐條問題＋影響情境＋Kadence 修法，含標題結構前後對照圖與位置截圖（建議開發者從這份看起）</td></tr>
+<tr><td><a href="findings-inventory.html">findings-inventory.html</a></td><td>全部發現逐項清單，含狀態與修法</td></tr>
+<tr><td><a href="beacon-a11y-report.html">beacon-a11y-report.html</a></td><td>Beacon 無障礙檢測（第二層：渲染後 DOM ＋ axe-core ＋ runtime 檢查），10 分類評分與逐項發現</td></tr>
+<tr><td><a href="lighthouse-mobile.report.html">lighthouse-mobile.report.html</a></td><td>Lighthouse 行動版（預設模擬 ＋ 4x CPU 節流），效能／無障礙／最佳實務／SEO</td></tr>
+<tr><td><a href="lighthouse-desktop.report.html">lighthouse-desktop.report.html</a></td><td>Lighthouse 桌面版（desktop preset）</td></tr>
+<tr><td><a href="aia-axe-results.json">aia-axe-results.json</a></td><td>axe-core 4.10 原始結果（頁面內注入，39 項通過、5 類違規）</td></tr>
+<tr><td><a href="audit-results.json">audit-results.json</a></td><td>Beacon 評分來源檔（script 產生，含 Lighthouse 交叉訊號與隔離的 LLM 觀察）</td></tr>
+<tr><td><a href="aia-rendered.html">aia-rendered.html</a></td><td>解鎖密碼後的渲染 DOM 快照（掃描素材）</td></tr>
+<tr><td><a href="aia-desktop-full.png">aia-desktop-full.png</a>／<a href="aia-320px-reflow.png">aia-320px-reflow.png</a></td><td>桌面全頁截圖／320px 迴流測試截圖</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>分數總覽</h2>
+<div class="tablewrap">
+<table>
+<caption>各工具評分（量尺不同，不可直接互比）</caption>
+<thead><tr><th scope="col">工具</th><th scope="col">分數</th><th scope="col">說明</th></tr></thead>
+<tbody>
+<tr><td>Beacon 無障礙總分</td><td class="score">33 / 100</td><td>重大違規權重高；8 項 critical 拉低分數</td></tr>
+<tr><td>Lighthouse 無障礙</td><td class="score">79（行動）／ 80（桌面）</td><td>只計自動化可測項，涵蓋面較窄</td></tr>
+<tr><td>Lighthouse 效能</td><td class="score">70（行動）／ 78（桌面）</td><td>行動版含 4x CPU 節流</td></tr>
+<tr><td>Lighthouse 最佳實務</td><td class="score">77</td><td>行動與桌面相同</td></tr>
+<tr><td>Lighthouse SEO</td><td class="score">46</td><td>測試站設 <code>noindex, nofollow</code> 屬預期，上線後需重測</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>重大發現（critical，共 8 項）</h2>
+<ul>
+<li class="sev-critical">頁面語言宣告錯誤：內容以繁體中文為主，卻宣告 <code>lang="en-US"</code>（WCAG 3.1.1）。中文螢幕閱讀器會用英文語音唸中文。</li>
+<li class="sev-critical"><code>&lt;title&gt;</code> 是空的（WCAG 2.4.2）。</li>
+<li class="sev-critical">主要行動按鈕「了解志工機會」是沒設連結的 Kadence 按鈕，輸出成 <code>&lt;span&gt;</code>：鍵盤搆不到、螢幕閱讀器不會視為可操作元件（WCAG 2.1.1）。狀態：暫緩（志工頁尚未建立，上線前補連結即修復）。</li>
+<li class="sev-critical">頁首 logo 連結沒有可及名稱（WCAG 4.1.2）。</li>
+<li class="sev-critical">3 張圖片缺 <code>alt</code> 屬性（WCAG 1.1.1，兩張 Unsplash 圖，其中一張重複使用）。</li>
+<li class="sev-critical">標題層級跳級（WCAG 1.3.1）：H1 直跳 H4；各區段用 H6 當眉標、正標題反而是 H2（層級倒置）；大事記與卡片區 H2 直跳 H5。與 HeadingsMap 觀察一致；另發現「多元共融」等三個標籤在頁面上出現兩處，資訊少的一邊佔了標題位置、資訊多的一邊反而沒有標題可跳。</li>
+</ul>
+
+<h2>警告（warning，共 2 項）</h2>
+<ul>
+<li class="sev-warning">導覽列連結對比 4.16:1（#4a5568 on #e4bc54），低於 AA 要求 4.5:1（WCAG 1.4.3）。</li>
+<li class="sev-warning">CTA 按鈕對比 3.54:1（白字 on #e8593a），低於 4.5:1（WCAG 1.4.3）。此色也不在 AIA 品牌色票內；品牌規範的 CTA 組合（暖陽金底＋墨黑字）為 9.66:1（AAA）。</li>
+</ul>
+
+<h2>建議（tip）與其他觀察</h2>
+<ul>
+<li>缺 meta description、JSON-LD 結構化資料（影響 AEO／搜尋與 AI 爬蟲理解，上線前補）。</li>
+<li>頁尾社群連結（Facebook／X／Instagram）href 為空，是佔位連結。</li>
+<li>reduced-motion 支援部分存在（3 條規則對 24 條動畫規則）；無自動播放媒體、無閃爍內容。</li>
+<li>焦點可見性程式化量測不可靠（<code>:focus-visible</code> 不觸發），建議人工 Tab 走查一輪。</li>
+<li>主要導覽選單目前只有一個項目（連回首頁自己）；後續應該會有獨立的活動頁（例如 ADALS 2026），上線後補進選單即可。</li>
+<li>主視覺與三大價值區的白字沒有純色備援底色（低優先）：正常瀏覽察覺不到，主要在列印／存 PDF 時文字會看不見；補一行深色備援底色即可，非必修。</li>
+<li>全站約九成圖片 <code>src</code> 網址是 <code>http://</code>（<code>srcset</code> 卻是 https）：現況 Chrome 自動升級、影響很低，屬換網域時的檢查項——搬到正式網域 <code>apac-aia.org</code> 時連協定一起換成 https，別讓只換網域的取代把 http 帶過去。</li>
+</ul>
+
+<div class="note">
+<strong>修復優先順序建議：</strong>1）<code>lang</code> 改 <code>zh-TW</code>；2）補 3 張圖 alt 與 logo 連結名稱；3）兩處對比改用品牌色票既有的合格組合；4）標題層級重排（眉標改用樣式而非 H6）。以上都是 WordPress 後台設定層級的修改。<code>&lt;title&gt;</code> 與網站圖示只在上線時才有影響，正式上線前設定即可；「了解志工機會」按鈕待志工頁建立後補連結；導覽選單待活動頁上線後補齊。完整逐項清單與狀態見 <a href="findings-inventory.html">findings-inventory.html</a>，逐條修法見 <a href="fix-guide.html">fix-guide.html</a>。
+</div>
+
+<p class="meta">產出工具：Beacon 2.3.0（Tier 2）、axe-core 4.10、Lighthouse（npx CLI）、Playwright MCP。本報告僅為技術性無障礙證據，非法律意見。</p>
+</main>
+</body>
+</html>

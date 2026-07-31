@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>APAC AIA 網站 - 首頁無障礙測試與建議（2026-07-03）</title>
+<link rel="stylesheet" href="../review-nav.css">
+<style>
+:root{
+  --bg:#F7F8F8; --surface:#ECEFF3; --text:#231815; --muted:#3D3835;
+  --accent:#003B5C; --accent-deep:#002D46; --cta:#F8B62D; --cta-text:#231815;
+  --border:#B7C0CB; --border-strong:#6B7785; --danger:#8B1A00;
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%; text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:'Inter','Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+  font-size:17px; line-height:1.75; overflow-wrap:break-word;
+}
+main{max-width:960px; margin:0 auto; padding:2rem 1.25rem 4rem}
+h1,h2{font-family:'Noto Serif TC','Inter',Georgia,serif; color:var(--accent); line-height:1.4}
+h1{font-size:1.7rem; margin:0 0 .25rem; overflow-wrap:anywhere}
+h2{font-size:1.25rem; margin:2.75rem 0 1rem; border-bottom:2px solid var(--border); padding-bottom:.4rem}
+a{color:var(--accent)}
+a:focus-visible{outline:3px solid var(--accent); outline-offset:2px}
+.meta{color:var(--muted); margin:0 0 .75rem}
+.summary-line{font-weight:700; background:var(--surface); border-left:4px solid var(--accent); padding:.9rem 1.1rem; margin:1.25rem 0 0}
+code,pre{font-family:ui-monospace,'Cascadia Code',Consolas,'Noto Sans TC','Microsoft JhengHei',monospace}
+code{background:var(--surface); padding:.1em .35em; border-radius:3px; font-size:.92em; overflow-wrap:anywhere}
+
+.finding{
+  background:#FFFFFF; border:1px solid var(--border); border-left:6px solid var(--border-strong);
+  border-radius:4px; padding:1.1rem 1.3rem; margin:1.25rem 0;
+}
+.finding.required{border-left-color:var(--danger)}
+.finding.suggested{border-left-color:var(--accent)}
+.finding.deferred{border-left-color:var(--muted); border-left-style:dashed}
+.finding.false-positive{border-left-color:var(--border-strong); border-left-style:dotted}
+
+.tag{
+  display:inline-block; font-weight:700; font-size:.9rem; letter-spacing:.02em;
+  padding:.2rem .65rem; border-radius:3px; margin-bottom:.7rem; margin-right:.4rem;
+}
+.tag-cat{background:#fff; color:var(--accent-deep); border:1.5px solid var(--border-strong); font-weight:700}
+.tag-required{background:var(--danger); color:#fff}
+.tag-suggested{background:var(--accent); color:#fff}
+.tag-deferred{background:var(--surface); color:var(--muted); border:2px dashed var(--muted); font-weight:700}
+.finding.planned{border-left-color:#B45309}
+.tag-planned{background:#B45309; color:#fff}
+.tag-false-positive{background:var(--surface); color:var(--muted); border:2px dotted var(--border-strong); font-weight:700}
+
+.finding h3{
+  font-family:'Noto Serif TC','Inter',Georgia,serif; color:var(--accent);
+  font-size:1.08rem; margin:.1rem 0 .8rem; line-height:1.5;
+}
+.fields{margin:0}
+.fields dt{font-weight:700; color:var(--accent-deep); margin-top:.9rem}
+.fields dt:first-child{margin-top:0}
+.fields dd{margin:.2rem 0 0}
+.fields dd p{margin:.25rem 0}
+.dt-kadence{margin-top:1rem !important}
+.dt-kadence + dd{
+  background:var(--surface); border:1px solid var(--border-strong);
+  border-radius:4px; padding:.7rem .9rem; margin-top:.4rem !important;
+}
+.dt-kadence + dd p:first-child{margin-top:0}
+.dt-kadence + dd p:last-child{margin-bottom:0}
+.wcag-tag{display:block; margin-top:.9rem; font-size:.82rem; color:var(--muted)}
+
+.pass-list li{margin:.35rem 0}
+.finding-done{display:inline-flex; align-items:center; gap:.35em; font-size:.85rem; font-weight:700; color:var(--muted); cursor:pointer; user-select:none; margin-bottom:.7rem}
+.finding-done input{width:1.05em; height:1.05em; accent-color:var(--accent); margin:0; cursor:pointer}
+.toc-chk{cursor:pointer}
+.toc-chk input{margin:0 .35em 0 0; accent-color:var(--accent); vertical-align:-.08em; cursor:pointer}
+.toc-chk:has(input:checked){text-decoration:line-through; color:var(--muted)}
+.finding:has(.finding-done input:checked) > *:not(.tag):not(.finding-done){text-decoration:line-through}
+.finding:has(.finding-done input:checked){opacity:.55}
+
+.legend{list-style:none; padding-left:0; margin:.6rem 0}
+.legend li{margin:.45rem 0}
+.legend-bar{display:inline-block; width:0; height:1.25em; vertical-align:-.3em; margin-right:.55em}
+.toc-group{margin:1rem 0 .2rem; font-weight:700; color:var(--accent)}
+.toc-list{margin:.2rem 0 .6rem; padding-left:1.5rem}
+.toc-list li{margin:.2rem 0}
+
+.swtbl-wrap{overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0}
+.swtbl-wrap:focus-visible{outline:3px solid var(--accent); outline-offset:2px}
+.swtbl{border-collapse:collapse; font-size:.88rem; min-width:720px}
+.swtbl th,.swtbl td{border:1px solid var(--border); padding:.45rem .6rem; text-align:left; vertical-align:middle}
+.swtbl th{background:var(--surface); color:var(--accent); font-weight:700; white-space:nowrap}
+.swtbl code{white-space:nowrap; overflow-wrap:normal}
+.swtbl caption{text-align:left; font-weight:700; color:var(--accent); padding:.3rem 0}
+.sw{display:inline-block; padding:.35em .8em; border-radius:5px; font-weight:700; white-space:nowrap}
+.swtbl .sw-pass{color:#146c14; font-weight:700}
+.swtbl .sw-fail{color:#b3261e; font-weight:700}
+
+.htree{margin:.75rem 0; border:1px solid var(--border); border-radius:6px; overflow:hidden}
+.htree-row{
+  display:flex; flex-wrap:wrap; align-items:baseline; column-gap:.5em; row-gap:.2em;
+  padding:.5em .7em .5em calc(.7em + var(--level, 0) * 1.15em);
+  border-bottom:1px solid var(--border); border-left:3px solid transparent;
+  background:#fff;
+}
+.htree-row:last-child{border-bottom:none}
+.htree-row[data-change="1"]{border-left-color:var(--danger)}
+.htree-tag{
+  font-weight:700; font-family:ui-monospace,'Cascadia Code',Consolas,monospace; font-size:.78em;
+  background:var(--accent); color:#fff; padding:.1em .45em; border-radius:3px; flex-shrink:0; letter-spacing:.02em;
+}
+.htree-row[data-change="1"] .htree-tag{background:var(--danger)}
+.htree-tag--none{background:#fff !important; color:var(--danger) !important; border:1.5px dashed var(--danger)}
+.htree-text{font-weight:700}
+.htree-desc{font-weight:400; color:var(--muted); font-size:.92em}
+.htree-action{font-weight:600; color:var(--accent-deep); font-size:.92em}
+.htree-label{font-weight:700; color:var(--accent); margin:1.1rem 0 .4rem; font-size:.95rem}
+.htree-label:first-child{margin-top:0}
+.htree-action--keep{color:var(--muted); font-weight:400}
+
+.finding-shot{margin:.6rem 0}
+.finding-shot img{max-width:100%; height:auto; display:block; border:1px solid var(--border); border-radius:4px}
+.finding-shot figcaption{font-size:.85rem; color:var(--muted); margin-top:.4rem}
+.fdemo-fig{margin:1rem 0; border:1px solid var(--border); border-radius:6px; padding:1rem 1.1rem; background:#fff}
+.fdemo-fig figcaption{font-weight:700; color:var(--accent); margin-bottom:.7rem}
+.fdemo{display:flex; flex-wrap:wrap; gap:1.4rem}
+.fdemo-item{flex:1 1 210px}
+.fdemo-btn{display:inline-block; background:#F8B62D; color:#231815; border-radius:6px; padding:.5rem 1rem; font-weight:700}
+.fdemo-btn.on{outline:3px solid var(--accent); outline-offset:3px}
+.fdemo-cap{font-size:.9rem; margin:.5rem 0 0; font-weight:700}
+.fdemo-cap.good{color:#146c14}
+.fdemo-cap.bad{color:#b3261e}
+h2:first-of-type{margin-top:2rem}
+@media (max-width:640px){ body{font-size:16px} .finding{padding:.9rem .9rem} main{padding:1.5rem 1rem 3rem} }
+</style>
+</head>
+<body>
+<a class="aia-review-skip" href="#main">跳到主要內容</a>
+<nav class="aia-review-nav" aria-label="測試報告導覽">
+  <div class="aia-review-nav__inner">
+    <span class="aia-review-nav__label">AIA 無障礙測試結果</span>
+    <a href="../../../index.html#downloads">專案 Hub</a>
+    <a href="../index.html">測試總覽</a>
+    <a href="../2026-07-30/homepage/homepage-0730-review.html">首頁 7/30</a>
+    <a href="../2026-07-30/adals-events/event-page-0730-check.html">活動頁</a>
+    <a href="../2026-07-30/adals-events/speaker-responsive-comparison.html">講者／票券比較</a>
+    <a href="../2026-07-30/contact/contact-page-0731-check.html">聯繫頁</a>
+    <a href="index.html">7/3 測試總覽</a>
+    <a href="fix-guide.html" aria-current="page">7/3 修正指南</a>
+  </div>
+</nav>
+<main id="main">
+<h1>APAC AIA 網站 - 首頁無障礙測試與建議</h1>
+<p>這份報告給網站維護者、工程師與非技術關係人一起看。看不懂技術細節沒關係——每一項先看「問題」和「誰會被卡住」就能掌握大意；<strong>灰底的程式碼片段是給工程師的，跳過不影響理解</strong>。</p>
+<p class="meta">測試日期：2026-07-03　|　範圍：首頁　|　工具：以自動檢測工具＋瀏覽器實測（備註：Beacon、axe-core、Lighthouse、Playwright）</p>
+<p class="summary-line">優先 5 條、預定要做 2 條、建議 3 條、暫緩 5 條。「優先」的判準是會影響測試站現在的使用與測試；測試站上已知、後續會修正的項目放在「暫緩」先列作記錄。優先項目大多是 WordPress 後台設定。</p>
+<p class="summary-line">本報告所有修法以免費版 Kadence 為前提，沒有任何一條需要 Kadence Pro。15 條裡大多是純後台操作（點選、填字、選色），不用寫任何程式；少數需要動到樣式的（「第 9 項 觸控範圍」「第 10 項 備援底色」），也都能在 Kadence 區塊設定裡直接調，或在「外觀 → 自訂 → 額外 CSS」貼一行現成的 CSS（複製貼上即可，不碰檔案、刪掉就還原）。</p>
+
+<h2>怎麼看這份報告</h2>
+<p>這份報告把首頁在無障礙測試中發現的 15 個項目，依「什麼時候該處理」分成四組。每張問題卡片左邊的色條，以及卡片開頭的文字標籤，都代表它屬於哪一組：</p>
+<ul class="legend">
+<li><span class="legend-bar" style="border-left:6px solid var(--danger)"></span><strong>磚紅色實線＝優先（第 1–5 項）</strong>：會影響測試站現在的使用或測試，建議優先修正。</li>
+<li><span class="legend-bar" style="border-left:6px solid #B45309"></span><strong>琥珀色實線＝預定要做（第 6–7 項）</strong>：必做、但要等對應條件（時機或權限）到位才能執行；卡片內會標明觸發條件。</li>
+<li><span class="legend-bar" style="border-left:6px solid var(--accent)"></span><strong>深藍色實線＝建議（第 8–10 項）</strong>：改了更好，但不是非做不可。</li>
+<li><span class="legend-bar" style="border-left:6px dashed var(--muted)"></span><strong>灰色虛線＝暫緩（第 11–15 項）</strong>：測試站上已知、但要等其他東西（帳號、頁面、網域）就緒後才處理的；現在先列作記錄，後續修正。</li>
+</ul>
+<p>每張卡片開頭還有第二個「外框樣式」的標籤，代表這個問題的類別（例如替代文字、對比、標題結構），方便你把同類型的問題一起處理。填色標籤看急迫度、外框標籤看類別，兩者分開看。</p>
+<p class="meta">（顏色只是輔助；每張卡片開頭都有「急迫度」與「類別」兩個文字標籤，不靠顏色也分得出來。）</p>
+<p class="meta">每張卡片最下面的灰色小字（例如「WCAG 1.4.3，警告」）是給工程師的規範對照——WCAG 是國際無障礙標準、AA 是常用的合格等級，非技術讀者不用理會。</p>
+
+<p class="toc-group">優先（建議優先修正）</p>
+<ol class="toc-list">
+<li><label class="toc-chk"><input type="checkbox"> 網站語言設定與內容不一致</label></li>
+<li><label class="toc-chk"><input type="checkbox"> 頁首 logo 連結沒有名字</label></li>
+<li><label class="toc-chk"><input type="checkbox"> 標題結構需要整理</label></li>
+<li><label class="toc-chk"><input type="checkbox"> 導覽列文字對比不足</label></li>
+<li><label class="toc-chk"><input type="checkbox"> 按鈕文字對比不足</label></li>
+</ol>
+<p class="toc-group">預定要做（等條件到位再執行）</p>
+<ol class="toc-list" start="6">
+<li><label class="toc-chk"><input type="checkbox"> 人工鍵盤走查一輪</label></li>
+<li><label class="toc-chk"><input type="checkbox"> 內容圖片缺少替代文字</label></li>
+</ol>
+<p class="toc-group">建議（改了更好）</p>
+<ol class="toc-list" start="8">
+<li><label class="toc-chk"><input type="checkbox"> 社群圖示旁加文字</label></li>
+<li><label class="toc-chk"><input type="checkbox"> 社群圖示可點範圍加大</label></li>
+<li><label class="toc-chk"><input type="checkbox"> 主視覺與三大價值區可補一個備援底色</label></li>
+</ol>
+<p class="toc-group">暫緩（先列作記錄，後續修正）</p>
+<ol class="toc-list" start="11">
+<li><label class="toc-chk"><input type="checkbox"> 頁尾社群連結是空的</label></li>
+<li><label class="toc-chk"><input type="checkbox"> 「了解志工機會」按鈕不能按</label></li>
+<li><label class="toc-chk"><input type="checkbox"> 網頁沒有標題（上 staging／正式站時設定）</label></li>
+<li><label class="toc-chk"><input type="checkbox"> 主要導覽選單尚未串接頁面</label></li>
+<li><label class="toc-chk"><input type="checkbox"> 圖片網址是 http（第一次搬站時一併處理）</label></li>
+</ol>
+
+<h2>優先（建議優先修正）</h2>
+
+<article class="finding required">
+<span class="tag tag-required">優先</span>
+<span class="tag tag-cat">網頁語言</span>
+<label class="finding-done"><input type="checkbox"> 完成</label>
+<h3>1. 網站語言設定與內容不一致</h3>
+<dl class="fields">
+<dt>問題</dt>
+<dd><p>內容是繁體中文，網站卻宣告自己是英文（<code>lang="en-US"</code>）。</p></dd>
+<dt>誰會被卡住</dt>
+<dd>
+<p>視障者的螢幕閱讀器會用英文語音唸中文，整頁變成聽不懂的聲音。</p>
+<p>用瀏覽器朗讀功能的人（開車聽網頁、眼睛疲勞的人、部分長輩）也會拿到錯的語音。</p>
+<p>翻譯工具會誤判來源語言。</p>
+</dd>
+<dt class="dt-kadence">Kadence 修法</dt>
+<dd><p>這是 WordPress 核心設定：後台「設定 → 一般 → 網站語言」改為「繁體中文」。</p></dd>
+<dt>通用解法</dt>
+<dd>
+<p>讓 <code>html</code> 標籤輸出 <code>lang="zh-TW"</code>。宣告的是整頁的「主要語言」，中英混排不衝突：目前首頁以中文為主，所以宣告中文。</p>
+<p>頁內整段的英文（例如英文版使命宣言）可再用 <code>lang="en"</code> 包住該段，螢幕閱讀器會自動切換語音；夾在中文句子裡的專有名詞（WCAG、IAAP）不需要包。這一步在 Kadence 需要用區塊的「編輯為 HTML」手動加屬性，屬於加分項，可以之後再做。</p>
+<p>雙語規劃：從無障礙的角度，值得留意的是各語言版本宣告正確的 <code>lang</code>，以及語言切換器能用鍵盤操作。目前查無各多語外掛之間可信的無障礙實測比較資料，所以這裡不特別推薦某一套；雙語版做好後可以再測一次確認。</p>
+</dd>
+</dl>
+<span class="wcag-tag">WCAG 3.1.1，嚴重；語言切分屬 WCAG 3.1.2（AA）</span>
+</article>
+
+<article class="finding required">
+<span class="tag tag-required">優先</span>
+<span class="tag tag-cat">連結名稱</span>
+<label class="finding-done"><input type="checkbox"> 完成</label>
+<h3>2. 頁首 logo 連結沒有名字</h3>
+<dl class="fields">
+<dt>問題</dt>
+<dd><p>logo 是連結，但沒有任何文字或替代文字。</p></dd>
+<dt>誰會被卡住</dt>
+<dd>
+<p>螢幕閱讀器唸「連結」就沒了，視障者不知道點了會去哪。</p>
+<p>用語音控制的人（例如受傷只能用聲音操作電腦的人）叫不出這個連結。</p>
+</dd>
+<dt class="dt-kadence">Kadence 修法</dt>
+<dd>
+<p>媒體庫給 logo 圖片加替代文字，可以直接寫雙語，例如「亞太包容創新協會 APAC AIA 首頁」。</p>
+<p>雙語補充：alt 屬性是純文字，無法在裡面再標語言，所以英文部分會由中文語音唸出（縮寫沒問題，長句不適合）。日後做雙語版時，各語言版本可各自設定 alt（中文版「亞太包容創新協會 首頁」、英文版「APAC AIA Home」），主流多語外掛都支援翻譯替代文字。</p>
+</dd>
+<dt>通用解法</dt>
+<dd><p>logo 圖 alt 寫「組織名 首頁」，或在 <code>a</code> 標籤加 <code>aria-label</code>。</p></dd>
+</dl>
+<span class="wcag-tag">WCAG 4.1.2，嚴重</span>
+</article>
+
+<article class="finding required">
+<span class="tag tag-required">優先</span>
+<span class="tag tag-cat">標題結構</span>
+<label class="finding-done"><input type="checkbox"> 完成</label>
+<h3>3. 標題結構需要整理</h3>
+<dl class="fields">
+<dt>問題</dt>
+<dd>
+<p><strong>白話版：</strong>現在網頁的「標題目錄」順序是亂的——有些真正重要的段落沒有被設成標題，有些只是裝飾用的小字反而被當成標題。對用螢幕閱讀器的人來說，就像拿到一本目錄錯亂的書。（以下是給工程師的細節。）</p>
+<p>層級不連續：H1 之後直接跳 H4；About Us、Our Values、Our Milestones、What We Do、Areas of Focus、JOIN US 六個英文眉標用了 H6，正標題反而是 H2，層級倒過來；大事記年份與各區卡片標題用 H5，從 H2 直接跳過去。</p>
+<p>內文被設成標題：關於我們區的三句長句（「當生活幾乎一切都在螢幕上完成⋯」等）是段落內容，卻設成 H2。</p>
+<p><strong>標題錯位</strong>：「多元共融／以人為本／科技創新」這三個詞在頁面上出現兩處，位置剛好錯開。主視覺區的摘要卡（只有圖示＋短標題＋一行英文，資訊量很少）被設成 H2 標題；「三大價值」區的完整說明卡（資訊量最多，每張有一整段文字）反而完全不是標題，只是加粗的 <code>&lt;strong&gt;</code> 文字。等於資訊少的地方佔了標題位置，資訊多、真正值得跳過去讀的地方卻沒有標題可跳。</p>
+<p>順帶發現的內容問題：「我們關注的議題」有一張卡片中文寫「數位無障礙」、英文寫「International Standards」，兩邊意思對不上，可考慮改成「國際標準 International Standards」。</p>
+</dd>
+<dt>誰會被卡住</dt>
+<dd>
+<p>視障者靠標題清單跳著讀網頁，就像看書先看目錄；層級亂掉等於目錄亂排，他們會迷路。</p>
+<p>把內文設成標題，用標題導覽的人會聽到一連串像標題的段落，更難抓到頁面結構。</p>
+<p>標題錯位的影響更直接：想跳去讀「三大價值」完整說明的人，標題清單裡完全找不到「多元共融」可以跳，因為那裡沒有標題；反而主視覺那三個資訊量很少的摘要會出現在標題清單裡，跳過去也沒有太多可讀的內容。</p>
+<p>趕時間掃讀的每個人也靠層級快速抓結構。</p>
+</dd>
+<dt class="dt-kadence">Kadence 修法</dt>
+<dd>
+<p>所有修改都是在 Advanced Heading 區塊設定裡切換 HTML tag，外觀樣式不會變。前後差異如下，縮排代表標題層級（跟 HeadingsMap 看到的一樣），左側有色條的是需要調整的地方：</p>
+
+<p class="htree-label">修改前（現況）</p>
+<div class="htree">
+<div class="htree-row" style="--level:0"><span class="htree-tag">H1</span><strong class="htree-text">亞太包容創新協會</strong></div>
+<div class="htree-row" data-change="1" style="--level:2"><span class="htree-tag">H4</span><strong class="htree-text">連結國際無障礙領袖⋯</strong><span class="htree-desc">（說明文字）</span><span class="htree-action">→ 改成一般段落</span></div>
+<div class="htree-row" data-change="1" style="--level:1"><span class="htree-tag">H2</span><strong class="htree-text">多元共融、以人為本、科技創新</strong><span class="htree-desc">（主視覺摘要卡，圖示＋短標題，資訊量少）</span><span class="htree-action">→ 改成一般文字，不進標題階層</span></div>
+<div class="htree-row" data-change="1" style="--level:3"><span class="htree-tag">H6</span><strong class="htree-text">About Us</strong><span class="htree-desc">（英文眉標）</span><span class="htree-action">→ 改成一般文字，樣式照舊</span></div>
+<div class="htree-row" style="--level:1"><span class="htree-tag">H2</span><strong class="htree-text">關於我們</strong><span class="htree-action htree-action--keep">維持</span></div>
+<div class="htree-row" data-change="1" style="--level:1"><span class="htree-tag">H2</span><strong class="htree-text">當生活幾乎一切都在螢幕上完成⋯</strong><span class="htree-desc">（內文長句）</span><span class="htree-action">→ 改成一般段落</span></div>
+<div class="htree-row" data-change="1" style="--level:1"><span class="htree-tag">H2</span><strong class="htree-text">許多人因身體狀況、年齡⋯</strong><span class="htree-desc">（內文長句）</span><span class="htree-action">→ 改成一般段落</span></div>
+<div class="htree-row" data-change="1" style="--level:1"><span class="htree-tag">H2</span><strong class="htree-text">打破現有的侷限⋯</strong><span class="htree-desc">（內文長句）</span><span class="htree-action">→ 改成一般段落</span></div>
+<div class="htree-row" data-change="1" style="--level:3"><span class="htree-tag">H6</span><strong class="htree-text">Our Values</strong><span class="htree-desc">（英文眉標）</span><span class="htree-action">→ 改成一般文字</span></div>
+<div class="htree-row" style="--level:1"><span class="htree-tag">H2</span><strong class="htree-text">三大價值</strong><span class="htree-action htree-action--keep">維持</span></div>
+<div class="htree-row" data-change="1" style="--level:2"><span class="htree-tag htree-tag--none">非標題</span><strong class="htree-text">多元共融 Diversity &amp; Inclusion</strong><span class="htree-desc">（完整說明卡，目前是 &lt;strong&gt; 一般文字，資訊量最多但沒有標題可跳）</span><span class="htree-action">→ 改成 H3</span></div>
+<div class="htree-row" data-change="1" style="--level:2"><span class="htree-tag htree-tag--none">非標題</span><strong class="htree-text">以人為本 Human-Centered</strong><span class="htree-desc">（完整說明卡）</span><span class="htree-action">→ 改成 H3</span></div>
+<div class="htree-row" data-change="1" style="--level:2"><span class="htree-tag htree-tag--none">非標題</span><strong class="htree-text">科技創新 Tech Innovation</strong><span class="htree-desc">（完整說明卡）</span><span class="htree-action">→ 改成 H3</span></div>
+<div class="htree-row" data-change="1" style="--level:3"><span class="htree-tag">H6</span><strong class="htree-text">Our Milestones</strong><span class="htree-desc">（英文眉標）</span><span class="htree-action">→ 改成一般文字</span></div>
+<div class="htree-row" style="--level:1"><span class="htree-tag">H2</span><strong class="htree-text">協會大事記</strong><span class="htree-action htree-action--keep">維持</span></div>
+<div class="htree-row" data-change="1" style="--level:2"><span class="htree-tag">H5</span><strong class="htree-text">2024 / Apr ⋯ 2026 / Sep</strong><span class="htree-desc">（六個日期）</span><span class="htree-action">→ 改成 H3</span></div>
+<div class="htree-row" data-change="1" style="--level:3"><span class="htree-tag">H6</span><strong class="htree-text">What We Do</strong><span class="htree-desc">（英文眉標）</span><span class="htree-action">→ 改成一般文字</span></div>
+<div class="htree-row" style="--level:1"><span class="htree-tag">H2</span><strong class="htree-text">我們創造什麼連結</strong><span class="htree-action htree-action--keep">維持</span></div>
+<div class="htree-row" data-change="1" style="--level:2"><span class="htree-tag">H5</span><strong class="htree-text">跨界對話⋯</strong><span class="htree-desc">（三張卡片）</span><span class="htree-action">→ 改成 H3</span></div>
+<div class="htree-row" data-change="1" style="--level:3"><span class="htree-tag">H6</span><strong class="htree-text">Areas of Focus</strong><span class="htree-desc">（英文眉標）</span><span class="htree-action">→ 改成一般文字</span></div>
+<div class="htree-row" style="--level:1"><span class="htree-tag">H2</span><strong class="htree-text">我們關注的議題</strong><span class="htree-action htree-action--keep">維持</span></div>
+<div class="htree-row" data-change="1" style="--level:2"><span class="htree-tag">H5</span><strong class="htree-text">數位無障礙⋯</strong><span class="htree-desc">（四張卡片）</span><span class="htree-action">→ 改成 H3</span></div>
+<div class="htree-row" data-change="1" style="--level:3"><span class="htree-tag">H6</span><strong class="htree-text">JOIN US</strong><span class="htree-desc">（英文眉標）</span><span class="htree-action">→ 改成一般文字</span></div>
+<div class="htree-row" style="--level:1"><span class="htree-tag">H2</span><strong class="htree-text">加入我們的行列</strong><span class="htree-action htree-action--keep">維持</span></div>
+<div class="htree-row" style="--level:1"><span class="htree-tag">H2</span><strong class="htree-text">社群媒體 SOCIALS</strong><span class="htree-action htree-action--keep">維持（視版面也可改 H3）</span></div>
+</div>
+
+<p class="htree-label">修改後（目標結構）</p>
+<div class="htree">
+<div class="htree-row" style="--level:0"><span class="htree-tag">H1</span><strong class="htree-text">亞太包容創新協會</strong></div>
+<div class="htree-row" style="--level:1"><span class="htree-tag">H2</span><strong class="htree-text">三大價值</strong></div>
+<div class="htree-row" style="--level:2"><span class="htree-tag">H3</span><strong class="htree-text">多元共融</strong></div>
+<div class="htree-row" style="--level:2"><span class="htree-tag">H3</span><strong class="htree-text">以人為本</strong></div>
+<div class="htree-row" style="--level:2"><span class="htree-tag">H3</span><strong class="htree-text">科技創新</strong></div>
+<div class="htree-row" style="--level:1"><span class="htree-tag">H2</span><strong class="htree-text">關於我們</strong></div>
+<div class="htree-row" style="--level:1"><span class="htree-tag">H2</span><strong class="htree-text">協會大事記</strong></div>
+<div class="htree-row" style="--level:2"><span class="htree-tag">H3</span><strong class="htree-text">2024 / Apr ⋯ 2026 / Sep</strong><span class="htree-desc">（六個日期）</span></div>
+<div class="htree-row" style="--level:1"><span class="htree-tag">H2</span><strong class="htree-text">我們創造什麼連結</strong></div>
+<div class="htree-row" style="--level:2"><span class="htree-tag">H3</span><strong class="htree-text">跨界對話、國際接軌、從理念到落地</strong></div>
+<div class="htree-row" style="--level:1"><span class="htree-tag">H2</span><strong class="htree-text">我們關注的議題</strong></div>
+<div class="htree-row" style="--level:2"><span class="htree-tag">H3</span><strong class="htree-text">數位無障礙、包容性設計、國際標準、齡共融科技</strong></div>
+<div class="htree-row" style="--level:1"><span class="htree-tag">H2</span><strong class="htree-text">加入我們的行列</strong></div>
+<div class="htree-row" style="--level:1"><span class="htree-tag">H2</span><strong class="htree-text">社群媒體 Socials</strong></div>
+</div>
+<p class="wcag-tag" style="margin-top:.5rem">About Us 等英文眉標保留在畫面上，但已是一般文字，不在標題階層內；「多元共融」等三個標籤修改後只在「三大價值」底下出現一次（H3），主視覺那組摘要卡的同名文字保留在畫面上但不再是標題，不會有兩組同名標題並存的問題。</p>
+</dd>
+<dt>通用解法</dt>
+<dd>
+<p>標題只用來表達文件結構，一層一層來；純裝飾的小字用段落＋CSS，不要用 H5／H6 讓字變小。</p>
+</dd>
+</dl>
+<span class="wcag-tag">WCAG 1.3.1，嚴重</span>
+</article>
+
+<article class="finding required">
+<span class="tag tag-required">優先</span>
+<span class="tag tag-cat">對比</span>
+<label class="finding-done"><input type="checkbox"> 完成</label>
+<h3>4. 導覽列文字對比不足</h3>
+<dl class="fields">
+<dt>問題</dt>
+<dd>
+<p>選單文字顏色 <code>#4a5568</code> 配上背景 <code>#e4bc54</code>，對比約 4.16:1，略低於一般文字建議的 4.5:1，可以微調一下。</p>
+<p>補充一點可能有幫助的背景，讓調整少走冤枉路：這段是一般文字（17px、正常字重），適用的是 4.5:1，而不是大文字較寬鬆的 3:1。有兩個地方容易誤會——對比值只由顏色決定，把字加粗並不會改變 4.16 這個數字；而要套用大文字的 3:1，粗體時字級需要到 19px 以上，目前 17px 即使加粗仍差一點。所以比較穩妥的方向會是調整顏色，而不是加粗。</p>
+<figure class="finding-shot">
+<img src="finding-05-nav-contrast-location.png" alt="頁首金黃色列右側，網站名稱「亞太包容創新協會」以連結顯示，文字顏色偏灰藍，已用粉紅框標示位置">
+<figcaption>位置：頁首金黃色列右側的站名連結。左側 logo 旁的深色文字是另一組樣式、對比沒問題；需要微調的是右側這組較小的選單文字。</figcaption>
+</figure>
+<figure class="finding-shot">
+<img src="finding-05-cca-measurement.png" alt="Colour Contrast Analyser 工具畫面，前景色 #4B5567、背景色 #E1BD5A，對比度 4.2:1，1.4.3 常規文本顯示失敗、加大文本顯示通過">
+<figcaption>用 Colour Contrast Analyser（CCA）獨立複測：取樣色碼 #4B5567／#E1BD5A，對比 4.2:1（跟 axe-core 讀到的 4.16:1 略有差異，屬取色器與瀏覽器 computed style 的正常誤差範圍）。CCA 顯示「常規文字未達 AA、加大文字合格」兩列——本頁這段是常規文字，適用未達的那一列。</figcaption>
+</figure>
+</dd>
+<dt>誰會被卡住</dt>
+<dd>
+<p>低視能、老花、色弱的使用者看不清楚。</p>
+<p>大太陽下用手機的每一個人都看不清楚。</p>
+</dd>
+<dt class="dt-kadence">Kadence 修法</dt>
+<dd><p>外觀 → 自訂 → Colors，把選單文字改深海藍 <code>#003B5C</code> 或墨黑 <code>#231815</code>（背景若是品牌暖陽金 <code>#F8B62D</code>，兩個組合分別是 6.58:1 與 9.66:1，都合格且都在品牌規範內）。</p></dd>
+<dt>通用解法</dt>
+<dd><p>文字對比至少 4.5:1；可直接取用品牌規範對比矩陣裡的合格組合。</p></dd>
+</dl>
+<span class="wcag-tag">WCAG 1.4.3，警告</span>
+</article>
+
+<article class="finding required">
+<span class="tag tag-required">優先</span>
+<span class="tag tag-cat">對比</span>
+<label class="finding-done"><input type="checkbox"> 完成</label>
+<h3>5. 按鈕文字對比不足</h3>
+<dl class="fields">
+<dt>問題</dt>
+<dd>
+<p>「了解志工機會」按鈕白字配 <code>#e8593a</code> 橘紅底，對比 3.54:1。而且 <code>#e8593a</code> 不在 AIA 品牌色票裡。</p>
+<p>這是一般文字（18px、正常字重），適用 4.5:1 門檻。3.54 離 4.5 頗遠，加粗也沒用（比值只看顏色，不會變）；就算加粗＋放大到 19px 走大文字的 3:1，也只剩 0.5 出頭的餘裕，很勉強。直接改成品牌 CTA 配色最穩。</p>
+</dd>
+<dt>誰會被卡住</dt>
+<dd>
+<p>跟第 4 項一樣，低視能、老花、色弱與強光下的使用者看不清楚。</p>
+<p>這是全頁唯一的行動按鈕，看不清楚的話，訪客就少了採取行動的入口。</p>
+</dd>
+<dt class="dt-kadence">Kadence 修法</dt>
+<dd><p>按鈕區塊改品牌 CTA 組合：暖陽金 <code>#F8B62D</code> 底＋墨黑 <code>#231815</code> 字（9.66:1）。</p></dd>
+<dt>如果一定要走橘紅色（色階參考）</dt>
+<dd>
+<p class="meta">（非技術讀者可略過本節：建議直接用上面的品牌暖陽金＋墨黑最穩、也最符合品牌；以下是「若品牌方堅持用橘紅色」時給工程師的色階參考。）</p>
+<p>橘紅色其實有兩條都能過 4.5:1 的路，中間有一段兩種字都不過的範圍要避開：</p>
+<ul>
+<li><strong>想保留明亮橘紅＋墨黑字</strong>：<code>#e8593a</code> 配墨黑字已有 4.88:1、直接過；若再往上加一階、把橘紅調淡一點（如 <code>#ea6648</code>），墨黑字餘裕更大（5.35:1）、視覺也更亮，會更保險。</li>
+<li><strong>想維持白字的按鈕感</strong>：把橘紅加深成磚紅色，深到 <code>#cd3918</code> 以下白字才會過。</li>
+<li><strong>避開中間段</strong>（如 <code>#e5441f</code>）：白字和墨黑字都差一點，兩邊都不到。</li>
+</ul>
+<div class="swtbl-wrap" role="region" aria-label="橘紅色階對比表">
+<table class="swtbl">
+<caption>橘紅色階：同一色系由亮到深，各配白字／墨黑字的對比（AA 一般文字門檻 4.5:1）</caption>
+<thead>
+<tr><th scope="col">底色</th><th scope="col">白字效果</th><th scope="col">白字對比</th><th scope="col">墨黑字效果</th><th scope="col">墨黑字對比</th><th scope="col">建議</th></tr>
+</thead>
+<tbody>
+<tr>
+<td><code>#ea6648</code><br>淡一階</td>
+<td><span class="sw" style="background:#ea6648;color:#fff">了解志工機會</span></td>
+<td class="sw-fail">3.2：✗ 未過</td>
+<td><span class="sw" style="background:#ea6648;color:#231815">了解志工機會</span></td>
+<td class="sw-pass">5.4：✓ 過</td>
+<td>墨黑字，餘裕比目前更大，推薦</td>
+</tr>
+<tr>
+<td><code>#e8593a</code><br>目前</td>
+<td><span class="sw" style="background:#e8593a;color:#fff">了解志工機會</span></td>
+<td class="sw-fail">3.5：✗ 未過</td>
+<td><span class="sw" style="background:#e8593a;color:#231815">了解志工機會</span></td>
+<td class="sw-pass">4.9：✓ 過</td>
+<td>保留此色，改用墨黑字</td>
+</tr>
+<tr>
+<td><code>#e5441f</code></td>
+<td><span class="sw" style="background:#e5441f;color:#fff">了解志工機會</span></td>
+<td class="sw-fail">4.1：✗ 未過</td>
+<td><span class="sw" style="background:#e5441f;color:#231815">了解志工機會</span></td>
+<td class="sw-fail">4.3：✗ 未過</td>
+<td>兩種字都差一點、都不過，避開</td>
+</tr>
+<tr>
+<td><code>#cd3918</code></td>
+<td><span class="sw" style="background:#cd3918;color:#fff">了解志工機會</span></td>
+<td class="sw-pass">5.0：✓ 過</td>
+<td><span class="sw" style="background:#cd3918;color:#231815">了解志工機會</span></td>
+<td class="sw-fail">3.5：✗ 未過</td>
+<td>白字，較深的磚紅</td>
+</tr>
+<tr>
+<td><code>#a42e13</code></td>
+<td><span class="sw" style="background:#a42e13;color:#fff">了解志工機會</span></td>
+<td class="sw-pass">7.1：✓✓ 過（AAA）</td>
+<td><span class="sw" style="background:#a42e13;color:#231815">了解志工機會</span></td>
+<td class="sw-fail">2.5：✗ 未過</td>
+<td>白字，最深、餘裕最大</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>提醒：這個橘紅不在 AIA 品牌色票裡，以上是「若堅持用橘紅」的合格選項；若沒有特別理由，回到品牌暖陽金＋墨黑（9.66:1）在品牌一致性與餘裕上都更好。</p>
+</dd>
+<dt>通用解法</dt>
+<dd><p>文字對比至少 4.5:1；可直接取用品牌規範對比矩陣裡的合格組合。</p></dd>
+</dl>
+<span class="wcag-tag">WCAG 1.4.3，警告</span>
+</article>
+
+<h2>預定要做（等條件到位再執行）</h2>
+
+<article class="finding planned">
+<span class="tag tag-planned">預定要做</span>
+<span class="tag tag-cat">鍵盤操作</span>
+<label class="finding-done"><input type="checkbox"> 完成</label>
+<h3>6. 人工鍵盤走查一輪</h3>
+<dl class="fields">
+<dt>問題</dt>
+<dd><p>焦點框（Tab 時顯示你在哪裡的外框）無法用工具可靠確認，需要人工測。原則上沒有「哪些重要、哪些不用」的分別——凡是滑鼠點得到的（連結、按鈕、輸入框），鍵盤都要 Tab 得到，而且每一個停下來的地方都要看得見焦點框。焦點框為什麼這麼重要，見文件後面的〈焦點框為什麼重要〉章節。</p></dd>
+<dt>這頁實際要走查的停留點</dt>
+<dd>
+<p>目前這頁可以 Tab 到的互動元素共 10 個，走查時每一個都該看到清楚的外框：</p>
+<ul>
+<li>「跳到主內容」skip link（Tab 第一下就會出現，本身也要看得見）</li>
+<li>頁首 logo 連結（桌面版與手機版各一個）</li>
+<li>導覽列的站名連結</li>
+<li>手機版漢堡選單的「開啟／關閉」按鈕</li>
+<li>頁尾三個社群連結（Facebook／X／Instagram）</li>
+</ul>
+<p>之後補齊的東西也要一起走查：志工按鈕改成真連結後（第 12 項）、導覽選單補上的項目（第 14 項）。</p>
+</dd>
+<dt>什麼時候做（觸發條件）</dt>
+<dd><p>等到會改變「哪些元素可聚焦、Tab 順序」的修正都到位後再做定版走查：具體是第 12 項（志工按鈕改成真連結）與第 14 項（導覽選單補項目），只有這兩項會新增可聚焦元素、改變順序。其他修正（對比、alt、標題、http）不影響鍵盤流程，不用等。焦點框可見性與順序是機器測不到的，所以這一步不會被自動化測試取代，只是排在結構改動穩定之後做才有實質意義。</p></dd>
+<dt class="dt-kadence">若走查發現問題</dt>
+<dd><p>這一項本身是測試步驟、不是要改的設定。但如果走查發現某些元素 Tab 過去看不到外框，通常是佈景或自訂 CSS 用了 <code>outline:none</code> 把預設外框拿掉了；補救方式是在「外觀 → 自訂 → 額外 CSS」為 <code>:focus-visible</code> 加一個明顯的外框，例如 <code>a:focus-visible,button:focus-visible{outline:3px solid #003B5C;outline-offset:2px}</code>。</p></dd>
+<dt>通用解法</dt>
+<dd><p>上線前拔掉滑鼠、只用鍵盤 Tab／Shift+Tab／Enter 走完整頁，確認每一個停留點都有看得見的外框，且順序合理。</p></dd>
+</dl>
+</article>
+
+<article class="finding planned">
+<span class="tag tag-planned">預定要做</span>
+<span class="tag tag-cat">替代文字</span>
+<label class="finding-done"><input type="checkbox"> 完成</label>
+<h3>7. 內容圖片缺少替代文字</h3>
+<dl class="fields">
+<dt>問題</dt>
+<dd>
+<p>首頁的內容照片幾乎都沒有可用的替代文字（alt），分兩種：</p>
+<p><strong>完全沒有 alt（兩個檔案）：</strong><code>fred-kloet-Cv7Y0v51zEo-unsplash.png</code>（用了兩處）與 <code>compagnons-EgwhIBec0Ck-unsplash.png</code>。螢幕閱讀器會唸「圖片」或整串檔名。</p>
+<p><strong>設成 <code>alt=""</code> 空值（另外七張）：</strong>主視覺插畫、人物與情境照被設成空的 alt，等於宣告「這是裝飾、跳過」，螢幕閱讀器會整張略過、完全不唸。自動檢測工具不會標（<code>alt=""</code> 語法合法），但它們其實是有意義的內容照，一樣要描述。</p>
+<p>合計九張內容圖片需要補描述性 alt；各圖建議的替代文字見另附的替代文字對照表（Excel，含縮圖）。</p>
+<p><strong>為什麼另外七個小圖示不用補 alt（屬裝飾性圖案）：</strong>三大價值與關注議題區的圖示（對應「多元共融」「以人為本」「科技創新」「數位無障礙」等）都緊挨著同名的文字標題——文字已經把意思說完，圖示只是視覺點綴。這種「圖示旁邊就有文字說明同樣意思」的情況，正確做法是設 <code>alt=""</code> 讓螢幕閱讀器跳過；否則會被唸兩次（例如「多元共融的圖示，多元共融」）。所以這七個維持 <code>alt=""</code> 是對的、不用動。判斷規則：<strong>圖示旁有文字說明同義 → 屬裝飾、設 <code>alt=""</code>；圖示單獨出現、旁邊沒有文字 → 不是裝飾、要補 alt。</strong>（頁首 logo 連結另見第 2 項。）</p>
+</dd>
+<dt>什麼時候做（觸發條件）</dt>
+<dd><p><strong>觸發條件：需在能登入 staging 網站的狀態下才能執行。</strong>替代文字要在能登入 staging 的狀態下，逐張填進 WordPress 各圖的替代文字欄。這一項嚴重度是「嚴重」等級（見下方 WCAG），只是執行時機卡在登入權限，所以列在「預定要做」而非「優先」。</p></dd>
+<dt>誰會被卡住</dt>
+<dd>
+<p>視障者：沒有 alt 只聽到「圖片」；設成 <code>alt=""</code> 的更嚴重，整張被跳過，連有這張圖都不知道。</p>
+<p>網路慢或圖片掛掉時，所有人只看到空白框。</p>
+<p>搜尋引擎與 AI 也讀不到圖的內容。</p>
+</dd>
+<dt class="dt-kadence">Kadence 修法</dt>
+<dd>
+<p>在 Kadence 的 Builder（頁面編輯器）裡：選取該圖片區塊，右側設定欄有「替代文字（Alt Text）」欄位，填入後立即生效。逐張把對照表裡的中文 alt 填進去；原本 <code>alt=""</code> 的那幾張，把空值改成描述文字即可。</p>
+<p>媒體庫的「替代文字」欄位也建議一併填：它會自動帶入之後新插入的圖，但不會回頭更新已放進頁面的區塊，所以已在頁面上的這幾張以 Builder 裡的設定為準。</p>
+</dd>
+<dt>通用解法</dt>
+<dd>
+<p>有意義的圖寫描述性 alt；純裝飾的圖才寫 <code>alt=""</code>（空值，讓閱讀器跳過）。判斷標準是「這張圖有沒有傳達內容」，不是「工具有沒有標」。</p>
+<p>替代文字綁定當下那張圖：<strong>日後若更換或替換照片，alt 要跟著重寫</strong>，不能沿用舊描述。</p>
+<p>補充（非違規，順手做就好）：這幾張圖還是 Unsplash 的原始檔名，日後替換或新增圖片時可順手改成描述性檔名（對圖片搜尋與媒體庫管理有幫助），照片類也可考慮用 JPEG 或 WebP 取代 PNG，檔案小很多。</p>
+</dd>
+</dl>
+<span class="wcag-tag">WCAG 1.1.1，嚴重</span>
+</article>
+
+<h2>建議（改了更好）</h2>
+
+<article class="finding suggested">
+<span class="tag tag-suggested">建議</span>
+<span class="tag tag-cat">圖示文字</span>
+<label class="finding-done"><input type="checkbox"> 完成</label>
+<h3>8. 社群圖示旁加文字</h3>
+<dl class="fields">
+<dt>問題</dt>
+<dd><p>三個社群連結只有圖示，沒有看得見的文字。</p></dd>
+<dt>誰會被卡住</dt>
+<dd><p>不認得圖示的人，例如很多人還不認得 X 的新 logo；認知障礙使用者更需要文字確認那是什麼。（螢幕閱讀器沒問題，<code>aria-label</code> 已存在。）</p></dd>
+<dt class="dt-kadence">Kadence 修法</dt>
+<dd><p>Footer social 元件的設定裡，每個社群項目本來就有標籤（label）欄位，開啟「顯示標籤」即可；官方文件顯示 footer 元件免費版與 Pro 的差異只有深色模式切換，此開關應為免費功能。若你們的版本找不到這個開關，保底做法：在社群圖示旁加一個文字區塊寫上平台名稱，效果相同。</p></dd>
+<dt>通用解法</dt>
+<dd><p>圖示＋文字並列是對所有人最保險的做法。</p></dd>
+</dl>
+</article>
+
+<article class="finding suggested">
+<span class="tag tag-suggested">建議</span>
+<span class="tag tag-cat">觸控目標</span>
+<label class="finding-done"><input type="checkbox"> 完成</label>
+<h3>9. 社群圖示可點範圍加大</h3>
+<dl class="fields">
+<dt>問題</dt>
+<dd><p>可點範圍實測 34×34px，過了標準最低門檻 24×24，但低於 Apple 與 Google 行動準則的 44×44。圖示本體只有 17×17px，偏小。</p></dd>
+<dt>誰會被卡住</dt>
+<dd><p>手抖的人（年長者、帕金森氏症患者）、手指較粗的人、走路中單手滑手機的每一個人，都容易點歪。</p></dd>
+<dt class="dt-kadence">Kadence 修法</dt>
+<dd><p>Customizer 的 social 圖示尺寸調大；或用免費版內建的「外觀 → 自訂 → 額外 CSS」加：<code>.footer-social-item{padding:5px; min-width:44px; min-height:44px}</code>。</p></dd>
+<dt>通用解法</dt>
+<dd><p>觸控目標至少 44×44px。</p></dd>
+</dl>
+<span class="wcag-tag">WCAG 2.5.8 已過、2.5.5 AAA 未達</span>
+</article>
+
+<article class="finding suggested">
+<span class="tag tag-suggested">建議</span>
+<span class="tag tag-cat">備援底色</span>
+<label class="finding-done"><input type="checkbox"> 完成</label>
+<h3>10. 主視覺與三大價值區可補一個備援底色</h3>
+<dl class="fields">
+<dt>問題</dt>
+<dd><p>主視覺與三大價值區的文字是純白 <code>#ffffff</code>，疊在深色背景圖上；這兩區只設了背景圖、沒有純色備援底色。多數情況沒有影響，但背景圖若沒畫出來，白字會疊在白底上看不見。實際上正常網速下圖片零點幾秒就載完、幾乎察覺不到；唯一每次必然發生的是列印或另存 PDF（瀏覽器預設不印背景圖），此時這些文字會看不見。（附帶一提：用 WAVE 關掉樣式檢視時也會看到這區塊變白，但那是工具的檢視模式，不是真實問題。）</p></dd>
+<dt class="dt-kadence">Kadence 修法</dt>
+<dd><p>在 Kadence 編輯該區塊（Row Layout）的 Background 設定裡，除了背景圖，另外把背景顏色設成品牌深海藍 <code>#003B5C</code>；或用「外觀 → 自訂 → 額外 CSS」加 <code>background-color:#003B5C;</code>。一行設定、零風險，有圖時看不出差別，沒圖時就靠這個底色撐住白字。</p></dd>
+<dt>通用解法</dt>
+<dd><p>文字疊在背景圖上時，同一個元素順手補一個對比足夠的純色備援底色。</p></dd>
+</dl>
+</article>
+
+<h2>暫緩（先列作記錄，後續修正）</h2>
+
+<article class="finding deferred">
+<span class="tag tag-deferred">暫緩</span>
+<span class="tag tag-cat">連結目標</span>
+<label class="finding-done"><input type="checkbox"> 完成</label>
+<h3>11. 頁尾社群連結是空的</h3>
+<p>Facebook、X、Instagram 三個圖示的連結是空的，點了只會重新載入本頁（訪客會以為網站壞了）。社群帳號建好後填入真實網址即可，還沒申請的可先隱藏圖示。先列作記錄。</p>
+<span class="wcag-tag">WCAG 2.4.4，連結目的（建議級）</span>
+</article>
+
+<article class="finding deferred">
+<span class="tag tag-deferred">暫緩</span>
+<span class="tag tag-cat">鍵盤操作</span>
+<label class="finding-done"><input type="checkbox"> 完成</label>
+<h3>12. 「了解志工機會」按鈕不能按</h3>
+<p>按鈕沒設連結、輸出成不能操作的 <code>span</code>，鍵盤與螢幕閱讀器使用者都用不到。志工頁建好、按鈕接上真實連結後就會恢復正常。先列作記錄。</p>
+<span class="wcag-tag">WCAG 2.1.1，嚴重；等志工頁建立</span>
+</article>
+
+<article class="finding deferred">
+<span class="tag tag-deferred">暫緩</span>
+<span class="tag tag-cat">頁面標題</span>
+<label class="finding-done"><input type="checkbox"> 完成</label>
+<h3>13. 網頁沒有標題（上 staging／正式站時設定）</h3>
+<p>分頁標題（title）是空的，分頁上顯示的是網域名；螢幕閱讀器進頁、書籤、搜尋結果也都拿不到頁名。上 staging 或正式站時，在後台「設定 → 一般 → 網站標題」填入名稱即可（順手把 site icon 一起設，目前還是 WordPress 預設的 W）。先列作記錄。</p>
+<span class="wcag-tag">WCAG 2.4.2，嚴重</span>
+</article>
+
+<article class="finding deferred">
+<span class="tag tag-deferred">暫緩</span>
+<span class="tag tag-cat">導覽選單</span>
+<label class="finding-done"><input type="checkbox"> 完成</label>
+<h3>14. 主要導覽選單尚未串接頁面</h3>
+<p>這點不是原本測試流程裡列出的項目，是實際操作時順帶記錄的。頁首導覽目前只有一項「亞太包容創新協會」、連結指向首頁自己，手機版漢堡選單展開也只有這一項。大概率是其他頁面還沒建好；等頁面陸續上線後把它們加進導覽即可。先列作記錄，不細寫解法。</p>
+</article>
+
+<article class="finding deferred">
+<span class="tag tag-deferred">暫緩</span>
+<span class="tag tag-cat">圖片協定</span>
+<label class="finding-done"><input type="checkbox"> 完成</label>
+<h3>15. 圖片網址是 http（第一次搬站時一併處理）</h3>
+<p>21 張圖片裡 19 張的 <code>src</code> 是 <code>http://</code>（Chrome 會自動升級，現況影響很低）。目前 <code>aia.tinyoakstudio.com</code> 是開發者的臨時測試站，之後會搬到 staging、再到正式網域。<strong>重點：第一次搬站做全站搜尋取代時，把 <code>http://…</code> 連協定一起換成 <code>https://…</code>、不要只換網域名</strong>，這樣一次修對、後續搬站就不必重來。先列作記錄。</p>
+</article>
+
+<h2>焦點框為什麼重要</h2>
+<p class="meta">（這一段是留存記錄、並給非技術讀者參考用：說明為什麼「那圈外框」不能因為「不好看」就拿掉。工程師與設計師對焦點框已熟悉，可略過。）</p>
+<p>焦點框（focus indicator）就是用鍵盤 Tab 移動時，套在目前所在連結或按鈕外圍的那一圈外框。它常被當成「不好看」而被移除，但對某些人來說，它是唯一能知道「我現在在哪裡」的線索。</p>
+<figure class="fdemo-fig">
+<figcaption>範例：焦點框長這樣</figcaption>
+<div class="fdemo">
+<div class="fdemo-item">
+<span class="fdemo-btn on">了解志工機會</span>
+<p class="fdemo-cap good">✓ 有焦點框：一眼看到游標停在這顆按鈕上。</p>
+</div>
+<div class="fdemo-item">
+<span class="fdemo-btn">了解志工機會</span>
+<p class="fdemo-cap bad">✗ 沒有焦點框：完全看不出停在哪。</p>
+</div>
+</div>
+</figure>
+<div class="note">
+<p><strong>誰靠它操作：</strong>用不了滑鼠、只能靠鍵盤的人（手部或動作障礙、使用切換式輔具的人）；螢幕放大鏡使用者（畫面只看得到一小塊，靠焦點框確認位置）；還有滑鼠剛好壞掉、或習慣用鍵盤的一般使用者。對他們來說，焦點框等於滑鼠的游標。</p>
+<p><strong>沒有它會怎樣：</strong>Tab 過去卻看不到外框，等於閉著眼睛操作——不知道游標停在哪、不知道按 Enter 會觸發什麼，只能亂猜。有焦點框，這些人就能順順地一站一站走完整頁。</p>
+</div>
+<p>工程師備註（實作重點，非技術讀者可略過）：</p>
+<ul>
+<li>不要用 <code>outline:none</code> 把外框拿掉卻不補回來；要移除預設樣式，就用 <code>:focus-visible</code> 換一個更清楚的外框。</li>
+<li>外框本身也要有足夠對比（跟背景至少 3:1），不能細到看不見。</li>
+<li>焦點框不該被固定頁首、彈窗等蓋住（WCAG 2.4.11 焦點不被遮擋）。</li>
+</ul>
+<p class="wcag-tag">對應 WCAG 2.4.7 焦點可見（AA）、2.4.11 焦點不被遮擋（2.2 AA）、2.4.13 焦點外觀（AAA）。這不只是無障礙規範——任何人在滑鼠失靈時都會需要它。</p>
+
+<p class="meta">附帶一提（非無障礙、給工程師／SEO，非技術讀者可略過）：首頁缺 meta description（搜尋結果摘要）與 JSON-LD 結構化資料，屬 SEO／AEO 範疇、不是無障礙問題；可在上線、拿掉 noindex 時用 SEO 外掛（如 Rank Math／Yoast）一併補上。</p>
+
+<h2>測過且通過的項目</h2>
+<p class="meta">以下項目已測試確認沒問題，可以放心跳過。</p>
+<ul class="pass-list">
+<li>手機小螢幕不會出現橫向捲動、版面會正確縮排</li>
+<li>使用者可以自由放大頁面（縮放沒有被鎖定）</li>
+<li>有「跳到主內容」的快速鍵，目標存在</li>
+<li>沒有自動播放的影音、沒有會閃爍的內容</li>
+<li>鍵盤不會卡住、操作順序正常</li>
+<li>動畫有部分支援「減少動態」的系統偏好</li>
+<li>版面載入穩定、不會跳動</li>
+<li>連結文字（logo 除外）都看得出用途</li>
+<li>頁面唯一的表單（密碼表單）有正確標籤</li>
+</ul>
+<p class="meta">工程師備註：viewport、skip link、tabindex、canonical、robots.txt、CLS 等項目也已一併確認。</p>
+
+</main>
+<script>
+/* 大綱與卡片的「完成」勾選連動（僅瀏覽器有效；PDF 不跑 JS，靜態各自獨立，不影響列印）。 */
+(function () {
+  var toc = document.querySelectorAll('.toc-chk input[type="checkbox"]');
+  var card = document.querySelectorAll('.finding-done input[type="checkbox"]');
+  if (toc.length === 0 || toc.length !== card.length) return;
+  for (var i = 0; i < toc.length; i++) {
+    (function (t, c) {
+      t.addEventListener('change', function () { c.checked = t.checked; });
+      c.addEventListener('change', function () { t.checked = c.checked; });
+    })(toc[i], card[i]);
+  }
+})();
+</script>
+</body>
+</html>

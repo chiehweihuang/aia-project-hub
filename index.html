@@ -30,6 +30,7 @@
     --claire: #0a7c3e;
     --becky: #19abe4;
     --bertram: #c0392b;
+    --font-ui: Inter, Arial, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Noto Sans JP", "Yu Gothic", sans-serif;
   }
   [data-theme="dark"] {
     --primary: #63c5f1;
@@ -80,7 +81,7 @@
 
   * { margin:0; padding:0; box-sizing:border-box; }
   body {
-    font-family: 'Noto Sans TC', 'Inter', sans-serif;
+    font-family: var(--font-ui);
     background: var(--bg);
     color: var(--text);
     line-height: 1.7;
@@ -91,7 +92,7 @@
     position: absolute; top: -40px; left: 0;
     background: var(--golden); color: var(--navy);
     padding: 8px 16px; z-index: 10000;
-    font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;
+    font-family: var(--font-ui); font-size: 13px; font-weight: 600;
     text-decoration: none; letter-spacing: 0.5px;
   }
   .skip-link:focus { top: 0; }
@@ -115,13 +116,13 @@
     box-shadow: 0 20px 60px rgba(0,0,0,.3);
   }
   .gate-box .gate-title {
-    font-family: 'Noto Serif TC', serif;
+    font-family: var(--font-ui);
     font-size: 24px; font-weight: 700;
     color: var(--navy); letter-spacing: 3px;
     margin-bottom: 4px;
   }
   .gate-box .gate-subtitle {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-ui);
     font-size: 11px; font-weight: 400;
     color: var(--sky); letter-spacing: 3px;
     text-transform: uppercase;
@@ -131,13 +132,13 @@
   .gate-box label {
     display: block; font-size: 12px; font-weight: 500;
     letter-spacing: 1px; margin-bottom: 6px; text-align: left;
-    font-family: 'Inter', sans-serif; color: var(--muted);
+    font-family: var(--font-ui); color: var(--muted);
   }
   .gate-box input {
     width: 100%; padding: 12px 16px;
     border: 2px solid var(--border); border-radius: 8px;
     font-size: 16px; text-align: center; letter-spacing: 2px;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-ui);
     outline: none; transition: .2s;
   }
   .gate-box input:focus { border-color: var(--sky); }
@@ -147,7 +148,7 @@
     background: #003b5c;
     color: #fff; border: none; border-radius: 8px;
     font-size: 15px; font-weight: 500; cursor: pointer;
-    font-family: 'Inter', sans-serif; letter-spacing: 1px;
+    font-family: var(--font-ui); letter-spacing: 1px;
     transition: .2s;
   }
   .gate-box button:hover { opacity: .9; }
@@ -167,14 +168,14 @@
     box-shadow: 0 2px 12px rgba(0,59,92,.25);
   }
   .topnav h1 {
-    font-family: 'Noto Serif TC', serif;
+    font-family: var(--font-ui);
     color: #fff; font-size: 17px; font-weight: 700;
     letter-spacing: 3px; margin-right: auto; white-space: nowrap;
   }
   .topnav button {
     background: rgba(255,255,255,.12); color: #fff; border: none;
     padding: 7px 14px; border-radius: 6px; cursor: pointer;
-    font-family: 'Inter', 'Noto Sans TC', sans-serif;
+    font-family: var(--font-ui);
     font-size: 12px; font-weight: 500; letter-spacing: 0.5px;
     transition: .2s;
   }
@@ -202,13 +203,13 @@
     border-bottom: 1px solid var(--border);
   }
   .section-heading h2 {
-    font-family: 'Noto Serif TC', serif;
+    font-family: var(--font-ui);
     font-weight: 600; font-size: 22px;
     color: var(--primary); letter-spacing: 3px;
     margin-bottom: 2px;
   }
   .section-heading .section-en {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-ui);
     font-weight: 400; font-size: 11px;
     color: var(--sky); letter-spacing: 3px;
     text-transform: uppercase;
@@ -219,19 +220,18 @@
     background: var(--card); border-radius: 12px;
     padding: 24px; margin-bottom: 20px;
     box-shadow: 0 1px 4px rgba(0,0,0,.06);
-    border: 1px solid var(--border);
-    border-left: 4px solid var(--sky);
+    border: 2px solid var(--sky);
     transition: transform .15s, box-shadow .15s, border-color .15s;
   }
   .card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,.1), 0 0 0 3px var(--sky); border-color: var(--sky); }
   .card h2 {
-    font-family: 'Noto Serif TC', serif;
+    font-family: var(--font-ui);
     font-size: 18px; font-weight: 600;
     margin-bottom: 12px; color: var(--primary);
     letter-spacing: 1px;
   }
   .card h3 {
-    font-family: 'Noto Sans TC', sans-serif;
+    font-family: var(--font-ui);
     font-size: 15px; font-weight: 700;
     margin: 14px 0 8px; color: var(--secondary);
   }
@@ -239,8 +239,8 @@
   .card ul { padding-left: 20px; margin-bottom: 8px; }
   .card li { margin-bottom: 5px; font-size: 14px; line-height: 1.7; }
   .card li.done { text-decoration: line-through; color: var(--muted); }
-  .card li.done .done-date { text-decoration: none; font-size: 11px; color: var(--success); margin-left: 6px; font-family: 'Inter', sans-serif; }
-  .card.archived { opacity: .6; border-left-color: var(--border); }
+  .card li.done .done-date { text-decoration: none; font-size: 11px; color: var(--success); margin-left: 6px; font-family: var(--font-ui); }
+  .card.archived { opacity: .6; border-color: var(--border); }
   .card.archived h2 { color: var(--muted); }
   .phase-badge { display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; margin-bottom: 8px; }
   .phase-done { background: rgba(10,124,62,.1); color: var(--success); }
@@ -255,7 +255,7 @@
   }
   .mou-alert:hover, .alert-box:hover { box-shadow: 0 4px 16px rgba(10,124,62,.15), 0 0 0 3px var(--sky); border-color: var(--sky); }
   .mou-alert h2, .alert-box h2 {
-    font-family: 'Noto Serif TC', serif;
+    font-family: var(--font-ui);
     color: var(--navy); margin-bottom: 8px;
     font-size: 20px; font-weight: 700; letter-spacing: 2px;
   }
@@ -273,12 +273,12 @@
     padding: 14px 20px; background: var(--navy); color: #fff;
     cursor: pointer; display: flex; justify-content: space-between;
     align-items: center; user-select: none;
-    font-family: 'Noto Sans TC', sans-serif;
+    font-family: var(--font-ui);
   }
   .checklist-header:hover { background: #0c4e6e; }
   .checklist-header h3 { font-size: 15px; font-weight: 600; letter-spacing: 1px; }
   .checklist-header .progress-info {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-ui);
     font-size: 12px; opacity: .9;
     display: flex; align-items: center; gap: 8px;
   }
@@ -321,7 +321,7 @@
   .check-detail { font-size: 13px; color: var(--muted); line-height: 1.6; }
   .check-owner {
     display: inline-block; padding: 2px 8px; border-radius: 4px;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-ui);
     font-size: 11px; font-weight: 600; margin-top: 6px;
   }
   .owner-christina { background: rgba(123,97,193,.1); color: var(--christina); }
@@ -334,7 +334,7 @@
   .asset-table th {
     background: var(--navy); color: #fff;
     padding: 10px 14px; text-align: left;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-ui);
     font-size: 12px; font-weight: 500; letter-spacing: 1px;
   }
   .asset-table td {
@@ -344,7 +344,7 @@
   .asset-table tr:hover { background: rgba(25,171,228,.08); }
   .status-tag {
     display: inline-block; padding: 2px 8px; border-radius: 4px;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-ui);
     font-size: 11px; font-weight: 600;
   }
   .status-need { background: #fde8e8; color: #a91e1e; }
@@ -416,11 +416,11 @@
   }
   .download-icon { font-size: 32px; flex-shrink: 0; }
   .download-info h4 {
-    font-family: 'Noto Sans TC', sans-serif;
+    font-family: var(--font-ui);
     font-size: 14px; font-weight: 700; margin-bottom: 3px;
   }
   .download-info p {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-ui);
     font-size: 12px; color: var(--muted);
   }
 
@@ -428,9 +428,9 @@
   @media (max-width:768px) {
     .topnav { padding: 10px 12px 0; flex-wrap: wrap; gap: 4px; }
     .topnav h1 { font-size: 14px; letter-spacing: 1px; flex: 0 0 100%; margin-right: 0; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,.2); margin-bottom: 0; }
-    .nav-btns { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; flex-wrap: nowrap; padding-bottom: 10px; scrollbar-width: none; }
-    .nav-btns::-webkit-scrollbar { display: none; }
-    .topnav button { font-size: 11px; padding: 6px 10px; white-space: nowrap; flex-shrink: 0; }
+    .nav-btns { width: 100%; overflow: visible; flex-wrap: wrap; padding-bottom: 10px; }
+    .topnav button { flex: 1 1 auto; min-width: 0; padding: 6px 10px; font-size: 11px; white-space: normal; }
+    .topnav #theme-btn { margin-left: 0 !important; }
     .section { padding: 16px 12px; }
     .card { padding: 16px; }
     .section-heading h2 { font-size: 18px; }
@@ -497,7 +497,7 @@
   </div>
 
   <!-- 目前階段 -->
-  <div class="card" style="border-left-color: var(--secondary);">
+  <div class="card" style="border-color: var(--secondary);">
     <span class="phase-badge phase-active">進行中</span>
     <h2>目前：內容整理 + Wireframe 回饋</h2>
     <p style="font-size:13px;">Christina 已提供 Wireframe，團隊需根據版面結構填入對應的文案、圖片、連結。</p>
@@ -517,7 +517,7 @@
   </div>
 
   <!-- Schneider -->
-  <div class="card archived" style="border-left-color: var(--schneider);">
+  <div class="card archived" style="border-color: var(--schneider);">
     <h2 style="color:var(--schneider);">Schneider &mdash; 品牌 / 素材設計師</h2>
     <ul>
       <li><strong>Logo SVG 導出</strong> &mdash; 中文版 + 英文版 &times; 淺底 + 深底，共 4 個 SVG 檔 + Favicon</li>
@@ -527,7 +527,7 @@
   </div>
 
   <!-- Claire -->
-  <div class="card" style="border-left-color: var(--claire);">
+  <div class="card" style="border-color: var(--claire);">
     <h2 style="color:var(--claire);">Claire &mdash; Content Owner</h2>
     <ul>
       <li><strong>內容盤點 + 標題層級規劃</strong> &mdash; 根據 Wireframe 整理資訊架構</li>
@@ -538,7 +538,7 @@
   </div>
 
   <!-- Becky -->
-  <div class="card" style="border-left-color: var(--becky);">
+  <div class="card" style="border-color: var(--becky);">
     <h2 style="color:var(--becky);">Solomon（主導）、Becky（協助）&mdash; 無障礙測試</h2>
     <ul>
       <li><strong>測試工具安裝</strong> &mdash; axe DevTools、Colour Contrast Analyser、HeadingsMap、Landmarks 擴充</li>
@@ -548,7 +548,7 @@
   </div>
 
   <!-- Bertram -->
-  <div class="card" style="border-left-color: var(--bertram);">
+  <div class="card" style="border-color: var(--bertram);">
     <h2 style="color:var(--bertram);">Bertram &mdash; 專案經理</h2>
     <ul>
       <li class="done"><strong>Brand Style Guide 建立</strong> &mdash; 色彩、字型、Logo 使用規範（HTML 格式）<span class="done-date">2026-04-16</span></li>
@@ -563,7 +563,7 @@
   </div>
 
   <!-- Christina -->
-  <div class="card" style="border-left-color: var(--christina);">
+  <div class="card" style="border-color: var(--christina);">
     <h2 style="color:var(--christina);">Christina &mdash; 網站設計師（Critical Path）</h2>
     <ul>
       <li class="done">Wireframe 提供給團隊<span class="done-date">已交付</span></li>
@@ -590,7 +590,7 @@
   </div>
 
   <!-- Kick-off Meeting Agenda -->
-  <div class="card" style="border-left-color: var(--christina);">
+  <div class="card" style="border-color: var(--christina);">
     <h2>Kick-off Meeting Agenda（與 Christina）</h2>
     <p style="font-size:13px; color:var(--muted); margin-bottom:16px;">啟動會議待確認事項。會議前請所有人先看過本頁內容。</p>
 
@@ -645,7 +645,7 @@
     <div class="section-en">Project Specifications</div>
   </div>
 
-  <div class="card" style="border-left-color: var(--golden);">
+  <div class="card" style="border-color: var(--golden);">
     <h2>專案規範確認清單</h2>
     <p>Phase 1 專案執行規範，供團隊逐項確認。勾選狀態會儲存在瀏覽器中。</p>
   </div>
@@ -723,7 +723,7 @@
     <p>最後更新：2026-04-16 | 來源：Web_Assets 資料夾實際盤點</p>
   </div>
 
-  <div class="card" style="border-left-color: var(--success);">
+  <div class="card" style="border-color: var(--success);">
     <h3>A. 設計啟動前必備</h3>
     <table class="asset-table">
       <thead><tr><th>素材</th><th>規格</th><th>現況</th><th>狀態</th></tr></thead>
@@ -737,7 +737,7 @@
     </table>
   </div>
 
-  <div class="card" style="border-left-color: var(--golden);">
+  <div class="card" style="border-color: var(--golden);">
     <h3>B. 設計過程中分批交付</h3>
     <table class="asset-table">
       <thead><tr><th>素材</th><th>規格</th><th>現況</th><th>狀態</th></tr></thead>
@@ -750,7 +750,7 @@
     </table>
   </div>
 
-  <div class="card" style="border-left-color: var(--sky);">
+  <div class="card" style="border-color: var(--sky);">
     <h3>Web_Assets 資料夾盤點</h3>
     <table class="asset-table">
       <thead><tr><th>資料夾</th><th>內容</th><th>網站用途</th><th>可用性</th></tr></thead>
@@ -783,19 +783,26 @@
     <div class="section-en">Project Documents</div>
   </div>
 
-  <h3 style="font-size:14px; color:var(--muted); margin-bottom:12px; letter-spacing:1px; font-family:'Inter',sans-serif;">網站平台決策（netiCRM vs 自組 vs 第三條路）</h3>
+  <h3 style="font-size:14px; color:var(--muted); margin-bottom:12px; letter-spacing:1px; font-family:var(--font-ui);">無障礙測試結果</h3>
   <div class="download-grid" style="margin-bottom:28px;">
-    <a class="download-card" href="pages/platform-decision.html" target="_blank" rel="noopener">
-      <div class="download-icon">&#128202;</div>
-      <div class="download-info"><h4>三條路徑頭對頭比較：買 / 組 / 寫</h4><p>給理事會 &mdash; 目錄＋分水嶺摘要先行，買（netiCRM）/ 組（WooCommerce＋付費外掛）/ 寫（自寫藍新串接）逐面向對照，含第一年／第二年現金、人力、無障礙實測、免費自組真相、藍新 vs 綠界金流對照；多輪 AI 分析 + codex 跨模型查證 + Lighthouse 實測。內含延伸：現況版（無工程師）／有常駐工程師版</p></div>
+    <a class="download-card featured" href="pages/accessibility-reviews/index.html" target="_blank" rel="noopener">
+      <div class="download-info"><h4>測試結果總覽<span class="download-badge">目前報告入口</span></h4><p>首頁、活動頁、講者／票券比較、Heading 對照、聯繫頁、測試證據與 7/3 歷史測試</p></div>
     </a>
-    <a class="download-card" href="pages/video-storyboard.html" target="_blank" rel="noopener">
-      <div class="download-icon">&#127909;</div>
-      <div class="download-info"><h4>說明影片分鏡（買 / 組 / 寫）</h4><p>16 場景影片腳本預覽（16:9、含字幕），供轉成附旁白的說明影片用。影片完成後此頁為製作腳本</p></div>
+    <a class="download-card" href="pages/accessibility-reviews/2026-07-30/homepage/homepage-0730-review.html" target="_blank" rel="noopener">
+      <div class="download-info"><h4>首頁檢查</h4><p>上線前 P0、Heading、裝飾圖片 alt、響應式 CSS、對比與語言設定</p></div>
+    </a>
+    <a class="download-card" href="pages/accessibility-reviews/2026-07-30/adals-events/event-page-0730-check.html" target="_blank" rel="noopener">
+      <div class="download-info"><h4>ADALS 活動頁檢查</h4><p>上線前修正順序、手機和平板欄數、Heading、頁面語言與對比</p></div>
+    </a>
+    <a class="download-card" href="pages/accessibility-reviews/2026-07-30/adals-events/speaker-responsive-comparison.html" target="_blank" rel="noopener">
+      <div class="download-info"><h4>講者與票券看圖比較</h4><p>各尺寸修改前後截圖、實際文字寬度與 Kadence Blocks 設定</p></div>
+    </a>
+    <a class="download-card" href="pages/accessibility-reviews/2026-07-30/contact/contact-page-0731-check.html" target="_blank" rel="noopener">
+      <div class="download-info"><h4>聯繫頁檢查</h4><p>表單欄位、H1、Focus、文字對比、社群連結與 staging 寄信驗證</p></div>
     </a>
   </div>
 
-  <h3 style="font-size:14px; color:var(--muted); margin-bottom:12px; letter-spacing:1px; font-family:'Inter',sans-serif;">設計稿 / Wireframes（目前 review 重點）</h3>
+  <h3 style="font-size:14px; color:var(--muted); margin-bottom:12px; letter-spacing:1px; font-family:var(--font-ui);">設計稿 / Wireframes（目前 review 重點）</h3>
   <div class="download-grid" style="margin-bottom:28px;">
     <a class="download-card featured" href="https://drive.google.com/file/d/1t2L2y5TJikP4tnAEHx-ikFrKOwDAg2Xd/view?usp=drive_link" target="_blank" rel="noopener">
       <div class="download-icon">&#128444;</div>
@@ -811,7 +818,7 @@
     </a>
   </div>
 
-  <h3 style="font-size:14px; color:var(--muted); margin-bottom:12px; letter-spacing:1px; font-family:'Inter',sans-serif;">活動頁面設計範本(2 頁聯動)</h3>
+  <h3 style="font-size:14px; color:var(--muted); margin-bottom:12px; letter-spacing:1px; font-family:var(--font-ui);">活動頁面設計範本(2 頁聯動)</h3>
   <div style="background:#fff8e7; border-left:4px solid #F8B62D; padding:14px 18px; border-radius:0 8px 8px 0; margin-bottom:16px; font-size:13px; line-height:1.7; color:#003b5c;">
     <strong>給 Christina:</strong>「活動」是一組兩頁的設計流程 ——
     使用者從 <strong>① 活動列表頁</strong>(瀏覽所有活動、看到重點活動 ADALS 2026)
@@ -830,7 +837,7 @@
     </a>
   </div>
 
-  <h3 style="font-size:14px; color:var(--muted); margin-bottom:12px; letter-spacing:1px; font-family:'Inter',sans-serif;">文案決策</h3>
+  <h3 style="font-size:14px; color:var(--muted); margin-bottom:12px; letter-spacing:1px; font-family:var(--font-ui);">文案決策</h3>
   <div class="download-grid" style="margin-bottom:28px;">
     <a class="download-card" href="pages/homepage-content-revisions.html" target="_blank" rel="noopener">
       <div class="download-icon">&#128196;</div>
@@ -838,7 +845,7 @@
     </a>
   </div>
 
-  <h3 style="font-size:14px; color:var(--muted); margin-bottom:12px; letter-spacing:1px; font-family:'Inter',sans-serif;">ADALS 2026 金流與基礎建設</h3>
+  <h3 style="font-size:14px; color:var(--muted); margin-bottom:12px; letter-spacing:1px; font-family:var(--font-ui);">ADALS 2026 金流與基礎建設</h3>
   <div class="download-grid" style="margin-bottom:28px;">
     <a class="download-card" href="pages/payment-stack-decision.html" target="_blank" rel="noopener">
       <div class="download-icon">&#127974;</div>
@@ -846,7 +853,7 @@
     </a>
   </div>
 
-  <h3 style="font-size:14px; color:var(--muted); margin-bottom:12px; letter-spacing:1px; font-family:'Inter',sans-serif;">Google Docs（協作編輯）</h3>
+  <h3 style="font-size:14px; color:var(--muted); margin-bottom:12px; letter-spacing:1px; font-family:var(--font-ui);">Google Docs（協作編輯）</h3>
   <div class="download-grid" style="margin-bottom:28px;">
     <a class="download-card" href="https://docs.google.com/spreadsheets/d/1FvjC6v9KJlMuxTwIbvoJiwA97QO-M9jd/edit?usp=drive_link&amp;ouid=117379772317675027383&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">
       <div class="download-icon">&#128202;</div>
@@ -858,7 +865,7 @@
     </a>
   </div>
 
-  <h3 style="font-size:14px; color:var(--muted); margin-bottom:12px; letter-spacing:1px; font-family:'Inter',sans-serif;">品牌與設計規範</h3>
+  <h3 style="font-size:14px; color:var(--muted); margin-bottom:12px; letter-spacing:1px; font-family:var(--font-ui);">品牌與設計規範</h3>
   <div class="download-grid" style="margin-bottom:28px;">
     <a class="download-card" href="pages/brand-style-guide.html" target="_blank" rel="noopener">
       <div class="download-icon">&#127912;</div>
@@ -878,7 +885,7 @@
     </a>
   </div>
 
-  <h3 style="font-size:14px; color:var(--muted); margin-bottom:12px; letter-spacing:1px; font-family:'Inter',sans-serif;">GitHub（開發與追蹤）</h3>
+  <h3 style="font-size:14px; color:var(--muted); margin-bottom:12px; letter-spacing:1px; font-family:var(--font-ui);">GitHub（開發與追蹤）</h3>
   <div class="download-grid">
     <a class="download-card" href="https://github.com/users/chiehweihuang/projects/1" target="_blank" rel="noopener">
       <div class="download-icon">&#128200;</div>
@@ -893,13 +900,25 @@
       <div class="download-info"><h4>GitHub Repo</h4><p>專案網站源碼</p></div>
     </a>
   </div>
+
+  <h3 style="font-size:14px; color:var(--muted); margin:28px 0 12px; letter-spacing:1px; font-family:var(--font-ui);">網站平台決策（netiCRM vs 自組 vs 第三條路）</h3>
+  <div class="download-grid">
+    <a class="download-card" href="pages/platform-decision.html" target="_blank" rel="noopener">
+      <div class="download-icon">&#128202;</div>
+      <div class="download-info"><h4>三條路徑頭對頭比較：買 / 組 / 寫</h4><p>給理事會 &mdash; 目錄＋分水嶺摘要先行，買（netiCRM）/ 組（WooCommerce＋付費外掛）/ 寫（自寫藍新串接）逐面向對照，含第一年／第二年現金、人力、無障礙實測、免費自組真相、藍新 vs 綠界金流對照；多輪 AI 分析 + codex 跨模型查證 + Lighthouse 實測。內含延伸：現況版（無工程師）／有常駐工程師版</p></div>
+    </a>
+    <a class="download-card" href="pages/video-storyboard.html" target="_blank" rel="noopener">
+      <div class="download-icon">&#127909;</div>
+      <div class="download-info"><h4>說明影片分鏡（買 / 組 / 寫）</h4><p>16 場景影片腳本預覽（16:9、含字幕），供轉成附旁白的說明影片用。影片完成後此頁為製作腳本</p></div>
+    </a>
+  </div>
 </div>
 
 </main>
 
 <footer style="background:#003B5C; border-top:3px solid #F8B62D; color:#F7F8F8; padding:26px 24px;">
   <div style="max-width:1100px; margin:0 auto; font-size:13.5px; line-height:1.85;">
-    <h2 style="font-family:'Noto Serif TC','Inter',serif; font-size:16px; color:#fff; margin:0 0 8px;">網站無障礙 Accessibility</h2>
+    <h2 style="font-family:var(--font-ui); font-size:16px; color:#fff; margin:0 0 8px;">網站無障礙 Accessibility</h2>
     <p style="margin:0 0 6px;">本專案文件中心的無障礙品質,由無障礙專家 <strong style="color:#F8B62D;">Solomon</strong> 主導檢查、團隊協助測試,並以 WCAG 2.2 AA 為目標持續改善。</p>
     <p style="margin:0; color:rgba(255,255,255,.88);">若您在使用本站時遇到任何無障礙障礙,歡迎來信 <a href="mailto:aia-core@apac-aia.org" style="color:#fff; text-decoration:underline; text-underline-offset:3px;">aia-core@apac-aia.org</a>,我們會盡快協助與改善。</p>
   </div>

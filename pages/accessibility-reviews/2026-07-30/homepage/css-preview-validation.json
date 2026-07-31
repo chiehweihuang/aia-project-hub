@@ -1,0 +1,245 @@
+{
+  "testedAt": "2026-07-30T15:34:11.498Z",
+  "scope": "Temporary browser-only class and CSS injection against current live DOM; production unchanged.",
+  "results": [
+    {
+      "width": 320,
+      "assigned": 3,
+      "overflow": false,
+      "rows": [
+        {
+          "columns": 1,
+          "imageHeight": 204,
+          "copyHeight": 890,
+          "objectFit": "cover",
+          "contentWidth": 224,
+          "imageOrder": "1",
+          "copyOrder": "2"
+        },
+        {
+          "columns": 1,
+          "imageHeight": 204,
+          "copyHeight": 757,
+          "objectFit": "cover",
+          "contentWidth": 224,
+          "imageOrder": "1",
+          "copyOrder": "2"
+        },
+        {
+          "columns": 1,
+          "imageHeight": 204,
+          "copyHeight": 767,
+          "objectFit": "cover",
+          "contentWidth": 224,
+          "imageOrder": "1",
+          "copyOrder": "2"
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "assigned": 3,
+      "overflow": false,
+      "rows": [
+        {
+          "columns": 1,
+          "imageHeight": 540,
+          "copyHeight": 480,
+          "objectFit": "cover",
+          "contentWidth": 628,
+          "imageOrder": "1",
+          "copyOrder": "2"
+        },
+        {
+          "columns": 1,
+          "imageHeight": 540,
+          "copyHeight": 537,
+          "objectFit": "cover",
+          "contentWidth": 628,
+          "imageOrder": "1",
+          "copyOrder": "2"
+        },
+        {
+          "columns": 1,
+          "imageHeight": 540,
+          "copyHeight": 508,
+          "objectFit": "cover",
+          "contentWidth": 628,
+          "imageOrder": "1",
+          "copyOrder": "2"
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "assigned": 3,
+      "overflow": false,
+      "rows": [
+        {
+          "columns": 2,
+          "imageHeight": 657,
+          "copyHeight": 657,
+          "objectFit": "cover",
+          "contentWidth": 365,
+          "imageOrder": "0",
+          "copyOrder": "0"
+        },
+        {
+          "columns": 2,
+          "imageHeight": 634,
+          "copyHeight": 634,
+          "objectFit": "cover",
+          "contentWidth": 365,
+          "imageOrder": "0",
+          "copyOrder": "0"
+        },
+        {
+          "columns": 2,
+          "imageHeight": 590,
+          "copyHeight": 590,
+          "objectFit": "cover",
+          "contentWidth": 365,
+          "imageOrder": "0",
+          "copyOrder": "0"
+        }
+      ]
+    },
+    {
+      "width": 1280,
+      "assigned": 3,
+      "overflow": false,
+      "rows": [
+        {
+          "columns": 2,
+          "imageHeight": 561,
+          "copyHeight": 561,
+          "objectFit": "cover",
+          "contentWidth": 448,
+          "imageOrder": "0",
+          "copyOrder": "0"
+        },
+        {
+          "columns": 2,
+          "imageHeight": 564,
+          "copyHeight": 564,
+          "objectFit": "cover",
+          "contentWidth": 448,
+          "imageOrder": "0",
+          "copyOrder": "0"
+        },
+        {
+          "columns": 2,
+          "imageHeight": 562,
+          "copyHeight": 562,
+          "objectFit": "cover",
+          "contentWidth": 448,
+          "imageOrder": "0",
+          "copyOrder": "0"
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "assigned": 3,
+      "overflow": false,
+      "rows": [
+        {
+          "columns": 2,
+          "imageHeight": 561,
+          "copyHeight": 561,
+          "objectFit": "cover",
+          "contentWidth": 448,
+          "imageOrder": "0",
+          "copyOrder": "0"
+        },
+        {
+          "columns": 2,
+          "imageHeight": 564,
+          "copyHeight": 564,
+          "objectFit": "cover",
+          "contentWidth": 448,
+          "imageOrder": "0",
+          "copyOrder": "0"
+        },
+        {
+          "columns": 2,
+          "imageHeight": 562,
+          "copyHeight": 562,
+          "objectFit": "cover",
+          "contentWidth": 448,
+          "imageOrder": "0",
+          "copyOrder": "0"
+        }
+      ]
+    },
+    {
+      "width": 1742,
+      "assigned": 3,
+      "overflow": false,
+      "rows": [
+        {
+          "columns": 2,
+          "imageHeight": 561,
+          "copyHeight": 561,
+          "objectFit": "cover",
+          "contentWidth": 448,
+          "imageOrder": "0",
+          "copyOrder": "0"
+        },
+        {
+          "columns": 2,
+          "imageHeight": 564,
+          "copyHeight": 564,
+          "objectFit": "cover",
+          "contentWidth": 448,
+          "imageOrder": "0",
+          "copyOrder": "0"
+        },
+        {
+          "columns": 2,
+          "imageHeight": 562,
+          "copyHeight": 562,
+          "objectFit": "cover",
+          "contentWidth": 448,
+          "imageOrder": "0",
+          "copyOrder": "0"
+        }
+      ]
+    },
+    {
+      "width": 1920,
+      "assigned": 3,
+      "overflow": false,
+      "rows": [
+        {
+          "columns": 2,
+          "imageHeight": 561,
+          "copyHeight": 561,
+          "objectFit": "cover",
+          "contentWidth": 448,
+          "imageOrder": "0",
+          "copyOrder": "0"
+        },
+        {
+          "columns": 2,
+          "imageHeight": 564,
+          "copyHeight": 564,
+          "objectFit": "cover",
+          "contentWidth": 448,
+          "imageOrder": "0",
+          "copyOrder": "0"
+        },
+        {
+          "columns": 2,
+          "imageHeight": 562,
+          "copyHeight": 562,
+          "objectFit": "cover",
+          "contentWidth": 448,
+          "imageOrder": "0",
+          "copyOrder": "0"
+        }
+      ]
+    }
+  ],
+  "failures": []
+}

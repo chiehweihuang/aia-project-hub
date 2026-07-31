@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>APAC AIA 網站 - 首頁無障礙發現清單（2026-07-03）</title>
+<link rel="stylesheet" href="../review-nav.css">
+<style>
+:root{
+  --bg:#F7F8F8; --surface:#ECEFF3; --text:#231815; --muted:#3D3835;
+  --accent:#003B5C; --accent-deep:#002D46; --cta:#F8B62D; --cta-text:#231815;
+  --border:#B7C0CB; --border-strong:#6B7785; --danger:#8B1A00;
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%; text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:'Inter','Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+  font-size:17px; line-height:1.75; overflow-wrap:break-word;
+}
+main{max-width:960px; margin:0 auto; padding:2rem 1.25rem 4rem}
+h1,h2{font-family:'Noto Serif TC','Inter',Georgia,serif; color:var(--accent); line-height:1.4}
+h1{font-size:1.7rem; margin:0 0 .25rem; overflow-wrap:anywhere}
+h2{font-size:1.25rem; margin:2.5rem 0 .75rem; border-bottom:2px solid var(--border); padding-bottom:.4rem}
+a{color:var(--accent)}
+a:focus-visible{outline:3px solid var(--accent); outline-offset:2px}
+.meta{color:var(--muted); margin:0 0 1.5rem}
+.score{font-variant-numeric:tabular-nums; font-weight:700}
+.sev-critical{font-weight:700; color:var(--danger)}
+.sev-warning{font-weight:600}
+.sev-tip{font-weight:600; color:var(--accent)}
+ul{padding-left:1.4rem}
+li{margin:.3rem 0}
+.note{background:var(--surface); border-left:4px solid var(--accent); padding:.75rem 1rem; margin:1rem 0}
+code,pre{font-family:ui-monospace,'Cascadia Code',Consolas,'Noto Sans TC','Microsoft JhengHei',monospace}
+code{background:var(--surface); padding:.1em .35em; border-radius:3px; font-size:.92em; overflow-wrap:anywhere}
+
+.frow{
+  background:#fff; border:1px solid var(--border); border-left:4px solid var(--border-strong);
+  border-radius:4px; padding:1rem 1.2rem; margin:1rem 0;
+}
+.frow[data-sev="critical"]{border-left-color:var(--danger)}
+.frow[data-sev="warning"]{border-left-color:var(--accent)}
+.frow-head{display:flex; flex-wrap:wrap; align-items:center; gap:.5rem; margin-bottom:.7rem}
+.frow-num{font-weight:700; font-family:ui-monospace,'Cascadia Code',Consolas,monospace; font-size:.85em; color:var(--muted)}
+.frow-sev,.frow-status{display:inline-block; font-weight:700; font-size:.82rem; padding:.15rem .6rem; border-radius:3px}
+.frow-sev[data-sev="critical"]{background:var(--danger); color:#fff}
+.frow-sev[data-sev="warning"]{background:var(--accent); color:#fff}
+.frow-sev[data-sev="tip"]{background:var(--surface); color:var(--muted); border:1.5px solid var(--border-strong)}
+.frow-status{background:#fff; color:var(--text); border:1.5px solid var(--border-strong)}
+.frow-wcag{font-size:.8rem; color:var(--muted); font-family:ui-monospace,'Cascadia Code',Consolas,monospace}
+.frow-fields{margin:0}
+.frow-fields dt{font-weight:700; color:var(--accent-deep); margin-top:.6rem; font-size:.88rem}
+.frow-fields dt:first-child{margin-top:0}
+.frow-fields dd{margin:.2rem 0 0}
+.frow-fields dd p{margin:.25rem 0}
+h3.frow-group{font-size:1rem; color:var(--muted); margin:1.75rem 0 .5rem; font-weight:700}
+h3.frow-group:first-of-type{margin-top:1rem}
+
+@media (max-width:640px){ body{font-size:16px} main{padding:1.5rem 1rem 3rem} .frow{padding:.85rem .9rem} }
+</style>
+</head>
+<body>
+<a class="aia-review-skip" href="#main">跳到主要內容</a>
+<nav class="aia-review-nav" aria-label="測試報告導覽">
+  <div class="aia-review-nav__inner">
+    <span class="aia-review-nav__label">AIA 無障礙測試結果</span>
+    <a href="../../../index.html#downloads">專案 Hub</a>
+    <a href="../index.html">測試總覽</a>
+    <a href="../2026-07-30/homepage/homepage-0730-review.html">首頁 7/30</a>
+    <a href="../2026-07-30/adals-events/event-page-0730-check.html">活動頁</a>
+    <a href="../2026-07-30/adals-events/speaker-responsive-comparison.html">講者／票券比較</a>
+    <a href="../2026-07-30/contact/contact-page-0731-check.html">聯繫頁</a>
+    <a href="index.html">7/3 測試總覽</a>
+    <a href="findings-inventory.html" aria-current="page">7/3 發現清單詳細版</a>
+  </div>
+</nav>
+<main id="main">
+<h1>APAC AIA 網站 - 首頁無障礙發現清單</h1>
+<p class="meta">測試日期：2026-07-03　|　範圍：首頁（密碼保護測試站，WordPress ＋ Kadence 佈景）　|　標準：WCAG 2.2 AA　|　工具：Beacon 2.3.0、axe-core 4.10、Lighthouse、Playwright 實測</p>
+<p class="meta">Beacon 無障礙總分 <span class="score">33 / 100</span>；Lighthouse 無障礙 79（行動）／80（桌面）、效能 70／78、最佳實務 77、SEO 46（測試站 noindex 屬預期）。</p>
+
+<h2>全部發現</h2>
+<p class="meta">共 21 項，依嚴重度分組排列；狀態一律以文字標籤呈現，不以顏色單獨區分。</p>
+
+<h3 class="frow-group">重大（critical）— 8 項</h3>
+
+<article class="frow" data-sev="critical">
+<div class="frow-head">
+<span class="frow-num">#1</span>
+<span class="frow-sev" data-sev="critical">重大</span>
+<span class="frow-status">待修</span>
+<span class="frow-wcag">WCAG 3.1.1</span>
+</div>
+<dl class="frow-fields">
+<dt>發現</dt>
+<dd><p>頁面語言宣告錯誤：內容以繁體中文為主，卻宣告 <code>lang="en-US"</code>，中文螢幕閱讀器會用英文語音唸中文。</p></dd>
+<dt>修法</dt>
+<dd><p>於 WordPress 後台「設定 → 一般 → 網站語言」改為繁體中文，使 <code>html</code> 的 <code>lang</code> 屬性輸出為 <code>zh-TW</code>；重要英文段落可另加 <code>lang="en"</code> 包覆。</p></dd>
+</dl>
+</article>
+
+<article class="frow" data-sev="critical">
+<div class="frow-head">
+<span class="frow-num">#2</span>
+<span class="frow-sev" data-sev="critical">重大</span>
+<span class="frow-status">上線前補</span>
+<span class="frow-wcag">WCAG 2.4.2</span>
+</div>
+<dl class="frow-fields">
+<dt>發現</dt>
+<dd><p><code>&lt;title&gt;</code> 是空的。</p></dd>
+<dt>修法</dt>
+<dd><p>於後台「設定 → 一般 → 網站標題」設定，例如「亞太包容創新協會 APAC AIA」。</p></dd>
+</dl>
+</article>
+
+<article class="frow" data-sev="critical">
+<div class="frow-head">
+<span class="frow-num">#3</span>
+<span class="frow-sev" data-sev="critical">重大</span>
+<span class="frow-status">暫緩（頁面未建）</span>
+<span class="frow-wcag">WCAG 2.1.1</span>
+</div>
+<dl class="frow-fields">
+<dt>發現</dt>
+<dd><p>主要行動按鈕「了解志工機會」沒有設定連結，Kadence 佈景把按鈕輸出成 <code>&lt;span&gt;</code>，鍵盤搆不到、螢幕閱讀器不會視為可操作元件。</p></dd>
+<dt>修法</dt>
+<dd><p>志工頁尚未建立，此為已知狀態；上線前必須補上連結目標，屆時 Kadence 會自動輸出成 <code>&lt;a&gt;</code>。過渡期建議先移除 <code>cursor:pointer</code> 樣式，避免看起來可點卻沒反應。</p></dd>
+</dl>
+</article>
+
+<article class="frow" data-sev="critical">
+<div class="frow-head">
+<span class="frow-num">#4</span>
+<span class="frow-sev" data-sev="critical">重大</span>
+<span class="frow-status">待修</span>
+<span class="frow-wcag">WCAG 4.1.2</span>
+</div>
+<dl class="frow-fields">
+<dt>發現</dt>
+<dd><p>頁首 logo 連結沒有可及名稱（accessible name），螢幕閱讀器唸成無名連結。</p></dd>
+<dt>修法</dt>
+<dd><p>在媒體庫給 logo 圖片加 <code>alt="亞太包容創新協會 首頁"</code>。</p></dd>
+</dl>
+</article>
+
+<article class="frow" data-sev="critical">
+<div class="frow-head">
+<span class="frow-num">#5</span>
+<span class="frow-sev" data-sev="critical">重大</span>
+<span class="frow-status">待修</span>
+<span class="frow-wcag">WCAG 1.1.1</span>
+</div>
+<dl class="frow-fields">
+<dt>發現</dt>
+<dd><p>圖片缺 <code>alt</code>：<code>fred-kloet-Cv7Y0v51zEo-unsplash.png</code>（第一處使用）。</p></dd>
+<dt>修法</dt>
+<dd>
+<p>於媒體庫補上描述性 <code>alt</code>；純屬裝飾則設 <code>alt=""</code>。</p>
+<p>範圍提醒：除了這裡逐條列出、工具偵測到「完全沒有 alt」的圖片，另有七張內容照片目前設成 <code>alt=""</code> 空值、會被螢幕閱讀器整張跳過（工具不會標），同樣需要補描述。合計九張內容圖片要補替代文字，詳見『首頁無障礙測試與建議』第 7 項與替代文字對照表。</p>
+</dd>
+</dl>
+</article>
+
+<article class="frow" data-sev="critical">
+<div class="frow-head">
+<span class="frow-num">#6</span>
+<span class="frow-sev" data-sev="critical">重大</span>
+<span class="frow-status">待修</span>
+<span class="frow-wcag">WCAG 1.1.1</span>
+</div>
+<dl class="frow-fields">
+<dt>發現</dt>
+<dd><p>圖片缺 <code>alt</code>：<code>compagnons-EgwhIBec0Ck-unsplash.png</code>。</p></dd>
+<dt>修法</dt>
+<dd><p>同上。</p></dd>
+</dl>
+</article>
+
+<article class="frow" data-sev="critical">
+<div class="frow-head">
+<span class="frow-num">#7</span>
+<span class="frow-sev" data-sev="critical">重大</span>
+<span class="frow-status">待修</span>
+<span class="frow-wcag">WCAG 1.1.1</span>
+</div>
+<dl class="frow-fields">
+<dt>發現</dt>
+<dd><p>圖片缺 <code>alt</code>：<code>fred-kloet-Cv7Y0v51zEo-unsplash.png</code>（同一張圖片的第二處使用）。</p></dd>
+<dt>修法</dt>
+<dd><p>同上。</p></dd>
+</dl>
+</article>
+
+<article class="frow" data-sev="critical">
+<div class="frow-head">
+<span class="frow-num">#8</span>
+<span class="frow-sev" data-sev="critical">重大</span>
+<span class="frow-status">待修</span>
+<span class="frow-wcag">WCAG 1.3.1</span>
+</div>
+<dl class="frow-fields">
+<dt>發現</dt>
+<dd>
+<p>標題層級跳級，共 7 處（axe <code>heading-order</code> 規則偵測）：H1 後直接跳到 H4（主視覺副標）；About Us、Our Values、Our Milestones、What We Do、Areas of Focus、JOIN US 六個英文眉標使用 H6、正標題反而是 H2（層級倒置）；大事記年份（如 2024、Apr）與卡片標題使用 H5，從 H2 直接跳過。</p>
+<p>另發現標題錯位：「多元共融／以人為本／科技創新」在頁面上出現兩處。主視覺區的摘要卡（圖示＋短標題，資訊量少）目前是 H2；「三大價值」區的完整說明卡（每張有一整段文字，資訊量最多）目前完全不是標題，只是 <code>&lt;strong&gt;</code> 一般文字。等於資訊少的地方佔了標題位置，資訊多、值得跳過去讀的地方反而沒有標題可跳。</p>
+</dd>
+<dt>修法</dt>
+<dd><p>眉標與副標改用一般段落（Kadence「Advanced Heading」區塊可把 HTML 標籤換成 <code>p</code>，外觀不變）；卡片標題的 H5 改為 H3；主視覺摘要卡的 H2 改成一般文字，「三大價值」完整說明卡的 <code>&lt;strong&gt;</code> 改成 H3，讓「多元共融」等標題只在真正該跳過去的內容處出現一次。</p></dd>
+</dl>
+</article>
+
+<h3 class="frow-group">警告（warning）— 2 項</h3>
+
+<article class="frow" data-sev="warning">
+<div class="frow-head">
+<span class="frow-num">#9</span>
+<span class="frow-sev" data-sev="warning">警告</span>
+<span class="frow-status">待修</span>
+<span class="frow-wcag">WCAG 1.4.3</span>
+</div>
+<dl class="frow-fields">
+<dt>發現</dt>
+<dd><p>導覽列連結對比 4.16:1（前景 <code>#4a5568</code>、背景 <code>#e4bc54</code>，17px 一般字重），低於 AA 要求的 4.5:1。</p></dd>
+<dt>修法</dt>
+<dd><p>改用品牌對比矩陣中既有的合格組合：深海藍 <code>#003B5C</code> 配暖陽金 <code>#F8B62D</code>（6.58:1），或墨黑 <code>#231815</code> 配暖陽金（9.66:1）。</p></dd>
+</dl>
+</article>
+
+<article class="frow" data-sev="warning">
+<div class="frow-head">
+<span class="frow-num">#10</span>
+<span class="frow-sev" data-sev="warning">警告</span>
+<span class="frow-status">待修</span>
+<span class="frow-wcag">WCAG 1.4.3</span>
+</div>
+<dl class="frow-fields">
+<dt>發現</dt>
+<dd><p>CTA 按鈕對比 3.54:1（白字配 <code>#e8593a</code>，18px），低於 4.5:1；且 <code>#e8593a</code> 不在 AIA 品牌色票內。</p></dd>
+<dt>修法</dt>
+<dd><p>改用品牌 CTA 組合：暖陽金 <code>#F8B62D</code> 底配墨黑 <code>#231815</code> 字（9.66:1，達 AAA 等級）。</p></dd>
+</dl>
+</article>
+
+<h3 class="frow-group">建議（tip）— 11 項</h3>
+
+<article class="frow" data-sev="tip">
+<div class="frow-head">
+<span class="frow-num">#11</span>
+<span class="frow-sev" data-sev="tip">建議</span>
+<span class="frow-status">上線前補</span>
+<span class="frow-wcag">AEO</span>
+</div>
+<dl class="frow-fields">
+<dt>發現</dt>
+<dd><p>缺少 meta description。</p></dd>
+<dt>修法</dt>
+<dd><p>於頁面設定或佈景後台補上 meta description（頁面摘要文字）。</p></dd>
+</dl>
+</article>
+
+<article class="frow" data-sev="tip">
+<div class="frow-head">
+<span class="frow-num">#12</span>
+<span class="frow-sev" data-sev="tip">建議</span>
+<span class="frow-status">上線前補</span>
+<span class="frow-wcag">AEO</span>
+</div>
+<dl class="frow-fields">
+<dt>發現</dt>
+<dd><p>缺少 JSON-LD 結構化資料。</p></dd>
+<dt>修法</dt>
+<dd><p>至少加入 Organization schema（協會名稱、logo、社群連結）。</p></dd>
+</dl>
+</article>
+
+<article class="frow" data-sev="tip">
+<div class="frow-head">
+<span class="frow-num">#13</span>
+<span class="frow-sev" data-sev="tip">建議</span>
+<span class="frow-status">待修</span>
+</div>
+<dl class="frow-fields">
+<dt>發現</dt>
+<dd><p>頁尾社群連結（Facebook、X、Instagram）的 <code>href</code> 為空，點了只會重新載入本頁。</p></dd>
+<dt>修法</dt>
+<dd><p>填入真實帳號網址；尚未申請帳號的圖示先移除。</p></dd>
+</dl>
+</article>
+
+<article class="frow" data-sev="tip">
+<div class="frow-head">
+<span class="frow-num">#14</span>
+<span class="frow-sev" data-sev="tip">建議</span>
+<span class="frow-status">通過（建議改善）</span>
+<span class="frow-wcag">WCAG 1.1.1／2.4.4／4.1.2</span>
+</div>
+<dl class="frow-fields">
+<dt>發現</dt>
+<dd><p>社群圖示連結沒有可見文字，但不構成違規：三個連結都設有 <code>aria-label</code>（Facebook、X、Instagram），螢幕閱讀器可正常報讀，上述三項準則皆通過；頁尾社群圖示不附文字是業界慣例，可見文字對認知障礙使用者是加分項但非必要。</p></dd>
+<dt>修法</dt>
+<dd><p>建議在圖示旁加上可見文字標籤（例如「Facebook」），對認知障礙使用者有實質幫助；本協會以數位包容為使命，認知層面的建議應視為正式改善項目而非可有可無。</p></dd>
+</dl>
+</article>
+
+<article class="frow" data-sev="tip">
+<div class="frow-head">
+<span class="frow-num">#15</span>
+<span class="frow-sev" data-sev="tip">建議</span>
+<span class="frow-status">通過（建議加大）</span>
+<span class="frow-wcag">WCAG 2.5.8</span>
+</div>
+<dl class="frow-fields">
+<dt>發現</dt>
+<dd><p>社群圖示觸控目標 34×34px（圖示本體 17×17px）：通過 WCAG 2.5.8 目標尺寸最低標準（24×24px，AA），但低於行動裝置最佳實務 44×44px（Apple HIG 與 Android Material 準則、WCAG 2.5.5 AAA）。</p></dd>
+<dt>修法</dt>
+<dd><p>於 CSS 加上 padding，把可點擊區域擴大到 44×44px；17px 的圖示本體對低視能使用者偏小，設計上可考慮放大。</p></dd>
+</dl>
+</article>
+
+<article class="frow" data-sev="tip">
+<div class="frow-head">
+<span class="frow-num">#16</span>
+<span class="frow-sev" data-sev="tip">建議</span>
+<span class="frow-status">通過（可再補強）</span>
+<span class="frow-wcag">WCAG 2.3.3</span>
+</div>
+<dl class="frow-fields">
+<dt>發現</dt>
+<dd><p>prefers-reduced-motion（減少動態偏好）支援部分存在：3 條規則對 24 條動畫規則（Kadence 佈景預設）；無自動播放媒體、無閃爍內容。</p></dd>
+<dt>修法</dt>
+<dd><p>目前已符合基本要求；如需加強，可擴大 <code>prefers-reduced-motion</code> 規則涵蓋更多動畫效果。</p></dd>
+</dl>
+</article>
+
+<article class="frow" data-sev="tip">
+<div class="frow-head">
+<span class="frow-num">#17</span>
+<span class="frow-sev" data-sev="tip">建議</span>
+<span class="frow-status">待人工複測</span>
+<span class="frow-wcag">WCAG 2.4.7</span>
+</div>
+<dl class="frow-fields">
+<dt>發現</dt>
+<dd><p>焦點可見性（focus visible）：程式化量測不可靠（<code>:focus-visible</code> 不會被程式觸發），skip link 聚焦時有 <code>box-shadow</code>，其餘連結無法確認。</p></dd>
+<dt>修法</dt>
+<dd><p>上線前人工用 Tab 鍵走一輪，確認每個停留點都有可見的焦點框。</p></dd>
+</dl>
+</article>
+
+<article class="frow" data-sev="tip">
+<div class="frow-head">
+<span class="frow-num">#18</span>
+<span class="frow-sev" data-sev="tip">建議</span>
+<span class="frow-status">通過（上線後重測）</span>
+</div>
+<dl class="frow-fields">
+<dt>發現</dt>
+<dd><p>meta robots 為 <code>noindex, nofollow</code> 且整站密碼保護：測試站的預期狀態，非缺陷；上線後需重新測試 SEO（目前 46 分主因即此）。</p></dd>
+<dt>修法</dt>
+<dd><p>無需修改；正式上線後移除密碼保護與 noindex 設定，並重新執行 SEO 測試。</p></dd>
+</dl>
+</article>
+
+<article class="frow" data-sev="tip">
+<div class="frow-head">
+<span class="frow-num">#19</span>
+<span class="frow-sev" data-sev="tip">建議</span>
+<span class="frow-status">待補（活動頁上線後）</span>
+</div>
+<dl class="frow-fields">
+<dt>發現</dt>
+<dd><p>主要導覽選單（<code>&lt;nav aria-label="Primary"&gt;</code>）目前只有一個項目，內容是網站名稱連回首頁自己；手機版漢堡選單展開後同樣只有這一項。不在原本的測試流程項目內，是操作時順帶記錄。</p></dd>
+<dt>修法</dt>
+<dd><p>後續應該會有獨立的活動頁（例如 ADALS 2026），上線後在後台「外觀 → 選單」加入即可；若還有其他獨立頁面一併加入。若想讓訪客在首頁內快速跳到「三大價值」「協會大事記」等區塊，也可以額外加上頁內錨點連結。</p></dd>
+</dl>
+</article>
+
+<article class="frow" data-sev="tip">
+<div class="frow-head">
+<span class="frow-num">#20</span>
+<span class="frow-sev" data-sev="tip">建議</span>
+<span class="frow-status">待修</span>
+</div>
+<dl class="frow-fields">
+<dt>發現</dt>
+<dd>
+<p>主視覺與三大價值區的文字是純白 <code>#ffffff</code>，疊在深色背景圖上，但這兩個區塊沒有設純色的備援底色（實測 <code>background-color</code> 完全透明）。多數情況沒有影響——正常網速下背景圖零點幾秒就載完、幾乎察覺不到；唯一每次必然發生的是列印或另存 PDF（瀏覽器預設不印背景圖），此時白字會看不見。不是 WCAG 硬性失敗（有背景圖時對比足夠），屬低優先的可讀性韌性改善。</p>
+</dd>
+<dt>修法</dt>
+<dd><p>在 Kadence 區塊（Row Layout）的 Background 設定裡，除背景圖外把背景顏色設為品牌深海藍 <code>#003B5C</code>，或用「外觀 → 自訂 → 額外 CSS」加 <code>background-color:#003B5C;</code>。一行設定、零風險。</p></dd>
+</dl>
+</article>
+
+<article class="frow" data-sev="tip">
+<div class="frow-head">
+<span class="frow-num">#21</span>
+<span class="frow-sev" data-sev="tip">建議</span>
+<span class="frow-status">換網域時處理</span>
+</div>
+<dl class="frow-fields">
+<dt>發現</dt>
+<dd>
+<p>全站 21 張圖片裡有 19 張的 <code>src</code> 網址寫成 <code>http://</code>（同一張圖的 <code>srcset</code> 卻是 <code>https://</code>），是當初插入圖片時網站網址設定還是 http 被寫進內容留下的。現況影響很低：Chrome 對圖片這類被動內容會自動升級成 https，一般訪客看不出問題（先前 WAVE 顯示的背景空白是工具檢視現象、不是真實問題）。不是 WCAG 條文項目，屬網站基本穩定性。</p>
+<p>目前 <code>tinyoakstudio.com</code> 是建置商暫時網域（正式網域 <code>apac-aia.org</code>），現在改 staging 網址是白工、換網域時會整批重寫。真正的重點是換網域那一步：若只把網域字串換掉、沒連協定一起換，<code>http://</code> 會被原封不動帶到正式網域。</p>
+</dd>
+<dt>修法</dt>
+<dd><p>換正式網域做全站搜尋取代時連協定一起換：<code>http://aia.tinyoakstudio.com</code> → <code>https://apac-aia.org</code>（不要只換網域），並確認後台網站網址是 https，搬完用主控台確認無 Mixed Content 警告。</p></dd>
+</dl>
+</article>
+
+<h2>通過項目</h2>
+<ul>
+<li>320px 迴流無水平捲動（WCAG 1.4.10）。</li>
+<li>viewport meta 正確且未鎖縮放（無 <code>user-scalable=no</code>）。</li>
+<li>有 skip link 且目標 <code>#main</code> 存在。</li>
+<li>無自動播放媒體、無閃爍內容。</li>
+<li>無 positive tabindex。</li>
+<li>canonical 存在。</li>
+<li>表單目前僅密碼表單、無問題。</li>
+</ul>
+
+<h2>修復優先順序</h2>
+<ul>
+<li><strong>P0（上線前必修，皆為後台設定層級）：</strong>語言宣告、網站標題、3 張圖片 alt、logo alt、兩處對比色、標題層級。</li>
+<li><strong>P1（隨頁面建置或換網域時）：</strong>志工頁建好後補上「了解志工機會」連結；社群帳號網址補齊；換正式網域時把圖片網址一併正規化成 https。</li>
+<li><strong>P2（加分項）：</strong>meta description、JSON-LD、觸控目標加大到 44px、人工鍵盤走查、社群圖示旁加可見文字標籤（認知無障礙）、活動頁上線後補進導覽選單、主視覺與三大價值區補純色備援底色。</li>
+</ul>
+
+<p class="meta">本文件為技術性無障礙證據整理，非法律意見。佐證檔案見同資料夾 <a href="index.html">index.html</a>。</p>
+</main>
+</body>
+</html>

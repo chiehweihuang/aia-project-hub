@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AIA 首頁無障礙與響應式版面檢查｜2026-07-30</title>
+  <link rel="stylesheet" href="../../review-nav.css">
+  <style>
+    :root {
+      --ink:#082943;
+      --muted:#496173;
+      --paper:#f7f9fb;
+      --card:#fff;
+      --line:#cbd8e1;
+      --navy:#06334d;
+      --blue:#dff1ff;
+      --gold:#e9bc43;
+      --p0:#a62b26;
+      --p0-bg:#fff1ef;
+      --p1:#795600;
+      --p1-bg:#fff7dc;
+      --pass:#17643b;
+      --pass-bg:#edf8f1;
+      --shadow:0 10px 28px rgba(8,41,67,.09);
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0;
+      color:var(--ink);
+      background:var(--paper);
+      font-family:Arial, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Noto Sans JP", "Yu Gothic", sans-serif;
+      font-size:17px;
+      line-height:1.7;
+      overflow-wrap:anywhere;
+    }
+    a { color:#07598b; text-underline-offset:.18em; }
+    a:focus-visible { outline:3px solid #be6b00; outline-offset:3px; }
+    .skip {
+      position:absolute; left:12px; top:-80px; z-index:10;
+      padding:10px 14px; background:#fff; color:#000;
+    }
+    .skip:focus { top:12px; }
+    header {
+      color:#fff;
+      background:linear-gradient(125deg, var(--navy), #0b5273);
+      border-bottom:10px solid var(--gold);
+    }
+    .hero, main, footer > div { width:min(1120px, calc(100% - 48px)); margin-inline:auto; }
+    .hero { padding:64px 0 58px; }
+    .eyebrow { margin:0 0 8px; color:#ffe29a; font-weight:700; letter-spacing:.08em; }
+    h1,h2,h3 { line-height:1.25; text-wrap:balance; }
+    h1 { max-width:18ch; margin:.1em 0 .35em; font-size:clamp(2rem, 5vw, 4.1rem); }
+    .deck { max-width:62ch; margin:0; font-size:clamp(1.05rem, 2vw, 1.3rem); }
+    main { padding:40px 0 72px; }
+    section { margin:0 0 42px; scroll-margin-top:24px; }
+    h2 { margin:0 0 18px; font-size:clamp(1.55rem, 3vw, 2.25rem); }
+    h3 { margin:.15em 0 .45em; font-size:1.18rem; }
+    p { max-width:70ch; }
+    .summary, .finding, .pass, .evidence, .implementation, .method {
+      min-width:0;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:16px;
+      box-shadow:var(--shadow);
+    }
+    .summary { padding:26px; }
+    .summary strong { color:#7b1d18; }
+    .metrics {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+      gap:16px;
+      margin-top:20px;
+    }
+    .metric { padding:18px; border-radius:12px; background:#eef5f9; }
+    .metric b { display:block; font-size:1.65rem; line-height:1.1; }
+    .metric span { color:var(--muted); }
+    .findings, .passes {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+      gap:18px;
+    }
+    .finding, .pass { padding:22px; border-top:7px solid var(--p0); }
+    .finding.p1 { border-top-color:var(--gold); }
+    .pass { border-top-color:var(--pass); }
+    .label {
+      display:inline-block; margin:0 0 10px; padding:3px 9px;
+      border-radius:999px; color:var(--p0); background:var(--p0-bg);
+      font-size:.82rem; font-weight:700;
+    }
+    .label.p1 { color:var(--p1); background:var(--p1-bg); }
+    .accept {
+      margin-top:16px; padding-top:13px; border-top:1px dashed var(--line);
+      color:#243f52; font-size:.94rem;
+    }
+    .evidence { padding:20px; margin-bottom:18px; }
+    .evidence-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+      gap:18px;
+    }
+    figure { margin:0; min-width:0; }
+    figure img {
+      display:block; width:100%; height:auto; max-height:680px;
+      object-fit:contain; object-position:top; border:1px solid var(--line); border-radius:10px;
+      background:#fff;
+    }
+    figcaption { margin-top:8px; color:var(--muted); font-size:.92rem; }
+    .table-wrap { min-width:0; }
+    table { width:100%; border-collapse:collapse; background:#fff; }
+    th,td { padding:12px; border:1px solid var(--line); text-align:left; vertical-align:top; }
+    th { background:#eaf2f7; }
+    code, pre {
+      font-family:"Cascadia Mono", Consolas, "Noto Sans TC", "Microsoft JhengHei", "Noto Sans JP", "Yu Gothic", monospace;
+    }
+    code { padding:.08em .3em; border-radius:4px; background:#eaf2f7; }
+    pre {
+      margin:16px 0 0; padding:18px; color:#ecf7ff; background:#062b40;
+      border-radius:12px; white-space:pre-wrap; overflow-wrap:anywhere;
+    }
+    pre code {
+      padding:0;
+      color:inherit;
+      background:transparent;
+      border-radius:0;
+    }
+    .implementation, .method { padding:24px; }
+    ol,ul { padding-left:1.4em; }
+    li + li { margin-top:.5em; }
+    .note { padding:15px 18px; border-left:5px solid var(--gold); background:#fff8df; }
+    footer { color:#dcebf3; background:#062b40; }
+    footer > div { padding:28px 0; }
+    @media (max-width:600px) {
+      body { font-size:16px; }
+      .hero, main, footer > div { width:min(100% - 28px, 1120px); }
+      .hero { padding:42px 0 38px; }
+      main { padding-top:28px; }
+      .summary, .finding, .pass, .evidence, .implementation, .method { padding:18px; }
+      .table-wrap table, .table-wrap tbody, .table-wrap tr, .table-wrap th, .table-wrap td { display:block; }
+      .table-wrap thead { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
+      .table-wrap tr { margin-bottom:14px; border:1px solid var(--line); }
+      .table-wrap td { border:0; border-bottom:1px solid var(--line); }
+      .table-wrap td::before { content:attr(data-label); display:block; font-weight:700; color:var(--muted); }
+    }
+    @media print {
+      body { font-size:10.5pt; background:#fff; }
+      header { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+      .hero, main, footer > div { width:100%; }
+      .hero { padding:32px 28px; }
+      main { padding:24px 28px; }
+      .summary, .finding, .pass, .evidence, .implementation, .method { box-shadow:none; break-inside:avoid; }
+      a { color:inherit; }
+      pre { font-size:8pt; }
+    }
+  </style>
+</head>
+<body>
+<a class="skip" href="#main">跳到主要內容</a>
+<nav class="aia-review-nav" aria-label="測試報告導覽">
+  <div class="aia-review-nav__inner">
+    <span class="aia-review-nav__label">AIA 無障礙測試結果</span>
+    <a class="aia-review-nav__hub" href="https://chiehweihuang.github.io/aia-project-hub/#downloads">← 回到專案 Hub</a>
+    <a href="../../index.html">測試總覽</a>
+    <a href="homepage-0730-review.html" aria-current="page">首頁</a>
+    <a href="../adals-events/event-page-0730-check.html">活動頁</a>
+    <a href="../contact/contact-page-0731-check.html">聯繫頁</a>
+    <span class="aia-review-nav__break" aria-hidden="true"></span>
+    <a href="../adals-events/speaker-responsive-comparison.html">講者／票券比較</a>
+    <a href="homepage-heading-audit.html">首頁 Heading</a>
+    <a href="../adals-events/01-HEADING-STRUCTURE.html">活動 Heading</a>
+    <a href="../contact/contact-heading-audit.html">聯繫 Heading</a>
+    <a class="aia-review-nav__history" href="../../2026-07-03/index.html">7/3 歷史測試</a>
+  </div>
+</nav>
+<header>
+  <div class="hero">
+    <p class="eyebrow">AIA WEBSITE REVIEW · 2026-07-30</p>
+    <h1>首頁無障礙與響應式版面檢查</h1>
+    <p class="deck">給設計與 WordPress 製作人員的修正說明。首頁與 ADALS 活動頁分開記錄；本頁只談首頁。</p>
+  </div>
+</header>
+
+<main id="main">
+  <section aria-labelledby="summary-title">
+    <h2 id="summary-title">先看結論</h2>
+    <div class="summary">
+      <p><strong>首頁目前有 7 項上線前應先處理的問題。</strong>其中「關於我們」三組圖文卡確實需要改 CSS：320px 的文字被左右留白擠窄，768px 仍維持兩欄，造成圖片與文字卡高度落差。這不是要重做視覺，而是修正響應式規則。</p>
+      <p>首頁需要先上線，用來展示協會資訊、宣傳活動，並承接購票入口，因此不必等待整套版面調整完成。以下 CSS 先在保留的 staging 驗證，確認不同寬度沒有斷版，再套到正式站。這次只做 live 網頁的只讀檢查，沒有修改正式網站或 staging。</p>
+      <div class="metrics">
+        <div class="metric"><b>90 / 94</b><span>Lighthouse accessibility：desktop / mobile</span></div>
+        <div class="metric"><b>0</b><span>7 種寬度的水平捲軸</span></div>
+        <div class="metric"><b>25</b><span>目前頁面標題元素數量</span></div>
+        <div class="metric"><b>2 個</b><span>藍色裝飾圖案仍有多餘的替代文字</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="priority-title">
+    <h2 id="priority-title">上線前優先修正</h2>
+    <p class="note"><strong>螢幕閱讀器測試範圍：</strong>本次沒有執行 NVDA、JAWS 或 VoiceOver 實機走查。下方提到的影響，是根據 HTML heading 結構與 accessibility tree 判斷，不是已完成的語音操作測試。目前 heading 層級不完整，因此標題導覽不能判定為通過；修正後仍需重新進行完整螢幕閱讀器走查。</p>
+    <div class="findings">
+      <article class="finding">
+        <span class="label">P0 · 頁面名稱</span>
+        <h3>補上瀏覽器與螢幕閱讀器會讀到的頁面標題</h3>
+        <p>目前 <code>&lt;title&gt;</code> 是空的。分頁標籤、書籤和螢幕閱讀器的頁面清單都無法辨識這是哪一頁。</p>
+        <p><strong>WordPress：</strong>補上首頁 SEO title，例如「亞太包容創新協會｜APAC AIA」。</p>
+        <p class="accept"><strong>完成標準：</strong>瀏覽器分頁不再空白；Lighthouse 的 Document title 通過。</p>
+      </article>
+
+      <article class="finding">
+        <span class="label">P0 · 標題結構</span>
+        <h3>保留視覺樣式，只修正 heading tag</h3>
+        <p>目前 H1 後直接出現 H4；六個年份、三張「我們創造什麼連結」卡和四個議題使用 H5。「三大價值」區段內三張完整卡片的名稱只是粗體文字，不是標題。螢幕閱讀器用標題清單瀏覽時，會看到不連續且不完整的頁面大綱。頁首插圖下方重複出現的三個價值摘要沒有各自帶領內文，應維持一般文字。</p>
+        <p><strong>為什麼列為上線前高優先：</strong>這不是字級或視覺樣式問題，而是整頁的導覽骨架沒有正確反映畫面上的內容關係。只看畫面時，仍可利用位置、卡片背景和字體大小判斷章節；螢幕閱讀器使用者則常透過標題清單或逐個標題跳轉，快速找到想看的區段，不會每次都從頁首逐字讀完整頁。</p>
+        <ul>
+          <li>H2 後直接出現 H5，會讓年份與卡片看起來像位於不存在的 H3、H4 章節之下。</li>
+          <li>hero 介紹句被標成 H4，會在標題清單裡被誤認為某個深層子章節。</li>
+          <li>「三大價值」區段內的三張完整卡片各有獨立說明，但卡片名稱不是 heading；頁首的三個短摘要則不是內容標題，不需加入 heading。</li>
+        </ul>
+        <p>結果不是文字完全讀不出來，而是使用者較難快速判斷目前位於哪個區段、哪些項目屬於同一組，以及如何直接跳到需要的內容。單純從 H2 跳到 H5 並不必然等於 WCAG 違規；此處需要修正的原因，是目前的 heading 標記沒有忠實表達畫面已呈現的結構與關係，涉及 <a href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">WCAG 1.3.1 資訊及關係</a>，也影響 <a href="https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html">WCAG 2.4.6 標題與標籤</a>所要求的定位與理解。</p>
+        <p><strong>修正方式：</strong>在 WordPress 將對應區塊改成正確的 HTML heading level，並以 CSS 維持原有字級、粗細、顏色與間距。這項調整影響整頁導覽，建議在上線前完成。</p>
+        <p class="accept"><strong>完成標準：</strong>全頁保留一個 H1；主要區段為 H2；各區段內有獨立說明內容的卡片名稱與年份為 H3；hero 標語改成一般段落；頁首三個價值摘要維持一般文字。字級、粗細與顏色不必因此改變。</p>
+        <p><a href="homepage-heading-audit.html"><strong>開啟首頁 Heading 逐項檢查與修改對照</strong></a></p>
+      </article>
+
+      <article class="finding">
+        <span class="label">P0 · 裝飾圖片</span>
+        <h3>三個藍色圖案統一使用空的 alt</h3>
+        <p>「多元共融／以人為本／科技創新」上方的三個藍色圖案只是裝飾，圖案下方已經有完整的中英文文字。Live DOM 顯示「多元共融」已是 <code>alt=""</code>；另外兩個仍分別使用英文替代文字 <code>icon of a person with heart to the right</code> 與 <code>icon of a lightbulb</code>，會在文字標籤之前多出重複且不一致的描述。</p>
+        <p><strong>WordPress：</strong>在編輯器選取「以人為本」與「科技創新」上方的圖片區塊，將 Alt Text／替代文字欄位清空。「多元共融」維持目前設定。圖片仍保留在畫面上，不需要刪除。</p>
+        <p class="note"><strong>上線前 staging 協作：</strong>Alt Text 修正需先儲存到 staging，才能依 staging 實際輸出的 HTML 與 accessibility tree 協助確認是否已正確變成 <code>alt=""</code>。確認三個圖案都不再進入 accessibility tree 後，再將相同設定套到正式站。</p>
+        <p class="accept"><strong>完成標準：</strong>三個圖案的 HTML 都是 <code>alt=""</code>，accessibility tree 不再列出這三個裝飾圖案；下方的中英文文字仍正常顯示。</p>
+      </article>
+
+      <article class="finding">
+        <span class="label">P0 · 鍵盤操作</span>
+        <h3>「了解志工機會」目前不是連結</h3>
+        <p>它由 <code>div</code> 與 <code>span</code> 組成，沒有 <code>href</code>，也不是 button，所以按 Tab 不會停在這裡，滑鼠點擊也沒有可靠的連結目的地。</p>
+        <p><strong>處理方式：</strong>目的頁確定後改成真正的 <code>&lt;a href="…"&gt;</code>；若目的頁尚未建立，先不要讓它呈現成可點擊按鈕。</p>
+        <p class="accept"><strong>完成標準：</strong>鍵盤可聚焦並以 Enter 開啟正確頁面，或在目的頁完成前取消按鈕外觀。</p>
+      </article>
+
+      <article class="finding">
+        <span class="label">P0 · 響應式 CSS</span>
+        <h3>修正「關於我們」三組圖文卡</h3>
+        <p>320px 時，標題左右各留 80px；正文還同時使用左右 margin 與 padding，文字只剩約 85–105px 的實際寬度。768px 時仍排成兩欄，每欄 360px，圖片只有約 351–353px 高，文字卡卻高達約 799–957px。</p>
+        <p>建議 900px 以下改成單欄，三組都維持「圖片 → 文字」順序；900px 以上才排雙欄，並讓圖片以 <code>object-fit:cover</code> 填滿同列高度。</p>
+        <p class="accept"><strong>完成標準：</strong>320px 文字不再被擠成窄直條；768px 每組圖文改為上下排列；桌面三組圖片與相鄰文字卡等高，沒有圖片下方的空洞。</p>
+      </article>
+
+      <article class="finding">
+        <span class="label">P0 · 文字對比</span>
+        <h3>桌面導覽的兩個連結對比不足</h3>
+        <p>「論壇活動 Event」與「聯繫 Contact」量測為 4.16:1；目前 17px 一般字重需達 4.5:1。把文字顏色稍微加深即可，不必改黃色導覽背景。</p>
+        <p class="accept"><strong>完成標準：</strong>一般狀態、hover 與 focus 狀態的文字對比都至少 4.5:1。</p>
+      </article>
+
+      <article class="finding">
+        <span class="label">P0 · 頁面語言</span>
+        <h3>將目前這個中文首頁標示為繁體中文</h3>
+        <p>頁面根節點目前是 <code>lang="en-US"</code>，但首頁主要可見內容是繁體中文。活動未來若要服務亞太地區，較清楚的做法是建立獨立語言頁；在現況下，這一頁應先標示 <code>zh-TW</code> 或 <code>zh-Hant</code>，完整英文段落再個別標示 <code>lang="en"</code>。</p>
+        <p class="accept"><strong>完成標準：</strong>頁面根節點反映這一頁實際顯示的主要語言；未來英文版與其他語言版各自使用正確語言標示。</p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="responsive-title">
+    <h2 id="responsive-title">CSS 問題的畫面與原因</h2>
+    <div class="evidence-grid">
+      <figure class="evidence">
+        <a href="designer-evidence/about-320.png"><img src="designer-evidence/about-320.png" alt="320px 寬度下，關於我們文字被左右留白壓成窄直條"></a>
+        <figcaption><strong>320px：</strong>卡片本身有 264–272px 寬，但標題與正文各自再加左右留白，真正放字的寬度只剩約 85–105px，所以一句話被拆成很多行，整張卡被拉得非常長。</figcaption>
+      </figure>
+      <figure class="evidence">
+        <a href="designer-evidence/about-768.png"><img src="designer-evidence/about-768.png" alt="768px 寬度下，關於我們仍維持左右兩欄且圖片下方留白"></a>
+        <figcaption><strong>768px：</strong>每組仍分成左右兩欄。文字需要較多高度，圖片卻只維持原本比例，因此同一張卡右側或左側會出現大片空白。</figcaption>
+      </figure>
+      <figure class="evidence">
+        <a href="designer-evidence/about-grid-1440.png"><img src="designer-evidence/about-grid-1440.png" alt="1440px 桌面寬度下，第二組圖文卡的圖片比文字卡短"></a>
+        <figcaption><strong>桌面：</strong>第二組文字卡約 606px 高，圖片約 564px 高，相差約 42px。外層雖有 Equal Height，圖片所在的內層沒有一起撐滿。</figcaption>
+      </figure>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>寬度</th><th>目前結果</th><th>建議版面</th></tr></thead>
+        <tbody>
+          <tr><td data-label="寬度">320px</td><td data-label="目前結果">圖文已上下排列，但內文左右留白疊加，文字只剩窄直條。</td><td data-label="建議版面">單欄；圖片在前、文字在後；正文保留約 24px 左右安全留白。</td></tr>
+          <tr><td data-label="寬度">768px</td><td data-label="目前結果">仍維持兩欄；三張文字卡約 799–957px 高，圖片約 351–353px 高。</td><td data-label="建議版面">改成單欄，避免文字與圖片互相擠壓。</td></tr>
+          <tr><td data-label="寬度">1024px</td><td data-label="目前結果">兩欄可讀，但圖片比文字卡短約 141–183px。</td><td data-label="建議版面">保留兩欄；圖片等高裁切並填滿欄位。</td></tr>
+          <tr><td data-label="寬度">1280px 以上</td><td data-label="目前結果">第一、三組接近等高；第二組仍差約 42px。</td><td data-label="建議版面">保留兩欄；圖片以 cover 填滿同列高度。</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="css-title">
+    <h2 id="css-title">本次上線使用的 CSS：先在 staging 驗證</h2>
+    <div class="implementation">
+      <p class="note"><strong>這項 CSS 應納入本次上線。</strong>若時間允許，先在 staging 完整驗證，再與本次內容一起套到正式站。若為了活動宣傳與購票入口必須先行上線，可先公開內容，但需保留 staging，並將 CSS 驗證與正式站修正列為上線後立即完成的後續工作。</p>
+      <p><strong>設定方式：</strong>在 WordPress 編輯器的清單檢視中，對三個「關於我們」Row Layout 都加入 <code>home-about-row</code>。每個圖片 Column 加 <code>home-about-image</code>，每個文字 Column 加 <code>home-about-copy</code>。再將以下內容放到 staging 的「外觀 → 自訂 → 額外 CSS」。</p>
+      <pre><code>/* 文字留白只由同一層控制，避免 margin + padding 疊加 */
+.home-about-copy .wp-block-kadence-advancedheading,
+.home-about-copy .wp-block-paragraph {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 40rem;
+  margin-inline: auto !important;
+  padding-inline: clamp(24px, 6vw, 64px) !important;
+}
+
+/* 桌面：圖片與文字卡等高，圖片維持比例裁切 */
+@media (min-width: 901px) {
+  .home-about-row &gt; .kt-row-column-wrap {
+    align-items: stretch;
+  }
+
+  .home-about-row .home-about-image,
+  .home-about-row .home-about-copy {
+    align-self: stretch !important;
+  }
+
+  .home-about-row .home-about-image,
+  .home-about-row .home-about-image &gt; .kt-inside-inner-col,
+  .home-about-row .home-about-image .wp-block-kadence-image,
+  .home-about-row .home-about-image figure {
+    height: 100%;
+  }
+
+  .home-about-row .home-about-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* 手機與平板：每組改成圖片在前、文字在後 */
+@media (max-width: 900px) {
+  .home-about-row &gt; .kt-row-column-wrap {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .home-about-row .home-about-image { order: 1; }
+  .home-about-row .home-about-copy  { order: 2; }
+
+  .home-about-row .home-about-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+}</code></pre>
+      <p><strong>目前預檢結果：</strong>已將上述 class 與 CSS 暫時注入目前的 live DOM，只在本機瀏覽器量測，沒有修改網站。320／768／1024／1280／1440／1742／1920px 均沒有水平捲軸；320／768px 為單欄圖片在前，1024px 以上為兩欄，桌面圖片與文字卡已等高。</p>
+      <p class="note"><strong>仍需在 staging 完成最終驗收：</strong>只有實際儲存到 WordPress 後，才能確認 class 加在正確區塊、CSS 載入順序與快取沒有造成差異，並查看三張圖在 768／1024／1440px 的人物主體與裁切效果。確認後再將同一份 CSS 套到正式站。</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="other-layout-title">
+    <h2 id="other-layout-title">同頁還有一組平板版面要一起調整</h2>
+    <div class="finding p1">
+      <span class="label p1">P1 · 響應式</span>
+      <h3>三大價值與其他三欄卡片在 768px 太窄</h3>
+      <p>768px 時「三大價值」仍排三欄，每張卡約 216px，正文實際只剩約 107px；「我們創造什麼連結」也維持三欄。建議這些卡片的外層加入共同 class，例如 <code>home-card-grid</code>，讓欄數依可用寬度自動減少。</p>
+      <pre><code>.home-card-grid &gt; .kt-row-column-wrap {
+  grid-template-columns:
+    repeat(auto-fit, minmax(min(100%, 20rem), 1fr)) !important;
+}</code></pre>
+      <p class="accept"><strong>完成標準：</strong>768px 不再出現每行只有少數中文字的窄欄；320／768／1024px 的卡片依空間改成一欄或兩欄。</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="followup-title">
+    <h2 id="followup-title">P1 與內容維護項目</h2>
+    <div class="findings">
+      <article class="finding p1">
+        <span class="label p1">P1 · 連結</span>
+        <h3>頁尾社群連結不要留空</h3>
+        <p>Facebook、X、Instagram 都有空的 <code>href</code>，鍵盤可以停在上面，但只會回到目前頁面。Facebook 改為 <a href="https://www.facebook.com/apacaia/">https://www.facebook.com/apacaia/</a>；X 與 Instagram 尚未建立，先移除連結與圖示。</p>
+      </article>
+      <article class="finding p1">
+        <span class="label p1">P1 · 網址</span>
+        <h3>媒體庫與背景圖網址統一為 HTTPS</h3>
+        <p>本次找到 19 個圖片 <code>src</code> 與 3 個背景圖仍寫成 <code>http://</code>。瀏覽器目前會自動升級，但內容庫應改成 HTTPS，避免搬站或安全政策改變時載入失敗。</p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="passes-title">
+    <h2 id="passes-title">目前已通過的項目</h2>
+    <div class="passes">
+      <article class="pass"><h3>H1 已存在且只有一個</h3><p>首頁名稱「亞太包容創新協會」已是 H1；需要修的是後續層級，不是新增另一個 H1。</p></article>
+      <article class="pass"><h3>Skip link 可用</h3><p>可跳到主要內容，目標存在。</p></article>
+      <article class="pass"><h3>主要 landmarks 存在</h3><p>有 main、navigation 與 footer。</p></article>
+      <article class="pass"><h3>沒有水平捲軸</h3><p>320／768／1024／1280／1440／1742／1920px 皆為 <code>scrollWidth = clientWidth</code>。</p></article>
+      <article class="pass"><h3>手機選單有鍵盤入口</h3><p>320px 有可聚焦且有名稱的 Open menu 按鈕。</p></article>
+    </div>
+  </section>
+
+  <section aria-labelledby="heading-map-title">
+    <h2 id="heading-map-title">標題修改對照</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>內容</th><th>目前</th><th>建議</th></tr></thead>
+        <tbody>
+          <tr><td data-label="內容">亞太包容創新協會</td><td data-label="目前">H1</td><td data-label="建議">保留 H1</td></tr>
+          <tr><td data-label="內容">連結國際……</td><td data-label="目前">H4</td><td data-label="建議">一般段落／視覺標語</td></tr>
+          <tr><td data-label="內容">關於我們、三大價值、協會大事記、我們創造什麼連結、我們關注的議題、加入我們的行列、社群媒體</td><td data-label="目前">H2</td><td data-label="建議">保留 H2</td></tr>
+          <tr><td data-label="內容">關於我們三組圖文標題</td><td data-label="目前">H3</td><td data-label="建議">保留 H3</td></tr>
+          <tr><td data-label="內容">三大價值的三張卡片名稱</td><td data-label="目前">粗體文字</td><td data-label="建議">H3，外觀不變</td></tr>
+          <tr><td data-label="內容">協會大事記的六個年份</td><td data-label="目前">H5</td><td data-label="建議">H3，外觀不變</td></tr>
+          <tr><td data-label="內容">我們創造什麼連結的三張卡片名稱</td><td data-label="目前">H5</td><td data-label="建議">H3，外觀不變</td></tr>
+          <tr><td data-label="內容">我們關注的四個議題名稱</td><td data-label="目前">H5</td><td data-label="建議">H3，外觀不變</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="method-title">
+    <h2 id="method-title">測試方式與範圍</h2>
+    <div class="method">
+      <p>以 2026-07-30 的 live rendered DOM 為準，進行 Lighthouse desktop／mobile、自動結構檢查、Tab 鍵盤走查、computed style 量測與 7 種寬度截圖。自動工具不會判斷「留白是否讓字欄變得難讀」，所以響應式結論以實際尺寸與人工畫面檢查為主。</p>
+      <ul>
+        <li><a href="homepage-live-audit.json">七種寬度與 DOM 量測</a></li>
+        <li><a href="css-preview-validation.json">報告 CSS 的暫時注入驗證</a></li>
+        <li><a href="lighthouse-desktop.json">Lighthouse desktop 原始報告</a></li>
+        <li><a href="lighthouse-mobile.json">Lighthouse mobile 原始報告</a></li>
+        <li><a href="homepage-snapshot-1440.md">1440px accessibility tree snapshot</a></li>
+      </ul>
+      <p class="note"><strong>尚未涵蓋：</strong>NVDA、JAWS、VoiceOver 實機 task walkthrough、真實手機觸控與身心障礙使用者測試。本文件是 staging 修正與複查依據，不是法律認證。</p>
+    </div>
+  </section>
+</main>
+
+<footer><div>AIA 首頁 accessibility &amp; responsive review · 2026-07-30</div></footer>
+</body>
+</html>

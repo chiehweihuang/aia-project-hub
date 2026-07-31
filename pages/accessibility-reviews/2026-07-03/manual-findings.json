@@ -1,0 +1,53 @@
+{
+  "findings": [
+    {
+      "category": "screenreader",
+      "wcag": "2.4.2",
+      "title": "Document has an empty <title> element",
+      "location": "html > head > title",
+      "description": "axe-core (Tier 2, rendered page): document-title violation. The <title> element is empty, so screen reader users and browser tabs get no page identification.",
+      "fix": "Set the WordPress site title / SEO title so the homepage renders e.g. <title>亞太包容創新協會 APAC AIA</title>."
+    },
+    {
+      "category": "screenreader",
+      "wcag": "4.1.2",
+      "title": "Header logo link has no accessible name",
+      "location": "header a.brand.has-logo-image",
+      "description": "axe-core: link-name violation. The logo <a class=\"brand has-logo-image\" rel=\"home\"> is in the tab order but contains no text, aria-label, or image alt — screen readers announce it as an unnamed link.",
+      "fix": "Add alt=\"亞太包容創新協會 首頁\" to the logo image, or aria-label on the anchor."
+    },
+    {
+      "category": "keyboard",
+      "wcag": "2.1.1",
+      "title": "Primary CTA 「了解志工機會」 is a non-interactive <span>, unreachable by keyboard",
+      "location": ".kb-buttons-wrap > span.kb-button.kt-button",
+      "description": "The Kadence button block has no link URL set, so it renders as <span class=\"kb-button kt-button\"> with cursor:pointer styling only — no href, no role, no tabindex. Keyboard users cannot reach it and screen readers do not expose it as interactive. Verified in the rendered DOM and the accessibility tree (exposed as 'generic', not link/button).",
+      "fix": "Set the button's link target in the Kadence block settings so it renders as <a class=\"kb-button\" href=\"...\">了解志工機會</a>."
+    },
+    {
+      "category": "contrast",
+      "wcag": "1.4.3",
+      "title": "Primary navigation link contrast 4.16:1 (below 4.5:1)",
+      "location": ".primary-menu-container a[aria-current=\"page\"]",
+      "description": "axe-core computed contrast: foreground #4a5568 on background #e4bc54 = 4.16:1 at 17px normal weight. Below the AA 4.5:1 minimum for normal text.",
+      "fix": "Per the AIA brand contrast matrix, use Navy #003B5C on Golden Yellow #F8B62D (6.58:1) or Near Black #231815 on Gold (9.66:1)."
+    },
+    {
+      "category": "contrast",
+      "wcag": "1.4.3",
+      "title": "CTA button text contrast 3.54:1 (below 4.5:1)",
+      "location": ".kt-btn-inner-text (了解志工機會)",
+      "description": "axe-core computed contrast: #ffffff on #e8593a = 3.54:1 at 18px normal weight. Below the AA 4.5:1 minimum. #e8593a is also outside the AIA brand palette.",
+      "fix": "Use the brand CTA pattern: Golden Yellow #F8B62D background with Near Black #231815 text (9.66:1, AAA)."
+    },
+    {
+      "category": "cognitive",
+      "severity": "tip",
+      "wcag": "2.4.4",
+      "title": "Footer social links (Facebook / X / Instagram) have empty href",
+      "location": "footer .social links",
+      "description": "Three named social links point to href=\"\" (reloads current page). Placeholder links that go nowhere confuse all users; screen reader users hear a valid link with no destination.",
+      "fix": "Fill in the real profile URLs, or remove the icons until the profiles exist."
+    }
+  ]
+}

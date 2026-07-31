@@ -1,0 +1,290 @@
+[
+  {
+    "step": 1,
+    "aria": null,
+    "boxShadow": "rgba(0, 0, 0, 0.6) 0px 0px 2px 2px",
+    "focusVisible": true,
+    "href": "#main",
+    "outline": "auto 0.711111px rgb(16, 16, 16)",
+    "rect": {
+      "height": 52,
+      "left": 4,
+      "top": 4,
+      "width": 172
+    },
+    "tag": "A",
+    "text": "Skip to content"
+  },
+  {
+    "step": 2,
+    "aria": null,
+    "boxShadow": "none",
+    "focusVisible": true,
+    "href": "https://aia.tinyoakstudio.com/",
+    "outline": "auto 1.42222px rgb(32, 37, 46)",
+    "rect": {
+      "height": 24,
+      "left": 30,
+      "top": 28,
+      "width": 215
+    },
+    "tag": "A",
+    "text": ""
+  },
+  {
+    "step": 3,
+    "aria": "Open menu",
+    "boxShadow": "none",
+    "focusVisible": true,
+    "href": null,
+    "outline": "auto 2.13333px rgb(56, 74, 97)",
+    "rect": {
+      "height": 31,
+      "left": 255,
+      "top": 24,
+      "width": 37
+    },
+    "tag": "BUTTON",
+    "text": "Open menu"
+  },
+  {
+    "step": 4,
+    "aria": null,
+    "boxShadow": "none",
+    "focusVisible": true,
+    "href": null,
+    "outline": "auto 0.711111px rgb(16, 16, 16)",
+    "rect": {
+      "height": 82,
+      "left": 120,
+      "top": 559,
+      "width": 81
+    },
+    "tag": "SUMMARY",
+    "text": "READ ENGLISH BIO"
+  },
+  {
+    "step": 5,
+    "aria": null,
+    "boxShadow": "none",
+    "focusVisible": true,
+    "href": "https://www.linkedin.com/in/frances-west-0b81924/",
+    "outline": "auto 1.42222px rgb(21, 24, 30)",
+    "rect": {
+      "height": 47,
+      "left": 120,
+      "top": 641,
+      "width": 63
+    },
+    "tag": "A",
+    "text": "LinkedIn →"
+  },
+  {
+    "step": 6,
+    "aria": null,
+    "boxShadow": "none",
+    "focusVisible": true,
+    "href": null,
+    "outline": "auto 0.711111px rgb(16, 16, 16)",
+    "rect": {
+      "height": 82,
+      "left": 120,
+      "top": 559,
+      "width": 81
+    },
+    "tag": "SUMMARY",
+    "text": "READ ENGLISH BIO"
+  },
+  {
+    "step": 7,
+    "aria": null,
+    "boxShadow": "none",
+    "focusVisible": true,
+    "href": "#",
+    "outline": "auto 1.42222px rgb(21, 25, 31)",
+    "rect": {
+      "height": 23,
+      "left": 120,
+      "top": 641,
+      "width": 80
+    },
+    "tag": "A",
+    "text": "Text link →"
+  },
+  {
+    "step": 8,
+    "aria": null,
+    "boxShadow": "none",
+    "focusVisible": true,
+    "href": null,
+    "outline": "auto 0.711111px rgb(16, 16, 16)",
+    "rect": {
+      "height": 82,
+      "left": 120,
+      "top": 559,
+      "width": 81
+    },
+    "tag": "SUMMARY",
+    "text": "READ ENGLISH BIO"
+  },
+  {
+    "step": 9,
+    "aria": null,
+    "boxShadow": "none",
+    "focusVisible": true,
+    "href": "https://www.linkedin.com/in/claire-chang-6aa54921/",
+    "outline": "auto 1.42222px rgb(20, 23, 28)",
+    "rect": {
+      "height": 47,
+      "left": 120,
+      "top": 641,
+      "width": 63
+    },
+    "tag": "A",
+    "text": "LinkedIn →"
+  },
+  {
+    "step": 10,
+    "aria": "Facebook",
+    "boxShadow": "none",
+    "focusVisible": true,
+    "href": null,
+    "outline": "auto 2.13333px rgb(41, 49, 63)",
+    "rect": {
+      "height": 34,
+      "left": 60,
+      "top": 720,
+      "width": 34
+    },
+    "tag": "A",
+    "text": "Facebook"
+  },
+  {
+    "step": 11,
+    "aria": "X",
+    "boxShadow": "none",
+    "focusVisible": true,
+    "href": null,
+    "outline": "auto 2.13333px rgb(42, 51, 66)",
+    "rect": {
+      "height": 34,
+      "left": 99,
+      "top": 720,
+      "width": 34
+    },
+    "tag": "A",
+    "text": "X"
+  },
+  {
+    "step": 12,
+    "aria": "Instagram",
+    "boxShadow": "none",
+    "focusVisible": true,
+    "href": null,
+    "outline": "auto 2.13333px rgb(39, 47, 61)",
+    "rect": {
+      "height": 34,
+      "left": 138,
+      "top": 720,
+      "width": 34
+    },
+    "tag": "A",
+    "text": "Instagram"
+  },
+  {
+    "step": 13,
+    "aria": null,
+    "boxShadow": "none",
+    "focusVisible": false,
+    "href": null,
+    "outline": "none 2.84444px rgb(45, 55, 72)",
+    "rect": {
+      "height": 20592,
+      "left": 0,
+      "top": -19392,
+      "width": 321
+    },
+    "tag": "BODY",
+    "text": "Skip to content APAC Digital Inclusion and Accessibility Leadership Summit 2026亞太資訊無障礙與數位共融領導力論壇 Shaping Inclusive Futur"
+  },
+  {
+    "step": 14,
+    "aria": null,
+    "boxShadow": "rgba(0, 0, 0, 0.35) 0px 0px 1.16882px 1.16882px",
+    "focusVisible": true,
+    "href": "#main",
+    "outline": "auto 1.42222px rgb(25, 56, 77)",
+    "rect": {
+      "height": 40,
+      "left": 4,
+      "top": 4,
+      "width": 146
+    },
+    "tag": "A",
+    "text": "Skip to content"
+  },
+  {
+    "step": 15,
+    "aria": null,
+    "boxShadow": "none",
+    "focusVisible": true,
+    "href": "https://aia.tinyoakstudio.com/",
+    "outline": "auto 1.42222px rgb(32, 37, 46)",
+    "rect": {
+      "height": 24,
+      "left": 30,
+      "top": 28,
+      "width": 215
+    },
+    "tag": "A",
+    "text": ""
+  },
+  {
+    "step": 16,
+    "aria": "Open menu",
+    "boxShadow": "none",
+    "focusVisible": true,
+    "href": null,
+    "outline": "auto 2.13333px rgb(59, 76, 99)",
+    "rect": {
+      "height": 31,
+      "left": 255,
+      "top": 24,
+      "width": 37
+    },
+    "tag": "BUTTON",
+    "text": "Open menu"
+  },
+  {
+    "step": 17,
+    "aria": null,
+    "boxShadow": "none",
+    "focusVisible": true,
+    "href": null,
+    "outline": "auto 0.711111px rgb(16, 16, 16)",
+    "rect": {
+      "height": 82,
+      "left": 120,
+      "top": 559,
+      "width": 81
+    },
+    "tag": "SUMMARY",
+    "text": "READ ENGLISH BIO"
+  },
+  {
+    "step": 18,
+    "aria": null,
+    "boxShadow": "none",
+    "focusVisible": true,
+    "href": "https://www.linkedin.com/in/frances-west-0b81924/",
+    "outline": "auto 1.42222px rgb(21, 25, 31)",
+    "rect": {
+      "height": 47,
+      "left": 120,
+      "top": 641,
+      "width": 63
+    },
+    "tag": "A",
+    "text": "LinkedIn →"
+  }
+]

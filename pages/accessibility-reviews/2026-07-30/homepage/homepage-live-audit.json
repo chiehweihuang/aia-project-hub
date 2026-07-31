@@ -1,0 +1,5701 @@
+[
+  {
+    "width": 320,
+    "title": "",
+    "lang": "en-US",
+    "viewport": {
+      "clientWidth": 320,
+      "scrollWidth": 320,
+      "scrollHeight": 16381
+    },
+    "headings": [
+      {
+        "level": 1,
+        "text": "亞太包容創新協會"
+      },
+      {
+        "level": 4,
+        "text": "連結國際無障礙領袖、台灣產業與政府及在地專業社群，落實數位包容，讓每個人都能平等共享。"
+      },
+      {
+        "level": 2,
+        "text": "關於我們"
+      },
+      {
+        "level": 3,
+        "text": "當生活幾乎一切都在螢幕上完成，有些人卻被擋在門外:"
+      },
+      {
+        "level": 3,
+        "text": "許多人因身體狀況、年齡或數位落差，長期被排除在數位世界之外。"
+      },
+      {
+        "level": 3,
+        "text": "打破現有的侷限，創造更友善的社會環境。"
+      },
+      {
+        "level": 2,
+        "text": "三大價值"
+      },
+      {
+        "level": 2,
+        "text": "協會大事記"
+      },
+      {
+        "level": 5,
+        "text": "2024 / Apr"
+      },
+      {
+        "level": 5,
+        "text": "2024 / Oct"
+      },
+      {
+        "level": 5,
+        "text": "2024 / Nov"
+      },
+      {
+        "level": 5,
+        "text": "2025 / Oct"
+      },
+      {
+        "level": 5,
+        "text": "2026 / May"
+      },
+      {
+        "level": 5,
+        "text": "2026 / Sep"
+      },
+      {
+        "level": 2,
+        "text": "我們創造什麼連結"
+      },
+      {
+        "level": 5,
+        "text": "跨界對話Cross-Sector Dialogue"
+      },
+      {
+        "level": 5,
+        "text": "國際接軌Global Standards"
+      },
+      {
+        "level": 5,
+        "text": "從理念到落地Idea to Action"
+      },
+      {
+        "level": 2,
+        "text": "我們關注的議題"
+      },
+      {
+        "level": 5,
+        "text": "數位無障礙 Digital Accessibility"
+      },
+      {
+        "level": 5,
+        "text": "包容性設計 Inclusive Design"
+      },
+      {
+        "level": 5,
+        "text": "數位無障礙 International Standards"
+      },
+      {
+        "level": 5,
+        "text": "齡共融科技 AgeTech & Aging-Friendly"
+      },
+      {
+        "level": 2,
+        "text": "加入我們的行列"
+      },
+      {
+        "level": 2,
+        "text": "社群媒體 SOCIALS"
+      }
+    ],
+    "landmarks": {
+      "main": 1,
+      "nav": 2,
+      "footer": 1,
+      "skipHref": "#main",
+      "skipTarget": true
+    },
+    "images": {
+      "total": 21,
+      "missingAlt": [],
+      "emptyAlt": 4
+    },
+    "emptyLinks": [
+      {
+        "text": "Facebook",
+        "ariaLabel": "Facebook",
+        "href": ""
+      },
+      {
+        "text": "X",
+        "ariaLabel": "X",
+        "href": ""
+      },
+      {
+        "text": "Instagram",
+        "ariaLabel": "Instagram",
+        "href": ""
+      }
+    ],
+    "fauxControls": [
+      {
+        "tag": "div",
+        "text": "了解志工機會",
+        "className": "wp-block-kadence-advancedbtn kb-buttons-wrap kb-btns6_24e4c2-cf"
+      },
+      {
+        "tag": "span",
+        "text": "了解志工機會",
+        "className": "kb-button kt-button button kb-btn6_71d936-29 kt-btn-size-standard kt-btn-width-type-auto kb-btn-global-fill kt-btn-has-text-true kt-btn-has-svg-false wp-block-kadence-singlebtn"
+      },
+      {
+        "tag": "span",
+        "text": "了解志工機會",
+        "className": "kt-btn-inner-text"
+      }
+    ],
+    "aboutRows": [
+      {
+        "heading": "當生活幾乎一切都在螢幕上完成，有些人卻被擋在門外:",
+        "rowClass": "kb-row-layout-wrap kb-row-layout-id6_117607-0e alignnone wp-block-kadence-rowlayout",
+        "grid": {
+          "x": 24,
+          "y": 1786.3,
+          "width": 272,
+          "height": 2073.9,
+          "bottom": 3860.3,
+          "display": "grid",
+          "position": "relative",
+          "padding": "0px",
+          "margin": "0px",
+          "minHeight": "0px",
+          "gap": "32px 0px",
+          "gridTemplateColumns": "272px",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "objectFit": "fill",
+          "backgroundImage": "none",
+          "borderRadius": "0px"
+        },
+        "cells": [
+          {
+            "className": "wp-block-kadence-column kadence-column6_d7591b-d9",
+            "cell": {
+              "x": 24,
+              "y": 1786.3,
+              "width": 272,
+              "height": 264.9,
+              "bottom": 2051.3,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 24,
+              "y": 1786.3,
+              "width": 272,
+              "height": 264.9,
+              "bottom": 2051.3,
+              "display": "block",
+              "position": "relative",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "auto",
+              "gap": "normal 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "center",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "image": {
+              "x": 24,
+              "y": 1786.3,
+              "width": 272,
+              "height": 264.9,
+              "bottom": 2051.3,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "25px 0px 0px 25px"
+            },
+            "heading": null,
+            "paragraph": null,
+            "text": ""
+          },
+          {
+            "className": "wp-block-kadence-column kadence-column6_01acaf-af",
+            "cell": {
+              "x": 24,
+              "y": 2083.3,
+              "width": 272,
+              "height": 1777,
+              "bottom": 3860.3,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 24,
+              "y": 2083.3,
+              "width": 272,
+              "height": 1777,
+              "bottom": 3860.3,
+              "display": "flex",
+              "position": "relative",
+              "padding": "0px 0px 48px",
+              "margin": "0px",
+              "minHeight": "200px",
+              "gap": "0px 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "center",
+              "justifyContent": "flex-start",
+              "objectFit": "fill",
+              "backgroundImage": "url(\"http://aia.tinyoakstudio.com/wp-content/uploads/2026/06/Color-Fill-DEF2FF.png\")",
+              "borderRadius": "0px 25px 25px 0px"
+            },
+            "image": null,
+            "heading": {
+              "x": 104,
+              "y": 2183.3,
+              "width": 112,
+              "height": 294,
+              "bottom": 2477.3,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "42px 80px 14px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "paragraph": {
+              "x": 60,
+              "y": 2512.8,
+              "width": 200,
+              "height": 1277.8,
+              "bottom": 3790.7,
+              "display": "block",
+              "position": "static",
+              "padding": "0px 54.08px",
+              "margin": "21.6px 36px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "text": "當生活幾乎一切都在螢幕上完成，有些人卻被擋在門外: 看不清的文字、點不到的按鈕、讀不出來的圖片，讓掛號、轉帳、報名這些日常小事變得寸步難行。這不是少數人的故事："
+          }
+        ]
+      },
+      {
+        "heading": "許多人因身體狀況、年齡或數位落差，長期被排除在數位世界之外。",
+        "rowClass": "kb-row-layout-wrap kb-row-layout-id6_81210d-ad alignnone wp-block-kadence-rowlayout",
+        "grid": {
+          "x": 24,
+          "y": 3860.3,
+          "width": 272,
+          "height": 1409,
+          "bottom": 5269.3,
+          "display": "grid",
+          "position": "relative",
+          "padding": "0px",
+          "margin": "0px",
+          "minHeight": "0px",
+          "gap": "0px",
+          "gridTemplateColumns": "272px",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "objectFit": "fill",
+          "backgroundImage": "none",
+          "borderRadius": "0px"
+        },
+        "cells": [
+          {
+            "className": "wp-block-kadence-column kadence-column6_c0ad16-b8",
+            "cell": {
+              "x": 24,
+              "y": 3860.3,
+              "width": 272,
+              "height": 1142.6,
+              "bottom": 5002.8,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 24,
+              "y": 3860.3,
+              "width": 272,
+              "height": 1142.6,
+              "bottom": 5002.8,
+              "display": "flex",
+              "position": "relative",
+              "padding": "0px 0px 32px",
+              "margin": "0px",
+              "minHeight": "200px",
+              "gap": "0px 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "center",
+              "justifyContent": "center",
+              "objectFit": "fill",
+              "backgroundImage": "url(\"http://aia.tinyoakstudio.com/wp-content/uploads/2026/06/Color-Fill-DEF2FF.png\")",
+              "borderRadius": "25px 0px 0px 25px"
+            },
+            "image": null,
+            "heading": {
+              "x": 104,
+              "y": 4032.3,
+              "width": 112,
+              "height": 336,
+              "bottom": 4368.3,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "42px 80px 14px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "paragraph": {
+              "x": 60,
+              "y": 4382.3,
+              "width": 200,
+              "height": 435,
+              "bottom": 4817.3,
+              "display": "block",
+              "position": "static",
+              "padding": "0px 41.6px",
+              "margin": "0px 36px 153.6px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "text": "許多人因身體狀況、年齡或數位落差，長期被排除在數位世界之外。 推動數位共融與無障礙的知識與資源，往往散落於不同領域與國家，難以整合。這導致設計師不了解真實使用者"
+          },
+          {
+            "className": "wp-block-kadence-column kadence-column6_7c78e9-3a",
+            "cell": {
+              "x": 24,
+              "y": 5002.8,
+              "width": 272,
+              "height": 266.5,
+              "bottom": 5269.3,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 24,
+              "y": 5002.8,
+              "width": 272,
+              "height": 266.5,
+              "bottom": 5269.3,
+              "display": "flex",
+              "position": "relative",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "200px",
+              "gap": "0px 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "center",
+              "justifyContent": "flex-start",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px 25px 25px 0px"
+            },
+            "image": {
+              "x": 24,
+              "y": 5002.8,
+              "width": 272,
+              "height": 266.5,
+              "bottom": 5269.3,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px 25px 25px 0px"
+            },
+            "heading": null,
+            "paragraph": null,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "heading": "打破現有的侷限，創造更友善的社會環境。",
+        "rowClass": "kb-row-layout-wrap kb-row-layout-id6_2d9a6f-77 alignnone wp-block-kadence-rowlayout",
+        "grid": {
+          "x": 24,
+          "y": 5269.3,
+          "width": 272,
+          "height": 1551.4,
+          "bottom": 6820.7,
+          "display": "grid",
+          "position": "relative",
+          "padding": "0px",
+          "margin": "0px",
+          "minHeight": "0px",
+          "gap": "0px",
+          "gridTemplateColumns": "272px",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "objectFit": "fill",
+          "backgroundImage": "none",
+          "borderRadius": "0px"
+        },
+        "cells": [
+          {
+            "className": "wp-block-kadence-column kadence-column6_3bd267-5d",
+            "cell": {
+              "x": 24,
+              "y": 5269.3,
+              "width": 272,
+              "height": 264.9,
+              "bottom": 5534.2,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 24,
+              "y": 5269.3,
+              "width": 272,
+              "height": 264.9,
+              "bottom": 5534.2,
+              "display": "block",
+              "position": "relative",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "auto",
+              "gap": "normal 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "center",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "image": {
+              "x": 24,
+              "y": 5269.3,
+              "width": 272,
+              "height": 264.9,
+              "bottom": 5534.2,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "25px 0px 0px 25px"
+            },
+            "heading": null,
+            "paragraph": null,
+            "text": ""
+          },
+          {
+            "className": "wp-block-kadence-column kadence-column6_6cec02-2e",
+            "cell": {
+              "x": 24,
+              "y": 5534.2,
+              "width": 272,
+              "height": 1286.4,
+              "bottom": 6820.7,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 24,
+              "y": 5534.2,
+              "width": 272,
+              "height": 1286.4,
+              "bottom": 6820.7,
+              "display": "flex",
+              "position": "relative",
+              "padding": "0px 0px 32px",
+              "margin": "0px",
+              "minHeight": "200px",
+              "gap": "0px 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "center",
+              "justifyContent": "flex-start",
+              "objectFit": "fill",
+              "backgroundImage": "url(\"http://aia.tinyoakstudio.com/wp-content/uploads/2026/06/Color-Fill-DEF2FF.png\")",
+              "borderRadius": "0px 25px 25px 0px"
+            },
+            "image": null,
+            "heading": {
+              "x": 104,
+              "y": 5676.2,
+              "width": 112,
+              "height": 210,
+              "bottom": 5886.2,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "42px 80px 14px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "paragraph": {
+              "x": 60,
+              "y": 5900.2,
+              "width": 200,
+              "height": 788.4,
+              "bottom": 6688.7,
+              "display": "block",
+              "position": "static",
+              "padding": "0px 41.6px",
+              "margin": "0px 36px 32px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "text": "打破現有的侷限，創造更友善的社會環境。 亞太包容創新協會於2024年在台正式成立，我們希望攜手各界打破現有的侷限，創造更友善的社會環境。透過串聯國際無障礙領域的"
+          }
+        ]
+      }
+    ],
+    "narrowText": [
+      {
+        "tag": "p",
+        "text": "看不清的文字、點不到的按鈕、讀不出來的圖片，讓掛號、轉帳、報名這些日常小事變得寸步難行。這不是少數人的故事：全球超過 12 億人、約 15% 的人口為身心障礙者，台灣更在 2025 年邁入超高齡社會，每五人就有一位 65 歲以上長者。而障礙",
+        "width": 200
+      },
+      {
+        "tag": "p",
+        "text": "推動數位共融與無障礙的知識與資源，往往散落於不同領域與國家，難以整合。這導致設計師不了解真實使用者需求，企業有意推動無障礙卻不知從何著手，而身心障礙者與弱勢族群的聲音，也難以傳達至決策者耳中。",
+        "width": 200
+      },
+      {
+        "tag": "p",
+        "text": "亞太包容創新協會於2024年在台正式成立，我們希望攜手各界打破現有的侷限，創造更友善的社會環境。透過串聯國際無障礙領域的領袖、台灣產官學界以及在地專業社群，我們致力將全球最尖端的無障礙標準與寶貴經驗引入台灣。此外，身為IAAP（國際無障礙專",
+        "width": 200
+      },
+      {
+        "tag": "p",
+        "text": "我們相信，真正的共融不是配額或政策，而是讓每一個人的需求都被看見、被聽見，並真實反映在產品與服務的設計之中。呼應聯合國身心障礙者權利公約（CRPD）與通用設計七大原則。",
+        "width": 160
+      },
+      {
+        "tag": "p",
+        "text": "科技的價值，在於它能為人解決什麼問題。我們把真實使用者的經驗放在設計決策的核心，尤其是那些最常被忽略的聲音。方法：包容性設計（Inclusive Design）、無障礙使用者研究、社群跨界對話。",
+        "width": 160
+      },
+      {
+        "tag": "p",
+        "text": "創新不應該只服務多數人。我們推動以無障礙為基礎的科技發展，讓數位創新成為縮短差距、而非擴大落差的力量。從 WCAG 2.2 AA 合規、AI 無障礙應用到高齡科技（AgeTech），協助組織把無障礙從成本中心轉為創新動能。",
+        "width": 160
+      },
+      {
+        "tag": "p",
+        "text": "亞太包容創新協會致力推動數位共融，誠摯邀請具專業、熱情或國際經驗的夥伴加入行列，攜手創造無障礙未來",
+        "width": 224
+      }
+    ],
+    "horizontalOffenders": [],
+    "focusTrace": [
+      {
+        "tag": "a",
+        "text": "Skip to content",
+        "href": "#main",
+        "rect": {
+          "x": 4,
+          "y": 4,
+          "width": 117,
+          "height": 26
+        }
+      },
+      {
+        "tag": "a",
+        "text": "",
+        "href": "https://aia.tinyoakstudio.com/",
+        "rect": {
+          "x": 24,
+          "y": 28,
+          "width": 215,
+          "height": 23
+        }
+      },
+      {
+        "tag": "button",
+        "text": "Open menu",
+        "href": null,
+        "rect": {
+          "x": 259,
+          "y": 24,
+          "width": 37,
+          "height": 31
+        }
+      },
+      {
+        "tag": "a",
+        "text": "Facebook",
+        "href": "",
+        "rect": {
+          "x": 48,
+          "y": 520,
+          "width": 34,
+          "height": 34
+        }
+      },
+      {
+        "tag": "a",
+        "text": "X",
+        "href": "",
+        "rect": {
+          "x": 87,
+          "y": 520,
+          "width": 34,
+          "height": 34
+        }
+      },
+      {
+        "tag": "a",
+        "text": "Instagram",
+        "href": "",
+        "rect": {
+          "x": 126,
+          "y": 520,
+          "width": 34,
+          "height": 34
+        }
+      },
+      {
+        "tag": "body",
+        "text": "Skip to content 協會主頁 Home 論壇活動 Event 聯繫 Contact Toggle Menu 亞太包容創新協會 連結國際無障礙領袖、台灣產業與政府及在地專業社群，落實數位包容",
+        "href": null,
+        "rect": {
+          "x": 0,
+          "y": -15381,
+          "width": 320,
+          "height": 16381
+        }
+      },
+      {
+        "tag": "a",
+        "text": "Skip to content",
+        "href": "#main",
+        "rect": {
+          "x": 4,
+          "y": 4,
+          "width": 118,
+          "height": 27
+        }
+      },
+      {
+        "tag": "a",
+        "text": "",
+        "href": "https://aia.tinyoakstudio.com/",
+        "rect": {
+          "x": 24,
+          "y": 28,
+          "width": 215,
+          "height": 23
+        }
+      },
+      {
+        "tag": "button",
+        "text": "Open menu",
+        "href": null,
+        "rect": {
+          "x": 259,
+          "y": 24,
+          "width": 37,
+          "height": 31
+        }
+      },
+      {
+        "tag": "a",
+        "text": "Facebook",
+        "href": "",
+        "rect": {
+          "x": 48,
+          "y": 520,
+          "width": 34,
+          "height": 34
+        }
+      },
+      {
+        "tag": "a",
+        "text": "X",
+        "href": "",
+        "rect": {
+          "x": 87,
+          "y": 520,
+          "width": 34,
+          "height": 34
+        }
+      },
+      {
+        "tag": "a",
+        "text": "Instagram",
+        "href": "",
+        "rect": {
+          "x": 126,
+          "y": 520,
+          "width": 34,
+          "height": 34
+        }
+      },
+      {
+        "tag": "body",
+        "text": "Skip to content 協會主頁 Home 論壇活動 Event 聯繫 Contact Toggle Menu 亞太包容創新協會 連結國際無障礙領袖、台灣產業與政府及在地專業社群，落實數位包容",
+        "href": null,
+        "rect": {
+          "x": 0,
+          "y": -15381,
+          "width": 320,
+          "height": 16381
+        }
+      },
+      {
+        "tag": "a",
+        "text": "Skip to content",
+        "href": "#main",
+        "rect": {
+          "x": 4,
+          "y": 4,
+          "width": 114,
+          "height": 22
+        }
+      },
+      {
+        "tag": "a",
+        "text": "",
+        "href": "https://aia.tinyoakstudio.com/",
+        "rect": {
+          "x": 24,
+          "y": 28,
+          "width": 215,
+          "height": 23
+        }
+      },
+      {
+        "tag": "button",
+        "text": "Open menu",
+        "href": null,
+        "rect": {
+          "x": 259,
+          "y": 24,
+          "width": 37,
+          "height": 31
+        }
+      },
+      {
+        "tag": "a",
+        "text": "Facebook",
+        "href": "",
+        "rect": {
+          "x": 48,
+          "y": 520,
+          "width": 34,
+          "height": 34
+        }
+      },
+      {
+        "tag": "a",
+        "text": "X",
+        "href": "",
+        "rect": {
+          "x": 87,
+          "y": 520,
+          "width": 34,
+          "height": 34
+        }
+      },
+      {
+        "tag": "a",
+        "text": "Instagram",
+        "href": "",
+        "rect": {
+          "x": 126,
+          "y": 520,
+          "width": 34,
+          "height": 34
+        }
+      },
+      {
+        "tag": "body",
+        "text": "Skip to content 協會主頁 Home 論壇活動 Event 聯繫 Contact Toggle Menu 亞太包容創新協會 連結國際無障礙領袖、台灣產業與政府及在地專業社群，落實數位包容",
+        "href": null,
+        "rect": {
+          "x": 0,
+          "y": -15381,
+          "width": 320,
+          "height": 16381
+        }
+      },
+      {
+        "tag": "a",
+        "text": "Skip to content",
+        "href": "#main",
+        "rect": {
+          "x": 4,
+          "y": 4,
+          "width": 114,
+          "height": 22
+        }
+      },
+      {
+        "tag": "a",
+        "text": "",
+        "href": "https://aia.tinyoakstudio.com/",
+        "rect": {
+          "x": 24,
+          "y": 28,
+          "width": 215,
+          "height": 23
+        }
+      },
+      {
+        "tag": "button",
+        "text": "Open menu",
+        "href": null,
+        "rect": {
+          "x": 259,
+          "y": 24,
+          "width": 37,
+          "height": 31
+        }
+      },
+      {
+        "tag": "a",
+        "text": "Facebook",
+        "href": "",
+        "rect": {
+          "x": 48,
+          "y": 520,
+          "width": 34,
+          "height": 34
+        }
+      },
+      {
+        "tag": "a",
+        "text": "X",
+        "href": "",
+        "rect": {
+          "x": 87,
+          "y": 520,
+          "width": 34,
+          "height": 34
+        }
+      },
+      {
+        "tag": "a",
+        "text": "Instagram",
+        "href": "",
+        "rect": {
+          "x": 126,
+          "y": 520,
+          "width": 34,
+          "height": 34
+        }
+      },
+      {
+        "tag": "body",
+        "text": "Skip to content 協會主頁 Home 論壇活動 Event 聯繫 Contact Toggle Menu 亞太包容創新協會 連結國際無障礙領袖、台灣產業與政府及在地專業社群，落實數位包容",
+        "href": null,
+        "rect": {
+          "x": 0,
+          "y": -15381,
+          "width": 320,
+          "height": 16381
+        }
+      },
+      {
+        "tag": "a",
+        "text": "Skip to content",
+        "href": "#main",
+        "rect": {
+          "x": 4,
+          "y": 4,
+          "width": 114,
+          "height": 22
+        }
+      },
+      {
+        "tag": "a",
+        "text": "",
+        "href": "https://aia.tinyoakstudio.com/",
+        "rect": {
+          "x": 24,
+          "y": 28,
+          "width": 215,
+          "height": 23
+        }
+      },
+      {
+        "tag": "button",
+        "text": "Open menu",
+        "href": null,
+        "rect": {
+          "x": 259,
+          "y": 24,
+          "width": 37,
+          "height": 31
+        }
+      },
+      {
+        "tag": "a",
+        "text": "Facebook",
+        "href": "",
+        "rect": {
+          "x": 48,
+          "y": 520,
+          "width": 34,
+          "height": 34
+        }
+      },
+      {
+        "tag": "a",
+        "text": "X",
+        "href": "",
+        "rect": {
+          "x": 87,
+          "y": 520,
+          "width": 34,
+          "height": 34
+        }
+      },
+      {
+        "tag": "a",
+        "text": "Instagram",
+        "href": "",
+        "rect": {
+          "x": 126,
+          "y": 520,
+          "width": 34,
+          "height": 34
+        }
+      },
+      {
+        "tag": "a",
+        "text": "Skip to content",
+        "href": "#main",
+        "rect": {
+          "x": 4,
+          "y": 4,
+          "width": 114,
+          "height": 22
+        }
+      }
+    ]
+  },
+  {
+    "width": 768,
+    "title": "",
+    "lang": "en-US",
+    "viewport": {
+      "clientWidth": 768,
+      "scrollWidth": 768,
+      "scrollHeight": 9358
+    },
+    "headings": [
+      {
+        "level": 1,
+        "text": "亞太包容創新協會"
+      },
+      {
+        "level": 4,
+        "text": "連結國際無障礙領袖、台灣產業與政府及在地專業社群，落實數位包容，讓每個人都能平等共享。"
+      },
+      {
+        "level": 2,
+        "text": "關於我們"
+      },
+      {
+        "level": 3,
+        "text": "當生活幾乎一切都在螢幕上完成，有些人卻被擋在門外:"
+      },
+      {
+        "level": 3,
+        "text": "許多人因身體狀況、年齡或數位落差，長期被排除在數位世界之外。"
+      },
+      {
+        "level": 3,
+        "text": "打破現有的侷限，創造更友善的社會環境。"
+      },
+      {
+        "level": 2,
+        "text": "三大價值"
+      },
+      {
+        "level": 2,
+        "text": "協會大事記"
+      },
+      {
+        "level": 5,
+        "text": "2024 / Apr"
+      },
+      {
+        "level": 5,
+        "text": "2024 / Oct"
+      },
+      {
+        "level": 5,
+        "text": "2024 / Nov"
+      },
+      {
+        "level": 5,
+        "text": "2025 / Oct"
+      },
+      {
+        "level": 5,
+        "text": "2026 / May"
+      },
+      {
+        "level": 5,
+        "text": "2026 / Sep"
+      },
+      {
+        "level": 2,
+        "text": "我們創造什麼連結"
+      },
+      {
+        "level": 5,
+        "text": "跨界對話Cross-Sector Dialogue"
+      },
+      {
+        "level": 5,
+        "text": "國際接軌Global Standards"
+      },
+      {
+        "level": 5,
+        "text": "從理念到落地Idea to Action"
+      },
+      {
+        "level": 2,
+        "text": "我們關注的議題"
+      },
+      {
+        "level": 5,
+        "text": "數位無障礙 Digital Accessibility"
+      },
+      {
+        "level": 5,
+        "text": "包容性設計 Inclusive Design"
+      },
+      {
+        "level": 5,
+        "text": "數位無障礙 International Standards"
+      },
+      {
+        "level": 5,
+        "text": "齡共融科技 AgeTech & Aging-Friendly"
+      },
+      {
+        "level": 2,
+        "text": "加入我們的行列"
+      },
+      {
+        "level": 2,
+        "text": "社群媒體 SOCIALS"
+      }
+    ],
+    "landmarks": {
+      "main": 1,
+      "nav": 2,
+      "footer": 1,
+      "skipHref": "#main",
+      "skipTarget": true
+    },
+    "images": {
+      "total": 21,
+      "missingAlt": [],
+      "emptyAlt": 4
+    },
+    "emptyLinks": [
+      {
+        "text": "Facebook",
+        "ariaLabel": "Facebook",
+        "href": ""
+      },
+      {
+        "text": "X",
+        "ariaLabel": "X",
+        "href": ""
+      },
+      {
+        "text": "Instagram",
+        "ariaLabel": "Instagram",
+        "href": ""
+      }
+    ],
+    "fauxControls": [
+      {
+        "tag": "div",
+        "text": "了解志工機會",
+        "className": "wp-block-kadence-advancedbtn kb-buttons-wrap kb-btns6_24e4c2-cf"
+      },
+      {
+        "tag": "span",
+        "text": "了解志工機會",
+        "className": "kb-button kt-button button kb-btn6_71d936-29 kt-btn-size-standard kt-btn-width-type-auto kb-btn-global-fill kt-btn-has-text-true kt-btn-has-svg-false wp-block-kadence-singlebtn"
+      },
+      {
+        "tag": "span",
+        "text": "了解志工機會",
+        "className": "kt-btn-inner-text"
+      }
+    ],
+    "aboutRows": [
+      {
+        "heading": "當生活幾乎一切都在螢幕上完成，有些人卻被擋在門外:",
+        "rowClass": "kb-row-layout-wrap kb-row-layout-id6_117607-0e alignnone wp-block-kadence-rowlayout",
+        "grid": {
+          "x": 24,
+          "y": 1226.7,
+          "width": 720,
+          "height": 956.5,
+          "bottom": 2183.2,
+          "display": "grid",
+          "position": "relative",
+          "padding": "0px",
+          "margin": "0px",
+          "minHeight": "0px",
+          "gap": "32px 0px",
+          "gridTemplateColumns": "360px 360px",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "objectFit": "fill",
+          "backgroundImage": "none",
+          "borderRadius": "0px"
+        },
+        "cells": [
+          {
+            "className": "wp-block-kadence-column kadence-column6_d7591b-d9",
+            "cell": {
+              "x": 24,
+              "y": 1226.7,
+              "width": 360,
+              "height": 956.5,
+              "bottom": 2183.2,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 24,
+              "y": 1226.7,
+              "width": 360,
+              "height": 350.7,
+              "bottom": 1577.3,
+              "display": "block",
+              "position": "relative",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "auto",
+              "gap": "normal 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "center",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "image": {
+              "x": 24,
+              "y": 1226.7,
+              "width": 360,
+              "height": 350.7,
+              "bottom": 1577.3,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "25px 0px 0px 25px"
+            },
+            "heading": null,
+            "paragraph": null,
+            "text": ""
+          },
+          {
+            "className": "wp-block-kadence-column kadence-column6_01acaf-af",
+            "cell": {
+              "x": 384,
+              "y": 1226.7,
+              "width": 360,
+              "height": 956.5,
+              "bottom": 2183.2,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 384,
+              "y": 1226.7,
+              "width": 360,
+              "height": 956.5,
+              "bottom": 2183.2,
+              "display": "flex",
+              "position": "relative",
+              "padding": "0px 0px 48px",
+              "margin": "0px",
+              "minHeight": "200px",
+              "gap": "0px 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "center",
+              "justifyContent": "flex-start",
+              "objectFit": "fill",
+              "backgroundImage": "url(\"http://aia.tinyoakstudio.com/wp-content/uploads/2026/06/Color-Fill-DEF2FF.png\")",
+              "borderRadius": "0px 25px 25px 0px"
+            },
+            "image": null,
+            "heading": {
+              "x": 384,
+              "y": 1326.7,
+              "width": 360,
+              "height": 126,
+              "bottom": 1452.7,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "42px 0px 14px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "paragraph": {
+              "x": 420,
+              "y": 1488.3,
+              "width": 288,
+              "height": 625.3,
+              "bottom": 2113.6,
+              "display": "block",
+              "position": "static",
+              "padding": "0px 54.08px",
+              "margin": "21.6px 36px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "text": "當生活幾乎一切都在螢幕上完成，有些人卻被擋在門外: 看不清的文字、點不到的按鈕、讀不出來的圖片，讓掛號、轉帳、報名這些日常小事變得寸步難行。這不是少數人的故事："
+          }
+        ]
+      },
+      {
+        "heading": "許多人因身體狀況、年齡或數位落差，長期被排除在數位世界之外。",
+        "rowClass": "kb-row-layout-wrap kb-row-layout-id6_81210d-ad alignnone wp-block-kadence-rowlayout",
+        "grid": {
+          "x": 24,
+          "y": 2183.2,
+          "width": 720,
+          "height": 799.1,
+          "bottom": 2982.3,
+          "display": "grid",
+          "position": "relative",
+          "padding": "0px",
+          "margin": "0px",
+          "minHeight": "0px",
+          "gap": "0px",
+          "gridTemplateColumns": "360px 360px",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "objectFit": "fill",
+          "backgroundImage": "none",
+          "borderRadius": "0px"
+        },
+        "cells": [
+          {
+            "className": "wp-block-kadence-column kadence-column6_c0ad16-b8",
+            "cell": {
+              "x": 24,
+              "y": 2183.2,
+              "width": 360,
+              "height": 799.1,
+              "bottom": 2982.3,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 24,
+              "y": 2183.2,
+              "width": 360,
+              "height": 799.1,
+              "bottom": 2982.3,
+              "display": "flex",
+              "position": "relative",
+              "padding": "0px 0px 32px",
+              "margin": "0px",
+              "minHeight": "200px",
+              "gap": "0px 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "center",
+              "justifyContent": "center",
+              "objectFit": "fill",
+              "backgroundImage": "url(\"http://aia.tinyoakstudio.com/wp-content/uploads/2026/06/Color-Fill-DEF2FF.png\")",
+              "borderRadius": "25px 0px 0px 25px"
+            },
+            "image": null,
+            "heading": {
+              "x": 104,
+              "y": 2355.2,
+              "width": 200,
+              "height": 210,
+              "bottom": 2565.2,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "42px 80px 14px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "paragraph": {
+              "x": 60,
+              "y": 2579.2,
+              "width": 288,
+              "height": 217.5,
+              "bottom": 2796.7,
+              "display": "block",
+              "position": "static",
+              "padding": "0px 41.6px",
+              "margin": "0px 36px 153.6px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "text": "許多人因身體狀況、年齡或數位落差，長期被排除在數位世界之外。 推動數位共融與無障礙的知識與資源，往往散落於不同領域與國家，難以整合。這導致設計師不了解真實使用者"
+          },
+          {
+            "className": "wp-block-kadence-column kadence-column6_7c78e9-3a",
+            "cell": {
+              "x": 384,
+              "y": 2183.2,
+              "width": 360,
+              "height": 352.7,
+              "bottom": 2535.8,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 384,
+              "y": 2183.2,
+              "width": 360,
+              "height": 352.7,
+              "bottom": 2535.8,
+              "display": "flex",
+              "position": "relative",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "200px",
+              "gap": "0px 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "center",
+              "justifyContent": "flex-start",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px 25px 25px 0px"
+            },
+            "image": {
+              "x": 384,
+              "y": 2183.2,
+              "width": 360,
+              "height": 352.7,
+              "bottom": 2535.8,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px 25px 25px 0px"
+            },
+            "heading": null,
+            "paragraph": null,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "heading": "打破現有的侷限，創造更友善的社會環境。",
+        "rowClass": "kb-row-layout-wrap kb-row-layout-id6_2d9a6f-77 alignnone wp-block-kadence-rowlayout",
+        "grid": {
+          "x": 24,
+          "y": 2982.3,
+          "width": 720,
+          "height": 821.8,
+          "bottom": 3804.1,
+          "display": "grid",
+          "position": "relative",
+          "padding": "0px",
+          "margin": "0px",
+          "minHeight": "0px",
+          "gap": "0px",
+          "gridTemplateColumns": "360px 360px",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "objectFit": "fill",
+          "backgroundImage": "none",
+          "borderRadius": "0px"
+        },
+        "cells": [
+          {
+            "className": "wp-block-kadence-column kadence-column6_3bd267-5d",
+            "cell": {
+              "x": 24,
+              "y": 2982.3,
+              "width": 360,
+              "height": 821.8,
+              "bottom": 3804.1,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 24,
+              "y": 2982.3,
+              "width": 360,
+              "height": 350.7,
+              "bottom": 3332.9,
+              "display": "block",
+              "position": "relative",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "auto",
+              "gap": "normal 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "center",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "image": {
+              "x": 24,
+              "y": 2982.3,
+              "width": 360,
+              "height": 350.7,
+              "bottom": 3332.9,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "25px 0px 0px 25px"
+            },
+            "heading": null,
+            "paragraph": null,
+            "text": ""
+          },
+          {
+            "className": "wp-block-kadence-column kadence-column6_6cec02-2e",
+            "cell": {
+              "x": 384,
+              "y": 2982.3,
+              "width": 360,
+              "height": 821.8,
+              "bottom": 3804.1,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 384,
+              "y": 2982.3,
+              "width": 360,
+              "height": 821.8,
+              "bottom": 3804.1,
+              "display": "flex",
+              "position": "relative",
+              "padding": "0px 0px 32px",
+              "margin": "0px",
+              "minHeight": "200px",
+              "gap": "0px 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "center",
+              "justifyContent": "flex-start",
+              "objectFit": "fill",
+              "backgroundImage": "url(\"http://aia.tinyoakstudio.com/wp-content/uploads/2026/06/Color-Fill-DEF2FF.png\")",
+              "borderRadius": "0px 25px 25px 0px"
+            },
+            "image": null,
+            "heading": {
+              "x": 464,
+              "y": 3124.3,
+              "width": 200,
+              "height": 126,
+              "bottom": 3250.3,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "42px 80px 14px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "paragraph": {
+              "x": 420,
+              "y": 3264.3,
+              "width": 288,
+              "height": 407.8,
+              "bottom": 3672.1,
+              "display": "block",
+              "position": "static",
+              "padding": "0px 41.6px",
+              "margin": "0px 36px 32px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "text": "打破現有的侷限，創造更友善的社會環境。 亞太包容創新協會於2024年在台正式成立，我們希望攜手各界打破現有的侷限，創造更友善的社會環境。透過串聯國際無障礙領域的"
+          }
+        ]
+      }
+    ],
+    "narrowText": [
+      {
+        "tag": "p",
+        "text": "亞太包容創新協會致力推動多元共融與以人為本的科技創新文化，透過教育、培訓和國際合作，建立促進包容性的生態系統。",
+        "width": 216
+      },
+      {
+        "tag": "p",
+        "text": "APAC AIA fosters a culture of diversity, inclusion, and human-centered innovation. Through education, training, and glob",
+        "width": 216
+      },
+      {
+        "tag": "p",
+        "text": "我們相信，真正的共融不是配額或政策，而是讓每一個人的需求都被看見、被聽見，並真實反映在產品與服務的設計之中。呼應聯合國身心障礙者權利公約（CRPD）與通用設計七大原則。",
+        "width": 107
+      },
+      {
+        "tag": "p",
+        "text": "科技的價值，在於它能為人解決什麼問題。我們把真實使用者的經驗放在設計決策的核心，尤其是那些最常被忽略的聲音。方法：包容性設計（Inclusive Design）、無障礙使用者研究、社群跨界對話。",
+        "width": 107
+      },
+      {
+        "tag": "p",
+        "text": "創新不應該只服務多數人。我們推動以無障礙為基礎的科技發展，讓數位創新成為縮短差距、而非擴大落差的力量。從 WCAG 2.2 AA 合規、AI 無障礙應用到高齡科技（AgeTech），協助組織把無障礙從成本中心轉為創新動能。",
+        "width": 107
+      },
+      {
+        "tag": "p",
+        "text": "設計師與企業團隊，往往缺乏與身心障礙使用者直接對話的管道。我們創造連結，讓產品決策者能聽見真實的無障礙需求，將使用者的聲音帶入設計流程與企業政策。無障礙從來不是單一部門能獨力完成的；讓政府、企業與身心障礙社群持續對話、彼此聽見，是 AIA ",
+        "width": 219
+      },
+      {
+        "tag": "p",
+        "text": "WCAG、歐盟 EAA、美國 ADA — 全球無障礙標準與法規正在快速演進。我們與國際組織合作、引進講者，將這些標準本地化，協助亞太設計師與企業將國際規範落地實踐。已邀請 Frances West、Jonathan Hassell（Hass",
+        "width": 219
+      },
+      {
+        "tag": "p",
+        "text": "透過論壇、工作坊與培訓課程，我們將無障礙與共融設計化為具體行動，協助設計師與企業團隊真正落地執行。2024 年起舉辦 10 場專業活動，包含台灣首場「資訊無障礙與數位共融領導力論壇」（2024-04）、「打造高齡友善世界」線上論壇（2024",
+        "width": 219
+      },
+      {
+        "tag": "p",
+        "text": "WCAG 2.2、ARIA、無障礙網頁設計與輔助科技，讓網站與 App 對全球超過 12 億身心障礙使用者真正可用。",
+        "width": 207
+      },
+      {
+        "tag": "p",
+        "text": "通用設計七原則、跨年齡與能力的設計思維、聯合國身心障礙者權利公約（CRPD）— 把多樣性放進設計流程，不只是事後補救。",
+        "width": 207
+      },
+      {
+        "tag": "p",
+        "text": "歐盟 EAA、美國 ADA、台灣網站無障礙規範，皆以 WCAG 為共同技術基準，搭配 IAAP CPACC 國際認證，助組織落地執行。",
+        "width": 207
+      },
+      {
+        "tag": "p",
+        "text": "面對超高齡社會、聚焦銀髮科技、aging in place、以跨世代設計思維，為人口結構轉變預先做好科技準備。",
+        "width": 207
+      }
+    ],
+    "horizontalOffenders": [],
+    "focusTrace": []
+  },
+  {
+    "width": 1024,
+    "title": "",
+    "lang": "en-US",
+    "viewport": {
+      "clientWidth": 1024,
+      "scrollWidth": 1024,
+      "scrollHeight": 8121
+    },
+    "headings": [
+      {
+        "level": 1,
+        "text": "亞太包容創新協會"
+      },
+      {
+        "level": 4,
+        "text": "連結國際無障礙領袖、台灣產業與政府及在地專業社群，落實數位包容，讓每個人都能平等共享。"
+      },
+      {
+        "level": 2,
+        "text": "關於我們"
+      },
+      {
+        "level": 3,
+        "text": "當生活幾乎一切都在螢幕上完成，有些人卻被擋在門外:"
+      },
+      {
+        "level": 3,
+        "text": "許多人因身體狀況、年齡或數位落差，長期被排除在數位世界之外。"
+      },
+      {
+        "level": 3,
+        "text": "打破現有的侷限，創造更友善的社會環境。"
+      },
+      {
+        "level": 2,
+        "text": "三大價值"
+      },
+      {
+        "level": 2,
+        "text": "協會大事記"
+      },
+      {
+        "level": 5,
+        "text": "2024 / Apr"
+      },
+      {
+        "level": 5,
+        "text": "2024 / Oct"
+      },
+      {
+        "level": 5,
+        "text": "2024 / Nov"
+      },
+      {
+        "level": 5,
+        "text": "2025 / Oct"
+      },
+      {
+        "level": 5,
+        "text": "2026 / May"
+      },
+      {
+        "level": 5,
+        "text": "2026 / Sep"
+      },
+      {
+        "level": 2,
+        "text": "我們創造什麼連結"
+      },
+      {
+        "level": 5,
+        "text": "跨界對話Cross-Sector Dialogue"
+      },
+      {
+        "level": 5,
+        "text": "國際接軌Global Standards"
+      },
+      {
+        "level": 5,
+        "text": "從理念到落地Idea to Action"
+      },
+      {
+        "level": 2,
+        "text": "我們關注的議題"
+      },
+      {
+        "level": 5,
+        "text": "數位無障礙 Digital Accessibility"
+      },
+      {
+        "level": 5,
+        "text": "包容性設計 Inclusive Design"
+      },
+      {
+        "level": 5,
+        "text": "數位無障礙 International Standards"
+      },
+      {
+        "level": 5,
+        "text": "齡共融科技 AgeTech & Aging-Friendly"
+      },
+      {
+        "level": 2,
+        "text": "加入我們的行列"
+      },
+      {
+        "level": 2,
+        "text": "社群媒體 SOCIALS"
+      }
+    ],
+    "landmarks": {
+      "main": 1,
+      "nav": 2,
+      "footer": 1,
+      "skipHref": "#main",
+      "skipTarget": true
+    },
+    "images": {
+      "total": 21,
+      "missingAlt": [],
+      "emptyAlt": 4
+    },
+    "emptyLinks": [
+      {
+        "text": "Facebook",
+        "ariaLabel": "Facebook",
+        "href": ""
+      },
+      {
+        "text": "X",
+        "ariaLabel": "X",
+        "href": ""
+      },
+      {
+        "text": "Instagram",
+        "ariaLabel": "Instagram",
+        "href": ""
+      }
+    ],
+    "fauxControls": [
+      {
+        "tag": "div",
+        "text": "了解志工機會",
+        "className": "wp-block-kadence-advancedbtn kb-buttons-wrap kb-btns6_24e4c2-cf"
+      },
+      {
+        "tag": "span",
+        "text": "了解志工機會",
+        "className": "kb-button kt-button button kb-btn6_71d936-29 kt-btn-size-standard kt-btn-width-type-auto kb-btn-global-fill kt-btn-has-text-true kt-btn-has-svg-false wp-block-kadence-singlebtn"
+      },
+      {
+        "tag": "span",
+        "text": "了解志工機會",
+        "className": "kt-btn-inner-text"
+      }
+    ],
+    "aboutRows": [
+      {
+        "heading": "當生活幾乎一切都在螢幕上完成，有些人卻被擋在門外:",
+        "rowClass": "kb-row-layout-wrap kb-row-layout-id6_117607-0e alignnone wp-block-kadence-rowlayout",
+        "grid": {
+          "x": 24,
+          "y": 994.3,
+          "width": 976,
+          "height": 642.6,
+          "bottom": 1636.9,
+          "display": "grid",
+          "position": "relative",
+          "padding": "0px",
+          "margin": "0px",
+          "minHeight": "0px",
+          "gap": "32px 0px",
+          "gridTemplateColumns": "488px 488px",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "objectFit": "fill",
+          "backgroundImage": "none",
+          "borderRadius": "0px"
+        },
+        "cells": [
+          {
+            "className": "wp-block-kadence-column kadence-column6_d7591b-d9",
+            "cell": {
+              "x": 24,
+              "y": 994.3,
+              "width": 488,
+              "height": 642.6,
+              "bottom": 1636.9,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 24,
+              "y": 994.3,
+              "width": 488,
+              "height": 475.3,
+              "bottom": 1469.7,
+              "display": "block",
+              "position": "relative",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "auto",
+              "gap": "normal 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "center",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "image": {
+              "x": 24,
+              "y": 994.3,
+              "width": 488,
+              "height": 475.3,
+              "bottom": 1469.7,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "25px 0px 0px 25px"
+            },
+            "heading": null,
+            "paragraph": null,
+            "text": ""
+          },
+          {
+            "className": "wp-block-kadence-column kadence-column6_01acaf-af",
+            "cell": {
+              "x": 512,
+              "y": 994.3,
+              "width": 488,
+              "height": 642.6,
+              "bottom": 1636.9,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 512,
+              "y": 994.3,
+              "width": 488,
+              "height": 642.6,
+              "bottom": 1636.9,
+              "display": "flex",
+              "position": "relative",
+              "padding": "0px 0px 48px",
+              "margin": "0px",
+              "minHeight": "200px",
+              "gap": "0px 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "center",
+              "justifyContent": "flex-start",
+              "objectFit": "fill",
+              "backgroundImage": "url(\"http://aia.tinyoakstudio.com/wp-content/uploads/2026/06/Color-Fill-DEF2FF.png\")",
+              "borderRadius": "0px 25px 25px 0px"
+            },
+            "image": null,
+            "heading": {
+              "x": 546,
+              "y": 1094.3,
+              "width": 420,
+              "height": 84,
+              "bottom": 1178.3,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "42px 34px 14px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "paragraph": {
+              "x": 548,
+              "y": 1213.9,
+              "width": 416,
+              "height": 353.4,
+              "bottom": 1567.3,
+              "display": "block",
+              "position": "static",
+              "padding": "0px 54.08px",
+              "margin": "21.6px 36px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "text": "當生活幾乎一切都在螢幕上完成，有些人卻被擋在門外: 看不清的文字、點不到的按鈕、讀不出來的圖片，讓掛號、轉帳、報名這些日常小事變得寸步難行。這不是少數人的故事："
+          }
+        ]
+      },
+      {
+        "heading": "許多人因身體狀況、年齡或數位落差，長期被排除在數位世界之外。",
+        "rowClass": "kb-row-layout-wrap kb-row-layout-id6_81210d-ad alignnone wp-block-kadence-rowlayout",
+        "grid": {
+          "x": 24,
+          "y": 1636.9,
+          "width": 976,
+          "height": 660.7,
+          "bottom": 2297.7,
+          "display": "grid",
+          "position": "relative",
+          "padding": "0px",
+          "margin": "0px",
+          "minHeight": "0px",
+          "gap": "0px",
+          "gridTemplateColumns": "488px 488px",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "objectFit": "fill",
+          "backgroundImage": "none",
+          "borderRadius": "0px"
+        },
+        "cells": [
+          {
+            "className": "wp-block-kadence-column kadence-column6_c0ad16-b8",
+            "cell": {
+              "x": 24,
+              "y": 1636.9,
+              "width": 488,
+              "height": 660.7,
+              "bottom": 2297.7,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 24,
+              "y": 1636.9,
+              "width": 488,
+              "height": 660.7,
+              "bottom": 2297.7,
+              "display": "flex",
+              "position": "relative",
+              "padding": "0px 0px 32px",
+              "margin": "0px",
+              "minHeight": "200px",
+              "gap": "0px 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "center",
+              "justifyContent": "center",
+              "objectFit": "fill",
+              "backgroundImage": "url(\"http://aia.tinyoakstudio.com/wp-content/uploads/2026/06/Color-Fill-DEF2FF.png\")",
+              "borderRadius": "25px 0px 0px 25px"
+            },
+            "image": null,
+            "heading": {
+              "x": 104,
+              "y": 1808.9,
+              "width": 328,
+              "height": 126,
+              "bottom": 1934.9,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "42px 80px 14px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "paragraph": {
+              "x": 60,
+              "y": 1948.9,
+              "width": 416,
+              "height": 163.1,
+              "bottom": 2112.1,
+              "display": "block",
+              "position": "static",
+              "padding": "0px 41.6px",
+              "margin": "0px 36px 153.6px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "text": "許多人因身體狀況、年齡或數位落差，長期被排除在數位世界之外。 推動數位共融與無障礙的知識與資源，往往散落於不同領域與國家，難以整合。這導致設計師不了解真實使用者"
+          },
+          {
+            "className": "wp-block-kadence-column kadence-column6_7c78e9-3a",
+            "cell": {
+              "x": 512,
+              "y": 1636.9,
+              "width": 488,
+              "height": 478,
+              "bottom": 2115,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 512,
+              "y": 1636.9,
+              "width": 488,
+              "height": 478,
+              "bottom": 2115,
+              "display": "flex",
+              "position": "relative",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "200px",
+              "gap": "0px 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "center",
+              "justifyContent": "flex-start",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px 25px 25px 0px"
+            },
+            "image": {
+              "x": 512,
+              "y": 1636.9,
+              "width": 488,
+              "height": 478,
+              "bottom": 2115,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px 25px 25px 0px"
+            },
+            "heading": null,
+            "paragraph": null,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "heading": "打破現有的侷限，創造更友善的社會環境。",
+        "rowClass": "kb-row-layout-wrap kb-row-layout-id6_2d9a6f-77 alignnone wp-block-kadence-rowlayout",
+        "grid": {
+          "x": 24,
+          "y": 2297.7,
+          "width": 976,
+          "height": 616.7,
+          "bottom": 2914.3,
+          "display": "grid",
+          "position": "relative",
+          "padding": "0px",
+          "margin": "0px",
+          "minHeight": "0px",
+          "gap": "0px",
+          "gridTemplateColumns": "488px 488px",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "objectFit": "fill",
+          "backgroundImage": "none",
+          "borderRadius": "0px"
+        },
+        "cells": [
+          {
+            "className": "wp-block-kadence-column kadence-column6_3bd267-5d",
+            "cell": {
+              "x": 24,
+              "y": 2297.7,
+              "width": 488,
+              "height": 616.7,
+              "bottom": 2914.3,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 24,
+              "y": 2297.7,
+              "width": 488,
+              "height": 475.3,
+              "bottom": 2773,
+              "display": "block",
+              "position": "relative",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "auto",
+              "gap": "normal 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "center",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "image": {
+              "x": 24,
+              "y": 2297.7,
+              "width": 488,
+              "height": 475.3,
+              "bottom": 2773,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "25px 0px 0px 25px"
+            },
+            "heading": null,
+            "paragraph": null,
+            "text": ""
+          },
+          {
+            "className": "wp-block-kadence-column kadence-column6_6cec02-2e",
+            "cell": {
+              "x": 512,
+              "y": 2297.7,
+              "width": 488,
+              "height": 616.7,
+              "bottom": 2914.3,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 512,
+              "y": 2297.7,
+              "width": 488,
+              "height": 616.7,
+              "bottom": 2914.3,
+              "display": "flex",
+              "position": "relative",
+              "padding": "0px 0px 32px",
+              "margin": "0px",
+              "minHeight": "200px",
+              "gap": "0px 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "center",
+              "justifyContent": "flex-start",
+              "objectFit": "fill",
+              "backgroundImage": "url(\"http://aia.tinyoakstudio.com/wp-content/uploads/2026/06/Color-Fill-DEF2FF.png\")",
+              "borderRadius": "0px 25px 25px 0px"
+            },
+            "image": null,
+            "heading": {
+              "x": 592,
+              "y": 2439.7,
+              "width": 328,
+              "height": 84,
+              "bottom": 2523.7,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "42px 80px 14px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "paragraph": {
+              "x": 548,
+              "y": 2537.7,
+              "width": 416,
+              "height": 244.7,
+              "bottom": 2782.3,
+              "display": "block",
+              "position": "static",
+              "padding": "0px 41.6px",
+              "margin": "0px 36px 32px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "text": "打破現有的侷限，創造更友善的社會環境。 亞太包容創新協會於2024年在台正式成立，我們希望攜手各界打破現有的侷限，創造更友善的社會環境。透過串聯國際無障礙領域的"
+          }
+        ]
+      }
+    ],
+    "narrowText": [
+      {
+        "tag": "p",
+        "text": "我們相信，真正的共融不是配額或政策，而是讓每一個人的需求都被看見、被聽見，並真實反映在產品與服務的設計之中。呼應聯合國身心障礙者權利公約（CRPD）與通用設計七大原則。",
+        "width": 192
+      },
+      {
+        "tag": "p",
+        "text": "科技的價值，在於它能為人解決什麼問題。我們把真實使用者的經驗放在設計決策的核心，尤其是那些最常被忽略的聲音。方法：包容性設計（Inclusive Design）、無障礙使用者研究、社群跨界對話。",
+        "width": 192
+      },
+      {
+        "tag": "p",
+        "text": "創新不應該只服務多數人。我們推動以無障礙為基礎的科技發展，讓數位創新成為縮短差距、而非擴大落差的力量。從 WCAG 2.2 AA 合規、AI 無障礙應用到高齡科技（AgeTech），協助組織把無障礙從成本中心轉為創新動能。",
+        "width": 192
+      }
+    ],
+    "horizontalOffenders": [],
+    "focusTrace": []
+  },
+  {
+    "width": 1280,
+    "title": "",
+    "lang": "en-US",
+    "viewport": {
+      "clientWidth": 1280,
+      "scrollWidth": 1280,
+      "scrollHeight": 7117
+    },
+    "headings": [
+      {
+        "level": 1,
+        "text": "亞太包容創新協會"
+      },
+      {
+        "level": 4,
+        "text": "連結國際無障礙領袖、台灣產業與政府及在地專業社群，落實數位包容，讓每個人都能平等共享。"
+      },
+      {
+        "level": 2,
+        "text": "關於我們"
+      },
+      {
+        "level": 3,
+        "text": "當生活幾乎一切都在螢幕上完成，有些人卻被擋在門外:"
+      },
+      {
+        "level": 3,
+        "text": "許多人因身體狀況、年齡或數位落差，長期被排除在數位世界之外。"
+      },
+      {
+        "level": 3,
+        "text": "打破現有的侷限，創造更友善的社會環境。"
+      },
+      {
+        "level": 2,
+        "text": "三大價值"
+      },
+      {
+        "level": 2,
+        "text": "協會大事記"
+      },
+      {
+        "level": 5,
+        "text": "2024 / Apr"
+      },
+      {
+        "level": 5,
+        "text": "2024 / Oct"
+      },
+      {
+        "level": 5,
+        "text": "2024 / Nov"
+      },
+      {
+        "level": 5,
+        "text": "2025 / Oct"
+      },
+      {
+        "level": 5,
+        "text": "2026 / May"
+      },
+      {
+        "level": 5,
+        "text": "2026 / Sep"
+      },
+      {
+        "level": 2,
+        "text": "我們創造什麼連結"
+      },
+      {
+        "level": 5,
+        "text": "跨界對話Cross-Sector Dialogue"
+      },
+      {
+        "level": 5,
+        "text": "國際接軌Global Standards"
+      },
+      {
+        "level": 5,
+        "text": "從理念到落地Idea to Action"
+      },
+      {
+        "level": 2,
+        "text": "我們關注的議題"
+      },
+      {
+        "level": 5,
+        "text": "數位無障礙 Digital Accessibility"
+      },
+      {
+        "level": 5,
+        "text": "包容性設計 Inclusive Design"
+      },
+      {
+        "level": 5,
+        "text": "數位無障礙 International Standards"
+      },
+      {
+        "level": 5,
+        "text": "齡共融科技 AgeTech & Aging-Friendly"
+      },
+      {
+        "level": 2,
+        "text": "加入我們的行列"
+      },
+      {
+        "level": 2,
+        "text": "社群媒體 SOCIALS"
+      }
+    ],
+    "landmarks": {
+      "main": 1,
+      "nav": 2,
+      "footer": 1,
+      "skipHref": "#main",
+      "skipTarget": true
+    },
+    "images": {
+      "total": 21,
+      "missingAlt": [],
+      "emptyAlt": 4
+    },
+    "emptyLinks": [
+      {
+        "text": "Facebook",
+        "ariaLabel": "Facebook",
+        "href": ""
+      },
+      {
+        "text": "X",
+        "ariaLabel": "X",
+        "href": ""
+      },
+      {
+        "text": "Instagram",
+        "ariaLabel": "Instagram",
+        "href": ""
+      }
+    ],
+    "fauxControls": [
+      {
+        "tag": "div",
+        "text": "了解志工機會",
+        "className": "wp-block-kadence-advancedbtn kb-buttons-wrap kb-btns6_24e4c2-cf"
+      },
+      {
+        "tag": "span",
+        "text": "了解志工機會",
+        "className": "kb-button kt-button button kb-btn6_71d936-29 kt-btn-size-standard kt-btn-width-type-auto kb-btn-global-fill kt-btn-has-text-true kt-btn-has-svg-false wp-block-kadence-singlebtn"
+      },
+      {
+        "tag": "span",
+        "text": "了解志工機會",
+        "className": "kt-btn-inner-text"
+      }
+    ],
+    "aboutRows": [
+      {
+        "heading": "當生活幾乎一切都在螢幕上完成，有些人卻被擋在門外:",
+        "rowClass": "kb-row-layout-wrap kb-row-layout-id6_117607-0e alignnone wp-block-kadence-rowlayout",
+        "grid": {
+          "x": 64,
+          "y": 1003.1,
+          "width": 1152,
+          "height": 561.1,
+          "bottom": 1564.2,
+          "display": "grid",
+          "position": "relative",
+          "padding": "0px",
+          "margin": "0px",
+          "minHeight": "0px",
+          "gap": "32px 0px",
+          "gridTemplateColumns": "576px 576px",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "objectFit": "fill",
+          "backgroundImage": "none",
+          "borderRadius": "0px"
+        },
+        "cells": [
+          {
+            "className": "wp-block-kadence-column kadence-column6_d7591b-d9",
+            "cell": {
+              "x": 64,
+              "y": 1003.1,
+              "width": 576,
+              "height": 561.1,
+              "bottom": 1564.2,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 64,
+              "y": 1003.1,
+              "width": 576,
+              "height": 561.1,
+              "bottom": 1564.2,
+              "display": "block",
+              "position": "relative",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "auto",
+              "gap": "normal 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "image": {
+              "x": 64,
+              "y": 1003.1,
+              "width": 576,
+              "height": 561.1,
+              "bottom": 1564.2,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "25px 0px 0px 25px"
+            },
+            "heading": null,
+            "paragraph": null,
+            "text": ""
+          },
+          {
+            "className": "wp-block-kadence-column kadence-column6_01acaf-af",
+            "cell": {
+              "x": 640,
+              "y": 1003.1,
+              "width": 576,
+              "height": 561.1,
+              "bottom": 1564.2,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 640,
+              "y": 1003.1,
+              "width": 576,
+              "height": 561.1,
+              "bottom": 1564.2,
+              "display": "flex",
+              "position": "relative",
+              "padding": "0px 0px 48px",
+              "margin": "0px",
+              "minHeight": "200px",
+              "gap": "0px 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "center",
+              "justifyContent": "flex-start",
+              "objectFit": "fill",
+              "backgroundImage": "url(\"http://aia.tinyoakstudio.com/wp-content/uploads/2026/06/Color-Fill-DEF2FF.png\")",
+              "borderRadius": "0px 25px 25px 0px"
+            },
+            "image": null,
+            "heading": {
+              "x": 718,
+              "y": 1103.1,
+              "width": 420,
+              "height": 84,
+              "bottom": 1187.1,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "42px 78px 14px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "paragraph": {
+              "x": 676,
+              "y": 1222.7,
+              "width": 504,
+              "height": 271.9,
+              "bottom": 1494.6,
+              "display": "block",
+              "position": "static",
+              "padding": "0px 54.08px",
+              "margin": "21.6px 36px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "text": "當生活幾乎一切都在螢幕上完成，有些人卻被擋在門外: 看不清的文字、點不到的按鈕、讀不出來的圖片，讓掛號、轉帳、報名這些日常小事變得寸步難行。這不是少數人的故事："
+          }
+        ]
+      },
+      {
+        "heading": "許多人因身體狀況、年齡或數位落差，長期被排除在數位世界之外。",
+        "rowClass": "kb-row-layout-wrap kb-row-layout-id6_81210d-ad alignnone wp-block-kadence-rowlayout",
+        "grid": {
+          "x": 64,
+          "y": 1564.2,
+          "width": 1152,
+          "height": 606.3,
+          "bottom": 2170.5,
+          "display": "grid",
+          "position": "relative",
+          "padding": "0px",
+          "margin": "0px",
+          "minHeight": "0px",
+          "gap": "0px",
+          "gridTemplateColumns": "576px 576px",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "objectFit": "fill",
+          "backgroundImage": "none",
+          "borderRadius": "0px"
+        },
+        "cells": [
+          {
+            "className": "wp-block-kadence-column kadence-column6_c0ad16-b8",
+            "cell": {
+              "x": 64,
+              "y": 1564.2,
+              "width": 576,
+              "height": 606.3,
+              "bottom": 2170.5,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 64,
+              "y": 1564.2,
+              "width": 576,
+              "height": 606.3,
+              "bottom": 2170.5,
+              "display": "flex",
+              "position": "relative",
+              "padding": "0px 0px 32px",
+              "margin": "0px",
+              "minHeight": "200px",
+              "gap": "0px 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "center",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "url(\"http://aia.tinyoakstudio.com/wp-content/uploads/2026/06/Color-Fill-DEF2FF.png\")",
+              "borderRadius": "25px 0px 0px 25px"
+            },
+            "image": null,
+            "heading": {
+              "x": 144,
+              "y": 1736.2,
+              "width": 416,
+              "height": 126,
+              "bottom": 1862.2,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "42px 80px 14px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "paragraph": {
+              "x": 100,
+              "y": 1876.2,
+              "width": 504,
+              "height": 108.8,
+              "bottom": 1984.9,
+              "display": "block",
+              "position": "static",
+              "padding": "0px 41.6px",
+              "margin": "0px 36px 153.6px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "text": "許多人因身體狀況、年齡或數位落差，長期被排除在數位世界之外。 推動數位共融與無障礙的知識與資源，往往散落於不同領域與國家，難以整合。這導致設計師不了解真實使用者"
+          },
+          {
+            "className": "wp-block-kadence-column kadence-column6_7c78e9-3a",
+            "cell": {
+              "x": 640,
+              "y": 1564.2,
+              "width": 576,
+              "height": 564.3,
+              "bottom": 2128.4,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 640,
+              "y": 1564.2,
+              "width": 576,
+              "height": 564.3,
+              "bottom": 2128.4,
+              "display": "flex",
+              "position": "relative",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "200px",
+              "gap": "0px 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "center",
+              "justifyContent": "flex-start",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px 25px 25px 0px"
+            },
+            "image": {
+              "x": 640,
+              "y": 1564.2,
+              "width": 576,
+              "height": 564.3,
+              "bottom": 2128.4,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px 25px 25px 0px"
+            },
+            "heading": null,
+            "paragraph": null,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "heading": "打破現有的侷限，創造更友善的社會環境。",
+        "rowClass": "kb-row-layout-wrap kb-row-layout-id6_2d9a6f-77 alignnone wp-block-kadence-rowlayout",
+        "grid": {
+          "x": 64,
+          "y": 2170.5,
+          "width": 1152,
+          "height": 562.3,
+          "bottom": 2732.8,
+          "display": "grid",
+          "position": "relative",
+          "padding": "0px",
+          "margin": "0px",
+          "minHeight": "0px",
+          "gap": "0px",
+          "gridTemplateColumns": "576px 576px",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "objectFit": "fill",
+          "backgroundImage": "none",
+          "borderRadius": "0px"
+        },
+        "cells": [
+          {
+            "className": "wp-block-kadence-column kadence-column6_3bd267-5d",
+            "cell": {
+              "x": 64,
+              "y": 2170.5,
+              "width": 576,
+              "height": 562.3,
+              "bottom": 2732.8,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 64,
+              "y": 2170.5,
+              "width": 576,
+              "height": 561.1,
+              "bottom": 2731.6,
+              "display": "block",
+              "position": "relative",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "auto",
+              "gap": "normal 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "image": {
+              "x": 64,
+              "y": 2170.5,
+              "width": 576,
+              "height": 561.1,
+              "bottom": 2731.6,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "25px 0px 0px 25px"
+            },
+            "heading": null,
+            "paragraph": null,
+            "text": ""
+          },
+          {
+            "className": "wp-block-kadence-column kadence-column6_6cec02-2e",
+            "cell": {
+              "x": 640,
+              "y": 2170.5,
+              "width": 576,
+              "height": 562.3,
+              "bottom": 2732.8,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 640,
+              "y": 2170.5,
+              "width": 576,
+              "height": 562.3,
+              "bottom": 2732.8,
+              "display": "flex",
+              "position": "relative",
+              "padding": "0px 0px 32px",
+              "margin": "0px",
+              "minHeight": "200px",
+              "gap": "0px 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "center",
+              "justifyContent": "flex-start",
+              "objectFit": "fill",
+              "backgroundImage": "url(\"http://aia.tinyoakstudio.com/wp-content/uploads/2026/06/Color-Fill-DEF2FF.png\")",
+              "borderRadius": "0px 25px 25px 0px"
+            },
+            "image": null,
+            "heading": {
+              "x": 720,
+              "y": 2312.5,
+              "width": 416,
+              "height": 84,
+              "bottom": 2396.5,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "42px 80px 14px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "paragraph": {
+              "x": 676,
+              "y": 2410.5,
+              "width": 504,
+              "height": 190.3,
+              "bottom": 2600.8,
+              "display": "block",
+              "position": "static",
+              "padding": "0px 41.6px",
+              "margin": "0px 36px 32px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "text": "打破現有的侷限，創造更友善的社會環境。 亞太包容創新協會於2024年在台正式成立，我們希望攜手各界打破現有的侷限，創造更友善的社會環境。透過串聯國際無障礙領域的"
+          }
+        ]
+      }
+    ],
+    "narrowText": [
+      {
+        "tag": "p",
+        "text": "協會成立 + 首場旗艦論壇亞太包容創新協會於台北成立，同月舉辦台灣首場「資訊無障礙與數位共融領導力論壇」，邀請 Frances West（前 IBM 首席無障礙長，現任 FrancesWest&Co 創辦人）等 6 位國際領袖，衛福部健保署",
+        "width": 165
+      },
+      {
+        "tag": "p",
+        "text": "IAAP 台灣策略合作夥伴2024 年 10 月 22 日簽訂，成為國際無障礙專業人士協會（IAAP）台灣策略合作夥伴，推動 CPACC 國際無障礙專業認證在台普及。",
+        "width": 165
+      },
+      {
+        "tag": "p",
+        "text": "高齡共融國際線上論壇「打造高齡友善世界，享受樂齡生活」6 小時線上論壇，邀請國際與台灣共 8 位高齡科技與包容專家：國際講者 Troy Otillo（Aira Technologies CEO）、Makoto Ueki（Infoaxia 創",
+        "width": 165
+      },
+      {
+        "tag": "p",
+        "text": "M-Enabling Summit 2025 國際講者理事長張凱萍（Claire Chang）受邀擔任 M-Enabling Summit 2025 國際講者，於國際舞台分享台灣數位共融推動經驗。",
+        "width": 165
+      },
+      {
+        "tag": "p",
+        "text": "MayGAAD 跨組織共同主辦與 La French Tech Taiwan、Raven Accessibility、Tiny Oak Studio，於台灣科技新創基地（Taiwan Tech Arena）共同舉辦 GAAD 全球無障礙體認",
+        "width": 165
+      },
+      {
+        "tag": "p",
+        "text": "ADALS 2026 旗艦論壇（即將舉辦）亞太數位包容與資訊無障礙領導力論壇（09-17 至 09-18 @ 台北），延續首場論壇規模，聚焦亞太區域 無障礙、高齡化、AI 三軸對話。",
+        "width": 165
+      }
+    ],
+    "horizontalOffenders": [],
+    "focusTrace": []
+  },
+  {
+    "width": 1440,
+    "title": "",
+    "lang": "en-US",
+    "viewport": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "scrollHeight": 7118
+    },
+    "headings": [
+      {
+        "level": 1,
+        "text": "亞太包容創新協會"
+      },
+      {
+        "level": 4,
+        "text": "連結國際無障礙領袖、台灣產業與政府及在地專業社群，落實數位包容，讓每個人都能平等共享。"
+      },
+      {
+        "level": 2,
+        "text": "關於我們"
+      },
+      {
+        "level": 3,
+        "text": "當生活幾乎一切都在螢幕上完成，有些人卻被擋在門外:"
+      },
+      {
+        "level": 3,
+        "text": "許多人因身體狀況、年齡或數位落差，長期被排除在數位世界之外。"
+      },
+      {
+        "level": 3,
+        "text": "打破現有的侷限，創造更友善的社會環境。"
+      },
+      {
+        "level": 2,
+        "text": "三大價值"
+      },
+      {
+        "level": 2,
+        "text": "協會大事記"
+      },
+      {
+        "level": 5,
+        "text": "2024 / Apr"
+      },
+      {
+        "level": 5,
+        "text": "2024 / Oct"
+      },
+      {
+        "level": 5,
+        "text": "2024 / Nov"
+      },
+      {
+        "level": 5,
+        "text": "2025 / Oct"
+      },
+      {
+        "level": 5,
+        "text": "2026 / May"
+      },
+      {
+        "level": 5,
+        "text": "2026 / Sep"
+      },
+      {
+        "level": 2,
+        "text": "我們創造什麼連結"
+      },
+      {
+        "level": 5,
+        "text": "跨界對話Cross-Sector Dialogue"
+      },
+      {
+        "level": 5,
+        "text": "國際接軌Global Standards"
+      },
+      {
+        "level": 5,
+        "text": "從理念到落地Idea to Action"
+      },
+      {
+        "level": 2,
+        "text": "我們關注的議題"
+      },
+      {
+        "level": 5,
+        "text": "數位無障礙 Digital Accessibility"
+      },
+      {
+        "level": 5,
+        "text": "包容性設計 Inclusive Design"
+      },
+      {
+        "level": 5,
+        "text": "數位無障礙 International Standards"
+      },
+      {
+        "level": 5,
+        "text": "齡共融科技 AgeTech & Aging-Friendly"
+      },
+      {
+        "level": 2,
+        "text": "加入我們的行列"
+      },
+      {
+        "level": 2,
+        "text": "社群媒體 SOCIALS"
+      }
+    ],
+    "landmarks": {
+      "main": 1,
+      "nav": 2,
+      "footer": 1,
+      "skipHref": "#main",
+      "skipTarget": true
+    },
+    "images": {
+      "total": 21,
+      "missingAlt": [],
+      "emptyAlt": 4
+    },
+    "emptyLinks": [
+      {
+        "text": "Facebook",
+        "ariaLabel": "Facebook",
+        "href": ""
+      },
+      {
+        "text": "X",
+        "ariaLabel": "X",
+        "href": ""
+      },
+      {
+        "text": "Instagram",
+        "ariaLabel": "Instagram",
+        "href": ""
+      }
+    ],
+    "fauxControls": [
+      {
+        "tag": "div",
+        "text": "了解志工機會",
+        "className": "wp-block-kadence-advancedbtn kb-buttons-wrap kb-btns6_24e4c2-cf"
+      },
+      {
+        "tag": "span",
+        "text": "了解志工機會",
+        "className": "kb-button kt-button button kb-btn6_71d936-29 kt-btn-size-standard kt-btn-width-type-auto kb-btn-global-fill kt-btn-has-text-true kt-btn-has-svg-false wp-block-kadence-singlebtn"
+      },
+      {
+        "tag": "span",
+        "text": "了解志工機會",
+        "className": "kt-btn-inner-text"
+      }
+    ],
+    "aboutRows": [
+      {
+        "heading": "當生活幾乎一切都在螢幕上完成，有些人卻被擋在門外:",
+        "rowClass": "kb-row-layout-wrap kb-row-layout-id6_117607-0e alignnone wp-block-kadence-rowlayout",
+        "grid": {
+          "x": 144,
+          "y": 1003.1,
+          "width": 1152,
+          "height": 561.1,
+          "bottom": 1564.2,
+          "display": "grid",
+          "position": "relative",
+          "padding": "0px",
+          "margin": "0px",
+          "minHeight": "0px",
+          "gap": "32px 0px",
+          "gridTemplateColumns": "576px 576px",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "objectFit": "fill",
+          "backgroundImage": "none",
+          "borderRadius": "0px"
+        },
+        "cells": [
+          {
+            "className": "wp-block-kadence-column kadence-column6_d7591b-d9",
+            "cell": {
+              "x": 144,
+              "y": 1003.1,
+              "width": 576,
+              "height": 561.1,
+              "bottom": 1564.2,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 144,
+              "y": 1003.1,
+              "width": 576,
+              "height": 561.1,
+              "bottom": 1564.2,
+              "display": "block",
+              "position": "relative",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "auto",
+              "gap": "normal 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "image": {
+              "x": 144,
+              "y": 1003.1,
+              "width": 576,
+              "height": 561.1,
+              "bottom": 1564.2,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "25px 0px 0px 25px"
+            },
+            "heading": null,
+            "paragraph": null,
+            "text": ""
+          },
+          {
+            "className": "wp-block-kadence-column kadence-column6_01acaf-af",
+            "cell": {
+              "x": 720,
+              "y": 1003.1,
+              "width": 576,
+              "height": 561.1,
+              "bottom": 1564.2,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 720,
+              "y": 1003.1,
+              "width": 576,
+              "height": 561.1,
+              "bottom": 1564.2,
+              "display": "flex",
+              "position": "relative",
+              "padding": "0px 0px 48px",
+              "margin": "0px",
+              "minHeight": "200px",
+              "gap": "0px 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "center",
+              "justifyContent": "flex-start",
+              "objectFit": "fill",
+              "backgroundImage": "url(\"http://aia.tinyoakstudio.com/wp-content/uploads/2026/06/Color-Fill-DEF2FF.png\")",
+              "borderRadius": "0px 25px 25px 0px"
+            },
+            "image": null,
+            "heading": {
+              "x": 798,
+              "y": 1103.1,
+              "width": 420,
+              "height": 84,
+              "bottom": 1187.1,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "42px 78px 14px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "paragraph": {
+              "x": 756,
+              "y": 1222.7,
+              "width": 504,
+              "height": 271.9,
+              "bottom": 1494.6,
+              "display": "block",
+              "position": "static",
+              "padding": "0px 54.08px",
+              "margin": "21.6px 36px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "text": "當生活幾乎一切都在螢幕上完成，有些人卻被擋在門外: 看不清的文字、點不到的按鈕、讀不出來的圖片，讓掛號、轉帳、報名這些日常小事變得寸步難行。這不是少數人的故事："
+          }
+        ]
+      },
+      {
+        "heading": "許多人因身體狀況、年齡或數位落差，長期被排除在數位世界之外。",
+        "rowClass": "kb-row-layout-wrap kb-row-layout-id6_81210d-ad alignnone wp-block-kadence-rowlayout",
+        "grid": {
+          "x": 144,
+          "y": 1564.2,
+          "width": 1152,
+          "height": 606.3,
+          "bottom": 2170.5,
+          "display": "grid",
+          "position": "relative",
+          "padding": "0px",
+          "margin": "0px",
+          "minHeight": "0px",
+          "gap": "0px",
+          "gridTemplateColumns": "576px 576px",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "objectFit": "fill",
+          "backgroundImage": "none",
+          "borderRadius": "0px"
+        },
+        "cells": [
+          {
+            "className": "wp-block-kadence-column kadence-column6_c0ad16-b8",
+            "cell": {
+              "x": 144,
+              "y": 1564.2,
+              "width": 576,
+              "height": 606.3,
+              "bottom": 2170.5,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 144,
+              "y": 1564.2,
+              "width": 576,
+              "height": 606.3,
+              "bottom": 2170.5,
+              "display": "flex",
+              "position": "relative",
+              "padding": "0px 0px 32px",
+              "margin": "0px",
+              "minHeight": "200px",
+              "gap": "0px 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "center",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "url(\"http://aia.tinyoakstudio.com/wp-content/uploads/2026/06/Color-Fill-DEF2FF.png\")",
+              "borderRadius": "25px 0px 0px 25px"
+            },
+            "image": null,
+            "heading": {
+              "x": 224,
+              "y": 1736.2,
+              "width": 416,
+              "height": 126,
+              "bottom": 1862.2,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "42px 80px 14px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "paragraph": {
+              "x": 180,
+              "y": 1876.2,
+              "width": 504,
+              "height": 108.8,
+              "bottom": 1984.9,
+              "display": "block",
+              "position": "static",
+              "padding": "0px 41.6px",
+              "margin": "0px 36px 153.6px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "text": "許多人因身體狀況、年齡或數位落差，長期被排除在數位世界之外。 推動數位共融與無障礙的知識與資源，往往散落於不同領域與國家，難以整合。這導致設計師不了解真實使用者"
+          },
+          {
+            "className": "wp-block-kadence-column kadence-column6_7c78e9-3a",
+            "cell": {
+              "x": 720,
+              "y": 1564.2,
+              "width": 576,
+              "height": 564.3,
+              "bottom": 2128.4,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 720,
+              "y": 1564.2,
+              "width": 576,
+              "height": 564.3,
+              "bottom": 2128.4,
+              "display": "flex",
+              "position": "relative",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "200px",
+              "gap": "0px 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "center",
+              "justifyContent": "flex-start",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px 25px 25px 0px"
+            },
+            "image": {
+              "x": 720,
+              "y": 1564.2,
+              "width": 576,
+              "height": 564.3,
+              "bottom": 2128.4,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px 25px 25px 0px"
+            },
+            "heading": null,
+            "paragraph": null,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "heading": "打破現有的侷限，創造更友善的社會環境。",
+        "rowClass": "kb-row-layout-wrap kb-row-layout-id6_2d9a6f-77 alignnone wp-block-kadence-rowlayout",
+        "grid": {
+          "x": 144,
+          "y": 2170.5,
+          "width": 1152,
+          "height": 562.3,
+          "bottom": 2732.8,
+          "display": "grid",
+          "position": "relative",
+          "padding": "0px",
+          "margin": "0px",
+          "minHeight": "0px",
+          "gap": "0px",
+          "gridTemplateColumns": "576px 576px",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "objectFit": "fill",
+          "backgroundImage": "none",
+          "borderRadius": "0px"
+        },
+        "cells": [
+          {
+            "className": "wp-block-kadence-column kadence-column6_3bd267-5d",
+            "cell": {
+              "x": 144,
+              "y": 2170.5,
+              "width": 576,
+              "height": 562.3,
+              "bottom": 2732.8,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 144,
+              "y": 2170.5,
+              "width": 576,
+              "height": 561.1,
+              "bottom": 2731.6,
+              "display": "block",
+              "position": "relative",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "auto",
+              "gap": "normal 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "image": {
+              "x": 144,
+              "y": 2170.5,
+              "width": 576,
+              "height": 561.1,
+              "bottom": 2731.6,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "25px 0px 0px 25px"
+            },
+            "heading": null,
+            "paragraph": null,
+            "text": ""
+          },
+          {
+            "className": "wp-block-kadence-column kadence-column6_6cec02-2e",
+            "cell": {
+              "x": 720,
+              "y": 2170.5,
+              "width": 576,
+              "height": 562.3,
+              "bottom": 2732.8,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 720,
+              "y": 2170.5,
+              "width": 576,
+              "height": 562.3,
+              "bottom": 2732.8,
+              "display": "flex",
+              "position": "relative",
+              "padding": "0px 0px 32px",
+              "margin": "0px",
+              "minHeight": "200px",
+              "gap": "0px 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "center",
+              "justifyContent": "flex-start",
+              "objectFit": "fill",
+              "backgroundImage": "url(\"http://aia.tinyoakstudio.com/wp-content/uploads/2026/06/Color-Fill-DEF2FF.png\")",
+              "borderRadius": "0px 25px 25px 0px"
+            },
+            "image": null,
+            "heading": {
+              "x": 800,
+              "y": 2312.5,
+              "width": 416,
+              "height": 84,
+              "bottom": 2396.5,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "42px 80px 14px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "paragraph": {
+              "x": 756,
+              "y": 2410.5,
+              "width": 504,
+              "height": 190.3,
+              "bottom": 2600.8,
+              "display": "block",
+              "position": "static",
+              "padding": "0px 41.6px",
+              "margin": "0px 36px 32px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "text": "打破現有的侷限，創造更友善的社會環境。 亞太包容創新協會於2024年在台正式成立，我們希望攜手各界打破現有的侷限，創造更友善的社會環境。透過串聯國際無障礙領域的"
+          }
+        ]
+      }
+    ],
+    "narrowText": [
+      {
+        "tag": "p",
+        "text": "協會成立 + 首場旗艦論壇亞太包容創新協會於台北成立，同月舉辦台灣首場「資訊無障礙與數位共融領導力論壇」，邀請 Frances West（前 IBM 首席無障礙長，現任 FrancesWest&Co 創辦人）等 6 位國際領袖，衛福部健保署",
+        "width": 165
+      },
+      {
+        "tag": "p",
+        "text": "IAAP 台灣策略合作夥伴2024 年 10 月 22 日簽訂，成為國際無障礙專業人士協會（IAAP）台灣策略合作夥伴，推動 CPACC 國際無障礙專業認證在台普及。",
+        "width": 165
+      },
+      {
+        "tag": "p",
+        "text": "高齡共融國際線上論壇「打造高齡友善世界，享受樂齡生活」6 小時線上論壇，邀請國際與台灣共 8 位高齡科技與包容專家：國際講者 Troy Otillo（Aira Technologies CEO）、Makoto Ueki（Infoaxia 創",
+        "width": 165
+      },
+      {
+        "tag": "p",
+        "text": "M-Enabling Summit 2025 國際講者理事長張凱萍（Claire Chang）受邀擔任 M-Enabling Summit 2025 國際講者，於國際舞台分享台灣數位共融推動經驗。",
+        "width": 165
+      },
+      {
+        "tag": "p",
+        "text": "MayGAAD 跨組織共同主辦與 La French Tech Taiwan、Raven Accessibility、Tiny Oak Studio，於台灣科技新創基地（Taiwan Tech Arena）共同舉辦 GAAD 全球無障礙體認",
+        "width": 165
+      },
+      {
+        "tag": "p",
+        "text": "ADALS 2026 旗艦論壇（即將舉辦）亞太數位包容與資訊無障礙領導力論壇（09-17 至 09-18 @ 台北），延續首場論壇規模，聚焦亞太區域 無障礙、高齡化、AI 三軸對話。",
+        "width": 165
+      }
+    ],
+    "horizontalOffenders": [],
+    "focusTrace": [
+      {
+        "tag": "a",
+        "text": "Skip to content",
+        "href": "#main",
+        "rect": {
+          "x": 4,
+          "y": 4,
+          "width": 118,
+          "height": 27
+        }
+      },
+      {
+        "tag": "a",
+        "text": "",
+        "href": "https://aia.tinyoakstudio.com/",
+        "rect": {
+          "x": 99,
+          "y": 12,
+          "width": 340,
+          "height": 37
+        }
+      },
+      {
+        "tag": "a",
+        "text": "協會主頁 Home",
+        "href": "https://aia.tinyoakstudio.com/",
+        "rect": {
+          "x": 951,
+          "y": 6,
+          "width": 139,
+          "height": 48
+        }
+      },
+      {
+        "tag": "a",
+        "text": "論壇活動 Event",
+        "href": "https://aia.tinyoakstudio.com/adals%e6%b4%bb%e5%8b%95/",
+        "rect": {
+          "x": 1090,
+          "y": 6,
+          "width": 134,
+          "height": 48
+        }
+      },
+      {
+        "tag": "a",
+        "text": "聯繫 Contact",
+        "href": "https://aia.tinyoakstudio.com/%e8%81%af%e7%b9%ab/",
+        "rect": {
+          "x": 1224,
+          "y": 6,
+          "width": 117,
+          "height": 48
+        }
+      },
+      {
+        "tag": "a",
+        "text": "Facebook",
+        "href": "",
+        "rect": {
+          "x": 1102,
+          "y": 571,
+          "width": 34,
+          "height": 34
+        }
+      },
+      {
+        "tag": "a",
+        "text": "X",
+        "href": "",
+        "rect": {
+          "x": 1141,
+          "y": 571,
+          "width": 34,
+          "height": 34
+        }
+      },
+      {
+        "tag": "a",
+        "text": "Instagram",
+        "href": "",
+        "rect": {
+          "x": 1180,
+          "y": 571,
+          "width": 34,
+          "height": 34
+        }
+      },
+      {
+        "tag": "body",
+        "text": "Skip to content 協會主頁 Home 論壇活動 Event 聯繫 Contact Toggle Menu 亞太包容創新協會 連結國際無障礙領袖、台灣產業與政府及在地專業社群，落實數位包容",
+        "href": null,
+        "rect": {
+          "x": 0,
+          "y": -6118,
+          "width": 1440,
+          "height": 7118
+        }
+      },
+      {
+        "tag": "a",
+        "text": "Skip to content",
+        "href": "#main",
+        "rect": {
+          "x": 4,
+          "y": 4,
+          "width": 114,
+          "height": 22
+        }
+      },
+      {
+        "tag": "a",
+        "text": "",
+        "href": "https://aia.tinyoakstudio.com/",
+        "rect": {
+          "x": 99,
+          "y": 12,
+          "width": 340,
+          "height": 37
+        }
+      },
+      {
+        "tag": "a",
+        "text": "協會主頁 Home",
+        "href": "https://aia.tinyoakstudio.com/",
+        "rect": {
+          "x": 951,
+          "y": 6,
+          "width": 139,
+          "height": 48
+        }
+      },
+      {
+        "tag": "a",
+        "text": "論壇活動 Event",
+        "href": "https://aia.tinyoakstudio.com/adals%e6%b4%bb%e5%8b%95/",
+        "rect": {
+          "x": 1090,
+          "y": 6,
+          "width": 134,
+          "height": 48
+        }
+      },
+      {
+        "tag": "a",
+        "text": "聯繫 Contact",
+        "href": "https://aia.tinyoakstudio.com/%e8%81%af%e7%b9%ab/",
+        "rect": {
+          "x": 1224,
+          "y": 6,
+          "width": 117,
+          "height": 48
+        }
+      },
+      {
+        "tag": "a",
+        "text": "Facebook",
+        "href": "",
+        "rect": {
+          "x": 1102,
+          "y": 571,
+          "width": 34,
+          "height": 34
+        }
+      },
+      {
+        "tag": "a",
+        "text": "X",
+        "href": "",
+        "rect": {
+          "x": 1141,
+          "y": 571,
+          "width": 34,
+          "height": 34
+        }
+      },
+      {
+        "tag": "a",
+        "text": "Instagram",
+        "href": "",
+        "rect": {
+          "x": 1180,
+          "y": 571,
+          "width": 34,
+          "height": 34
+        }
+      },
+      {
+        "tag": "body",
+        "text": "Skip to content 協會主頁 Home 論壇活動 Event 聯繫 Contact Toggle Menu 亞太包容創新協會 連結國際無障礙領袖、台灣產業與政府及在地專業社群，落實數位包容",
+        "href": null,
+        "rect": {
+          "x": 0,
+          "y": -6118,
+          "width": 1440,
+          "height": 7118
+        }
+      },
+      {
+        "tag": "a",
+        "text": "Skip to content",
+        "href": "#main",
+        "rect": {
+          "x": 4,
+          "y": 4,
+          "width": 114,
+          "height": 22
+        }
+      },
+      {
+        "tag": "a",
+        "text": "",
+        "href": "https://aia.tinyoakstudio.com/",
+        "rect": {
+          "x": 99,
+          "y": 12,
+          "width": 340,
+          "height": 37
+        }
+      },
+      {
+        "tag": "a",
+        "text": "協會主頁 Home",
+        "href": "https://aia.tinyoakstudio.com/",
+        "rect": {
+          "x": 951,
+          "y": 6,
+          "width": 139,
+          "height": 48
+        }
+      },
+      {
+        "tag": "a",
+        "text": "論壇活動 Event",
+        "href": "https://aia.tinyoakstudio.com/adals%e6%b4%bb%e5%8b%95/",
+        "rect": {
+          "x": 1090,
+          "y": 6,
+          "width": 134,
+          "height": 48
+        }
+      },
+      {
+        "tag": "a",
+        "text": "聯繫 Contact",
+        "href": "https://aia.tinyoakstudio.com/%e8%81%af%e7%b9%ab/",
+        "rect": {
+          "x": 1224,
+          "y": 6,
+          "width": 117,
+          "height": 48
+        }
+      },
+      {
+        "tag": "a",
+        "text": "Facebook",
+        "href": "",
+        "rect": {
+          "x": 1102,
+          "y": 571,
+          "width": 34,
+          "height": 34
+        }
+      },
+      {
+        "tag": "a",
+        "text": "X",
+        "href": "",
+        "rect": {
+          "x": 1141,
+          "y": 571,
+          "width": 34,
+          "height": 34
+        }
+      },
+      {
+        "tag": "a",
+        "text": "Instagram",
+        "href": "",
+        "rect": {
+          "x": 1180,
+          "y": 571,
+          "width": 34,
+          "height": 34
+        }
+      },
+      {
+        "tag": "body",
+        "text": "Skip to content 協會主頁 Home 論壇活動 Event 聯繫 Contact Toggle Menu 亞太包容創新協會 連結國際無障礙領袖、台灣產業與政府及在地專業社群，落實數位包容",
+        "href": null,
+        "rect": {
+          "x": 0,
+          "y": -6118,
+          "width": 1440,
+          "height": 7118
+        }
+      },
+      {
+        "tag": "a",
+        "text": "Skip to content",
+        "href": "#main",
+        "rect": {
+          "x": 4,
+          "y": 4,
+          "width": 114,
+          "height": 22
+        }
+      },
+      {
+        "tag": "a",
+        "text": "",
+        "href": "https://aia.tinyoakstudio.com/",
+        "rect": {
+          "x": 99,
+          "y": 12,
+          "width": 340,
+          "height": 37
+        }
+      },
+      {
+        "tag": "a",
+        "text": "協會主頁 Home",
+        "href": "https://aia.tinyoakstudio.com/",
+        "rect": {
+          "x": 951,
+          "y": 6,
+          "width": 139,
+          "height": 48
+        }
+      },
+      {
+        "tag": "a",
+        "text": "論壇活動 Event",
+        "href": "https://aia.tinyoakstudio.com/adals%e6%b4%bb%e5%8b%95/",
+        "rect": {
+          "x": 1090,
+          "y": 6,
+          "width": 134,
+          "height": 48
+        }
+      },
+      {
+        "tag": "a",
+        "text": "聯繫 Contact",
+        "href": "https://aia.tinyoakstudio.com/%e8%81%af%e7%b9%ab/",
+        "rect": {
+          "x": 1224,
+          "y": 6,
+          "width": 117,
+          "height": 48
+        }
+      },
+      {
+        "tag": "a",
+        "text": "Facebook",
+        "href": "",
+        "rect": {
+          "x": 1102,
+          "y": 571,
+          "width": 34,
+          "height": 34
+        }
+      },
+      {
+        "tag": "a",
+        "text": "X",
+        "href": "",
+        "rect": {
+          "x": 1141,
+          "y": 571,
+          "width": 34,
+          "height": 34
+        }
+      },
+      {
+        "tag": "a",
+        "text": "Instagram",
+        "href": "",
+        "rect": {
+          "x": 1180,
+          "y": 571,
+          "width": 34,
+          "height": 34
+        }
+      }
+    ]
+  },
+  {
+    "width": 1742,
+    "title": "",
+    "lang": "en-US",
+    "viewport": {
+      "clientWidth": 1742,
+      "scrollWidth": 1742,
+      "scrollHeight": 7118
+    },
+    "headings": [
+      {
+        "level": 1,
+        "text": "亞太包容創新協會"
+      },
+      {
+        "level": 4,
+        "text": "連結國際無障礙領袖、台灣產業與政府及在地專業社群，落實數位包容，讓每個人都能平等共享。"
+      },
+      {
+        "level": 2,
+        "text": "關於我們"
+      },
+      {
+        "level": 3,
+        "text": "當生活幾乎一切都在螢幕上完成，有些人卻被擋在門外:"
+      },
+      {
+        "level": 3,
+        "text": "許多人因身體狀況、年齡或數位落差，長期被排除在數位世界之外。"
+      },
+      {
+        "level": 3,
+        "text": "打破現有的侷限，創造更友善的社會環境。"
+      },
+      {
+        "level": 2,
+        "text": "三大價值"
+      },
+      {
+        "level": 2,
+        "text": "協會大事記"
+      },
+      {
+        "level": 5,
+        "text": "2024 / Apr"
+      },
+      {
+        "level": 5,
+        "text": "2024 / Oct"
+      },
+      {
+        "level": 5,
+        "text": "2024 / Nov"
+      },
+      {
+        "level": 5,
+        "text": "2025 / Oct"
+      },
+      {
+        "level": 5,
+        "text": "2026 / May"
+      },
+      {
+        "level": 5,
+        "text": "2026 / Sep"
+      },
+      {
+        "level": 2,
+        "text": "我們創造什麼連結"
+      },
+      {
+        "level": 5,
+        "text": "跨界對話Cross-Sector Dialogue"
+      },
+      {
+        "level": 5,
+        "text": "國際接軌Global Standards"
+      },
+      {
+        "level": 5,
+        "text": "從理念到落地Idea to Action"
+      },
+      {
+        "level": 2,
+        "text": "我們關注的議題"
+      },
+      {
+        "level": 5,
+        "text": "數位無障礙 Digital Accessibility"
+      },
+      {
+        "level": 5,
+        "text": "包容性設計 Inclusive Design"
+      },
+      {
+        "level": 5,
+        "text": "數位無障礙 International Standards"
+      },
+      {
+        "level": 5,
+        "text": "齡共融科技 AgeTech & Aging-Friendly"
+      },
+      {
+        "level": 2,
+        "text": "加入我們的行列"
+      },
+      {
+        "level": 2,
+        "text": "社群媒體 SOCIALS"
+      }
+    ],
+    "landmarks": {
+      "main": 1,
+      "nav": 2,
+      "footer": 1,
+      "skipHref": "#main",
+      "skipTarget": true
+    },
+    "images": {
+      "total": 21,
+      "missingAlt": [],
+      "emptyAlt": 4
+    },
+    "emptyLinks": [
+      {
+        "text": "Facebook",
+        "ariaLabel": "Facebook",
+        "href": ""
+      },
+      {
+        "text": "X",
+        "ariaLabel": "X",
+        "href": ""
+      },
+      {
+        "text": "Instagram",
+        "ariaLabel": "Instagram",
+        "href": ""
+      }
+    ],
+    "fauxControls": [
+      {
+        "tag": "div",
+        "text": "了解志工機會",
+        "className": "wp-block-kadence-advancedbtn kb-buttons-wrap kb-btns6_24e4c2-cf"
+      },
+      {
+        "tag": "span",
+        "text": "了解志工機會",
+        "className": "kb-button kt-button button kb-btn6_71d936-29 kt-btn-size-standard kt-btn-width-type-auto kb-btn-global-fill kt-btn-has-text-true kt-btn-has-svg-false wp-block-kadence-singlebtn"
+      },
+      {
+        "tag": "span",
+        "text": "了解志工機會",
+        "className": "kt-btn-inner-text"
+      }
+    ],
+    "aboutRows": [
+      {
+        "heading": "當生活幾乎一切都在螢幕上完成，有些人卻被擋在門外:",
+        "rowClass": "kb-row-layout-wrap kb-row-layout-id6_117607-0e alignnone wp-block-kadence-rowlayout",
+        "grid": {
+          "x": 295,
+          "y": 1003.1,
+          "width": 1152,
+          "height": 561.1,
+          "bottom": 1564.2,
+          "display": "grid",
+          "position": "relative",
+          "padding": "0px",
+          "margin": "0px",
+          "minHeight": "0px",
+          "gap": "32px 0px",
+          "gridTemplateColumns": "576px 576px",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "objectFit": "fill",
+          "backgroundImage": "none",
+          "borderRadius": "0px"
+        },
+        "cells": [
+          {
+            "className": "wp-block-kadence-column kadence-column6_d7591b-d9",
+            "cell": {
+              "x": 295,
+              "y": 1003.1,
+              "width": 576,
+              "height": 561.1,
+              "bottom": 1564.2,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 295,
+              "y": 1003.1,
+              "width": 576,
+              "height": 561.1,
+              "bottom": 1564.2,
+              "display": "block",
+              "position": "relative",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "auto",
+              "gap": "normal 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "image": {
+              "x": 295,
+              "y": 1003.1,
+              "width": 576,
+              "height": 561.1,
+              "bottom": 1564.2,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "25px 0px 0px 25px"
+            },
+            "heading": null,
+            "paragraph": null,
+            "text": ""
+          },
+          {
+            "className": "wp-block-kadence-column kadence-column6_01acaf-af",
+            "cell": {
+              "x": 871,
+              "y": 1003.1,
+              "width": 576,
+              "height": 561.1,
+              "bottom": 1564.2,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 871,
+              "y": 1003.1,
+              "width": 576,
+              "height": 561.1,
+              "bottom": 1564.2,
+              "display": "flex",
+              "position": "relative",
+              "padding": "0px 0px 48px",
+              "margin": "0px",
+              "minHeight": "200px",
+              "gap": "0px 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "center",
+              "justifyContent": "flex-start",
+              "objectFit": "fill",
+              "backgroundImage": "url(\"http://aia.tinyoakstudio.com/wp-content/uploads/2026/06/Color-Fill-DEF2FF.png\")",
+              "borderRadius": "0px 25px 25px 0px"
+            },
+            "image": null,
+            "heading": {
+              "x": 949,
+              "y": 1103.1,
+              "width": 420,
+              "height": 84,
+              "bottom": 1187.1,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "42px 78px 14px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "paragraph": {
+              "x": 907,
+              "y": 1222.7,
+              "width": 504,
+              "height": 271.9,
+              "bottom": 1494.6,
+              "display": "block",
+              "position": "static",
+              "padding": "0px 54.08px",
+              "margin": "21.6px 36px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "text": "當生活幾乎一切都在螢幕上完成，有些人卻被擋在門外: 看不清的文字、點不到的按鈕、讀不出來的圖片，讓掛號、轉帳、報名這些日常小事變得寸步難行。這不是少數人的故事："
+          }
+        ]
+      },
+      {
+        "heading": "許多人因身體狀況、年齡或數位落差，長期被排除在數位世界之外。",
+        "rowClass": "kb-row-layout-wrap kb-row-layout-id6_81210d-ad alignnone wp-block-kadence-rowlayout",
+        "grid": {
+          "x": 295,
+          "y": 1564.2,
+          "width": 1152,
+          "height": 606.3,
+          "bottom": 2170.5,
+          "display": "grid",
+          "position": "relative",
+          "padding": "0px",
+          "margin": "0px",
+          "minHeight": "0px",
+          "gap": "0px",
+          "gridTemplateColumns": "576px 576px",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "objectFit": "fill",
+          "backgroundImage": "none",
+          "borderRadius": "0px"
+        },
+        "cells": [
+          {
+            "className": "wp-block-kadence-column kadence-column6_c0ad16-b8",
+            "cell": {
+              "x": 295,
+              "y": 1564.2,
+              "width": 576,
+              "height": 606.3,
+              "bottom": 2170.5,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 295,
+              "y": 1564.2,
+              "width": 576,
+              "height": 606.3,
+              "bottom": 2170.5,
+              "display": "flex",
+              "position": "relative",
+              "padding": "0px 0px 32px",
+              "margin": "0px",
+              "minHeight": "200px",
+              "gap": "0px 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "center",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "url(\"http://aia.tinyoakstudio.com/wp-content/uploads/2026/06/Color-Fill-DEF2FF.png\")",
+              "borderRadius": "25px 0px 0px 25px"
+            },
+            "image": null,
+            "heading": {
+              "x": 375,
+              "y": 1736.2,
+              "width": 416,
+              "height": 126,
+              "bottom": 1862.2,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "42px 80px 14px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "paragraph": {
+              "x": 331,
+              "y": 1876.2,
+              "width": 504,
+              "height": 108.8,
+              "bottom": 1984.9,
+              "display": "block",
+              "position": "static",
+              "padding": "0px 41.6px",
+              "margin": "0px 36px 153.6px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "text": "許多人因身體狀況、年齡或數位落差，長期被排除在數位世界之外。 推動數位共融與無障礙的知識與資源，往往散落於不同領域與國家，難以整合。這導致設計師不了解真實使用者"
+          },
+          {
+            "className": "wp-block-kadence-column kadence-column6_7c78e9-3a",
+            "cell": {
+              "x": 871,
+              "y": 1564.2,
+              "width": 576,
+              "height": 564.3,
+              "bottom": 2128.4,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 871,
+              "y": 1564.2,
+              "width": 576,
+              "height": 564.3,
+              "bottom": 2128.4,
+              "display": "flex",
+              "position": "relative",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "200px",
+              "gap": "0px 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "center",
+              "justifyContent": "flex-start",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px 25px 25px 0px"
+            },
+            "image": {
+              "x": 871,
+              "y": 1564.2,
+              "width": 576,
+              "height": 564.3,
+              "bottom": 2128.4,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px 25px 25px 0px"
+            },
+            "heading": null,
+            "paragraph": null,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "heading": "打破現有的侷限，創造更友善的社會環境。",
+        "rowClass": "kb-row-layout-wrap kb-row-layout-id6_2d9a6f-77 alignnone wp-block-kadence-rowlayout",
+        "grid": {
+          "x": 295,
+          "y": 2170.5,
+          "width": 1152,
+          "height": 562.3,
+          "bottom": 2732.8,
+          "display": "grid",
+          "position": "relative",
+          "padding": "0px",
+          "margin": "0px",
+          "minHeight": "0px",
+          "gap": "0px",
+          "gridTemplateColumns": "576px 576px",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "objectFit": "fill",
+          "backgroundImage": "none",
+          "borderRadius": "0px"
+        },
+        "cells": [
+          {
+            "className": "wp-block-kadence-column kadence-column6_3bd267-5d",
+            "cell": {
+              "x": 295,
+              "y": 2170.5,
+              "width": 576,
+              "height": 562.3,
+              "bottom": 2732.8,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 295,
+              "y": 2170.5,
+              "width": 576,
+              "height": 561.1,
+              "bottom": 2731.6,
+              "display": "block",
+              "position": "relative",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "auto",
+              "gap": "normal 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "image": {
+              "x": 295,
+              "y": 2170.5,
+              "width": 576,
+              "height": 561.1,
+              "bottom": 2731.6,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "25px 0px 0px 25px"
+            },
+            "heading": null,
+            "paragraph": null,
+            "text": ""
+          },
+          {
+            "className": "wp-block-kadence-column kadence-column6_6cec02-2e",
+            "cell": {
+              "x": 871,
+              "y": 2170.5,
+              "width": 576,
+              "height": 562.3,
+              "bottom": 2732.8,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 871,
+              "y": 2170.5,
+              "width": 576,
+              "height": 562.3,
+              "bottom": 2732.8,
+              "display": "flex",
+              "position": "relative",
+              "padding": "0px 0px 32px",
+              "margin": "0px",
+              "minHeight": "200px",
+              "gap": "0px 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "center",
+              "justifyContent": "flex-start",
+              "objectFit": "fill",
+              "backgroundImage": "url(\"http://aia.tinyoakstudio.com/wp-content/uploads/2026/06/Color-Fill-DEF2FF.png\")",
+              "borderRadius": "0px 25px 25px 0px"
+            },
+            "image": null,
+            "heading": {
+              "x": 951,
+              "y": 2312.5,
+              "width": 416,
+              "height": 84,
+              "bottom": 2396.5,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "42px 80px 14px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "paragraph": {
+              "x": 907,
+              "y": 2410.5,
+              "width": 504,
+              "height": 190.3,
+              "bottom": 2600.8,
+              "display": "block",
+              "position": "static",
+              "padding": "0px 41.6px",
+              "margin": "0px 36px 32px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "text": "打破現有的侷限，創造更友善的社會環境。 亞太包容創新協會於2024年在台正式成立，我們希望攜手各界打破現有的侷限，創造更友善的社會環境。透過串聯國際無障礙領域的"
+          }
+        ]
+      }
+    ],
+    "narrowText": [
+      {
+        "tag": "p",
+        "text": "協會成立 + 首場旗艦論壇亞太包容創新協會於台北成立，同月舉辦台灣首場「資訊無障礙與數位共融領導力論壇」，邀請 Frances West（前 IBM 首席無障礙長，現任 FrancesWest&Co 創辦人）等 6 位國際領袖，衛福部健保署",
+        "width": 165
+      },
+      {
+        "tag": "p",
+        "text": "IAAP 台灣策略合作夥伴2024 年 10 月 22 日簽訂，成為國際無障礙專業人士協會（IAAP）台灣策略合作夥伴，推動 CPACC 國際無障礙專業認證在台普及。",
+        "width": 165
+      },
+      {
+        "tag": "p",
+        "text": "高齡共融國際線上論壇「打造高齡友善世界，享受樂齡生活」6 小時線上論壇，邀請國際與台灣共 8 位高齡科技與包容專家：國際講者 Troy Otillo（Aira Technologies CEO）、Makoto Ueki（Infoaxia 創",
+        "width": 165
+      },
+      {
+        "tag": "p",
+        "text": "M-Enabling Summit 2025 國際講者理事長張凱萍（Claire Chang）受邀擔任 M-Enabling Summit 2025 國際講者，於國際舞台分享台灣數位共融推動經驗。",
+        "width": 165
+      },
+      {
+        "tag": "p",
+        "text": "MayGAAD 跨組織共同主辦與 La French Tech Taiwan、Raven Accessibility、Tiny Oak Studio，於台灣科技新創基地（Taiwan Tech Arena）共同舉辦 GAAD 全球無障礙體認",
+        "width": 165
+      },
+      {
+        "tag": "p",
+        "text": "ADALS 2026 旗艦論壇（即將舉辦）亞太數位包容與資訊無障礙領導力論壇（09-17 至 09-18 @ 台北），延續首場論壇規模，聚焦亞太區域 無障礙、高齡化、AI 三軸對話。",
+        "width": 165
+      }
+    ],
+    "horizontalOffenders": [],
+    "focusTrace": []
+  },
+  {
+    "width": 1920,
+    "title": "",
+    "lang": "en-US",
+    "viewport": {
+      "clientWidth": 1920,
+      "scrollWidth": 1920,
+      "scrollHeight": 7118
+    },
+    "headings": [
+      {
+        "level": 1,
+        "text": "亞太包容創新協會"
+      },
+      {
+        "level": 4,
+        "text": "連結國際無障礙領袖、台灣產業與政府及在地專業社群，落實數位包容，讓每個人都能平等共享。"
+      },
+      {
+        "level": 2,
+        "text": "關於我們"
+      },
+      {
+        "level": 3,
+        "text": "當生活幾乎一切都在螢幕上完成，有些人卻被擋在門外:"
+      },
+      {
+        "level": 3,
+        "text": "許多人因身體狀況、年齡或數位落差，長期被排除在數位世界之外。"
+      },
+      {
+        "level": 3,
+        "text": "打破現有的侷限，創造更友善的社會環境。"
+      },
+      {
+        "level": 2,
+        "text": "三大價值"
+      },
+      {
+        "level": 2,
+        "text": "協會大事記"
+      },
+      {
+        "level": 5,
+        "text": "2024 / Apr"
+      },
+      {
+        "level": 5,
+        "text": "2024 / Oct"
+      },
+      {
+        "level": 5,
+        "text": "2024 / Nov"
+      },
+      {
+        "level": 5,
+        "text": "2025 / Oct"
+      },
+      {
+        "level": 5,
+        "text": "2026 / May"
+      },
+      {
+        "level": 5,
+        "text": "2026 / Sep"
+      },
+      {
+        "level": 2,
+        "text": "我們創造什麼連結"
+      },
+      {
+        "level": 5,
+        "text": "跨界對話Cross-Sector Dialogue"
+      },
+      {
+        "level": 5,
+        "text": "國際接軌Global Standards"
+      },
+      {
+        "level": 5,
+        "text": "從理念到落地Idea to Action"
+      },
+      {
+        "level": 2,
+        "text": "我們關注的議題"
+      },
+      {
+        "level": 5,
+        "text": "數位無障礙 Digital Accessibility"
+      },
+      {
+        "level": 5,
+        "text": "包容性設計 Inclusive Design"
+      },
+      {
+        "level": 5,
+        "text": "數位無障礙 International Standards"
+      },
+      {
+        "level": 5,
+        "text": "齡共融科技 AgeTech & Aging-Friendly"
+      },
+      {
+        "level": 2,
+        "text": "加入我們的行列"
+      },
+      {
+        "level": 2,
+        "text": "社群媒體 SOCIALS"
+      }
+    ],
+    "landmarks": {
+      "main": 1,
+      "nav": 2,
+      "footer": 1,
+      "skipHref": "#main",
+      "skipTarget": true
+    },
+    "images": {
+      "total": 21,
+      "missingAlt": [],
+      "emptyAlt": 4
+    },
+    "emptyLinks": [
+      {
+        "text": "Facebook",
+        "ariaLabel": "Facebook",
+        "href": ""
+      },
+      {
+        "text": "X",
+        "ariaLabel": "X",
+        "href": ""
+      },
+      {
+        "text": "Instagram",
+        "ariaLabel": "Instagram",
+        "href": ""
+      }
+    ],
+    "fauxControls": [
+      {
+        "tag": "div",
+        "text": "了解志工機會",
+        "className": "wp-block-kadence-advancedbtn kb-buttons-wrap kb-btns6_24e4c2-cf"
+      },
+      {
+        "tag": "span",
+        "text": "了解志工機會",
+        "className": "kb-button kt-button button kb-btn6_71d936-29 kt-btn-size-standard kt-btn-width-type-auto kb-btn-global-fill kt-btn-has-text-true kt-btn-has-svg-false wp-block-kadence-singlebtn"
+      },
+      {
+        "tag": "span",
+        "text": "了解志工機會",
+        "className": "kt-btn-inner-text"
+      }
+    ],
+    "aboutRows": [
+      {
+        "heading": "當生活幾乎一切都在螢幕上完成，有些人卻被擋在門外:",
+        "rowClass": "kb-row-layout-wrap kb-row-layout-id6_117607-0e alignnone wp-block-kadence-rowlayout",
+        "grid": {
+          "x": 384,
+          "y": 1003.1,
+          "width": 1152,
+          "height": 561.1,
+          "bottom": 1564.2,
+          "display": "grid",
+          "position": "relative",
+          "padding": "0px",
+          "margin": "0px",
+          "minHeight": "0px",
+          "gap": "32px 0px",
+          "gridTemplateColumns": "576px 576px",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "objectFit": "fill",
+          "backgroundImage": "none",
+          "borderRadius": "0px"
+        },
+        "cells": [
+          {
+            "className": "wp-block-kadence-column kadence-column6_d7591b-d9",
+            "cell": {
+              "x": 384,
+              "y": 1003.1,
+              "width": 576,
+              "height": 561.1,
+              "bottom": 1564.2,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 384,
+              "y": 1003.1,
+              "width": 576,
+              "height": 561.1,
+              "bottom": 1564.2,
+              "display": "block",
+              "position": "relative",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "auto",
+              "gap": "normal 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "image": {
+              "x": 384,
+              "y": 1003.1,
+              "width": 576,
+              "height": 561.1,
+              "bottom": 1564.2,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "25px 0px 0px 25px"
+            },
+            "heading": null,
+            "paragraph": null,
+            "text": ""
+          },
+          {
+            "className": "wp-block-kadence-column kadence-column6_01acaf-af",
+            "cell": {
+              "x": 960,
+              "y": 1003.1,
+              "width": 576,
+              "height": 561.1,
+              "bottom": 1564.2,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 960,
+              "y": 1003.1,
+              "width": 576,
+              "height": 561.1,
+              "bottom": 1564.2,
+              "display": "flex",
+              "position": "relative",
+              "padding": "0px 0px 48px",
+              "margin": "0px",
+              "minHeight": "200px",
+              "gap": "0px 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "center",
+              "justifyContent": "flex-start",
+              "objectFit": "fill",
+              "backgroundImage": "url(\"http://aia.tinyoakstudio.com/wp-content/uploads/2026/06/Color-Fill-DEF2FF.png\")",
+              "borderRadius": "0px 25px 25px 0px"
+            },
+            "image": null,
+            "heading": {
+              "x": 1038,
+              "y": 1103.1,
+              "width": 420,
+              "height": 84,
+              "bottom": 1187.1,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "42px 78px 14px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "paragraph": {
+              "x": 996,
+              "y": 1222.7,
+              "width": 504,
+              "height": 271.9,
+              "bottom": 1494.6,
+              "display": "block",
+              "position": "static",
+              "padding": "0px 54.08px",
+              "margin": "21.6px 36px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "text": "當生活幾乎一切都在螢幕上完成，有些人卻被擋在門外: 看不清的文字、點不到的按鈕、讀不出來的圖片，讓掛號、轉帳、報名這些日常小事變得寸步難行。這不是少數人的故事："
+          }
+        ]
+      },
+      {
+        "heading": "許多人因身體狀況、年齡或數位落差，長期被排除在數位世界之外。",
+        "rowClass": "kb-row-layout-wrap kb-row-layout-id6_81210d-ad alignnone wp-block-kadence-rowlayout",
+        "grid": {
+          "x": 384,
+          "y": 1564.2,
+          "width": 1152,
+          "height": 606.3,
+          "bottom": 2170.5,
+          "display": "grid",
+          "position": "relative",
+          "padding": "0px",
+          "margin": "0px",
+          "minHeight": "0px",
+          "gap": "0px",
+          "gridTemplateColumns": "576px 576px",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "objectFit": "fill",
+          "backgroundImage": "none",
+          "borderRadius": "0px"
+        },
+        "cells": [
+          {
+            "className": "wp-block-kadence-column kadence-column6_c0ad16-b8",
+            "cell": {
+              "x": 384,
+              "y": 1564.2,
+              "width": 576,
+              "height": 606.3,
+              "bottom": 2170.5,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 384,
+              "y": 1564.2,
+              "width": 576,
+              "height": 606.3,
+              "bottom": 2170.5,
+              "display": "flex",
+              "position": "relative",
+              "padding": "0px 0px 32px",
+              "margin": "0px",
+              "minHeight": "200px",
+              "gap": "0px 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "center",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "url(\"http://aia.tinyoakstudio.com/wp-content/uploads/2026/06/Color-Fill-DEF2FF.png\")",
+              "borderRadius": "25px 0px 0px 25px"
+            },
+            "image": null,
+            "heading": {
+              "x": 464,
+              "y": 1736.2,
+              "width": 416,
+              "height": 126,
+              "bottom": 1862.2,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "42px 80px 14px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "paragraph": {
+              "x": 420,
+              "y": 1876.2,
+              "width": 504,
+              "height": 108.8,
+              "bottom": 1984.9,
+              "display": "block",
+              "position": "static",
+              "padding": "0px 41.6px",
+              "margin": "0px 36px 153.6px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "text": "許多人因身體狀況、年齡或數位落差，長期被排除在數位世界之外。 推動數位共融與無障礙的知識與資源，往往散落於不同領域與國家，難以整合。這導致設計師不了解真實使用者"
+          },
+          {
+            "className": "wp-block-kadence-column kadence-column6_7c78e9-3a",
+            "cell": {
+              "x": 960,
+              "y": 1564.2,
+              "width": 576,
+              "height": 564.3,
+              "bottom": 2128.4,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 960,
+              "y": 1564.2,
+              "width": 576,
+              "height": 564.3,
+              "bottom": 2128.4,
+              "display": "flex",
+              "position": "relative",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "200px",
+              "gap": "0px 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "center",
+              "justifyContent": "flex-start",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px 25px 25px 0px"
+            },
+            "image": {
+              "x": 960,
+              "y": 1564.2,
+              "width": 576,
+              "height": 564.3,
+              "bottom": 2128.4,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px 25px 25px 0px"
+            },
+            "heading": null,
+            "paragraph": null,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "heading": "打破現有的侷限，創造更友善的社會環境。",
+        "rowClass": "kb-row-layout-wrap kb-row-layout-id6_2d9a6f-77 alignnone wp-block-kadence-rowlayout",
+        "grid": {
+          "x": 384,
+          "y": 2170.5,
+          "width": 1152,
+          "height": 562.3,
+          "bottom": 2732.8,
+          "display": "grid",
+          "position": "relative",
+          "padding": "0px",
+          "margin": "0px",
+          "minHeight": "0px",
+          "gap": "0px",
+          "gridTemplateColumns": "576px 576px",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "objectFit": "fill",
+          "backgroundImage": "none",
+          "borderRadius": "0px"
+        },
+        "cells": [
+          {
+            "className": "wp-block-kadence-column kadence-column6_3bd267-5d",
+            "cell": {
+              "x": 384,
+              "y": 2170.5,
+              "width": 576,
+              "height": 562.3,
+              "bottom": 2732.8,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 384,
+              "y": 2170.5,
+              "width": 576,
+              "height": 561.1,
+              "bottom": 2731.6,
+              "display": "block",
+              "position": "relative",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "auto",
+              "gap": "normal 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "image": {
+              "x": 384,
+              "y": 2170.5,
+              "width": 576,
+              "height": 561.1,
+              "bottom": 2731.6,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "25px 0px 0px 25px"
+            },
+            "heading": null,
+            "paragraph": null,
+            "text": ""
+          },
+          {
+            "className": "wp-block-kadence-column kadence-column6_6cec02-2e",
+            "cell": {
+              "x": 960,
+              "y": 2170.5,
+              "width": 576,
+              "height": 562.3,
+              "bottom": 2732.8,
+              "display": "flex",
+              "position": "static",
+              "padding": "0px",
+              "margin": "0px",
+              "minHeight": "0px",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "inner": {
+              "x": 960,
+              "y": 2170.5,
+              "width": 576,
+              "height": 562.3,
+              "bottom": 2732.8,
+              "display": "flex",
+              "position": "relative",
+              "padding": "0px 0px 32px",
+              "margin": "0px",
+              "minHeight": "200px",
+              "gap": "0px 16px",
+              "gridTemplateColumns": "none",
+              "alignItems": "center",
+              "justifyContent": "flex-start",
+              "objectFit": "fill",
+              "backgroundImage": "url(\"http://aia.tinyoakstudio.com/wp-content/uploads/2026/06/Color-Fill-DEF2FF.png\")",
+              "borderRadius": "0px 25px 25px 0px"
+            },
+            "image": null,
+            "heading": {
+              "x": 1040,
+              "y": 2312.5,
+              "width": 416,
+              "height": 84,
+              "bottom": 2396.5,
+              "display": "block",
+              "position": "static",
+              "padding": "0px",
+              "margin": "42px 80px 14px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "paragraph": {
+              "x": 996,
+              "y": 2410.5,
+              "width": 504,
+              "height": 190.3,
+              "bottom": 2600.8,
+              "display": "block",
+              "position": "static",
+              "padding": "0px 41.6px",
+              "margin": "0px 36px 32px",
+              "minHeight": "auto",
+              "gap": "normal",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "objectFit": "fill",
+              "backgroundImage": "none",
+              "borderRadius": "0px"
+            },
+            "text": "打破現有的侷限，創造更友善的社會環境。 亞太包容創新協會於2024年在台正式成立，我們希望攜手各界打破現有的侷限，創造更友善的社會環境。透過串聯國際無障礙領域的"
+          }
+        ]
+      }
+    ],
+    "narrowText": [
+      {
+        "tag": "p",
+        "text": "協會成立 + 首場旗艦論壇亞太包容創新協會於台北成立，同月舉辦台灣首場「資訊無障礙與數位共融領導力論壇」，邀請 Frances West（前 IBM 首席無障礙長，現任 FrancesWest&Co 創辦人）等 6 位國際領袖，衛福部健保署",
+        "width": 165
+      },
+      {
+        "tag": "p",
+        "text": "IAAP 台灣策略合作夥伴2024 年 10 月 22 日簽訂，成為國際無障礙專業人士協會（IAAP）台灣策略合作夥伴，推動 CPACC 國際無障礙專業認證在台普及。",
+        "width": 165
+      },
+      {
+        "tag": "p",
+        "text": "高齡共融國際線上論壇「打造高齡友善世界，享受樂齡生活」6 小時線上論壇，邀請國際與台灣共 8 位高齡科技與包容專家：國際講者 Troy Otillo（Aira Technologies CEO）、Makoto Ueki（Infoaxia 創",
+        "width": 165
+      },
+      {
+        "tag": "p",
+        "text": "M-Enabling Summit 2025 國際講者理事長張凱萍（Claire Chang）受邀擔任 M-Enabling Summit 2025 國際講者，於國際舞台分享台灣數位共融推動經驗。",
+        "width": 165
+      },
+      {
+        "tag": "p",
+        "text": "MayGAAD 跨組織共同主辦與 La French Tech Taiwan、Raven Accessibility、Tiny Oak Studio，於台灣科技新創基地（Taiwan Tech Arena）共同舉辦 GAAD 全球無障礙體認",
+        "width": 165
+      },
+      {
+        "tag": "p",
+        "text": "ADALS 2026 旗艦論壇（即將舉辦）亞太數位包容與資訊無障礙領導力論壇（09-17 至 09-18 @ 台北），延續首場論壇規模，聚焦亞太區域 無障礙、高齡化、AI 三軸對話。",
+        "width": 165
+      }
+    ],
+    "horizontalOffenders": [],
+    "focusTrace": []
+  }
+]

@@ -1,0 +1,199 @@
+- generic [ref=e2] [box=0,0,1425,7116]:
+  - link "Skip to content" [ref=e3] [cursor=pointer] [box=-1,-1,1,1]:
+    - /url: "#main"
+  - banner [ref=e4] [box=0,0,1425,60]:
+    - generic [ref=e12] [box=92,0,1242,60]:
+      - link "亞太包容創新協會 ⾸⾴" [ref=e16] [cursor=pointer] [box=92,12,340,37]:
+        - /url: https://aia.tinyoakstudio.com/
+        - img "亞太包容創新協會 ⾸⾴" [ref=e17] [box=92,12,340,37]
+      - navigation "Primary" [ref=e20] [box=944,6,390,48]:
+        - list [ref=e22] [box=944,6,390,48]:
+          - listitem [ref=e23] [box=944,6,139,48]:
+            - link "協會主頁 Home" [ref=e24] [cursor=pointer] [box=944,6,139,48]:
+              - /url: https://aia.tinyoakstudio.com/
+          - listitem [ref=e25] [box=1082,6,134,48]:
+            - link "論壇活動 Event" [ref=e26] [cursor=pointer] [box=1082,6,134,48]:
+              - /url: https://aia.tinyoakstudio.com/adals%e6%b4%bb%e5%8b%95/
+          - listitem [ref=e27] [box=1216,6,117,48]:
+            - link "聯繫 Contact" [ref=e28] [cursor=pointer] [box=1216,6,117,48]:
+              - /url: https://aia.tinyoakstudio.com/%e8%81%af%e7%b9%ab/
+  - main [ref=e29] [box=0,60,1425,6558]:
+    - article [ref=e34] [box=0,60,1425,6558]:
+      - generic [ref=e36] [box=0,60,1425,6558]:
+        - generic [ref=e38] [box=113,60,1200,571]:
+          - generic [ref=e40] [box=137,128,560,411]:
+            - heading "亞太包容創新協會" [level=1] [ref=e41] [box=201,128,256,48]
+            - heading "連結國際無障礙領袖、台灣產業與政府及在地專業社群，落實數位包容，讓每個人都能平等共享。" [level=4] [ref=e42] [box=201,192,432,99]
+            - paragraph [ref=e43] [box=201,302,432,96]: 亞太包容創新協會致力推動多元共融與以人為本的科技創新文化，透過教育、培訓和國際合作，建立促進包容性的生態系統。
+            - paragraph [ref=e44] [box=201,430,432,109]: APAC AIA fosters a culture of diversity, inclusion, and human-centered innovation. Through education, training, and global collaboration, we build ecosystems that champion inclusivity for all.
+          - figure [ref=e47] [box=729,84,560,499]:
+            - img "插畫：坐輪椅者操作筆記型電腦，周圍環繞視覺、聽覺、行動與網頁無障礙圖示，象徵數位包容" [ref=e48] [box=729,84,560,499]
+        - generic [ref=e50] [box=148,631,1130,172]:
+          - generic [ref=e54] [box=172,655,357,116]:
+            - figure [ref=e56] [box=334,655,32,32]
+            - paragraph [ref=e57] [box=172,719,357,10]: 多元共融
+            - paragraph [ref=e58] [box=172,744,357,27]: Diversity & Inclusion
+          - generic [ref=e62] [box=561,655,303,116]:
+            - figure [ref=e64] [box=697,655,32,32]:
+              - img "icon of a person with heart to the right" [ref=e65] [box=697,655,32,32]
+            - paragraph [ref=e66] [box=561,719,302,10]: 以人為本
+            - paragraph [ref=e67] [box=561,744,302,27]: Human-Centered
+          - generic [ref=e73] [box=896,655,357,116]:
+            - figure [ref=e75] [box=1059,655,32,32]:
+              - img "icon of a lightbulb" [ref=e76] [box=1059,655,32,32]
+            - paragraph [ref=e77] [box=896,719,357,10]: 科技創新
+            - paragraph [ref=e78] [box=896,744,357,27]: Tech Innovation
+        - generic [ref=e84] [box=137,851,1152,1882]:
+          - generic [ref=e86] [box=137,851,1152,120]:
+            - paragraph [ref=e87] [box=137,851,1152,27]:
+              - strong [ref=e88] [box=137,853,77,23]: About Us
+            - heading "關於我們" [level=2] [ref=e89] [box=137,885,1152,42]
+            - separator [ref=e92] [box=137,955,58,4]
+          - generic [ref=e94] [box=137,1003,1152,561]:
+            - figure [ref=e98] [box=137,1003,576,561]:
+              - img "一名男性低頭用平板電腦瀏覽新聞網站，桌上放著咖啡" [ref=e99] [box=137,1003,576,561]
+            - generic [ref=e101] [box=713,1003,576,561]:
+              - separator [ref=e104] [box=770,1032,461,1]
+              - heading "當生活幾乎一切都在螢幕上完成， 有些人卻被擋在門外:" [level=3] [ref=e105] [box=791,1103,420,84]: "當生活幾乎一切都在螢幕上完成，有些人卻被擋在門外:"
+              - paragraph [ref=e106] [box=749,1223,504,272]: 看不清的文字、點不到的按鈕、讀不出來的圖片，讓掛號、轉帳、報名這些日常小事變得寸步難行。這不是少數人的故事：全球超過 12 億人、約 15% 的人口為身心障礙者，台灣更在 2025 年邁入超高齡社會，每五人就有一位 65 歲以上長者。而障礙也從不只屬於別人：骨折的那幾週、抱著孩子騰不出手的時刻、烈日下看不清螢幕的瞬間，它會因傷病、年齡或當下情境而暫時降臨，我們每個人都曾、也可能有機會經歷。能順利使用數位世界，不該是少數人的幸運，而是每個人的日常。這正是數位無障礙要守護的事。
+          - generic [ref=e108] [box=137,1565,1152,606]:
+            - generic [ref=e110] [box=137,1565,576,606]:
+              - separator [ref=e113] [box=194,1629,461,1]
+              - heading "許多人因身體狀況、年齡或數位落差，長期被排除在數位世界之外。" [level=3] [ref=e114] [box=217,1737,416,126]
+              - paragraph [ref=e115] [box=173,1877,504,109]: 推動數位共融與無障礙的知識與資源，往往散落於不同領域與國家，難以整合。這導致設計師不了解真實使用者需求，企業有意推動無障礙卻不知從何著手，而身心障礙者與弱勢族群的聲音，也難以傳達至決策者耳中。
+            - figure [ref=e119] [box=713,1565,576,564]:
+              - img "一位銀髮長者使用筆記型電腦，瀏覽健康資訊網站" [ref=e120] [box=713,1565,576,564]
+          - generic [ref=e122] [box=137,2171,1152,562]:
+            - figure [ref=e126] [box=137,2171,576,561]:
+              - img "三位不同世代的人正在討論：左側是穿綠色上衣的女性，中間是一位年長女性，右側是一位戴眼鏡、年紀更長的男性" [ref=e127] [box=137,2171,576,561]
+            - generic [ref=e129] [box=713,2171,576,562]:
+              - separator [ref=e132] [box=770,2221,461,1]
+              - heading "打破現有的侷限，創造更友善的社會環境。" [level=3] [ref=e133] [box=793,2313,416,84]
+              - paragraph [ref=e134] [box=749,2411,504,190]: 亞太包容創新協會於2024年在台正式成立，我們希望攜手各界打破現有的侷限，創造更友善的社會環境。透過串聯國際無障礙領域的領袖、台灣產官學界以及在地專業社群，我們致力將全球最尖端的無障礙標準與寶貴經驗引入台灣。此外，身為IAAP（國際無障礙專業人士協會）的台灣策略合作夥伴，我們更全力推動專業認證的在地紮根，讓無障礙專業成為推動改變的核心力量。
+              - separator [ref=e137] [box=770,2651,461,1]
+        - generic [ref=e143] [box=137,2877,1152,819]:
+          - generic [ref=e145] [box=137,2877,1152,120]:
+            - paragraph [ref=e146] [box=137,2877,1152,27]:
+              - strong [ref=e147] [box=137,2880,93,23]: Our Values
+            - heading "三大價值" [level=2] [ref=e148] [box=137,2912,1152,42]
+            - separator [ref=e151] [box=137,2981,58,4]
+          - generic [ref=e153] [box=137,3030,1152,667]:
+            - generic [ref=e157] [box=137,3054,363,596]:
+              - figure [ref=e158] [box=137,3054,363,484]:
+                - img "一位使用白手杖的視障者，站在鋪有導盲磚的路口準備過馬路" [ref=e160] [box=137,3054,363,484]
+              - generic [ref=e162] [box=161,3364,315,261]:
+                - strong [ref=e164] [box=193,3383,235,70]: 多元共融Diversity & Inclusion
+                - paragraph [ref=e165] [box=193,3462,251,147]: 我們相信，真正的共融不是配額或政策，而是讓每一個人的需求都被看見、被聽見，並真實反映在產品與服務的設計之中。呼應聯合國身心障礙者權利公約（CRPD）與通用設計七大原則。
+            - generic [ref=e169] [box=531,3054,363,619]:
+              - figure [ref=e170] [box=531,3054,363,484]:
+                - img "一名坐輪椅的女性在辦公室內講電話並處理文件，身旁螢幕顯示數據圖表" [ref=e172] [box=531,3054,363,484]
+              - generic [ref=e174] [box=555,3364,315,284]:
+                - strong [ref=e176] [box=587,3383,194,70]: 以人為本Human-Centered
+                - paragraph [ref=e177] [box=587,3462,251,170]: 科技的價值，在於它能為人解決什麼問題。我們把真實使用者的經驗放在設計決策的核心，尤其是那些最常被忽略的聲音。方法：包容性設計（Inclusive Design）、無障礙使用者研究、社群跨界對話。
+            - generic [ref=e181] [box=926,3054,363,619]:
+              - figure [ref=e182] [box=926,3054,363,484]:
+                - img "一台白色人形服務機器人，胸前配有平板螢幕" [ref=e184] [box=926,3054,363,484]
+              - generic [ref=e186] [box=950,3364,315,284]:
+                - strong [ref=e188] [box=982,3383,180,70]: 科技創新Tech Innovation
+                - paragraph [ref=e189] [box=982,3462,251,170]: 創新不應該只服務多數人。我們推動以無障礙為基礎的科技發展，讓數位創新成為縮短差距、而非擴大落差的力量。從 WCAG 2.2 AA 合規、AI 無障礙應用到高齡科技（AgeTech），協助組織把無障礙從成本中心轉為創新動能。
+        - generic [ref=e193] [box=137,3808,1152,632]:
+          - generic [ref=e195] [box=137,3808,1152,120]:
+            - paragraph [ref=e196] [box=137,3808,1152,27]: Our Milestones
+            - heading "協會大事記" [level=2] [ref=e197] [box=137,3842,1152,42]
+            - separator [ref=e200] [box=137,3912,58,4]
+          - generic [ref=e202] [box=137,3960,1152,480]:
+            - generic [ref=e206] [box=137,3984,165,406]:
+              - separator [ref=e207] [box=139,3984,160,4]
+              - heading "2024 / Apr" [level=5] [ref=e208] [box=137,4018,165,30]
+              - paragraph [ref=e209] [box=137,4058,165,333]: 協會成立 + 首場旗艦論壇亞太包容創新協會於台北成立，同月舉辦台灣首場「資訊無障礙與數位共融領導力論壇」，邀請 Frances West（前 IBM 首席無障礙長，現任 FrancesWest&Co 創辦人）等 6 位國際領袖，衛福部健保署副署長龐一鳴、國政基金會董事長朱立倫致詞。
+            - generic [ref=e213] [box=334,3984,165,253]:
+              - separator [ref=e214] [box=337,3984,160,4]
+              - heading "2024 / Oct" [level=5] [ref=e215] [box=334,4018,165,30]
+              - paragraph [ref=e216] [box=334,4058,165,179]: IAAP 台灣策略合作夥伴2024 年 10 月 22 日簽訂，成為國際無障礙專業人士協會（IAAP）台灣策略合作夥伴，推動 CPACC 國際無障礙專業認證在台普及。
+            - generic [ref=e218] [box=531,3984,165,432]:
+              - separator [ref=e219] [box=534,3984,160,4]
+              - heading "2024 / Nov" [level=5] [ref=e220] [box=531,4018,165,30]
+              - paragraph [ref=e221] [box=531,4058,165,358]: 高齡共融國際線上論壇「打造高齡友善世界，享受樂齡生活」6 小時線上論壇，邀請國際與台灣共 8 位高齡科技與包容專家：國際講者 Troy Otillo（Aira Technologies CEO）、Makoto Ueki（Infoaxia 創辦人，WCAG 專家）、Frances West、Dominic Carter、Carol Chiang；台灣講者楊佳翰、湯傑郎、Lynn Li。
+            - generic [ref=e223] [box=729,3984,165,253]:
+              - separator [ref=e224] [box=731,3984,160,4]
+              - heading "2025 / Oct" [level=5] [ref=e225] [box=729,4018,165,30]
+              - paragraph [ref=e226] [box=729,4058,165,179]: M-Enabling Summit 2025 國際講者理事長張凱萍（Claire Chang）受邀擔任 M-Enabling Summit 2025 國際講者，於國際舞台分享台灣數位共融推動經驗。
+            - generic [ref=e228] [box=926,3984,165,355]:
+              - separator [ref=e229] [box=929,3984,160,4]
+              - heading "2026 / May" [level=5] [ref=e230] [box=926,4018,165,30]
+              - paragraph [ref=e231] [box=926,4058,165,282]: MayGAAD 跨組織共同主辦與 La French Tech Taiwan、Raven Accessibility、Tiny Oak Studio，於台灣科技新創基地（Taiwan Tech Arena）共同舉辦 GAAD 全球無障礙體認日數位無障礙交流活動，擴大產業跨界對話。
+            - generic [ref=e233] [box=1123,3984,165,278]:
+              - separator [ref=e234] [box=1126,3984,160,4]
+              - heading "2026 / Sep" [level=5] [ref=e235] [box=1123,4018,165,30]
+              - paragraph [ref=e236] [box=1123,4058,165,205]: ADALS 2026 旗艦論壇（即將舉辦）亞太數位包容與資訊無障礙領導力論壇（09-17 至 09-18 @ 台北），延續首場論壇規模，聚焦亞太區域 無障礙、高齡化、AI 三軸對話。
+        - generic [ref=e240] [box=137,4536,1152,713]:
+          - generic [ref=e242] [box=137,4536,1152,120]:
+            - paragraph [ref=e243] [box=137,4536,1152,27]: What We Do
+            - heading "我們創造什麼連結" [level=2] [ref=e244] [box=137,4571,1152,42]
+            - separator [ref=e247] [box=137,4640,58,4]
+          - generic [ref=e249] [box=137,4689,1152,560]:
+            - generic [ref=e253] [box=137,4689,363,485]:
+              - figure [ref=e254] [box=137,4689,363,232]
+              - heading "跨界對話 Cross-Sector Dialogue" [level=5] [ref=e255] [box=137,4950,363,60]: 跨界對話Cross-Sector Dialogue
+              - paragraph [ref=e256] [box=137,5020,363,154]: 設計師與企業團隊，往往缺乏與身心障礙使用者直接對話的管道。我們創造連結，讓產品決策者能聽見真實的無障礙需求，將使用者的聲音帶入設計流程與企業政策。無障礙從來不是單一部門能獨力完成的；讓政府、企業與身心障礙社群持續對話、彼此聽見，是 AIA 長期投入的方向。
+            - generic [ref=e260] [box=531,4689,363,536]:
+              - figure [ref=e261] [box=531,4689,363,232]:
+                - img "一顆地球儀特寫，鏡頭聚焦北美洲一帶，象徵跨國連結" [ref=e262] [box=531,4689,363,232]
+              - heading "國際接軌 Global Standards" [level=5] [ref=e263] [box=531,4950,363,60]: 國際接軌Global Standards
+              - paragraph [ref=e264] [box=531,5020,363,205]: WCAG、歐盟 EAA、美國 ADA — 全球無障礙標準與法規正在快速演進。我們與國際組織合作、引進講者，將這些標準本地化，協助亞太設計師與企業將國際規範落地實踐。已邀請 Frances West、Jonathan Hassell（Hassell Inclusion 創辦人）、Christopher Lee（G3ict／IAAP）、Makoto Ueki 等 10+ 位國際無障礙領袖，以實體與線上方式交流連結；成為 IAAP 台灣策略合作夥伴。
+            - generic [ref=e268] [box=926,4689,363,510]:
+              - figure [ref=e269] [box=930,4693,355,226]:
+                - img "四位團隊成員圍坐於木桌旁，從上方俯瞰，共同檢視印有圓餅圖與長條圖的數據報表，桌面另有筆記本、手機與盆栽。" [ref=e270] [box=930,4693,355,226]
+              - heading "從理念到落地 Idea to Action" [level=5] [ref=e271] [box=926,4949,363,60]: 從理念到落地Idea to Action
+              - paragraph [ref=e272] [box=926,5019,363,179]: 透過論壇、工作坊與培訓課程，我們將無障礙與共融設計化為具體行動，協助設計師與企業團隊真正落地執行。2024 年起舉辦 10 場專業活動，包含台灣首場「資訊無障礙與數位共融領導力論壇」（2024-04）、「打造高齡友善世界」線上論壇（2024-11）、CPACC 國際認證在台推廣；GAAD 2026 跨組織共同主辦。
+        - generic [ref=e276] [box=113,5345,1200,616]:
+          - generic [ref=e278] [box=113,5361,1200,120]:
+            - paragraph [ref=e279] [box=113,5361,1200,27]: Areas of Focus
+            - heading "我們關注的議題" [level=2] [ref=e280] [box=113,5395,1200,42]
+            - separator [ref=e283] [box=113,5464,60,4]
+          - generic [ref=e285] [box=113,5513,1200,432]:
+            - generic [ref=e287] [box=113,5513,592,408]:
+              - generic [ref=e289] [box=113,5514,591,195]:
+                - figure [ref=e293] [box=154,5538,126,126]
+                - generic [ref=e296] [box=337,5538,351,147]
+              - generic [ref=e301] [box=113,5726,591,195]:
+                - figure [ref=e305] [box=155,5750,124,124]
+                - generic [ref=e308] [box=337,5750,351,147]
+            - generic [ref=e312] [box=721,5513,592,408]:
+              - generic [ref=e314] [box=721,5514,591,195]:
+                - figure [ref=e318] [box=763,5538,124,124]
+                - generic [ref=e321] [box=945,5538,351,147]
+              - generic [ref=e326] [box=721,5726,591,195]:
+                - figure [ref=e330] [box=762,5750,126,126]
+                - generic [ref=e333] [box=945,5750,351,147]
+        - generic [ref=e346] [box=137,6009,1152,561]:
+          - figure [ref=e350] [box=137,6009,576,561]
+          - generic [ref=e352] [box=713,6068,576,443]:
+            - separator [ref=e355] [box=770,6097,461,1]
+            - paragraph [ref=e356] [box=795,6126,494,27]: Join Us
+            - heading "加入我們的行列" [level=2] [ref=e357] [box=793,6160,496,42]
+            - paragraph [ref=e358] [box=737,6216,528,82]: 亞太包容創新協會致力推動數位共融，誠摯邀請具專業、熱情或國際經驗的夥伴加入行列，攜手創造無障礙未來
+            - generic [ref=e359] [box=713,6346,576,43]: 了解志工機會
+            - separator [ref=e364] [box=770,6450,461,1]
+        - paragraph [box=0,6618,1425,0]
+  - contentinfo [ref=e365] [box=0,6618,1425,498]:
+    - generic [ref=e366] [box=0,6618,1425,498]:
+      - generic [ref=e370] [box=116,6618,1194,170]:
+        - figure [ref=e375] [box=116,6656,215,101]
+        - generic [ref=e382] [box=1095,6648,215,74]:
+          - heading "社群媒體 SOCIALS" [level=2] [ref=e383] [box=1095,6648,215,30]
+          - generic [ref=e384] [box=1095,6688,215,34]:
+            - link "Facebook" [ref=e385] [cursor=pointer] [box=1095,6688,34,34]:
+              - /url: ""
+              - img "Facebook" [ref=e387] [box=1103,6696,17,17]
+            - link "X" [ref=e389] [cursor=pointer] [box=1134,6688,34,34]:
+              - /url: ""
+              - img "X" [ref=e391] [box=1142,6696,17,17]
+            - link "Instagram" [ref=e393] [cursor=pointer] [box=1173,6688,34,34]:
+              - /url: ""
+              - img "Instagram" [ref=e395] [box=1181,6696,17,17]
+      - generic [ref=e403] [box=92,6818,394,148]:
+        - paragraph [ref=e405] [box=92,6846,394,90]: 亞太包容創新協會1130012493號
+        - generic [box=92,6965,394,0]:
+          - paragraph [box=92,6965,394,0]
+      - paragraph [ref=e417] [box=92,7042,1242,27]: © 2026 apac-aia.org | All Rights Reserved

@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AIA 網站無障礙測試結果總覽</title>
+<link rel="stylesheet" href="review-nav.css">
+<style>
+:root {
+  --navy: #003b5c;
+  --sky: #dff1ff;
+  --gold: #f8b62d;
+  --ink: #082943;
+  --muted: #496173;
+  --paper: #f7f9fb;
+  --card: #ffffff;
+  --line: #cbd8e1;
+  --focus: #be6b00;
+  --link: #07598b;
+  --eyebrow: #ffe29a;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: Arial, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Noto Sans JP", "Yu Gothic", sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+a {
+  color: var(--link);
+  text-underline-offset: .18em;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.skip {
+  position: absolute;
+  top: -80px;
+  left: 12px;
+  z-index: 20;
+  padding: 10px 14px;
+  background: var(--card);
+  color: var(--ink);
+}
+
+.skip:focus { top: 12px; }
+
+.hero {
+  color: var(--card);
+  background: var(--navy);
+  border-bottom: 8px solid var(--gold);
+}
+
+.hero__inner,
+main,
+footer > div {
+  width: min(1120px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.hero__inner { padding: 58px 0 52px; }
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--eyebrow);
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+h1 {
+  max-width: 18ch;
+  margin: 0 0 .3em;
+  font-size: clamp(2rem, 5vw, 4rem);
+}
+
+.deck {
+  max-width: 62ch;
+  margin: 0;
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+}
+
+main { padding: 40px 0 72px; }
+
+section { margin-bottom: 44px; }
+
+h2 {
+  margin: 0 0 16px;
+  font-size: clamp(1.55rem, 3vw, 2.2rem);
+}
+
+h3 {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+}
+
+.scope {
+  padding: 20px 22px;
+  border: 2px solid var(--navy);
+  background: var(--sky);
+}
+
+.scope p { max-width: 70ch; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: 20px;
+}
+
+.report {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: 22px;
+  border: 1px solid var(--line);
+  background: var(--card);
+}
+
+.report__meta {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: .92rem;
+}
+
+.report p { margin: 0 0 12px; }
+
+.report__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.report__primary {
+  font-weight: 700;
+}
+
+.evidence {
+  margin-top: 18px;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  background: var(--card);
+}
+
+.evidence ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: 6px 24px;
+  margin: 0;
+  padding-left: 1.3em;
+}
+
+.report details {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.report summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.report details ul {
+  margin-bottom: 0;
+  padding-left: 1.3em;
+}
+
+.archive {
+  border-left: 6px solid var(--gold);
+}
+
+footer {
+  color: var(--card);
+  background: var(--navy);
+}
+
+footer > div { padding: 26px 0; }
+
+@media (max-width: 600px) {
+  body { font-size: 16px; }
+
+  .hero__inner,
+  main,
+  footer > div {
+    width: min(100% - 28px, 1120px);
+  }
+
+  .hero__inner { padding: 42px 0 38px; }
+  main { padding-top: 28px; }
+  .report, .scope, .evidence { padding: 18px; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到主要內容</a>
+<nav class="aia-review-nav" aria-label="測試報告導覽">
+  <div class="aia-review-nav__inner">
+    <span class="aia-review-nav__label">AIA 無障礙測試結果</span>
+    <a class="aia-review-nav__hub" href="https://chiehweihuang.github.io/aia-project-hub/#downloads">← 回到專案 Hub</a>
+    <a href="index.html" aria-current="page">測試總覽</a>
+    <a href="2026-07-30/homepage/homepage-0730-review.html">首頁</a>
+    <a href="2026-07-30/adals-events/event-page-0730-check.html">活動頁</a>
+    <a href="2026-07-30/contact/contact-page-0731-check.html">聯繫頁</a>
+    <span class="aia-review-nav__break" aria-hidden="true"></span>
+    <a href="2026-07-30/adals-events/speaker-responsive-comparison.html">講者／票券比較</a>
+    <a href="2026-07-30/homepage/homepage-heading-audit.html">首頁 Heading</a>
+    <a href="2026-07-30/adals-events/01-HEADING-STRUCTURE.html">活動 Heading</a>
+    <a href="2026-07-30/contact/contact-heading-audit.html">聯繫 Heading</a>
+    <a class="aia-review-nav__history" href="2026-07-03/index.html">7/3 歷史測試</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero__inner">
+    <p class="eyebrow">AIA WEBSITE REVIEW · TEST RESULTS</p>
+    <h1>網站無障礙測試結果總覽</h1>
+    <p class="deck">集中查看首頁、ADALS 活動頁、講者與票券響應式比較、Heading 對照、聯繫頁，以及 2026-07-03 的第一次首頁測試。</p>
+  </div>
+</header>
+
+<main id="main">
+  <section aria-labelledby="scope-title">
+    <h2 id="scope-title">先看測試範圍</h2>
+    <div class="scope">
+      <p><strong>目前主要依據是 2026-07-30／31 的 live rendered DOM。</strong>三個頁面的測試項目不完全相同；每份完整報告會說明實際做過哪些檢查。下方的 JSON／Markdown 是複核用原始資料，不是給設計師直接閱讀的報告。</p>
+      <p>尚未完成 NVDA、JAWS、VoiceOver 實機 task walkthrough。Heading 結構有問題的頁面不能把標題導覽判定為通過；修正後仍需在 staging 重新做完整螢幕閱讀器走查。</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="current-title">
+    <h2 id="current-title">目前使用的檢查報告</h2>
+    <div class="grid">
+      <article class="report">
+        <p class="report__meta">2026-07-30 · 首頁</p>
+        <h3>首頁無障礙與響應式版面檢查</h3>
+        <p>上線前 P0、Heading、裝飾圖片 alt、關於我們圖文卡 CSS、對比與語言設定。</p>
+        <div class="report__links">
+          <a class="report__primary" href="2026-07-30/homepage/homepage-0730-review.html">開啟完整報告</a>
+          <a href="2026-07-30/homepage/homepage-heading-audit.html">首頁 Heading 逐項對照</a>
+          <a href="2026-07-30/homepage/homepage-live-audit.json">DOM 量測</a>
+          <a href="2026-07-30/homepage/homepage-snapshot-1440.md">Accessibility tree</a>
+        </div>
+      </article>
+
+      <article class="report">
+        <p class="report__meta">2026-07-30 · ADALS 活動頁</p>
+        <h3>活動頁無障礙與響應式版面檢查</h3>
+        <p>上線前修正順序、手機與平板欄數、Heading、頁面語言、對比與已知 Accupass 連結狀態。</p>
+        <div class="report__links">
+          <a class="report__primary" href="2026-07-30/adals-events/event-page-0730-check.html">開啟完整報告</a>
+          <a href="2026-07-30/adals-events/01-HEADING-STRUCTURE.html">Heading 逐項對照</a>
+          <a href="2026-07-30/adals-events/responsive-width-scan-exact.json">七種寬度量測</a>
+        </div>
+      </article>
+
+      <article class="report">
+        <p class="report__meta">2026-07-31 · 響應式比較</p>
+        <h3>講者與票券修改前後比較</h3>
+        <p>320–1920px 原始與建議畫面，包含 Tablet 講者 2+1、票券欄數、卡片底部對齊與 Kadence Blocks 設定。</p>
+        <div class="report__links">
+          <a class="report__primary" href="2026-07-30/adals-events/speaker-responsive-comparison.html">看圖比較</a>
+          <a href="2026-07-30/adals-events/designer-evidence/speaker-responsive-proposal.json">講者量測</a>
+          <a href="2026-07-30/adals-events/designer-evidence/ticket-responsive-proposal.json">票券量測</a>
+        </div>
+      </article>
+
+      <article class="report">
+        <p class="report__meta">2026-07-31 · 聯繫頁</p>
+        <h3>聯繫頁無障礙與響應式版面檢查</h3>
+        <p>表單欄位型別、H1、Focus、文字對比、社群連結與 staging 寄信流程。</p>
+        <div class="report__links">
+          <a class="report__primary" href="2026-07-30/contact/contact-page-0731-check.html">開啟完整報告</a>
+          <a href="2026-07-30/contact/contact-heading-audit.html">聯繫 Heading 逐項對照</a>
+          <a href="2026-07-30/contact/contact-live-audit.json">表單與 DOM 量測</a>
+          <a href="2026-07-30/contact/contact-1440-accessibility-tree.md">Accessibility tree</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="raw-title">
+    <h2 id="raw-title">測試證據與原始檔</h2>
+    <p>先閱讀完整報告；需要查核數值或測試來源時，再展開對應頁面的技術檔案。</p>
+    <div class="grid">
+      <article class="report">
+        <p class="report__meta">首頁</p>
+        <h3>可讀結論與技術證據</h3>
+        <p>完整報告已整合 Lighthouse、DOM、鍵盤走查、CSS 預覽、accessibility tree 與七種寬度檢查。</p>
+        <div class="report__links">
+          <a class="report__primary" href="2026-07-30/homepage/homepage-0730-review.html">先看首頁完整報告</a>
+        </div>
+        <details>
+          <summary>展開首頁原始檔</summary>
+          <ul>
+            <li><a href="2026-07-30/homepage/homepage-live-audit.json">七種寬度與 DOM 量測（JSON）</a></li>
+            <li><a href="2026-07-30/homepage/css-preview-validation.json">CSS 預覽量測（JSON）</a></li>
+            <li><a href="2026-07-30/homepage/lighthouse-desktop.json">Lighthouse desktop（JSON）</a></li>
+            <li><a href="2026-07-30/homepage/lighthouse-mobile.json">Lighthouse mobile（JSON）</a></li>
+            <li><a href="2026-07-30/homepage/homepage-snapshot-1440.md">1440px accessibility tree（Markdown）</a></li>
+          </ul>
+          <p><strong>沒有獨立檔案：</strong>axe 結果與鍵盤焦點軌跡未另外匯出；相關人工檢查結論已寫入完整報告。</p>
+        </details>
+      </article>
+
+      <article class="report">
+        <p class="report__meta">ADALS 活動頁</p>
+        <h3>可讀結論與技術證據</h3>
+        <p>完整報告已整合 Lighthouse、Tier 2 量測、手機鍵盤焦點、結構檢查與響應式畫面比較。</p>
+        <div class="report__links">
+          <a class="report__primary" href="2026-07-30/adals-events/event-page-0730-check.html">先看活動頁完整報告</a>
+          <a href="2026-07-30/adals-events/speaker-responsive-comparison.html">看講者／票券圖片比較</a>
+        </div>
+        <details>
+          <summary>展開活動頁原始檔</summary>
+          <ul>
+            <li><a href="2026-07-30/adals-events/responsive-width-scan-exact.json">七種寬度精確量測（JSON）</a></li>
+            <li><a href="2026-07-30/adals-events/runtime-structure.json">Heading 與頁面結構（JSON）</a></li>
+            <li><a href="2026-07-30/adals-events/tier2-results.json">對比與操作目標量測（JSON）</a></li>
+            <li><a href="2026-07-30/adals-events/keyboard-focus-trace-mobile.json">手機鍵盤焦點順序（JSON）</a></li>
+            <li><a href="2026-07-30/adals-events/lighthouse-desktop.json">Lighthouse desktop（JSON）</a></li>
+            <li><a href="2026-07-30/adals-events/lighthouse-mobile.json">Lighthouse mobile（JSON）</a></li>
+          </ul>
+          <p><strong>沒有獨立檔案：</strong>本次沒有另存 axe 結果或 accessibility tree Markdown；結構證據保存在 runtime structure 與 Heading 對照中。</p>
+        </details>
+      </article>
+
+      <article class="report">
+        <p class="report__meta">聯繫頁</p>
+        <h3>可讀結論與技術證據</h3>
+        <p>完整報告已整合 Lighthouse、axe、表單結構、鍵盤焦點、對比、accessibility tree 與七種寬度檢查。</p>
+        <div class="report__links">
+          <a class="report__primary" href="2026-07-30/contact/contact-page-0731-check.html">先看聯繫頁完整報告</a>
+        </div>
+        <details>
+          <summary>展開聯繫頁原始檔</summary>
+          <ul>
+            <li><a href="2026-07-30/contact/contact-live-audit.json">表單、鍵盤焦點與七種寬度量測（JSON）</a></li>
+            <li><a href="2026-07-30/contact/lighthouse-desktop.json">Lighthouse desktop（JSON）</a></li>
+            <li><a href="2026-07-30/contact/lighthouse-mobile.json">Lighthouse mobile（JSON）</a></li>
+            <li><a href="2026-07-30/contact/axe-results.json">axe 自動掃描（JSON）</a></li>
+            <li><a href="2026-07-30/contact/contact-1440-accessibility-tree.md">1440px accessibility tree（Markdown）</a></li>
+          </ul>
+          <p><strong>沒有獨立檔案：</strong>Tier 2 與鍵盤焦點軌跡未分開匯出；鍵盤量測保存在 contact live audit 中。</p>
+        </details>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="history-title">
+    <h2 id="history-title">2026-07-03 第一次首頁測試</h2>
+    <div class="evidence archive">
+      <p>這一組保留為歷史基準，方便追蹤 Heading、reflow、色彩對比與替代文字問題如何演變。判斷目前狀態時，以 7/30／31 live DOM 報告為主。</p>
+      <ul>
+        <li><a href="2026-07-03/index.html">7/3 測試包總覽</a></li>
+        <li><a href="2026-07-03/homepage-testing/00-README-FIRST.html">從這裡開始</a></li>
+        <li><a href="2026-07-03/homepage-testing/01-finding-list-quick-reference.html">發現清單</a></li>
+        <li><a href="2026-07-03/homepage-testing/02-accessibility-report.html">完整檢查報告</a></li>
+        <li><a href="2026-07-03/homepage-testing/03-heading-structure.html">Heading 結構</a></li>
+        <li><a href="2026-07-03/fix-guide.html">修正指南</a></li>
+        <li><a href="2026-07-03/aia-axe-results.json">axe 原始結果</a></li>
+        <li><a href="2026-07-03/lighthouse-desktop.report.html">Lighthouse desktop</a></li>
+        <li><a href="2026-07-03/lighthouse-mobile.report.html">Lighthouse mobile</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div>AIA accessibility review center · local review copy</div>
+</footer>
+</body>
+</html>

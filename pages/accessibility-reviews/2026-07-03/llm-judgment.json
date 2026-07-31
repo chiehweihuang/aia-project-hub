@@ -1,0 +1,39 @@
+[
+  {
+    "observation": "Runtime reflow verified at 320px viewport: scrollWidth 305 = clientWidth 305, no horizontal overflow, no overflowing elements found. The static 'Large fixed width detected' warning comes from image width attributes and media-query-guarded CSS, not an actual reflow failure.",
+    "criterion": "1.4.10",
+    "category": "responsive",
+    "note": "Runtime evidence contradicts the static warning; treat 1.4.10 as passing."
+  },
+  {
+    "observation": "Focus-visible indicators could not be conclusively measured (programmatic focus does not trigger :focus-visible heuristics). Skip link shows a box-shadow when focused; other links showed no outline under programmatic focus. Per Beacon guidance this capture class is a known false-positive source.",
+    "criterion": "2.4.7",
+    "category": "keyboard",
+    "note": "Recommend a human Tab-through pass; not scored."
+  },
+  {
+    "observation": "meta robots is 'noindex, nofollow' and the page sits behind a WordPress post password — consistent with a staging site. The Lighthouse SEO score of 46 is dominated by this intentional state; re-check SEO after launch.",
+    "category": "agent",
+    "note": "Intentional staging configuration, not a defect."
+  },
+  {
+    "observation": "Both confirmed contrast failures use colors outside the AIA brand palette (#e4bc54 header background, #e8593a CTA). The brand style guide's own contrast matrix (C:/Code/AIA/CLAUDE.md, brand-style-guide.html v1.0) already provides AA/AAA-passing pairs; aligning the WordPress theme to the brand tokens fixes both findings simultaneously.",
+    "criterion": "1.4.3",
+    "category": "contrast"
+  },
+  {
+    "observation": "prefers-reduced-motion has partial coverage: 3 media-query rules present against 24 animation-related rules (Kadence theme defaults). No autoplaying media, no flashing content observed.",
+    "criterion": "2.3.3",
+    "category": "motion"
+  },
+  {
+    "observation": "The whole homepage exposes only 10 focusable elements (skip link, logo, 1 nav item, mobile menu buttons, 3 empty social links). Body content contains no in-page links, and the single content CTA is not focusable. Keyboard/AT users effectively have nothing to operate on this page.",
+    "criterion": "2.1.1",
+    "category": "keyboard"
+  },
+  {
+    "observation": "Mixed zh-TW/en content is declared lang=\"en-US\" with no lang subtags anywhere. CJK screen reader users get English TTS voices for Chinese text. Fix html lang to zh-TW and wrap English passages in lang=\"en\" spans where pronunciation matters.",
+    "criterion": "3.1.1",
+    "category": "screenreader"
+  }
+]

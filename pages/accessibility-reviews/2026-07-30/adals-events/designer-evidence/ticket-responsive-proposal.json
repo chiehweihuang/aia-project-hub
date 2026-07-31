@@ -1,0 +1,3957 @@
+[
+  {
+    "width": 320,
+    "before": {
+      "viewportWidth": 320,
+      "scrollWidth": 320,
+      "grid": {
+        "left": 24,
+        "top": -768,
+        "width": 272,
+        "height": 2752,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "color": "rgb(45, 55, 72)",
+        "columns": "272px",
+        "gap": "64px 32px"
+      },
+      "cards": [
+        {
+          "title": "早鳥優惠Early Bird",
+          "card": {
+            "left": 24,
+            "top": -704,
+            "width": 272,
+            "height": 609,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 24,
+            "top": -704,
+            "width": 272,
+            "height": 609,
+            "paddingLeft": "24px",
+            "paddingRight": "24px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 49,
+            "top": -679,
+            "width": 222,
+            "height": 39,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 49,
+            "top": -582,
+            "width": 222,
+            "height": 21,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 49,
+            "top": -499,
+            "width": 222,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(113, 128, 150)"
+          },
+          "listItemBox": {
+            "left": 49,
+            "top": -465,
+            "width": 222,
+            "height": 27,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 49,
+            "top": -179,
+            "width": 222,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "一般入場Gen. Admission",
+          "card": {
+            "left": 24,
+            "top": -31,
+            "width": 272,
+            "height": 609,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 24,
+            "top": -31,
+            "width": 272,
+            "height": 609,
+            "paddingLeft": "24px",
+            "paddingRight": "24px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 49,
+            "top": -6,
+            "width": 222,
+            "height": 39,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 49,
+            "top": 91,
+            "width": 222,
+            "height": 21,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 49,
+            "top": 175,
+            "width": 222,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(113, 128, 150)"
+          },
+          "listItemBox": {
+            "left": 49,
+            "top": 209,
+            "width": 222,
+            "height": 27,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 49,
+            "top": 494,
+            "width": 222,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "學生 / 非營利組織STUDENT / NGO",
+          "card": {
+            "left": 24,
+            "top": 642,
+            "width": 272,
+            "height": 636,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 24,
+            "top": 642,
+            "width": 272,
+            "height": 636,
+            "paddingLeft": "24px",
+            "paddingRight": "24px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 49,
+            "top": 667,
+            "width": 222,
+            "height": 39,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 49,
+            "top": 765,
+            "width": 222,
+            "height": 21,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 49,
+            "top": 848,
+            "width": 222,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(113, 128, 150)"
+          },
+          "listItemBox": {
+            "left": 49,
+            "top": 882,
+            "width": 222,
+            "height": 54,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 49,
+            "top": 1194,
+            "width": 222,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "純線上參與ONLINE ONLY",
+          "card": {
+            "left": 24,
+            "top": 1343,
+            "width": 272,
+            "height": 609,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 24,
+            "top": 1343,
+            "width": 272,
+            "height": 609,
+            "paddingLeft": "24px",
+            "paddingRight": "24px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 49,
+            "top": 1368,
+            "width": 222,
+            "height": 39,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 49,
+            "top": 1465,
+            "width": 222,
+            "height": 21,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 49,
+            "top": 1548,
+            "width": 222,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(113, 128, 150)"
+          },
+          "listItemBox": {
+            "left": 49,
+            "top": 1582,
+            "width": 222,
+            "height": 27,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 49,
+            "top": 1868,
+            "width": 222,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        }
+      ]
+    },
+    "proposed": {
+      "viewportWidth": 320,
+      "scrollWidth": 320,
+      "grid": {
+        "left": 24,
+        "top": -772,
+        "width": 272,
+        "height": 2808,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "color": "rgb(45, 55, 72)",
+        "columns": "272px",
+        "gap": "24px"
+      },
+      "cards": [
+        {
+          "title": "早鳥優惠Early Bird",
+          "card": {
+            "left": 24,
+            "top": -708,
+            "width": 272,
+            "height": 653,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 24,
+            "top": -708,
+            "width": 272,
+            "height": 653,
+            "paddingLeft": "24px",
+            "paddingRight": "24px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 49,
+            "top": -683,
+            "width": 222,
+            "height": 39,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 49,
+            "top": -586,
+            "width": 222,
+            "height": 21,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 49,
+            "top": -503,
+            "width": 222,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "listItemBox": {
+            "left": 49,
+            "top": -469,
+            "width": 222,
+            "height": 27,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 49,
+            "top": -139,
+            "width": 222,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "一般入場Gen. Admission",
+          "card": {
+            "left": 24,
+            "top": -31,
+            "width": 272,
+            "height": 653,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 24,
+            "top": -31,
+            "width": 272,
+            "height": 653,
+            "paddingLeft": "24px",
+            "paddingRight": "24px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 49,
+            "top": -6,
+            "width": 222,
+            "height": 39,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 49,
+            "top": 91,
+            "width": 222,
+            "height": 21,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 49,
+            "top": 175,
+            "width": 222,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "listItemBox": {
+            "left": 49,
+            "top": 209,
+            "width": 222,
+            "height": 27,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 49,
+            "top": 538,
+            "width": 222,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "學生 / 非營利組織STUDENT / NGO",
+          "card": {
+            "left": 24,
+            "top": 646,
+            "width": 272,
+            "height": 680,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 24,
+            "top": 646,
+            "width": 272,
+            "height": 680,
+            "paddingLeft": "24px",
+            "paddingRight": "24px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 49,
+            "top": 671,
+            "width": 222,
+            "height": 39,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 49,
+            "top": 769,
+            "width": 222,
+            "height": 21,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 49,
+            "top": 852,
+            "width": 222,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "listItemBox": {
+            "left": 49,
+            "top": 886,
+            "width": 222,
+            "height": 54,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 49,
+            "top": 1242,
+            "width": 222,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "純線上參與ONLINE ONLY",
+          "card": {
+            "left": 24,
+            "top": 1351,
+            "width": 272,
+            "height": 653,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 24,
+            "top": 1351,
+            "width": 272,
+            "height": 653,
+            "paddingLeft": "24px",
+            "paddingRight": "24px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 49,
+            "top": 1376,
+            "width": 222,
+            "height": 39,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 49,
+            "top": 1473,
+            "width": 222,
+            "height": 21,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 49,
+            "top": 1556,
+            "width": 222,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "listItemBox": {
+            "left": 49,
+            "top": 1590,
+            "width": 222,
+            "height": 27,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 49,
+            "top": 1920,
+            "width": 222,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "width": 768,
+    "before": {
+      "viewportWidth": 768,
+      "scrollWidth": 768,
+      "grid": {
+        "left": 24,
+        "top": -533,
+        "width": 720,
+        "height": 2199,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "color": "rgb(45, 55, 72)",
+        "columns": "156px 156px 156px 156px",
+        "gap": "64px 32px"
+      },
+      "cards": [
+        {
+          "title": "早鳥優惠Early Bird",
+          "card": {
+            "left": 24,
+            "top": -469,
+            "width": 156,
+            "height": 2103,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 24,
+            "top": -469,
+            "width": 156,
+            "height": 2054,
+            "paddingLeft": "48px",
+            "paddingRight": "48px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 73,
+            "top": -420,
+            "width": 58,
+            "height": 81,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 73,
+            "top": -280,
+            "width": 58,
+            "height": 44,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 73,
+            "top": -174,
+            "width": 58,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(113, 128, 150)"
+          },
+          "listItemBox": {
+            "left": 73,
+            "top": -140,
+            "width": 58,
+            "height": 299,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 73,
+            "top": 1333,
+            "width": 58,
+            "height": 203,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "一般入場Gen. Admission",
+          "card": {
+            "left": 212,
+            "top": -469,
+            "width": 156,
+            "height": 2103,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 212,
+            "top": -469,
+            "width": 156,
+            "height": 2056,
+            "paddingLeft": "48px",
+            "paddingRight": "48px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 261,
+            "top": -420,
+            "width": 58,
+            "height": 101,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 261,
+            "top": -259,
+            "width": 58,
+            "height": 44,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 261,
+            "top": -153,
+            "width": 58,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(113, 128, 150)"
+          },
+          "listItemBox": {
+            "left": 261,
+            "top": -119,
+            "width": 58,
+            "height": 299,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 261,
+            "top": 1335,
+            "width": 58,
+            "height": 203,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "學生 / 非營利組織STUDENT / NGO",
+          "card": {
+            "left": 400,
+            "top": -469,
+            "width": 156,
+            "height": 2103,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 400,
+            "top": -469,
+            "width": 156,
+            "height": 2103,
+            "paddingLeft": "48px",
+            "paddingRight": "48px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 449,
+            "top": -420,
+            "width": 58,
+            "height": 122,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 449,
+            "top": -239,
+            "width": 58,
+            "height": 44,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 449,
+            "top": -133,
+            "width": 58,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(113, 128, 150)"
+          },
+          "listItemBox": {
+            "left": 449,
+            "top": -99,
+            "width": 58,
+            "height": 326,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 449,
+            "top": 1383,
+            "width": 58,
+            "height": 203,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "純線上參與ONLINE ONLY",
+          "card": {
+            "left": 588,
+            "top": -469,
+            "width": 156,
+            "height": 2103,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 588,
+            "top": -469,
+            "width": 156,
+            "height": 1947,
+            "paddingLeft": "48px",
+            "paddingRight": "48px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 637,
+            "top": -420,
+            "width": 58,
+            "height": 101,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 637,
+            "top": -259,
+            "width": 58,
+            "height": 44,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 637,
+            "top": -153,
+            "width": 58,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(113, 128, 150)"
+          },
+          "listItemBox": {
+            "left": 637,
+            "top": -119,
+            "width": 58,
+            "height": 245,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 637,
+            "top": 1226,
+            "width": 58,
+            "height": 203,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        }
+      ]
+    },
+    "proposed": {
+      "viewportWidth": 768,
+      "scrollWidth": 768,
+      "grid": {
+        "left": 24,
+        "top": -533,
+        "width": 720,
+        "height": 1522,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "color": "rgb(45, 55, 72)",
+        "columns": "348px 348px",
+        "gap": "24px"
+      },
+      "cards": [
+        {
+          "title": "早鳥優惠Early Bird",
+          "card": {
+            "left": 24,
+            "top": -469,
+            "width": 348,
+            "height": 701,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 24,
+            "top": -469,
+            "width": 348,
+            "height": 701,
+            "paddingLeft": "25.3416px",
+            "paddingRight": "25.3416px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 50,
+            "top": -420,
+            "width": 295,
+            "height": 64,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 50,
+            "top": -296,
+            "width": 295,
+            "height": 22,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 50,
+            "top": -212,
+            "width": 295,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "listItemBox": {
+            "left": 50,
+            "top": -178,
+            "width": 295,
+            "height": 27,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 50,
+            "top": 124,
+            "width": 295,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "一般入場Gen. Admission",
+          "card": {
+            "left": 396,
+            "top": -469,
+            "width": 348,
+            "height": 701,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 396,
+            "top": -469,
+            "width": 348,
+            "height": 701,
+            "paddingLeft": "25.3416px",
+            "paddingRight": "25.3416px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 422,
+            "top": -420,
+            "width": 295,
+            "height": 64,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 422,
+            "top": -296,
+            "width": 295,
+            "height": 22,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 422,
+            "top": -212,
+            "width": 295,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "listItemBox": {
+            "left": 422,
+            "top": -178,
+            "width": 295,
+            "height": 27,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 422,
+            "top": 124,
+            "width": 295,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "學生 / 非營利組織STUDENT / NGO",
+          "card": {
+            "left": 24,
+            "top": 256,
+            "width": 348,
+            "height": 701,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 24,
+            "top": 256,
+            "width": 348,
+            "height": 701,
+            "paddingLeft": "25.3416px",
+            "paddingRight": "25.3416px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 50,
+            "top": 305,
+            "width": 295,
+            "height": 64,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 50,
+            "top": 429,
+            "width": 295,
+            "height": 22,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 50,
+            "top": 513,
+            "width": 295,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "listItemBox": {
+            "left": 50,
+            "top": 547,
+            "width": 295,
+            "height": 27,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 50,
+            "top": 849,
+            "width": 295,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "純線上參與ONLINE ONLY",
+          "card": {
+            "left": 396,
+            "top": 256,
+            "width": 348,
+            "height": 701,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 396,
+            "top": 256,
+            "width": 348,
+            "height": 701,
+            "paddingLeft": "25.3416px",
+            "paddingRight": "25.3416px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 422,
+            "top": 305,
+            "width": 295,
+            "height": 64,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 422,
+            "top": 429,
+            "width": 295,
+            "height": 22,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 422,
+            "top": 513,
+            "width": 295,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "listItemBox": {
+            "left": 422,
+            "top": 547,
+            "width": 295,
+            "height": 27,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 422,
+            "top": 849,
+            "width": 295,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "width": 1024,
+    "before": {
+      "viewportWidth": 1024,
+      "scrollWidth": 1024,
+      "grid": {
+        "left": 24,
+        "top": 30,
+        "width": 976,
+        "height": 1075,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "color": "rgb(45, 55, 72)",
+        "columns": "220px 220px 220px 220px",
+        "gap": "64px 32px"
+      },
+      "cards": [
+        {
+          "title": "早鳥優惠Early Bird",
+          "card": {
+            "left": 24,
+            "top": 94,
+            "width": 220,
+            "height": 979,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 24,
+            "top": 94,
+            "width": 220,
+            "height": 936,
+            "paddingLeft": "47.9975px",
+            "paddingRight": "47.9975px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 73,
+            "top": 143,
+            "width": 122,
+            "height": 42,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 73,
+            "top": 245,
+            "width": 122,
+            "height": 23,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 73,
+            "top": 330,
+            "width": 122,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(113, 128, 150)"
+          },
+          "listItemBox": {
+            "left": 73,
+            "top": 364,
+            "width": 122,
+            "height": 82,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 73,
+            "top": 894,
+            "width": 122,
+            "height": 88,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "一般入場Gen. Admission",
+          "card": {
+            "left": 276,
+            "top": 94,
+            "width": 220,
+            "height": 979,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 276,
+            "top": 94,
+            "width": 220,
+            "height": 958,
+            "paddingLeft": "47.9975px",
+            "paddingRight": "47.9975px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 325,
+            "top": 143,
+            "width": 122,
+            "height": 64,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 325,
+            "top": 266,
+            "width": 122,
+            "height": 23,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 325,
+            "top": 351,
+            "width": 122,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(113, 128, 150)"
+          },
+          "listItemBox": {
+            "left": 325,
+            "top": 385,
+            "width": 122,
+            "height": 82,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 325,
+            "top": 915,
+            "width": 122,
+            "height": 88,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "學生 / 非營利組織STUDENT / NGO",
+          "card": {
+            "left": 528,
+            "top": 94,
+            "width": 220,
+            "height": 979,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 528,
+            "top": 94,
+            "width": 220,
+            "height": 979,
+            "paddingLeft": "47.9975px",
+            "paddingRight": "47.9975px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 577,
+            "top": 143,
+            "width": 122,
+            "height": 85,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 577,
+            "top": 287,
+            "width": 122,
+            "height": 23,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 577,
+            "top": 372,
+            "width": 122,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(113, 128, 150)"
+          },
+          "listItemBox": {
+            "left": 577,
+            "top": 406,
+            "width": 122,
+            "height": 82,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 577,
+            "top": 936,
+            "width": 122,
+            "height": 88,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "純線上參與ONLINE ONLY",
+          "card": {
+            "left": 780,
+            "top": 94,
+            "width": 220,
+            "height": 979,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 780,
+            "top": 94,
+            "width": 220,
+            "height": 876,
+            "paddingLeft": "47.9975px",
+            "paddingRight": "47.9975px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 829,
+            "top": 143,
+            "width": 122,
+            "height": 64,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 829,
+            "top": 266,
+            "width": 122,
+            "height": 23,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 829,
+            "top": 351,
+            "width": 122,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(113, 128, 150)"
+          },
+          "listItemBox": {
+            "left": 829,
+            "top": 385,
+            "width": 122,
+            "height": 54,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 829,
+            "top": 833,
+            "width": 122,
+            "height": 88,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        }
+      ]
+    },
+    "proposed": {
+      "viewportWidth": 1024,
+      "scrollWidth": 1024,
+      "grid": {
+        "left": 48,
+        "top": 30,
+        "width": 928,
+        "height": 1421,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "color": "rgb(45, 55, 72)",
+        "columns": "452px 452px",
+        "gap": "24px"
+      },
+      "cards": [
+        {
+          "title": "早鳥優惠Early Bird",
+          "card": {
+            "left": 48,
+            "top": 94,
+            "width": 452,
+            "height": 650,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 48,
+            "top": 94,
+            "width": 452,
+            "height": 650,
+            "paddingLeft": "25.0668px",
+            "paddingRight": "25.0668px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 74,
+            "top": 143,
+            "width": 400,
+            "height": 67,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 74,
+            "top": 270,
+            "width": 400,
+            "height": 23,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 74,
+            "top": 355,
+            "width": 400,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "listItemBox": {
+            "left": 74,
+            "top": 389,
+            "width": 400,
+            "height": 27,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 74,
+            "top": 637,
+            "width": 400,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "一般入場Gen. Admission",
+          "card": {
+            "left": 524,
+            "top": 94,
+            "width": 452,
+            "height": 650,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 524,
+            "top": 94,
+            "width": 452,
+            "height": 650,
+            "paddingLeft": "25.0668px",
+            "paddingRight": "25.0668px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 550,
+            "top": 143,
+            "width": 400,
+            "height": 67,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 550,
+            "top": 270,
+            "width": 400,
+            "height": 23,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 550,
+            "top": 355,
+            "width": 400,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "listItemBox": {
+            "left": 550,
+            "top": 389,
+            "width": 400,
+            "height": 27,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 550,
+            "top": 637,
+            "width": 400,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "學生 / 非營利組織STUDENT / NGO",
+          "card": {
+            "left": 48,
+            "top": 769,
+            "width": 452,
+            "height": 650,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 48,
+            "top": 769,
+            "width": 452,
+            "height": 650,
+            "paddingLeft": "25.0668px",
+            "paddingRight": "25.0668px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 74,
+            "top": 818,
+            "width": 400,
+            "height": 67,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 74,
+            "top": 944,
+            "width": 400,
+            "height": 23,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 74,
+            "top": 1029,
+            "width": 400,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "listItemBox": {
+            "left": 74,
+            "top": 1063,
+            "width": 400,
+            "height": 27,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 74,
+            "top": 1311,
+            "width": 400,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "純線上參與ONLINE ONLY",
+          "card": {
+            "left": 524,
+            "top": 769,
+            "width": 452,
+            "height": 650,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 524,
+            "top": 769,
+            "width": 452,
+            "height": 650,
+            "paddingLeft": "25.0668px",
+            "paddingRight": "25.0668px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 550,
+            "top": 818,
+            "width": 400,
+            "height": 67,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 550,
+            "top": 944,
+            "width": 400,
+            "height": 23,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 550,
+            "top": 1029,
+            "width": 400,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "listItemBox": {
+            "left": 550,
+            "top": 1063,
+            "width": 400,
+            "height": 27,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 550,
+            "top": 1311,
+            "width": 400,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "width": 1280,
+    "before": {
+      "viewportWidth": 1280,
+      "scrollWidth": 1280,
+      "grid": {
+        "left": 24,
+        "top": 109,
+        "width": 1232,
+        "height": 843,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "color": "rgb(45, 55, 72)",
+        "columns": "284px 284px 284px 284px",
+        "gap": "64px 32px"
+      },
+      "cards": [
+        {
+          "title": "早鳥優惠Early Bird",
+          "card": {
+            "left": 24,
+            "top": 173,
+            "width": 284,
+            "height": 747,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 24,
+            "top": 173,
+            "width": 284,
+            "height": 747,
+            "paddingLeft": "48px",
+            "paddingRight": "48px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 73,
+            "top": 222,
+            "width": 186,
+            "height": 44,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 73,
+            "top": 325,
+            "width": 186,
+            "height": 24,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 73,
+            "top": 411,
+            "width": 186,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(113, 128, 150)"
+          },
+          "listItemBox": {
+            "left": 73,
+            "top": 445,
+            "width": 186,
+            "height": 54,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 73,
+            "top": 812,
+            "width": 186,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "一般入場Gen. Admission",
+          "card": {
+            "left": 340,
+            "top": 173,
+            "width": 284,
+            "height": 747,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 340,
+            "top": 173,
+            "width": 284,
+            "height": 747,
+            "paddingLeft": "48px",
+            "paddingRight": "48px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 389,
+            "top": 222,
+            "width": 186,
+            "height": 44,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 389,
+            "top": 325,
+            "width": 186,
+            "height": 24,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 389,
+            "top": 411,
+            "width": 186,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(113, 128, 150)"
+          },
+          "listItemBox": {
+            "left": 389,
+            "top": 445,
+            "width": 186,
+            "height": 54,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 389,
+            "top": 812,
+            "width": 186,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "學生 / 非營利組織STUDENT / NGO",
+          "card": {
+            "left": 656,
+            "top": 173,
+            "width": 284,
+            "height": 747,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 656,
+            "top": 173,
+            "width": 284,
+            "height": 747,
+            "paddingLeft": "48px",
+            "paddingRight": "48px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 705,
+            "top": 222,
+            "width": 186,
+            "height": 44,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 705,
+            "top": 325,
+            "width": 186,
+            "height": 24,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 705,
+            "top": 411,
+            "width": 186,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(113, 128, 150)"
+          },
+          "listItemBox": {
+            "left": 705,
+            "top": 445,
+            "width": 186,
+            "height": 54,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 705,
+            "top": 812,
+            "width": 186,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "純線上參與ONLINE ONLY",
+          "card": {
+            "left": 972,
+            "top": 173,
+            "width": 284,
+            "height": 747,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 972,
+            "top": 173,
+            "width": 284,
+            "height": 720,
+            "paddingLeft": "48px",
+            "paddingRight": "48px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 1021,
+            "top": 222,
+            "width": 186,
+            "height": 44,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 1021,
+            "top": 325,
+            "width": 186,
+            "height": 24,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 1021,
+            "top": 411,
+            "width": 186,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(113, 128, 150)"
+          },
+          "listItemBox": {
+            "left": 1021,
+            "top": 445,
+            "width": 186,
+            "height": 54,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 1021,
+            "top": 785,
+            "width": 186,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        }
+      ]
+    },
+    "proposed": {
+      "viewportWidth": 1280,
+      "scrollWidth": 1280,
+      "grid": {
+        "left": 48,
+        "top": 109,
+        "width": 1184,
+        "height": 831,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "color": "rgb(45, 55, 72)",
+        "columns": "284px 284px 284px 284px",
+        "gap": "16px"
+      },
+      "cards": [
+        {
+          "title": "早鳥優惠Early Bird",
+          "card": {
+            "left": 48,
+            "top": 173,
+            "width": 284,
+            "height": 735,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 48,
+            "top": 173,
+            "width": 284,
+            "height": 735,
+            "paddingLeft": "17.7797px",
+            "paddingRight": "17.7797px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 67,
+            "top": 222,
+            "width": 246,
+            "height": 70,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 67,
+            "top": 351,
+            "width": 246,
+            "height": 24,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 67,
+            "top": 437,
+            "width": 246,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "listItemBox": {
+            "left": 67,
+            "top": 471,
+            "width": 246,
+            "height": 27,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 67,
+            "top": 800,
+            "width": 246,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "一般入場Gen. Admission",
+          "card": {
+            "left": 348,
+            "top": 173,
+            "width": 284,
+            "height": 735,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 348,
+            "top": 173,
+            "width": 284,
+            "height": 735,
+            "paddingLeft": "17.7797px",
+            "paddingRight": "17.7797px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 367,
+            "top": 222,
+            "width": 246,
+            "height": 70,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 367,
+            "top": 351,
+            "width": 246,
+            "height": 24,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 367,
+            "top": 437,
+            "width": 246,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "listItemBox": {
+            "left": 367,
+            "top": 471,
+            "width": 246,
+            "height": 27,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 367,
+            "top": 800,
+            "width": 246,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "學生 / 非營利組織STUDENT / NGO",
+          "card": {
+            "left": 648,
+            "top": 173,
+            "width": 284,
+            "height": 735,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 648,
+            "top": 173,
+            "width": 284,
+            "height": 735,
+            "paddingLeft": "17.7797px",
+            "paddingRight": "17.7797px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 667,
+            "top": 222,
+            "width": 246,
+            "height": 70,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 667,
+            "top": 351,
+            "width": 246,
+            "height": 24,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 667,
+            "top": 437,
+            "width": 246,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "listItemBox": {
+            "left": 667,
+            "top": 471,
+            "width": 246,
+            "height": 27,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 667,
+            "top": 800,
+            "width": 246,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "純線上參與ONLINE ONLY",
+          "card": {
+            "left": 948,
+            "top": 173,
+            "width": 284,
+            "height": 735,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 948,
+            "top": 173,
+            "width": 284,
+            "height": 735,
+            "paddingLeft": "17.7797px",
+            "paddingRight": "17.7797px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 967,
+            "top": 222,
+            "width": 246,
+            "height": 70,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 967,
+            "top": 351,
+            "width": 246,
+            "height": 24,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 967,
+            "top": 437,
+            "width": 246,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "listItemBox": {
+            "left": 967,
+            "top": 471,
+            "width": 246,
+            "height": 27,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 967,
+            "top": 800,
+            "width": 246,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "width": 1440,
+    "before": {
+      "viewportWidth": 1440,
+      "scrollWidth": 1440,
+      "grid": {
+        "left": 99,
+        "top": 121,
+        "width": 1242,
+        "height": 843,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "color": "rgb(45, 55, 72)",
+        "columns": "286.5px 286.5px 286.5px 286.5px",
+        "gap": "64px 32px"
+      },
+      "cards": [
+        {
+          "title": "早鳥優惠Early Bird",
+          "card": {
+            "left": 99,
+            "top": 185,
+            "width": 287,
+            "height": 747,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 99,
+            "top": 185,
+            "width": 287,
+            "height": 747,
+            "paddingLeft": "47.6413px",
+            "paddingRight": "47.6413px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 148,
+            "top": 234,
+            "width": 189,
+            "height": 44,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 148,
+            "top": 337,
+            "width": 189,
+            "height": 24,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 148,
+            "top": 423,
+            "width": 189,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(113, 128, 150)"
+          },
+          "listItemBox": {
+            "left": 148,
+            "top": 457,
+            "width": 189,
+            "height": 54,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 148,
+            "top": 824,
+            "width": 189,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "一般入場Gen. Admission",
+          "card": {
+            "left": 418,
+            "top": 185,
+            "width": 287,
+            "height": 747,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 418,
+            "top": 185,
+            "width": 287,
+            "height": 747,
+            "paddingLeft": "47.6413px",
+            "paddingRight": "47.6413px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 466,
+            "top": 234,
+            "width": 189,
+            "height": 44,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 466,
+            "top": 337,
+            "width": 189,
+            "height": 24,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 466,
+            "top": 423,
+            "width": 189,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(113, 128, 150)"
+          },
+          "listItemBox": {
+            "left": 466,
+            "top": 457,
+            "width": 189,
+            "height": 54,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 466,
+            "top": 824,
+            "width": 189,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "學生 / 非營利組織STUDENT / NGO",
+          "card": {
+            "left": 736,
+            "top": 185,
+            "width": 287,
+            "height": 747,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 736,
+            "top": 185,
+            "width": 287,
+            "height": 747,
+            "paddingLeft": "47.6413px",
+            "paddingRight": "47.6413px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 785,
+            "top": 234,
+            "width": 189,
+            "height": 44,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 785,
+            "top": 337,
+            "width": 189,
+            "height": 24,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 785,
+            "top": 423,
+            "width": 189,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(113, 128, 150)"
+          },
+          "listItemBox": {
+            "left": 785,
+            "top": 457,
+            "width": 189,
+            "height": 54,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 785,
+            "top": 824,
+            "width": 189,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "純線上參與ONLINE ONLY",
+          "card": {
+            "left": 1055,
+            "top": 185,
+            "width": 287,
+            "height": 747,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 1055,
+            "top": 185,
+            "width": 287,
+            "height": 720,
+            "paddingLeft": "47.6413px",
+            "paddingRight": "47.6413px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 1103,
+            "top": 234,
+            "width": 189,
+            "height": 44,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 1103,
+            "top": 337,
+            "width": 189,
+            "height": 24,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 1103,
+            "top": 423,
+            "width": 189,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(113, 128, 150)"
+          },
+          "listItemBox": {
+            "left": 1103,
+            "top": 457,
+            "width": 189,
+            "height": 54,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 1103,
+            "top": 797,
+            "width": 189,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        }
+      ]
+    },
+    "proposed": {
+      "viewportWidth": 1440,
+      "scrollWidth": 1440,
+      "grid": {
+        "left": 48,
+        "top": 121,
+        "width": 1344,
+        "height": 804,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "color": "rgb(45, 55, 72)",
+        "columns": "324px 324px 324px 324px",
+        "gap": "16px"
+      },
+      "cards": [
+        {
+          "title": "早鳥優惠Early Bird",
+          "card": {
+            "left": 48,
+            "top": 185,
+            "width": 324,
+            "height": 708,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 48,
+            "top": 185,
+            "width": 324,
+            "height": 708,
+            "paddingLeft": "18.1821px",
+            "paddingRight": "18.1821px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 67,
+            "top": 234,
+            "width": 286,
+            "height": 70,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 67,
+            "top": 363,
+            "width": 286,
+            "height": 24,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 67,
+            "top": 449,
+            "width": 286,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "listItemBox": {
+            "left": 67,
+            "top": 483,
+            "width": 286,
+            "height": 27,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 67,
+            "top": 785,
+            "width": 286,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "一般入場Gen. Admission",
+          "card": {
+            "left": 388,
+            "top": 185,
+            "width": 324,
+            "height": 708,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 388,
+            "top": 185,
+            "width": 324,
+            "height": 708,
+            "paddingLeft": "18.1821px",
+            "paddingRight": "18.1821px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 407,
+            "top": 234,
+            "width": 286,
+            "height": 70,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 407,
+            "top": 363,
+            "width": 286,
+            "height": 24,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 407,
+            "top": 449,
+            "width": 286,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "listItemBox": {
+            "left": 407,
+            "top": 483,
+            "width": 286,
+            "height": 27,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 407,
+            "top": 785,
+            "width": 286,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "學生 / 非營利組織STUDENT / NGO",
+          "card": {
+            "left": 728,
+            "top": 185,
+            "width": 324,
+            "height": 708,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 728,
+            "top": 185,
+            "width": 324,
+            "height": 708,
+            "paddingLeft": "18.1821px",
+            "paddingRight": "18.1821px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 747,
+            "top": 234,
+            "width": 286,
+            "height": 70,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 747,
+            "top": 363,
+            "width": 286,
+            "height": 24,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 747,
+            "top": 449,
+            "width": 286,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "listItemBox": {
+            "left": 747,
+            "top": 483,
+            "width": 286,
+            "height": 27,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 747,
+            "top": 785,
+            "width": 286,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "純線上參與ONLINE ONLY",
+          "card": {
+            "left": 1068,
+            "top": 185,
+            "width": 324,
+            "height": 708,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 1068,
+            "top": 185,
+            "width": 324,
+            "height": 708,
+            "paddingLeft": "18.1821px",
+            "paddingRight": "18.1821px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 1087,
+            "top": 234,
+            "width": 286,
+            "height": 70,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 1087,
+            "top": 363,
+            "width": 286,
+            "height": 24,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 1087,
+            "top": 449,
+            "width": 286,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "listItemBox": {
+            "left": 1087,
+            "top": 483,
+            "width": 286,
+            "height": 27,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 1087,
+            "top": 785,
+            "width": 286,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "width": 1742,
+    "before": {
+      "viewportWidth": 1742,
+      "scrollWidth": 1742,
+      "grid": {
+        "left": 250,
+        "top": 148,
+        "width": 1242,
+        "height": 843,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "color": "rgb(45, 55, 72)",
+        "columns": "286.5px 286.5px 286.5px 286.5px",
+        "gap": "64px 32px"
+      },
+      "cards": [
+        {
+          "title": "早鳥優惠Early Bird",
+          "card": {
+            "left": 250,
+            "top": 212,
+            "width": 287,
+            "height": 747,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 250,
+            "top": 212,
+            "width": 287,
+            "height": 747,
+            "paddingLeft": "47.6396px",
+            "paddingRight": "47.6396px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 299,
+            "top": 261,
+            "width": 189,
+            "height": 44,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 299,
+            "top": 364,
+            "width": 189,
+            "height": 24,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 299,
+            "top": 450,
+            "width": 189,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(113, 128, 150)"
+          },
+          "listItemBox": {
+            "left": 299,
+            "top": 484,
+            "width": 189,
+            "height": 54,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 299,
+            "top": 851,
+            "width": 189,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "一般入場Gen. Admission",
+          "card": {
+            "left": 569,
+            "top": 212,
+            "width": 287,
+            "height": 747,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 569,
+            "top": 212,
+            "width": 287,
+            "height": 747,
+            "paddingLeft": "47.6396px",
+            "paddingRight": "47.6396px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 617,
+            "top": 261,
+            "width": 189,
+            "height": 44,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 617,
+            "top": 364,
+            "width": 189,
+            "height": 24,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 617,
+            "top": 450,
+            "width": 189,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(113, 128, 150)"
+          },
+          "listItemBox": {
+            "left": 617,
+            "top": 484,
+            "width": 189,
+            "height": 54,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 617,
+            "top": 851,
+            "width": 189,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "學生 / 非營利組織STUDENT / NGO",
+          "card": {
+            "left": 887,
+            "top": 212,
+            "width": 287,
+            "height": 747,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 887,
+            "top": 212,
+            "width": 287,
+            "height": 747,
+            "paddingLeft": "47.6396px",
+            "paddingRight": "47.6396px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 936,
+            "top": 261,
+            "width": 189,
+            "height": 44,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 936,
+            "top": 364,
+            "width": 189,
+            "height": 24,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 936,
+            "top": 450,
+            "width": 189,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(113, 128, 150)"
+          },
+          "listItemBox": {
+            "left": 936,
+            "top": 484,
+            "width": 189,
+            "height": 54,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 936,
+            "top": 851,
+            "width": 189,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "純線上參與ONLINE ONLY",
+          "card": {
+            "left": 1206,
+            "top": 212,
+            "width": 287,
+            "height": 747,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 1206,
+            "top": 212,
+            "width": 287,
+            "height": 720,
+            "paddingLeft": "47.6396px",
+            "paddingRight": "47.6396px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 1254,
+            "top": 261,
+            "width": 189,
+            "height": 44,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 1254,
+            "top": 364,
+            "width": 189,
+            "height": 24,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 1254,
+            "top": 450,
+            "width": 189,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(113, 128, 150)"
+          },
+          "listItemBox": {
+            "left": 1254,
+            "top": 484,
+            "width": 189,
+            "height": 54,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 1254,
+            "top": 824,
+            "width": 189,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        }
+      ]
+    },
+    "proposed": {
+      "viewportWidth": 1742,
+      "scrollWidth": 1742,
+      "grid": {
+        "left": 71,
+        "top": 148,
+        "width": 1600,
+        "height": 777,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "color": "rgb(45, 55, 72)",
+        "columns": "388px 388px 388px 388px",
+        "gap": "16px"
+      },
+      "cards": [
+        {
+          "title": "早鳥優惠Early Bird",
+          "card": {
+            "left": 71,
+            "top": 212,
+            "width": 388,
+            "height": 681,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 71,
+            "top": 212,
+            "width": 388,
+            "height": 681,
+            "paddingLeft": "17.7762px",
+            "paddingRight": "17.7762px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 90,
+            "top": 261,
+            "width": 350,
+            "height": 70,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 90,
+            "top": 390,
+            "width": 350,
+            "height": 24,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 90,
+            "top": 476,
+            "width": 350,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "listItemBox": {
+            "left": 90,
+            "top": 510,
+            "width": 350,
+            "height": 27,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 90,
+            "top": 785,
+            "width": 350,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "一般入場Gen. Admission",
+          "card": {
+            "left": 475,
+            "top": 212,
+            "width": 388,
+            "height": 681,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 475,
+            "top": 212,
+            "width": 388,
+            "height": 681,
+            "paddingLeft": "17.7762px",
+            "paddingRight": "17.7762px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 494,
+            "top": 261,
+            "width": 350,
+            "height": 70,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 494,
+            "top": 390,
+            "width": 350,
+            "height": 24,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 494,
+            "top": 476,
+            "width": 350,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "listItemBox": {
+            "left": 494,
+            "top": 510,
+            "width": 350,
+            "height": 27,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 494,
+            "top": 785,
+            "width": 350,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "學生 / 非營利組織STUDENT / NGO",
+          "card": {
+            "left": 879,
+            "top": 212,
+            "width": 388,
+            "height": 681,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 879,
+            "top": 212,
+            "width": 388,
+            "height": 681,
+            "paddingLeft": "17.7762px",
+            "paddingRight": "17.7762px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 898,
+            "top": 261,
+            "width": 350,
+            "height": 70,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 898,
+            "top": 390,
+            "width": 350,
+            "height": 24,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 898,
+            "top": 476,
+            "width": 350,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "listItemBox": {
+            "left": 898,
+            "top": 510,
+            "width": 350,
+            "height": 27,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 898,
+            "top": 785,
+            "width": 350,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "純線上參與ONLINE ONLY",
+          "card": {
+            "left": 1283,
+            "top": 212,
+            "width": 388,
+            "height": 681,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 1283,
+            "top": 212,
+            "width": 388,
+            "height": 681,
+            "paddingLeft": "17.7762px",
+            "paddingRight": "17.7762px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 1302,
+            "top": 261,
+            "width": 350,
+            "height": 70,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 1302,
+            "top": 390,
+            "width": 350,
+            "height": 24,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 1302,
+            "top": 476,
+            "width": 350,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "listItemBox": {
+            "left": 1302,
+            "top": 510,
+            "width": 350,
+            "height": 27,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 1302,
+            "top": 785,
+            "width": 350,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "width": 1920,
+    "before": {
+      "viewportWidth": 1920,
+      "scrollWidth": 1920,
+      "grid": {
+        "left": 339,
+        "top": 175,
+        "width": 1242,
+        "height": 843,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "color": "rgb(45, 55, 72)",
+        "columns": "286.5px 286.5px 286.5px 286.5px",
+        "gap": "64px 32px"
+      },
+      "cards": [
+        {
+          "title": "早鳥優惠Early Bird",
+          "card": {
+            "left": 339,
+            "top": 239,
+            "width": 287,
+            "height": 747,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 339,
+            "top": 239,
+            "width": 287,
+            "height": 747,
+            "paddingLeft": "47.9453px",
+            "paddingRight": "47.9453px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 388,
+            "top": 288,
+            "width": 189,
+            "height": 44,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 388,
+            "top": 391,
+            "width": 189,
+            "height": 24,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 388,
+            "top": 477,
+            "width": 189,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(113, 128, 150)"
+          },
+          "listItemBox": {
+            "left": 388,
+            "top": 511,
+            "width": 189,
+            "height": 54,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 388,
+            "top": 878,
+            "width": 189,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "一般入場Gen. Admission",
+          "card": {
+            "left": 658,
+            "top": 239,
+            "width": 287,
+            "height": 747,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 658,
+            "top": 239,
+            "width": 287,
+            "height": 747,
+            "paddingLeft": "47.9453px",
+            "paddingRight": "47.9453px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 706,
+            "top": 288,
+            "width": 189,
+            "height": 44,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 706,
+            "top": 391,
+            "width": 189,
+            "height": 24,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 706,
+            "top": 477,
+            "width": 189,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(113, 128, 150)"
+          },
+          "listItemBox": {
+            "left": 706,
+            "top": 511,
+            "width": 189,
+            "height": 54,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 706,
+            "top": 878,
+            "width": 189,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "學生 / 非營利組織STUDENT / NGO",
+          "card": {
+            "left": 976,
+            "top": 239,
+            "width": 287,
+            "height": 747,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 976,
+            "top": 239,
+            "width": 287,
+            "height": 747,
+            "paddingLeft": "47.9453px",
+            "paddingRight": "47.9453px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 1025,
+            "top": 288,
+            "width": 189,
+            "height": 44,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 1025,
+            "top": 391,
+            "width": 189,
+            "height": 24,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 1025,
+            "top": 477,
+            "width": 189,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(113, 128, 150)"
+          },
+          "listItemBox": {
+            "left": 1025,
+            "top": 511,
+            "width": 189,
+            "height": 54,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 1025,
+            "top": 878,
+            "width": 189,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "純線上參與ONLINE ONLY",
+          "card": {
+            "left": 1295,
+            "top": 239,
+            "width": 287,
+            "height": 747,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 1295,
+            "top": 239,
+            "width": 287,
+            "height": 720,
+            "paddingLeft": "47.9453px",
+            "paddingRight": "47.9453px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 1343,
+            "top": 288,
+            "width": 189,
+            "height": 44,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 1343,
+            "top": 391,
+            "width": 189,
+            "height": 24,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 1343,
+            "top": 477,
+            "width": 189,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(113, 128, 150)"
+          },
+          "listItemBox": {
+            "left": 1343,
+            "top": 511,
+            "width": 189,
+            "height": 54,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 1343,
+            "top": 851,
+            "width": 189,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        }
+      ]
+    },
+    "proposed": {
+      "viewportWidth": 1920,
+      "scrollWidth": 1920,
+      "grid": {
+        "left": 160,
+        "top": 175,
+        "width": 1600,
+        "height": 777,
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "color": "rgb(45, 55, 72)",
+        "columns": "388px 388px 388px 388px",
+        "gap": "16px"
+      },
+      "cards": [
+        {
+          "title": "早鳥優惠Early Bird",
+          "card": {
+            "left": 160,
+            "top": 239,
+            "width": 388,
+            "height": 681,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 160,
+            "top": 239,
+            "width": 388,
+            "height": 681,
+            "paddingLeft": "17.7797px",
+            "paddingRight": "17.7797px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 179,
+            "top": 288,
+            "width": 350,
+            "height": 70,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 179,
+            "top": 417,
+            "width": 350,
+            "height": 24,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 179,
+            "top": 503,
+            "width": 350,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "listItemBox": {
+            "left": 179,
+            "top": 537,
+            "width": 350,
+            "height": 27,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 179,
+            "top": 812,
+            "width": 350,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "一般入場Gen. Admission",
+          "card": {
+            "left": 564,
+            "top": 239,
+            "width": 388,
+            "height": 681,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 564,
+            "top": 239,
+            "width": 388,
+            "height": 681,
+            "paddingLeft": "17.7797px",
+            "paddingRight": "17.7797px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 583,
+            "top": 288,
+            "width": 350,
+            "height": 70,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 583,
+            "top": 417,
+            "width": 350,
+            "height": 24,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 583,
+            "top": 503,
+            "width": 350,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "listItemBox": {
+            "left": 583,
+            "top": 537,
+            "width": 350,
+            "height": 27,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 583,
+            "top": 812,
+            "width": 350,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "學生 / 非營利組織STUDENT / NGO",
+          "card": {
+            "left": 968,
+            "top": 239,
+            "width": 388,
+            "height": 681,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 968,
+            "top": 239,
+            "width": 388,
+            "height": 681,
+            "paddingLeft": "17.7797px",
+            "paddingRight": "17.7797px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 987,
+            "top": 288,
+            "width": 350,
+            "height": 70,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 987,
+            "top": 417,
+            "width": 350,
+            "height": 24,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 987,
+            "top": 503,
+            "width": 350,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "listItemBox": {
+            "left": 987,
+            "top": 537,
+            "width": 350,
+            "height": 27,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 987,
+            "top": 812,
+            "width": 350,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        },
+        {
+          "title": "純線上參與ONLINE ONLY",
+          "card": {
+            "left": 1372,
+            "top": 239,
+            "width": 388,
+            "height": 681,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "inner": {
+            "left": 1372,
+            "top": 239,
+            "width": 388,
+            "height": 681,
+            "paddingLeft": "17.7797px",
+            "paddingRight": "17.7797px",
+            "color": "rgb(45, 55, 72)"
+          },
+          "titleBox": {
+            "left": 1391,
+            "top": 288,
+            "width": 350,
+            "height": 70,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "priceBox": {
+            "left": 1391,
+            "top": 417,
+            "width": 350,
+            "height": 24,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(26, 32, 44)"
+          },
+          "labelBox": {
+            "left": 1391,
+            "top": 503,
+            "width": 350,
+            "height": 18,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "listItemBox": {
+            "left": 1391,
+            "top": 537,
+            "width": 350,
+            "height": 27,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(74, 85, 104)"
+          },
+          "buttonBox": {
+            "left": 1391,
+            "top": 812,
+            "width": 350,
+            "height": 59,
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "color": "rgb(45, 55, 72)"
+          }
+        }
+      ]
+    }
+  }
+]

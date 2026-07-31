@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AIA 首頁 Heading 結構檢查與修改對照｜2026-07-30</title>
+<link rel="stylesheet" href="../../review-nav.css">
+<style>
+:root{--navy:#003b5c;--ink:#172033;--line:#cbd5df;--page:#eef2f5;--surface:#fff;--soft:#eef6fa;--good:#eaf7ef;--accent:#19abe4;--success:#198754;--code:#f6f8fa;--row:#e5eaf0}
+*{box-sizing:border-box}
+html{background:var(--page)}
+body{max-width:72rem;min-width:0;margin:0 auto;padding:2rem;color:var(--ink);background:var(--surface);font-family:Arial,"Microsoft JhengHei","PingFang TC","Noto Sans TC","Yu Gothic","Noto Sans JP",sans-serif;font-size:1rem;line-height:1.65;overflow-wrap:anywhere}
+main{min-width:0}
+h1,h2,h3{color:var(--navy);line-height:1.3}
+h1{font-size:2rem;border-bottom:.3rem solid var(--accent);padding-bottom:.45rem}
+h2{margin-top:2.2rem;font-size:1.55rem}
+h3{font-size:1.2rem}
+a{color:var(--navy)}
+.skip{position:absolute;top:-5rem;left:1rem;padding:.7rem 1rem;color:var(--navy);background:var(--surface);font-weight:700}
+.skip:focus{top:1rem}
+.meta,.note,.summary{padding:1rem;border-left:.3rem solid var(--navy);background:var(--soft)}
+.summary{border-color:var(--success);background:var(--good)}
+.tree-compare{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr));gap:1rem}
+.tree-panel{min-width:0;padding:1rem;border:1px solid var(--line);background:var(--code)}
+.tree-panel h3{margin-top:0}
+.heading-tree,.heading-tree ul{list-style:none;margin:0;padding:0}
+.heading-tree ul{margin:.45rem 0 .2rem 1rem;padding-left:1rem;border-left:.15rem solid var(--line)}
+.heading-tree li{position:relative;margin:.55rem 0}
+.heading-tree ul>li::before{position:absolute;top:.8rem;left:-1rem;width:.7rem;border-top:.15rem solid var(--line);content:""}
+.level{display:inline-block;min-width:2.8rem;color:var(--navy);font-weight:700}
+.resolved{padding:.8rem 1rem;border:1px solid var(--line);background:var(--surface)}
+details{margin:1rem 0;padding:1rem;border:1px solid var(--line)}
+summary{color:var(--navy);font-weight:700;cursor:pointer}
+code,pre{font-family:Consolas,"Noto Sans Mono CJK TC","Microsoft JhengHei","Noto Sans JP","Yu Gothic",monospace}
+pre{margin:1rem 0;padding:1rem;background:var(--code);border:1px solid var(--line);white-space:pre-wrap;overflow-wrap:anywhere}
+table{width:100%;table-layout:fixed;border-collapse:collapse;margin:1rem 0}
+th,td{padding:.65rem;border:1px solid var(--line);vertical-align:top;overflow-wrap:anywhere}
+th{color:var(--navy);background:var(--soft);text-align:left}
+.inventory th:nth-child(1),.inventory td:nth-child(1){width:3rem}
+.inventory th:nth-child(3),.inventory td:nth-child(3),.inventory th:nth-child(4),.inventory td:nth-child(4){width:6rem}
+li{margin:.35rem 0}
+@media(max-width:46rem){
+ body{padding:1rem}
+ table,thead,tbody,tr,th,td{display:block;width:100%!important}
+ thead{position:absolute;width:1px!important;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+ tr{margin:0 0 1rem;border:1px solid var(--line);border-radius:.6rem;background:var(--surface)}
+ td{border:0;border-bottom:1px solid var(--row)}
+ td:last-child{border-bottom:0}
+ td::before{display:block;margin-bottom:.2rem;color:var(--navy);font-weight:700;content:attr(data-label)}
+}
+@media print{
+ html{background:var(--surface)}
+ body{max-width:none;padding:0;font-size:10.5pt}
+ h1{font-size:21pt}h2{font-size:16pt}h3{font-size:13pt}
+ h2,h3{break-after:avoid-page}
+ tr,pre,.meta,.note,.summary{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到主要內容</a>
+<nav class="aia-review-nav" aria-label="測試報告導覽">
+  <div class="aia-review-nav__inner">
+    <span class="aia-review-nav__label">AIA 無障礙測試結果</span>
+    <a class="aia-review-nav__hub" href="https://chiehweihuang.github.io/aia-project-hub/#downloads">← 回到專案 Hub</a>
+    <a href="../../index.html">測試總覽</a>
+    <a href="homepage-0730-review.html">首頁</a>
+    <a href="../adals-events/event-page-0730-check.html">活動頁</a>
+    <a href="../contact/contact-page-0731-check.html">聯繫頁</a>
+    <span class="aia-review-nav__break" aria-hidden="true"></span>
+    <a href="../adals-events/speaker-responsive-comparison.html">講者／票券比較</a>
+    <a href="homepage-heading-audit.html" aria-current="page">首頁 Heading</a>
+    <a href="../adals-events/01-HEADING-STRUCTURE.html">活動 Heading</a>
+    <a href="../contact/contact-heading-audit.html">聯繫 Heading</a>
+    <a class="aia-review-nav__history" href="../../2026-07-03/index.html">7/3 歷史測試</a>
+  </div>
+</nav>
+<main id="main">
+<h1>AIA 首頁 Heading 結構檢查與修改對照</h1>
+<p class="meta">日期：2026-07-30<br>範圍：AIA 首頁 live rendered DOM<br>目的：逐項說明目前 25 個 heading，以及畫面上應補成 heading 的 3 個卡片名稱，提供可直接在 WordPress／Kadence 執行的修改對照。</p>
+
+<h2>先說結論</h2>
+<div class="summary">
+<p><strong>目前：</strong>H1 × 1、H2 × 7、H3 × 3、H4 × 1、H5 × 13，共 25 個 heading；「三大價值」的 3 個卡片名稱只是粗體文字。</p>
+<p><strong>建議完成後：</strong>H1 × 1、H2 × 7、H3 × 19、H4 × 0、H5 × 0，共 27 個 heading。</p>
+</div>
+<ul>
+<li>「亞太包容創新協會」保留為全頁唯一 H1。</li>
+<li>七個主要區段保留 H2。</li>
+<li>區段內的圖文卡標題、「三大價值」區段內三張完整卡片的名稱、六筆年份、三張連結卡與四個議題名稱使用 H3。</li>
+<li>頁首插圖下方重複出現的「多元共融／以人為本／科技創新」只是摘要標籤，保留一般文字，不加入 heading 清單。</li>
+<li>Hero 介紹句改為一般段落，不進入 heading 導覽。</li>
+<li>修改的是 HTML 語意；原本的字級、顏色、間距與版面可保留。</li>
+</ul>
+
+<h2>判斷 Heading 的原則</h2>
+<ul>
+<li><strong>先看內容角色：</strong>這段文字是否命名後面的一組獨立內容？是，才可能使用 heading。</li>
+<li><strong>摘要不是章節：</strong>只有短標籤或重複提示、後面沒有它所帶領的內容，就保留一般文字。</li>
+<li><strong>同層項目用同層級：</strong>同一個 H2 區段內並列的卡片、年份或項目使用 H3，不因字比較小而改用 H5。</li>
+<li><strong>視覺大小與 HTML 層級分開：</strong>先決定 H1、H2、H3 的內容關係，再用 typography 保留原本字級與樣式。</li>
+<li><strong>不要只看文字是否重複：</strong>相同文字可能在頁首是摘要、在內文是卡片名稱；應依它與後續內容的關係判斷。</li>
+</ul>
+
+<h2>為什麼這項修正重要</h2>
+<p>Heading 是頁面的導覽骨架。只看畫面時，可以利用字體大小、卡片位置和背景判斷內容關係；使用螢幕閱讀器的人則常打開 heading 清單，或按快捷鍵逐個 heading 跳轉。現在的標記會造成三種具體問題：</p>
+<ul>
+<li>H1 後直接出現 H4，使 Hero 介紹句看起來像位於不存在的 H2、H3 區段之下。</li>
+<li>「協會大事記」等 H2 後直接出現 H5，使年份與卡片看起來像深層子章節，而中間三層並不存在。</li>
+<li>「三大價值」區段內的「多元共融」「以人為本」「科技創新」各自帶領一張包含圖片與說明文字的完整卡片，卻不在 heading 清單中；使用 heading 導覽會略過這三個內容項目。</li>
+</ul>
+<p>文字本身仍可能被逐字讀到，問題不是「完全讀不出來」，而是頁面大綱沒有忠實表達畫面上的區段與父子關係。這會增加定位、略讀和回到特定區段的成本。</p>
+<p><strong>判斷原則：</strong>只有當一段文字命名後續的一組獨立內容，才使用 heading。頁首的三個短摘要沒有各自帶領內文，因此維持一般文字；「三大價值」區段的三個卡片名稱各自帶領一段完整說明，因此使用 H3。重複出現本身不是增加 heading 的理由。</p>
+<p>單純出現 H2 後接 H5，不是每次都能只靠數字直接判定為 WCAG 違規；這一頁需要修正，是因為 heading 標記和畫面已呈現的內容關係明顯不一致。</p>
+<p class="note"><strong>測試界線：</strong>這是根據 rendered HTML 與 accessibility tree 所做的結構檢查，沒有執行 NVDA、JAWS 或 VoiceOver 的完整操作走查。修正後仍需在 staging 以 heading list 複查順序，再完成螢幕閱讀器實機測試。</p>
+
+<h2>與 7/3 建議的對照</h2>
+<div class="tree-compare">
+<section class="resolved">
+<h3>仍然一致的原則</h3>
+<ul>
+<li>協會名稱是唯一 H1。</li>
+<li>主要區段使用 H2。</li>
+<li>有獨立說明內容的價值卡、年份、連結卡與議題卡使用 H3。</li>
+<li>Hero 說明是一般段落。</li>
+<li>不以 H5／H6 控制小字外觀。</li>
+</ul>
+</section>
+<section class="resolved">
+<h3>因 7/30 畫面改版而調整</h3>
+<ul>
+<li>7/3 的英文 H6 視覺標籤已不在目前 heading 清單中。</li>
+<li>「關於我們」三句在新版畫面中各自帶領一組圖文內容，因此保留 H3；7/3 畫面把它們當成段落，當時才建議改成 paragraph。</li>
+<li>頁首三個價值摘要維持一般文字；只有「三大價值」區段內帶領完整說明的三個卡片名稱使用 H3。</li>
+<li>「社群媒體」目前已確認為獨立 footer 區段，因此採用 7/3 提出的 H2 選項。</li>
+</ul>
+</section>
+</div>
+<p class="note"><strong>7/3 尚未解決的內容問題：</strong>目前仍顯示「數位無障礙 International Standards」，中英文意思不一致。沿用 7/3 建議，應改為「國際標準 International Standards」，並使用 H3。</p>
+
+<h2>目前與建議的完整樹狀圖</h2>
+<div class="tree-compare">
+<section class="tree-panel">
+<h3>目前結構</h3>
+<ul class="heading-tree">
+<li><span class="level">H1</span>亞太包容創新協會
+  <ul><li><span class="level">H4</span>Hero 介紹句</li></ul>
+</li>
+<li><span class="level">H2</span>關於我們
+  <ul><li><span class="level">H3</span>三組圖文標題</li></ul>
+</li>
+<li><span class="level">H2</span>三大價值
+  <ul><li><span class="level">文字</span>三張完整卡片名稱</li></ul>
+</li>
+<li><span class="level">H2</span>協會大事記
+  <ul><li><span class="level">H5</span>六筆年份</li></ul>
+</li>
+<li><span class="level">H2</span>我們創造什麼連結
+  <ul><li><span class="level">H5</span>三張連結卡</li></ul>
+</li>
+<li><span class="level">H2</span>我們關注的議題
+  <ul><li><span class="level">H5</span>四個議題名稱</li></ul>
+</li>
+<li><span class="level">H2</span>加入我們的行列</li>
+<li><span class="level">H2</span>社群媒體 SOCIALS</li>
+</ul>
+</section>
+<section class="tree-panel">
+<h3>建議結構</h3>
+<ul class="heading-tree">
+<li><span class="level">H1</span>亞太包容創新協會
+  <ul><li><span class="level">段落</span>Hero 介紹句</li></ul>
+</li>
+<li><span class="level">H2</span>關於我們
+  <ul><li><span class="level">H3</span>三組圖文標題</li></ul>
+</li>
+<li><span class="level">H2</span>三大價值
+  <ul><li><span class="level">H3</span>三張完整卡片名稱</li></ul>
+</li>
+<li><span class="level">H2</span>協會大事記
+  <ul><li><span class="level">H3</span>六筆年份</li></ul>
+</li>
+<li><span class="level">H2</span>我們創造什麼連結
+  <ul><li><span class="level">H3</span>三張連結卡</li></ul>
+</li>
+<li><span class="level">H2</span>我們關注的議題
+  <ul><li><span class="level">H3</span>四個議題名稱</li></ul>
+</li>
+<li><span class="level">H2</span>加入我們的行列</li>
+<li><span class="level">H2</span>社群媒體 SOCIALS</li>
+</ul>
+</section>
+</div>
+
+<h2>目前 25 個 heading 逐項修改對照</h2>
+<details>
+<summary>需要在 WordPress 逐項修改時，展開 25 項清單</summary>
+<table class="inventory">
+<thead><tr><th>#</th><th>畫面文字</th><th>目前</th><th>建議</th><th>動作</th></tr></thead>
+<tbody>
+<tr><td data-label="#">1</td><td data-label="畫面文字">亞太包容創新協會</td><td data-label="目前">H1</td><td data-label="建議">H1</td><td data-label="動作">不需修改</td></tr>
+<tr><td data-label="#">2</td><td data-label="畫面文字">連結國際無障礙領袖、台灣產業與政府及在地專業社群，落實數位包容，讓每個人都能平等共享。</td><td data-label="目前">H4</td><td data-label="建議">一般文字</td><td data-label="動作">改 Paragraph／Advanced Text，保留樣式</td></tr>
+<tr><td data-label="#">3</td><td data-label="畫面文字">關於我們</td><td data-label="目前">H2</td><td data-label="建議">H2</td><td data-label="動作">不需修改</td></tr>
+<tr><td data-label="#">4</td><td data-label="畫面文字">當生活幾乎一切都在螢幕上完成，有些人卻被擋在門外:</td><td data-label="目前">H3</td><td data-label="建議">H3</td><td data-label="動作">不需修改</td></tr>
+<tr><td data-label="#">5</td><td data-label="畫面文字">許多人因身體狀況、年齡或數位落差，長期被排除在數位世界之外。</td><td data-label="目前">H3</td><td data-label="建議">H3</td><td data-label="動作">不需修改</td></tr>
+<tr><td data-label="#">6</td><td data-label="畫面文字">打破現有的侷限，創造更友善的社會環境。</td><td data-label="目前">H3</td><td data-label="建議">H3</td><td data-label="動作">不需修改</td></tr>
+<tr><td data-label="#">7</td><td data-label="畫面文字">三大價值</td><td data-label="目前">H2</td><td data-label="建議">H2</td><td data-label="動作">不需修改</td></tr>
+<tr><td data-label="#">8</td><td data-label="畫面文字">協會大事記</td><td data-label="目前">H2</td><td data-label="建議">H2</td><td data-label="動作">不需修改</td></tr>
+<tr><td data-label="#">9</td><td data-label="畫面文字">2024 / Apr</td><td data-label="目前">H5</td><td data-label="建議">H3</td><td data-label="動作">改 HTML Tag，保留樣式</td></tr>
+<tr><td data-label="#">10</td><td data-label="畫面文字">2024 / Oct</td><td data-label="目前">H5</td><td data-label="建議">H3</td><td data-label="動作">改 HTML Tag，保留樣式</td></tr>
+<tr><td data-label="#">11</td><td data-label="畫面文字">2024 / Nov</td><td data-label="目前">H5</td><td data-label="建議">H3</td><td data-label="動作">改 HTML Tag，保留樣式</td></tr>
+<tr><td data-label="#">12</td><td data-label="畫面文字">2025 / Oct</td><td data-label="目前">H5</td><td data-label="建議">H3</td><td data-label="動作">改 HTML Tag，保留樣式</td></tr>
+<tr><td data-label="#">13</td><td data-label="畫面文字">2026 / May</td><td data-label="目前">H5</td><td data-label="建議">H3</td><td data-label="動作">改 HTML Tag，保留樣式</td></tr>
+<tr><td data-label="#">14</td><td data-label="畫面文字">2026 / Sep</td><td data-label="目前">H5</td><td data-label="建議">H3</td><td data-label="動作">改 HTML Tag，保留樣式</td></tr>
+<tr><td data-label="#">15</td><td data-label="畫面文字">我們創造什麼連結</td><td data-label="目前">H2</td><td data-label="建議">H2</td><td data-label="動作">不需修改</td></tr>
+<tr><td data-label="#">16</td><td data-label="畫面文字">跨界對話 Cross-Sector Dialogue</td><td data-label="目前">H5</td><td data-label="建議">H3</td><td data-label="動作">改 HTML Tag，保留樣式</td></tr>
+<tr><td data-label="#">17</td><td data-label="畫面文字">國際接軌 Global Standards</td><td data-label="目前">H5</td><td data-label="建議">H3</td><td data-label="動作">改 HTML Tag，保留樣式</td></tr>
+<tr><td data-label="#">18</td><td data-label="畫面文字">從理念到落地 Idea to Action</td><td data-label="目前">H5</td><td data-label="建議">H3</td><td data-label="動作">改 HTML Tag，保留樣式</td></tr>
+<tr><td data-label="#">19</td><td data-label="畫面文字">我們關注的議題</td><td data-label="目前">H2</td><td data-label="建議">H2</td><td data-label="動作">不需修改</td></tr>
+<tr><td data-label="#">20</td><td data-label="畫面文字">數位無障礙 Digital Accessibility</td><td data-label="目前">H5</td><td data-label="建議">H3</td><td data-label="動作">改 HTML Tag，保留樣式</td></tr>
+<tr><td data-label="#">21</td><td data-label="畫面文字">包容性設計 Inclusive Design</td><td data-label="目前">H5</td><td data-label="建議">H3</td><td data-label="動作">改 HTML Tag，保留樣式</td></tr>
+<tr><td data-label="#">22</td><td data-label="畫面文字">數位無障礙 International Standards</td><td data-label="目前">H5</td><td data-label="建議">H3</td><td data-label="動作">改 HTML Tag；中文改為「國際標準」</td></tr>
+<tr><td data-label="#">23</td><td data-label="畫面文字">齡共融科技 AgeTech &amp; Aging-Friendly</td><td data-label="目前">H5</td><td data-label="建議">H3</td><td data-label="動作">改 HTML Tag，保留樣式</td></tr>
+<tr><td data-label="#">24</td><td data-label="畫面文字">加入我們的行列</td><td data-label="目前">H2</td><td data-label="建議">H2</td><td data-label="動作">不需修改</td></tr>
+<tr><td data-label="#">25</td><td data-label="畫面文字">社群媒體 SOCIALS</td><td data-label="目前">H2</td><td data-label="建議">H2</td><td data-label="動作">不需修改</td></tr>
+</tbody>
+</table>
+</details>
+
+<h2>另外補上的 3 個卡片標題</h2>
+<section class="tree-panel">
+<ul class="heading-tree">
+<li><span class="level">H2</span>三大價值
+  <ul>
+  <li><span class="level">H3</span>多元共融 Diversity &amp; Inclusion</li>
+  <li><span class="level">H3</span>以人為本 Human-Centered</li>
+  <li><span class="level">H3</span>科技創新 Tech Innovation</li>
+  </ul>
+</li>
+</ul>
+<p><strong>只修改「三大價值」區段內的三張完整卡片。</strong>這三個名稱目前是一般粗體文字，但各自帶領一段獨立說明，因此改成 Heading／Advanced Heading 的 H3，並維持原本視覺樣式。</p>
+<p>頁首插圖下方也有一組相同的三個短摘要；它們沒有各自帶領內文，維持一般文字，不要改成 H3。</p>
+</section>
+
+<h2>WordPress／Kadence 實作步驟</h2>
+<ol>
+<li>進入「頁面 → 全部頁面 → 首頁 → 編輯」。</li>
+<li>打開左上角「清單檢視」，依本文件的逐項對照尋找對應文字。</li>
+<li>選取 Kadence Advanced Heading 時，在右側區塊設定尋找 <code>HTML Tag</code>／<code>Heading Tag</code>，依對照改成 H1、H2 或 H3。</li>
+<li>使用 WordPress 核心 Heading block 時，從區塊工具列更改 heading level。</li>
+<li>Hero 介紹句若現有區塊可把 HTML Tag 設為 <code>p</code>，直接改 tag；若只支援 H1–H6，改用 Paragraph／Kadence Advanced Text，再套用原本字級、顏色與間距。</li>
+<li>在「三大價值」區段內，三個卡片名稱若目前與內文放在同一個 Paragraph，分成「H3 名稱」與「一般段落」兩個區塊。不要修改頁首插圖下方的三個短摘要。</li>
+<li>儲存草稿後先預覽，確認 tag 調整後既有視覺樣式維持一致。</li>
+</ol>
+
+<h2>複查清單</h2>
+<ul>
+<li>DOM 中 H1 正好 1 個，文字為「亞太包容創新協會」。</li>
+<li>H2 正好 7 個：關於我們、三大價值、協會大事記、我們創造什麼連結、我們關注的議題、加入我們的行列、社群媒體。</li>
+<li>H3 正好 19 個：3 組關於我們圖文標題、3 個價值名稱、6 筆年份、3 張連結卡、4 個議題名稱。</li>
+<li>頁首插圖下方的三個價值摘要仍是一般文字，不出現在 heading 清單。</li>
+<li>H4、H5 均為 0；Hero 介紹句仍看得到，但不出現在 heading 清單。</li>
+<li>heading 層級依序為 H1 → H2 → H3，沒有從 H1 直接跳到 H4，或從 H2 直接跳到 H5。</li>
+<li>更改 tag 後，桌面與手機的字級、顏色、間距和原設計一致。</li>
+<li>在 staging 以瀏覽器 Accessibility Tree 或螢幕閱讀器 heading list 複查完整順序。</li>
+</ul>
+
+<p class="note"><strong>對應標準：</strong><a href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">WCAG 2.2 1.3.1 Info and Relationships</a>、<a href="https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html">2.4.6 Headings and Labels</a>。這份文件處理 heading 語意；顏色、間距與卡片視覺不因 tag 變更而要求修改。</p>
+<p><a href="homepage-0730-review.html">返回首頁完整無障礙檢查</a></p>
+</main>
+</body>
+</html>

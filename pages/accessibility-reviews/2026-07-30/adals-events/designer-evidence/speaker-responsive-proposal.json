@@ -1,0 +1,1115 @@
+[
+  {
+    "width": 320,
+    "before": {
+      "viewportWidth": 320,
+      "scrollWidth": 320,
+      "cards": [
+        {
+          "left": 48,
+          "top": -1265,
+          "width": 224,
+          "paddingLeft": "0px",
+          "paddingRight": "0px"
+        }
+      ],
+      "heading": {
+        "left": 96,
+        "top": -993,
+        "width": 128,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      "inner": {
+        "left": 48,
+        "top": -1041,
+        "width": 224,
+        "paddingLeft": "48px",
+        "paddingRight": "48px"
+      },
+      "section": {
+        "left": 24,
+        "top": -1289,
+        "width": 272,
+        "paddingLeft": "24px",
+        "paddingRight": "24px"
+      },
+      "columns": [
+        {
+          "className": "wp-block-kadence-column kadence-column203_4f4300-fa",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 1084,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_db9bb1-57 kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 860,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_c0e3bd-9c",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 1097,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_fb3826-60 kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 873,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_cf57e6-77",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 1165,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_056e1a-ad kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 941,
+          "display": "flex",
+          "flex": "0 1 auto"
+        }
+      ]
+    },
+    "proposed": {
+      "viewportWidth": 320,
+      "scrollWidth": 320,
+      "cards": [
+        {
+          "left": 24,
+          "top": -1265,
+          "width": 272,
+          "paddingLeft": "0px",
+          "paddingRight": "0px"
+        }
+      ],
+      "heading": {
+        "left": 49,
+        "top": -945,
+        "width": 221,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      "inner": {
+        "left": 24,
+        "top": -993,
+        "width": 272,
+        "paddingLeft": "25.4827px",
+        "paddingRight": "25.4827px"
+      },
+      "section": {
+        "left": 24,
+        "top": -1289,
+        "width": 272,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      "columns": [
+        {
+          "className": "wp-block-kadence-column kadence-column203_4f4300-fa",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 825,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_db9bb1-57 kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 553,
+          "display": "flex",
+          "flex": "1 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_c0e3bd-9c",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 852,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_fb3826-60 kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 580,
+          "display": "flex",
+          "flex": "1 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_cf57e6-77",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 879,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_056e1a-ad kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 607,
+          "display": "flex",
+          "flex": "1 1 auto"
+        }
+      ]
+    }
+  },
+  {
+    "width": 768,
+    "before": {
+      "viewportWidth": 768,
+      "scrollWidth": 768,
+      "cards": [
+        {
+          "left": 48,
+          "top": -301,
+          "width": 181,
+          "paddingLeft": "0px",
+          "paddingRight": "0px"
+        }
+      ],
+      "heading": {
+        "left": 96,
+        "top": -72,
+        "width": 85,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      "inner": {
+        "left": 48,
+        "top": -120,
+        "width": 181,
+        "paddingLeft": "48px",
+        "paddingRight": "48px"
+      },
+      "section": {
+        "left": 24,
+        "top": -325,
+        "width": 720,
+        "paddingLeft": "24px",
+        "paddingRight": "24px"
+      },
+      "columns": [
+        {
+          "className": "wp-block-kadence-column kadence-column203_4f4300-fa",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 1546,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_db9bb1-57 kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 1153,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_c0e3bd-9c",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 1546,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_fb3826-60 kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 1192,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_cf57e6-77",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 1546,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_056e1a-ad kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 1365,
+          "display": "flex",
+          "flex": "0 1 auto"
+        }
+      ]
+    },
+    "proposed": {
+      "viewportWidth": 768,
+      "scrollWidth": 768,
+      "cards": [
+        {
+          "left": 24,
+          "top": -301,
+          "width": 348,
+          "paddingLeft": "0px",
+          "paddingRight": "0px"
+        }
+      ],
+      "heading": {
+        "left": 49,
+        "top": 95,
+        "width": 297,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      "inner": {
+        "left": 24,
+        "top": 47,
+        "width": 348,
+        "paddingLeft": "25.3416px",
+        "paddingRight": "25.3416px"
+      },
+      "section": {
+        "left": 24,
+        "top": -325,
+        "width": 720,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      "columns": [
+        {
+          "className": "wp-block-kadence-column kadence-column203_4f4300-fa",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 849,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_db9bb1-57 kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 501,
+          "display": "flex",
+          "flex": "1 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_c0e3bd-9c",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 849,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_fb3826-60 kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 501,
+          "display": "flex",
+          "flex": "1 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_cf57e6-77",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 876,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_056e1a-ad kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 528,
+          "display": "flex",
+          "flex": "1 1 auto"
+        }
+      ]
+    }
+  },
+  {
+    "width": 1024,
+    "before": {
+      "viewportWidth": 1024,
+      "scrollWidth": 1024,
+      "cards": [
+        {
+          "left": 48,
+          "top": -87,
+          "width": 267,
+          "paddingLeft": "0px",
+          "paddingRight": "0px"
+        }
+      ],
+      "heading": {
+        "left": 96,
+        "top": 228,
+        "width": 171,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      "inner": {
+        "left": 48,
+        "top": 180,
+        "width": 267,
+        "paddingLeft": "47.9357px",
+        "paddingRight": "47.9357px"
+      },
+      "section": {
+        "left": 24,
+        "top": -111,
+        "width": 976,
+        "paddingLeft": "24px",
+        "paddingRight": "24px"
+      },
+      "columns": [
+        {
+          "className": "wp-block-kadence-column kadence-column203_4f4300-fa",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 1006,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_db9bb1-57 kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 685,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_c0e3bd-9c",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 1006,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_fb3826-60 kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 718,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_cf57e6-77",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 1006,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_056e1a-ad kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 740,
+          "display": "flex",
+          "flex": "0 1 auto"
+        }
+      ]
+    },
+    "proposed": {
+      "viewportWidth": 1024,
+      "scrollWidth": 1024,
+      "cards": [
+        {
+          "left": 24,
+          "top": -87,
+          "width": 476,
+          "paddingLeft": "0px",
+          "paddingRight": "0px"
+        }
+      ],
+      "heading": {
+        "left": 49,
+        "top": 437,
+        "width": 425,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      "inner": {
+        "left": 24,
+        "top": 389,
+        "width": 476,
+        "paddingLeft": "25.3382px",
+        "paddingRight": "25.3382px"
+      },
+      "section": {
+        "left": 24,
+        "top": -111,
+        "width": 976,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      "columns": [
+        {
+          "className": "wp-block-kadence-column kadence-column203_4f4300-fa",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 903,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_db9bb1-57 kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 427,
+          "display": "flex",
+          "flex": "1 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_c0e3bd-9c",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 903,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_fb3826-60 kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 427,
+          "display": "flex",
+          "flex": "1 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_cf57e6-77",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 903,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_056e1a-ad kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 427,
+          "display": "flex",
+          "flex": "1 1 auto"
+        }
+      ]
+    }
+  },
+  {
+    "width": 1280,
+    "before": {
+      "viewportWidth": 1280,
+      "scrollWidth": 1280,
+      "cards": [
+        {
+          "left": 64,
+          "top": -9,
+          "width": 341,
+          "paddingLeft": "0px",
+          "paddingRight": "0px"
+        }
+      ],
+      "heading": {
+        "left": 112,
+        "top": 380,
+        "width": 245,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      "inner": {
+        "left": 64,
+        "top": 332,
+        "width": 341,
+        "paddingLeft": "47.9898px",
+        "paddingRight": "47.9898px"
+      },
+      "section": {
+        "left": 40,
+        "top": -33,
+        "width": 1200,
+        "paddingLeft": "24px",
+        "paddingRight": "24px"
+      },
+      "columns": [
+        {
+          "className": "wp-block-kadence-column kadence-column203_4f4300-fa",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 929,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_db9bb1-57 kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 534,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_c0e3bd-9c",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 929,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_fb3826-60 kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 561,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_cf57e6-77",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 929,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_056e1a-ad kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 588,
+          "display": "flex",
+          "flex": "0 1 auto"
+        }
+      ]
+    },
+    "proposed": {
+      "viewportWidth": 1280,
+      "scrollWidth": 1280,
+      "cards": [
+        {
+          "left": 64,
+          "top": -9,
+          "width": 368,
+          "paddingLeft": "0px",
+          "paddingRight": "0px"
+        }
+      ],
+      "heading": {
+        "left": 90,
+        "top": 407,
+        "width": 317,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      "inner": {
+        "left": 64,
+        "top": 359,
+        "width": 368,
+        "paddingLeft": "25.6443px",
+        "paddingRight": "25.6443px"
+      },
+      "section": {
+        "left": 40,
+        "top": -33,
+        "width": 1200,
+        "paddingLeft": "24px",
+        "paddingRight": "24px"
+      },
+      "columns": [
+        {
+          "className": "wp-block-kadence-column kadence-column203_4f4300-fa",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 875,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_db9bb1-57 kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 507,
+          "display": "flex",
+          "flex": "1 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_c0e3bd-9c",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 875,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_fb3826-60 kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 507,
+          "display": "flex",
+          "flex": "1 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_cf57e6-77",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 875,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_056e1a-ad kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 507,
+          "display": "flex",
+          "flex": "1 1 auto"
+        }
+      ]
+    }
+  },
+  {
+    "width": 1440,
+    "before": {
+      "viewportWidth": 1440,
+      "scrollWidth": 1440,
+      "cards": [
+        {
+          "left": 144,
+          "top": 24,
+          "width": 341,
+          "paddingLeft": "0px",
+          "paddingRight": "0px"
+        }
+      ],
+      "heading": {
+        "left": 191,
+        "top": 413,
+        "width": 247,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      "inner": {
+        "left": 144,
+        "top": 365,
+        "width": 341,
+        "paddingLeft": "47.1633px",
+        "paddingRight": "47.1633px"
+      },
+      "section": {
+        "left": 120,
+        "top": 0,
+        "width": 1200,
+        "paddingLeft": "24px",
+        "paddingRight": "24px"
+      },
+      "columns": [
+        {
+          "className": "wp-block-kadence-column kadence-column203_4f4300-fa",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 929,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_db9bb1-57 kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 534,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_c0e3bd-9c",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 929,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_fb3826-60 kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 561,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_cf57e6-77",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 929,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_056e1a-ad kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 588,
+          "display": "flex",
+          "flex": "0 1 auto"
+        }
+      ]
+    },
+    "proposed": {
+      "viewportWidth": 1440,
+      "scrollWidth": 1440,
+      "cards": [
+        {
+          "left": 144,
+          "top": 24,
+          "width": 368,
+          "paddingLeft": "0px",
+          "paddingRight": "0px"
+        }
+      ],
+      "heading": {
+        "left": 169,
+        "top": 440,
+        "width": 318,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      "inner": {
+        "left": 144,
+        "top": 392,
+        "width": 368,
+        "paddingLeft": "25.1994px",
+        "paddingRight": "25.1994px"
+      },
+      "section": {
+        "left": 120,
+        "top": 0,
+        "width": 1200,
+        "paddingLeft": "24px",
+        "paddingRight": "24px"
+      },
+      "columns": [
+        {
+          "className": "wp-block-kadence-column kadence-column203_4f4300-fa",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 875,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_db9bb1-57 kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 507,
+          "display": "flex",
+          "flex": "1 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_c0e3bd-9c",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 875,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_fb3826-60 kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 507,
+          "display": "flex",
+          "flex": "1 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_cf57e6-77",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 875,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_056e1a-ad kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 507,
+          "display": "flex",
+          "flex": "1 1 auto"
+        }
+      ]
+    }
+  },
+  {
+    "width": 1742,
+    "before": {
+      "viewportWidth": 1742,
+      "scrollWidth": 1742,
+      "cards": [
+        {
+          "left": 295,
+          "top": 24,
+          "width": 341,
+          "paddingLeft": "0px",
+          "paddingRight": "0px"
+        }
+      ],
+      "heading": {
+        "left": 342,
+        "top": 413,
+        "width": 247,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      "inner": {
+        "left": 295,
+        "top": 365,
+        "width": 341,
+        "paddingLeft": "47.3613px",
+        "paddingRight": "47.3613px"
+      },
+      "section": {
+        "left": 271,
+        "top": 0,
+        "width": 1200,
+        "paddingLeft": "24px",
+        "paddingRight": "24px"
+      },
+      "columns": [
+        {
+          "className": "wp-block-kadence-column kadence-column203_4f4300-fa",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 929,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_db9bb1-57 kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 534,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_c0e3bd-9c",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 929,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_fb3826-60 kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 561,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_cf57e6-77",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 929,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_056e1a-ad kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 588,
+          "display": "flex",
+          "flex": "0 1 auto"
+        }
+      ]
+    },
+    "proposed": {
+      "viewportWidth": 1742,
+      "scrollWidth": 1742,
+      "cards": [
+        {
+          "left": 295,
+          "top": 24,
+          "width": 368,
+          "paddingLeft": "0px",
+          "paddingRight": "0px"
+        }
+      ],
+      "heading": {
+        "left": 320,
+        "top": 440,
+        "width": 317,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      "inner": {
+        "left": 295,
+        "top": 392,
+        "width": 368,
+        "paddingLeft": "25.3382px",
+        "paddingRight": "25.3382px"
+      },
+      "section": {
+        "left": 271,
+        "top": 0,
+        "width": 1200,
+        "paddingLeft": "24px",
+        "paddingRight": "24px"
+      },
+      "columns": [
+        {
+          "className": "wp-block-kadence-column kadence-column203_4f4300-fa",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 875,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_db9bb1-57 kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 507,
+          "display": "flex",
+          "flex": "1 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_c0e3bd-9c",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 875,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_fb3826-60 kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 507,
+          "display": "flex",
+          "flex": "1 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_cf57e6-77",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 875,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_056e1a-ad kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 507,
+          "display": "flex",
+          "flex": "1 1 auto"
+        }
+      ]
+    }
+  },
+  {
+    "width": 1920,
+    "before": {
+      "viewportWidth": 1920,
+      "scrollWidth": 1920,
+      "cards": [
+        {
+          "left": 384,
+          "top": 24,
+          "width": 341,
+          "paddingLeft": "0px",
+          "paddingRight": "0px"
+        }
+      ],
+      "heading": {
+        "left": 431,
+        "top": 413,
+        "width": 247,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      "inner": {
+        "left": 384,
+        "top": 365,
+        "width": 341,
+        "paddingLeft": "47.1582px",
+        "paddingRight": "47.1582px"
+      },
+      "section": {
+        "left": 360,
+        "top": 0,
+        "width": 1200,
+        "paddingLeft": "24px",
+        "paddingRight": "24px"
+      },
+      "columns": [
+        {
+          "className": "wp-block-kadence-column kadence-column203_4f4300-fa",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 929,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_db9bb1-57 kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 534,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_c0e3bd-9c",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 929,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_fb3826-60 kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 561,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_cf57e6-77",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 929,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_056e1a-ad kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 588,
+          "display": "flex",
+          "flex": "0 1 auto"
+        }
+      ]
+    },
+    "proposed": {
+      "viewportWidth": 1920,
+      "scrollWidth": 1920,
+      "cards": [
+        {
+          "left": 384,
+          "top": 24,
+          "width": 368,
+          "paddingLeft": "0px",
+          "paddingRight": "0px"
+        }
+      ],
+      "heading": {
+        "left": 409,
+        "top": 440,
+        "width": 318,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      "inner": {
+        "left": 384,
+        "top": 392,
+        "width": 368,
+        "paddingLeft": "25.1994px",
+        "paddingRight": "25.1994px"
+      },
+      "section": {
+        "left": 360,
+        "top": 0,
+        "width": 1200,
+        "paddingLeft": "24px",
+        "paddingRight": "24px"
+      },
+      "columns": [
+        {
+          "className": "wp-block-kadence-column kadence-column203_4f4300-fa",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 875,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_db9bb1-57 kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 507,
+          "display": "flex",
+          "flex": "1 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_c0e3bd-9c",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 875,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_fb3826-60 kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 507,
+          "display": "flex",
+          "flex": "1 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_cf57e6-77",
+          "parentClassName": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+          "height": 875,
+          "display": "flex",
+          "flex": "0 1 auto"
+        },
+        {
+          "className": "wp-block-kadence-column kadence-column203_056e1a-ad kb-section-has-overlay",
+          "parentClassName": "kt-inside-inner-col",
+          "height": 507,
+          "display": "flex",
+          "flex": "1 1 auto"
+        }
+      ]
+    }
+  }
+]

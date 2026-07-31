@@ -1,0 +1,210 @@
+.aia-review-nav,
+body {
+  font-family: Arial, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Noto Sans JP", "Yu Gothic", sans-serif !important;
+}
+
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+  font-family: Arial, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Noto Sans JP", "Yu Gothic", sans-serif !important;
+}
+
+body code,
+body pre,
+body kbd,
+body samp {
+  font-family: "Cascadia Mono", Consolas, "Noto Sans TC", "Microsoft JhengHei", "Noto Sans JP", "Yu Gothic", monospace !important;
+}
+
+.aia-review-nav {
+  --review-navy: #003b5c;
+  --review-sky: #dff1ff;
+  --review-gold: #f8b62d;
+  --review-history: #5b6573;
+  --review-white: #ffffff;
+  width: 100%;
+  padding: 12px 20px;
+  background: var(--review-navy);
+  border-bottom: 4px solid var(--review-gold);
+  color: var(--review-white);
+  font-family: Arial, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Noto Sans JP", "Yu Gothic", sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.aia-review-skip {
+  position: absolute;
+  top: -80px;
+  left: 12px;
+  z-index: 1000;
+  padding: 10px 14px;
+  background: var(--review-white, #ffffff);
+  color: var(--review-navy, #003b5c);
+  font-family: Arial, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Noto Sans JP", "Yu Gothic", sans-serif;
+  font-weight: 700;
+}
+
+.aia-review-skip:focus {
+  top: 12px;
+}
+
+.aia-review-nav__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  width: min(100%, 1200px);
+  margin-inline: auto;
+}
+
+.aia-review-nav__label {
+  flex: 1 0 100%;
+  color: var(--review-sky);
+  font-weight: 700;
+}
+
+.aia-review-nav__break {
+  flex-basis: 100%;
+  width: 0;
+  height: 0;
+}
+
+.aia-review-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 7px 10px;
+  border: 1px solid color-mix(in srgb, var(--review-white) 55%, transparent);
+  border-radius: 6px;
+  color: var(--review-white);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.aia-review-nav a.aia-review-nav__history {
+  background: var(--review-history);
+  border-color: var(--review-history);
+  color: var(--review-white);
+}
+
+.aia-review-nav a.aia-review-nav__hub {
+  background: var(--review-gold);
+  border-color: var(--review-gold);
+  color: var(--review-navy);
+}
+
+.aia-review-nav a:hover,
+.aia-review-nav a:focus-visible {
+  background: var(--review-gold);
+  border-color: var(--review-gold);
+  color: var(--review-navy);
+}
+
+.aia-review-nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 5px;
+}
+
+.aia-review-nav a:focus-visible {
+  outline: 3px solid var(--review-white);
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .aia-review-nav {
+    padding-inline: 14px;
+  }
+
+  .aia-review-nav__inner {
+    align-items: stretch;
+  }
+
+  .aia-review-nav a {
+    flex: 1 1 20rem;
+  }
+
+  .aia-review-nav__break {
+    display: none;
+  }
+
+  .swtbl-wrap,
+  .tbl-wrap {
+    overflow: visible !important;
+  }
+
+  table.swtbl,
+  table.file-table {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    table-layout: auto !important;
+  }
+
+  table.swtbl caption,
+  table.file-table caption {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  table.swtbl thead,
+  table.file-table thead,
+  table.swtbl thead tr,
+  table.file-table thead tr,
+  table.swtbl thead th,
+  table.file-table thead th {
+    position: absolute !important;
+    width: 1px !important;
+    min-width: 1px !important;
+    max-width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+  }
+
+  table.swtbl tbody,
+  table.swtbl tbody tr,
+  table.swtbl tbody td,
+  table.file-table tbody,
+  table.file-table tbody tr,
+  table.file-table tbody td {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  table.swtbl tbody tr,
+  table.file-table tbody tr {
+    margin-bottom: 16px !important;
+    border: 1px solid currentColor !important;
+  }
+
+  table.swtbl tbody td,
+  table.file-table tbody td {
+    padding: 10px 12px !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  table.swtbl tbody td::before,
+  table.file-table tbody td::before {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 700;
+  }
+
+  table.file-table tbody td:nth-child(1)::before { content: "檔案"; }
+  table.file-table tbody td:nth-child(2)::before { content: "內容"; }
+  table.swtbl tbody td:nth-child(1)::before { content: "底色"; }
+  table.swtbl tbody td:nth-child(2)::before { content: "白字效果"; }
+  table.swtbl tbody td:nth-child(3)::before { content: "白字對比"; }
+  table.swtbl tbody td:nth-child(4)::before { content: "墨黑字效果"; }
+  table.swtbl tbody td:nth-child(5)::before { content: "墨黑字對比"; }
+  table.swtbl tbody td:nth-child(6)::before { content: "建議"; }
+}

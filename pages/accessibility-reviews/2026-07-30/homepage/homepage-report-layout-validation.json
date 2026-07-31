@@ -1,0 +1,142 @@
+[
+  {
+    "width": 320,
+    "clientWidth": 320,
+    "scrollWidth": 320,
+    "codeBlockContrast": {
+      "foreground": "rgb(236, 247, 255)",
+      "background": "rgb(6, 43, 64)",
+      "ratio": 13.53
+    },
+    "offenders": [],
+    "forbiddenFonts": [],
+    "narrowCards": [],
+    "semantics": {
+      "h1Count": 1,
+      "lang": "zh-Hant",
+      "imagesMissingAlt": 0,
+      "emptyLinks": 0,
+      "skipTargetExists": true
+    }
+  },
+  {
+    "width": 768,
+    "clientWidth": 768,
+    "scrollWidth": 768,
+    "codeBlockContrast": {
+      "foreground": "rgb(236, 247, 255)",
+      "background": "rgb(6, 43, 64)",
+      "ratio": 13.53
+    },
+    "offenders": [],
+    "forbiddenFonts": [],
+    "narrowCards": [],
+    "semantics": {
+      "h1Count": 1,
+      "lang": "zh-Hant",
+      "imagesMissingAlt": 0,
+      "emptyLinks": 0,
+      "skipTargetExists": true
+    }
+  },
+  {
+    "width": 1024,
+    "clientWidth": 1024,
+    "scrollWidth": 1024,
+    "codeBlockContrast": {
+      "foreground": "rgb(236, 247, 255)",
+      "background": "rgb(6, 43, 64)",
+      "ratio": 13.53
+    },
+    "offenders": [],
+    "forbiddenFonts": [],
+    "narrowCards": [],
+    "semantics": {
+      "h1Count": 1,
+      "lang": "zh-Hant",
+      "imagesMissingAlt": 0,
+      "emptyLinks": 0,
+      "skipTargetExists": true
+    }
+  },
+  {
+    "width": 1280,
+    "clientWidth": 1280,
+    "scrollWidth": 1280,
+    "codeBlockContrast": {
+      "foreground": "rgb(236, 247, 255)",
+      "background": "rgb(6, 43, 64)",
+      "ratio": 13.53
+    },
+    "offenders": [],
+    "forbiddenFonts": [],
+    "narrowCards": [],
+    "semantics": {
+      "h1Count": 1,
+      "lang": "zh-Hant",
+      "imagesMissingAlt": 0,
+      "emptyLinks": 0,
+      "skipTargetExists": true
+    }
+  },
+  {
+    "width": 1440,
+    "clientWidth": 1440,
+    "scrollWidth": 1440,
+    "codeBlockContrast": {
+      "foreground": "rgb(236, 247, 255)",
+      "background": "rgb(6, 43, 64)",
+      "ratio": 13.53
+    },
+    "offenders": [],
+    "forbiddenFonts": [],
+    "narrowCards": [],
+    "semantics": {
+      "h1Count": 1,
+      "lang": "zh-Hant",
+      "imagesMissingAlt": 0,
+      "emptyLinks": 0,
+      "skipTargetExists": true
+    }
+  },
+  {
+    "width": 1742,
+    "clientWidth": 1742,
+    "scrollWidth": 1742,
+    "codeBlockContrast": {
+      "foreground": "rgb(236, 247, 255)",
+      "background": "rgb(6, 43, 64)",
+      "ratio": 13.53
+    },
+    "offenders": [],
+    "forbiddenFonts": [],
+    "narrowCards": [],
+    "semantics": {
+      "h1Count": 1,
+      "lang": "zh-Hant",
+      "imagesMissingAlt": 0,
+      "emptyLinks": 0,
+      "skipTargetExists": true
+    }
+  },
+  {
+    "width": 1920,
+    "clientWidth": 1920,
+    "scrollWidth": 1920,
+    "codeBlockContrast": {
+      "foreground": "rgb(236, 247, 255)",
+      "background": "rgb(6, 43, 64)",
+      "ratio": 13.53
+    },
+    "offenders": [],
+    "forbiddenFonts": [],
+    "narrowCards": [],
+    "semantics": {
+      "h1Count": 1,
+      "lang": "zh-Hant",
+      "imagesMissingAlt": 0,
+      "emptyLinks": 0,
+      "skipTargetExists": true
+    }
+  }
+]

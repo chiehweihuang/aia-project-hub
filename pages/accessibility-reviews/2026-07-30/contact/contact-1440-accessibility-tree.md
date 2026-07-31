@@ -1,0 +1,71 @@
+- generic [ref=e2] [box=0,0,1425,1145]:
+  - link "Skip to content" [ref=e3] [cursor=pointer] [box=-1,-1,1,1]:
+    - /url: "#main"
+  - banner [ref=e4] [box=0,0,1425,60]:
+    - generic [ref=e12] [box=92,0,1242,60]:
+      - link "亞太包容創新協會 ⾸⾴" [ref=e16] [cursor=pointer] [box=92,12,340,37]:
+        - /url: https://aia.tinyoakstudio.com/
+        - img "亞太包容創新協會 ⾸⾴" [ref=e17] [box=92,12,340,37]
+      - navigation "Primary" [ref=e20] [box=944,6,390,48]:
+        - list [ref=e22] [box=944,6,390,48]:
+          - listitem [ref=e23] [box=944,6,139,48]:
+            - link "協會主頁 Home" [ref=e24] [cursor=pointer] [box=944,6,139,48]:
+              - /url: https://aia.tinyoakstudio.com/
+          - listitem [ref=e25] [box=1082,6,134,48]:
+            - link "論壇活動 Event" [ref=e26] [cursor=pointer] [box=1082,6,134,48]:
+              - /url: https://aia.tinyoakstudio.com/adals%e6%b4%bb%e5%8b%95/
+          - listitem [ref=e27] [box=1216,6,117,48]:
+            - link "聯繫 Contact" [ref=e28] [cursor=pointer] [box=1216,6,117,48]:
+              - /url: https://aia.tinyoakstudio.com/%e8%81%af%e7%b9%ab/
+  - main [ref=e29] [box=0,60,1425,586]:
+    - article [ref=e34] [box=0,60,1425,586]:
+      - generic [ref=e36] [box=0,60,1425,586]:
+        - generic [ref=e38] [box=113,60,1200,586]:
+          - heading "聯繫我們" [level=2] [ref=e41] [box=137,124,373,42]
+          - generic [ref=e45] [box=542,125,746,457]:
+            - generic [ref=e47] [box=542,125,746,65]:
+              - generic [ref=e50] [box=542,125,357,65]:
+                - generic [ref=e51] [box=542,125,357,26]: 名字*
+                - textbox "名字*" [ref=e52] [box=542,150,357,39]:
+                  - /placeholder: ""
+              - generic [ref=e55] [box=931,125,357,65]:
+                - generic [ref=e56] [box=931,125,357,26]: Email*
+                - textbox "Email*" [ref=e57] [box=931,150,357,39]:
+                  - /placeholder: ""
+            - generic [ref=e62] [box=542,215,357,65]:
+              - generic [ref=e63] [box=542,215,357,26]: 訊息類別*
+              - combobox "訊息類別*" [ref=e64] [box=542,241,357,39]:
+                - option "一般訊息 General Message" [selected] [box=0,0,0,0]
+                - option "加入團隊 Join Our Team" [box=0,0,0,0]
+                - option "活動詢問 Event Questions" [box=0,0,0,0]
+            - generic [ref=e68] [box=542,306,746,65]:
+              - generic [ref=e69] [box=542,306,746,26]: 主題*
+              - textbox "主題*" [ref=e70] [box=542,331,746,39]:
+                - /placeholder: ""
+            - generic [ref=e71] [box=542,397,746,116]:
+              - generic [ref=e72] [box=542,397,746,26]: 訊息*
+              - textbox "訊息*" [ref=e73] [box=542,422,746,91]:
+                - /placeholder: ""
+            - button "發送" [ref=e75] [cursor=pointer] [box=542,538,72,43]
+        - paragraph [box=0,646,1425,0]
+  - contentinfo [ref=e77] [box=0,646,1425,498]:
+    - generic [ref=e78] [box=0,646,1425,498]:
+      - generic [ref=e82] [box=116,646,1194,170]:
+        - figure [ref=e87] [box=116,685,215,101]
+        - generic [ref=e94] [box=1095,676,215,74]:
+          - heading "社群媒體 SOCIALS" [level=2] [ref=e95] [box=1095,676,215,30]
+          - generic [ref=e96] [box=1095,716,215,34]:
+            - link "Facebook" [ref=e97] [cursor=pointer] [box=1095,716,34,34]:
+              - /url: ""
+              - img "Facebook" [ref=e99] [box=1103,725,17,17]
+            - link "X" [ref=e101] [cursor=pointer] [box=1134,716,34,34]:
+              - /url: ""
+              - img "X" [ref=e103] [box=1142,725,17,17]
+            - link "Instagram" [ref=e105] [cursor=pointer] [box=1173,716,34,34]:
+              - /url: ""
+              - img "Instagram" [ref=e107] [box=1181,725,17,17]
+      - generic [ref=e115] [box=92,846,394,148]:
+        - paragraph [ref=e117] [box=92,874,394,90]: 亞太包容創新協會1130012493號
+        - generic [box=92,993,394,0]:
+          - paragraph [box=92,993,394,0]
+      - paragraph [ref=e129] [box=92,1070,1242,27]: © 2026 apac-aia.org | All Rights Reserved

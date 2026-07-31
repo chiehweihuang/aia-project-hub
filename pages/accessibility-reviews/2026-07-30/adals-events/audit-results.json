@@ -1,0 +1,275 @@
+{
+  "metadata": {
+    "date": "2026-07-30",
+    "scope": "ADALS 活動頁 rendered DOM 2026-07-30",
+    "standard": "WCAG 2.2 AA static baseline",
+    "jurisdictions": [
+      "US ADA",
+      "EU EAA",
+      "Japan JIS",
+      "Taiwan",
+      "Canada ACA",
+      "Australia DDA"
+    ],
+    "platform": "Web",
+    "tool_version": "beacon codex static baseline",
+    "engine_fingerprint": "beacon-static-audit@12+ruleset.25eeae0aa809",
+    "confidence_level": "low",
+    "requires_live_audit": true,
+    "audit_tier": "Tier 1 (static file scan only)",
+    "audit_methods": [
+      "Static scan of 1 UI-like file(s)",
+      "Pattern checks for semantic HTML, keyboard traps, labels, reflow, motion, AEO structure, and site-level agent-readiness files when a directory is scanned",
+      "Runtime behavior, contrast ratios, and screen-reader task completion were not fully verified"
+    ]
+  },
+  "summary": {
+    "overall_score": 85,
+    "coverage_percent": 23,
+    "life_safety_flag": false,
+    "score_bands": [
+      {
+        "min": 90,
+        "id": "pass"
+      },
+      {
+        "min": 50,
+        "id": "needs-work"
+      },
+      {
+        "min": 0,
+        "id": "fail"
+      }
+    ],
+    "total_findings": 3,
+    "critical": 0,
+    "warnings": 0,
+    "tips": 3,
+    "unverifiable": 5,
+    "categories": [
+      {
+        "id": "contrast",
+        "name": "Color & Contrast",
+        "pass": 0,
+        "fail": 0,
+        "review": 2,
+        "state": "not-machine-checkable",
+        "score": null
+      },
+      {
+        "id": "keyboard",
+        "name": "Keyboard Navigation",
+        "pass": 2,
+        "fail": 0,
+        "review": 0,
+        "state": "insufficient-evidence",
+        "score": null
+      },
+      {
+        "id": "screenreader",
+        "name": "Screen Reader",
+        "pass": 26,
+        "fail": 0,
+        "review": 0,
+        "state": "scored",
+        "score": 100
+      },
+      {
+        "id": "forms",
+        "name": "Forms",
+        "pass": 0,
+        "fail": 0,
+        "review": 0,
+        "state": "not-applicable",
+        "score": null
+      },
+      {
+        "id": "responsive",
+        "name": "Responsive & Reflow",
+        "pass": 1,
+        "fail": 0,
+        "review": 0,
+        "state": "insufficient-evidence",
+        "score": null
+      },
+      {
+        "id": "touch",
+        "name": "Touch & Targets",
+        "pass": 0,
+        "fail": 0,
+        "review": 1,
+        "state": "not-machine-checkable",
+        "score": null
+      },
+      {
+        "id": "cognitive",
+        "name": "Cognitive",
+        "pass": 0,
+        "fail": 0,
+        "review": 1,
+        "state": "not-machine-checkable",
+        "score": null
+      },
+      {
+        "id": "motion",
+        "name": "Motion & Animation",
+        "pass": 0,
+        "fail": 0,
+        "review": 0,
+        "state": "not-applicable",
+        "score": null
+      },
+      {
+        "id": "media",
+        "name": "Media",
+        "pass": 0,
+        "fail": 0,
+        "review": 1,
+        "state": "not-machine-checkable",
+        "score": null
+      },
+      {
+        "id": "agent",
+        "name": "Agent Operability & AEO",
+        "pass": 1,
+        "fail": 2,
+        "review": 0,
+        "state": "scored",
+        "score": 31
+      }
+    ]
+  },
+  "findings": [
+    {
+      "level": "Review",
+      "legal_exposure": "Not a legal issue; affects search / answer-engine clarity.",
+      "key": "meta-description-missing",
+      "category": "agent",
+      "severity": "tip",
+      "wcag": "AEO structural hygiene",
+      "title": "Meta description is missing",
+      "affected_users": "Search and answer-engine users evaluating whether to open the result",
+      "location": "a11y-reports-2026-07-30/adals-events/adals-events-rendered-body.html",
+      "description": "No meta description was found in the static HTML.",
+      "fix": "Add a concise page-specific meta description.",
+      "check": "fail"
+    },
+    {
+      "level": "Review",
+      "legal_exposure": "Not a legal issue; affects answer-engine and search clarity.",
+      "key": "jsonld-missing",
+      "category": "agent",
+      "severity": "tip",
+      "wcag": "AEO structural hygiene",
+      "title": "JSON-LD structured data is missing",
+      "affected_users": "Search and answer-engine users trying to identify the page entity and content type",
+      "location": "a11y-reports-2026-07-30/adals-events/adals-events-rendered-body.html",
+      "description": "No JSON-LD structured data was found in the static HTML.",
+      "fix": "Add page-appropriate Schema.org JSON-LD, such as Organization, Article, FAQPage, Product, BreadcrumbList, or WebSite.",
+      "check": "fail"
+    },
+    {
+      "level": "AA",
+      "legal_exposure": "May affect ADA / EAA / JIS / Taiwan accessibility expectations depending on deployment context.",
+      "key": "contrast-not-verified",
+      "category": "contrast",
+      "severity": "tip",
+      "wcag": "WCAG 2.2: 1.4.3 Contrast (Minimum)",
+      "title": "Contrast not verified, run Tier 2",
+      "affected_users": "Low-vision users and users in high ambient light",
+      "location": "site-wide (static scan only)",
+      "description": "This run only scanned static markup/CSS. No browser-rendered contrast evidence (Beacon-native tier2-audit.mjs or axe-core) was merged in, so real computed-style contrast was never exercised by a rendering engine.",
+      "fix": "Run node scripts/tier2-audit.mjs (default) or an axe-core pass, then fold its findings in with --merge-findings for verified contrast coverage.",
+      "check": "review"
+    }
+  ],
+  "legal_risk": {
+    "assessment_mode": "wcag_criteria_context",
+    "narrative": "Technical WCAG criteria mapping only. This is not a legal opinion and is not derived from warning counts.",
+    "mapped_criteria": [
+      "1.4.3"
+    ],
+    "jurisdictions": [
+      {
+        "name": "US ADA",
+        "law": "ADA Title III / Section 508 context",
+        "detail": "Use the mapped WCAG criteria as technical evidence; legal exposure depends on business model, sector, and jurisdiction-specific facts.",
+        "criteria": [
+          "1.4.3"
+        ]
+      },
+      {
+        "name": "EU EAA",
+        "law": "European Accessibility Act",
+        "detail": "Use the mapped WCAG criteria as technical evidence for consumer digital-service accessibility planning.",
+        "criteria": [
+          "1.4.3"
+        ]
+      },
+      {
+        "name": "Japan JIS",
+        "law": "JIS X 8341-3 context",
+        "detail": "Use the mapped WCAG criteria as technical evidence; confirm procurement or sector requirements separately.",
+        "criteria": [
+          "1.4.3"
+        ]
+      },
+      {
+        "name": "Taiwan",
+        "law": "Taiwan accessibility context",
+        "detail": "Use the mapped WCAG criteria as technical evidence only; confirm current local program, certification, and seal requirements before making a compliance claim.",
+        "criteria": [
+          "1.4.3"
+        ]
+      },
+      {
+        "name": "Canada ACA",
+        "law": "Accessible Canada Act context",
+        "detail": "Use the mapped WCAG criteria as technical evidence; applicability depends on organization type and regulated context.",
+        "criteria": [
+          "1.4.3"
+        ]
+      },
+      {
+        "name": "Australia DDA",
+        "law": "Disability Discrimination Act context",
+        "detail": "Use the mapped WCAG criteria as technical evidence; legal assessment requires local context and counsel.",
+        "criteria": [
+          "1.4.3"
+        ]
+      }
+    ]
+  },
+  "remediation": [
+    {
+      "priority": "P2",
+      "key": "meta-description-missing",
+      "title": "Meta description is missing",
+      "location": "a11y-reports-2026-07-30/adals-events/adals-events-rendered-body.html",
+      "wcag": "AEO structural hygiene",
+      "fix": "Add a concise page-specific meta description."
+    },
+    {
+      "priority": "P2",
+      "key": "jsonld-missing",
+      "title": "JSON-LD structured data is missing",
+      "location": "a11y-reports-2026-07-30/adals-events/adals-events-rendered-body.html",
+      "wcag": "AEO structural hygiene",
+      "fix": "Add page-appropriate Schema.org JSON-LD, such as Organization, Article, FAQPage, Product, BreadcrumbList, or WebSite."
+    }
+  ],
+  "testing_recommendations": [
+    {
+      "zh": "用 Beacon 原生的 tier2-audit.mjs（預設）或 axe-core 驗證計算後的文字與 UI 對比。",
+      "en": "Verify computed text and UI contrast with Beacon-native tier2-audit.mjs (default) or axe-core."
+    },
+    {
+      "zh": "在 200% 縮放下重跑主要流程；320px 回流結果已由本次掃描另行記錄。",
+      "en": "Rerun the primary flow at 200% zoom; the 320px reflow result is recorded separately by this audit."
+    },
+    {
+      "zh": "請一位不熟悉產品的使用者完成主要任務，觀察標籤、說明與下一步是否清楚。",
+      "en": "Ask a user unfamiliar with the product to complete the primary task and observe whether labels, help, and next steps are clear."
+    }
+  ]
+}

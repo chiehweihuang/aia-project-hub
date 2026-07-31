@@ -1,0 +1,753 @@
+{
+  "metadata": {
+    "date": "2026-07-03",
+    "scope": "aia.tinyoakstudio.com homepage (Tier 2: rendered DOM + axe-core + runtime checks)",
+    "standard": "WCAG 2.2 AA static baseline",
+    "jurisdictions": [
+      "US ADA",
+      "EU EAA",
+      "Japan JIS",
+      "Taiwan",
+      "Canada ACA",
+      "Australia DDA"
+    ],
+    "platform": "Web",
+    "tool_version": "beacon codex static baseline",
+    "engine_fingerprint": "beacon-static-audit@2+ruleset.8f14e13bc57c",
+    "confidence_level": "medium",
+    "requires_live_audit": true,
+    "audit_tier": "Tier 1 (static file scan only)",
+    "audit_methods": [
+      "Static scan of 1 UI-like file(s)",
+      "Pattern checks for semantic HTML, keyboard traps, labels, reflow, motion, AEO structure, and site-level agent-readiness files when a directory is scanned",
+      "Runtime behavior, contrast ratios, and screen-reader task completion were not fully verified"
+    ]
+  },
+  "summary": {
+    "overall_score": 33,
+    "total_findings": 14,
+    "critical": 8,
+    "warnings": 3,
+    "tips": 3,
+    "unverifiable": 4,
+    "categories": [
+      {
+        "id": "contrast",
+        "name": "Color & Contrast",
+        "pass": 0,
+        "fail": 2,
+        "review": 1,
+        "score": 0
+      },
+      {
+        "id": "keyboard",
+        "name": "Keyboard Navigation",
+        "pass": 0,
+        "fail": 1,
+        "review": 0,
+        "score": 0
+      },
+      {
+        "id": "screenreader",
+        "name": "Screen Reader",
+        "pass": 4,
+        "fail": 7,
+        "review": 0,
+        "score": 0
+      },
+      {
+        "id": "forms",
+        "name": "Forms",
+        "pass": 0,
+        "fail": 0,
+        "review": 0,
+        "score": 100
+      },
+      {
+        "id": "responsive",
+        "name": "Responsive & Reflow",
+        "pass": 1,
+        "fail": 1,
+        "review": 0,
+        "score": 45
+      },
+      {
+        "id": "touch",
+        "name": "Touch & Targets",
+        "pass": 0,
+        "fail": 0,
+        "review": 1,
+        "score": 60
+      },
+      {
+        "id": "cognitive",
+        "name": "Cognitive",
+        "pass": 0,
+        "fail": 1,
+        "review": 1,
+        "score": 0
+      },
+      {
+        "id": "motion",
+        "name": "Motion & Animation",
+        "pass": 1,
+        "fail": 0,
+        "review": 0,
+        "score": 100
+      },
+      {
+        "id": "media",
+        "name": "Media",
+        "pass": 0,
+        "fail": 0,
+        "review": 1,
+        "score": 60
+      },
+      {
+        "id": "agent",
+        "name": "Agent Operability & AEO",
+        "pass": 1,
+        "fail": 2,
+        "review": 0,
+        "score": 31
+      }
+    ]
+  },
+  "findings": [
+    {
+      "level": "AA",
+      "legal_exposure": "May affect ADA / EAA / JIS / Taiwan accessibility expectations depending on deployment context.",
+      "key": "html-lang-mismatch",
+      "category": "screenreader",
+      "severity": "critical",
+      "wcag": "WCAG 2.2: 3.1.1 Language of Page",
+      "title": "Declared page language does not match the content",
+      "affected_users": "Screen-reader users (wrong pronunciation rules) and machine-translation users",
+      "location": "aia-rendered.html:1",
+      "description": "Content-language mismatch: declared \"en-us\" but 66% of content is CJK. A wrong language declaration is worse than a missing one. Assistive technology applies confidently wrong pronunciation and translation rules.",
+      "fix": "Set <html lang> to the actual content language (detected: han).",
+      "code_before": "<html lang=\"en-us\">",
+      "code_after": "<html lang=\"zh-Hant\">"
+    },
+    {
+      "level": "AA",
+      "legal_exposure": "May affect ADA / EAA / JIS / Taiwan accessibility expectations depending on deployment context.",
+      "key": "heading-level-skipped",
+      "category": "screenreader",
+      "severity": "critical",
+      "wcag": "WCAG 2.2: 1.3.1 Info and Relationships",
+      "title": "Heading level is skipped",
+      "affected_users": "Screen-reader users navigating by heading",
+      "location": "aia-rendered.html:200",
+      "description": "Heading jumps from h1 to h4.",
+      "fix": "Use a continuous heading hierarchy or adjust the visual style without changing semantic level."
+    },
+    {
+      "level": "AA",
+      "legal_exposure": "May affect ADA / EAA / JIS / Taiwan accessibility expectations depending on deployment context.",
+      "key": "image-alt-missing",
+      "category": "screenreader",
+      "severity": "critical",
+      "wcag": "WCAG 2.2: 1.1.1 Non-text Content",
+      "title": "Image is missing alt text",
+      "affected_users": "Blind and low-vision users using screen readers",
+      "location": "aia-rendered.html:565",
+      "description": "An image without alt text is silent or announced poorly by assistive technology.",
+      "fix": "Add meaningful alt text, or alt=\"\" for purely decorative images.",
+      "code_before": "<div class=\"wp-block-kadence-column kadence-column6_ac8a5b-ac inner-column-1\"><div class=\"kt-inside-inner-col\">\n<figure class=\"wp-block-kadence-image kb-image6_058be5-3d kb-image-is-ratio-size\"><div class=\"kb-is-ratio-image kb-image-ratio-land43\"><img loading=\"lazy\" decoding=\"async\" width=\"1992\" height=\"1272\" src=\"http://aia.tinyoakstudio.com/wp-content/uploads/2026/07/fred-kloet-Cv7Y0v51zEo-unsplash.png\" class=\"kb-img wp-image-173\" srcset=\"https://aia.tinyoakstudio.com/wp-content/uploads/2026/07/fred-kloet-Cv7Y0v51zEo-unsplash.png 1992w, https://aia.tinyoakstudio.com/wp-content/uploads/2026/07/fred-kloet-Cv7Y0v51zEo-unsplash-300x192.png 300w, https://aia.tinyoakstudio.com/wp-content/uploads/2026/07/fred-kloet-Cv7Y0v51zEo-unsplash-1024x654.png 1024w, https://aia.tinyoakstudio.com/wp-content/uploads/2026/07/fred-kloet-Cv7Y0v51zEo-unsplash-768x490.png 768w, https://aia.tinyoakstudio.com/wp-content/uploads/2026/07/fred-kloet-Cv7Y0v51zEo-unsplash-1536x981.png 1536w\" sizes=\"auto, (max-width: 1992px) 100vw, 1992px\"></div></figure>"
+    },
+    {
+      "level": "AA",
+      "legal_exposure": "May affect ADA / EAA / JIS / Taiwan accessibility expectations depending on deployment context.",
+      "key": "image-alt-missing",
+      "category": "screenreader",
+      "severity": "critical",
+      "wcag": "WCAG 2.2: 1.1.1 Non-text Content",
+      "title": "Image is missing alt text",
+      "affected_users": "Blind and low-vision users using screen readers",
+      "location": "aia-rendered.html:581",
+      "description": "An image without alt text is silent or announced poorly by assistive technology.",
+      "fix": "Add meaningful alt text, or alt=\"\" for purely decorative images.",
+      "code_before": "<div class=\"wp-block-kadence-column kadence-column6_3e953e-1d inner-column-1\"><div class=\"kt-inside-inner-col\">\n<figure class=\"wp-block-kadence-image kb-image6_46271e-63 kb-image-is-ratio-size\"><div class=\"kb-is-ratio-image kb-image-ratio-land43\"><img loading=\"lazy\" decoding=\"async\" width=\"1992\" height=\"1272\" src=\"http://aia.tinyoakstudio.com/wp-content/uploads/2026/07/compagnons-EgwhIBec0Ck-unsplash.png\" class=\"kb-img wp-image-172\" srcset=\"https://aia.tinyoakstudio.com/wp-content/uploads/2026/07/compagnons-EgwhIBec0Ck-unsplash.png 1992w, https://aia.tinyoakstudio.com/wp-content/uploads/2026/07/compagnons-EgwhIBec0Ck-unsplash-300x192.png 300w, https://aia.tinyoakstudio.com/wp-content/uploads/2026/07/compagnons-EgwhIBec0Ck-unsplash-1024x654.png 1024w, https://aia.tinyoakstudio.com/wp-content/uploads/2026/07/compagnons-EgwhIBec0Ck-unsplash-768x490.png 768w, https://aia.tinyoakstudio.com/wp-content/uploads/2026/07/compagnons-EgwhIBec0Ck-unsplash-1536x981.png 1536w\" sizes=\"auto, (max-width: 1992px) 100vw, 1992px\"></div></figure>"
+    },
+    {
+      "level": "AA",
+      "legal_exposure": "May affect ADA / EAA / JIS / Taiwan accessibility expectations depending on deployment context.",
+      "key": "image-alt-missing",
+      "category": "screenreader",
+      "severity": "critical",
+      "wcag": "WCAG 2.2: 1.1.1 Non-text Content",
+      "title": "Image is missing alt text",
+      "affected_users": "Blind and low-vision users using screen readers",
+      "location": "aia-rendered.html:596",
+      "description": "An image without alt text is silent or announced poorly by assistive technology.",
+      "fix": "Add meaningful alt text, or alt=\"\" for purely decorative images.",
+      "code_before": "<div class=\"wp-block-kadence-column kadence-column6_cca1a3-38 inner-column-1\"><div class=\"kt-inside-inner-col\">\n<figure class=\"wp-block-kadence-image kb-image6_4cef25-8f kb-image-is-ratio-size\"><div class=\"kb-is-ratio-image kb-image-ratio-land43\"><img loading=\"lazy\" decoding=\"async\" width=\"1992\" height=\"1272\" src=\"http://aia.tinyoakstudio.com/wp-content/uploads/2026/07/fred-kloet-Cv7Y0v51zEo-unsplash.png\" class=\"kb-img wp-image-173\" srcset=\"https://aia.tinyoakstudio.com/wp-content/uploads/2026/07/fred-kloet-Cv7Y0v51zEo-unsplash.png 1992w, https://aia.tinyoakstudio.com/wp-content/uploads/2026/07/fred-kloet-Cv7Y0v51zEo-unsplash-300x192.png 300w, https://aia.tinyoakstudio.com/wp-content/uploads/2026/07/fred-kloet-Cv7Y0v51zEo-unsplash-1024x654.png 1024w, https://aia.tinyoakstudio.com/wp-content/uploads/2026/07/fred-kloet-Cv7Y0v51zEo-unsplash-768x490.png 768w, https://aia.tinyoakstudio.com/wp-content/uploads/2026/07/fred-kloet-Cv7Y0v51zEo-unsplash-1536x981.png 1536w\" sizes=\"auto, (max-width: 1992px) 100vw, 1992px\"></div></figure>"
+    },
+    {
+      "level": "Review",
+      "legal_exposure": "Not a legal issue; affects search / answer-engine clarity.",
+      "key": "meta-description-missing",
+      "category": "agent",
+      "severity": "tip",
+      "wcag": "AEO structural hygiene",
+      "title": "Meta description is missing",
+      "affected_users": "Search and answer-engine users evaluating whether to open the result",
+      "location": "aia-rendered.html",
+      "description": "No meta description was found in the static HTML.",
+      "fix": "Add a concise page-specific meta description."
+    },
+    {
+      "level": "Review",
+      "legal_exposure": "Not a legal issue; affects answer-engine and search clarity.",
+      "key": "jsonld-missing",
+      "category": "agent",
+      "severity": "tip",
+      "wcag": "AEO structural hygiene",
+      "title": "JSON-LD structured data is missing",
+      "affected_users": "Search and answer-engine users trying to identify the page entity and content type",
+      "location": "aia-rendered.html",
+      "description": "No JSON-LD structured data was found in the static HTML.",
+      "fix": "Add page-appropriate Schema.org JSON-LD, such as Organization, Article, FAQPage, Product, BreadcrumbList, or WebSite."
+    },
+    {
+      "level": "AA",
+      "legal_exposure": "May affect ADA / EAA / JIS / Taiwan accessibility expectations depending on deployment context.",
+      "key": "large-fixed-width",
+      "category": "responsive",
+      "severity": "warning",
+      "wcag": "WCAG 2.2: 1.4.10 Reflow",
+      "title": "Large fixed width detected",
+      "affected_users": "Mobile and zoom users",
+      "location": "aia-rendered.html",
+      "description": "Large fixed widths may overflow narrow viewports.",
+      "fix": "Use max-width, min(), clamp(), or container-relative sizing."
+    },
+    {
+      "level": "AA",
+      "legal_exposure": "May affect ADA / EAA / JIS / Taiwan accessibility expectations depending on deployment context.",
+      "category": "screenreader",
+      "severity": "critical",
+      "wcag": "2.4.2",
+      "key": "external-finding",
+      "title": "Document has an empty <title> element",
+      "location": "html > head > title",
+      "fix": "Set the WordPress site title / SEO title so the homepage renders e.g. <title>亞太包容創新協會 APAC AIA</title>.",
+      "source": "merged"
+    },
+    {
+      "level": "AA",
+      "legal_exposure": "May affect ADA / EAA / JIS / Taiwan accessibility expectations depending on deployment context.",
+      "category": "screenreader",
+      "severity": "critical",
+      "wcag": "4.1.2",
+      "key": "external-finding",
+      "title": "Header logo link has no accessible name",
+      "location": "header a.brand.has-logo-image",
+      "fix": "Add alt=\"亞太包容創新協會 首頁\" to the logo image, or aria-label on the anchor.",
+      "source": "merged"
+    },
+    {
+      "level": "AA",
+      "legal_exposure": "May affect ADA / EAA / JIS / Taiwan accessibility expectations depending on deployment context.",
+      "category": "keyboard",
+      "severity": "critical",
+      "wcag": "2.1.1",
+      "key": "external-finding",
+      "title": "Primary CTA 「了解志工機會」 is a non-interactive <span>, unreachable by keyboard",
+      "location": ".kb-buttons-wrap > span.kb-button.kt-button",
+      "fix": "Set the button's link target in the Kadence block settings so it renders as <a class=\"kb-button\" href=\"...\">了解志工機會</a>.",
+      "source": "merged"
+    },
+    {
+      "level": "AA",
+      "legal_exposure": "May affect ADA / EAA / JIS / Taiwan accessibility expectations depending on deployment context.",
+      "category": "contrast",
+      "severity": "warning",
+      "wcag": "1.4.3",
+      "key": "external-finding",
+      "title": "Primary navigation link contrast 4.16:1 (below 4.5:1)",
+      "location": ".primary-menu-container a[aria-current=\"page\"]",
+      "fix": "Per the AIA brand contrast matrix, use Navy #003B5C on Golden Yellow #F8B62D (6.58:1) or Near Black #231815 on Gold (9.66:1).",
+      "source": "merged"
+    },
+    {
+      "level": "AA",
+      "legal_exposure": "May affect ADA / EAA / JIS / Taiwan accessibility expectations depending on deployment context.",
+      "category": "contrast",
+      "severity": "warning",
+      "wcag": "1.4.3",
+      "key": "external-finding",
+      "title": "CTA button text contrast 3.54:1 (below 4.5:1)",
+      "location": ".kt-btn-inner-text (了解志工機會)",
+      "fix": "Use the brand CTA pattern: Golden Yellow #F8B62D background with Near Black #231815 text (9.66:1, AAA).",
+      "source": "merged"
+    },
+    {
+      "level": "AA",
+      "legal_exposure": "May affect ADA / EAA / JIS / Taiwan accessibility expectations depending on deployment context.",
+      "category": "cognitive",
+      "severity": "tip",
+      "wcag": "2.4.4",
+      "key": "external-finding",
+      "title": "Footer social links (Facebook / X / Instagram) have empty href",
+      "location": "footer .social links",
+      "fix": "Fill in the real profile URLs, or remove the icons until the profiles exist.",
+      "source": "merged"
+    }
+  ],
+  "legal_risk": {
+    "assessment_mode": "wcag_criteria_context",
+    "narrative": "Technical WCAG criteria mapping only. This is not a legal opinion and is not derived from warning counts.",
+    "mapped_criteria": [
+      "1.1.1",
+      "1.3.1",
+      "1.4.3",
+      "1.4.10",
+      "2.1.1",
+      "2.4.2",
+      "2.4.4",
+      "3.1.1",
+      "4.1.2"
+    ],
+    "jurisdictions": [
+      {
+        "name": "US ADA",
+        "law": "ADA Title III / Section 508 context",
+        "detail": "Use the mapped WCAG criteria as technical evidence; legal exposure depends on business model, sector, and jurisdiction-specific facts.",
+        "criteria": [
+          "1.1.1",
+          "1.3.1",
+          "1.4.3",
+          "1.4.10",
+          "2.1.1",
+          "2.4.2",
+          "2.4.4",
+          "3.1.1",
+          "4.1.2"
+        ]
+      },
+      {
+        "name": "EU EAA",
+        "law": "European Accessibility Act",
+        "detail": "Use the mapped WCAG criteria as technical evidence for consumer digital-service accessibility planning.",
+        "criteria": [
+          "1.1.1",
+          "1.3.1",
+          "1.4.3",
+          "1.4.10",
+          "2.1.1",
+          "2.4.2",
+          "2.4.4",
+          "3.1.1",
+          "4.1.2"
+        ]
+      },
+      {
+        "name": "Japan JIS",
+        "law": "JIS X 8341-3 context",
+        "detail": "Use the mapped WCAG criteria as technical evidence; confirm procurement or sector requirements separately.",
+        "criteria": [
+          "1.1.1",
+          "1.3.1",
+          "1.4.3",
+          "1.4.10",
+          "2.1.1",
+          "2.4.2",
+          "2.4.4",
+          "3.1.1",
+          "4.1.2"
+        ]
+      },
+      {
+        "name": "Taiwan",
+        "law": "Taiwan accessibility context",
+        "detail": "Use the mapped WCAG criteria as technical evidence only; confirm current local program, certification, and seal requirements before making a compliance claim.",
+        "criteria": [
+          "1.1.1",
+          "1.3.1",
+          "1.4.3",
+          "1.4.10",
+          "2.1.1",
+          "2.4.2",
+          "2.4.4",
+          "3.1.1",
+          "4.1.2"
+        ]
+      },
+      {
+        "name": "Canada ACA",
+        "law": "Accessible Canada Act context",
+        "detail": "Use the mapped WCAG criteria as technical evidence; applicability depends on organization type and regulated context.",
+        "criteria": [
+          "1.1.1",
+          "1.3.1",
+          "1.4.3",
+          "1.4.10",
+          "2.1.1",
+          "2.4.2",
+          "2.4.4",
+          "3.1.1",
+          "4.1.2"
+        ]
+      },
+      {
+        "name": "Australia DDA",
+        "law": "Disability Discrimination Act context",
+        "detail": "Use the mapped WCAG criteria as technical evidence; legal assessment requires local context and counsel.",
+        "criteria": [
+          "1.1.1",
+          "1.3.1",
+          "1.4.3",
+          "1.4.10",
+          "2.1.1",
+          "2.4.2",
+          "2.4.4",
+          "3.1.1",
+          "4.1.2"
+        ]
+      }
+    ]
+  },
+  "remediation": [
+    {
+      "priority": "P0",
+      "key": "html-lang-mismatch",
+      "title": "Declared page language does not match the content",
+      "location": "aia-rendered.html:1",
+      "wcag": "WCAG 2.2: 3.1.1 Language of Page",
+      "fix": "Set <html lang> to the actual content language (detected: han)."
+    },
+    {
+      "priority": "P0",
+      "key": "heading-level-skipped",
+      "title": "Heading level is skipped",
+      "location": "aia-rendered.html:200",
+      "wcag": "WCAG 2.2: 1.3.1 Info and Relationships",
+      "fix": "Use a continuous heading hierarchy or adjust the visual style without changing semantic level."
+    },
+    {
+      "priority": "P0",
+      "key": "image-alt-missing",
+      "title": "Image is missing alt text",
+      "location": "aia-rendered.html:565",
+      "wcag": "WCAG 2.2: 1.1.1 Non-text Content",
+      "fix": "Add meaningful alt text, or alt=\"\" for purely decorative images."
+    },
+    {
+      "priority": "P0",
+      "key": "image-alt-missing",
+      "title": "Image is missing alt text",
+      "location": "aia-rendered.html:581",
+      "wcag": "WCAG 2.2: 1.1.1 Non-text Content",
+      "fix": "Add meaningful alt text, or alt=\"\" for purely decorative images."
+    },
+    {
+      "priority": "P0",
+      "key": "image-alt-missing",
+      "title": "Image is missing alt text",
+      "location": "aia-rendered.html:596",
+      "wcag": "WCAG 2.2: 1.1.1 Non-text Content",
+      "fix": "Add meaningful alt text, or alt=\"\" for purely decorative images."
+    },
+    {
+      "priority": "P2",
+      "key": "meta-description-missing",
+      "title": "Meta description is missing",
+      "location": "aia-rendered.html",
+      "wcag": "AEO structural hygiene",
+      "fix": "Add a concise page-specific meta description."
+    },
+    {
+      "priority": "P2",
+      "key": "jsonld-missing",
+      "title": "JSON-LD structured data is missing",
+      "location": "aia-rendered.html",
+      "wcag": "AEO structural hygiene",
+      "fix": "Add page-appropriate Schema.org JSON-LD, such as Organization, Article, FAQPage, Product, BreadcrumbList, or WebSite."
+    },
+    {
+      "priority": "P1",
+      "key": "large-fixed-width",
+      "title": "Large fixed width detected",
+      "location": "aia-rendered.html",
+      "wcag": "WCAG 2.2: 1.4.10 Reflow",
+      "fix": "Use max-width, min(), clamp(), or container-relative sizing."
+    },
+    {
+      "priority": "P0",
+      "key": "external-finding",
+      "title": "Document has an empty <title> element",
+      "location": "html > head > title",
+      "wcag": "2.4.2",
+      "fix": "Set the WordPress site title / SEO title so the homepage renders e.g. <title>亞太包容創新協會 APAC AIA</title>."
+    },
+    {
+      "priority": "P0",
+      "key": "external-finding",
+      "title": "Header logo link has no accessible name",
+      "location": "header a.brand.has-logo-image",
+      "wcag": "4.1.2",
+      "fix": "Add alt=\"亞太包容創新協會 首頁\" to the logo image, or aria-label on the anchor."
+    },
+    {
+      "priority": "P0",
+      "key": "external-finding",
+      "title": "Primary CTA 「了解志工機會」 is a non-interactive <span>, unreachable by keyboard",
+      "location": ".kb-buttons-wrap > span.kb-button.kt-button",
+      "wcag": "2.1.1",
+      "fix": "Set the button's link target in the Kadence block settings so it renders as <a class=\"kb-button\" href=\"...\">了解志工機會</a>."
+    },
+    {
+      "priority": "P1",
+      "key": "external-finding",
+      "title": "Primary navigation link contrast 4.16:1 (below 4.5:1)",
+      "location": ".primary-menu-container a[aria-current=\"page\"]",
+      "wcag": "1.4.3",
+      "fix": "Per the AIA brand contrast matrix, use Navy #003B5C on Golden Yellow #F8B62D (6.58:1) or Near Black #231815 on Gold (9.66:1)."
+    },
+    {
+      "priority": "P1",
+      "key": "external-finding",
+      "title": "CTA button text contrast 3.54:1 (below 4.5:1)",
+      "location": ".kt-btn-inner-text (了解志工機會)",
+      "wcag": "1.4.3",
+      "fix": "Use the brand CTA pattern: Golden Yellow #F8B62D background with Near Black #231815 text (9.66:1, AAA)."
+    },
+    {
+      "priority": "P2",
+      "key": "external-finding",
+      "title": "Footer social links (Facebook / X / Instagram) have empty href",
+      "location": "footer .social links",
+      "wcag": "2.4.4",
+      "fix": "Fill in the real profile URLs, or remove the icons until the profiles exist."
+    }
+  ],
+  "testing_recommendations": [
+    "Run keyboard-only walkthrough of the primary flow.",
+    "Run a live browser audit with Playwright + axe-core when a page is available.",
+    "Check 320px reflow and 200% zoom manually.",
+    "Listen to the page with VoiceOver or NVDA for the core task.",
+    "Treat this static score as a regression baseline, not a completion certificate."
+  ],
+  "llm_judgment": {
+    "label": "LLM judgment — not reproducible, excluded from the machine score",
+    "reproducible": false,
+    "scored": false,
+    "items": [
+      {
+        "criterion": "1.4.10",
+        "category": "responsive",
+        "observation": "Runtime reflow verified at 320px viewport: scrollWidth 305 = clientWidth 305, no horizontal overflow, no overflowing elements found. The static 'Large fixed width detected' warning comes from image width attributes and media-query-guarded CSS, not an actual reflow failure.",
+        "note": "Runtime evidence contradicts the static warning; treat 1.4.10 as passing."
+      },
+      {
+        "criterion": "2.4.7",
+        "category": "keyboard",
+        "observation": "Focus-visible indicators could not be conclusively measured (programmatic focus does not trigger :focus-visible heuristics). Skip link shows a box-shadow when focused; other links showed no outline under programmatic focus. Per Beacon guidance this capture class is a known false-positive source.",
+        "note": "Recommend a human Tab-through pass; not scored."
+      },
+      {
+        "criterion": null,
+        "category": "agent",
+        "observation": "meta robots is 'noindex, nofollow' and the page sits behind a WordPress post password — consistent with a staging site. The Lighthouse SEO score of 46 is dominated by this intentional state; re-check SEO after launch.",
+        "note": "Intentional staging configuration, not a defect."
+      },
+      {
+        "criterion": "1.4.3",
+        "category": "contrast",
+        "observation": "Both confirmed contrast failures use colors outside the AIA brand palette (#e4bc54 header background, #e8593a CTA). The brand style guide's own contrast matrix (C:/Code/AIA/CLAUDE.md, brand-style-guide.html v1.0) already provides AA/AAA-passing pairs; aligning the WordPress theme to the brand tokens fixes both findings simultaneously.",
+        "note": null
+      },
+      {
+        "criterion": "2.3.3",
+        "category": "motion",
+        "observation": "prefers-reduced-motion has partial coverage: 3 media-query rules present against 24 animation-related rules (Kadence theme defaults). No autoplaying media, no flashing content observed.",
+        "note": null
+      },
+      {
+        "criterion": "2.1.1",
+        "category": "keyboard",
+        "observation": "The whole homepage exposes only 10 focusable elements (skip link, logo, 1 nav item, mobile menu buttons, 3 empty social links). Body content contains no in-page links, and the single content CTA is not focusable. Keyboard/AT users effectively have nothing to operate on this page.",
+        "note": null
+      },
+      {
+        "criterion": "3.1.1",
+        "category": "screenreader",
+        "observation": "Mixed zh-TW/en content is declared lang=\"en-US\" with no lang subtags anywhere. CJK screen reader users get English TTS voices for Chinese text. Fix html lang to zh-TW and wrap English passages in lang=\"en\" spans where pronunciation matters.",
+        "note": null
+      }
+    ]
+  },
+  "lighthouse": {
+    "source": "lighthouse",
+    "version": "13.3.0",
+    "fetched_at": "2026-07-03T12:25:23.349Z",
+    "form_factor": "mobile",
+    "requested_url": "https://aia.tinyoakstudio.com/",
+    "final_url": "https://aia.tinyoakstudio.com/",
+    "note_zh": "Lighthouse 分數會隨裝置模擬、CPU 降速與機器負載逐次浮動，請當作方向性參考、非絕對值。此區塊為輔助訊號，不計入 Beacon 的無障礙(a11y)主分數。",
+    "note_en": "Lighthouse scores swing run-to-run with device emulation, CPU throttle, and machine load — treat them as directional, not absolute. This section is a supplementary signal and is NOT folded into Beacon's accessibility score.",
+    "categories": [
+      {
+        "id": "performance",
+        "title": "Performance",
+        "score": 70
+      },
+      {
+        "id": "best-practices",
+        "title": "Best Practices",
+        "score": 77
+      },
+      {
+        "id": "seo",
+        "title": "SEO",
+        "score": 46
+      },
+      {
+        "id": "agentic-browsing",
+        "title": "Agentic Browsing",
+        "score": 50
+      }
+    ],
+    "metrics": [
+      {
+        "id": "first-contentful-paint",
+        "key": "fcp",
+        "label": "First Contentful Paint",
+        "value": "2.8 s",
+        "ms": 2808,
+        "score": 56
+      },
+      {
+        "id": "largest-contentful-paint",
+        "key": "lcp",
+        "label": "Largest Contentful Paint",
+        "value": "9.1 s",
+        "ms": 9084,
+        "score": 1
+      },
+      {
+        "id": "total-blocking-time",
+        "key": "tbt",
+        "label": "Total Blocking Time",
+        "value": "0 ms",
+        "ms": 0,
+        "score": 100
+      },
+      {
+        "id": "cumulative-layout-shift",
+        "key": "cls",
+        "label": "Cumulative Layout Shift",
+        "value": "0",
+        "ms": 0,
+        "score": 100
+      },
+      {
+        "id": "speed-index",
+        "key": "si",
+        "label": "Speed Index",
+        "value": "3.6 s",
+        "ms": 3561,
+        "score": 87
+      },
+      {
+        "id": "interactive",
+        "key": "tti",
+        "label": "Time to Interactive",
+        "value": "9.1 s",
+        "ms": 9144,
+        "score": 33
+      }
+    ],
+    "mainthread": [
+      {
+        "group": "Style & Layout",
+        "ms": 1281
+      },
+      {
+        "group": "Other",
+        "ms": 332
+      },
+      {
+        "group": "Script Evaluation",
+        "ms": 53
+      },
+      {
+        "group": "Parse HTML & CSS",
+        "ms": 45
+      },
+      {
+        "group": "Rendering",
+        "ms": 36
+      },
+      {
+        "group": "Script Parsing & Compilation",
+        "ms": 6
+      }
+    ],
+    "dom": {
+      "nodes": 479,
+      "depth": 27,
+      "maxChildren": 10
+    },
+    "opportunities": [
+      {
+        "id": "server-response-time",
+        "title": "Initial server response time was short",
+        "value": "Root document took 490 ms",
+        "savings_ms": 394,
+        "score": 100
+      },
+      {
+        "id": "unused-css-rules",
+        "title": "Reduce unused CSS",
+        "value": "Est savings of 60 KiB",
+        "savings_ms": 230,
+        "score": 0
+      },
+      {
+        "id": "unminified-css",
+        "title": "Minify CSS",
+        "value": "Est savings of 7 KiB",
+        "savings_ms": 20,
+        "score": 50
+      }
+    ],
+    "best_practices_issues": [
+      {
+        "id": "is-on-https",
+        "title": "Does not use HTTPS",
+        "value": "3 insecure requests found"
+      },
+      {
+        "id": "inspector-issues",
+        "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+        "value": ""
+      }
+    ],
+    "seo_issues": [
+      {
+        "id": "is-crawlable",
+        "title": "Page is blocked from indexing",
+        "value": ""
+      },
+      {
+        "id": "document-title",
+        "title": "Document doesn't have a `<title>` element",
+        "value": ""
+      },
+      {
+        "id": "meta-description",
+        "title": "Document does not have a meta description",
+        "value": ""
+      },
+      {
+        "id": "image-alt",
+        "title": "Image elements do not have `[alt]` attributes",
+        "value": ""
+      }
+    ],
+    "cross_cutting": []
+  }
+}

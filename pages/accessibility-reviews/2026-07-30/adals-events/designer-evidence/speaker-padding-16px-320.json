@@ -1,0 +1,293 @@
+{
+  "before": {
+    "viewportWidth": 320,
+    "scrollWidth": 320,
+    "firstCard": {
+      "selector": "wp-block-kadence-column kadence-column203_4f4300-fa",
+      "left": 48,
+      "width": 224,
+      "paddingLeft": "0px",
+      "paddingRight": "0px"
+    },
+    "textCard": {
+      "selector": "wp-block-kadence-column kadence-column203_db9bb1-57 kb-section-has-overlay",
+      "left": 48,
+      "width": 224,
+      "paddingLeft": "0px",
+      "paddingRight": "0px"
+    },
+    "heading": {
+      "selector": "kt-adv-heading203_d5a6b8-c0 wp-block-kadence-advancedheading has-theme-palette-3-color has-text-color",
+      "left": 96,
+      "width": 128,
+      "paddingLeft": "0px",
+      "paddingRight": "0px"
+    },
+    "ancestors": [
+      {
+        "selector": "kt-adv-heading203_d5a6b8-c0 wp-block-kadence-advancedheading has-theme-palette-3-color has-text-color",
+        "left": 96,
+        "width": 128,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      {
+        "selector": "kt-inside-inner-col",
+        "left": 48,
+        "width": 224,
+        "paddingLeft": "48px",
+        "paddingRight": "48px"
+      },
+      {
+        "selector": "wp-block-kadence-column kadence-column203_db9bb1-57 kb-section-has-overlay",
+        "left": 48,
+        "width": 224,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      {
+        "selector": "kt-inside-inner-col",
+        "left": 48,
+        "width": 224,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      {
+        "selector": "wp-block-kadence-column kadence-column203_4f4300-fa",
+        "left": 48,
+        "width": 224,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      {
+        "selector": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+        "left": 48,
+        "width": 224,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      {
+        "selector": "kb-row-layout-wrap kb-row-layout-id203_899632-07 alignnone wp-block-kadence-rowlayout",
+        "left": 48,
+        "width": 224,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      {
+        "selector": "kt-inside-inner-col",
+        "left": 48,
+        "width": 224,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      {
+        "selector": "wp-block-kadence-column kadence-column203_0f17fe-8b kb-section-dir-vertical inner-column-1",
+        "left": 48,
+        "width": 224,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      {
+        "selector": "kt-row-column-wrap kt-has-1-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top kb-theme-content-width",
+        "left": 24,
+        "width": 272,
+        "paddingLeft": "24px",
+        "paddingRight": "24px"
+      }
+    ]
+  },
+  "padding16": {
+    "viewportWidth": 320,
+    "scrollWidth": 320,
+    "firstCard": {
+      "selector": "wp-block-kadence-column kadence-column203_4f4300-fa",
+      "left": 40,
+      "width": 240,
+      "paddingLeft": "0px",
+      "paddingRight": "0px"
+    },
+    "textCard": {
+      "selector": "wp-block-kadence-column kadence-column203_db9bb1-57 kb-section-has-overlay",
+      "left": 40,
+      "width": 240,
+      "paddingLeft": "0px",
+      "paddingRight": "0px"
+    },
+    "heading": {
+      "selector": "kt-adv-heading203_d5a6b8-c0 wp-block-kadence-advancedheading has-theme-palette-3-color has-text-color",
+      "left": 58,
+      "width": 204,
+      "paddingLeft": "0px",
+      "paddingRight": "0px"
+    },
+    "ancestors": [
+      {
+        "selector": "kt-adv-heading203_d5a6b8-c0 wp-block-kadence-advancedheading has-theme-palette-3-color has-text-color",
+        "left": 58,
+        "width": 204,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      {
+        "selector": "kt-inside-inner-col",
+        "left": 40,
+        "width": 240,
+        "paddingLeft": "17.7888px",
+        "paddingRight": "17.7888px"
+      },
+      {
+        "selector": "wp-block-kadence-column kadence-column203_db9bb1-57 kb-section-has-overlay",
+        "left": 40,
+        "width": 240,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      {
+        "selector": "kt-inside-inner-col",
+        "left": 40,
+        "width": 240,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      {
+        "selector": "wp-block-kadence-column kadence-column203_4f4300-fa",
+        "left": 40,
+        "width": 240,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      {
+        "selector": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+        "left": 40,
+        "width": 240,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      {
+        "selector": "kb-row-layout-wrap kb-row-layout-id203_899632-07 alignnone wp-block-kadence-rowlayout",
+        "left": 40,
+        "width": 240,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      {
+        "selector": "kt-inside-inner-col",
+        "left": 40,
+        "width": 240,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      {
+        "selector": "wp-block-kadence-column kadence-column203_0f17fe-8b kb-section-dir-vertical inner-column-1",
+        "left": 40,
+        "width": 240,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      {
+        "selector": "kt-row-column-wrap kt-has-1-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top kb-theme-content-width",
+        "left": 24,
+        "width": 272,
+        "paddingLeft": "16px",
+        "paddingRight": "16px"
+      }
+    ]
+  },
+  "outer0Inner24": {
+    "viewportWidth": 320,
+    "scrollWidth": 320,
+    "firstCard": {
+      "selector": "wp-block-kadence-column kadence-column203_4f4300-fa",
+      "left": 24,
+      "width": 272,
+      "paddingLeft": "0px",
+      "paddingRight": "0px"
+    },
+    "textCard": {
+      "selector": "wp-block-kadence-column kadence-column203_db9bb1-57 kb-section-has-overlay",
+      "left": 24,
+      "width": 272,
+      "paddingLeft": "0px",
+      "paddingRight": "0px"
+    },
+    "heading": {
+      "selector": "kt-adv-heading203_d5a6b8-c0 wp-block-kadence-advancedheading has-theme-palette-3-color has-text-color",
+      "left": 48,
+      "width": 225,
+      "paddingLeft": "0px",
+      "paddingRight": "0px"
+    },
+    "ancestors": [
+      {
+        "selector": "kt-adv-heading203_d5a6b8-c0 wp-block-kadence-advancedheading has-theme-palette-3-color has-text-color",
+        "left": 48,
+        "width": 225,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      {
+        "selector": "kt-inside-inner-col",
+        "left": 24,
+        "width": 272,
+        "paddingLeft": "23.5058px",
+        "paddingRight": "23.5058px"
+      },
+      {
+        "selector": "wp-block-kadence-column kadence-column203_db9bb1-57 kb-section-has-overlay",
+        "left": 24,
+        "width": 272,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      {
+        "selector": "kt-inside-inner-col",
+        "left": 24,
+        "width": 272,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      {
+        "selector": "wp-block-kadence-column kadence-column203_4f4300-fa",
+        "left": 24,
+        "width": 272,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      {
+        "selector": "kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top",
+        "left": 24,
+        "width": 272,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      {
+        "selector": "kb-row-layout-wrap kb-row-layout-id203_899632-07 alignnone wp-block-kadence-rowlayout",
+        "left": 24,
+        "width": 272,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      {
+        "selector": "kt-inside-inner-col",
+        "left": 24,
+        "width": 272,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      {
+        "selector": "wp-block-kadence-column kadence-column203_0f17fe-8b kb-section-dir-vertical inner-column-1",
+        "left": 24,
+        "width": 272,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      },
+      {
+        "selector": "kt-row-column-wrap kt-has-1-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top kb-theme-content-width",
+        "left": 24,
+        "width": 272,
+        "paddingLeft": "0px",
+        "paddingRight": "0px"
+      }
+    ]
+  }
+}

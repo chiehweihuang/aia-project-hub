@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hant" xml:lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>APAC AIA 網站 - 首頁標題結構建議</title>
+  <link rel="stylesheet" href="../review-nav.css" />
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <style>
+    :root {
+      color-scheme: light;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    html, body {
+      overflow-x: hidden;
+    }
+    body {
+      max-width: 980px;
+      margin: 48px auto;
+      padding: 0 32px;
+      color: #231815;
+      background: #ffffff;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", "Heiti TC", Arial, sans-serif;
+      font-size: 18px;
+      line-height: 1.75;
+    }
+    h1, h2, h3 {
+      color: #003B5C;
+      line-height: 1.35;
+      margin-top: 1.6em;
+      margin-bottom: 0.55em;
+    }
+    h1 {
+      font-size: 32px;
+      border-bottom: 4px solid #19ABE4;
+      padding-bottom: 0.35em;
+    }
+    h2 {
+      font-size: 25px;
+    }
+    h3 {
+      font-size: 21px;
+    }
+    p, li {
+      font-size: 18px;
+    }
+    ul, ol {
+      padding-left: 1.4em;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.2em 0 1.8em;
+      font-size: 16px;
+      display: table;
+      table-layout: fixed;
+      overflow-x: visible;
+      max-width: 100%;
+    }
+    th, td {
+      border: 1px solid #d7dde2;
+      padding: 10px 12px;
+      vertical-align: top;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+    th {
+      background: #eef6fa;
+      color: #003B5C;
+      font-weight: 700;
+    }
+    code, pre {
+      font-family: Consolas, "Noto Sans Mono CJK TC", monospace;
+    }
+    pre code, pre code span {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+    pre {
+      white-space: pre-wrap;
+      background: #f7f8f8;
+      border-left: 4px solid #19ABE4;
+      padding: 14px 16px;
+      overflow-wrap: anywhere;
+      overflow-x: hidden;
+    }
+    strong {
+      color: #003B5C;
+    }
+    @media screen and (max-width: 760px) {
+      body {
+        margin: 24px auto;
+        padding: 0 16px;
+      }
+      table, thead, tbody, tr, th, td {
+        display: block;
+        width: 100%;
+      }
+      colgroup, thead {
+        display: none;
+      }
+      table {
+        border-collapse: separate;
+        border-spacing: 0;
+        font-size: 17px;
+      }
+      tr {
+        border: 1px solid #d7dde2;
+        border-radius: 8px;
+        margin: 0 0 16px;
+        padding: 12px 14px;
+      }
+      td {
+        border: 0;
+        border-bottom: 1px solid #edf1f4;
+        padding: 10px 0;
+      }
+      td:last-child {
+        border-bottom: 0;
+      }
+      td::before {
+        display: block;
+        margin-bottom: 4px;
+        color: #003B5C;
+        font-weight: 700;
+      }
+      td:nth-child(1)::before { content: "位置"; }
+      td:nth-child(2)::before { content: "目前狀況"; }
+      td:nth-child(3)::before { content: "為什麼是問題"; }
+      td:nth-child(4)::before { content: "建議"; }
+    }
+    @media print {
+      body {
+        margin: 0;
+        padding: 0;
+        max-width: none;
+        font-size: 12pt;
+        line-height: 1.65;
+      }
+      h1 { font-size: 22pt; }
+      h2 { font-size: 18pt; }
+      h3 { font-size: 15pt; }
+      p, li { font-size: 12pt; }
+      table { font-size: 10.5pt; page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+<a class="aia-review-skip" href="#aia-首頁-headings-結構建議">跳到主要內容</a>
+<nav class="aia-review-nav" aria-label="測試報告導覽">
+  <div class="aia-review-nav__inner">
+    <span class="aia-review-nav__label">AIA 無障礙測試結果</span>
+    <a href="../../../index.html#downloads">專案 Hub</a>
+    <a href="../index.html">測試總覽</a>
+    <a href="../2026-07-30/homepage/homepage-0730-review.html">首頁 7/30</a>
+    <a href="../2026-07-30/adals-events/event-page-0730-check.html">活動頁</a>
+    <a href="../2026-07-30/adals-events/speaker-responsive-comparison.html">講者／票券比較</a>
+    <a href="../2026-07-30/contact/contact-page-0731-check.html">聯繫頁</a>
+    <a href="index.html">7/3 測試總覽</a>
+    <a href="aia-homepage-heading-structure-recommendation.html" aria-current="page">7/3 Heading 詳細版</a>
+  </div>
+</nav>
+<h1 id="aia-首頁-headings-結構建議">APAC AIA 網站 - 首頁標題結構建議</h1>
+<p>日期：2026-07-03<br />
+範圍：AIA 主站首頁 staging / mockup 的 heading 結構<br />
+目的：讓頁面標題階層更清楚，方便鍵盤、螢幕閱讀器與後續維護。</p>
+<h2 id="判斷原則">判斷原則</h2>
+<p>Headings 不是拿來控制字體大小，而是拿來表示頁面結構。</p>
+<p>比較好的做法是：</p>
+<ul>
+<li>一頁只有一個 <code>h1</code>，通常是頁面主標題。</li>
+<li>主要區塊用 <code>h2</code>。</li>
+<li>區塊裡的卡片、時間軸項目、子項目用 <code>h3</code>。</li>
+<li>不要因為字比較小，就用 <code>h5</code> 或 <code>h6</code>。</li>
+<li>英文小字標籤，例如
+<code>About Us</code>、<code>Our Values</code>、<code>JOIN US</code>，如果只是視覺標籤，建議用一般文字，不要設成
+heading。</li>
+<li>說明文字、口號、段落內文不要設成 heading。</li>
+</ul>
+<h2 id="目前看到的-heading-map">目前看到的 heading map</h2>
+<pre class="text"><code>1 亞太包容創新協會
+            4 連結國際無障礙領袖、台灣產業與政府及在地專業社群，落實數位包容，讓每個人都能平等共享。
+    2 多元共融
+    2 以人為本
+    2 科技創新
+                    6 About Us
+    2 關於我們
+    2 當生活幾乎一切都在螢幕上完成，有些人卻被擋在門外:
+    2 許多人因身體狀況、年齡或數位落差，長期被排除在數位世界之外。
+    2 打破現有的侷限，創造更友善的社會環境。
+                    6 Our Values
+    2 三大價值
+                    6 Our Milestones
+    2 協會大事記
+                5 2024 / Apr
+                5 2024 / Oct
+                5 2024 / Nov
+                5 2025 / Oct
+                5 2026 / May
+                5 2026 / Sep
+                    6 What We Do
+    2 我們創造什麼連結
+                5 跨界對話Cross-Sector Dialogue
+                5 國際接軌Global Standards
+                5 從理念到落地Idea to Action
+                    6 Areas of Focus
+    2 我們關注的議題
+                5 數位無障礙 Digital Accessibility
+                5 包容性設計 Inclusive Design
+                5 數位無障礙 International Standards
+                5 齡共融科技 AgeTech &amp; Aging-Friendly
+                    6 JOIN US
+    2 加入我們的行列
+    2 社群媒體 SOCIALS</code></pre>
+<h2 id="主要問題與建議">主要問題與建議</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>位置</th>
+<th>目前狀況</th>
+<th>為什麼是問題</th>
+<th>建議</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hero 說明文字</td>
+<td><code>h4</code></td>
+<td>這句是主標下的說明文字，不是下一層標題。從 <code>h1</code> 跳到
+<code>h4</code> 也會讓標題階層變亂。</td>
+<td>改成一般段落文字，例如 lead paragraph。</td>
+</tr>
+<tr>
+<td><code>About Us</code>、<code>Our Values</code>、<code>Our Milestones</code>、<code>What We Do</code>、<code>Areas of Focus</code>、<code>JOIN US</code></td>
+<td>都是 <code>h6</code></td>
+<td>這些看起來像視覺上的英文小標籤，不是真的內容標題。用 <code>h6</code>
+會讓螢幕閱讀器看到很多不必要的低階標題。</td>
+<td>改成一般文字或 eyebrow label，不要設 heading。若要保留英文，建議加
+<code>lang="en"</code>。</td>
+</tr>
+<tr>
+<td><code>當生活幾乎一切都在螢幕上完成...</code> 等句子</td>
+<td>多句段落被設成 <code>h2</code></td>
+<td>這些是內文，不是區塊標題。使用者用 headings
+導覽時，會聽到一串像標題的段落，反而不容易抓頁面結構。</td>
+<td>改成 paragraph。</td>
+</tr>
+<tr>
+<td><code>多元共融</code>、<code>以人為本</code>、<code>科技創新</code></td>
+<td>目前是 <code>h2</code>，但出現在 <code>三大價值</code> 前面</td>
+<td>如果它們是三大價值的卡片標題，應該放在 <code>三大價值</code>
+下面，不應該和主要區塊同層。</td>
+<td><code>三大價值</code> 用 <code>h2</code>，三個價值卡片用
+<code>h3</code>。</td>
+</tr>
+<tr>
+<td>大事記日期</td>
+<td><code>h5</code></td>
+<td><code>協會大事記</code> 是 <code>h2</code>，下面直接跳到
+<code>h5</code>，中間跳過 <code>h3</code>、<code>h4</code>。</td>
+<td>每個日期用 <code>h3</code>，日期下方說明用 paragraph。</td>
+</tr>
+<tr>
+<td><code>What We Do</code> 卡片</td>
+<td><code>h5</code></td>
+<td>它們是 <code>我們創造什麼連結</code> 底下的子項目，不需要跳到
+<code>h5</code>。</td>
+<td><code>我們創造什麼連結</code> 用 <code>h2</code>，三張卡片用
+<code>h3</code>。</td>
+</tr>
+<tr>
+<td><code>Areas of Focus</code> 卡片</td>
+<td><code>h5</code></td>
+<td>同上，這些是 <code>我們關注的議題</code> 底下的子項目。</td>
+<td><code>我們關注的議題</code> 用 <code>h2</code>，每個議題卡片用
+<code>h3</code>。</td>
+</tr>
+<tr>
+<td><code>數位無障礙 International Standards</code></td>
+<td>中文與英文意思不一致</td>
+<td>中文是「數位無障礙」，英文是「國際標準」，會讓內容理解不一致。</td>
+<td>建議改成 <code>國際標準 International Standards</code>。</td>
+</tr>
+<tr>
+<td><code>社群媒體 SOCIALS</code></td>
+<td><code>h2</code></td>
+<td>如果它是 footer 裡的獨立主要區塊，用 <code>h2</code> 可以；如果只是
+<code>加入我們</code> 底下的子項目，用 <code>h3</code> 比較合理。</td>
+<td>視版面決定：獨立 footer 區塊用 <code>h2</code>；屬於加入我們底下則用
+<code>h3</code>。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="建議-heading-map">建議 heading map</h2>
+<p>這是一個比較乾淨的版本。英文標籤可以保留在畫面上，但不要放進 heading
+階層。</p>
+<pre class="text"><code>1 亞太包容創新協會
+    2 三大價值
+        3 多元共融
+        3 以人為本
+        3 科技創新
+    2 關於我們
+    2 協會大事記
+        3 2024 / Apr
+        3 2024 / Oct
+        3 2024 / Nov
+        3 2025 / Oct
+        3 2026 / May
+        3 2026 / Sep
+    2 我們創造什麼連結
+        3 跨界對話 Cross-Sector Dialogue
+        3 國際接軌 Global Standards
+        3 從理念到落地 Idea to Action
+    2 我們關注的議題
+        3 數位無障礙 Digital Accessibility
+        3 包容性設計 Inclusive Design
+        3 國際標準 International Standards
+        3 齡共融科技 AgeTech &amp; Aging-Friendly
+    2 加入我們的行列
+    2 社群媒體 Socials</code></pre>
+<h2 id="英文標籤建議">英文標籤建議</h2>
+<p>如果設計上想保留英文小字，例如
+<code>About Us</code>、<code>Our Values</code>，建議這樣處理：</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;section-label&quot;</span><span class="ot"> lang</span><span class="op">=</span><span class="st">&quot;en&quot;</span><span class="dt">&gt;</span>About Us<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>關於我們<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span></code></pre></div>
+<p>不要這樣處理：</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">h6</span><span class="dt">&gt;</span>About Us<span class="dt">&lt;/</span><span class="kw">h6</span><span class="dt">&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>關於我們<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span></code></pre></div>
+<p>原因是 <code>h6</code> 會進入 headings
+導覽，但它其實只是視覺標籤，不是頁面結構。</p>
+<h2 id="wordpress-kadence-實作提醒">WordPress / Kadence 實作提醒</h2>
+<ul>
+<li>在 Kadence 或 WordPress block 裡，標題區塊要手動選正確 heading
+level。</li>
+<li>視覺上想要小字，可以用樣式控制，不要用 <code>h5</code> /
+<code>h6</code> 來讓字變小。</li>
+<li>卡片標題通常用 <code>h3</code>。</li>
+<li>時間軸日期如果是每個里程碑的標題，建議用 <code>h3</code>。</li>
+<li>段落、說明文字、口號不要設成 heading。</li>
+</ul>
+<h2 id="最小修改方向">最小修改方向</h2>
+<p>如果時間有限，先做這幾件事就好：</p>
+<ol type="1">
+<li>把 hero 說明文字從 <code>h4</code> 改成 paragraph。</li>
+<li>把所有英文 <code>h6</code> 小標籤改成一般文字。</li>
+<li>把 About Us 內文句子從 <code>h2</code> 改成 paragraph。</li>
+<li>把日期和卡片標題從 <code>h5</code> 改成 <code>h3</code>。</li>
+<li>保留主要區塊標題為 <code>h2</code>。</li>
+</ol>
+</body>
+</html>

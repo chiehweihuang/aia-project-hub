@@ -1,0 +1,107 @@
+[
+  {
+    "width": 320,
+    "clientWidth": 320,
+    "scrollWidth": 320,
+    "offenders": [],
+    "brokenImages": [],
+    "forbiddenFonts": 0,
+    "semantics": {
+      "h1Count": 1,
+      "lang": "zh-Hant",
+      "imagesMissingAlt": 0,
+      "emptyLinks": 0,
+      "skipTargetExists": true
+    }
+  },
+  {
+    "width": 768,
+    "clientWidth": 768,
+    "scrollWidth": 768,
+    "offenders": [],
+    "brokenImages": [],
+    "forbiddenFonts": 0,
+    "semantics": {
+      "h1Count": 1,
+      "lang": "zh-Hant",
+      "imagesMissingAlt": 0,
+      "emptyLinks": 0,
+      "skipTargetExists": true
+    }
+  },
+  {
+    "width": 1024,
+    "clientWidth": 1024,
+    "scrollWidth": 1024,
+    "offenders": [],
+    "brokenImages": [],
+    "forbiddenFonts": 0,
+    "semantics": {
+      "h1Count": 1,
+      "lang": "zh-Hant",
+      "imagesMissingAlt": 0,
+      "emptyLinks": 0,
+      "skipTargetExists": true
+    }
+  },
+  {
+    "width": 1280,
+    "clientWidth": 1280,
+    "scrollWidth": 1280,
+    "offenders": [],
+    "brokenImages": [],
+    "forbiddenFonts": 0,
+    "semantics": {
+      "h1Count": 1,
+      "lang": "zh-Hant",
+      "imagesMissingAlt": 0,
+      "emptyLinks": 0,
+      "skipTargetExists": true
+    }
+  },
+  {
+    "width": 1440,
+    "clientWidth": 1440,
+    "scrollWidth": 1440,
+    "offenders": [],
+    "brokenImages": [],
+    "forbiddenFonts": 0,
+    "semantics": {
+      "h1Count": 1,
+      "lang": "zh-Hant",
+      "imagesMissingAlt": 0,
+      "emptyLinks": 0,
+      "skipTargetExists": true
+    }
+  },
+  {
+    "width": 1742,
+    "clientWidth": 1742,
+    "scrollWidth": 1742,
+    "offenders": [],
+    "brokenImages": [],
+    "forbiddenFonts": 0,
+    "semantics": {
+      "h1Count": 1,
+      "lang": "zh-Hant",
+      "imagesMissingAlt": 0,
+      "emptyLinks": 0,
+      "skipTargetExists": true
+    }
+  },
+  {
+    "width": 1920,
+    "clientWidth": 1920,
+    "scrollWidth": 1920,
+    "offenders": [],
+    "brokenImages": [],
+    "forbiddenFonts": 0,
+    "semantics": {
+      "h1Count": 1,
+      "lang": "zh-Hant",
+      "imagesMissingAlt": 0,
+      "emptyLinks": 0,
+      "skipTargetExists": true
+    }
+  }
+]

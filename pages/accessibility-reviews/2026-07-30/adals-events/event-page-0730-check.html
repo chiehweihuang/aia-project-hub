@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ADALS 活動頁無障礙檢查與調整建議｜2026-07-30</title>
+<link rel="stylesheet" href="../../review-nav.css">
+<style>
+:root{
+  --ink:#082943;
+  --muted:#496173;
+  --paper:#f7f9fb;
+  --card:#fff;
+  --line:#cbd8e1;
+  --navy:#06334d;
+  --blue:#dff1ff;
+  --gold:#e9bc43;
+  --p0:#a62b26;
+  --p0-bg:#fff1ef;
+  --p1:#795600;
+  --p1-bg:#fff7dc;
+  --pass:#17643b;
+  --pass-bg:#edf8f1;
+  --shadow:0 10px 28px rgba(8,41,67,.09);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:var(--paper);
+  font-family:Arial,"Noto Sans TC","PingFang TC","Microsoft JhengHei","Noto Sans JP","Yu Gothic",sans-serif;
+  font-size:17px;
+  line-height:1.7;
+  overflow-wrap:anywhere;
+}
+a{color:#07598b;text-underline-offset:.18em}
+a:focus-visible{outline:3px solid #be6b00;outline-offset:3px}
+.skip{
+  position:absolute;left:12px;top:-80px;z-index:10;
+  padding:10px 14px;background:#fff;color:#000;
+}
+.skip:focus{top:12px}
+header{
+  color:#fff;
+  background:linear-gradient(125deg,var(--navy),#0b5273);
+  border-bottom:10px solid var(--gold);
+}
+.hero,main,footer>div{width:min(1120px,calc(100% - 48px));margin-inline:auto}
+.hero{padding:64px 0 58px}
+header a{color:#fff}
+.eyebrow{margin:0 0 8px;color:#ffe29a;font-weight:700;letter-spacing:.08em}
+h1,h2,h3{line-height:1.25;text-wrap:balance}
+h1{max-width:18ch;margin:.1em 0 .35em;font-size:clamp(2rem,5vw,4.1rem)}
+.deck{max-width:62ch;margin:0;font-size:clamp(1.05rem,2vw,1.3rem)}
+main{padding:40px 0 72px}
+section{margin:0 0 42px;scroll-margin-top:24px}
+h2{margin:0 0 18px;font-size:clamp(1.55rem,3vw,2.25rem)}
+h3{margin:.15em 0 .45em;font-size:1.18rem}
+p{max-width:70ch}
+figure{margin:0;min-width:0}
+code,pre{
+  font-family:"Cascadia Mono",Consolas,"Noto Sans TC","Microsoft JhengHei","Noto Sans JP","Yu Gothic",monospace;
+}
+code{padding:.08em .3em;border-radius:4px;background:#eaf2f7;overflow-wrap:anywhere}
+.summary,.finding,.pass,.evidence,.outline-card,.tech{
+  min-width:0;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:16px;
+  box-shadow:var(--shadow);
+}
+.summary{padding:26px}
+.summary-grid,.findings,.passes,.evidence-grid,.outline-grid,.change-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr));
+  gap:18px;
+}
+.summary-grid{margin-top:20px}
+.metric{min-width:0;padding:18px;border-radius:12px;background:#eef5f9}
+.metric b{display:block;font-size:1.65rem;line-height:1.1;color:var(--ink)}
+.metric span{color:var(--muted)}
+.action-list{display:grid;grid-template-columns:minmax(0,1fr);gap:20px}
+.finding,.pass,.evidence{padding:22px}
+.finding{display:flex;flex-direction:column;border-top:7px solid var(--line)}
+.finding.blocker{border-top-color:var(--p0)}
+.finding.next{border-top-color:var(--gold)}
+.finding .where{font-weight:700;color:var(--ink)}
+.action-list h3{font-size:1.35rem}
+.label{
+  display:inline-block;margin:0 0 10px;padding:3px 9px;
+  border-radius:999px;font-size:.82rem;font-weight:700;
+}
+.label.blocker{color:var(--p0);background:var(--p0-bg)}
+.label.next{color:var(--p1);background:var(--p1-bg)}
+.plain-list{margin:.5rem 0 0;padding-left:1.4em}
+.plain-list li,.file-list li{margin:.5em 0}
+.change-grid{margin:14px 0}
+.change{min-width:0;padding:16px;border:1px solid var(--line);border-radius:12px;background:#f3f7fa}
+.change strong{display:block;margin-bottom:4px;color:var(--ink)}
+.do-now,.note{padding:15px 18px;border-left:5px solid var(--gold);background:#fff8df}
+.comparison-link{
+  margin:18px 0;padding:18px 20px;
+  border:3px solid #07598b;border-radius:12px;
+  background:#e8f5ff;
+}
+.comparison-link strong{display:block;margin-bottom:4px;font-size:1.15rem}
+.comparison-link a{font-weight:700}
+.accept{
+  margin-top:16px;padding-top:13px;border-top:1px dashed var(--line);
+  color:#243f52;font-size:.94rem;
+}
+.evidence a{display:block}
+.shot{
+  display:block;width:100%;height:28rem;object-fit:cover;object-position:50% 0;
+  border:1px solid var(--line);border-radius:10px;background:#fff;
+}
+.caption{margin-top:8px;color:var(--muted);font-size:.92rem}
+.pass{border-top:7px solid var(--pass)}
+.tech{padding:24px;border-style:dashed;box-shadow:none}
+.file-list{padding-left:1.4em}
+footer{color:#dcebf3;background:#062b40}
+footer>div{padding:28px 0}
+@media(max-width:600px){
+  body{font-size:16px}
+  .hero,main,footer>div{width:min(100% - 28px,1120px)}
+  .hero{padding:42px 0 38px}
+  main{padding-top:28px}
+  .summary,.finding,.pass,.evidence,.tech{padding:18px}
+  .shot{height:32rem}
+}
+@media print{
+  body{font-size:10.5pt;background:#fff}
+  header{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .hero,main,footer>div{width:100%}
+  .hero{padding:32px 28px}
+  main{padding:24px 28px}
+  section{margin-bottom:28px}
+  .summary-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  h2,h3{break-after:avoid-page}
+  .summary,.finding,.pass,.evidence,.outline-card,.tech{box-shadow:none;break-inside:avoid}
+  .evidence-grid{grid-template-columns:1fr 1fr}
+  .findings{display:block}
+  .finding{display:block;margin-bottom:1rem}
+  .shot{height:10rem}
+  .file-list{columns:2;column-gap:1.5rem}
+  .file-list li{break-inside:avoid}
+  #method{font-size:.9rem}
+  footer{display:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到主要內容</a>
+<nav class="aia-review-nav" aria-label="測試報告導覽">
+  <div class="aia-review-nav__inner">
+    <span class="aia-review-nav__label">AIA 無障礙測試結果</span>
+    <a class="aia-review-nav__hub" href="https://chiehweihuang.github.io/aia-project-hub/#downloads">← 回到專案 Hub</a>
+    <a href="../../index.html">測試總覽</a>
+    <a href="../homepage/homepage-0730-review.html">首頁</a>
+    <a href="event-page-0730-check.html" aria-current="page">活動頁</a>
+    <a href="../contact/contact-page-0731-check.html">聯繫頁</a>
+    <span class="aia-review-nav__break" aria-hidden="true"></span>
+    <a href="speaker-responsive-comparison.html">講者／票券比較</a>
+    <a href="../homepage/homepage-heading-audit.html">首頁 Heading</a>
+    <a href="01-HEADING-STRUCTURE.html">活動 Heading</a>
+    <a href="../contact/contact-heading-audit.html">聯繫 Heading</a>
+    <a class="aia-review-nav__history" href="../../2026-07-03/index.html">7/3 歷史測試</a>
+  </div>
+</nav>
+<header>
+  <div class="hero">
+    <p class="eyebrow">ADALS EVENT PAGE REVIEW · 2026-07-30</p>
+    <h1>活動頁無障礙與響應式版面檢查</h1>
+    <p class="deck">給設計與 WordPress 製作人員的修正說明。首頁與 ADALS 活動頁分開記錄；本頁只談 ADALS 活動頁。</p>
+  </div>
+</header>
+
+<main id="main">
+  <section aria-labelledby="decision">
+    <h2 id="decision">先看上線範圍</h2>
+    <div class="summary">
+      <p class="note"><strong>等待 Accupass，不列入這兩三天可完成的工作：</strong>目前「立即報名｜Register」還沒有報名網址，所以不是連結，也無法用 Tab 選到。Accupass 網址確定後，再將整個 CTA 設為連結，並確認 Tab 可聚焦、Enter 可開啟。</p>
+      <div class="summary-grid" aria-label="稽核摘要">
+        <div class="metric"><b>5</b><span>上線前要完成的工作組</span></div>
+        <div class="metric"><b>4</b><span>可在上線後整理的項目</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="before-launch">
+    <h2 id="before-launch">上線前：只看這 5 組</h2>
+    <p class="do-now"><strong>這一段就是未來兩三天的工作清單。</strong>下方每組都寫明位置、要改什麼，以及怎樣算完成。後面的「上線後再整理」不會卡住這次上線。</p>
+    <p class="note"><strong>螢幕閱讀器測試範圍：</strong>本次沒有執行 NVDA、JAWS 或 VoiceOver 實機走查。下方提到的影響，是根據 HTML heading 結構與 accessibility tree 判斷。目前 heading 層級有問題，因此標題導覽不能判定為通過；修正後仍需重新進行完整螢幕閱讀器走查。其他 DOM、鍵盤與版面檢查是各自獨立的結果。</p>
+    <div class="action-list">
+      <article class="finding blocker">
+        <span class="label blocker">上線前 1 · 內容與連結</span>
+        <h3>先修正會讓使用者看到錯誤內容或點到空連結的地方</h3>
+        <p class="where">位置：活動時程、瀏覽器頁籤、Makoto Ueki 講者卡與頁尾社群。</p>
+        <ul class="plain-list">
+          <li><strong>時程：</strong>閉幕為 16:30–16:45，交流茶會卻從 16:40 開始。確認正確時間後，中文與英文時程一起修正。</li>
+          <li><strong>頁面 title：</strong>將「論壇活動」改成「ADALS 2026 亞太資訊無障礙與數位共融領導力論壇｜APAC AIA」。</li>
+          <li><strong>Makoto Ueki：</strong>將「Text link →」改成「LinkedIn →」，連到 <a href="https://jp.linkedin.com/in/makoto-ueki-weba11y">正確的 LinkedIn</a>。</li>
+          <li><strong>頁尾社群：</strong>Facebook 使用 <a href="https://www.facebook.com/apacaia/">正式網址</a>。X、Instagram 帳號目前尚未建立，上線前若仍沒有有效網址，請不要顯示圖示、文字或空連結。開發時設定為只有提供有效網址才輸出對應的 <code>&lt;a&gt;</code> 連結；帳號建立並確認網址後再顯示。</li>
+        </ul>
+        <p class="accept"><strong>完成標準：</strong>時程不再重疊；頁面 title 完整；頁面沒有 <code>#</code>、空白網址或「Text link」；Facebook 與 Makoto Ueki 的連結名稱和目的地正確；頁面只顯示具有有效網址的社群連結，Tab 不會停在尚未啟用的 X、Instagram 圖示或空連結上。</p>
+      </article>
+
+      <article class="finding blocker">
+        <span class="label blocker">上線前 2 · 手機與平板排版</span>
+        <h3>讓手機和平板不要繼續使用桌面版的多欄排列</h3>
+        <p class="where">先使用 Row Layout 內建的裝置欄數設定，分別調整電腦、平板與手機版。</p>
+        <p>目前最大的問題很單純：平板仍同時並排三位講者和四張票券；手機時程仍分成左右兩欄。每一欄因此只剩很窄的空間，文字不斷換行。</p>
+        <div class="comparison-link">
+          <strong>先看圖理解修改前後的差別</strong>
+          <a href="speaker-responsive-comparison.html">開啟講者與票券的各尺寸畫面比較 →</a>
+          <span>內含 320、768、1024、1280、1440、1742、1920px 的原始畫面、修改後畫面與實際文字寬度。</span>
+        </div>
+
+        <p><strong>設定位置：</strong>在 WordPress 編輯器的清單檢視中選取對應的 Row Layout，再到右側「區塊 → Layout／版面配置」，利用電腦、平板、手機圖示設定各裝置欄數。三種裝置共用同一個 Row Layout，不需要複製三套內容。</p>
+        <div class="change-grid">
+          <div class="change"><strong>講者區</strong>包住三張講者卡的 Row Layout：電腦 3 欄；平板 2 欄，目前呈現 2+1；手機 1 欄。</div>
+          <div class="change"><strong>時程區</strong>每筆時程的 Row Layout：電腦 2 欄；平板 1 欄；手機 1 欄。所有時段使用相同設定。</div>
+          <div class="change"><strong>票券區</strong>包住四種票券的 Row Layout：電腦 4 欄；平板 2 欄；手機 1 欄。</div>
+        </div>
+        <p><strong>staging 查看建議：</strong>儲存後，可在 320px、768px 與 1024px 看看實際效果。平板主要觀察欄數；320px 則可一起留意外層 Row Layout 與文字卡內層的左右留白。目前兩層各約 48px，使文字欄只剩約 128px。比較頁的預覽先以兩層各 24px 作為測試值，實測文字欄約 221px；若只調整其中一層，改善幅度可能較有限。</p>
+        <p>若需要確認圖示與設定位置，可參考 <a href="https://www.kadencewp.com/help-center/docs/kadence-blocks/row-layout-block-2/">Kadence Row Layout 說明</a>。</p>
+        <p class="accept"><strong>完成標準：</strong>講者、時程與票券已照上方三組欄數設定；320px 的講者文字欄由約 128px 增加至約 221px；staging 的 320、768、1024、1280、1440、1742、1920px 沒有水平捲動，文字不再逐字或每兩三個字換行。</p>
+      </article>
+        <div class="evidence-grid" aria-label="手機與平板排版證據">
+          <figure class="evidence">
+            <a href="designer-evidence/speakers-320.png"><img class="shot speaker-mobile" src="designer-evidence/speakers-320.png" alt="320 像素活動頁截圖，講者卡已排成單欄，但內文區仍偏窄"></a>
+            <figcaption class="caption"><strong>320px：</strong>講者正文與時程說明都只剩約 128px。要改的是左右內距與時程排列，不是縮小文字。</figcaption>
+          </figure>
+          <figure class="evidence">
+            <a href="designer-evidence/speakers-768.png"><img class="shot speaker-tablet" src="designer-evidence/speakers-768.png" alt="768 像素活動頁截圖，三張講者卡仍並排，內文欄非常狹窄"></a>
+            <figcaption class="caption"><strong>768px 原始畫面：</strong>講者排三欄、票券排四欄，文字空間不足。比較頁的修改後預覽將講者改為兩欄（三位呈現 2+1），票券改為兩欄。</figcaption>
+          </figure>
+        </div>
+
+      <article class="finding blocker">
+        <span class="label blocker">上線前 3 · 標題結構</span>
+        <h3>補上唯一 H1，再把區塊與卡片標題分層</h3>
+        <p class="where">位置：頁首、講者、活動時程表、售票方案與頁尾。</p>
+        <p><strong>目前：</strong>H1 × 0；24 個 H2 把區塊、講者姓名與時程項目混在同一層；英文標語與票種使用 H3；「包含／Includes」使用 H4。</p>
+        <p><strong>改成：</strong></p>
+        <ul class="plain-list">
+          <li>唯一 H1：活動正式名稱。</li>
+          <li>H2：關於／講者／時程／票券／社群媒體。</li>
+          <li>H3：講者姓名／每筆時程／票種名稱。</li>
+          <li>一般文字：英文標語／包含／Includes／頁尾重複標題。</li>
+        </ul>
+        <p>只改 Kadence Advanced Heading 的 HTML Tag，字級、顏色、間距與版面都可以保持不變。<a href="01-HEADING-STRUCTURE.html">開啟 38 個 heading 的逐項對照</a>。</p>
+        <p class="accept"><strong>完成標準：</strong>DOM 中正好一個 H1；主要區塊使用 H2；區塊內的講者、時程與票種使用 H3；標題不跳級。</p>
+      </article>
+
+      <article class="finding blocker">
+        <span class="label blocker">上線前 4 · 頁面語言</span>
+        <h3>將這個頁面的主要語言設定為臺灣繁體中文</h3>
+        <p class="where">位置：<code>html lang="en-US"</code>、英文 bio、英文票券說明與完整英文段落。</p>
+        <p>目前網站導覽與這個活動頁的主要內容都以臺灣繁體中文呈現，因此將頁面最外層的 <code>&lt;html&gt;</code> 標籤設定為 <code>lang="zh-TW"</code>。活動現場使用英文，不會改變這個網頁目前的主要語言；完整英文 bio、英文票券說明與其他英文長段落再個別使用 <code>lang="en"</code>。</p>
+        <p><strong>WordPress 設定位置：</strong>這不是 Kadence 區塊設定。前往「設定 → 一般 → 網站語言」，選擇「繁體中文」；Kadence 會沿用 WordPress 的網站語言。儲存後再檢查網頁原始碼是否輸出 <code>&lt;html lang="zh-TW"&gt;</code>。若未來建立獨立英文頁，建議使用多語系工具管理各頁語言，不要為了單一頁面改動整個網站的主要語言。</p>
+        <p class="accept"><strong>完成標準：</strong>檢查網頁原始碼最外層的 <code>&lt;html&gt;</code> 標籤，顯示 <code>lang="zh-TW"</code>；完整英文段落顯示 <code>lang="en"</code>。使用支援中英文的 NVDA 語音測試時，中文可正常朗讀，進入英文段落時切換英文語音。</p>
+      </article>
+
+      <article class="finding blocker">
+        <span class="label blocker">上線前 5 · 文字對比</span>
+        <h3>把白底灰字與金色導覽列文字調深</h3>
+        <p class="where">位置：白底上的 <code>#718096</code> 灰字、金色導覽列上的兩個連結。</p>
+        <p>16 個白底灰字位置量測為 4.02:1；「論壇活動 Event」與「聯繫 Contact」為 4.16:1。一般文字需達 4.5:1。</p>
+        <ul class="plain-list">
+          <li>白底灰字改成更深的顏色，再實測確認。</li>
+          <li>金色導覽列可先改用品牌深海藍 <code>#003B5C</code>，再量測。</li>
+          <li>不要靠放大字級繞過一般文字的 4.5:1 要求。</li>
+        </ul>
+        <p class="accept"><strong>完成標準：</strong>正文、導覽、按鈕各狀態皆 ≥ 4.5:1；大字才可使用 3:1 門檻。</p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="later">
+    <h2 id="later">上線後再整理：這 4 項不擋本次上線</h2>
+    <div class="findings">
+      <article class="finding next">
+        <span class="label next">視覺整理</span>
+        <h3>價格、按鈕、講者連結與卡片底部對齊</h3>
+        <p>這是版面一致性，不直接列為 WCAG 問題。等上線前 5 組完成後，再用內層卡片 <code>height:100%</code>／<code>flex:1</code>，並以 <code>margin-top:auto</code> 將按鈕或連結推到底部。</p>
+        <p class="accept"><strong>完成標準：</strong>同一排卡片的價格、主要操作與底部邊界在同一水平線；每個價格仍清楚對應正確票種。</p>
+      </article>
+      <article class="finding next">
+        <span class="label next">操作便利性</span>
+        <h3>增加講者連結的垂直點擊範圍</h3>
+        <p>三個講者連結量測約 80×22px／83×22px：寬度已超過 24px，只有高度少 2px，因此未直接達到 24×24px 的尺寸條件。不過，WCAG 2.5.8 允許尺寸較小、周圍間距足夠的連結；不能只憑 22px 高度判定不符合。本項改列為操作便利性建議。</p>
+        <p class="accept"><strong>建議做法：</strong>增加少量上下 padding，讓可點高度至少 24px；若希望手機操作更容易，可朝 44px 高調整，不需要放大文字。</p>
+      </article>
+      <article class="finding next">
+        <span class="label next">操作辨識</span>
+        <h3>讓三個英文 bio 展開按鈕可被清楚區分</h3>
+        <p>這不是中文切換成英文造成的問題。三個 <code>summary</code> 展開按鈕目前都叫「READ ENGLISH BIO」；逐一使用 Tab 瀏覽時，螢幕閱讀器不一定會同時重讀前面的講者姓名，因此使用者可能無法立即確認現在要展開哪一位講者的介紹。展開功能本身正常，所以本項不單獨阻擋上線。</p>
+        <p class="accept"><strong>建議做法：</strong>讓每個按鈕的無障礙名稱包含講者姓名，例如「Read Frances West’s English bio」。畫面可保留「READ ENGLISH BIO」，姓名使用 visually-hidden 文字；若按鈕已透過 <code>aria-describedby</code> 明確連到講者姓名，則不必再加入隱藏文字。兩種方式擇一即可。</p>
+      </article>
+      <article class="finding next">
+        <span class="label next">內容庫整理</span>
+        <h3>圖片與背景圖網址統一使用 HTTPS</h3>
+        <p>瀏覽器目前會自動把圖片網址升級為 HTTPS，所以這不是本次上線阻擋項目。上線後再整理媒體庫與背景圖網址，避免搬站或安全政策改變時載入失敗。</p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="passes-title">
+    <h2 id="passes-title">目前已符合的項目</h2>
+    <div class="passes">
+      <div class="pass"><h3>Skip link 可用</h3><p>可跳到主要內容，目標存在。</p></div>
+      <div class="pass"><h3>鍵盤焦點可見</h3><p>抽查的互動元件有可見 focus indicator。</p></div>
+      <div class="pass"><h3>手機選單可鍵盤操作</h3><p>Open／Close menu 有名稱與展開狀態。</p></div>
+      <div class="pass"><h3>英文 bio 可鍵盤展開</h3><p><code>details/summary</code> 的開合功能正常；只需改善名稱。</p></div>
+      <div class="pass"><h3>各測試寬度皆無水平捲軸</h3><p>7 種寬度皆通過；文字欄寬度另依第 1 項調整。</p></div>
+      <div class="pass"><h3>主要 landmarks 存在</h3><p>有 main、navigation、footer；頁面沒有表單或影音項目需要測。</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="acceptance">
+    <h2 id="acceptance">無障礙複查清單</h2>
+    <div class="tech">
+      <ol class="plain-list">
+        <li>活動名稱是全頁唯一 H1；section／card 層級符合標題圖。</li>
+        <li>320／768／1024／1280／1440／1742／1920px 無 overflow，也沒有低於可讀下限的內文欄。</li>
+        <li>正文與互動文字對比 ≥ 4.5:1；焦點與元件邊界 ≥ 3:1。</li>
+        <li>互動目標達到 24×24px；若尺寸較小，需確認符合 WCAG 2.5.8 的間距例外。</li>
+        <li>頁面的主要語言為 <code>zh-TW</code>，完整英文段落標示 <code>lang="en"</code>。</li>
+        <li>所有保留的連結皆有正確目的地。</li>
+      </ol>
+    </div>
+  </section>
+
+  <section aria-labelledby="method">
+    <h2 id="method">測試範圍與證據</h2>
+    <p>本次以 live rendered DOM 為準，合併自動檢查、computed style／target size 量測、鍵盤走查與人工判讀。Lighthouse accessibility 為 92；由於自動工具不會判斷 39px 文字欄的閱讀感受，也無法取代實際閱讀順序與操作情境，本報告同時納入人工檢查。</p>
+    <ul class="file-list">
+      <li><a href="REPORT.md">完整技術結論（REPORT.md）</a></li>
+      <li><a href="manual-runtime-findings.json">人工 runtime findings</a></li>
+      <li><a href="tier2-results.json">對比與觸控尺寸原始量測</a></li>
+      <li><a href="responsive-width-scan-exact.json">七種寬度掃描結果</a></li>
+      <li><a href="keyboard-focus-trace-mobile.json">手機鍵盤焦點順序</a></li>
+      <li><a href="lighthouse-desktop.json">Lighthouse desktop</a> ／ <a href="lighthouse-mobile.json">mobile</a></li>
+    </ul>
+    <p class="note"><strong>尚未涵蓋：</strong>NVDA、JAWS、VoiceOver 實機 task walkthrough、真實手機觸控、身心障礙使用者測試。本文件是設計與工程修正依據，不是法律認證。</p>
+  </section>
+</main>
+
+<footer><div><p>ADALS 活動頁 accessibility audit · Designer-facing edition · 2026-07-30</p></div></footer>
+</body>
+</html>

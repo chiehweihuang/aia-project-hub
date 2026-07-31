@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AIA 聯繫頁 Heading 結構檢查與修改對照｜2026-07-31</title>
+<link rel="stylesheet" href="../../review-nav.css">
+<style>
+:root{--navy:#003b5c;--ink:#172033;--line:#cbd5df;--page:#eef2f5;--surface:#fff;--soft:#eef6fa;--good:#eaf7ef;--accent:#19abe4;--success:#198754;--code:#f6f8fa;--row:#e5eaf0}
+*{box-sizing:border-box}
+html{background:var(--page)}
+body{max-width:72rem;min-width:0;margin:0 auto;padding:2rem;color:var(--ink);background:var(--surface);font-family:Arial,"Microsoft JhengHei","PingFang TC","Noto Sans TC","Yu Gothic","Noto Sans JP",sans-serif;font-size:1rem;line-height:1.65;overflow-wrap:anywhere}
+main{min-width:0}
+h1,h2,h3{color:var(--navy);line-height:1.3}
+h1{font-size:2rem;border-bottom:.3rem solid var(--accent);padding-bottom:.45rem}
+h2{margin-top:2.2rem;font-size:1.55rem}
+h3{font-size:1.2rem}
+a{color:var(--navy)}
+.skip{position:absolute;top:-5rem;left:1rem;padding:.7rem 1rem;color:var(--navy);background:var(--surface);font-weight:700}
+.skip:focus{top:1rem}
+.meta,.note,.summary{padding:1rem;border-left:.3rem solid var(--navy);background:var(--soft)}
+.summary{border-color:var(--success);background:var(--good)}
+code,pre{font-family:Consolas,"Noto Sans Mono CJK TC","Microsoft JhengHei","Noto Sans JP","Yu Gothic",monospace}
+pre{margin:1rem 0;padding:1rem;background:var(--code);border:1px solid var(--line);white-space:pre-wrap;overflow-wrap:anywhere}
+table{width:100%;table-layout:fixed;border-collapse:collapse;margin:1rem 0}
+th,td{padding:.65rem;border:1px solid var(--line);vertical-align:top;overflow-wrap:anywhere}
+th{color:var(--navy);background:var(--soft);text-align:left}
+.inventory th:nth-child(1),.inventory td:nth-child(1){width:3rem}
+.inventory th:nth-child(3),.inventory td:nth-child(3),.inventory th:nth-child(4),.inventory td:nth-child(4){width:6rem}
+li{margin:.35rem 0}
+@media(max-width:46rem){
+ body{padding:1rem}
+ table,thead,tbody,tr,th,td{display:block;width:100%!important}
+ thead{position:absolute;width:1px!important;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+ tr{margin:0 0 1rem;border:1px solid var(--line);border-radius:.6rem;background:var(--surface)}
+ td{border:0;border-bottom:1px solid var(--row)}
+ td:last-child{border-bottom:0}
+ td::before{display:block;margin-bottom:.2rem;color:var(--navy);font-weight:700;content:attr(data-label)}
+}
+@media print{
+ html{background:var(--surface)}
+ body{max-width:none;padding:0;font-size:10.5pt}
+ h1{font-size:21pt}h2{font-size:16pt}h3{font-size:13pt}
+ h2,h3{break-after:avoid-page}
+ tr,pre,.meta,.note,.summary{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到主要內容</a>
+<nav class="aia-review-nav" aria-label="測試報告導覽">
+  <div class="aia-review-nav__inner">
+    <span class="aia-review-nav__label">AIA 無障礙測試結果</span>
+    <a class="aia-review-nav__hub" href="https://chiehweihuang.github.io/aia-project-hub/#downloads">← 回到專案 Hub</a>
+    <a href="../../index.html">測試總覽</a>
+    <a href="../homepage/homepage-0730-review.html">首頁</a>
+    <a href="../adals-events/event-page-0730-check.html">活動頁</a>
+    <a href="contact-page-0731-check.html">聯繫頁</a>
+    <span class="aia-review-nav__break" aria-hidden="true"></span>
+    <a href="../adals-events/speaker-responsive-comparison.html">講者／票券比較</a>
+    <a href="../homepage/homepage-heading-audit.html">首頁 Heading</a>
+    <a href="../adals-events/01-HEADING-STRUCTURE.html">活動 Heading</a>
+    <a href="contact-heading-audit.html" aria-current="page">聯繫 Heading</a>
+    <a class="aia-review-nav__history" href="../../2026-07-03/index.html">7/3 歷史測試</a>
+  </div>
+</nav>
+<main id="main">
+<h1>AIA 聯繫頁 Heading 結構檢查與修改對照</h1>
+<p class="meta">日期：2026-07-31<br>範圍：AIA 聯繫頁 live rendered DOM<br>目的：逐項說明目前 2 個 heading，提供可直接在 WordPress／Kadence 執行的修改對照。</p>
+
+<h2>先說結論</h2>
+<div class="summary">
+<p><strong>目前：</strong>H1 × 0、H2 × 2，共 2 個 heading。</p>
+<p><strong>建議完成後：</strong>H1 × 1、H2 × 1，共 2 個 heading。</p>
+</div>
+<ul>
+<li>將「聯繫我們」從 H2 改成全頁唯一 H1。</li>
+<li>「社群媒體 SOCIALS」保留 H2，作為獨立頁尾區段。</li>
+<li>名字、Email、訊息類別、主題與訊息是表單欄位標籤，不需要改成 heading。</li>
+<li>修改的是 HTML Tag；「聯繫我們」仍可保留在表單左側，字級、顏色與版面不必移動。</li>
+</ul>
+
+<h2>判斷 Heading 的原則</h2>
+<ul>
+<li>頁面主題使用 H1；這一頁的主題是「聯繫我們」。</li>
+<li>與主要內容並列的獨立區段使用 H2；頁尾「社群媒體」屬於這一層。</li>
+<li>表單欄位名稱維持 label，操作維持 button；不要只因文字醒目就改成 heading。</li>
+<li>HTML 層級與視覺大小分開設定；改成 H1 不代表必須放大或移動「聯繫我們」。</li>
+</ul>
+
+<h2>為什麼這項修正重要</h2>
+<p>目前 heading 清單從 H2 開始，沒有代表本頁主題的 H1。使用螢幕閱讀器開啟 heading 清單時，會聽到「聯繫我們，層級二」和「社群媒體 SOCIALS，層級二」，但沒有一個最高層標題清楚表示這是一個聯繫頁。</p>
+<p>這不代表表單內容完全讀不出來；表單欄位仍有各自的 label。問題在於頁面大綱缺少主題起點，使用者較難從標題導覽快速確認目前頁面與兩個主要區段的關係。</p>
+<p>缺少 H1 本身不是所有頁面都能自動判定為 WCAG 違規；這一頁需要修正，是因為畫面上已經有明確的頁面主標題「聯繫我們」，但 HTML 把它和頁尾區段標成同一層。改成 H1 能讓語意與現有畫面一致。</p>
+<p class="note"><strong>測試界線：</strong>這是根據 rendered HTML 與 accessibility tree 所做的結構檢查，沒有執行 NVDA、JAWS 或 VoiceOver 的完整表單操作走查。修正後仍需在 staging 以 heading list 複查順序，再測試欄位、錯誤訊息與送出結果。</p>
+
+<h2>目前與建議的 heading map</h2>
+<h3>目前</h3>
+<pre>H2  聯繫我們
+H2  社群媒體 SOCIALS</pre>
+<h3>建議</h3>
+<pre>H1  聯繫我們
+H2  社群媒體 SOCIALS</pre>
+
+<h2>兩個 heading 逐項修改對照</h2>
+<table class="inventory">
+<thead><tr><th>#</th><th>畫面文字</th><th>目前</th><th>建議</th><th>動作</th></tr></thead>
+<tbody>
+<tr><td data-label="#">1</td><td data-label="畫面文字">聯繫我們</td><td data-label="目前">H2</td><td data-label="建議">H1</td><td data-label="動作">改 HTML Tag，保留字級、顏色、位置與間距</td></tr>
+<tr><td data-label="#">2</td><td data-label="畫面文字">社群媒體 SOCIALS</td><td data-label="目前">H2</td><td data-label="建議">H2</td><td data-label="動作">作為獨立頁尾區段時保留 H2</td></tr>
+</tbody>
+</table>
+
+<h2>哪些文字不需要變成 heading</h2>
+<table>
+<thead><tr><th>畫面文字</th><th>正確角色</th><th>原因</th></tr></thead>
+<tbody>
+<tr><td data-label="畫面文字">名字、Email、訊息類別、主題、訊息</td><td data-label="正確角色">表單 label</td><td data-label="原因">它們命名各自的輸入欄位，不是頁面章節。</td></tr>
+<tr><td data-label="畫面文字">發送</td><td data-label="正確角色">按鈕</td><td data-label="原因">它是送出表單的操作，不是內容標題。</td></tr>
+<tr><td data-label="畫面文字">Facebook、X、Instagram</td><td data-label="正確角色">有目的網址時為連結</td><td data-label="原因">它們是社群平台入口，不是「社群媒體」底下的內容章節。</td></tr>
+</tbody>
+</table>
+
+<h2>WordPress／Kadence 實作步驟</h2>
+<ol>
+<li>進入「頁面 → 全部頁面 → 聯繫 → 編輯」。</li>
+<li>打開左上角「清單檢視」，選取顯示「聯繫我們」的 Heading／Kadence Advanced Heading。</li>
+<li>若是 Kadence Advanced Heading，在右側區塊設定找到 <code>HTML Tag</code>／<code>Heading Tag</code>，將 H2 改為 H1。</li>
+<li>若是 WordPress 核心 Heading block，從區塊工具列將層級改為 H1。</li>
+<li>不要移動區塊；若 tag 改變後預設字級跟著變化，以原本的 typography 設定恢復原字級。</li>
+<li>「社群媒體 SOCIALS」維持 H2。</li>
+<li>儲存草稿後先預覽，再檢查畫面與 heading list。</li>
+</ol>
+
+<h2>複查清單</h2>
+<ul>
+<li>DOM 中 H1 正好 1 個，文字為「聯繫我們」。</li>
+<li>H2 正好 1 個，文字為「社群媒體 SOCIALS」。</li>
+<li>heading 順序為 H1 → H2，沒有從 H2 開始。</li>
+<li>「聯繫我們」在 DOM 閱讀順序中位於表單之前。</li>
+<li>五個表單欄位名稱仍是已關聯的 label，不出現在 heading 清單。</li>
+<li>更改 tag 後，桌面與手機的字級、顏色、位置、間距和原設計一致。</li>
+<li>在 staging 以瀏覽器 Accessibility Tree 或螢幕閱讀器 heading list 複查完整順序。</li>
+</ul>
+
+<p class="note"><strong>對應標準：</strong><a href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">WCAG 2.2 1.3.1 Info and Relationships</a>、<a href="https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html">2.4.6 Headings and Labels</a>。這份文件只處理 heading 語意；表單欄位型別、focus 樣式、錯誤訊息與社群網址仍以聯繫頁完整檢查為準。</p>
+<p><a href="contact-page-0731-check.html">返回聯繫頁完整無障礙檢查</a></p>
+</main>
+</body>
+</html>

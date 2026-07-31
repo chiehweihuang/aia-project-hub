@@ -1,0 +1,1395 @@
+[
+  {
+    "width": 320,
+    "viewport": {
+      "clientWidth": 320,
+      "scrollWidth": 320
+    },
+    "grid": {
+      "left": 48,
+      "top": -1298.9,
+      "width": 224,
+      "height": 3498,
+      "right": 272,
+      "display": "grid",
+      "columns": "224px",
+      "gap": "64px"
+    },
+    "cards": [
+      {
+        "index": 1,
+        "left": 48,
+        "top": -1274.9,
+        "width": 224,
+        "height": 1083.7,
+        "right": 272,
+        "textCard": {
+          "left": 48,
+          "top": -1050.9,
+          "width": 224,
+          "height": 859.7,
+          "right": 272
+        },
+        "heading": {
+          "tag": "h2",
+          "text": "王馥明 Frances West",
+          "width": 128,
+          "height": 42.3,
+          "fontSize": "17.6px",
+          "lineHeight": "21.12px",
+          "approximateLines": 2
+        },
+        "role": {
+          "tag": "div",
+          "text": "FrancesWest&Co. 創辦人、TED 講者、前 IBM 首席無障礙長",
+          "width": 128,
+          "height": 81.9,
+          "fontSize": "12.8px",
+          "lineHeight": "20.48px",
+          "approximateLines": 4
+        },
+        "bio": {
+          "tag": "div",
+          "text": "王馥明是數位包容領域的全球思想領袖、前 IBM 首席無障礙長，也是 FrancesWest&Co. 創辦人與 TED 講者。身為科技界女性先驅與第一代亞裔移民，她致力於將人性多樣性帶入企業創新。她著有獲獎作品《真實的共融™啟動顛覆性的創新》",
+          "width": 128,
+          "height": 489.4,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 18
+        },
+        "disclosure": {
+          "tag": "summary",
+          "text": "READ ENGLISH BIO",
+          "width": 128,
+          "height": 54.4,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 2
+        },
+        "link": {
+          "tag": "a",
+          "text": "LinkedIn →",
+          "width": 82.6,
+          "height": 22,
+          "fontSize": "17px",
+          "lineHeight": "23.8px",
+          "approximateLines": 0.9
+        }
+      },
+      {
+        "index": 2,
+        "left": 48,
+        "top": -127.3,
+        "width": 224,
+        "height": 1097.1,
+        "right": 272,
+        "textCard": {
+          "left": 48,
+          "top": 96.7,
+          "width": 224,
+          "height": 873.1,
+          "right": 272
+        },
+        "heading": {
+          "tag": "h2",
+          "text": "植木真 | Makoto Ueki",
+          "width": 128,
+          "height": 42.3,
+          "fontSize": "17.6px",
+          "lineHeight": "21.12px",
+          "approximateLines": 2
+        },
+        "role": {
+          "tag": "div",
+          "text": "日本網頁無障礙顧問、W3C AG 受邀專家",
+          "width": 128,
+          "height": 40.9,
+          "fontSize": "12.8px",
+          "lineHeight": "20.48px",
+          "approximateLines": 2
+        },
+        "bio": {
+          "tag": "div",
+          "text": "植木真自 2002 年起擔任日本網頁無障礙顧問，協助國際企業打造無障礙數位體驗。他曾參與日本產業標準（JIS）工作小組，並於 2012 至 2019 年擔任日本網頁無障礙基礎設施委員會（WAIC）主席；亦以受邀專家身分參與 W3C Acce",
+          "width": 128,
+          "height": 543.8,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 20
+        },
+        "disclosure": {
+          "tag": "summary",
+          "text": "READ ENGLISH BIO",
+          "width": 128,
+          "height": 54.4,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 2
+        },
+        "link": {
+          "tag": "a",
+          "text": "Text link →",
+          "width": 80,
+          "height": 22,
+          "fontSize": "17px",
+          "lineHeight": "23.8px",
+          "approximateLines": 0.9
+        }
+      },
+      {
+        "index": 3,
+        "left": 48,
+        "top": 1033.8,
+        "width": 224,
+        "height": 1165.2,
+        "right": 272,
+        "textCard": {
+          "left": 48,
+          "top": 1257.8,
+          "width": 224,
+          "height": 941.2,
+          "right": 272
+        },
+        "heading": {
+          "tag": "h2",
+          "text": "張凱萍 Claire Chang",
+          "width": 128,
+          "height": 42.3,
+          "fontSize": "17.6px",
+          "lineHeight": "21.12px",
+          "approximateLines": 2
+        },
+        "role": {
+          "tag": "div",
+          "text": "APAC AIA 理事長；TechMoi 創辦人；W3C WAI 色彩領域受邀專家。",
+          "width": 128,
+          "height": 81.9,
+          "fontSize": "12.8px",
+          "lineHeight": "20.48px",
+          "approximateLines": 4
+        },
+        "bio": {
+          "tag": "div",
+          "text": "畢業於英國里茲大學色彩科學碩士，橫跨時尚與無障礙設計領域。現任亞太包容創新協會（APAC AIA）理事長暨共同創辦人、TechMoi International 創辦人，並曾任輔仁大學兼任講師與法國科技台灣（La French Tech T",
+          "width": 128,
+          "height": 570.9,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 21
+        },
+        "disclosure": {
+          "tag": "summary",
+          "text": "READ ENGLISH BIO",
+          "width": 128,
+          "height": 54.4,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 2
+        },
+        "link": {
+          "tag": "a",
+          "text": "LinkedIn →",
+          "width": 82.6,
+          "height": 22,
+          "fontSize": "17px",
+          "lineHeight": "23.8px",
+          "approximateLines": 0.9
+        }
+      }
+    ]
+  },
+  {
+    "width": 768,
+    "viewport": {
+      "clientWidth": 768,
+      "scrollWidth": 768
+    },
+    "grid": {
+      "left": 48,
+      "top": -335.2,
+      "width": 672,
+      "height": 1570.3,
+      "right": 720,
+      "display": "grid",
+      "columns": "181.328px 181.328px 181.328px",
+      "gap": "64px"
+    },
+    "cards": [
+      {
+        "index": 1,
+        "left": 48,
+        "top": -311.2,
+        "width": 181.3,
+        "height": 1546.3,
+        "right": 229.3,
+        "textCard": {
+          "left": 48,
+          "top": -129.9,
+          "width": 181.3,
+          "height": 1153.3,
+          "right": 229.3
+        },
+        "heading": {
+          "tag": "h2",
+          "text": "王馥明 Frances West",
+          "width": 85.3,
+          "height": 66.3,
+          "fontSize": "18.4237px",
+          "lineHeight": "22.1084px",
+          "approximateLines": 3
+        },
+        "role": {
+          "tag": "div",
+          "text": "FrancesWest&Co. 創辦人、TED 講者、前 IBM 首席無障礙長",
+          "width": 85.3,
+          "height": 106.7,
+          "fontSize": "13.3466px",
+          "lineHeight": "21.3545px",
+          "approximateLines": 5
+        },
+        "bio": {
+          "tag": "div",
+          "text": "王馥明是數位包容領域的全球思想領袖、前 IBM 首席無障礙長，也是 FrancesWest&Co. 創辦人與 TED 講者。身為科技界女性先驅與第一代亞裔移民，她致力於將人性多樣性帶入企業創新。她著有獲獎作品《真實的共融™啟動顛覆性的創新》",
+          "width": 85.3,
+          "height": 706.9,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 26
+        },
+        "disclosure": {
+          "tag": "summary",
+          "text": "READ ENGLISH BIO",
+          "width": 85.3,
+          "height": 81.6,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 3
+        },
+        "link": {
+          "tag": "a",
+          "text": "LinkedIn →",
+          "width": 82.6,
+          "height": 22,
+          "fontSize": "17px",
+          "lineHeight": "23.8px",
+          "approximateLines": 0.9
+        }
+      },
+      {
+        "index": 2,
+        "left": 293.3,
+        "top": -311.2,
+        "width": 181.3,
+        "height": 1546.3,
+        "right": 474.7,
+        "textCard": {
+          "left": 293.3,
+          "top": -129.9,
+          "width": 181.3,
+          "height": 1192.2,
+          "right": 474.7
+        },
+        "heading": {
+          "tag": "h2",
+          "text": "植木真 | Makoto Ueki",
+          "width": 85.3,
+          "height": 66.3,
+          "fontSize": "18.4237px",
+          "lineHeight": "22.1084px",
+          "approximateLines": 3
+        },
+        "role": {
+          "tag": "div",
+          "text": "日本網頁無障礙顧問、W3C AG 受邀專家",
+          "width": 85.3,
+          "height": 64,
+          "fontSize": "13.3466px",
+          "lineHeight": "21.3545px",
+          "approximateLines": 3
+        },
+        "bio": {
+          "tag": "div",
+          "text": "植木真自 2002 年起擔任日本網頁無障礙顧問，協助國際企業打造無障礙數位體驗。他曾參與日本產業標準（JIS）工作小組，並於 2012 至 2019 年擔任日本網頁無障礙基礎設施委員會（WAIC）主席；亦以受邀專家身分參與 W3C Acce",
+          "width": 85.3,
+          "height": 788.4,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 29
+        },
+        "disclosure": {
+          "tag": "summary",
+          "text": "READ ENGLISH BIO",
+          "width": 85.3,
+          "height": 81.6,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 3
+        },
+        "link": {
+          "tag": "a",
+          "text": "Text link →",
+          "width": 80,
+          "height": 22,
+          "fontSize": "17px",
+          "lineHeight": "23.8px",
+          "approximateLines": 0.9
+        }
+      },
+      {
+        "index": 3,
+        "left": 538.7,
+        "top": -311.2,
+        "width": 181.3,
+        "height": 1546.3,
+        "right": 720,
+        "textCard": {
+          "left": 538.7,
+          "top": -129.9,
+          "width": 181.3,
+          "height": 1364.9,
+          "right": 720
+        },
+        "heading": {
+          "tag": "h2",
+          "text": "張凱萍 Claire Chang",
+          "width": 85.3,
+          "height": 66.3,
+          "fontSize": "18.4237px",
+          "lineHeight": "22.1084px",
+          "approximateLines": 3
+        },
+        "role": {
+          "tag": "div",
+          "text": "APAC AIA 理事長；TechMoi 創辦人；W3C WAI 色彩領域受邀專家。",
+          "width": 85.3,
+          "height": 128.1,
+          "fontSize": "13.3466px",
+          "lineHeight": "21.3545px",
+          "approximateLines": 6
+        },
+        "bio": {
+          "tag": "div",
+          "text": "畢業於英國里茲大學色彩科學碩士，橫跨時尚與無障礙設計領域。現任亞太包容創新協會（APAC AIA）理事長暨共同創辦人、TechMoi International 創辦人，並曾任輔仁大學兼任講師與法國科技台灣（La French Tech T",
+          "width": 85.3,
+          "height": 897.2,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 33
+        },
+        "disclosure": {
+          "tag": "summary",
+          "text": "READ ENGLISH BIO",
+          "width": 85.3,
+          "height": 81.6,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 3
+        },
+        "link": {
+          "tag": "a",
+          "text": "LinkedIn →",
+          "width": 82.6,
+          "height": 22,
+          "fontSize": "17px",
+          "lineHeight": "23.8px",
+          "approximateLines": 0.9
+        }
+      }
+    ]
+  },
+  {
+    "width": 1024,
+    "viewport": {
+      "clientWidth": 1024,
+      "scrollWidth": 1024
+    },
+    "grid": {
+      "left": 48,
+      "top": -65.6,
+      "width": 928,
+      "height": 1030.4,
+      "right": 976,
+      "display": "grid",
+      "columns": "266.656px 266.672px 266.656px",
+      "gap": "64px"
+    },
+    "cards": [
+      {
+        "index": 1,
+        "left": 48,
+        "top": -41.6,
+        "width": 266.7,
+        "height": 1006.4,
+        "right": 314.7,
+        "textCard": {
+          "left": 48,
+          "top": 225,
+          "width": 266.7,
+          "height": 685.4,
+          "right": 314.7
+        },
+        "heading": {
+          "tag": "h2",
+          "text": "王馥明 Frances West",
+          "width": 170.7,
+          "height": 46.2,
+          "fontSize": "19.2582px",
+          "lineHeight": "23.1099px",
+          "approximateLines": 2
+        },
+        "role": {
+          "tag": "div",
+          "text": "FrancesWest&Co. 創辦人、TED 講者、前 IBM 首席無障礙長",
+          "width": 170.7,
+          "height": 66.8,
+          "fontSize": "13.9021px",
+          "lineHeight": "22.2433px",
+          "approximateLines": 3
+        },
+        "bio": {
+          "tag": "div",
+          "text": "王馥明是數位包容領域的全球思想領袖、前 IBM 首席無障礙長，也是 FrancesWest&Co. 創辦人與 TED 講者。身為科技界女性先驅與第一代亞裔移民，她致力於將人性多樣性帶入企業創新。她著有獲獎作品《真實的共融™啟動顛覆性的創新》",
+          "width": 170.7,
+          "height": 353.4,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 13
+        },
+        "disclosure": {
+          "tag": "summary",
+          "text": "READ ENGLISH BIO",
+          "width": 170.7,
+          "height": 27.2,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 1
+        },
+        "link": {
+          "tag": "a",
+          "text": "LinkedIn →",
+          "width": 82.6,
+          "height": 22,
+          "fontSize": "17px",
+          "lineHeight": "23.8px",
+          "approximateLines": 0.9
+        }
+      },
+      {
+        "index": 2,
+        "left": 378.7,
+        "top": -41.6,
+        "width": 266.7,
+        "height": 1006.4,
+        "right": 645.3,
+        "textCard": {
+          "left": 378.7,
+          "top": 225,
+          "width": 266.7,
+          "height": 717.5,
+          "right": 645.3
+        },
+        "heading": {
+          "tag": "h2",
+          "text": "植木真 | Makoto Ueki",
+          "width": 170.7,
+          "height": 46.2,
+          "fontSize": "19.2582px",
+          "lineHeight": "23.1099px",
+          "approximateLines": 2
+        },
+        "role": {
+          "tag": "div",
+          "text": "日本網頁無障礙顧問、W3C AG 受邀專家",
+          "width": 170.7,
+          "height": 44.5,
+          "fontSize": "13.9021px",
+          "lineHeight": "22.2433px",
+          "approximateLines": 2
+        },
+        "bio": {
+          "tag": "div",
+          "text": "植木真自 2002 年起擔任日本網頁無障礙顧問，協助國際企業打造無障礙數位體驗。他曾參與日本產業標準（JIS）工作小組，並於 2012 至 2019 年擔任日本網頁無障礙基礎設施委員會（WAIC）主席；亦以受邀專家身分參與 W3C Acce",
+          "width": 170.7,
+          "height": 407.8,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 15
+        },
+        "disclosure": {
+          "tag": "summary",
+          "text": "READ ENGLISH BIO",
+          "width": 170.7,
+          "height": 27.2,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 1
+        },
+        "link": {
+          "tag": "a",
+          "text": "Text link →",
+          "width": 80,
+          "height": 22,
+          "fontSize": "17px",
+          "lineHeight": "23.8px",
+          "approximateLines": 0.9
+        }
+      },
+      {
+        "index": 3,
+        "left": 709.3,
+        "top": -41.6,
+        "width": 266.7,
+        "height": 1006.4,
+        "right": 976,
+        "textCard": {
+          "left": 709.3,
+          "top": 225,
+          "width": 266.7,
+          "height": 739.8,
+          "right": 976
+        },
+        "heading": {
+          "tag": "h2",
+          "text": "張凱萍 Claire Chang",
+          "width": 170.7,
+          "height": 46.2,
+          "fontSize": "19.2582px",
+          "lineHeight": "23.1099px",
+          "approximateLines": 2
+        },
+        "role": {
+          "tag": "div",
+          "text": "APAC AIA 理事長；TechMoi 創辦人；W3C WAI 色彩領域受邀專家。",
+          "width": 170.7,
+          "height": 66.8,
+          "fontSize": "13.9021px",
+          "lineHeight": "22.2433px",
+          "approximateLines": 3
+        },
+        "bio": {
+          "tag": "div",
+          "text": "畢業於英國里茲大學色彩科學碩士，橫跨時尚與無障礙設計領域。現任亞太包容創新協會（APAC AIA）理事長暨共同創辦人、TechMoi International 創辦人，並曾任輔仁大學兼任講師與法國科技台灣（La French Tech T",
+          "width": 170.7,
+          "height": 407.8,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 15
+        },
+        "disclosure": {
+          "tag": "summary",
+          "text": "READ ENGLISH BIO",
+          "width": 170.7,
+          "height": 27.2,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 1
+        },
+        "link": {
+          "tag": "a",
+          "text": "LinkedIn →",
+          "width": 82.6,
+          "height": 22,
+          "fontSize": "17px",
+          "lineHeight": "23.8px",
+          "approximateLines": 0.9
+        }
+      }
+    ]
+  },
+  {
+    "width": 1280,
+    "viewport": {
+      "clientWidth": 1280,
+      "scrollWidth": 1280
+    },
+    "grid": {
+      "left": 64,
+      "top": -27.2,
+      "width": 1152,
+      "height": 953.5,
+      "right": 1216,
+      "display": "grid",
+      "columns": "341.328px 341.328px 341.344px",
+      "gap": "64px"
+    },
+    "cards": [
+      {
+        "index": 1,
+        "left": 64,
+        "top": -3.2,
+        "width": 341.3,
+        "height": 929.5,
+        "right": 405.3,
+        "textCard": {
+          "left": 64,
+          "top": 338.1,
+          "width": 341.3,
+          "height": 533.8,
+          "right": 405.3
+        },
+        "heading": {
+          "tag": "h2",
+          "text": "王馥明 Frances West",
+          "width": 245.3,
+          "height": 24,
+          "fontSize": "20px",
+          "lineHeight": "24px",
+          "approximateLines": 1
+        },
+        "role": {
+          "tag": "div",
+          "text": "FrancesWest&Co. 創辦人、TED 講者、前 IBM 首席無障礙長",
+          "width": 245.3,
+          "height": 46.1,
+          "fontSize": "14.4px",
+          "lineHeight": "23.04px",
+          "approximateLines": 2
+        },
+        "bio": {
+          "tag": "div",
+          "text": "王馥明是數位包容領域的全球思想領袖、前 IBM 首席無障礙長，也是 FrancesWest&Co. 創辦人與 TED 講者。身為科技界女性先驅與第一代亞裔移民，她致力於將人性多樣性帶入企業創新。她著有獲獎作品《真實的共融™啟動顛覆性的創新》",
+          "width": 245.3,
+          "height": 244.7,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 9
+        },
+        "disclosure": {
+          "tag": "summary",
+          "text": "READ ENGLISH BIO",
+          "width": 245.3,
+          "height": 27.2,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 1
+        },
+        "link": {
+          "tag": "a",
+          "text": "LinkedIn →",
+          "width": 82.6,
+          "height": 22,
+          "fontSize": "17px",
+          "lineHeight": "23.8px",
+          "approximateLines": 0.9
+        }
+      },
+      {
+        "index": 2,
+        "left": 469.3,
+        "top": -3.2,
+        "width": 341.3,
+        "height": 929.5,
+        "right": 810.7,
+        "textCard": {
+          "left": 469.3,
+          "top": 338.1,
+          "width": 341.3,
+          "height": 561,
+          "right": 810.7
+        },
+        "heading": {
+          "tag": "h2",
+          "text": "植木真 | Makoto Ueki",
+          "width": 245.3,
+          "height": 24,
+          "fontSize": "20px",
+          "lineHeight": "24px",
+          "approximateLines": 1
+        },
+        "role": {
+          "tag": "div",
+          "text": "日本網頁無障礙顧問、W3C AG 受邀專家",
+          "width": 245.3,
+          "height": 46.1,
+          "fontSize": "14.4px",
+          "lineHeight": "23.04px",
+          "approximateLines": 2
+        },
+        "bio": {
+          "tag": "div",
+          "text": "植木真自 2002 年起擔任日本網頁無障礙顧問，協助國際企業打造無障礙數位體驗。他曾參與日本產業標準（JIS）工作小組，並於 2012 至 2019 年擔任日本網頁無障礙基礎設施委員會（WAIC）主席；亦以受邀專家身分參與 W3C Acce",
+          "width": 245.3,
+          "height": 271.9,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 10
+        },
+        "disclosure": {
+          "tag": "summary",
+          "text": "READ ENGLISH BIO",
+          "width": 245.3,
+          "height": 27.2,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 1
+        },
+        "link": {
+          "tag": "a",
+          "text": "Text link →",
+          "width": 80,
+          "height": 22,
+          "fontSize": "17px",
+          "lineHeight": "23.8px",
+          "approximateLines": 0.9
+        }
+      },
+      {
+        "index": 3,
+        "left": 874.7,
+        "top": -3.2,
+        "width": 341.3,
+        "height": 929.5,
+        "right": 1216,
+        "textCard": {
+          "left": 874.7,
+          "top": 338.1,
+          "width": 341.3,
+          "height": 588.1,
+          "right": 1216
+        },
+        "heading": {
+          "tag": "h2",
+          "text": "張凱萍 Claire Chang",
+          "width": 245.3,
+          "height": 24,
+          "fontSize": "20px",
+          "lineHeight": "24px",
+          "approximateLines": 1
+        },
+        "role": {
+          "tag": "div",
+          "text": "APAC AIA 理事長；TechMoi 創辦人；W3C WAI 色彩領域受邀專家。",
+          "width": 245.3,
+          "height": 46.1,
+          "fontSize": "14.4px",
+          "lineHeight": "23.04px",
+          "approximateLines": 2
+        },
+        "bio": {
+          "tag": "div",
+          "text": "畢業於英國里茲大學色彩科學碩士，橫跨時尚與無障礙設計領域。現任亞太包容創新協會（APAC AIA）理事長暨共同創辦人、TechMoi International 創辦人，並曾任輔仁大學兼任講師與法國科技台灣（La French Tech T",
+          "width": 245.3,
+          "height": 299.1,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 11
+        },
+        "disclosure": {
+          "tag": "summary",
+          "text": "READ ENGLISH BIO",
+          "width": 245.3,
+          "height": 27.2,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 1
+        },
+        "link": {
+          "tag": "a",
+          "text": "LinkedIn →",
+          "width": 82.6,
+          "height": 22,
+          "fontSize": "17px",
+          "lineHeight": "23.8px",
+          "approximateLines": 0.9
+        }
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "viewport": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440
+    },
+    "grid": {
+      "left": 144,
+      "top": -27.2,
+      "width": 1152,
+      "height": 953.5,
+      "right": 1296,
+      "display": "grid",
+      "columns": "341.328px 341.328px 341.344px",
+      "gap": "64px"
+    },
+    "cards": [
+      {
+        "index": 1,
+        "left": 144,
+        "top": -3.2,
+        "width": 341.3,
+        "height": 929.5,
+        "right": 485.3,
+        "textCard": {
+          "left": 144,
+          "top": 338.1,
+          "width": 341.3,
+          "height": 533.8,
+          "right": 485.3
+        },
+        "heading": {
+          "tag": "h2",
+          "text": "王馥明 Frances West",
+          "width": 245.3,
+          "height": 24,
+          "fontSize": "20px",
+          "lineHeight": "24px",
+          "approximateLines": 1
+        },
+        "role": {
+          "tag": "div",
+          "text": "FrancesWest&Co. 創辦人、TED 講者、前 IBM 首席無障礙長",
+          "width": 245.3,
+          "height": 46.1,
+          "fontSize": "14.4px",
+          "lineHeight": "23.04px",
+          "approximateLines": 2
+        },
+        "bio": {
+          "tag": "div",
+          "text": "王馥明是數位包容領域的全球思想領袖、前 IBM 首席無障礙長，也是 FrancesWest&Co. 創辦人與 TED 講者。身為科技界女性先驅與第一代亞裔移民，她致力於將人性多樣性帶入企業創新。她著有獲獎作品《真實的共融™啟動顛覆性的創新》",
+          "width": 245.3,
+          "height": 244.7,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 9
+        },
+        "disclosure": {
+          "tag": "summary",
+          "text": "READ ENGLISH BIO",
+          "width": 245.3,
+          "height": 27.2,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 1
+        },
+        "link": {
+          "tag": "a",
+          "text": "LinkedIn →",
+          "width": 82.6,
+          "height": 22,
+          "fontSize": "17px",
+          "lineHeight": "23.8px",
+          "approximateLines": 0.9
+        }
+      },
+      {
+        "index": 2,
+        "left": 549.3,
+        "top": -3.2,
+        "width": 341.3,
+        "height": 929.5,
+        "right": 890.7,
+        "textCard": {
+          "left": 549.3,
+          "top": 338.1,
+          "width": 341.3,
+          "height": 561,
+          "right": 890.7
+        },
+        "heading": {
+          "tag": "h2",
+          "text": "植木真 | Makoto Ueki",
+          "width": 245.3,
+          "height": 24,
+          "fontSize": "20px",
+          "lineHeight": "24px",
+          "approximateLines": 1
+        },
+        "role": {
+          "tag": "div",
+          "text": "日本網頁無障礙顧問、W3C AG 受邀專家",
+          "width": 245.3,
+          "height": 46.1,
+          "fontSize": "14.4px",
+          "lineHeight": "23.04px",
+          "approximateLines": 2
+        },
+        "bio": {
+          "tag": "div",
+          "text": "植木真自 2002 年起擔任日本網頁無障礙顧問，協助國際企業打造無障礙數位體驗。他曾參與日本產業標準（JIS）工作小組，並於 2012 至 2019 年擔任日本網頁無障礙基礎設施委員會（WAIC）主席；亦以受邀專家身分參與 W3C Acce",
+          "width": 245.3,
+          "height": 271.9,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 10
+        },
+        "disclosure": {
+          "tag": "summary",
+          "text": "READ ENGLISH BIO",
+          "width": 245.3,
+          "height": 27.2,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 1
+        },
+        "link": {
+          "tag": "a",
+          "text": "Text link →",
+          "width": 80,
+          "height": 22,
+          "fontSize": "17px",
+          "lineHeight": "23.8px",
+          "approximateLines": 0.9
+        }
+      },
+      {
+        "index": 3,
+        "left": 954.7,
+        "top": -3.2,
+        "width": 341.3,
+        "height": 929.5,
+        "right": 1296,
+        "textCard": {
+          "left": 954.7,
+          "top": 338.1,
+          "width": 341.3,
+          "height": 588.1,
+          "right": 1296
+        },
+        "heading": {
+          "tag": "h2",
+          "text": "張凱萍 Claire Chang",
+          "width": 245.3,
+          "height": 24,
+          "fontSize": "20px",
+          "lineHeight": "24px",
+          "approximateLines": 1
+        },
+        "role": {
+          "tag": "div",
+          "text": "APAC AIA 理事長；TechMoi 創辦人；W3C WAI 色彩領域受邀專家。",
+          "width": 245.3,
+          "height": 46.1,
+          "fontSize": "14.4px",
+          "lineHeight": "23.04px",
+          "approximateLines": 2
+        },
+        "bio": {
+          "tag": "div",
+          "text": "畢業於英國里茲大學色彩科學碩士，橫跨時尚與無障礙設計領域。現任亞太包容創新協會（APAC AIA）理事長暨共同創辦人、TechMoi International 創辦人，並曾任輔仁大學兼任講師與法國科技台灣（La French Tech T",
+          "width": 245.3,
+          "height": 299.1,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 11
+        },
+        "disclosure": {
+          "tag": "summary",
+          "text": "READ ENGLISH BIO",
+          "width": 245.3,
+          "height": 27.2,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 1
+        },
+        "link": {
+          "tag": "a",
+          "text": "LinkedIn →",
+          "width": 82.6,
+          "height": 22,
+          "fontSize": "17px",
+          "lineHeight": "23.8px",
+          "approximateLines": 0.9
+        }
+      }
+    ]
+  },
+  {
+    "width": 1742,
+    "viewport": {
+      "clientWidth": 1742,
+      "scrollWidth": 1742
+    },
+    "grid": {
+      "left": 295,
+      "top": -27.2,
+      "width": 1152,
+      "height": 953.5,
+      "right": 1447,
+      "display": "grid",
+      "columns": "341.328px 341.328px 341.344px",
+      "gap": "64px"
+    },
+    "cards": [
+      {
+        "index": 1,
+        "left": 295,
+        "top": -3.2,
+        "width": 341.3,
+        "height": 929.5,
+        "right": 636.3,
+        "textCard": {
+          "left": 295,
+          "top": 338.1,
+          "width": 341.3,
+          "height": 533.8,
+          "right": 636.3
+        },
+        "heading": {
+          "tag": "h2",
+          "text": "王馥明 Frances West",
+          "width": 245.3,
+          "height": 24,
+          "fontSize": "20px",
+          "lineHeight": "24px",
+          "approximateLines": 1
+        },
+        "role": {
+          "tag": "div",
+          "text": "FrancesWest&Co. 創辦人、TED 講者、前 IBM 首席無障礙長",
+          "width": 245.3,
+          "height": 46.1,
+          "fontSize": "14.4px",
+          "lineHeight": "23.04px",
+          "approximateLines": 2
+        },
+        "bio": {
+          "tag": "div",
+          "text": "王馥明是數位包容領域的全球思想領袖、前 IBM 首席無障礙長，也是 FrancesWest&Co. 創辦人與 TED 講者。身為科技界女性先驅與第一代亞裔移民，她致力於將人性多樣性帶入企業創新。她著有獲獎作品《真實的共融™啟動顛覆性的創新》",
+          "width": 245.3,
+          "height": 244.7,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 9
+        },
+        "disclosure": {
+          "tag": "summary",
+          "text": "READ ENGLISH BIO",
+          "width": 245.3,
+          "height": 27.2,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 1
+        },
+        "link": {
+          "tag": "a",
+          "text": "LinkedIn →",
+          "width": 82.6,
+          "height": 22,
+          "fontSize": "17px",
+          "lineHeight": "23.8px",
+          "approximateLines": 0.9
+        }
+      },
+      {
+        "index": 2,
+        "left": 700.3,
+        "top": -3.2,
+        "width": 341.3,
+        "height": 929.5,
+        "right": 1041.7,
+        "textCard": {
+          "left": 700.3,
+          "top": 338.1,
+          "width": 341.3,
+          "height": 561,
+          "right": 1041.7
+        },
+        "heading": {
+          "tag": "h2",
+          "text": "植木真 | Makoto Ueki",
+          "width": 245.3,
+          "height": 24,
+          "fontSize": "20px",
+          "lineHeight": "24px",
+          "approximateLines": 1
+        },
+        "role": {
+          "tag": "div",
+          "text": "日本網頁無障礙顧問、W3C AG 受邀專家",
+          "width": 245.3,
+          "height": 46.1,
+          "fontSize": "14.4px",
+          "lineHeight": "23.04px",
+          "approximateLines": 2
+        },
+        "bio": {
+          "tag": "div",
+          "text": "植木真自 2002 年起擔任日本網頁無障礙顧問，協助國際企業打造無障礙數位體驗。他曾參與日本產業標準（JIS）工作小組，並於 2012 至 2019 年擔任日本網頁無障礙基礎設施委員會（WAIC）主席；亦以受邀專家身分參與 W3C Acce",
+          "width": 245.3,
+          "height": 271.9,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 10
+        },
+        "disclosure": {
+          "tag": "summary",
+          "text": "READ ENGLISH BIO",
+          "width": 245.3,
+          "height": 27.2,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 1
+        },
+        "link": {
+          "tag": "a",
+          "text": "Text link →",
+          "width": 80,
+          "height": 22,
+          "fontSize": "17px",
+          "lineHeight": "23.8px",
+          "approximateLines": 0.9
+        }
+      },
+      {
+        "index": 3,
+        "left": 1105.7,
+        "top": -3.2,
+        "width": 341.3,
+        "height": 929.5,
+        "right": 1447,
+        "textCard": {
+          "left": 1105.7,
+          "top": 338.1,
+          "width": 341.3,
+          "height": 588.1,
+          "right": 1447
+        },
+        "heading": {
+          "tag": "h2",
+          "text": "張凱萍 Claire Chang",
+          "width": 245.3,
+          "height": 24,
+          "fontSize": "20px",
+          "lineHeight": "24px",
+          "approximateLines": 1
+        },
+        "role": {
+          "tag": "div",
+          "text": "APAC AIA 理事長；TechMoi 創辦人；W3C WAI 色彩領域受邀專家。",
+          "width": 245.3,
+          "height": 46.1,
+          "fontSize": "14.4px",
+          "lineHeight": "23.04px",
+          "approximateLines": 2
+        },
+        "bio": {
+          "tag": "div",
+          "text": "畢業於英國里茲大學色彩科學碩士，橫跨時尚與無障礙設計領域。現任亞太包容創新協會（APAC AIA）理事長暨共同創辦人、TechMoi International 創辦人，並曾任輔仁大學兼任講師與法國科技台灣（La French Tech T",
+          "width": 245.3,
+          "height": 299.1,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 11
+        },
+        "disclosure": {
+          "tag": "summary",
+          "text": "READ ENGLISH BIO",
+          "width": 245.3,
+          "height": 27.2,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 1
+        },
+        "link": {
+          "tag": "a",
+          "text": "LinkedIn →",
+          "width": 82.6,
+          "height": 22,
+          "fontSize": "17px",
+          "lineHeight": "23.8px",
+          "approximateLines": 0.9
+        }
+      }
+    ]
+  },
+  {
+    "width": 1920,
+    "viewport": {
+      "clientWidth": 1920,
+      "scrollWidth": 1920
+    },
+    "grid": {
+      "left": 384,
+      "top": -27.2,
+      "width": 1152,
+      "height": 953.5,
+      "right": 1536,
+      "display": "grid",
+      "columns": "341.328px 341.328px 341.344px",
+      "gap": "64px"
+    },
+    "cards": [
+      {
+        "index": 1,
+        "left": 384,
+        "top": -3.2,
+        "width": 341.3,
+        "height": 929.5,
+        "right": 725.3,
+        "textCard": {
+          "left": 384,
+          "top": 338.1,
+          "width": 341.3,
+          "height": 533.8,
+          "right": 725.3
+        },
+        "heading": {
+          "tag": "h2",
+          "text": "王馥明 Frances West",
+          "width": 245.3,
+          "height": 24,
+          "fontSize": "20px",
+          "lineHeight": "24px",
+          "approximateLines": 1
+        },
+        "role": {
+          "tag": "div",
+          "text": "FrancesWest&Co. 創辦人、TED 講者、前 IBM 首席無障礙長",
+          "width": 245.3,
+          "height": 46.1,
+          "fontSize": "14.4px",
+          "lineHeight": "23.04px",
+          "approximateLines": 2
+        },
+        "bio": {
+          "tag": "div",
+          "text": "王馥明是數位包容領域的全球思想領袖、前 IBM 首席無障礙長，也是 FrancesWest&Co. 創辦人與 TED 講者。身為科技界女性先驅與第一代亞裔移民，她致力於將人性多樣性帶入企業創新。她著有獲獎作品《真實的共融™啟動顛覆性的創新》",
+          "width": 245.3,
+          "height": 244.7,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 9
+        },
+        "disclosure": {
+          "tag": "summary",
+          "text": "READ ENGLISH BIO",
+          "width": 245.3,
+          "height": 27.2,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 1
+        },
+        "link": {
+          "tag": "a",
+          "text": "LinkedIn →",
+          "width": 82.6,
+          "height": 22,
+          "fontSize": "17px",
+          "lineHeight": "23.8px",
+          "approximateLines": 0.9
+        }
+      },
+      {
+        "index": 2,
+        "left": 789.3,
+        "top": -3.2,
+        "width": 341.3,
+        "height": 929.5,
+        "right": 1130.7,
+        "textCard": {
+          "left": 789.3,
+          "top": 338.1,
+          "width": 341.3,
+          "height": 561,
+          "right": 1130.7
+        },
+        "heading": {
+          "tag": "h2",
+          "text": "植木真 | Makoto Ueki",
+          "width": 245.3,
+          "height": 24,
+          "fontSize": "20px",
+          "lineHeight": "24px",
+          "approximateLines": 1
+        },
+        "role": {
+          "tag": "div",
+          "text": "日本網頁無障礙顧問、W3C AG 受邀專家",
+          "width": 245.3,
+          "height": 46.1,
+          "fontSize": "14.4px",
+          "lineHeight": "23.04px",
+          "approximateLines": 2
+        },
+        "bio": {
+          "tag": "div",
+          "text": "植木真自 2002 年起擔任日本網頁無障礙顧問，協助國際企業打造無障礙數位體驗。他曾參與日本產業標準（JIS）工作小組，並於 2012 至 2019 年擔任日本網頁無障礙基礎設施委員會（WAIC）主席；亦以受邀專家身分參與 W3C Acce",
+          "width": 245.3,
+          "height": 271.9,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 10
+        },
+        "disclosure": {
+          "tag": "summary",
+          "text": "READ ENGLISH BIO",
+          "width": 245.3,
+          "height": 27.2,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 1
+        },
+        "link": {
+          "tag": "a",
+          "text": "Text link →",
+          "width": 80,
+          "height": 22,
+          "fontSize": "17px",
+          "lineHeight": "23.8px",
+          "approximateLines": 0.9
+        }
+      },
+      {
+        "index": 3,
+        "left": 1194.7,
+        "top": -3.2,
+        "width": 341.3,
+        "height": 929.5,
+        "right": 1536,
+        "textCard": {
+          "left": 1194.7,
+          "top": 338.1,
+          "width": 341.3,
+          "height": 588.1,
+          "right": 1536
+        },
+        "heading": {
+          "tag": "h2",
+          "text": "張凱萍 Claire Chang",
+          "width": 245.3,
+          "height": 24,
+          "fontSize": "20px",
+          "lineHeight": "24px",
+          "approximateLines": 1
+        },
+        "role": {
+          "tag": "div",
+          "text": "APAC AIA 理事長；TechMoi 創辦人；W3C WAI 色彩領域受邀專家。",
+          "width": 245.3,
+          "height": 46.1,
+          "fontSize": "14.4px",
+          "lineHeight": "23.04px",
+          "approximateLines": 2
+        },
+        "bio": {
+          "tag": "div",
+          "text": "畢業於英國里茲大學色彩科學碩士，橫跨時尚與無障礙設計領域。現任亞太包容創新協會（APAC AIA）理事長暨共同創辦人、TechMoi International 創辦人，並曾任輔仁大學兼任講師與法國科技台灣（La French Tech T",
+          "width": 245.3,
+          "height": 299.1,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 11
+        },
+        "disclosure": {
+          "tag": "summary",
+          "text": "READ ENGLISH BIO",
+          "width": 245.3,
+          "height": 27.2,
+          "fontSize": "17px",
+          "lineHeight": "27.2px",
+          "approximateLines": 1
+        },
+        "link": {
+          "tag": "a",
+          "text": "LinkedIn →",
+          "width": 82.6,
+          "height": 22,
+          "fontSize": "17px",
+          "lineHeight": "23.8px",
+          "approximateLines": 0.9
+        }
+      }
+    ]
+  }
+]
