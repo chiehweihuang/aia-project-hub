@@ -180,34 +180,42 @@ footer>div{padding:28px 0}
   <section aria-labelledby="decision">
     <h2 id="decision">先看上線範圍</h2>
     <div class="summary">
-      <p class="note"><strong>等待 Accupass，不列入這兩三天可完成的工作：</strong>目前「立即報名｜Register」還沒有報名網址，所以不是連結，也無法用 Tab 選到。Accupass 網址確定後，再將整個 CTA 設為連結，並確認 Tab 可聚焦、Enter 可開啟。</p>
+      <p class="note"><strong>Accupass 網址尚未提供：</strong>這是已知狀態；真正的報名連結要等網址確定後才能完成。但公開上線前，仍需先把目前無法操作的「立即報名｜Register」改成一般提示文字「報名即將開放｜Registration coming soon」，避免看起來像已經可以報名。</p>
       <div class="summary-grid" aria-label="稽核摘要">
-        <div class="metric"><b>5</b><span>上線前要完成的工作組</span></div>
-        <div class="metric"><b>4</b><span>可在上線後整理的項目</span></div>
+        <div class="metric"><b>1 + 1</b><span>P0：1 組必要條件；RWD：1 組共同決策</span></div>
+        <div class="metric"><b>3 + 5</b><span>P1：優先改善 3 項；上線後第一輪 5 項</span></div>
       </div>
     </div>
   </section>
 
   <section aria-labelledby="before-launch">
-    <h2 id="before-launch">上線前：只看這 5 組</h2>
-    <p class="do-now"><strong>這一段就是未來兩三天的工作清單。</strong>下方每組都寫明位置、要改什麼，以及怎樣算完成。後面的「上線後再整理」不會卡住這次上線。</p>
+    <h2 id="before-launch">P0｜本次上線必要條件</h2>
+    <p class="do-now"><strong>這一段只保留真正會阻擋公開上線的問題：</strong>錯誤內容與無效操作。嚴重 RWD 另列為上線決策項目；若尚未修完仍要先上線，需要相關人員在 LINE 明確確認。</p>
+    <p class="note"><strong>RWD 是基本網站品質：</strong>手機、平板與桌面都應能正常瀏覽。只有當版面造成內容截斷、難以閱讀的窄欄、操作元件重疊或水平捲動時，才會同時形成無障礙問題。</p>
     <p class="note"><strong>螢幕閱讀器測試範圍：</strong>本次沒有執行 NVDA、JAWS 或 VoiceOver 實機走查。下方提到的影響，是根據 HTML heading 結構與 accessibility tree 判斷。目前 heading 層級有問題，因此標題導覽不能判定為通過；修正後仍需重新進行完整螢幕閱讀器走查。其他 DOM、鍵盤與版面檢查是各自獨立的結果。</p>
     <div class="action-list">
       <article class="finding blocker">
-        <span class="label blocker">上線前 1 · 內容與連結</span>
+        <span class="label blocker">P0 · 內容與操作</span>
         <h3>先修正會讓使用者看到錯誤內容或點到空連結的地方</h3>
-        <p class="where">位置：活動時程、瀏覽器頁籤、Makoto Ueki 講者卡與頁尾社群。</p>
+        <p class="where">位置：活動時程、四個報名 CTA、Makoto Ueki 講者卡與頁尾社群。</p>
         <ul class="plain-list">
           <li><strong>時程：</strong>閉幕為 16:30–16:45，交流茶會卻從 16:40 開始。確認正確時間後，中文與英文時程一起修正。</li>
-          <li><strong>頁面 title：</strong>將「論壇活動」改成「ADALS 2026 亞太資訊無障礙與數位共融領導力論壇｜APAC AIA」。</li>
+          <li><strong>報名 CTA：</strong>Accupass 網址尚未提供時，改成一般提示文字「報名即將開放｜Registration coming soon」，不要維持按鈕外觀。取得網址後，再改成可用 Tab 聚焦、Enter 開啟的連結。</li>
           <li><strong>Makoto Ueki：</strong>將「Text link →」改成「LinkedIn →」，連到 <a href="https://jp.linkedin.com/in/makoto-ueki-weba11y">正確的 LinkedIn</a>。</li>
           <li><strong>頁尾社群：</strong>Facebook 使用 <a href="https://www.facebook.com/apacaia/">正式網址</a>。X、Instagram 帳號目前尚未建立，上線前若仍沒有有效網址，請不要顯示圖示、文字或空連結。開發時設定為只有提供有效網址才輸出對應的 <code>&lt;a&gt;</code> 連結；帳號建立並確認網址後再顯示。</li>
         </ul>
-        <p class="accept"><strong>完成標準：</strong>時程不再重疊；頁面 title 完整；頁面沒有 <code>#</code>、空白網址或「Text link」；Facebook 與 Makoto Ueki 的連結名稱和目的地正確；頁面只顯示具有有效網址的社群連結，Tab 不會停在尚未啟用的 X、Instagram 圖示或空連結上。</p>
+        <p class="accept"><strong>完成標準：</strong>時程不再重疊；未取得 Accupass 網址時只顯示「報名即將開放」文字；頁面沒有 <code>#</code>、空白網址或「Text link」；Facebook 與 Makoto Ueki 的連結名稱和目的地正確；Tab 不會停在尚未啟用的報名、X 或 Instagram 元件上。</p>
       </article>
+    </div>
+  </section>
 
-      <article class="finding blocker">
-        <span class="label blocker">上線前 2 · 手機與平板排版</span>
+  <section aria-labelledby="rwd-decision">
+    <h2 id="rwd-decision">上線決策項目｜手機與平板 RWD</h2>
+    <p class="note">建議先修正再上線。若因活動時程仍決定先行上線，本報告不單方面阻擋，但需由相關決策人員在 LINE 明確確認知悉並接受目前風險，同時指定修正負責人與預計完成日期。</p>
+    <p class="note"><strong>可直接貼到 LINE：</strong>「目前活動頁在 320px、768px 與 1024px 仍有講者、時程及票券文字欄過窄的 RWD 問題，建議修正後再上線。若考量活動宣傳時程仍決定先行上線，請相關人員明確回覆是否同意接受目前狀態，並一併確認 RWD 修正負責人與預計完成日期。」</p>
+    <div class="action-list">
+      <article class="finding next">
+        <span class="label next">需共同確認 · RWD</span>
         <h3>讓手機和平板不要繼續使用桌面版的多欄排列</h3>
         <p class="where">先使用 Row Layout 內建的裝置欄數設定，分別調整電腦、平板與手機版。</p>
         <p>目前最大的問題很單純：平板仍同時並排三位講者和四張票券；手機時程仍分成左右兩欄。每一欄因此只剩很窄的空間，文字不斷換行。</p>
@@ -225,7 +233,7 @@ footer>div{padding:28px 0}
         </div>
         <p><strong>staging 查看建議：</strong>儲存後，可在 320px、768px 與 1024px 看看實際效果。平板主要觀察欄數；320px 則可一起留意外層 Row Layout 與文字卡內層的左右留白。目前兩層各約 48px，使文字欄只剩約 128px。比較頁的預覽先以兩層各 24px 作為測試值，實測文字欄約 221px；若只調整其中一層，改善幅度可能較有限。</p>
         <p>若需要確認圖示與設定位置，可參考 <a href="https://www.kadencewp.com/help-center/docs/kadence-blocks/row-layout-block-2/">Kadence Row Layout 說明</a>。</p>
-        <p class="accept"><strong>完成標準：</strong>講者、時程與票券已照上方三組欄數設定；320px 的講者文字欄由約 128px 增加至約 221px；staging 的 320、768、1024、1280、1440、1742、1920px 沒有水平捲動，文字不再逐字或每兩三個字換行。</p>
+        <p class="accept"><strong>完成標準：</strong>講者、時程與票券已照上方三組欄數設定；320px 的講者文字欄由約 128px 增加至約 221px；staging 的 320、768、1024、1280、1440、1742、1920px 沒有水平捲動，文字不再逐字或每兩三個字換行。若未完成即先上線，LINE 已留下共同決策、負責人與完成期限。</p>
       </article>
         <div class="evidence-grid" aria-label="手機與平板排版證據">
           <figure class="evidence">
@@ -238,24 +246,22 @@ footer>div{padding:28px 0}
           </figure>
         </div>
 
-      <article class="finding blocker">
-        <span class="label blocker">上線前 3 · 標題結構</span>
-        <h3>補上唯一 H1，再把區塊與卡片標題分層</h3>
-        <p class="where">位置：頁首、講者、活動時程表、售票方案與頁尾。</p>
-        <p><strong>目前：</strong>H1 × 0；24 個 H2 把區塊、講者姓名與時程項目混在同一層；英文標語與票種使用 H3；「包含／Includes」使用 H4。</p>
-        <p><strong>改成：</strong></p>
-        <ul class="plain-list">
-          <li>唯一 H1：活動正式名稱。</li>
-          <li>H2：關於／講者／時程／票券／社群媒體。</li>
-          <li>H3：講者姓名／每筆時程／票種名稱。</li>
-          <li>一般文字：英文標語／包含／Includes／頁尾重複標題。</li>
-        </ul>
-        <p>只改 Kadence Advanced Heading 的 HTML Tag，字級、顏色、間距與版面都可以保持不變。<a href="01-HEADING-STRUCTURE.html">開啟 38 個 heading 的逐項對照</a>。</p>
-        <p class="accept"><strong>完成標準：</strong>DOM 中正好一個 H1；主要區塊使用 H2；區塊內的講者、時程與票種使用 H3；標題不跳級。</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="before-launch-p1">
+    <h2 id="before-launch-p1">P1｜優先改善；未完成不阻擋本次上線</h2>
+    <div class="action-list">
+      <article class="finding next">
+        <span class="label next">P1 · 頁面 title</span>
+        <h3>讓瀏覽器頁籤清楚顯示活動名稱</h3>
+        <p class="where">位置：目前瀏覽器頁籤只顯示「論壇活動」。</p>
+        <p>改成「ADALS 2026 亞太資訊無障礙與數位共融領導力論壇｜APAC AIA」，讓使用者在多個頁籤、書籤與搜尋結果中能辨識本頁。</p>
+        <p class="accept"><strong>完成標準：</strong>瀏覽器頁籤顯示完整、可辨識且與頁面內容一致的活動名稱。</p>
       </article>
 
-      <article class="finding blocker">
-        <span class="label blocker">上線前 4 · 頁面語言</span>
+      <article class="finding next">
+        <span class="label next">P1 · 頁面語言</span>
         <h3>將這個頁面的主要語言設定為臺灣繁體中文</h3>
         <p class="where">位置：<code>html lang="en-US"</code>、英文 bio、英文票券說明與完整英文段落。</p>
         <p>目前網站導覽與這個活動頁的主要內容都以臺灣繁體中文呈現，因此將頁面最外層的 <code>&lt;html&gt;</code> 標籤設定為 <code>lang="zh-TW"</code>。活動現場使用英文，不會改變這個網頁目前的主要語言；完整英文 bio、英文票券說明與其他英文長段落再個別使用 <code>lang="en"</code>。</p>
@@ -263,8 +269,8 @@ footer>div{padding:28px 0}
         <p class="accept"><strong>完成標準：</strong>檢查網頁原始碼最外層的 <code>&lt;html&gt;</code> 標籤，顯示 <code>lang="zh-TW"</code>；完整英文段落顯示 <code>lang="en"</code>。使用支援中英文的 NVDA 語音測試時，中文可正常朗讀，進入英文段落時切換英文語音。</p>
       </article>
 
-      <article class="finding blocker">
-        <span class="label blocker">上線前 5 · 文字對比</span>
+      <article class="finding next">
+        <span class="label next">P1 · 文字對比</span>
         <h3>把白底灰字與金色導覽列文字調深</h3>
         <p class="where">位置：白底上的 <code>#718096</code> 灰字、金色導覽列上的兩個連結。</p>
         <p>16 個白底灰字位置量測為 4.02:1；「論壇活動 Event」與「聯繫 Contact」為 4.16:1。一般文字需達 4.5:1。</p>
@@ -279,8 +285,22 @@ footer>div{padding:28px 0}
   </section>
 
   <section aria-labelledby="later">
-    <h2 id="later">上線後再整理：這 4 項不擋本次上線</h2>
+    <h2 id="later">P1｜上線後第一輪</h2>
     <div class="findings">
+      <article class="finding next">
+        <span class="label next">第一輪 · Heading</span>
+        <h3>補上唯一 H1，再把區塊與卡片標題分層</h3>
+        <p class="where">位置：頁首、講者、活動時程表、售票方案與頁尾。</p>
+        <p><strong>目前：</strong>H1 × 0；24 個 H2 把區塊、講者姓名與時程項目混在同一層；英文標語與票種使用 H3；「包含／Includes」使用 H4。</p>
+        <ul class="plain-list">
+          <li>唯一 H1：活動正式名稱。</li>
+          <li>H2：關於／講者／時程／票券／社群媒體。</li>
+          <li>H3：講者姓名／每筆時程／票種名稱。</li>
+          <li>一般文字：英文標語／包含／Includes／頁尾重複標題。</li>
+        </ul>
+        <p>只改 Kadence Advanced Heading 的 HTML Tag，字級、顏色、間距與版面都可以保持不變。<a href="01-HEADING-STRUCTURE.html">開啟 38 個 heading 的逐項對照</a>。</p>
+        <p class="accept"><strong>完成標準：</strong>DOM 中正好一個 H1；主要區塊使用 H2；區塊內的講者、時程與票種使用 H3；標題不跳級。修正後重新進行 Heading 導覽與螢幕閱讀器測試；修正前不能把標題導覽判定為通過。</p>
+      </article>
       <article class="finding next">
         <span class="label next">視覺整理</span>
         <h3>價格、按鈕、講者連結與卡片底部對齊</h3>
@@ -335,15 +355,18 @@ footer>div{padding:28px 0}
 
   <section aria-labelledby="method">
     <h2 id="method">測試範圍與證據</h2>
-    <p>本次以 live rendered DOM 為準，合併自動檢查、computed style／target size 量測、鍵盤走查與人工判讀。Lighthouse accessibility 為 92；由於自動工具不會判斷 39px 文字欄的閱讀感受，也無法取代實際閱讀順序與操作情境，本報告同時納入人工檢查。</p>
+    <p>本次以 live rendered DOM 為準，合併自動檢查、computed style／target size 量測、鍵盤走查與人工判讀。Lighthouse accessibility 為 92；這只表示頁面在本次 Google Lighthouse 自動檢查涵蓋的規則中得到相應分數，不代表網站已符合 WCAG，也不代表沒有其他無障礙問題。自動工具不會判斷 39px 文字欄的閱讀感受，也無法完整判斷 Heading 是否合理、替代文字是否正確或實際操作是否順暢。</p>
     <ul class="file-list">
       <li><a href="REPORT.md">完整技術結論（REPORT.md）</a></li>
       <li><a href="manual-runtime-findings.json">人工 runtime findings</a></li>
       <li><a href="tier2-results.json">對比與觸控尺寸原始量測</a></li>
       <li><a href="responsive-width-scan-exact.json">七種寬度掃描結果</a></li>
+      <li><a href="runtime-structure.json">DOM、Heading 與頁面結構量測</a></li>
+      <li><a href="event-1440-accessibility-tree.md">1440px accessibility tree</a></li>
       <li><a href="keyboard-focus-trace-mobile.json">手機鍵盤焦點順序</a></li>
       <li><a href="lighthouse-desktop.json">Lighthouse desktop</a> ／ <a href="lighthouse-mobile.json">mobile</a></li>
     </ul>
+    <p class="note"><strong>Accessibility tree 證據：</strong>原始 2026-07-30 測試沒有另外匯出 accessibility tree；已於 2026-07-31 以 1440px live 頁面補擷取。<code>runtime-structure.json</code> 仍只代表 DOM 與角色結構量測，兩份證據分開保留。</p>
     <p class="note"><strong>尚未涵蓋：</strong>NVDA、JAWS、VoiceOver 實機 task walkthrough、真實手機觸控、身心障礙使用者測試。本文件是設計與工程修正依據，不是法律認證。</p>
   </section>
 </main>

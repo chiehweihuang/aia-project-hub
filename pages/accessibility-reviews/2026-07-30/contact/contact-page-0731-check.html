@@ -224,9 +224,10 @@
   <section aria-labelledby="summary-title">
     <h2 id="summary-title">先看結論</h2>
     <div class="summary">
-      <p><strong>聯繫頁有 2 項 P0：</strong>「主題」被設定成 Email 欄位，可能阻擋一般表單內容送出；頁面沒有 H1，螢幕閱讀器的標題導覽也缺少代表本頁主題的最高層標題。兩項都列為上線前修正。</p>
-      <p>版面本身在七種寬度都沒有水平捲軸，320px 表單已改成單欄，768px 以上的欄位寬度也足夠。其餘調整集中在鍵盤 focus、文字對比、頁面語言與社群連結。</p>
+      <p><strong>聯繫頁有 3 組 P0：</strong>將「主題」從 Email Field 改成 Text Field；加入協會確認過且有人收信的聯絡 Email，並完成表單寄信測試；修正目前會把使用者帶回原頁的空白社群連結。頁面語言、鍵盤 focus 與文字對比列為優先改善，但未完成不阻擋本次上線；Heading 安排在上線後第一輪。</p>
+      <p><strong>RWD 是基本網站品質。</strong>聯繫頁在七種寬度都沒有水平捲軸，320px 表單已改成單欄，768px 以上的欄位寬度也足夠，目前不需要另外調整欄數。</p>
       <p class="note"><strong>測試範圍：</strong>本次檢查了 HTML、accessibility tree 與 Tab 鍵盤操作，沒有執行 NVDA、JAWS 或 VoiceOver 實機走查。缺少 H1 代表標題導覽目前不能判定為通過；修正 heading 後，仍需重新進行完整的螢幕閱讀器操作測試。表單標籤關聯等程式結構檢查則另外記錄，不等同於已完成螢幕閱讀器測試。</p>
+      <p class="note"><strong>Lighthouse 分數不代表網站已經無障礙：</strong>96／96 只表示頁面在本次 Google Lighthouse 自動檢查涵蓋的規則中得到相應分數，不代表已符合 WCAG，也不代表沒有其他問題。</p>
       <div class="metrics">
         <div class="metric"><b>96 / 96</b><span>Lighthouse accessibility：desktop / mobile</span></div>
         <div class="metric"><b>0</b><span>七種寬度的水平捲軸</span></div>
@@ -237,7 +238,7 @@
   </section>
 
   <section aria-labelledby="priority-title">
-    <h2 id="priority-title">修正項目</h2>
+    <h2 id="priority-title">P0｜本次上線必要條件</h2>
     <div class="findings">
       <article class="finding">
         <span class="label">P0 · 表單欄位</span>
@@ -249,12 +250,32 @@
       </article>
 
       <article class="finding">
-        <span class="label">P0 · 頁面結構</span>
-        <h3>將「聯繫我們」改為 H1，頁面標示為繁體中文</h3>
-        <p>目前全頁只有兩個 H2：「聯繫我們」與「社群媒體 SOCIALS」，沒有 H1。螢幕閱讀器使用者開啟標題清單時，看不到代表本頁主題的最高層標題。頁面根節點是 <code>lang="en-US"</code>，但這一頁主要可見內容是繁體中文。</p>
-        <p><strong>WordPress：</strong>將「聯繫我們」的 Heading Level 從 H2 改為 H1；視覺位置仍可保留在表單左側，不必移動版面。「社群媒體 SOCIALS」保留 H2。到「設定 → 一般 → 網站語言」確認為繁體中文，使輸出為 <code>zh-TW</code> 或 <code>zh-Hant</code>。完整英文段落才另外標示 <code>lang="en"</code>。</p>
-        <p class="accept"><strong>完成標準：</strong>頁面只有一個 H1「聯繫我們」；它在 DOM 閱讀順序中位於表單之前；後續主要區段為 H2；HTML 根節點反映頁面主要顯示語言。</p>
-        <p><a href="contact-heading-audit.html"><strong>開啟聯繫頁 Heading 逐項檢查與修改對照</strong></a></p>
+        <span class="label">P0 · 聯絡方式與寄信流程</span>
+        <h3>加入可直接使用的聯絡 Email，並確認表單真的能寄到</h3>
+        <p>在聯繫頁顯示協會確認過、確實有人收信的 Email，並設為可點擊的 <code>mailto:</code> 連結。這也是表單暫時故障時的備用聯絡方式。</p>
+        <p><strong>staging：</strong>修正後實際送出表單，確認使用者會看到送出成功訊息；指定信箱確實收到通知；信件包含姓名、Email、主旨與訊息；回覆時能寄到使用者填寫的 Email。</p>
+        <p class="accept"><strong>完成標準：</strong>使用者可以直接看到並使用聯絡 Email；表單成功送出後，指定信箱確實收到完整內容。</p>
+      </article>
+
+      <article class="finding">
+        <span class="label">P0 · 社群連結</span>
+        <h3>Facebook 補正確網址；X 與 Instagram 先不顯示</h3>
+        <p>三個圖示目前都是空的 <code>href</code>。鍵盤可以停在上面，但啟用後只會重新載入目前頁面，使用者無法到達社群帳號。</p>
+        <p><strong>WordPress：</strong>Facebook 設為 <a href="https://www.facebook.com/apacaia/">https://www.facebook.com/apacaia/</a>。X 與 Instagram 帳號尚未建立，先隱藏圖示與連結；帳號建立並確認網址後再顯示。</p>
+        <p class="accept"><strong>完成標準：</strong>Facebook 可用 Tab 聚焦並開啟正確頁面；頁面上沒有空網址或尚不存在的社群入口。</p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="before-launch-p1">
+    <h2 id="before-launch-p1">P1｜優先改善；未完成不阻擋本次上線</h2>
+    <div class="findings">
+      <article class="finding p1">
+        <span class="label p1">P1 · 頁面語言</span>
+        <h3>將頁面主要語言設定為繁體中文</h3>
+        <p>頁面最外層的 <code>&lt;html&gt;</code> 目前是 <code>lang="en-US"</code>，但這一頁主要可見內容是繁體中文。</p>
+        <p><strong>WordPress：</strong>到「設定 → 一般 → 網站語言」選擇「繁體中文」，儲存後確認頁面輸出 <code>&lt;html lang="zh-TW"&gt;</code>。完整英文段落才另外標示 <code>lang="en"</code>。</p>
+        <p class="accept"><strong>完成標準：</strong>頁面最外層的 <code>&lt;html&gt;</code> 顯示 <code>lang="zh-TW"</code>；完整英文段落顯示 <code>lang="en"</code>。</p>
       </article>
 
       <article class="finding p1">
@@ -284,12 +305,19 @@
         <p class="accept"><strong>完成標準：</strong>一般文字與背景至少 4.5:1；重新跑 Lighthouse desktop／mobile，不再出現 Color contrast 失敗。</p>
       </article>
 
+    </div>
+  </section>
+
+  <section aria-labelledby="heading-followup-title">
+    <h2 id="heading-followup-title">P1｜上線後第一輪</h2>
+    <div class="findings">
       <article class="finding p1">
-        <span class="label p1">P1 · 社群連結</span>
-        <h3>Facebook 補正確網址；X 與 Instagram 先不顯示</h3>
-        <p>三個圖示目前都是空的 <code>href</code>。鍵盤可以停在上面，但啟用後只會重新載入目前頁面，使用者無法到達社群帳號。</p>
-        <p><strong>WordPress：</strong>Facebook 設為 <a href="https://www.facebook.com/apacaia/">https://www.facebook.com/apacaia/</a>。X 與 Instagram 帳號尚未建立，先隱藏圖示與連結；帳號建立並確認網址後再顯示。</p>
-        <p class="accept"><strong>完成標準：</strong>Facebook 可用 Tab 聚焦並開啟正確頁面；頁面上沒有空網址或尚不存在的社群入口。</p>
+        <span class="label p1">Heading</span>
+        <h3>將「聯繫我們」改為 H1</h3>
+        <p>目前全頁只有兩個 H2：「聯繫我們」與「社群媒體 SOCIALS」，沒有 H1。螢幕閱讀器使用者開啟標題清單時，看不到代表本頁主題的最高層標題。</p>
+        <p><strong>WordPress：</strong>將「聯繫我們」的 Heading Level 從 H2 改為 H1；視覺位置仍可保留在表單左側，不必移動版面。「社群媒體 SOCIALS」保留 H2。</p>
+        <p class="accept"><strong>完成標準：</strong>頁面只有一個 H1「聯繫我們」；它在 DOM 閱讀順序中位於表單之前；後續主要區段為 H2。修正後重新進行 Heading 導覽與螢幕閱讀器測試；修正前不能把標題導覽判定為通過。</p>
+        <p><a href="contact-heading-audit.html"><strong>開啟聯繫頁 Heading 逐項檢查與修改對照</strong></a></p>
       </article>
     </div>
   </section>
@@ -341,7 +369,8 @@
         <li>用一般文字主題成功送出。</li>
         <li>缺少必填欄位時，用鍵盤確認焦點位置，再用 NVDA 確認錯誤訊息是否與對應欄位一起被讀出。</li>
         <li>用 NVDA 確認送出後的成功訊息是否會自動宣告。</li>
-        <li>確認通知信實際送達指定信箱，且不會把表單內容暴露在網址或錯誤畫面。</li>
+        <li>確認通知信實際送達指定信箱，內容包含姓名、Email、主旨與訊息，且回覆時能寄到使用者填寫的 Email。</li>
+        <li>確認聯繫頁同時顯示協會確認過、確實有人收信的 Email，並可直接點擊寄信。</li>
       </ol>
       <p>欄位型別與 Focus Colors 的編輯位置可對照 <a href="https://www.kadencewp.com/help-center/docs/non-knowledgebase/advanced-form-block/">Kadence Form (Adv) Block 官方說明</a>。</p>
     </div>
@@ -360,6 +389,7 @@
         <li><a href="console-warnings-errors.txt">Console warning／error 記錄</a></li>
       </ul>
       <p class="note"><strong>自動掃描的限制：</strong>axe 本次回報 0 violations，但沒有抓到「主題欄位型別錯誤」、輸入欄位 focus 不清楚、H1 缺少等人工檢查項目。0 violations 只代表已執行規則未找到錯誤，不代表整頁已無障礙。</p>
+      <p class="note"><strong>Lighthouse 的限制：</strong>90 分以上不是無障礙標準。分數只代表 Google Lighthouse 本次自動檢查涵蓋規則的結果；它不能取代 Heading、內容語意、實際鍵盤操作、各種裝置寬度與螢幕閱讀器測試。</p>
       <p class="note"><strong>尚未涵蓋：</strong>正式寄信流程、成功／錯誤訊息的 live announcement、NVDA／JAWS／VoiceOver 實機操作、真實手機觸控與身心障礙使用者測試。heading 修正後，這些需在 staging 與實際裝置重新驗證。</p>
     </div>
   </section>

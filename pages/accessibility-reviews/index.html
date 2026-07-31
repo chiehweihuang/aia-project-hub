@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AIA 網站無障礙測試結果總覽</title>
+<title>AIA 網站無障礙自動測試結果總覽</title>
 <link rel="stylesheet" href="review-nav.css">
 <style>
 :root {
@@ -15,6 +15,8 @@
   --paper: #f7f9fb;
   --card: #ffffff;
   --line: #cbd8e1;
+  --soft: #eef4f7;
+  --danger: #a62b26;
   --focus: #be6b00;
   --link: #07598b;
   --eyebrow: #ffe29a;
@@ -142,6 +144,28 @@ h3 {
 
 .report p { margin: 0 0 12px; }
 
+.report__group {
+  margin: 4px 0 14px;
+  padding: 12px 14px;
+  border-left: 4px solid var(--line);
+  background: var(--soft);
+}
+
+.report__group--p0 { border-left-color: var(--danger); }
+.report__group--decision { border-left-color: var(--gold); }
+
+.report__group h4 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+
+.report__group ul {
+  margin: 0;
+  padding-left: 1.25em;
+}
+
+.report__group li + li { margin-top: 4px; }
+
 .report__links {
   display: flex;
   flex-wrap: wrap;
@@ -216,7 +240,7 @@ footer > div { padding: 26px 0; }
 <a class="skip" href="#main">跳到主要內容</a>
 <nav class="aia-review-nav" aria-label="測試報告導覽">
   <div class="aia-review-nav__inner">
-    <span class="aia-review-nav__label">AIA 無障礙測試結果</span>
+    <span class="aia-review-nav__label">AIA 無障礙自動測試結果</span>
     <a class="aia-review-nav__hub" href="https://chiehweihuang.github.io/aia-project-hub/#downloads">← 回到專案 Hub</a>
     <a href="index.html" aria-current="page">測試總覽</a>
     <a href="2026-07-30/homepage/homepage-0730-review.html">首頁</a>
@@ -234,8 +258,8 @@ footer > div { padding: 26px 0; }
 <header class="hero">
   <div class="hero__inner">
     <p class="eyebrow">AIA WEBSITE REVIEW · TEST RESULTS</p>
-    <h1>網站無障礙測試結果總覽</h1>
-    <p class="deck">集中查看首頁、ADALS 活動頁、講者與票券響應式比較、Heading 對照、聯繫頁，以及 2026-07-03 的第一次首頁測試。</p>
+    <h1>網站無障礙自動測試結果總覽</h1>
+    <p class="deck">集中查看首頁、ADALS 活動頁與聯繫頁的自動測試結果，以及搭配進行的鍵盤、Heading、RWD 與人工畫面檢查。</p>
   </div>
 </header>
 
@@ -243,8 +267,11 @@ footer > div { padding: 26px 0; }
   <section aria-labelledby="scope-title">
     <h2 id="scope-title">先看測試範圍</h2>
     <div class="scope">
-      <p><strong>目前主要依據是 2026-07-30／31 的 live rendered DOM。</strong>三個頁面的測試項目不完全相同；每份完整報告會說明實際做過哪些檢查。下方的 JSON／Markdown 是複核用原始資料，不是給設計師直接閱讀的報告。</p>
+      <p><strong>這份總覽以自動測試為起點。</strong>目前主要依據是 2026-07-30／31 的 live rendered DOM，包含 Lighthouse、axe、DOM 結構與程式化寬度量測；另外搭配 Tab 鍵盤操作、Heading、RWD 與人工畫面檢查。三個頁面的測試項目不完全相同，每份完整報告會說明實際做過哪些檢查。</p>
+      <p>自動測試只能找出工具涵蓋的問題，不能代替完整的 WCAG 評估、螢幕閱讀器實測或身心障礙使用者測試。下方的 JSON／Markdown 是複核用原始資料，不是給設計師直接閱讀的報告。</p>
+      <p><strong>報告將基本網頁品質與無障礙修正分開記錄。</strong>功能錯誤、聯絡方式、失效連結、資料正確性與 RWD 屬於網站上線前的基本品質；頁面語言、鍵盤焦點、文字對比、圖片替代文字與 Heading 則依無障礙檢查結果追蹤。RWD 若造成內容截斷、窄到無法正常閱讀或必須水平捲動，也會同時形成無障礙問題。</p>
       <p>尚未完成 NVDA、JAWS、VoiceOver 實機 task walkthrough。Heading 結構有問題的頁面不能把標題導覽判定為通過；修正後仍需在 staging 重新做完整螢幕閱讀器走查。</p>
+      <p><strong>Lighthouse 分數不是無障礙標準。</strong>90 分以上只表示頁面在本次 Google Lighthouse 自動檢查涵蓋的規則中得到相應分數，不代表網站已符合 WCAG，也不代表沒有其他問題。完整判斷仍需合併人工檢查、鍵盤操作、各種裝置寬度與後續螢幕閱讀器測試。</p>
     </div>
   </section>
 
@@ -254,11 +281,30 @@ footer > div { padding: 26px 0; }
       <article class="report">
         <p class="report__meta">2026-07-30 · 首頁</p>
         <h3>首頁無障礙與響應式版面檢查</h3>
-        <p>上線前 P0、Heading、裝飾圖片 alt、關於我們圖文卡 CSS、對比與語言設定。</p>
+        <div class="report__group report__group--p0">
+          <h4>P0 必修</h4>
+          <ul>
+            <li>「了解志工機會」改為前往聯繫頁的真正連結。</li>
+            <li>Facebook 補正確網址；未建立的 X、Instagram 先隱藏。</li>
+          </ul>
+        </div>
+        <div class="report__group report__group--decision">
+          <h4>上線決策</h4>
+          <ul>
+            <li>320px 與 768px 的核心文字欄過窄；若尚未修完仍要上線，需在 LINE 共同確認風險、負責人與期限。</li>
+          </ul>
+        </div>
+        <div class="report__group">
+          <h4>建議處理</h4>
+          <ul>
+            <li>頁面 title、語言、文字對比、裝飾圖片 alt。</li>
+            <li>Heading、卡片與圖片對齊、HTTPS 圖片網址。</li>
+          </ul>
+        </div>
         <div class="report__links">
           <a class="report__primary" href="2026-07-30/homepage/homepage-0730-review.html">開啟完整報告</a>
           <a href="2026-07-30/homepage/homepage-heading-audit.html">首頁 Heading 逐項對照</a>
-          <a href="2026-07-30/homepage/homepage-live-audit.json">DOM 量測</a>
+          <a href="2026-07-30/homepage/homepage-live-audit.json">七種寬度與 DOM 量測</a>
           <a href="2026-07-30/homepage/homepage-snapshot-1440.md">Accessibility tree</a>
         </div>
       </article>
@@ -266,11 +312,33 @@ footer > div { padding: 26px 0; }
       <article class="report">
         <p class="report__meta">2026-07-30 · ADALS 活動頁</p>
         <h3>活動頁無障礙與響應式版面檢查</h3>
-        <p>上線前修正順序、手機與平板欄數、Heading、頁面語言、對比與已知 Accupass 連結狀態。</p>
+        <div class="report__group report__group--p0">
+          <h4>P0 必修</h4>
+          <ul>
+            <li>修正時程重疊。</li>
+            <li>Accupass 網址未提供前，報名 CTA 改為「報名即將開放」。</li>
+            <li>修正 Makoto Ueki 與頁尾社群連結。</li>
+          </ul>
+        </div>
+        <div class="report__group report__group--decision">
+          <h4>上線決策</h4>
+          <ul>
+            <li>講者、時程與票券在手機和平板過窄；若尚未修完仍要上線，需在 LINE 共同確認風險、負責人與期限。</li>
+          </ul>
+        </div>
+        <div class="report__group">
+          <h4>建議處理</h4>
+          <ul>
+            <li>頁面 title、語言與文字對比。</li>
+            <li>Heading、卡片對齊、講者連結操作範圍、English bio 名稱與 HTTPS 網址。</li>
+          </ul>
+        </div>
         <div class="report__links">
           <a class="report__primary" href="2026-07-30/adals-events/event-page-0730-check.html">開啟完整報告</a>
           <a href="2026-07-30/adals-events/01-HEADING-STRUCTURE.html">Heading 逐項對照</a>
           <a href="2026-07-30/adals-events/responsive-width-scan-exact.json">七種寬度量測</a>
+          <a href="2026-07-30/adals-events/runtime-structure.json">DOM 結構量測</a>
+          <a href="2026-07-30/adals-events/event-1440-accessibility-tree.md">Accessibility tree</a>
         </div>
       </article>
 
@@ -288,11 +356,25 @@ footer > div { padding: 26px 0; }
       <article class="report">
         <p class="report__meta">2026-07-31 · 聯繫頁</p>
         <h3>聯繫頁無障礙與響應式版面檢查</h3>
-        <p>表單欄位型別、H1、Focus、文字對比、社群連結與 staging 寄信流程。</p>
+        <div class="report__group report__group--p0">
+          <h4>P0 必修</h4>
+          <ul>
+            <li>將「主題」由 Email Field 改為 Text Field。</li>
+            <li>補上可直接使用的聯絡 Email，並在 staging 完成表單寄信測試。</li>
+            <li>Facebook 補正確網址；未建立的 X、Instagram 先隱藏。</li>
+          </ul>
+        </div>
+        <div class="report__group">
+          <h4>建議處理</h4>
+          <ul>
+            <li>頁面語言、鍵盤 focus 與文字對比。</li>
+            <li>將「聯繫我們」改為本頁唯一的 H1，並整理 HTTPS 背景圖網址。</li>
+          </ul>
+        </div>
         <div class="report__links">
           <a class="report__primary" href="2026-07-30/contact/contact-page-0731-check.html">開啟完整報告</a>
           <a href="2026-07-30/contact/contact-heading-audit.html">聯繫 Heading 逐項對照</a>
-          <a href="2026-07-30/contact/contact-live-audit.json">表單與 DOM 量測</a>
+          <a href="2026-07-30/contact/contact-live-audit.json">表單、七種寬度與 DOM 量測</a>
           <a href="2026-07-30/contact/contact-1440-accessibility-tree.md">Accessibility tree</a>
         </div>
       </article>
@@ -336,6 +418,7 @@ footer > div { padding: 26px 0; }
           <ul>
             <li><a href="2026-07-30/adals-events/responsive-width-scan-exact.json">七種寬度精確量測（JSON）</a></li>
             <li><a href="2026-07-30/adals-events/runtime-structure.json">Heading 與頁面結構（JSON）</a></li>
+            <li><a href="2026-07-30/adals-events/event-1440-accessibility-tree.md">1440px accessibility tree（2026-07-31 補擷取）</a></li>
             <li><a href="2026-07-30/adals-events/tier2-results.json">對比與操作目標量測（JSON）</a></li>
             <li><a href="2026-07-30/adals-events/keyboard-focus-trace-mobile.json">手機鍵盤焦點順序（JSON）</a></li>
             <li><a href="2026-07-30/adals-events/lighthouse-desktop.json">Lighthouse desktop（JSON）</a></li>

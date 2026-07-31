@@ -1,0 +1,303 @@
+- generic [ref=f1e2] [box=0,0,1425,6927]:
+  - link "Skip to content" [ref=f1e3] [cursor=pointer] [box=-1,-1,1,1]:
+    - /url: "#main"
+  - banner [ref=f1e4] [box=0,0,1425,60]:
+    - generic [ref=f1e570] [box=92,0,1242,60]:
+      - link [ref=f1e574] [cursor=pointer] [box=92,12,340,37]:
+        - /url: https://aia.tinyoakstudio.com/
+        - img "亞太包容創新協會 ⾸⾴" [ref=f1e575] [box=92,12,340,37]
+      - navigation "Primary" [ref=f1e578] [box=944,6,390,48]:
+        - list [ref=f1e580] [box=944,6,390,48]:
+          - listitem [ref=f1e581] [box=944,6,139,48]:
+            - link "協會主頁 Home" [ref=f1e582] [cursor=pointer] [box=944,6,139,48]:
+              - /url: https://aia.tinyoakstudio.com/
+          - listitem [ref=f1e583] [box=1082,6,134,48]:
+            - link "論壇活動 Event" [ref=f1e584] [cursor=pointer] [box=1082,6,134,48]:
+              - /url: https://aia.tinyoakstudio.com/adals%e6%b4%bb%e5%8b%95/
+          - listitem [ref=f1e585] [box=1216,6,117,48]:
+            - link "聯繫 Contact" [ref=f1e586] [cursor=pointer] [box=1216,6,117,48]:
+              - /url: https://aia.tinyoakstudio.com/%e8%81%af%e7%b9%ab/
+  - main [ref=f1e26] [box=0,60,1425,6369]:
+    - article [ref=f1e31] [box=0,60,1425,6369]:
+      - generic [ref=f1e33] [box=0,60,1425,6369]:
+        - generic [ref=f1e37] [box=137,84,1152,500]:
+          - paragraph [ref=f1e38] [box=137,84,1152,75]:
+            - emphasis [ref=f1e39] [box=496,110,434,22]: APAC Digital Inclusion and Accessibility Leadership Summit
+          - heading "2026亞太資訊無障礙與數位共融領導力論壇" [level=2] [ref=f1e40] [box=137,207,1152,48]
+          - heading "Shaping Inclusive Futures For Asia Pacific" [level=3] [ref=f1e41] [box=137,271,1152,42]
+          - paragraph [ref=f1e42] [box=137,327,1152,59]: Join us in the in-person event at TTA in Taipei, or join online.
+          - generic [ref=f1e46] [box=137,418,1152,122]:
+            - generic [ref=f1e48] [box=137,418,560,98]:
+              - figure [ref=f1e50] [box=403,418,28,39]
+              - paragraph [ref=f1e51] [box=137,490,560,27]: 台北 Taipei @ TTA + ONLINE
+            - generic [ref=f1e53] [box=729,418,560,90]:
+              - figure [ref=f1e55] [box=995,418,28,31]
+              - paragraph [ref=f1e56] [box=729,482,560,27]: 2026.09.18
+          - generic [ref=f1e57] [box=137,541,1152,43]: 立即報名｜Register
+        - generic [ref=f1e65] [box=24,672,1377,744]:
+          - generic [ref=f1e71] [box=113,720,1200,172]:
+            - paragraph [ref=f1e72] [box=113,720,1200,23]: ABOUT ADALS
+            - heading "關於本次論壇" [level=2] [ref=f1e73] [box=113,780,1200,58]
+            - separator [ref=f1e76] [box=113,875,60,4]
+          - generic [ref=f1e78] [box=113,916,1200,501]:
+            - generic [ref=f1e80] [box=137,916,544,355]:
+              - strong [ref=f1e82] [box=137,952,192,43]: 為什麼要參加
+              - paragraph [ref=f1e83] [box=137,999,496,272]: ADALS 2026 是一場單日混合式論壇，在台北舉辦實體活動，並同步開放線上參與。全球超過十二億人為身心障礙者，台灣也已於二〇二五年進入超高齡社會。無障礙不只是功能，也不該等到最後才補救；它是政府、企業、各類組織與每個人共同的課題。ADALS 2026 聚焦資訊無障礙與高齡議題，邀請各方交流如何回應多元使用者的需求，以及長壽社會帶來的改變。AI 有潛力讓無障礙走得更遠，但必須以負責任、能讓人信任的方式設計與使用。亞太包容創新協會已舉辦超過十場專業活動，並邀請超過十位國際無障礙領袖來台交流。本論壇希望把區域經驗轉化為企業實踐、公共政策、學術研究與個人行動，讓各方找到推動包容的下一步。
+            - generic [ref=f1e85] [box=745,916,544,437]:
+              - strong [ref=f1e87] [box=745,952,223,43]: WHY ATTEND?
+              - paragraph [ref=f1e88] [box=745,999,544,354]: ADALS 2026 is a one-day hybrid forum held in Taipei, with online participation available. Accessibility is not just a feature, and it should not be left until the end; it is a shared responsibility for governments, businesses, organizations, and everyone. With more than 1.2 billion persons with disabilities worldwide and Taiwan now a super-aged society, inclusive products, services, and everyday experiences are increasingly important. The forum focuses on accessibility and aging, and examines how AI can advance accessibility when it is designed and used responsibly, in ways people can trust. Since 2024, APAC AIA has convened more than 10 professional events and brought more than 10 international accessibility leaders to Taiwan. ADALS 2026 brings these Asia-Pacific experiences into conversations about business practice, public policy, academic inquiry, and personal action.
+        - generic [ref=f1e92] [box=113,1496,1200,1253]:
+          - generic [ref=f1e98] [box=113,1520,1200,172]:
+            - paragraph [ref=f1e99] [box=113,1520,1200,23]: SPEAKERS
+            - heading "講者" [level=2] [ref=f1e100] [box=113,1580,1200,58]
+            - separator [ref=f1e103] [box=113,1675,60,4]
+          - generic [ref=f1e109] [box=137,1716,1152,954]:
+            - generic [ref=f1e113] [box=137,2081,341,534]:
+              - heading "王馥明 Frances West" [level=2] [ref=f1e114] [box=185,2129,245,24]:
+                - text: 王馥明
+                - strong [ref=f1e115] [box=250,2128,123,26]: Frances West
+              - generic [ref=f1e116] [box=185,2177,245,46]: FrancesWest&Co. 創辦人、TED 講者、前 IBM 首席無障礙長
+              - generic [ref=f1e117] [box=185,2247,245,245]: 王馥明是數位包容領域的全球思想領袖、前 IBM 首席無障礙長，也是 FrancesWest&Co. 創辦人與 TED 講者。身為科技界女性先驅與第一代亞裔移民，她致力於將人性多樣性帶入企業創新。她著有獲獎作品《真實的共融™啟動顛覆性的創新》，主張企業將包容性視為核心策略。
+              - group [ref=f1e118] [box=185,2516,245,27]:
+                - generic "READ ENGLISH BIO" [ref=f1e119] [cursor=pointer] [box=185,2516,245,27]:
+                  - emphasis [ref=f1e120] [box=199,2518,143,22]: READ ENGLISH BIO
+              - link "LinkedIn →" [ref=f1e122] [cursor=pointer] [box=185,2544,83,22]:
+                - /url: https://www.linkedin.com/in/frances-west-0b81924/
+            - generic [ref=f1e126] [box=542,2081,341,561]:
+              - heading "植木真 | Makoto Ueki" [level=2] [ref=f1e127] [box=590,2129,245,24]:
+                - text: 植木真 |
+                - strong [ref=f1e128] [box=667,2128,121,26]: Makoto Ueki
+              - generic [ref=f1e129] [box=590,2177,245,46]: 日本網頁無障礙顧問、W3C AG 受邀專家
+              - generic [ref=f1e130] [box=590,2247,245,272]: 植木真自 2002 年起擔任日本網頁無障礙顧問，協助國際企業打造無障礙數位體驗。他曾參與日本產業標準（JIS）工作小組，並於 2012 至 2019 年擔任日本網頁無障礙基礎設施委員會（WAIC）主席；亦以受邀專家身分參與 W3C Accessibility Guidelines Working Group 與 WCAG 3 的發展。
+              - group [ref=f1e131] [box=590,2543,245,27]:
+                - generic "READ ENGLISH BIO" [ref=f1e132] [cursor=pointer] [box=590,2543,245,27]:
+                  - emphasis [ref=f1e133] [box=605,2546,143,22]: READ ENGLISH BIO
+              - link "Text link →" [ref=f1e135] [cursor=pointer] [box=590,2571,80,22]:
+                - /url: "#"
+            - generic [ref=f1e139] [box=947,2081,341,588]:
+              - heading "張凱萍 Claire Chang" [level=2] [ref=f1e140] [box=995,2129,245,24]
+              - generic [ref=f1e141] [box=995,2177,245,46]: APAC AIA 理事長；TechMoi 創辦人；W3C WAI 色彩領域受邀專家。
+              - generic [ref=f1e142] [box=995,2247,245,299]: 畢業於英國里茲大學色彩科學碩士，橫跨時尚與無障礙設計領域。現任亞太包容創新協會（APAC AIA）理事長暨共同創辦人、TechMoi International 創辦人，並曾任輔仁大學兼任講師與法國科技台灣（La French Tech Taiwan）董事。她以色彩無障礙領域受邀專家身分參與 W3C WAI，致力推動兼具美感與包容性的設計創新。
+              - group [ref=f1e143] [box=995,2571,245,27]:
+                - generic "READ ENGLISH BIO" [ref=f1e144] [cursor=pointer] [box=995,2571,245,27]:
+                  - emphasis [ref=f1e145] [box=1010,2573,143,22]: READ ENGLISH BIO
+              - link "LinkedIn →" [ref=f1e147] [cursor=pointer] [box=995,2598,83,22]:
+                - /url: https://www.linkedin.com/in/claire-chang-6aa54921/
+        - generic [ref=f1e151] [box=24,2830,1377,1840]:
+          - generic [ref=f1e157] [box=113,2878,1200,172]:
+            - paragraph [ref=f1e158] [box=113,2878,1200,23]: SCHEDULE
+            - heading "活動時程表" [level=2] [ref=f1e159] [box=113,2938,1200,58]
+            - separator [ref=f1e162] [box=113,3032,60,4]
+          - generic [ref=f1e170] [box=145,3097,1136,1549]:
+            - generic [ref=f1e172] [box=68,3097,1290,125]:
+              - generic [ref=f1e174] [box=132,3105,366,109]:
+                - generic [ref=f1e175] [box=132,3105,366,14]: 08:30–09:10
+                - heading "報到、展區開放、 早茶交流" [level=2] [ref=f1e176] [box=132,3136,366,55]: 報到、展區開放、早茶交流
+              - generic [ref=f1e178] [box=562,3117,732,86]:
+                - paragraph [ref=f1e179] [box=596,3117,697,27]: Registration, exhibition, morning refreshments and networking
+                - paragraph [ref=f1e180] [box=596,3176,697,27]: 實體 / In person, 無直播 / No Livestream
+            - generic [ref=f1e182] [box=68,3223,1290,102]:
+              - generic [ref=f1e184] [box=132,3231,366,82]:
+                - generic [ref=f1e185] [box=132,3231,366,14]: 09:10–09:30
+                - heading "開幕（長官致詞）" [level=2] [ref=f1e186] [box=132,3261,366,28]
+              - generic [ref=f1e188] [box=562,3231,732,86]:
+                - paragraph [ref=f1e189] [box=596,3231,697,27]: Opening remarks (official address)
+                - paragraph [ref=f1e190] [box=596,3290,697,27]: 實體 + 線上 / In person + online, 有直播 / Livestreamed
+            - generic [ref=f1e192] [box=68,3325,1290,102]:
+              - generic [ref=f1e194] [box=132,3333,366,82]:
+                - generic [ref=f1e195] [box=132,3333,366,14]: 09:30–09:40
+                - heading "主軸破題（理事長）" [level=2] [ref=f1e196] [box=132,3363,366,28]
+              - generic [ref=f1e198] [box=562,3333,732,86]:
+                - paragraph [ref=f1e199] [box=596,3333,697,27]: Framing the theme (President of AIA)
+                - paragraph [ref=f1e200] [box=596,3392,697,27]: 實體 + 線上 / In person + online, 有直播 / Livestreamed
+            - generic [ref=f1e202] [box=68,3427,1290,125]:
+              - generic [ref=f1e204] [box=132,3435,366,109]:
+                - generic [ref=f1e205] [box=132,3435,366,14]: 09:40–10:20
+                - heading "Keynote 1：AI × 無障礙（國際講者）" [level=2] [ref=f1e206] [box=132,3466,366,55]
+              - generic [ref=f1e208] [box=562,3447,732,86]:
+                - paragraph [ref=f1e209] [box=596,3447,697,27]: "Keynote 1: AI × Accessibility (international speaker)"
+                - paragraph [ref=f1e210] [box=596,3506,697,27]: 實體 + 線上 / In person + online, 有直播 / Livestreamed
+            - generic [ref=f1e212] [box=68,3553,1290,125]:
+              - generic [ref=f1e214] [box=132,3561,366,109]:
+                - generic [ref=f1e215] [box=132,3561,366,14]: 10:20–11:05
+                - heading "Keynote 2：高齡 × 無障礙（日方視角）" [level=2] [ref=f1e216] [box=132,3591,366,55]
+              - generic [ref=f1e218] [box=562,3572,732,86]:
+                - paragraph [ref=f1e219] [box=596,3572,697,27]: "Keynote 2: Aging × Accessibility (a Japanese perspective)"
+                - paragraph [ref=f1e220] [box=596,3632,697,27]: 實體 + 線上 / In person + online, 有直播 / Livestreamed
+            - generic [ref=f1e222] [box=68,3678,1290,102]:
+              - generic [ref=f1e224] [box=132,3686,366,82]:
+                - generic [ref=f1e225] [box=132,3686,366,14]: 11:05–11:25
+                - heading "茶歇／展區交流" [level=2] [ref=f1e226] [box=132,3717,366,28]
+              - generic [ref=f1e228] [box=562,3686,732,86]:
+                - paragraph [ref=f1e229] [box=596,3686,697,27]: Break and exhibition networking
+                - paragraph [ref=f1e230] [box=596,3745,697,27]: 實體 / In person, 無直播 / No Livestream
+            - generic [ref=f1e232] [box=68,3781,1290,125]:
+              - generic [ref=f1e234] [box=132,3789,366,109]:
+                - generic [ref=f1e235] [box=132,3789,366,14]: 11:25–12:25
+                - heading "高峰對談：亞太區域觀點（3–4 位與談）" [level=2] [ref=f1e236] [box=132,3819,366,55]
+              - generic [ref=f1e238] [box=562,3800,732,86]:
+                - paragraph [ref=f1e239] [box=596,3800,697,27]: "Plenary panel: Asia-Pacific perspectives (3–4 panellists)"
+                - paragraph [ref=f1e240] [box=596,3859,697,27]: 實體 + 線上 / In person + online, 有直播 / Livestreamed
+            - generic [ref=f1e242] [box=68,3906,1290,102]:
+              - generic [ref=f1e244] [box=132,3914,366,82]:
+                - generic [ref=f1e245] [box=132,3914,366,14]: 12:25–13:40
+                - heading "午餐／展區" [level=2] [ref=f1e246] [box=132,3944,366,28]
+              - generic [ref=f1e248] [box=562,3914,732,86]:
+                - paragraph [ref=f1e249] [box=596,3914,697,27]: Lunch and exhibition
+                - paragraph [ref=f1e250] [box=596,3973,697,27]: 實體 / In person, 無直播 / No Livestream
+            - generic [ref=f1e252] [box=68,4008,1290,102]:
+              - generic [ref=f1e254] [box=132,4016,366,82]:
+                - generic [ref=f1e255] [box=132,4016,366,14]: 13:40–14:40
+                - heading "平行分軌（至多一條）＋主軸軌" [level=2] [ref=f1e256] [box=132,4047,366,28]
+              - generic [ref=f1e258] [box=562,4016,732,86]:
+                - paragraph [ref=f1e259] [box=596,4016,697,27]: Main track with up to one parallel session
+                - paragraph [ref=f1e260] [box=596,4076,697,27]: 實體 + 線上 / In person + online, 有直播 / Livestreamed
+            - generic [ref=f1e262] [box=68,4111,1290,102]:
+              - generic [ref=f1e264] [box=132,4119,366,82]:
+                - generic [ref=f1e265] [box=132,4119,366,14]: 14:40–15:25
+                - heading "企業實踐案例（本地／國際）" [level=2] [ref=f1e266] [box=132,4149,366,28]
+              - generic [ref=f1e268] [box=562,4119,732,86]:
+                - paragraph [ref=f1e269] [box=596,4119,697,27]: Corporate case studies (local/international)
+                - paragraph [ref=f1e270] [box=596,4178,697,27]: 實體 + 線上 / In person + online, 有直播 / Livestreamed
+            - generic [ref=f1e272] [box=68,4213,1290,102]:
+              - generic [ref=f1e274] [box=132,4221,366,82]:
+                - generic [ref=f1e275] [box=132,4221,366,14]: 15:25–15:45
+                - heading "茶歇" [level=2] [ref=f1e276] [box=132,4252,366,28]
+              - generic [ref=f1e278] [box=562,4221,732,86]:
+                - paragraph [ref=f1e279] [box=596,4221,697,27]: Break
+                - paragraph [ref=f1e280] [box=596,4280,697,27]: 實體 / In person, 無直播 / No Livestream
+            - generic [ref=f1e282] [box=68,4316,1290,102]:
+              - generic [ref=f1e284] [box=132,4324,366,82]:
+                - generic [ref=f1e285] [box=132,4324,366,14]: 15:45–16:30
+                - heading "白皮書發表／政策對話" [level=2] [ref=f1e286] [box=132,4354,366,28]
+              - generic [ref=f1e288] [box=562,4324,732,86]:
+                - paragraph [ref=f1e289] [box=596,4324,697,27]: White paper launch and policy dialogue
+                - paragraph [ref=f1e290] [box=596,4383,697,27]: 實體 + 線上 / In person + online, 有直播 / Livestreamed
+            - generic [ref=f1e292] [box=68,4418,1290,125]:
+              - generic [ref=f1e294] [box=132,4426,366,109]:
+                - generic [ref=f1e295] [box=132,4426,366,14]: 16:30–16:45
+                - heading "閉幕與區域展望（理事長或副理事長）" [level=2] [ref=f1e296] [box=132,4456,366,55]
+              - generic [ref=f1e298] [box=562,4438,732,86]:
+                - paragraph [ref=f1e299] [box=596,4438,697,27]: Closing and regional outlook (President or Vice President)
+                - paragraph [ref=f1e300] [box=596,4497,697,27]: 實體 + 線上 / In person + online, 有直播 / Livestreamed
+            - generic [ref=f1e302] [box=68,4543,1290,102]:
+              - generic [ref=f1e304] [box=132,4551,366,82]:
+                - generic [ref=f1e305] [box=132,4551,366,14]: 16:40–17:30
+                - heading "交流茶會／輕食" [level=2] [ref=f1e306] [box=132,4582,366,28]
+              - generic [ref=f1e308] [box=562,4551,732,86]:
+                - paragraph [ref=f1e309] [box=596,4551,697,27]: Networking reception and light refreshments
+                - paragraph [ref=f1e310] [box=596,4611,697,27]: 實體 + 線上 / In person + online, 有直播 / Livestreamed
+        - paragraph [ref=f1e315] [box=0,4718,1425,23]: 活動議程為暫定內容，詳細資訊確認後將另行更新。Event schedule is tentative and may be updated as details are finalized.
+        - generic [ref=f1e319] [box=92,4829,1242,964]:
+          - generic [ref=f1e321] [box=92,4829,1242,122]:
+            - heading "售票方案 TickeTS" [level=2] [ref=f1e324] [box=338,4829,750,35]
+            - paragraph [ref=f1e327] [box=363,4896,700,54]: 售票與付款將透過 Accupass 處理；實際付款方式以 Accupass 活動頁提供的選項為準。票種、價格、適用資格、名額與退費／取消條件，仍由活動團隊確認並公告。
+          - generic [ref=f1e329] [box=92,4950,1242,842]:
+            - generic [ref=f1e331] [box=92,5014,287,746]:
+              - heading "早鳥優惠 Early Bird" [level=3] [ref=f1e332] [box=140,5063,189,44]: 早鳥優惠Early Bird
+              - separator [ref=f1e335] [box=140,5148,189,1]
+              - generic [ref=f1e336] [box=140,5166,189,24]: 1,499 NTD
+              - separator [ref=f1e339] [box=140,5207,189,1]
+              - heading "包含" [level=4] [ref=f1e340] [box=140,5252,189,18]
+              - list [ref=f1e342] [box=140,5286,189,114]:
+                - listitem [ref=f1e343] [box=140,5286,189,54]:
+                  - generic [ref=f1e347] [box=165,5286,164,54]: 線下活動與線上活動參加
+                - listitem [ref=f1e348] [box=140,5345,189,54]:
+                  - generic [ref=f1e352] [box=165,5345,164,54]: 提供三個月內線上活動回放
+              - heading "Includes:" [level=4] [ref=f1e353] [box=140,5427,189,18]
+              - list [ref=f1e355] [box=140,5461,189,168]:
+                - listitem [ref=f1e356] [box=140,5461,189,82]:
+                  - generic [ref=f1e360] [box=165,5461,164,82]: Access to both in-person and online sessions
+                - listitem [ref=f1e361] [box=140,5547,189,82]:
+                  - generic [ref=f1e365] [box=165,5547,164,82]: Online replay available for 3 months after the event
+              - generic [ref=f1e366] [box=140,5653,189,59]: 報名 Register
+            - generic [ref=f1e370] [box=410,5014,287,746]:
+              - heading "一般入場 Gen. Admission" [level=3] [ref=f1e371] [box=459,5063,189,44]: 一般入場Gen. Admission
+              - separator [ref=f1e374] [box=459,5148,189,1]
+              - generic [ref=f1e375] [box=459,5166,189,24]: 2,400 NTD
+              - separator [ref=f1e378] [box=459,5207,189,1]
+              - heading "包含" [level=4] [ref=f1e379] [box=459,5252,189,18]
+              - list [ref=f1e381] [box=459,5286,189,114]:
+                - listitem [ref=f1e382] [box=459,5286,189,54]:
+                  - generic [ref=f1e386] [box=484,5286,164,54]: 線下活動與線上活動參加
+                - listitem [ref=f1e387] [box=459,5345,189,54]:
+                  - generic [ref=f1e391] [box=484,5345,164,54]: 提供三個月內線上活動回放
+              - heading "包含" [level=4] [ref=f1e392] [box=459,5427,189,18]
+              - list [ref=f1e394] [box=459,5461,189,168]:
+                - listitem [ref=f1e395] [box=459,5461,189,82]:
+                  - generic [ref=f1e399] [box=484,5461,164,82]: Access to both in-person and online sessions
+                - listitem [ref=f1e400] [box=459,5547,189,82]:
+                  - generic [ref=f1e404] [box=484,5547,164,82]: Online replay available for 3 months after the event
+              - generic [ref=f1e405] [box=459,5653,189,59]: 報名 Register
+            - generic [ref=f1e409] [box=729,5014,287,746]:
+              - heading "學生 / 非營利組織 STUDENT / NGO" [level=3] [ref=f1e410] [box=777,5063,189,44]: 學生 / 非營利組織STUDENT / NGO
+              - separator [ref=f1e413] [box=777,5148,189,1]
+              - generic [ref=f1e414] [box=777,5166,189,24]: 999 NTD
+              - separator [ref=f1e417] [box=777,5207,189,1]
+              - heading "包含" [level=4] [ref=f1e418] [box=777,5252,189,18]
+              - list [ref=f1e420] [box=777,5286,189,114]:
+                - listitem [ref=f1e421] [box=777,5286,189,54]:
+                  - generic [ref=f1e425] [box=802,5286,164,54]: 含線下活動與線上活動參加
+                - listitem [ref=f1e426] [box=777,5345,189,54]:
+                  - generic [ref=f1e430] [box=802,5345,164,54]: 提供三個月內線上活動回放
+              - heading "包含" [level=4] [ref=f1e431] [box=777,5427,189,18]
+              - list [ref=f1e433] [box=777,5461,189,168]:
+                - listitem [ref=f1e434] [box=777,5461,189,82]:
+                  - generic [ref=f1e438] [box=802,5461,164,82]: Access to both in-person and online sessions
+                - listitem [ref=f1e439] [box=777,5547,189,82]:
+                  - generic [ref=f1e443] [box=802,5547,164,82]: Online replay available for 3 months after the event
+              - generic [ref=f1e444] [box=777,5653,189,59]: 報名 Register
+            - generic [ref=f1e448] [box=1047,5014,287,692]:
+              - heading "純線上參與 ONLINE ONLY" [level=3] [ref=f1e449] [box=1096,5063,189,44]: 純線上參與ONLINE ONLY
+              - separator [ref=f1e452] [box=1096,5148,189,1]
+              - generic [ref=f1e453] [box=1096,5166,189,24]: 999 NTD
+              - separator [ref=f1e456] [box=1096,5207,189,1]
+              - heading "包含" [level=4] [ref=f1e457] [box=1096,5252,189,18]
+              - list [ref=f1e459] [box=1096,5286,189,87]:
+                - listitem [ref=f1e460] [box=1096,5286,189,27]:
+                  - generic [ref=f1e464] [box=1121,5286,164,27]: 僅提供線上活動access
+                - listitem [ref=f1e465] [box=1096,5318,189,54]:
+                  - generic [ref=f1e469] [box=1121,5318,164,54]: 提供3個月內線上活動回放觀看
+              - heading "包含" [level=4] [ref=f1e470] [box=1096,5400,189,18]
+              - list [ref=f1e472] [box=1096,5434,189,141]:
+                - listitem [ref=f1e473] [box=1096,5434,189,54]:
+                  - strong [ref=f1e478] [box=1121,5436,148,50]: Online-only access to the event
+                - listitem [ref=f1e479] [box=1096,5493,189,82]:
+                  - generic [ref=f1e483] [box=1121,5493,164,82]: Online replay available for 3 months after the event
+              - generic [ref=f1e484] [box=1096,5599,189,59]: 報名 Register
+        - generic [ref=f1e490] [box=137,5865,1152,500]:
+          - paragraph [ref=f1e491] [box=137,5865,1152,75]:
+            - emphasis [ref=f1e492] [box=496,5891,434,22]: APAC Digital Inclusion and Accessibility Leadership Summit
+          - heading "2026亞太資訊無障礙與數位共融領導力論壇" [level=2] [ref=f1e493] [box=137,5988,1152,48]
+          - heading "Shaping Inclusive Futures For Asia Pacific" [level=3] [ref=f1e494] [box=137,6052,1152,42]
+          - paragraph [ref=f1e495] [box=137,6108,1152,59]: Join us in the in-person event at TTA in Taipei, or join online.
+          - generic [ref=f1e499] [box=137,6199,1152,122]:
+            - generic [ref=f1e501] [box=137,6199,560,98]:
+              - figure [ref=f1e503] [box=403,6199,28,39]
+              - paragraph [ref=f1e504] [box=137,6270,560,27]: 台北 Taipei @ TTA + ONLINE
+            - generic [ref=f1e506] [box=729,6199,560,90]:
+              - figure [ref=f1e508] [box=995,6199,28,31]
+              - paragraph [ref=f1e509] [box=729,6262,560,27]: 2026.09.18
+          - generic [ref=f1e510] [box=137,6322,1152,43]: 立即報名｜Register
+        - paragraph [box=0,6429,1425,0]
+  - contentinfo [ref=f1e515] [box=0,6429,1425,498]:
+    - generic [ref=f1e516] [box=0,6429,1425,498]:
+      - generic [ref=f1e520] [box=116,6429,1194,170]:
+        - figure [ref=f1e525] [box=116,6467,215,101]
+        - generic [ref=f1e529] [box=1095,6459,215,74]:
+          - heading "社群媒體 SOCIALS" [level=2] [ref=f1e530] [box=1095,6459,215,30]
+          - generic [ref=f1e531] [box=1095,6499,215,34]:
+            - link "Facebook" [ref=f1e532] [cursor=pointer] [box=1095,6499,34,34]:
+              - /url: ""
+              - img "Facebook" [ref=f1e534] [box=1103,6507,17,17]
+            - link "X" [ref=f1e536] [cursor=pointer] [box=1134,6499,34,34]:
+              - /url: ""
+              - img "X" [ref=f1e538] [box=1142,6507,17,17]
+            - link "Instagram" [ref=f1e540] [cursor=pointer] [box=1173,6499,34,34]:
+              - /url: ""
+              - img "Instagram" [ref=f1e542] [box=1181,6507,17,17]
+      - generic [ref=f1e550] [box=92,6628,394,148]:
+        - paragraph [ref=f1e552] [box=92,6656,394,90]: 亞太包容創新協會1130012493號
+        - generic [box=92,6776,394,0]:
+          - paragraph [box=92,6776,394,0]
+      - paragraph [ref=f1e562] [box=92,6853,1242,27]: © 2026 apac-aia.org | All Rights Reserved

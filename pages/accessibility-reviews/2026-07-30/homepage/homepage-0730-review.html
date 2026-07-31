@@ -106,6 +106,15 @@
       background:#fff;
     }
     figcaption { margin-top:8px; color:var(--muted); font-size:.92rem; }
+    .tablet-card-evidence { margin:18px 0; }
+    .tablet-card-evidence a { display:block; }
+    .tablet-card-evidence img {
+      width:100%;
+      max-height:none;
+      aspect-ratio:4 / 3;
+      object-fit:cover;
+      object-position:center 46%;
+    }
     .table-wrap { min-width:0; }
     table { width:100%; border-collapse:collapse; background:#fff; }
     th,td { padding:12px; border:1px solid var(--line); text-align:left; vertical-align:top; }
@@ -184,8 +193,9 @@
   <section aria-labelledby="summary-title">
     <h2 id="summary-title">先看結論</h2>
     <div class="summary">
-      <p><strong>首頁目前有 7 項上線前應先處理的問題。</strong>其中「關於我們」三組圖文卡確實需要改 CSS：320px 的文字被左右留白擠窄，768px 仍維持兩欄，造成圖片與文字卡高度落差。這不是要重做視覺，而是修正響應式規則。</p>
-      <p>首頁需要先上線，用來展示協會資訊、宣傳活動，並承接購票入口，因此不必等待整套版面調整完成。以下 CSS 先在保留的 staging 驗證，確認不同寬度沒有斷版，再套到正式站。這次只做 live 網頁的只讀檢查，沒有修改正式網站或 staging。</p>
+      <p><strong>首頁有 2 組 P0，屬於本次上線必要條件：</strong>看起來可操作但實際無法使用的入口，以及頁尾空白社群連結。嚴重 RWD 另外列為上線決策項目：原則上應先修正；若仍決定先上線，需要由相關人員在 LINE 明確確認接受目前風險，並留下修正負責人與期限。</p>
+      <p>首頁會用來展示協會資訊、宣傳活動並承接購票入口，因此目前確認的 RWD 修正應先放到 staging 驗證；確認不同寬度沒有斷版後，再與本次上線內容一起套到正式站。這次只做 live 網頁的只讀檢查，沒有修改正式網站或 staging。</p>
+      <p class="note"><strong>Lighthouse 分數不代表網站已經無障礙：</strong>90／94 只表示頁面在本次 Google Lighthouse 自動檢查涵蓋的規則中得到相應分數，不代表已符合 WCAG，也不代表沒有其他問題。完整判斷仍需合併人工檢查、鍵盤操作、各種裝置寬度與後續螢幕閱讀器測試。</p>
       <div class="metrics">
         <div class="metric"><b>90 / 94</b><span>Lighthouse accessibility：desktop / mobile</span></div>
         <div class="metric"><b>0</b><span>7 種寬度的水平捲軸</span></div>
@@ -196,70 +206,88 @@
   </section>
 
   <section aria-labelledby="priority-title">
-    <h2 id="priority-title">上線前優先修正</h2>
+    <h2 id="priority-title">P0｜本次上線必要條件</h2>
     <p class="note"><strong>螢幕閱讀器測試範圍：</strong>本次沒有執行 NVDA、JAWS 或 VoiceOver 實機走查。下方提到的影響，是根據 HTML heading 結構與 accessibility tree 判斷，不是已完成的語音操作測試。目前 heading 層級不完整，因此標題導覽不能判定為通過；修正後仍需重新進行完整螢幕閱讀器走查。</p>
     <div class="findings">
       <article class="finding">
-        <span class="label">P0 · 頁面名稱</span>
+        <span class="label">P0 · 鍵盤操作</span>
+        <h3>將「了解志工機會」連到聯繫頁</h3>
+        <p>它由 <code>div</code> 與 <code>span</code> 組成，沒有 <code>href</code>，也不是 button，所以按 Tab 不會停在這裡，滑鼠點擊也沒有可靠的連結目的地。</p>
+        <p><strong>處理方式：</strong>改成真正的連結並前往現有的「聯繫」頁，例如 <code>&lt;a href="/聯繫/"&gt;了解志工機會&lt;/a&gt;</code>。聯繫表單的「訊息類別」可加入「志工參與／Volunteer」，讓使用者到達後知道應選擇哪個項目。</p>
+        <p class="accept"><strong>完成標準：</strong>「了解志工機會」可用 Tab 聚焦，按 Enter 後前往聯繫頁；聯繫表單提供「志工參與／Volunteer」選項。</p>
+      </article>
+
+      <article class="finding">
+        <span class="label">P0 · 空白社群連結</span>
+        <h3>只顯示已有正確網址的社群入口</h3>
+        <p>Facebook、X、Instagram 目前都有空的 <code>href</code>，鍵盤可以停在上面，但啟用後不會到達正確社群頁面。</p>
+        <p><strong>WordPress：</strong>Facebook 改為 <a href="https://www.facebook.com/apacaia/">https://www.facebook.com/apacaia/</a>；X 與 Instagram 尚未建立，先隱藏連結與圖示，建立並確認網址後再顯示。</p>
+        <p class="accept"><strong>完成標準：</strong>頁面沒有空白網址；所有仍顯示的社群入口都能到達正確頁面。</p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="rwd-decision-title">
+    <h2 id="rwd-decision-title">上線決策項目｜手機與平板 RWD</h2>
+    <div class="findings">
+      <article class="finding">
+        <span class="label">需共同確認 · RWD</span>
+        <h3>手機與平板的核心文字目前過窄</h3>
+        <p>320px 時，「關於我們」正文只剩約 85–105px。768px 時，「三大價值」正文約 107px。這些是核心介紹內容，已經被壓成難以正常閱讀的窄欄。</p>
+        <p>建議先修正再上線。若因活動時程仍決定先行上線，本報告不單方面阻擋，但需由相關決策人員在 LINE 明確確認知悉並接受目前風險，同時指定修正負責人與預計完成日期。</p>
+        <p class="note"><strong>可直接貼到 LINE：</strong>「目前首頁在 320px 與 768px 仍有核心文字欄過窄的 RWD 問題，建議修正後再上線。若考量活動時程仍決定先行上線，請相關人員明確回覆是否同意接受目前狀態，並一併確認 RWD 修正負責人與預計完成日期。」</p>
+        <p class="accept"><strong>完成標準：</strong>320px 的主要正文至少約 220px 寬；768px 不再出現約 107px 的三欄正文；320／768／1024px 沒有內容截斷或水平捲動。若未完成即先上線，LINE 已留下共同決策、負責人與完成期限。</p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="other-layout-title">
+    <h2 id="other-layout-title">上線決策項目補充｜平板三欄卡片</h2>
+    <div class="finding">
+      <span class="label">需共同確認 · RWD 畫面與設定</span>
+      <h3>三大價值與其他三欄卡片在 768px 太窄</h3>
+      <p>768px 時「三大價值」仍排三欄，每張卡約 216px，正文實際只剩約 107px；「我們創造什麼連結」也維持三欄。建議這些卡片的外層加入共同 class，例如 <code>home-card-grid</code>，讓欄數依可用寬度自動減少。</p>
+      <figure class="tablet-card-evidence">
+        <a href="designer-evidence/homepage-768.png"><img src="designer-evidence/homepage-768.png" alt="首頁在 768px 寬度仍將三大價值排成三欄，卡片正文被壓成狹窄文字欄"></a>
+        <figcaption><strong>768px 原始畫面：</strong>三張「三大價值」卡片仍排在同一列，正文欄約 107px。圖中先顯示問題區域；點圖可查看完整的 768px 頁面截圖。</figcaption>
+      </figure>
+      <pre><code>.home-card-grid &gt; .kt-row-column-wrap {
+  grid-template-columns:
+    repeat(auto-fit, minmax(min(100%, 20rem), 1fr)) !important;
+}</code></pre>
+      <p class="accept"><strong>完成標準：</strong>768px 不再出現每行只有少數中文字的窄欄；320／768／1024px 的卡片依空間改成一欄或兩欄。</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="prelaunch-p1-title">
+    <h2 id="prelaunch-p1-title">P1｜優先改善；未完成不阻擋本次上線</h2>
+    <div class="findings">
+      <article class="finding p1">
+        <span class="label p1">P1 · 頁面名稱</span>
         <h3>補上瀏覽器與螢幕閱讀器會讀到的頁面標題</h3>
         <p>目前 <code>&lt;title&gt;</code> 是空的。分頁標籤、書籤和螢幕閱讀器的頁面清單都無法辨識這是哪一頁。</p>
         <p><strong>WordPress：</strong>補上首頁 SEO title，例如「亞太包容創新協會｜APAC AIA」。</p>
         <p class="accept"><strong>完成標準：</strong>瀏覽器分頁不再空白；Lighthouse 的 Document title 通過。</p>
       </article>
-
-      <article class="finding">
-        <span class="label">P0 · 標題結構</span>
-        <h3>保留視覺樣式，只修正 heading tag</h3>
-        <p>目前 H1 後直接出現 H4；六個年份、三張「我們創造什麼連結」卡和四個議題使用 H5。「三大價值」區段內三張完整卡片的名稱只是粗體文字，不是標題。螢幕閱讀器用標題清單瀏覽時，會看到不連續且不完整的頁面大綱。頁首插圖下方重複出現的三個價值摘要沒有各自帶領內文，應維持一般文字。</p>
-        <p><strong>為什麼列為上線前高優先：</strong>這不是字級或視覺樣式問題，而是整頁的導覽骨架沒有正確反映畫面上的內容關係。只看畫面時，仍可利用位置、卡片背景和字體大小判斷章節；螢幕閱讀器使用者則常透過標題清單或逐個標題跳轉，快速找到想看的區段，不會每次都從頁首逐字讀完整頁。</p>
-        <ul>
-          <li>H2 後直接出現 H5，會讓年份與卡片看起來像位於不存在的 H3、H4 章節之下。</li>
-          <li>hero 介紹句被標成 H4，會在標題清單裡被誤認為某個深層子章節。</li>
-          <li>「三大價值」區段內的三張完整卡片各有獨立說明，但卡片名稱不是 heading；頁首的三個短摘要則不是內容標題，不需加入 heading。</li>
-        </ul>
-        <p>結果不是文字完全讀不出來，而是使用者較難快速判斷目前位於哪個區段、哪些項目屬於同一組，以及如何直接跳到需要的內容。單純從 H2 跳到 H5 並不必然等於 WCAG 違規；此處需要修正的原因，是目前的 heading 標記沒有忠實表達畫面已呈現的結構與關係，涉及 <a href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">WCAG 1.3.1 資訊及關係</a>，也影響 <a href="https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html">WCAG 2.4.6 標題與標籤</a>所要求的定位與理解。</p>
-        <p><strong>修正方式：</strong>在 WordPress 將對應區塊改成正確的 HTML heading level，並以 CSS 維持原有字級、粗細、顏色與間距。這項調整影響整頁導覽，建議在上線前完成。</p>
-        <p class="accept"><strong>完成標準：</strong>全頁保留一個 H1；主要區段為 H2；各區段內有獨立說明內容的卡片名稱與年份為 H3；hero 標語改成一般段落；頁首三個價值摘要維持一般文字。字級、粗細與顏色不必因此改變。</p>
-        <p><a href="homepage-heading-audit.html"><strong>開啟首頁 Heading 逐項檢查與修改對照</strong></a></p>
+      <article class="finding p1">
+        <span class="label p1">P1 · 頁面語言</span>
+        <h3>將目前這個中文首頁標示為繁體中文</h3>
+        <p>頁面最外層的 <code>&lt;html&gt;</code> 目前是 <code>lang="en-US"</code>，但首頁主要可見內容是繁體中文。這一頁應標示 <code>lang="zh-TW"</code>，完整英文段落再個別標示 <code>lang="en"</code>。</p>
+        <p class="accept"><strong>完成標準：</strong>頁面最外層的 <code>&lt;html&gt;</code> 顯示 <code>lang="zh-TW"</code>；完整英文段落顯示 <code>lang="en"</code>。</p>
       </article>
-
-      <article class="finding">
-        <span class="label">P0 · 裝飾圖片</span>
-        <h3>三個藍色圖案統一使用空的 alt</h3>
-        <p>「多元共融／以人為本／科技創新」上方的三個藍色圖案只是裝飾，圖案下方已經有完整的中英文文字。Live DOM 顯示「多元共融」已是 <code>alt=""</code>；另外兩個仍分別使用英文替代文字 <code>icon of a person with heart to the right</code> 與 <code>icon of a lightbulb</code>，會在文字標籤之前多出重複且不一致的描述。</p>
-        <p><strong>WordPress：</strong>在編輯器選取「以人為本」與「科技創新」上方的圖片區塊，將 Alt Text／替代文字欄位清空。「多元共融」維持目前設定。圖片仍保留在畫面上，不需要刪除。</p>
-        <p class="note"><strong>上線前 staging 協作：</strong>Alt Text 修正需先儲存到 staging，才能依 staging 實際輸出的 HTML 與 accessibility tree 協助確認是否已正確變成 <code>alt=""</code>。確認三個圖案都不再進入 accessibility tree 後，再將相同設定套到正式站。</p>
-        <p class="accept"><strong>完成標準：</strong>三個圖案的 HTML 都是 <code>alt=""</code>，accessibility tree 不再列出這三個裝飾圖案；下方的中英文文字仍正常顯示。</p>
-      </article>
-
-      <article class="finding">
-        <span class="label">P0 · 鍵盤操作</span>
-        <h3>「了解志工機會」目前不是連結</h3>
-        <p>它由 <code>div</code> 與 <code>span</code> 組成，沒有 <code>href</code>，也不是 button，所以按 Tab 不會停在這裡，滑鼠點擊也沒有可靠的連結目的地。</p>
-        <p><strong>處理方式：</strong>目的頁確定後改成真正的 <code>&lt;a href="…"&gt;</code>；若目的頁尚未建立，先不要讓它呈現成可點擊按鈕。</p>
-        <p class="accept"><strong>完成標準：</strong>鍵盤可聚焦並以 Enter 開啟正確頁面，或在目的頁完成前取消按鈕外觀。</p>
-      </article>
-
-      <article class="finding">
-        <span class="label">P0 · 響應式 CSS</span>
-        <h3>修正「關於我們」三組圖文卡</h3>
-        <p>320px 時，標題左右各留 80px；正文還同時使用左右 margin 與 padding，文字只剩約 85–105px 的實際寬度。768px 時仍排成兩欄，每欄 360px，圖片只有約 351–353px 高，文字卡卻高達約 799–957px。</p>
-        <p>建議 900px 以下改成單欄，三組都維持「圖片 → 文字」順序；900px 以上才排雙欄，並讓圖片以 <code>object-fit:cover</code> 填滿同列高度。</p>
-        <p class="accept"><strong>完成標準：</strong>320px 文字不再被擠成窄直條；768px 每組圖文改為上下排列；桌面三組圖片與相鄰文字卡等高，沒有圖片下方的空洞。</p>
-      </article>
-
-      <article class="finding">
-        <span class="label">P0 · 文字對比</span>
-        <h3>桌面導覽的兩個連結對比不足</h3>
+      <article class="finding p1">
+        <span class="label p1">P1 · 文字對比</span>
+        <h3>加深桌面導覽的兩個連結</h3>
         <p>「論壇活動 Event」與「聯繫 Contact」量測為 4.16:1；目前 17px 一般字重需達 4.5:1。把文字顏色稍微加深即可，不必改黃色導覽背景。</p>
         <p class="accept"><strong>完成標準：</strong>一般狀態、hover 與 focus 狀態的文字對比都至少 4.5:1。</p>
       </article>
-
-      <article class="finding">
-        <span class="label">P0 · 頁面語言</span>
-        <h3>將目前這個中文首頁標示為繁體中文</h3>
-        <p>頁面根節點目前是 <code>lang="en-US"</code>，但首頁主要可見內容是繁體中文。活動未來若要服務亞太地區，較清楚的做法是建立獨立語言頁；在現況下，這一頁應先標示 <code>zh-TW</code> 或 <code>zh-Hant</code>，完整英文段落再個別標示 <code>lang="en"</code>。</p>
-        <p class="accept"><strong>完成標準：</strong>頁面根節點反映這一頁實際顯示的主要語言；未來英文版與其他語言版各自使用正確語言標示。</p>
+      <article class="finding p1">
+        <span class="label p1">P1 · 裝飾圖片</span>
+        <h3>三個藍色圖案統一使用空的 alt</h3>
+        <p>「多元共融／以人為本／科技創新」上方的三個藍色圖案只是裝飾。Live DOM 顯示「多元共融」已是 <code>alt=""</code>；另外兩個仍有英文替代文字，會在文字標籤之前多出重複描述。</p>
+        <p><strong>WordPress：</strong>將「以人為本」與「科技創新」圖片的 Alt Text 清空。「多元共融」維持目前設定。</p>
+        <p class="note"><strong>staging 複查：</strong>儲存後確認三個圖案都輸出 <code>alt=""</code>，再檢查 accessibility tree 不再列出它們。</p>
+        <p class="accept"><strong>完成標準：</strong>三個圖案都是 <code>alt=""</code>；下方中英文文字仍正常顯示。</p>
       </article>
     </div>
   </section>
@@ -357,27 +385,29 @@
     </div>
   </section>
 
-  <section aria-labelledby="other-layout-title">
-    <h2 id="other-layout-title">同頁還有一組平板版面要一起調整</h2>
-    <div class="finding p1">
-      <span class="label p1">P1 · 響應式</span>
-      <h3>三大價值與其他三欄卡片在 768px 太窄</h3>
-      <p>768px 時「三大價值」仍排三欄，每張卡約 216px，正文實際只剩約 107px；「我們創造什麼連結」也維持三欄。建議這些卡片的外層加入共同 class，例如 <code>home-card-grid</code>，讓欄數依可用寬度自動減少。</p>
-      <pre><code>.home-card-grid &gt; .kt-row-column-wrap {
-  grid-template-columns:
-    repeat(auto-fit, minmax(min(100%, 20rem), 1fr)) !important;
-}</code></pre>
-      <p class="accept"><strong>完成標準：</strong>768px 不再出現每行只有少數中文字的窄欄；320／768／1024px 的卡片依空間改成一欄或兩欄。</p>
-    </div>
-  </section>
-
   <section aria-labelledby="followup-title">
-    <h2 id="followup-title">P1 與內容維護項目</h2>
+    <h2 id="followup-title">P1｜上線後第一輪與內容維護</h2>
     <div class="findings">
       <article class="finding p1">
-        <span class="label p1">P1 · 連結</span>
-        <h3>頁尾社群連結不要留空</h3>
-        <p>Facebook、X、Instagram 都有空的 <code>href</code>，鍵盤可以停在上面，但只會回到目前頁面。Facebook 改為 <a href="https://www.facebook.com/apacaia/">https://www.facebook.com/apacaia/</a>；X 與 Instagram 尚未建立，先移除連結與圖示。</p>
+        <span class="label p1">上線後第一輪 · Heading</span>
+        <h3>保留視覺樣式，只修正 heading tag</h3>
+        <p>目前 H1 後直接出現 H4；六個年份、三張「我們創造什麼連結」卡和四個議題使用 H5。「三大價值」區段內三張完整卡片的名稱只是粗體文字，不是標題。螢幕閱讀器用標題清單瀏覽時，會看到不連續且不完整的頁面大綱。頁首插圖下方重複出現的三個價值摘要沒有各自帶領內文，應維持一般文字。</p>
+        <p>這不是字級或視覺樣式問題，而是整頁的導覽骨架沒有正確反映畫面上的內容關係。只看畫面時，仍可利用位置、卡片背景和字體大小判斷章節；螢幕閱讀器使用者則常透過標題清單或逐個標題跳轉，快速找到想看的區段。</p>
+        <ul>
+          <li>H2 後直接出現 H5，會讓年份與卡片看起來像位於不存在的 H3、H4 章節之下。</li>
+          <li>hero 介紹句被標成 H4，會在標題清單裡被誤認為某個深層子章節。</li>
+          <li>「三大價值」區段內的三張完整卡片各有獨立說明，但卡片名稱不是 heading；頁首的三個短摘要則不是內容標題，不需加入 heading。</li>
+        </ul>
+        <p>單純從 H2 跳到 H5 並不必然等於 WCAG 違規；此處需要修正的原因，是目前的 heading 標記沒有忠實表達畫面已呈現的結構與關係，涉及 <a href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">WCAG 1.3.1 資訊及關係</a>與 <a href="https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html">WCAG 2.4.6 標題與標籤</a>。</p>
+        <p><strong>修正方式：</strong>在 WordPress 將對應區塊改成正確的 HTML heading level，並以 CSS 維持原有字級、粗細、顏色與間距。</p>
+        <p class="accept"><strong>完成標準：</strong>全頁只保留一個 H1；每個主要區段各使用一個 H2；各區段內有獨立說明內容的卡片名稱與年份可使用多個 H3；hero 標語改成一般段落；頁首三個價值摘要維持一般文字。修正後重新進行 Heading 導覽與螢幕閱讀器測試；修正前不能把標題導覽判定為通過。</p>
+        <p><a href="homepage-heading-audit.html"><strong>開啟首頁 Heading 逐項檢查與修改對照</strong></a></p>
+      </article>
+      <article class="finding p1">
+        <span class="label p1">P1 · 視覺一致性</span>
+        <h3>整理平板與桌面的圖片高度及留白</h3>
+        <p>768px 的圖片與文字卡高度差距，以及桌面第二組圖片約 42px 的高度差，主要影響版面一致性。內容仍可閱讀，因此不單獨阻擋上線。</p>
+        <p class="accept"><strong>完成標準：</strong>平板圖文排列自然；桌面圖片與相鄰文字卡等高，沒有圖片下方的空洞。</p>
       </article>
       <article class="finding p1">
         <span class="label p1">P1 · 網址</span>
